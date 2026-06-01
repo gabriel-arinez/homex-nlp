@@ -3,143 +3,266 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Captura de Voz - HOMEX NLP</title>
+    <title>HOMEX IA - Consola de Captura Avanzada</title>
     <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            background: #f4f4f5;
+        :root {
+            --slate-900: #0f172a;
+            --slate-100: #f1f5f9;
+            --emerald-600: #059669;
         }
 
-        .card {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--slate-100);
+            margin: 0;
+            padding: 20px;
+            color: var(--slate-900);
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--slate-100);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
         }
 
         button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
+            padding: 12px 24px;
             font-weight: bold;
-            transition: 0.2s;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        #btnGrabar {
-            background: #ef4444;
+        .btn-record {
+            background: #dc2626;
             color: white;
         }
 
-        #btnDetener {
-            background: #3b82f6;
+        .btn-stop {
+            background: #2563eb;
             color: white;
             display: none;
+        }
+
+        .btn-save {
+            background: var(--emerald-600);
+            color: white;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
         }
 
         pre {
             background: #1e293b;
-            color: #10b981;
-            padding: 1rem;
-            border-radius: 5px;
+            color: #38bdf8;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
             overflow-x: auto;
         }
 
-        .loading {
-            display: none;
-            margin-top: 10px;
-            font-style: italic;
-            color: #64748b;
+        .metric-badge {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: monospace;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h2>🎤 Nueva Cotización por Voz</h2>
-        <p>Presiona grabar y dicta las especificaciones (ej: "Un ropero de melamina de 2 metros").</p>
+    <header style="max-width: 1200px; margin: 0 auto 20px auto;">
+        <h1 style="margin:0;">HOMEX Prototipo de Captura Semántica</h1>
+        <p style="color: #64748b; margin: 5px 0 0 0;">Componente de Validación de Grado Académico - Sistema de Voz a
+            Parámetros Relacionales</p>
+    </header>
 
-        <button id="btnGrabar">🔴 Iniciar Grabación</button>
-        <button id="btnDetener">⏹️ Detener y Procesar</button>
-        <p class="loading" id="loadingTexto">⏳ Procesando audio mediante IA (Offline)...</p>
+    <div class="dashboard">
 
-        <h3>Texto Reconocido (Whisper):</h3>
-        <div id="textoTrans" style="min-height: 40px; border: 1px solid #ccc; padding: 10px; border-radius: 4px;"></div>
+        <div class="panel">
+            <h2>🎤 Entrada de Voz del Operador</h2>
+            <p>Active el micrófono y dicte los parámetros técnicos en un único enunciado continuo.</p>
+            <div style="margin-bottom: 20px;">
+                <button id="btnGrabar" class="btn-record">🔴 Iniciar Captura de Audio</button>
+                <button id="btnDetener" class="btn-stop">⏹️ Detener e Inyectar a IA</button>
+            </div>
 
-        <h3>Entidades Extraídas (spaCy):</h3>
-        <pre id="jsonResult">Aquí aparecerá el resultado estructurado...</pre>
+            <div class="form-group">
+                <label>Texto Crudo Transcrito por el Motor ASR (Whisper Offline):</label>
+                <textarea id="txtCrudo" rows="4" readonly
+                    placeholder="Esperando procesamiento de ondas acústicas..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Metadata e Indicadores de Latencia del Pipeline:</label>
+                <div id="metricsHardware" class="metric-badge">Latencia: -- ms | Pipeline: Inactivo</div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>🛠️ Interfaz de Validación Humana (HITL)</h2>
+            <p>Los datos mostrados abajo fueron deducidos por el NLP. Corrija los desajustes antes de persistir.</p>
+
+            <div class="form-group">
+                <label>Ambiente / Destino:</label>
+                <input type="text" id="formAmbiente">
+            </div>
+            <div class="form-group">
+                <label>Item / Mueble Solicitado:</label>
+                <input type="text" id="formProducto">
+            </div>
+            <div class="form-group">
+                <label>Especificación del Material Base:</label>
+                <input type="text" id="formMaterial">
+            </div>
+            <div class="form-group">
+                <label>Dimensiones Detectadas (Ancho x Alto x Prof):</label>
+                <input type="text" id="formDimensiones">
+            </div>
+            <div class="form-group">
+                <label>Herrajes y Accesorios Adicionales (Separados por coma):</label>
+                <input type="text" id="formAccesorios">
+            </div>
+
+            <button id="btnPersistir" class="btn-save" disabled>💾 Confirmar y Registrar en Historial SQLite</button>
+        </div>
+
+        <div class="panel full-width">
+            <h2>JSON Estructurado Emitido por el Pipeline NLP (Capa de Inspección Académica)</h2>
+            <pre
+                id="jsonOutput">// El payload estructurado devuelto por spaCy aparecerá aquí en tiempo de ejecución.</pre>
+        </div>
     </div>
 
     <script>
         let mediaRecorder;
         let audioChunks = [];
+        let runtimeCache = null;
 
         const btnGrabar = document.getElementById('btnGrabar');
         const btnDetener = document.getElementById('btnDetener');
-        const loading = document.getElementById('loadingTexto');
-        const textoTrans = document.getElementById('textoTrans');
-        const jsonResult = document.getElementById('jsonResult');
+        const btnPersistir = document.getElementById('btnPersistir');
+        const txtCrudo = document.getElementById('txtCrudo');
+        const metricsHardware = document.getElementById('metricsHardware');
+        const jsonOutput = document.getElementById('jsonOutput');
 
         btnGrabar.onclick = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
 
-                mediaRecorder.ondataavailable = event => {
-                    audioChunks.push(event.data);
-                };
+            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+            mediaRecorder.onstop = async () => {
+                metricsHardware.textContent = "⚡ Procesando en servidor local offline...";
+                const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                const formData = new FormData();
+                formData.append('file', audioBlob);
 
-                mediaRecorder.onstop = async () => {
-                    loading.style.display = 'block';
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-                    audioChunks = []; // Limpiar para la próxima grabación
+                try {
+                    const res = await fetch('http://127.0.0.1:8000/api/pipeline/process/', { method: 'POST', body: formData });
+                    runtimeCache = await res.json();
 
-                    // Preparar envío al backend
-                    const formData = new FormData();
-                    formData.append('file', audioBlob, 'grabacion.webm');
+                    // Pintar datos en consola de auditoría
+                    txtCrudo.value = runtimeCache.texto_crudo;
+                    jsonOutput.textContent = JSON.stringify(runtimeCache.entidades_ia, null, 2);
+                    metricsHardware.textContent = `Latencia: ${runtimeCache.latencia_ms} ms | Engine: ${runtimeCache.modelo_version}`;
 
-                    try {
-                        // LLAMADA AL BACKEND FASTAPI
-                        const response = await fetch('http://127.0.0.1:8000/api/quote/', {
-                            method: 'POST',
-                            body: formData
-                        });
+                    // Mapear slots al formulario HITL
+                    document.getElementById('formAmbiente').value = runtimeCache.entidades_ia.ambiente;
+                    document.getElementById('formProducto').value = runtimeCache.entidades_ia.producto || '';
+                    document.getElementById('formMaterial').value = runtimeCache.entidades_ia.material || '';
+                    document.getElementById('formDimensiones').value = runtimeCache.entidades_ia.dimensiones || '';
+                    document.getElementById('formAccesorios').value = runtimeCache.entidades_ia.detalles_adicionales.join(', ');
 
-                        const data = await response.json();
+                    btnPersistir.disabled = false;
+                } catch (err) {
+                    metricsHardware.textContent = "❌ Error en el procesamiento del stream.";
+                }
+            };
 
-                        // Mostrar resultados
-                        textoTrans.textContent = data.texto_crudo;
-                        jsonResult.textContent = JSON.stringify(data.entidades, null, 2);
-                    } catch (error) {
-                        jsonResult.textContent = "Error de conexión con el servidor.";
-                    } finally {
-                        loading.style.display = 'none';
-                    }
-                };
-
-                mediaRecorder.start();
-                btnGrabar.style.display = 'none';
-                btnDetener.style.display = 'inline-block';
-
-            } catch (err) {
-                alert('Debes dar permisos de micrófono.');
-            }
+            mediaRecorder.start();
+            btnGrabar.style.display = 'none';
+            btnDetener.style.display = 'inline-block';
         };
 
         btnDetener.onclick = () => {
             mediaRecorder.stop();
-            mediaRecorder.stream.getTracks().forEach(track => track.stop()); // Apagar luz roja de mic
+            mediaRecorder.stream.getTracks().forEach(track => track.stop());
             btnDetener.style.display = 'none';
             btnGrabar.style.display = 'inline-block';
         };
-    </script>
 
+        btnPersistir.onclick = async () => {
+            // Re-empaquetar lo que el usuario validó o corrigió manualmente en pantalla
+            const payloadHumano = {
+                ambiente: document.getElementById('formAmbiente').value,
+                producto: document.getElementById('formProducto').value,
+                material: document.getElementById('formMaterial').value,
+                dimensiones: document.getElementById('formDimensiones').value,
+                detalles_adicionales: document.getElementById('formAccesorios').value.split(',').map(x => x.trim())
+            };
+
+            const bodyData = new URLSearchParams();
+            bodyData.append('texto_crudo', runtimeCache.texto_crudo);
+            bodyData.append('json_ia', JSON.stringify(runtimeCache.entidades_ia));
+            bodyData.append('json_humano', JSON.stringify(payloadHumano));
+            bodyData.append('latencia_ms', runtimeCache.latencia_ms);
+            bodyData.append('modelo_version', runtimeCache.modelo_version);
+
+            const res = await fetch('http://127.0.0.1:8000/api/pipeline/save-hitl/', {
+                method: 'POST',
+                body: bodyData
+            });
+            const status = await res.json();
+            alert(`Guardado en SQLite. WER Calculado para Tesis: ${status.calculated_wer}`);
+            btnPersistir.disabled = true;
+        };
+    </script>
 </body>
 
 </html>
