@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Voz - HOMEX NLP</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f4f4f5;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        #btnGrabar {
+            background: #ef4444;
+            color: white;
+        }
+
+        #btnDetener {
+            background: #3b82f6;
+            color: white;
+            display: none;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #10b981;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 10px;
+            font-style: italic;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>🎤 Nueva Cotización por Voz</h2>
+        <p>Presiona grabar y dicta las especificaciones (ej: "Un ropero de melamina de 2 metros").</p>
+
+        <button id="btnGrabar">🔴 Iniciar Grabación</button>
+        <button id="btnDetener">⏹️ Detener y Procesar</button>
+        <p class="loading" id="loadingTexto">⏳ Procesando audio mediante IA (Offline)...</p>
+
+        <h3>Texto Reconocido (Whisper):</h3>
+        <div id="textoTrans" style="min-height: 40px; border: 1px solid #ccc; padding: 10px; border-radius: 4px;"></div>
+
+        <h3>Entidades Extraídas (spaCy):</h3>
+        <pre id="jsonResult">Aquí aparecerá el resultado estructurado...</pre>
+    </div>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+
+        const btnGrabar = document.getElementById('btnGrabar');
+        const btnDetener = document.getElementById('btnDetener');
+        const loading = document.getElementById('loadingTexto');
+        const textoTrans = document.getElementById('textoTrans');
+        const jsonResult = document.getElementById('jsonResult');
+
+        btnGrabar.onclick = async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = async () => {
+                    loading.style.display = 'block';
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    audioChunks = []; // Limpiar para la próxima grabación
+
+                    // Preparar envío al backend
+                    const formData = new FormData();
+                    formData.append('file', audioBlob, 'grabacion.webm');
+
+                    try {
+                        // LLAMADA AL BACKEND FASTAPI
+                        const response = await fetch('http://127.0.0.1:8000/api/quote/', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const data = await response.json();
+
+                        // Mostrar resultados
+                        textoTrans.textContent = data.texto_crudo;
+                        jsonResult.textContent = JSON.stringify(data.entidades, null, 2);
+                    } catch (error) {
+                        jsonResult.textContent = "Error de conexión con el servidor.";
+                    } finally {
+                        loading.style.display = 'none';
+                    }
+                };
+
+                mediaRecorder.start();
+                btnGrabar.style.display = 'none';
+                btnDetener.style.display = 'inline-block';
+
+            } catch (err) {
+                alert('Debes dar permisos de micrófono.');
+            }
+        };
+
+        btnDetener.onclick = () => {
+            mediaRecorder.stop();
+            mediaRecorder.stream.getTracks().forEach(track => track.stop()); // Apagar luz roja de mic
+            btnDetener.style.display = 'none';
+            btnGrabar.style.display = 'inline-block';
+        };
+    </script>
+
+</body>
+
+</html>
