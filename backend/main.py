@@ -1,8 +1,7 @@
 # =============================================================================
-# main.py — HOMEX API Gateway v4.0
-# Responsabilidad única: orquestar el pipeline ASR → NLP → persistencia.
-# NO contiene lógica de negocio, NO importa sqlite3, NO calcula métricas.
-# Toda persistencia delega a database.py; toda extracción a nlp_engine.py.
+# Orquestar el pipeline ASR → NLP → persistencia
+# NO contiene lógica de negocio, NO importa sqlite3, NO calcula métricas
+# Toda persistencia delega a database.py; toda extracción a nlp_engine.py
 #
 # Endpoints:
 #   POST /api/pipeline/process/     → audio → CotizacionCapturada

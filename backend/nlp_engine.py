@@ -1,7 +1,6 @@
 # =============================================================================
-# nlp_engine.py — HOMEX NLP Engine v4.0
 # Motor NLP central del aporte académico.
-# Responsabilidades: normalización, extracción NER, estructuración de
+# Normalización, extracción NER, estructuración de
 # CotizacionCapturada con soporte real para múltiples muebles por cotización.
 #
 # Arquitectura:

@@ -416,7 +416,7 @@
        PANEL 1: ENTRADA DE VOZ
        ================================================================ -->
         <div class="panel">
-            <h2 class="panel-title">🎤 Entrada de Voz</h2>
+            <h2 class="panel-title">Entrada de Voz</h2>
 
             <p style="color:var(--text-sub); margin:0 0 14px; font-size:13px;">
                 Dicte los parámetros de la cotización. Una grabación puede contener
@@ -424,13 +424,13 @@
             </p>
 
             <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
-                <button id="btnGrabar" class="btn btn-record">🔴 Iniciar grabación</button>
-                <button id="btnDetener" class="btn btn-stop">⏹️ Detener y procesar</button>
+                <button id="btnGrabar" class="btn btn-record">Iniciar grabación</button>
+                <button id="btnDetener" class="btn btn-stop">Detener y procesar</button>
             </div>
 
             <div class="form-group">
                 <label>Transcripción Whisper (texto crudo)</label>
-                <textarea id="txtCrudo" rows="5" readonly
+                <textarea id="txtCrudo" rows="10" readonly
                     placeholder="Aquí aparecerá el texto transcrito por el motor ASR..."></textarea>
             </div>
 
@@ -448,7 +448,7 @@
        ================================================================ -->
         <div class="panel">
             <h2 class="panel-title">
-                🛠️ Validación Humana (HITL)
+                Validación Humana (HITL)
                 <span class="badge" id="badge-items" style="display:none;">0 ítems</span>
             </h2>
 
@@ -465,7 +465,7 @@
             </div>
 
             <button id="btnPersistir" class="btn btn-save" disabled>
-                💾 Confirmar y registrar en SQLite
+                Confirmar y registrar
             </button>
         </div>
 
@@ -474,9 +474,9 @@
        ================================================================ -->
         <div class="panel full-width">
             <h2 class="panel-title" style="justify-content:space-between;">
-                <span>🔬 JSON Estructurado — CotizacionCapturada</span>
+                <span>JSON Estructurado — CotizacionCapturada</span>
                 <button class="btn btn-metrics" id="btnVerMetricas" style="display:none;">
-                    📊 Ver panel académico
+                    Ver panel académico
                 </button>
             </h2>
             <pre id="jsonOutput">// El payload estructurado retornado por el motor NLP aparecerá aquí.</pre>
@@ -794,19 +794,19 @@
                 const pct = pct => typeof pct === 'number' ? (pct * 100).toFixed(1) + '%' : '—';
 
                 alert(
-                    `✅ Guardado en SQLite\n\n` +
+                    `Guardado en SQLite\n\n` +
                     `Precisión del modelo: ${pct(m.precision_global)}\n` +
                     `Campos totales evaluados: ${m.campos_totales ?? '—'}\n` +
                     `Campos corregidos por operador: ${m.campos_corregidos ?? '—'}\n` +
                     `Tasa de corrección: ${pct(m.tasa_correccion)}`
                 );
 
-                btnPersistir.innerHTML = '✅ Guardado';
+                btnPersistir.innerHTML = 'Guardado';
 
             } catch (err) {
-                alert(`❌ Error al guardar: ${err.message}`);
+                alert(`Error al guardar: ${err.message}`);
                 btnPersistir.disabled = false;
-                btnPersistir.innerHTML = '💾 Confirmar y registrar en SQLite';
+                btnPersistir.innerHTML = 'Confirmar y registrar';
             }
         };
 

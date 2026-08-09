@@ -224,11 +224,11 @@ def main():
             f"Agregar al menos 10 ejemplos por label antes de entrenar."
         )
 
-    print("\n✅ Corpus generado:")
+    print("\n Corpus generado:")
     print(f"   train.spacy → {len(train_ejemplos)} ejemplos")
     print(f"   dev.spacy   → {len(dev_ejemplos)} ejemplos")
     print(f"   Labels presentes: {sorted(labels_en_corpus)}")
-    print(f"\n➡️  Próximo paso: python -m spacy train config.cfg --output ../data/modelos_entrenados/")
+    print(f"\n  Próximo paso: python -m spacy train config.cfg --output ../data/modelos_entrenados/")
 
 
 if __name__ == "__main__":

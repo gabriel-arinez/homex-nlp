@@ -1,6 +1,5 @@
 # =============================================================================
-# database.py — HOMEX Capa de Persistencia v4.0
-# Responsabilidad única: toda interacción con SQLite pasa por este módulo.
+# Toda interacción con SQLite pasa por este módulo.
 # El backend (main.py) NUNCA debe importar sqlite3 directamente.
 #
 # Esquema de tablas:
@@ -8,10 +7,6 @@
 #   items_ia           → N filas por captura (un mueble por fila, detectado por IA)
 #   items_humano       → N filas por captura (corrección del operador por mueble)
 #   metricas_pipeline  → una fila por captura (latencias, precisión HITL)
-#
-# Esta estructura resuelve el problema de cotizaciones con múltiples muebles
-# y permite evaluación académica real: precisión por entidad, tasa de corrección,
-# latencia por etapa, análisis de errores frecuentes.
 # =============================================================================
 
 import sqlite3
@@ -30,10 +25,6 @@ DB_PATH = "homex_trazabilidad.db"
 # =============================================================================
 
 def init_db() -> None:
-    """
-    Crea las tablas si no existen.
-    Seguro para llamar múltiples veces (IF NOT EXISTS).
-    """
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
@@ -110,8 +101,7 @@ def init_db() -> None:
 
     # ------------------------------------------------------------------
     # TABLA: metricas_pipeline
-    # Resumen de métricas por captura para análisis estadístico y defensa.
-    # Esta tabla es la base de los gráficos académicos del sistema.
+    # Resumen de métricas por captura
     # ------------------------------------------------------------------
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS metricas_pipeline (
@@ -158,9 +148,6 @@ def _calcular_metricas_item(item_ia: Dict, item_humano: Dict) -> Dict:
     Calcula cuántos campos fueron corregidos por el operador en un ítem.
     Compara campo a campo IA vs humano.
     Retorna: {campos_totales, campos_corregidos, precision_item}
-
-    Campos evaluables (excluye IDs y metadatos):
-      producto, material, espesor, color, dimensiones, cantidad, precio_total, accesorios
     """
     CAMPOS_EVALUABLES = [
         "producto", "material", "espesor", "color",
@@ -382,13 +369,12 @@ def guardar_validacion_hitl(
 
 
 # =============================================================================
-# SECCIÓN 4: OPERACIONES DE LECTURA (para endpoint de métricas académicas)
+# SECCIÓN 4: OPERACIONES DE LECTURA 
 # =============================================================================
 
 def obtener_metricas_resumen() -> Dict:
     """
     Retorna un resumen estadístico de todas las capturas registradas.
-    Útil para el panel académico y para la defensa de tesis.
     """
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
