@@ -56,6 +56,31 @@
             font-style: italic;
             color: #64748b;
         }
+
+        .error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .config-section {
+            background: #e0e7ff;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .config-section label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .config-section input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
@@ -63,11 +88,19 @@
 
     <div class="card">
         <h2>🎤 Nueva Cotización por Voz</h2>
+        
+        <div class="config-section">
+            <label for="backendUrl">URL del Backend:</label>
+            <input type="text" id="backendUrl" value="http://127.0.0.1:8000" placeholder="Ej: http://localhost:8000">
+            <small style="color: #666;">Configura la URL de tu backend API</small>
+        </div>
+
         <p>Presiona grabar y dicta las especificaciones (ej: "Un ropero de melamina de 2 metros").</p>
 
         <button id="btnGrabar">🔴 Iniciar Grabación</button>
         <button id="btnDetener">⏹️ Detener y Procesar</button>
         <p class="loading" id="loadingTexto">⏳ Procesando audio mediante IA (Offline)...</p>
+        <p class="error" id="errorMessage"></p>
 
         <h3>Texto Reconocido (Whisper):</h3>
         <div id="textoTrans" style="min-height: 40px; border: 1px solid #ccc; padding: 10px; border-radius: 4px;"></div>
@@ -83,10 +116,26 @@
         const btnGrabar = document.getElementById('btnGrabar');
         const btnDetener = document.getElementById('btnDetener');
         const loading = document.getElementById('loadingTexto');
+        const errorMessage = document.getElementById('errorMessage');
         const textoTrans = document.getElementById('textoTrans');
         const jsonResult = document.getElementById('jsonResult');
+        const backendUrlInput = document.getElementById('backendUrl');
+
+        // Obtener URL del backend desde el input o usar valor por defecto
+        function getBackendUrl() {
+            return backendUrlInput.value.trim() || 'http://127.0.0.1:8000';
+        }
+
+        function mostrarError(mensaje) {
+            errorMessage.textContent = mensaje;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
 
         btnGrabar.onclick = async () => {
+            errorMessage.style.display = 'none';
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 mediaRecorder = new MediaRecorder(stream);
@@ -97,6 +146,9 @@
 
                 mediaRecorder.onstop = async () => {
                     loading.style.display = 'block';
+                    textoTrans.textContent = '';
+                    jsonResult.textContent = 'Procesando...';
+                    
                     const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
                     audioChunks = []; // Limpiar para la próxima grabación
 
@@ -104,20 +156,31 @@
                     const formData = new FormData();
                     formData.append('file', audioBlob, 'grabacion.webm');
 
+                    const backendUrl = getBackendUrl();
+                    const apiUrl = `${backendUrl}/api/quote/`;
+
                     try {
                         // LLAMADA AL BACKEND FASTAPI
-                        const response = await fetch('http://127.0.0.1:8000/api/quote/', {
+                        const response = await fetch(apiUrl, {
                             method: 'POST',
                             body: formData
                         });
 
+                        if (!response.ok) {
+                            const errorData = await response.json().catch(() => ({}));
+                            throw new Error(errorData.detail || `Error HTTP ${response.status}`);
+                        }
+
                         const data = await response.json();
 
                         // Mostrar resultados
-                        textoTrans.textContent = data.texto_crudo;
+                        textoTrans.textContent = data.texto_crudo || 'No se pudo transcribir el audio';
                         jsonResult.textContent = JSON.stringify(data.entidades, null, 2);
                     } catch (error) {
-                        jsonResult.textContent = "Error de conexión con el servidor.";
+                        console.error('Error en la petición:', error);
+                        mostrarError(`Error: ${error.message}. Verifica que el backend esté corriendo en ${backendUrl}`);
+                        textoTrans.textContent = '';
+                        jsonResult.textContent = 'Error de conexión con el servidor.';
                     } finally {
                         loading.style.display = 'none';
                     }
@@ -128,7 +191,8 @@
                 btnDetener.style.display = 'inline-block';
 
             } catch (err) {
-                alert('Debes dar permisos de micrófono.');
+                console.error('Error al acceder al micrófono:', err);
+                mostrarError('Debes dar permisos de micrófono para usar esta función.');
             }
         };
 
