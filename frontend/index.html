@@ -2,144 +2,929 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Captura de Voz - HOMEX NLP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOMEX — Captura por Voz NLP</title>
     <style>
+        /* =====================================================================
+       TOKENS DE DISEÑO
+       ===================================================================== */
+        :root {
+            --bg: #f1f5f9;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            --text-label: #475569;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success: #059669;
+            --success-hover: #047857;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --ia-tag: #dbeafe;
+            --ia-tag-text: #1e40af;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+            --radius-sm: 6px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            background: #f4f4f5;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            font-size: 14px;
         }
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* =====================================================================
+       LAYOUT
+       ===================================================================== */
+        .page-header {
+            max-width: 1280px;
+            margin: 0 auto 20px;
         }
 
-        button {
+        .page-header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .page-header p {
+            margin: 4px 0 0;
+            color: var(--text-sub);
+            font-size: 13px;
+        }
+
+        .dashboard {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .panel {
+            background: var(--surface);
+            padding: 22px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .panel.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .panel-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-title span.badge {
+            background: var(--ia-tag);
+            color: var(--ia-tag-text);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 99px;
+        }
+
+        /* =====================================================================
+       BOTONES
+       ===================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.2s;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.15s, opacity 0.15s;
         }
 
-        #btnGrabar {
-            background: #ef4444;
-            color: white;
+        .btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
         }
 
-        #btnDetener {
-            background: #3b82f6;
-            color: white;
+        .btn-record {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .btn-record:hover:not(:disabled) {
+            background: #b91c1c;
+        }
+
+        .btn-stop {
+            background: var(--accent);
+            color: #fff;
             display: none;
         }
 
-        pre {
+        .btn-stop:hover:not(:disabled) {
+            background: var(--accent-hover);
+        }
+
+        .btn-save {
+            background: var(--success);
+            color: #fff;
+            width: 100%;
+            margin-top: 12px;
+            justify-content: center;
+        }
+
+        .btn-save:hover:not(:disabled) {
+            background: var(--success-hover);
+        }
+
+        .btn-metrics {
+            background: #7c3aed;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 14px;
+        }
+
+        .btn-metrics:hover {
+            background: #6d28d9;
+        }
+
+        /* =====================================================================
+       FORM INPUTS
+       ===================================================================== */
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-label);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: var(--text-main);
+            background: #f8fafc;
+            transition: border 0.15s, background 0.15s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: #fff;
+        }
+
+        /* Campo modificado por usuario — resaltar visualmente */
+        .form-group input.modified,
+        .form-group textarea.modified {
+            border-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        /* =====================================================================
+       TARJETAS DE MUEBLE (HITL)
+       Cada mueble detectado por la IA tiene su propia tarjeta editable.
+       ===================================================================== */
+        #contenedor-muebles {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mueble-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .mueble-card-header {
+            background: #f8fafc;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mueble-card-header .item-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--ia-tag-text);
+            background: var(--ia-tag);
+            padding: 2px 10px;
+            border-radius: 99px;
+        }
+
+        .mueble-card-header .ia-producto {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .mueble-card-body {
+            padding: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 14px;
+        }
+
+        /* columna única para dimensiones y accesorios */
+        .mueble-card-body .full-col {
+            grid-column: 1 / -1;
+        }
+
+        /* =====================================================================
+       MÉTRICAS Y DEBUG
+       ===================================================================== */
+        .metric-bar {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .metric-bar .latencia {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .metric-bar .stage {
+            color: var(--text-sub);
+        }
+
+        pre#jsonOutput {
             background: #1e293b;
-            color: #10b981;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
+            color: #7dd3fc;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            overflow: auto;
+            max-height: 340px;
+            margin: 0;
         }
 
-        .loading {
+        /* =====================================================================
+       PANEL ACADÉMICO DE MÉTRICAS
+       ===================================================================== */
+        #panel-metricas {
             display: none;
-            margin-top: 10px;
-            font-style: italic;
-            color: #64748b;
+        }
+
+        .metricas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .metrica-tile {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .metrica-tile .valor {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .metrica-tile .etiqueta {
+            font-size: 11px;
+            color: var(--text-sub);
+            margin-top: 2px;
+        }
+
+        /* =====================================================================
+       ESTADOS DE CARGA
+       ===================================================================== */
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-pill.ok {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-pill.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-pill.loading {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .advertencias-list {
+            margin: 8px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .advertencias-list li {
+            font-size: 11px;
+            color: var(--warning);
+            padding: 2px 0;
+        }
+
+        .advertencias-list li::before {
+            content: "⚠ ";
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .panel.full-width {
+                grid-column: 1;
+            }
+
+            .mueble-card-body {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h2>🎤 Nueva Cotización por Voz</h2>
-        <p>Presiona grabar y dicta las especificaciones (ej: "Un ropero de melamina de 2 metros").</p>
+    <header class="page-header">
+        <h1>HOMEX — Captura por Voz NLP</h1>
+        <p>Componente de validación académica · Pipeline: ASR → NER → HITL → Persistencia</p>
+    </header>
 
-        <button id="btnGrabar">🔴 Iniciar Grabación</button>
-        <button id="btnDetener">⏹️ Detener y Procesar</button>
-        <p class="loading" id="loadingTexto">⏳ Procesando audio mediante IA (Offline)...</p>
+    <div class="dashboard">
 
-        <h3>Texto Reconocido (Whisper):</h3>
-        <div id="textoTrans" style="min-height: 40px; border: 1px solid #ccc; padding: 10px; border-radius: 4px;"></div>
+        <!-- ================================================================
+       PANEL 1: ENTRADA DE VOZ
+       ================================================================ -->
+        <div class="panel">
+            <h2 class="panel-title">Entrada de Voz</h2>
 
-        <h3>Entidades Extraídas (spaCy):</h3>
-        <pre id="jsonResult">Aquí aparecerá el resultado estructurado...</pre>
-    </div>
+            <p style="color:var(--text-sub); margin:0 0 14px; font-size:13px;">
+                Dicte los parámetros de la cotización. Una grabación puede contener
+                uno o varios muebles.
+            </p>
+
+            <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+                <button id="btnGrabar" class="btn btn-record">Iniciar grabación</button>
+                <button id="btnDetener" class="btn btn-stop">Detener y procesar</button>
+            </div>
+
+            <div class="form-group">
+                <label>Transcripción Whisper (texto crudo)</label>
+                <textarea id="txtCrudo" rows="10" readonly
+                    placeholder="Aquí aparecerá el texto transcrito por el motor ASR..."></textarea>
+            </div>
+
+            <div id="metricBar" class="metric-bar">
+                Pipeline inactivo · esperando audio
+            </div>
+
+            <div id="advertencias-container" style="display:none;">
+                <ul id="advertencias-list" class="advertencias-list"></ul>
+            </div>
+        </div>
+
+        <!-- ================================================================
+       PANEL 2: VALIDACIÓN HITL
+       ================================================================ -->
+        <div class="panel">
+            <h2 class="panel-title">
+                Validación Humana (HITL)
+                <span class="badge" id="badge-items" style="display:none;">0 ítems</span>
+            </h2>
+
+            <p style="color:var(--text-sub); margin:0 0 14px; font-size:13px;">
+                Cada tarjeta representa un mueble detectado por la IA.
+                Corrija los campos que sean incorrectos o incompletos.
+            </p>
+
+            <!-- Contenedor dinámico: se generan tarjetas por cada mueble -->
+            <div id="contenedor-muebles">
+                <p id="placeholder-hitl" style="color:var(--text-sub); font-style:italic; font-size:13px;">
+                    Procese un audio para ver los ítems detectados.
+                </p>
+            </div>
+
+            <button id="btnPersistir" class="btn btn-save" disabled>
+                Confirmar y registrar
+            </button>
+        </div>
+
+        <!-- ================================================================
+       PANEL 3: INSPECTOR JSON (FULL WIDTH)
+       ================================================================ -->
+        <div class="panel full-width">
+            <h2 class="panel-title" style="justify-content:space-between;">
+                <span>JSON Estructurado — CotizacionCapturada</span>
+                <button class="btn btn-metrics" id="btnVerMetricas" style="display:none;">
+                    Ver panel académico
+                </button>
+            </h2>
+            <pre id="jsonOutput">// El payload estructurado retornado por el motor NLP aparecerá aquí.</pre>
+        </div>
+
+        <!-- ================================================================
+       PANEL 4: MÉTRICAS ACADÉMICAS (oculto hasta que haya datos)
+       ================================================================ -->
+        <div class="panel full-width" id="panel-metricas">
+            <h2 class="panel-title">📈 Panel Académico — Métricas de Trazabilidad</h2>
+            <p style="color:var(--text-sub); font-size:13px; margin:0 0 6px;">
+                Resumen acumulado de todas las capturas registradas en SQLite.
+                Estos valores son la evidencia cuantitativa del aporte académico.
+            </p>
+            <div id="metricas-grid" class="metricas-grid">
+                <p style="color:var(--text-sub); font-size:13px;">Cargando métricas...</p>
+            </div>
+        </div>
+
+    </div><!-- /dashboard -->
 
     <script>
+        // =============================================================================
+        // HOMEX Frontend — Script principal
+        // Responsabilidades:
+        //   1. Captura de audio con MediaRecorder
+        //   2. Envío al backend y recepción de CotizacionCapturada
+        //   3. Renderizado dinámico de tarjetas HITL por mueble
+        //   4. Detección de campos modificados por el operador
+        //   5. Envío de validación HITL con JSON real (no form-encoded)
+        //   6. Carga y presentación de métricas académicas
+        // =============================================================================
+
+        const API_BASE = 'http://127.0.0.1:8001';
+
+        // --- Referencias DOM ---
+        const btnGrabar = document.getElementById('btnGrabar');
+        const btnDetener = document.getElementById('btnDetener');
+        const btnPersistir = document.getElementById('btnPersistir');
+        const btnVerMetricas = document.getElementById('btnVerMetricas');
+        const txtCrudo = document.getElementById('txtCrudo');
+        const metricBar = document.getElementById('metricBar');
+        const jsonOutput = document.getElementById('jsonOutput');
+        const contenedorMuebles = document.getElementById('contenedor-muebles');
+        const placeholderHitl = document.getElementById('placeholder-hitl');
+        const badgeItems = document.getElementById('badge-items');
+        const advertenciasContainer = document.getElementById('advertencias-container');
+        const advertenciasList = document.getElementById('advertencias-list');
+        const panelMetricas = document.getElementById('panel-metricas');
+        const metricasGrid = document.getElementById('metricas-grid');
+
+        // --- Estado del pipeline (runtime cache) ---
+        let runtimeCache = null;
+        /*
+          runtimeCache almacena la respuesta completa de /api/pipeline/process/
+          Estructura esperada:
+          {
+            captura_id: int,
+            items_ia_ids: [int, ...],
+            latencia_total_ms: int,
+            latencia_asr_ms: int,
+            latencia_nlp_ms: int,
+            texto_crudo: str,
+            entidades_ia: {   ← CotizacionCapturada serializada
+              texto_original: str,
+              texto_normalizado: str,
+              muebles: [DetalleMueble, ...],
+              num_items_detectados: int,
+              labels_detectados: [str, ...],
+              advertencias: [str, ...]
+            },
+            modelo_version: str
+          }
+        */
+
         let mediaRecorder;
         let audioChunks = [];
 
-        const btnGrabar = document.getElementById('btnGrabar');
-        const btnDetener = document.getElementById('btnDetener');
-        const loading = document.getElementById('loadingTexto');
-        const textoTrans = document.getElementById('textoTrans');
-        const jsonResult = document.getElementById('jsonResult');
+        // =============================================================================
+        // GRABACIÓN DE AUDIO
+        // =============================================================================
 
         btnGrabar.onclick = async () => {
             try {
+                audioChunks = [];
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 mediaRecorder = new MediaRecorder(stream);
 
-                mediaRecorder.ondataavailable = event => {
-                    audioChunks.push(event.data);
-                };
-
-                mediaRecorder.onstop = async () => {
-                    loading.style.display = 'block';
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-                    audioChunks = []; // Limpiar para la próxima grabación
-
-                    // Preparar envío al backend
-                    const formData = new FormData();
-                    formData.append('file', audioBlob, 'grabacion.webm');
-
-                    try {
-                        // LLAMADA AL BACKEND FASTAPI
-                        const response = await fetch('http://127.0.0.1:8000/api/quote/', {
-                            method: 'POST',
-                            body: formData
-                        });
-
-                        const data = await response.json();
-
-                        // Mostrar resultados
-                        textoTrans.textContent = data.texto_crudo;
-                        jsonResult.textContent = JSON.stringify(data.entidades, null, 2);
-                    } catch (error) {
-                        jsonResult.textContent = "Error de conexión con el servidor.";
-                    } finally {
-                        loading.style.display = 'none';
-                    }
-                };
+                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                mediaRecorder.onstop = enviarAlBackend;
 
                 mediaRecorder.start();
                 btnGrabar.style.display = 'none';
-                btnDetener.style.display = 'inline-block';
-
+                btnDetener.style.display = 'inline-flex';
+                setMetricBar('loading', '🔴 Grabando... dicte los parámetros de la cotización');
             } catch (err) {
-                alert('Debes dar permisos de micrófono.');
+                setMetricBar('error', `❌ Sin acceso al micrófono: ${err.message}`);
             }
         };
 
         btnDetener.onclick = () => {
-            mediaRecorder.stop();
-            mediaRecorder.stream.getTracks().forEach(track => track.stop()); // Apagar luz roja de mic
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                mediaRecorder.stream.getTracks().forEach(t => t.stop());
+            }
             btnDetener.style.display = 'none';
-            btnGrabar.style.display = 'inline-block';
+            btnGrabar.style.display = 'inline-flex';
+            setMetricBar('loading', '<span class="spinner"></span> Enviando al pipeline...');
         };
-    </script>
 
+        // =============================================================================
+        // ENVÍO AL BACKEND Y PROCESAMIENTO DE RESPUESTA
+        // =============================================================================
+
+        async function enviarAlBackend() {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const formData = new FormData();
+            formData.append('file', audioBlob, 'captura.webm');
+
+            try {
+                const res = await fetch(`${API_BASE}/api/pipeline/process/`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({ detail: res.statusText }));
+                    throw new Error(err.detail || `HTTP ${res.status}`);
+                }
+
+                runtimeCache = await res.json();
+                renderizarRespuesta(runtimeCache);
+
+            } catch (err) {
+                setMetricBar('error', `❌ Error en el pipeline: ${err.message}`);
+                console.error('[HOMEX]', err);
+            }
+        }
+
+        // =============================================================================
+        // RENDERIZADO DE RESPUESTA — TARJETAS POR MUEBLE
+        // =============================================================================
+
+        function renderizarRespuesta(data) {
+            const entidades = data.entidades_ia;  // CotizacionCapturada
+
+            // Texto crudo
+            txtCrudo.value = data.texto_crudo;
+
+            // Inspector JSON
+            jsonOutput.textContent = JSON.stringify(entidades, null, 2);
+
+            // Métricas de latencia
+            setMetricBar('ok',
+                `✅ Procesado · ` +
+                `<span class="latencia">Total: ${data.latencia_total_ms} ms</span> · ` +
+                `<span class="stage">ASR: ${data.latencia_asr_ms} ms</span> · ` +
+                `<span class="stage">NLP: ${data.latencia_nlp_ms} ms</span> · ` +
+                `<span class="stage">Engine: ${data.modelo_version}</span> · ` +
+                `<span class="stage">Labels: ${(entidades.labels_detectados || []).join(', ') || '—'}</span>`
+            );
+
+            // Advertencias del motor NLP
+            mostrarAdvertencias(entidades.advertencias || []);
+
+            // Badge de ítems
+            const numItems = entidades.num_items_detectados || 0;
+            badgeItems.textContent = `${numItems} ítem${numItems !== 1 ? 's' : ''}`;
+            badgeItems.style.display = 'inline-block';
+
+            // Renderizar tarjetas HITL
+            renderizarTarjetasMuebles(entidades.muebles || []);
+
+            // Habilitar controles
+            btnPersistir.disabled = false;
+            btnVerMetricas.style.display = 'inline-flex';
+        }
+
+        function renderizarTarjetasMuebles(muebles) {
+            // Limpiar contenedor
+            contenedorMuebles.innerHTML = '';
+
+            if (!muebles || muebles.length === 0) {
+                contenedorMuebles.innerHTML =
+                    '<p style="color:var(--text-sub); font-style:italic; font-size:13px;">' +
+                    'La IA no detectó ítems estructurados. Revise el audio y reintente.</p>';
+                return;
+            }
+
+            muebles.forEach((mueble, idx) => {
+                const card = crearTarjetaMueble(mueble, idx);
+                contenedorMuebles.appendChild(card);
+            });
+        }
+
+        function crearTarjetaMueble(mueble, idx) {
+            const card = document.createElement('div');
+            card.className = 'mueble-card';
+            card.dataset.idx = idx;
+
+            // Encabezado de la tarjeta
+            const header = document.createElement('div');
+            header.className = 'mueble-card-header';
+            header.innerHTML = `
+    <span class="item-num">Ítem ${idx + 1}</span>
+    <span class="ia-producto">${mueble.producto || '(producto no detectado)'}</span>
+    <span style="font-size:11px; color:var(--text-sub);">IA detectó</span>
+  `;
+            card.appendChild(header);
+
+            // Cuerpo editable
+            const body = document.createElement('div');
+            body.className = 'mueble-card-body';
+
+            // Cada campo del DetalleMueble, excepto los arrays (dimensiones, accesorios)
+            // que tienen tratamiento especial.
+            body.appendChild(campoEditable('producto', 'Producto / Mueble', mueble.producto));
+            body.appendChild(campoEditable('material', 'Material', mueble.material));
+            body.appendChild(campoEditable('espesor', 'Espesor (mm)', mueble.espesor));
+            body.appendChild(campoEditable('color', 'Color / Acabado', mueble.color));
+            body.appendChild(campoEditable('cantidad', 'Cantidad', mueble.cantidad));
+            body.appendChild(campoEditable('precio_total', 'Precio Total (Bs)', mueble.precio_total));
+
+            // Dimensiones: array → string unificado para edición
+            const dimsVal = Array.isArray(mueble.dimensiones)
+                ? mueble.dimensiones.join(' | ')
+                : (mueble.dimensiones || '');
+            const dimGrupo = campoEditable('dimensiones', 'Dimensiones detectadas (separar con |)', dimsVal);
+            dimGrupo.classList.add('full-col');
+            body.appendChild(dimGrupo);
+
+            // Accesorios: array → string unificado para edición
+            const accsVal = Array.isArray(mueble.accesorios)
+                ? mueble.accesorios.join(', ')
+                : (mueble.accesorios || '');
+            const accsGrupo = campoEditable('accesorios', 'Herrajes y accesorios (separar con coma)', accsVal);
+            accsGrupo.classList.add('full-col');
+            body.appendChild(accsGrupo);
+
+            // Observaciones
+            const obsGrupo = campoEditable('observaciones', 'Observaciones técnicas', mueble.observaciones);
+            obsGrupo.classList.add('full-col');
+            body.appendChild(obsGrupo);
+
+            card.appendChild(body);
+            return card;
+        }
+
+        function campoEditable(nombre, etiqueta, valorIA) {
+            const grupo = document.createElement('div');
+            grupo.className = 'form-group';
+
+            const label = document.createElement('label');
+            label.textContent = etiqueta;
+            grupo.appendChild(label);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.dataset.campo = nombre;
+            input.value = valorIA !== null && valorIA !== undefined ? String(valorIA) : '';
+            input.placeholder = '(no detectado)';
+
+            // Guardar el valor original de la IA para detectar modificaciones
+            const valorOriginal = input.value;
+            input.addEventListener('input', () => {
+                if (input.value !== valorOriginal) {
+                    input.classList.add('modified');
+                } else {
+                    input.classList.remove('modified');
+                }
+            });
+
+            grupo.appendChild(input);
+            return grupo;
+        }
+
+        // =============================================================================
+        // ENVÍO DE VALIDACIÓN HITL
+        // =============================================================================
+
+        btnPersistir.onclick = async () => {
+            if (!runtimeCache) return;
+
+            btnPersistir.disabled = true;
+            btnPersistir.innerHTML = '<span class="spinner"></span> Guardando...';
+
+            try {
+                const muebles_humano = leerMueblesDesdeFormulario();
+
+                const payload = {
+                    captura_id: runtimeCache.captura_id,
+                    items_ia_ids: runtimeCache.items_ia_ids,
+                    muebles_ia: runtimeCache.entidades_ia.muebles,
+                    muebles_humano: muebles_humano,
+                    latencia_total_ms: runtimeCache.latencia_total_ms,
+                    latencia_asr_ms: runtimeCache.latencia_asr_ms,
+                    latencia_nlp_ms: runtimeCache.latencia_nlp_ms,
+                    labels_encontrados: runtimeCache.entidades_ia.labels_detectados || [],
+                };
+
+                const res = await fetch(`${API_BASE}/api/pipeline/save-hitl/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({ detail: res.statusText }));
+                    throw new Error(err.detail || `HTTP ${res.status}`);
+                }
+
+                const result = await res.json();
+                const m = result.metricas || {};
+
+                const pct = pct => typeof pct === 'number' ? (pct * 100).toFixed(1) + '%' : '—';
+
+                alert(
+                    `Guardado en SQLite\n\n` +
+                    `Precisión del modelo: ${pct(m.precision_global)}\n` +
+                    `Campos totales evaluados: ${m.campos_totales ?? '—'}\n` +
+                    `Campos corregidos por operador: ${m.campos_corregidos ?? '—'}\n` +
+                    `Tasa de corrección: ${pct(m.tasa_correccion)}`
+                );
+
+                btnPersistir.innerHTML = 'Guardado';
+
+            } catch (err) {
+                alert(`Error al guardar: ${err.message}`);
+                btnPersistir.disabled = false;
+                btnPersistir.innerHTML = 'Confirmar y registrar';
+            }
+        };
+
+        function leerMueblesDesdeFormulario() {
+            const cards = contenedorMuebles.querySelectorAll('.mueble-card');
+            const muebles = [];
+
+            cards.forEach(card => {
+                const inputs = card.querySelectorAll('input[data-campo]');
+                const mueble = {};
+
+                inputs.forEach(input => {
+                    const campo = input.dataset.campo;
+                    const valor = input.value.trim();
+
+                    if (campo === 'dimensiones') {
+                        // Convertir "1.80 metros ancho | 0.80 metros alto" → array
+                        mueble.dimensiones = valor
+                            ? valor.split('|').map(s => s.trim()).filter(Boolean)
+                            : [];
+                    } else if (campo === 'accesorios') {
+                        // Convertir "Rieles, Bisagras" → array
+                        mueble.accesorios = valor
+                            ? valor.split(',').map(s => s.trim()).filter(Boolean)
+                            : [];
+                    } else if (campo === 'cantidad') {
+                        mueble.cantidad = valor ? parseInt(valor, 10) || null : null;
+                    } else if (campo === 'precio_total') {
+                        mueble.precio_total = valor ? parseFloat(valor) || null : null;
+                    } else {
+                        mueble[campo] = valor || null;
+                    }
+                });
+
+                muebles.push(mueble);
+            });
+
+            return muebles;
+        }
+
+        // =============================================================================
+        // PANEL ACADÉMICO DE MÉTRICAS
+        // =============================================================================
+
+        btnVerMetricas.onclick = async () => {
+            panelMetricas.style.display = 'block';
+            panelMetricas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            await cargarMetricas();
+        };
+
+        async function cargarMetricas() {
+            metricasGrid.innerHTML = '<p style="color:var(--text-sub); font-size:13px;">Cargando...</p>';
+            try {
+                const res = await fetch(`${API_BASE}/api/metricas/`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                const r = data.resumen;
+
+                if (r.mensaje) {
+                    metricasGrid.innerHTML =
+                        `<p style="color:var(--text-sub); font-size:13px;">${r.mensaje}</p>`;
+                    return;
+                }
+
+                const tiles = [
+                    { valor: r.total_capturas, etiqueta: 'Capturas registradas' },
+                    { valor: pctStr(r.precision_promedio_modelo), etiqueta: 'Precisión promedio del modelo' },
+                    { valor: pctStr(r.tasa_error_promedio), etiqueta: 'Tasa de error promedio' },
+                    { valor: msStr(r.latencia_total_promedio_ms), etiqueta: 'Latencia total promedio' },
+                    { valor: msStr(r.latencia_asr_promedio_ms), etiqueta: 'Latencia ASR (Whisper)' },
+                    { valor: msStr(r.latencia_nlp_promedio_ms), etiqueta: 'Latencia NLP (spaCy)' },
+                    { valor: r.campos_totales_acumulados, etiqueta: 'Campos totales evaluados' },
+                    { valor: r.campos_corregidos_acumulados, etiqueta: 'Campos corregidos (HITL)' },
+                    { valor: r.promedio_items_por_captura, etiqueta: 'Ítems promedio por cotización' },
+                ];
+
+                metricasGrid.innerHTML = tiles.map(t => `
+      <div class="metrica-tile">
+        <div class="valor">${t.valor}</div>
+        <div class="etiqueta">${t.etiqueta}</div>
+      </div>
+    `).join('');
+
+            } catch (err) {
+                metricasGrid.innerHTML =
+                    `<p style="color:var(--danger); font-size:13px;">Error al cargar métricas: ${err.message}</p>`;
+            }
+        }
+
+        function pctStr(v) {
+            return typeof v === 'number' ? (v * 100).toFixed(1) + '%' : '—';
+        }
+        function msStr(v) {
+            return typeof v === 'number' ? Math.round(v) + ' ms' : '—';
+        }
+
+        // =============================================================================
+        // HELPERS DE UI
+        // =============================================================================
+
+        function setMetricBar(estado, html) {
+            metricBar.innerHTML = html;
+        }
+
+        function mostrarAdvertencias(advertencias) {
+            advertenciasList.innerHTML = '';
+            if (!advertencias || advertencias.length === 0) {
+                advertenciasContainer.style.display = 'none';
+                return;
+            }
+            advertenciasContainer.style.display = 'block';
+            advertencias.forEach(adv => {
+                const li = document.createElement('li');
+                li.textContent = adv;
+                advertenciasList.appendChild(li);
+            });
+        }
+    </script>
 </body>
 
 </html>
