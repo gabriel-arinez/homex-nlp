@@ -9,6 +9,9 @@ description = "Componente ASR/NLP de HOMEX; refactorización incremental"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
+    # spaCy 3.8 invokes click from its CLI import path although current metadata
+    # reaches it only through optional demo tooling; declare the runtime need.
+    "click>=8.1,<9",
     "pydantic==2.13.4",
     "spacy==3.8.13",
 ]
@@ -38,6 +41,7 @@ include = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-ra --strict-markers"
 
 [tool.ruff]

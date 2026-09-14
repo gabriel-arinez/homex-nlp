@@ -1,8 +1,8 @@
 # HOMEX NLP
 
 Refactorización incremental del componente de reconocimiento de voz y extracción
-para cotizaciones HOMEX. F00 preparó el paquete; F01 define contratos, recursos,
-configuración y ejemplos. Todavía no implementa el extractor, CLI ni backend.
+para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos y F02
+preservó y curó ambos corpus. Todavía no implementa el extractor, CLI ni backend.
 
 La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
 actual está en [Contrato v1](docs/contract-v1.md).
@@ -20,7 +20,7 @@ uv build
 ```
 
 `uv.lock` fija dependencias transitivas. `pyproject.toml` separa runtime de texto
-(spaCy/Pydantic), extras `asr` y `demo`, y herramientas `dev`. No instala modelos
+(spaCy/Pydantic/click), extras `asr` y `demo`, y herramientas `dev`. No instala modelos
 lingüísticos ni descarga pesos ASR. Instalar dependencias requiere acceso al índice
 o una caché preparada; los tests de F00 no usan red ni modelos.
 
@@ -35,7 +35,8 @@ adaptador ASR, pero su existencia como extra no significa que esté implementado
 - `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados en CI.
 - `tests/contract/`: contratos, ejemplos, schemas e importación aislada.
 - `backend/`, `frontend/`: experimento previo, preservado durante F00.
-- `data/`: fuentes originales preservadas, sin entrenamiento ni curación en F00.
+- `data/raw/`, `data/curated/`, `data/manifests/`, `data/splits/`: fuentes
+  verificables, copias curadas, cambios trazables y test sellado de F02.
 - `homex_bd_final_v3.sql`: referencia preservada; ampliaciones finales pendientes
   de migraciones F07/F08, no esquema ya corregido.
 - `docs/`: arquitectura, integración, requisitos y manifiesto del baseline.

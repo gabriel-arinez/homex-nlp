@@ -292,6 +292,7 @@ name = "homex-nlp"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "click" },
     { name = "pydantic" },
     { name = "spacy" },
 ]
@@ -313,6 +314,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "click", specifier = ">=8.1,<9" },
     { name = "fastapi", marker = "extra == 'demo'", specifier = "==0.136.3" },
     { name = "faster-whisper", marker = "extra == 'asr'", specifier = "==1.2.1" },
     { name = "jsonschema", marker = "extra == 'dev'", specifier = ">=4.23,<5" },

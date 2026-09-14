@@ -3,7 +3,7 @@
 **Fecha:** 13 de septiembre de 2026.  
 **Versión del plan:** 2.1 — respuestas G01–G03, T01–T09, P29–P32 y comienzo de F00.  
 **Punto de partida:** el repositorio actual `homex-nlp`.  
-**Estado:** F00 y F01 completadas localmente; F02–F11 pendientes. Evidencia en [informe F00](F00_PREPARACION.md) e [informe F01](F01_CONTRATOS.md).
+**Estado:** F00, F01 y F02 completadas localmente; F03–F11 pendientes. Evidencia en [informe F00](F00_PREPARACION.md), [informe F01](F01_CONTRATOS.md) e [informe F02](F02_CORPUS.md).
 **Objetivo:** terminar el componente ASR/NLP, dejarlo reproducible, evaluable e integrable y especificar su incorporación al sistema comercial Django/Vue/PostgreSQL.
 
 ## 0. Cómo utilizar este documento
