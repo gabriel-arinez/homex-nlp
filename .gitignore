@@ -1,2 +1,24 @@
 # Python
 __pycache__/
+
+# Entornos y herramientas
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Configuración privada
+.env
+.env.*
+!.env.example
+
+# Resultados y temporales de ejecución; las fuentes originales permanecen versionadas
+artifacts/
+*.db-journal
+*.db-wal
+*.db-shm
+/tmp/
+/audio_tmp/

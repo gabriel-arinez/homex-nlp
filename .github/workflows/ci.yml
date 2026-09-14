@@ -1,0 +1,23 @@
+name: Paquete NLP
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.9"
+      - name: Instalar entorno fijado
+        run: uv sync --locked --extra dev --python 3.11.15
+      - name: Lint, formato y contrato sin modelos ni red
+        run: make check
+      - name: Construir distribución
+        run: uv build
+      - name: Instalar wheel en entorno separado sin dependencias
+        run: |
+          uv venv --python 3.11.15 /tmp/homex-wheel
+          uv pip install --python /tmp/homex-wheel/bin/python --no-deps dist/*.whl
+          /tmp/homex-wheel/bin/python -I -B -c 'import pathlib, runpy, sys, tempfile; test = runpy.run_path(sys.argv[1]); tmp = tempfile.TemporaryDirectory(); test["test_import_is_inert_outside_repository"](pathlib.Path(tmp.name)); tmp.cleanup()' "$PWD/tests/contract/test_import.py"
