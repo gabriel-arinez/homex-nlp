@@ -1,4 +1,4 @@
-.PHONY: check lint test schemas corpus-check docbin-check build
+.PHONY: check lint test schemas corpus-check docbin-check build distribution-check
 check: lint schemas corpus-check test
 lint:
 	uv run --locked --extra dev ruff check src tests tools training
@@ -14,3 +14,5 @@ docbin-check:
 	uv run --locked --extra dev python -m training.convert_to_docbin data/curated/homex_original_v1.jsonl data/splits/homex_original_v1.json /tmp/homex-docbin-check
 build:
 	uv build
+distribution-check: build
+	uv run --locked --extra dev python tools/verify_distribution.py

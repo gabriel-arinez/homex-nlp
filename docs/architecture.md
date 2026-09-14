@@ -58,7 +58,7 @@ reales. T08 no permite imponer descuento cero a muebles por categoría.
 
 ## Estado y pruebas
 
-El prototipo sigue en `backend/` y `frontend/`; retirarlo corresponde a F06 después
+El prototipo ejecutable de `backend/` y `frontend/` se retiró en F06 después
 de sus sustitutos. F00 no conecta Django ni demuestra calidad de extracción.
 CONTRACT-02 comprueba importación sin infraestructura, escritura ni red en un
 proceso aislado y desde un directorio ajeno al repositorio. La integración real y

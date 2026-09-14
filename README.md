@@ -36,7 +36,8 @@ adaptador ASR, pero su existencia como extra no significa que esté implementado
 - `src/homex_nlp/`: contratos Pydantic, configuración y recursos v1; sin extractor.
 - `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados en CI.
 - `tests/contract/`: contratos, ejemplos, schemas e importación aislada.
-- `backend/`, `frontend/`: experimento previo, preservado durante F00.
+- `backend/homex_trazabilidad.db`: evidencia SQLite del prototipo, fuera de la
+  ruta de ejecución; los ejecutables y frontend experimentales se retiraron en F06.
 - `data/raw/`, `data/curated/`, `data/manifests/`, `data/splits/`: fuentes
   verificables, copias curadas, cambios trazables y test sellado de F02.
 - `homex_bd_final_v3.sql`: referencia preservada; ampliaciones finales pendientes
