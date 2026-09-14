@@ -1,8 +1,9 @@
 # HOMEX NLP
 
 Refactorización incremental del componente de reconocimiento de voz y extracción
-para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos y F02
-preservó y curó ambos corpus. Todavía no implementa el extractor, CLI ni backend.
+para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos, F02
+preservó ambos corpus y F03 incorporó el extractor determinístico y CLI local.
+Todavía no implementa NER entrenado, ASR ni backend.
 
 La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
 actual está en [Contrato v1](docs/contract-v1.md).
