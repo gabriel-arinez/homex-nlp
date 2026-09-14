@@ -1,8 +1,9 @@
-# Matriz de requisitos finales — F00
+# Matriz de requisitos finales — F01
 
 Autoridad: respuestas finales del usuario G01–G03, T01–T09 y P29–P32. Sustituyen
 propuestas incompatibles previas; no implican que el SQL v3 ya implemente cambios.
-F00 implementa preparación y documentación. El plan detalla las fases restantes.
+F00 implementó preparación; F01 materializa contratos/configuración. El plan
+detalla las fases restantes.
 
 | ID | Regla | Destino/fase | Criterio de aceptación |
 |---|---|---|---|
@@ -24,6 +25,7 @@ F00 implementa preparación y documentación. El plan detalla las fases restante
 | P27 | Cobros solo desde pedido confirmado | Recibos F07 | No pago sobre proforma sin pedido. |
 | P28 | Validación comercial distinta de técnica NER | Corpus F02 | Offsets/tokenizador validados antes de entrenar. |
 | CONTRACT-02 | Importación sin efectos externos | F00 | Wheel importable sin dependencias, red, DB, modelos ni escritura. |
+| CONTRACT-01 | Contrato y ejemplos versionados | F01 | Pydantic estricto, cinco JSON Schema vigentes y siete fixtures validados. |
 
 ## Insumos que siguen faltando
 

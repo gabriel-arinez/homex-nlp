@@ -1,8 +1,9 @@
 # Contrato de integración Django — preparación F00
 
-Este documento fija responsabilidades; las interfaces de extracción se implementan
-en F01 y Django en F07/F08. No hay endpoint comercial ni adapter nuevo ejecutable
-en F00. Consultar §§6 y 9–14 del [plan](PLAN_MAESTRO_REFACTORIZACION_HOMEX.md).
+Este documento fija responsabilidades; las interfaces de extracción ya están
+definidas en [contrato v1](contract-v1.md), y Django se implementará en F07/F08.
+No hay endpoint comercial ni adaptador Django ejecutable. Consultar §§6 y 9–14
+del [plan](PLAN_MAESTRO_REFACTORIZACION_HOMEX.md).
 
 ## Propietarios
 

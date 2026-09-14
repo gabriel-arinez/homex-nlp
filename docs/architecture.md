@@ -26,9 +26,9 @@ de audio. La vida de archivos se implementará en F05/F08, no en el import.
 
 ## Dependencias y carpetas
 
-F00 crea `src/homex_nlp/__init__.py`, `pyproject.toml`, `uv.lock`,
-`tests/contract/test_import.py` y CI. No crea módulos vacíos para fases posteriores.
-F01 añade contratos y recursos; F02 prepara corpus; F03–F05 implementan motor/ASR;
+F00 creó la distribución y CI. F01 añadió contratos, configuración, recursos,
+esquemas y ejemplos sin implementar módulos vacíos para fases posteriores.
+F02 prepara corpus; F03–F05 implementan motor/ASR;
 F06 cierra el paquete. La estructura detallada de los cuatro repositorios se
 mantiene en §§4–5 del [plan](PLAN_MAESTRO_REFACTORIZACION_HOMEX.md).
 

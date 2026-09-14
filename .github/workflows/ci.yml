@@ -12,7 +12,7 @@ jobs:
           version: "0.12.9"
       - name: Instalar entorno fijado
         run: uv sync --locked --extra dev --python 3.11.15
-      - name: Lint, formato y contrato sin modelos ni red
+      - name: Lint, formato, esquemas y contratos sin modelos
         run: make check
       - name: Construir distribución
         run: uv build

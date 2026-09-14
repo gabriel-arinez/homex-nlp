@@ -1,10 +1,11 @@
 # HOMEX NLP
 
 Refactorización incremental del componente de reconocimiento de voz y extracción
-para cotizaciones HOMEX. **F00 prepara el paquete y su verificación**; todavía no
-implementa el nuevo motor, CLI, contratos ni backend comercial.
+para cotizaciones HOMEX. F00 preparó el paquete; F01 define contratos, recursos,
+configuración y ejemplos. Todavía no implementa el extractor, CLI ni backend.
 
-La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md).
+La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
+actual está en [Contrato v1](docs/contract-v1.md).
 Las decisiones finales están en [requisitos](docs/requirements.md) y la evidencia
 del punto de partida en [informe F00](docs/F00_PREPARACION.md).
 
@@ -30,8 +31,9 @@ adaptador ASR, pero su existencia como extra no significa que esté implementado
 
 ## Estado del repositorio
 
-- `src/homex_nlp/`: nuevo paquete mínimo importable sin efectos externos.
-- `tests/contract/`: CONTRACT-02, importación aislada fuera del repositorio.
+- `src/homex_nlp/`: contratos Pydantic, configuración y recursos v1; sin extractor.
+- `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados en CI.
+- `tests/contract/`: contratos, ejemplos, schemas e importación aislada.
 - `backend/`, `frontend/`: experimento previo, preservado durante F00.
 - `data/`: fuentes originales preservadas, sin entrenamiento ni curación en F00.
 - `homex_bd_final_v3.sql`: referencia preservada; ampliaciones finales pendientes

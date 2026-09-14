@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "request_id": "example-unit-001",
+  "status": "REQUIRES_REVIEW",
+  "text_original": "Tres escritorios a cien bolivianos cada uno",
+  "item_proposal": {
+    "item_type": "MUEBLE_MEDIDA",
+    "name": "escritorios",
+    "furniture_type_candidate": "ESCRITORIO",
+    "quantity": 3,
+    "components": [],
+    "dimensions": [],
+    "thicknesses": [],
+    "primary_color": null,
+    "secondary_color": null,
+    "accessories": [],
+    "price": {
+      "mode": "PRECIO_UNITARIO",
+      "stated_amount": "100.00",
+      "currency": "BOB",
+      "unit_price_input": "100.00",
+      "line_total": "300.00",
+      "origin": "EXPLICIT_UNIT",
+      "evidence_ids": ["price-1"],
+      "component_ref": null
+    },
+    "observations": null,
+    "unresolved": []
+  },
+  "proposed_item_count": 1,
+  "candidates": [
+    {
+      "candidate_id": "price-1",
+      "label": "PRECIO_TOTAL",
+      "start": 19,
+      "end": 43,
+      "text": "cien bolivianos cada uno",
+      "source": "PARSER",
+      "normalized_value": "100.00",
+      "component_ref": null,
+      "decision": "ACCEPTED",
+      "reason": null
+    }
+  ],
+  "warnings": [],
+  "engine": {
+    "mode": "RULES_ONLY",
+    "model_version": null,
+    "rules_version": "1.0",
+    "normalization_version": "1.0"
+  },
+  "error": null,
+  "latency_nlp_ms": 2
+}

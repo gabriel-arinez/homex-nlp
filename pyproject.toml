@@ -16,13 +16,25 @@ dependencies = [
 [project.optional-dependencies]
 asr = ["faster-whisper==1.2.1"]
 demo = ["fastapi==0.136.3", "uvicorn==0.48.0", "python-multipart==0.0.30"]
-dev = ["pytest>=8.3,<9", "ruff>=0.11,<1"]
+dev = ["jsonschema>=4.23,<5", "pytest>=8.3,<9", "ruff>=0.11,<1"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/homex_nlp"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/src", "/tests", "/pyproject.toml", "/README.md", "/uv.lock", "/.python-version"]
+include = [
+    "/src",
+    "/tests",
+    "/tools/export_schemas.py",
+    "/schemas",
+    "/examples",
+    "/docs/contract-v1.md",
+    "/docs/configuration.md",
+    "/pyproject.toml",
+    "/README.md",
+    "/uv.lock",
+    "/.python-version",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

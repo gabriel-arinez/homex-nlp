@@ -3,7 +3,7 @@
 **Fecha:** 13 de septiembre de 2026.  
 **Versión del plan:** 2.1 — respuestas G01–G03, T01–T09, P29–P32 y comienzo de F00.  
 **Punto de partida:** el repositorio actual `homex-nlp`.  
-**Estado:** F00 completada localmente; las fases posteriores siguen pendientes. Evidencia y alcance ejecutado en [informe F00](F00_PREPARACION.md).  
+**Estado:** F00 y F01 completadas localmente; F02–F11 pendientes. Evidencia en [informe F00](F00_PREPARACION.md) e [informe F01](F01_CONTRATOS.md).
 **Objetivo:** terminar el componente ASR/NLP, dejarlo reproducible, evaluable e integrable y especificar su incorporación al sistema comercial Django/Vue/PostgreSQL.
 
 ## 0. Cómo utilizar este documento
@@ -1207,6 +1207,10 @@ Las pruebas de concurrencia requieren PostgreSQL multiusuario con conexiones dis
 
 ### F01 — Contratos, ejemplos y políticas técnicas
 
+**Completada localmente.** Ver [informe F01](F01_CONTRATOS.md),
+[contrato v1](contract-v1.md) y [configuración](configuration.md). Siete fixtures,
+cinco JSON Schema y 24 pruebas acreditan la salida; aún no existe extractor.
+
 **Repositorio:** NLP. **Dependencias:** F00.
 
 - Implementar `contracts/`, `errors.py`, settings y recursos versionados.
@@ -1215,7 +1219,8 @@ Las pruebas de concurrencia requieren PostgreSQL multiusuario con conexiones dis
 - Definir perfiles de muebles como configuración pendiente de carga real, sin requisitos inventados.
 - Crear guía del consumidor Django, políticas de cambios compatibles y errores; incluir mapeo JSONB V1 de §6.6, estados exactos y diferencia entre evidencia y detalle comercial.
 
-**Salida:** CONTRACT-01 y casos NLP-01/02/03 representables sin pérdida; contrato v1 revisable. Aún no se afirma calidad de extracción.
+**Salida alcanzada:** CONTRACT-01 y casos NLP-01/02/03 son representables sin
+pérdida; contrato v1 validado localmente. No se afirma calidad de extracción.
 
 ### F02 — Corpus técnicamente válido
 

@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "FieldDifference": {
+      "additionalProperties": false,
+      "properties": {
+        "change": {
+          "enum": [
+            "CORRECTED",
+            "ADDED",
+            "REMOVED"
+          ],
+          "title": "Change",
+          "type": "string"
+        },
+        "original": {
+          "$ref": "#/$defs/JsonValue",
+          "default": null
+        },
+        "path": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Path",
+          "type": "string"
+        },
+        "reviewed": {
+          "$ref": "#/$defs/JsonValue",
+          "default": null
+        }
+      },
+      "required": [
+        "path",
+        "change"
+      ],
+      "title": "FieldDifference",
+      "type": "object"
+    },
+    "JsonValue": {}
+  },
+  "$id": "urn:homex:nlp:schema:review-comparison-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "added_fields": {
+      "minimum": 0,
+      "title": "Added Fields",
+      "type": "integer"
+    },
+    "corrected_fields": {
+      "minimum": 0,
+      "title": "Corrected Fields",
+      "type": "integer"
+    },
+    "differences": {
+      "items": {
+        "$ref": "#/$defs/FieldDifference"
+      },
+      "title": "Differences",
+      "type": "array"
+    },
+    "evaluable_fields": {
+      "minimum": 0,
+      "title": "Evaluable Fields",
+      "type": "integer"
+    },
+    "field_precision": {
+      "anyOf": [
+        {
+          "pattern": "^(0(\\.[0-9]{1,12})?|1(\\.0{1,12})?)$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Field Precision"
+    },
+    "item_equal": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Item Equal"
+    },
+    "metric_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Metric Version",
+      "type": "string"
+    },
+    "removed_fields": {
+      "minimum": 0,
+      "title": "Removed Fields",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "metric_version",
+    "evaluable_fields",
+    "corrected_fields",
+    "added_fields",
+    "removed_fields",
+    "field_precision",
+    "item_equal"
+  ],
+  "title": "ReviewComparison",
+  "type": "object"
+}
