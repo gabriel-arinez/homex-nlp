@@ -4,7 +4,7 @@ Refactorización incremental del componente de reconocimiento de voz y extracci�
 para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos, F02
 preservó ambos corpus, F03 incorporó el extractor determinístico y F04 dejó un
 entrenamiento/evaluación NER reproducible. El modelo no se promovió por métricas
-insuficientes; todavía no implementa ASR ni backend.
+insuficientes. F05 añade ASR opcional con temporales efímeros; no hay backend.
 
 La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
 actual está en [Contrato v1](docs/contract-v1.md).
