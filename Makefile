@@ -1,4 +1,4 @@
-.PHONY: check lint test schemas corpus-check docbin-check build distribution-check
+.PHONY: check lint test schemas corpus-check docbin-check build distribution-check demo
 check: lint schemas corpus-check test
 lint:
 	uv run --locked --extra dev ruff check src tests tools training
@@ -16,3 +16,5 @@ build:
 	uv build
 distribution-check: build
 	uv run --locked --extra dev python tools/verify_distribution.py
+demo:
+	uv run --locked --extra demo --extra asr uvicorn tools.demo_api:app --host 127.0.0.1 --port 8001

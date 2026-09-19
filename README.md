@@ -1,15 +1,19 @@
 # HOMEX NLP
 
-Refactorización incremental del componente de reconocimiento de voz y extracción
-para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos, F02
-preservó ambos corpus, F03 incorporó el extractor determinístico y F04 dejó un
-entrenamiento/evaluación NER reproducible. El modelo no se promovió por métricas
-insuficientes. F05 añade ASR opcional con temporales efímeros; no hay backend.
+Componente independiente de reconocimiento de voz y extracción de información para
+cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos, F02 preservó y
+curó ambos corpus, F03 incorporó el extractor determinístico, F04 dejó un
+entrenamiento/evaluación NER reproducible, F05 añadió ASR con Faster-Whisper y F06
+cerró el alcance distribuible del paquete.
 
-La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
-actual está en [Contrato v1](docs/contract-v1.md).
-Las decisiones finales están en [requisitos](docs/requirements.md) y la evidencia
-del punto de partida en [informe F00](docs/F00_PREPARACION.md).
+El primer modelo NER no se promovió por métricas insuficientes. El motor operativo
+actual es `RULES_ONLY`: reglas, expresiones regulares, parsing y normalización
+sobre una propuesta singular. No hay persistencia comercial dentro de este
+repositorio.
+
+La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md), el contrato
+actual está en [Contrato v1](docs/contract-v1.md) y las decisiones finales en
+[requisitos](docs/requirements.md).
 
 ## Entorno reproducible
 
@@ -22,29 +26,78 @@ uv build
 ```
 
 `uv.lock` fija dependencias transitivas. `pyproject.toml` separa runtime de texto
-(spaCy/Pydantic/click), extras `asr` y `demo`, y herramientas `dev`. No instala modelos
-lingüísticos ni descarga pesos ASR. Instalar dependencias requiere acceso al índice
-o una caché preparada; los tests de F00 no usan red ni modelos.
+(spaCy/Pydantic/click), extras `asr` y `demo`, y herramientas `dev`. Los pesos
+ASR no se descargan automáticamente.
 
-El `.venv` de la raíz es nuevo. `backend/.venv` y el experimento anterior se
-conservan; no mezclar entornos ni copiar su `pip freeze` como dependencias directas.
-Para fases posteriores, `uv sync --locked --extra dev --extra asr` instala el
-adaptador ASR, pero su existencia como extra no significa que esté implementado.
+## Demostración rápida: voz → Faster-Whisper → NLP → JSON
+
+La demostración local sirve únicamente para exhibir el componente refactorizado.
+No es el backend comercial Django y no utiliza SQLite, PostgreSQL, Redis ni Celery.
+
+1. Instalar los extras:
+
+```bash
+uv sync --locked --extra dev --extra asr --extra demo
+```
+
+2. Disponer de un modelo Faster-Whisper ya descargado en una ruta local absoluta y
+configurarlo:
+
+```bash
+export HOMEX_ASR_MODEL_PATH=/ruta/absoluta/al/modelo
+export HOMEX_ASR_DEVICE=cpu
+export HOMEX_ASR_COMPUTE_TYPE=int8
+```
+
+3. Arrancar el demo:
+
+```bash
+make demo
+```
+
+4. Abrir en el navegador:
+
+```text
+http://127.0.0.1:8001
+```
+
+El recorrido mostrado es:
+
+```text
+MediaRecorder
+    ↓
+audio temporal WebM
+    ↓
+Faster-Whisper
+    ↓
+TranscriptionResult
+    ↓
+RulesEngine
+    ↓
+ExtractionResult JSON
+```
+
+El archivo temporal se elimina después del intento de transcripción. La pantalla
+muestra transcripción, campos extraídos, modo de precio, latencias y el JSON
+estructurado del contrato v1.
 
 ## Estado del repositorio
 
-- `src/homex_nlp/`: contratos Pydantic, configuración y recursos v1; sin extractor.
-- `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados en CI.
-- `tests/contract/`: contratos, ejemplos, schemas e importación aislada.
-- `backend/homex_trazabilidad.db`: evidencia SQLite del prototipo, fuera de la
-  ruta de ejecución; los ejecutables y frontend experimentales se retiraron en F06.
+- `src/homex_nlp/engine.py`: extractor determinístico activo `RulesEngine`.
+- `src/homex_nlp/asr/`: validación, adaptador Faster-Whisper y servicio ASR.
+- `src/homex_nlp/contracts/`: contratos Pydantic de entrada, transcripción,
+  propuesta, evidencia y salida.
+- `training/`: validación de corpus, conversión, configuración spaCy NER y
+  evaluación reproducible.
+- `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados.
+- `frontend/index.html` + `tools/demo_api.py`: demostrador visual local, sin
+  persistencia comercial.
+- `backend/homex_trazabilidad.db`: evidencia SQLite del prototipo anterior,
+  conservada fuera de la ruta activa.
 - `data/raw/`, `data/curated/`, `data/manifests/`, `data/splits/`: fuentes
-  verificables, copias curadas, cambios trazables y test sellado de F02.
-- `homex_bd_final_v3.sql`: referencia preservada; ampliaciones finales pendientes
-  de migraciones F07/F08, no esquema ya corregido.
-- `docs/`: arquitectura, integración, requisitos y manifiesto del baseline.
+  verificables, copias curadas y particiones.
+- `homex_bd_final_v3.sql`: referencia del futuro backend; su formalización en
+  migraciones pertenece a F07/F08.
 
-La CI instala desde el lock, revisa formato/lint, ejecuta el contrato y construye
-el wheel. También verifica su importación en un entorno separado sin dependencias.
-No ejecuta el servidor experimental ni inicializa SQLite. El wheel y el sdist
-excluyen el prototipo, SQLite y datasets; las fuentes se conservan en Git.
+La CI instala desde el lock, revisa formato/lint, valida esquemas y corpus, ejecuta
+tests y construye el wheel. No ejecuta el servidor demo ni inicializa SQLite.

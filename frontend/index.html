@@ -3,183 +3,150 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOMEX — Captura de cotización por voz</title>
+    <title>HOMEX — Demo ASR + NLP</title>
     <style>
         :root {
             --bg: #f4f7fb;
             --surface: #ffffff;
             --surface-soft: #f8fafc;
             --border: #e2e8f0;
-            --text-main: #0f172a;
-            --text-sub: #64748b;
+            --text: #0f172a;
+            --muted: #64748b;
             --primary: #2563eb;
-            --primary-hover: #1d4ed8;
             --danger: #dc2626;
-            --danger-hover: #b91c1c;
             --success: #059669;
             --warning: #d97706;
             --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-            --radius: 18px;
-            --radius-sm: 10px;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
-            min-height: 100vh;
             margin: 0;
-            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 34%),
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.09), transparent 30%),
                 var(--bg);
-            color: var(--text-main);
         }
 
         .page {
-            width: min(940px, calc(100% - 32px));
+            width: min(1050px, calc(100% - 28px));
             margin: 0 auto;
-            padding: 54px 0 64px;
+            padding: 38px 0 54px;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 18px;
         }
 
         .brand-mark {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
+            width: 44px;
+            height: 44px;
             display: grid;
             place-items: center;
+            border-radius: 13px;
             background: var(--primary);
-            color: white;
-            font-size: 21px;
+            color: #fff;
+            font-size: 20px;
             font-weight: 800;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.22);
         }
 
-        .brand-copy strong {
-            display: block;
-            font-size: 18px;
-            letter-spacing: 0.01em;
-        }
-
-        .brand-copy span {
-            display: block;
-            margin-top: 2px;
-            font-size: 12px;
-            color: var(--text-sub);
-        }
+        .brand strong { display: block; }
+        .brand span { color: var(--muted); font-size: 12px; }
 
         .hero {
-            margin-bottom: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
             margin: 0;
-            font-size: clamp(28px, 4vw, 42px);
-            line-height: 1.12;
+            font-size: clamp(28px, 4vw, 40px);
             letter-spacing: -0.03em;
         }
 
         .hero p {
+            margin: 8px 0 0;
             max-width: 680px;
-            margin: 12px 0 0;
-            color: var(--text-sub);
-            font-size: 15px;
-            line-height: 1.65;
+            color: var(--muted);
+            line-height: 1.6;
         }
 
-        .capture-card {
+        .pipeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .chip {
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .panel {
             background: var(--surface);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            border-radius: 18px;
             box-shadow: var(--shadow);
             overflow: hidden;
+            margin-top: 16px;
         }
 
-        .capture-top {
-            padding: 28px;
-            border-bottom: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .capture-title {
+        .panel-head {
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 22px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .mic-orb {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: #eff6ff;
-            color: var(--primary);
-            font-size: 25px;
-            flex: 0 0 auto;
-        }
-
-        .capture-title h2 {
+        .panel-head h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 17px;
         }
 
-        .capture-title p {
-            margin: 5px 0 0;
-            color: var(--text-sub);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .recording-meta {
-            text-align: right;
-            min-width: 110px;
+        .panel-head p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 12px;
         }
 
         .timer {
+            font-size: 23px;
+            font-weight: 800;
             font-variant-numeric: tabular-nums;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
         }
 
-        .timer-label {
-            margin-top: 2px;
-            font-size: 11px;
-            color: var(--text-sub);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
+        .panel-body { padding: 22px; }
 
-        .capture-body {
-            padding: 28px;
-        }
-
-        .status-box {
+        .status {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 14px;
-            border-radius: var(--radius-sm);
+            padding: 11px 13px;
+            border-radius: 10px;
             background: var(--surface-soft);
             border: 1px solid var(--border);
-            color: var(--text-sub);
+            color: var(--muted);
             font-size: 13px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        .status-dot {
+        .dot {
             width: 9px;
             height: 9px;
             border-radius: 50%;
@@ -187,184 +154,138 @@
             flex: 0 0 auto;
         }
 
-        .status-box.recording {
-            background: #fff7f7;
-            border-color: #fecaca;
-            color: #991b1b;
-        }
-
-        .status-box.recording .status-dot {
-            background: var(--danger);
-            animation: pulse 1s ease-in-out infinite;
-        }
-
-        .status-box.processing {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: #1e40af;
-        }
-
-        .status-box.processing .status-dot {
-            background: var(--primary);
-        }
-
-        .status-box.success {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
-            color: #065f46;
-        }
-
-        .status-box.success .status-dot {
-            background: var(--success);
-        }
-
-        .status-box.error {
-            background: #fef2f2;
-            border-color: #fecaca;
-            color: #991b1b;
-        }
-
-        .status-box.error .status-dot {
-            background: var(--danger);
-        }
+        .status.recording { background: #fff7f7; border-color: #fecaca; color: #991b1b; }
+        .status.recording .dot { background: var(--danger); animation: pulse 1s infinite; }
+        .status.processing { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+        .status.processing .dot { background: var(--primary); }
+        .status.success { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+        .status.success .dot { background: var(--success); }
+        .status.error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+        .status.error .dot { background: var(--danger); }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.6); opacity: 0.45; }
+            50% { transform: scale(1.55); opacity: .45; }
         }
 
         .controls {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 26px;
         }
 
-        .btn {
-            min-height: 46px;
-            padding: 0 20px;
+        button {
+            min-height: 44px;
+            padding: 0 18px;
             border: 0;
             border-radius: 10px;
             font: inherit;
-            font-weight: 700;
+            font-weight: 750;
             cursor: pointer;
-            transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
-        .btn:hover:not(:disabled) {
-            transform: translateY(-1px);
+        button:disabled { opacity: .55; cursor: not-allowed; }
+        .record { background: var(--danger); color: #fff; }
+        .stop { background: var(--primary); color: #fff; display: none; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
-        .btn:disabled {
-            opacity: 0.55;
-            cursor: not-allowed;
-        }
-
-        .btn-record {
-            background: var(--danger);
-            color: #fff;
-        }
-
-        .btn-record:hover:not(:disabled) {
-            background: var(--danger-hover);
-        }
-
-        .btn-stop {
-            display: none;
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .btn-stop:hover:not(:disabled) {
-            background: var(--primary-hover);
-        }
-
-        .transcript-label {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
-        .transcript-label label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #334155;
-        }
-
-        .transcript-label span {
-            font-size: 11px;
-            color: var(--text-sub);
-        }
-
-        #txtCrudo {
-            width: 100%;
-            min-height: 220px;
-            resize: vertical;
-            padding: 16px;
+        .card {
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            background: var(--surface-soft);
-            color: var(--text-main);
-            font: inherit;
-            font-size: 14px;
-            line-height: 1.65;
-            outline: none;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 20px;
         }
 
-        #txtCrudo:focus {
-            border-color: #93c5fd;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+        .card h3 {
+            margin: 0 0 4px;
+            font-size: 15px;
         }
 
-        .helper {
-            margin: 10px 0 0;
-            color: var(--text-sub);
+        .card .sub {
+            color: var(--muted);
             font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        textarea, pre {
+            width: 100%;
+            margin: 0;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: var(--surface-soft);
+            color: var(--text);
+        }
+
+        textarea {
+            min-height: 145px;
+            padding: 14px;
+            resize: vertical;
+            font: inherit;
             line-height: 1.55;
         }
 
-        .spinner {
-            width: 14px;
-            height: 14px;
-            border: 2px solid currentColor;
-            border-top-color: transparent;
-            border-radius: 50%;
-            display: inline-block;
-            animation: spin 0.7s linear infinite;
+        pre {
+            min-height: 270px;
+            max-height: 430px;
+            overflow: auto;
+            padding: 14px;
+            font-size: 12px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
         }
 
-        @media (max-width: 640px) {
-            .page {
-                width: min(100% - 20px, 940px);
-                padding-top: 28px;
-            }
+        .fact {
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 11px 12px;
+            min-height: 66px;
+        }
 
-            .capture-top,
-            .capture-body {
-                padding: 20px;
-            }
+        .fact span {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
 
-            .capture-top {
-                grid-template-columns: 1fr;
-            }
+        .fact strong {
+            display: block;
+            font-size: 14px;
+            word-break: break-word;
+        }
 
-            .recording-meta {
-                text-align: left;
-            }
+        .technical {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 11px;
+        }
 
-            .controls .btn {
-                width: 100%;
-            }
+        .technical b { color: #334155; }
+
+        .empty { color: var(--muted); font-weight: 500 !important; }
+
+        @media (max-width: 760px) {
+            .hero { display: block; }
+            .pipeline { justify-content: flex-start; margin-top: 12px; }
+            .grid { grid-template-columns: 1fr; }
+            .facts { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -372,182 +293,261 @@
     <main class="page">
         <div class="brand">
             <div class="brand-mark">H</div>
-            <div class="brand-copy">
+            <div>
                 <strong>HOMEX</strong>
-                <span>Sistema de gestión de pedidos</span>
+                <span>Demostración del componente ASR/NLP</span>
             </div>
         </div>
 
         <section class="hero">
-            <h1>Captura de cotización por voz</h1>
+            <div>
+                <h1>Captura de cotización por voz</h1>
+                <p>Audio del navegador → Faster-Whisper → motor determinístico HOMEX → JSON estructurado.</p>
+            </div>
+            <div class="pipeline" aria-label="Pipeline">
+                <span class="chip">MediaRecorder</span>
+                <span class="chip">Faster-Whisper</span>
+                <span class="chip">RulesEngine</span>
+                <span class="chip">JSON v1</span>
+            </div>
         </section>
 
-        <section class="capture-card" aria-labelledby="titulo-captura">
-            <div class="capture-top">
-                <div class="capture-title">
-                    <div class="mic-orb" aria-hidden="true">🎙️</div>
-                    <div>
-                        <h2 id="titulo-captura">Captura de audio</h2>
-                        <p>Presione iniciar, dicte la cotización y detenga la grabación al finalizar.</p>
-                    </div>
+        <section class="panel">
+            <div class="panel-head">
+                <div>
+                    <h2>1. Captura de audio</h2>
+                    <p>El audio se utiliza como temporal y se elimina después de la transcripción.</p>
                 </div>
-
-                <div class="recording-meta" aria-live="polite">
-                    <div class="timer" id="timer">00:00</div>
-                    <div class="timer-label">duración</div>
-                </div>
+                <div id="timer" class="timer">00:00</div>
             </div>
-
-            <div class="capture-body">
-                <div id="statusBox" class="status-box" role="status" aria-live="polite">
-                    <span class="status-dot"></span>
+            <div class="panel-body">
+                <div id="statusBox" class="status">
+                    <span class="dot"></span>
                     <span id="statusText">Listo para iniciar una grabación.</span>
                 </div>
-
                 <div class="controls">
-                    <button id="btnGrabar" class="btn btn-record" type="button">
-                        <span aria-hidden="true">●</span>
-                        Iniciar grabación
-                    </button>
-                    <button id="btnDetener" class="btn btn-stop" type="button">
-                        <span aria-hidden="true">■</span>
-                        Detener grabación
-                    </button>
+                    <button id="btnRecord" class="record" type="button">● Iniciar grabación</button>
+                    <button id="btnStop" class="stop" type="button">■ Detener grabación</button>
                 </div>
-
-                <div class="transcript-label">
-                    <label for="txtCrudo">Transcripción del audio</label>
-                    <span>Texto reconocido automáticamente</span>
-                </div>
-
-                <textarea
-                    id="txtCrudo"
-                    readonly
-                    placeholder="La transcripción aparecerá aquí cuando finalice el procesamiento del audio..."
-                ></textarea>
             </div>
+        </section>
+
+        <div class="grid">
+            <section class="card">
+                <h3>2. Transcripción</h3>
+                <div class="sub">Texto reconocido automáticamente por Faster-Whisper</div>
+                <textarea id="transcript" readonly placeholder="La transcripción aparecerá aquí..."></textarea>
+                <div class="technical">
+                    <span>Modelo ASR: <b id="asrModel">—</b></span>
+                    <span>Latencia ASR: <b id="asrLatency">—</b></span>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>3. Datos extraídos</h3>
+                <div class="sub">Resultado del motor determinístico HOMEX</div>
+                <div class="facts">
+                    <div class="fact"><span>Producto</span><strong id="product" class="empty">—</strong></div>
+                    <div class="fact"><span>Cantidad</span><strong id="quantity" class="empty">—</strong></div>
+                    <div class="fact"><span>Dimensiones</span><strong id="dimensions" class="empty">—</strong></div>
+                    <div class="fact"><span>Espesores</span><strong id="thicknesses" class="empty">—</strong></div>
+                    <div class="fact"><span>Precio</span><strong id="price" class="empty">—</strong></div>
+                    <div class="fact"><span>Modo</span><strong id="priceMode" class="empty">—</strong></div>
+                </div>
+                <div class="technical">
+                    <span>Motor: <b id="engineMode">—</b></span>
+                    <span>Latencia NLP: <b id="nlpLatency">—</b></span>
+                </div>
+            </section>
+        </div>
+
+        <section class="card" style="margin-top:16px">
+            <h3>4. JSON estructurado</h3>
+            <div class="sub">Contrato ExtractionResult v1 listo para ser consumido por el backend futuro</div>
+            <pre id="jsonOutput">{}</pre>
         </section>
     </main>
 
     <script>
-        const API_BASE = 'http://127.0.0.1:8001';
+        const API_BASE = window.location.protocol === 'file:' ? 'http://127.0.0.1:8001' : '';
 
-        const btnGrabar = document.getElementById('btnGrabar');
-        const btnDetener = document.getElementById('btnDetener');
-        const txtCrudo = document.getElementById('txtCrudo');
+        const btnRecord = document.getElementById('btnRecord');
+        const btnStop = document.getElementById('btnStop');
+        const transcript = document.getElementById('transcript');
         const statusBox = document.getElementById('statusBox');
         const statusText = document.getElementById('statusText');
         const timer = document.getElementById('timer');
+        const jsonOutput = document.getElementById('jsonOutput');
 
-        let mediaRecorder = null;
-        let audioChunks = [];
-        let timerInterval = null;
-        let recordingStartedAt = null;
+        let recorder = null;
+        let chunks = [];
+        let interval = null;
+        let startedAt = null;
 
-        btnGrabar.addEventListener('click', iniciarGrabacion);
-        btnDetener.addEventListener('click', detenerGrabacion);
+        btnRecord.addEventListener('click', startRecording);
+        btnStop.addEventListener('click', stopRecording);
 
-        async function iniciarGrabacion() {
+        async function startRecording() {
             try {
-                audioChunks = [];
-                txtCrudo.value = '';
+                resetResults();
+
+                if (!navigator.mediaDevices || !window.MediaRecorder) {
+                    throw new Error('Este navegador no soporta captura de audio con MediaRecorder.');
+                }
 
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
+                const preferred = 'audio/webm;codecs=opus';
+                const options = MediaRecorder.isTypeSupported(preferred) ? { mimeType: preferred } : undefined;
 
-                mediaRecorder.addEventListener('dataavailable', event => {
-                    if (event.data && event.data.size > 0) {
-                        audioChunks.push(event.data);
-                    }
+                chunks = [];
+                recorder = new MediaRecorder(stream, options);
+                recorder.addEventListener('dataavailable', function (event) {
+                    if (event.data && event.data.size > 0) chunks.push(event.data);
                 });
+                recorder.addEventListener('stop', sendAudio);
+                recorder.start();
 
-                mediaRecorder.addEventListener('stop', enviarAlBackend);
-                mediaRecorder.start();
-
-                btnGrabar.style.display = 'none';
-                btnDetener.style.display = 'inline-flex';
-                btnDetener.disabled = false;
-
-                iniciarTemporizador();
-                setEstado('recording', 'Grabando audio. Puede comenzar a dictar la cotización.');
+                btnRecord.style.display = 'none';
+                btnStop.style.display = 'inline-block';
+                btnStop.disabled = false;
+                startTimer();
+                setStatus('recording', 'Grabando. Dicte una cotización breve y detenga la grabación.');
             } catch (error) {
-                setEstado('error', `No se pudo acceder al micrófono: ${error.message}`);
+                setStatus('error', 'No se pudo iniciar la grabación: ' + error.message);
             }
         }
 
-        function detenerGrabacion() {
-            if (!mediaRecorder || mediaRecorder.state === 'inactive') {
-                return;
-            }
-
-            btnDetener.disabled = true;
-            mediaRecorder.stop();
-            mediaRecorder.stream.getTracks().forEach(track => track.stop());
-
-            detenerTemporizador();
-            setEstado('processing', 'Procesando el audio y generando la transcripción...', true);
+        function stopRecording() {
+            if (!recorder || recorder.state === 'inactive') return;
+            btnStop.disabled = true;
+            recorder.stop();
+            recorder.stream.getTracks().forEach(function (track) { track.stop(); });
+            stopTimer();
+            setStatus('processing', 'Procesando audio con Faster-Whisper y ejecutando NLP...');
         }
 
-        async function enviarAlBackend() {
-            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        async function sendAudio() {
+            const mimeType = recorder && recorder.mimeType ? recorder.mimeType : 'audio/webm';
+            const blob = new Blob(chunks, { type: mimeType });
             const formData = new FormData();
-            formData.append('file', audioBlob, 'captura.webm');
+            formData.append('file', blob, 'captura.webm');
 
             try {
-                const response = await fetch(`${API_BASE}/api/pipeline/process/`, {
+                const response = await fetch(API_BASE + '/api/pipeline/process/', {
                     method: 'POST',
-                    body: formData,
+                    body: formData
                 });
 
+                const data = await response.json().catch(function () { return {}; });
                 if (!response.ok) {
-                    const errorBody = await response.json().catch(() => ({ detail: response.statusText }));
-                    throw new Error(errorBody.detail || `HTTP ${response.status}`);
+                    throw new Error(formatError(data.detail) || ('HTTP ' + response.status));
                 }
 
-                const data = await response.json();
-                txtCrudo.value = data.texto_crudo || '';
-
-                if (txtCrudo.value.trim()) {
-                    setEstado('success', 'Audio procesado correctamente. La transcripción está lista para revisión.');
-                } else {
-                    setEstado('success', 'Audio procesado correctamente, pero no se reconoció texto.');
-                }
+                renderResult(data);
+                setStatus('success', 'Pipeline completado: audio → transcripción → NLP → JSON.');
             } catch (error) {
-                setEstado('error', `No se pudo procesar el audio: ${error.message}`);
-                console.error('[HOMEX]', error);
+                setStatus('error', 'No se pudo completar el pipeline: ' + error.message);
             } finally {
-                btnGrabar.style.display = 'inline-flex';
-                btnGrabar.disabled = false;
-                btnDetener.style.display = 'none';
-                btnDetener.disabled = false;
+                btnRecord.style.display = 'inline-block';
+                btnStop.style.display = 'none';
+                btnStop.disabled = false;
             }
         }
 
-        function iniciarTemporizador() {
-            detenerTemporizador();
-            recordingStartedAt = Date.now();
-            timer.textContent = '00:00';
+        function renderResult(data) {
+            const transcription = data.transcription || {};
+            const extraction = data.extraction || {};
+            const item = extraction.item_proposal || {};
+            const priceData = item.price || {};
 
-            timerInterval = setInterval(() => {
-                const elapsedSeconds = Math.floor((Date.now() - recordingStartedAt) / 1000);
-                const minutes = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
-                const seconds = (elapsedSeconds % 60).toString().padStart(2, '0');
-                timer.textContent = `${minutes}:${seconds}`;
+            transcript.value = data.texto_crudo || '';
+            setText('asrModel', transcription.model_version || '—');
+            setText('asrLatency', formatMs(transcription.latency_ms));
+            setText('engineMode', extraction.engine ? extraction.engine.mode : '—');
+            setText('nlpLatency', formatMs(extraction.latency_nlp_ms));
+
+            setFact('product', item.name);
+            setFact('quantity', item.quantity);
+            setFact('dimensions', formatDimensions(item.dimensions));
+            setFact('thicknesses', formatThicknesses(item.thicknesses));
+
+            const priceText = priceData.line_total
+                ? priceData.line_total + ' ' + (priceData.currency || '')
+                : null;
+            setFact('price', priceText);
+            setFact('priceMode', priceData.mode);
+
+            jsonOutput.textContent = JSON.stringify(extraction, null, 2);
+        }
+
+        function formatDimensions(values) {
+            if (!Array.isArray(values) || !values.length) return null;
+            return values.map(function (value) {
+                const unit = value.unit || '';
+                return value.axis + ': ' + value.value + (unit ? ' ' + unit : '');
+            }).join(' · ');
+        }
+
+        function formatThicknesses(values) {
+            if (!Array.isArray(values) || !values.length) return null;
+            return values.map(function (value) {
+                return value.value + ' ' + (value.unit || '');
+            }).join(' · ');
+        }
+
+        function formatError(detail) {
+            if (!detail) return '';
+            if (typeof detail === 'string') return detail;
+            if (detail.message) return detail.message;
+            return JSON.stringify(detail);
+        }
+
+        function formatMs(value) {
+            return value === null || value === undefined ? '—' : String(value) + ' ms';
+        }
+
+        function setFact(id, value) {
+            const element = document.getElementById(id);
+            const present = value !== null && value !== undefined && String(value).trim() !== '';
+            element.textContent = present ? String(value) : '—';
+            element.classList.toggle('empty', !present);
+        }
+
+        function setText(id, value) {
+            document.getElementById(id).textContent = value;
+        }
+
+        function resetResults() {
+            transcript.value = '';
+            jsonOutput.textContent = '{}';
+            ['product', 'quantity', 'dimensions', 'thicknesses', 'price', 'priceMode'].forEach(function (id) {
+                setFact(id, null);
+            });
+            ['asrModel', 'asrLatency', 'engineMode', 'nlpLatency'].forEach(function (id) {
+                setText(id, '—');
+            });
+        }
+
+        function setStatus(kind, message) {
+            statusBox.className = 'status ' + (kind || '');
+            statusText.textContent = message;
+        }
+
+        function startTimer() {
+            stopTimer();
+            startedAt = Date.now();
+            timer.textContent = '00:00';
+            interval = setInterval(function () {
+                const secondsTotal = Math.floor((Date.now() - startedAt) / 1000);
+                const minutes = String(Math.floor(secondsTotal / 60)).padStart(2, '0');
+                const seconds = String(secondsTotal % 60).padStart(2, '0');
+                timer.textContent = minutes + ':' + seconds;
             }, 250);
         }
 
-        function detenerTemporizador() {
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-            }
-        }
-
-        function setEstado(tipo, mensaje, mostrarSpinner = false) {
-            statusBox.className = `status-box ${tipo || ''}`.trim();
-            statusText.innerHTML = mostrarSpinner
-                ? `<span class="spinner" aria-hidden="true"></span>&nbsp; ${mensaje}`
-                : mensaje;
+        function stopTimer() {
+            if (interval) clearInterval(interval);
+            interval = null;
         }
     </script>
 </body>
