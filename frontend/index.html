@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOMEX — Captura de cotización por voz</title>
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f8fafc;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --success: #059669;
+            --warning: #d97706;
+            --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            --radius: 18px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 34%),
+                var(--bg);
+            color: var(--text-main);
+        }
+
+        .page {
+            width: min(940px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 54px 0 64px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .brand-mark {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: var(--primary);
+            color: white;
+            font-size: 21px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.22);
+        }
+
+        .brand-copy strong {
+            display: block;
+            font-size: 18px;
+            letter-spacing: 0.01em;
+        }
+
+        .brand-copy span {
+            display: block;
+            margin-top: 2px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .hero {
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 12px 0 0;
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .capture-card {
+            background: var(--surface);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .capture-top {
+            padding: 28px;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .capture-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .mic-orb {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #eff6ff;
+            color: var(--primary);
+            font-size: 25px;
+            flex: 0 0 auto;
+        }
+
+        .capture-title h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .capture-title p {
+            margin: 5px 0 0;
+            color: var(--text-sub);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .recording-meta {
+            text-align: right;
+            min-width: 110px;
+        }
+
+        .timer {
+            font-variant-numeric: tabular-nums;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .timer-label {
+            margin-top: 2px;
+            font-size: 11px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .capture-body {
+            padding: 28px;
+        }
+
+        .status-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #94a3b8;
+            flex: 0 0 auto;
+        }
+
+        .status-box.recording {
+            background: #fff7f7;
+            border-color: #fecaca;
+            color: #991b1b;
+        }
+
+        .status-box.recording .status-dot {
+            background: var(--danger);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .status-box.processing {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .status-box.processing .status-dot {
+            background: var(--primary);
+        }
+
+        .status-box.success {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .status-box.success .status-dot {
+            background: var(--success);
+        }
+
+        .status-box.error {
+            background: #fef2f2;
+            border-color: #fecaca;
+            color: #991b1b;
+        }
+
+        .status-box.error .status-dot {
+            background: var(--danger);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.6); opacity: 0.45; }
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 26px;
+        }
+
+        .btn {
+            min-height: 46px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 10px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .btn-record {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .btn-record:hover:not(:disabled) {
+            background: var(--danger-hover);
+        }
+
+        .btn-stop {
+            display: none;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-stop:hover:not(:disabled) {
+            background: var(--primary-hover);
+        }
+
+        .transcript-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .transcript-label label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .transcript-label span {
+            font-size: 11px;
+            color: var(--text-sub);
+        }
+
+        #txtCrudo {
+            width: 100%;
+            min-height: 220px;
+            resize: vertical;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface-soft);
+            color: var(--text-main);
+            font: inherit;
+            font-size: 14px;
+            line-height: 1.65;
+            outline: none;
+        }
+
+        #txtCrudo:focus {
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+        }
+
+        .helper {
+            margin: 10px 0 0;
+            color: var(--text-sub);
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 940px);
+                padding-top: 28px;
+            }
+
+            .capture-top,
+            .capture-body {
+                padding: 20px;
+            }
+
+            .capture-top {
+                grid-template-columns: 1fr;
+            }
+
+            .recording-meta {
+                text-align: left;
+            }
+
+            .controls .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="brand">
+            <div class="brand-mark">H</div>
+            <div class="brand-copy">
+                <strong>HOMEX</strong>
+                <span>Sistema de gestión de pedidos</span>
+            </div>
+        </div>
+
+        <section class="hero">
+            <h1>Captura de cotización por voz</h1>
+        </section>
+
+        <section class="capture-card" aria-labelledby="titulo-captura">
+            <div class="capture-top">
+                <div class="capture-title">
+                    <div class="mic-orb" aria-hidden="true">🎙️</div>
+                    <div>
+                        <h2 id="titulo-captura">Captura de audio</h2>
+                        <p>Presione iniciar, dicte la cotización y detenga la grabación al finalizar.</p>
+                    </div>
+                </div>
+
+                <div class="recording-meta" aria-live="polite">
+                    <div class="timer" id="timer">00:00</div>
+                    <div class="timer-label">duración</div>
+                </div>
+            </div>
+
+            <div class="capture-body">
+                <div id="statusBox" class="status-box" role="status" aria-live="polite">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Listo para iniciar una grabación.</span>
+                </div>
+
+                <div class="controls">
+                    <button id="btnGrabar" class="btn btn-record" type="button">
+                        <span aria-hidden="true">●</span>
+                        Iniciar grabación
+                    </button>
+                    <button id="btnDetener" class="btn btn-stop" type="button">
+                        <span aria-hidden="true">■</span>
+                        Detener grabación
+                    </button>
+                </div>
+
+                <div class="transcript-label">
+                    <label for="txtCrudo">Transcripción del audio</label>
+                    <span>Texto reconocido automáticamente</span>
+                </div>
+
+                <textarea
+                    id="txtCrudo"
+                    readonly
+                    placeholder="La transcripción aparecerá aquí cuando finalice el procesamiento del audio..."
+                ></textarea>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const API_BASE = 'http://127.0.0.1:8001';
+
+        const btnGrabar = document.getElementById('btnGrabar');
+        const btnDetener = document.getElementById('btnDetener');
+        const txtCrudo = document.getElementById('txtCrudo');
+        const statusBox = document.getElementById('statusBox');
+        const statusText = document.getElementById('statusText');
+        const timer = document.getElementById('timer');
+
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let timerInterval = null;
+        let recordingStartedAt = null;
+
+        btnGrabar.addEventListener('click', iniciarGrabacion);
+        btnDetener.addEventListener('click', detenerGrabacion);
+
+        async function iniciarGrabacion() {
+            try {
+                audioChunks = [];
+                txtCrudo.value = '';
+
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.addEventListener('dataavailable', event => {
+                    if (event.data && event.data.size > 0) {
+                        audioChunks.push(event.data);
+                    }
+                });
+
+                mediaRecorder.addEventListener('stop', enviarAlBackend);
+                mediaRecorder.start();
+
+                btnGrabar.style.display = 'none';
+                btnDetener.style.display = 'inline-flex';
+                btnDetener.disabled = false;
+
+                iniciarTemporizador();
+                setEstado('recording', 'Grabando audio. Puede comenzar a dictar la cotización.');
+            } catch (error) {
+                setEstado('error', `No se pudo acceder al micrófono: ${error.message}`);
+            }
+        }
+
+        function detenerGrabacion() {
+            if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+                return;
+            }
+
+            btnDetener.disabled = true;
+            mediaRecorder.stop();
+            mediaRecorder.stream.getTracks().forEach(track => track.stop());
+
+            detenerTemporizador();
+            setEstado('processing', 'Procesando el audio y generando la transcripción...', true);
+        }
+
+        async function enviarAlBackend() {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const formData = new FormData();
+            formData.append('file', audioBlob, 'captura.webm');
+
+            try {
+                const response = await fetch(`${API_BASE}/api/pipeline/process/`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    const errorBody = await response.json().catch(() => ({ detail: response.statusText }));
+                    throw new Error(errorBody.detail || `HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                txtCrudo.value = data.texto_crudo || '';
+
+                if (txtCrudo.value.trim()) {
+                    setEstado('success', 'Audio procesado correctamente. La transcripción está lista para revisión.');
+                } else {
+                    setEstado('success', 'Audio procesado correctamente, pero no se reconoció texto.');
+                }
+            } catch (error) {
+                setEstado('error', `No se pudo procesar el audio: ${error.message}`);
+                console.error('[HOMEX]', error);
+            } finally {
+                btnGrabar.style.display = 'inline-flex';
+                btnGrabar.disabled = false;
+                btnDetener.style.display = 'none';
+                btnDetener.disabled = false;
+            }
+        }
+
+        function iniciarTemporizador() {
+            detenerTemporizador();
+            recordingStartedAt = Date.now();
+            timer.textContent = '00:00';
+
+            timerInterval = setInterval(() => {
+                const elapsedSeconds = Math.floor((Date.now() - recordingStartedAt) / 1000);
+                const minutes = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
+                const seconds = (elapsedSeconds % 60).toString().padStart(2, '0');
+                timer.textContent = `${minutes}:${seconds}`;
+            }, 250);
+        }
+
+        function detenerTemporizador() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+
+        function setEstado(tipo, mensaje, mostrarSpinner = false) {
+            statusBox.className = `status-box ${tipo || ''}`.trim();
+            statusText.innerHTML = mostrarSpinner
+                ? `<span class="spinner" aria-hidden="true"></span>&nbsp; ${mensaje}`
+                : mensaje;
+        }
+    </script>
+</body>
+</html>
