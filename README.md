@@ -1,50 +1,98 @@
 # HOMEX NLP
 
-Refactorización incremental del componente de reconocimiento de voz y extracción
-para cotizaciones HOMEX. F00 preparó el paquete, F01 definió contratos, F02
-preservó ambos corpus, F03 incorporó el extractor determinístico y F04 dejó un
-entrenamiento/evaluación NER reproducible. El modelo no se promovió por métricas
-insuficientes. F05 añade ASR opcional con temporales efímeros; no hay backend.
+Componente distribuible de reconocimiento de voz y extracción de información para
+cotizaciones HOMEX. F00–F06 separaron el prototipo histórico del paquete,
+formalizaron contratos estrictos, corpus reproducible, motor determinístico,
+evaluación NER, ASR opcional y distribución instalable.
 
-La guía es [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md) y el contrato
-actual está en [Contrato v1](docs/contract-v1.md).
-Las decisiones finales están en [requisitos](docs/requirements.md) y la evidencia
-del punto de partida en [informe F00](docs/F00_PREPARACION.md).
+La versión de integración actual es **`homex-nlp 0.1.0`**, con contrato
+**`schema_version = "1.0"`**. El motor operativo es **`RULES_ONLY`**; el primer
+modelo NER fue evaluado y no promovido por métricas insuficientes.
+
+La guía general está en
+[Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md), el contrato público en
+[Contrato v1](docs/contract-v1.md) y la frontera con Django en
+[Integración Django](docs/integration-django.md).
 
 ## Entorno reproducible
 
-Python 3.11 (baseline comprobado: 3.11.15) y uv 0.12.9. Desde la raíz:
+Baseline: Python 3.11.15 y uv 0.12.9.
 
 ```bash
-uv sync --locked --extra dev
+uv sync --locked --extra dev --extra asr
 make check
-uv build
+make distribution-check
 ```
 
-`uv.lock` fija dependencias transitivas. `pyproject.toml` separa runtime de texto
-(spaCy/Pydantic/click), extras `asr` y `demo`, y herramientas `dev`. No instala modelos
-lingüísticos ni descarga pesos ASR. Instalar dependencias requiere acceso al índice
-o una caché preparada; los tests de F00 no usan red ni modelos.
+`make distribution-check` construye wheel y sdist, los instala por separado en
+entornos limpios con sus dependencias y ejecuta un smoke test equivalente al
+consumidor de F08.0 del backend.
 
-El `.venv` de la raíz es nuevo. `backend/.venv` y el experimento anterior se
-conservan; no mezclar entornos ni copiar su `pip freeze` como dependencias directas.
-Para fases posteriores, `uv sync --locked --extra dev --extra asr` instala el
-adaptador ASR, pero su existencia como extra no significa que esté implementado.
+## Contrato para HOMEX Backend
+
+El backend consume el paquete como dependencia inmutable. No debe importar
+módulos internos fuera de las interfaces públicas documentadas ni usar una rama
+flotante como dependencia de release.
+
+Interfaz NLP v1:
+
+```python
+from homex_nlp.contracts import ExtractionRequest, ExtractionResult
+from homex_nlp.engine import RulesEngine
+
+request = ExtractionRequest(
+    request_id="...",
+    text="tres muebles, total 100",
+    currency_context="BOB",
+)
+result: ExtractionResult = RulesEngine().extract(request)
+```
+
+F08.0 debe validar `result.schema_version == "1.0"` antes de mapear la salida al
+dominio Django. El paquete no autentica, no autoriza, no conoce modelos ORM y no
+persiste información comercial.
+
+Para HITL existe `homex_nlp.field_comparison.compare_fields` como función pura;
+el original IA siempre debe recuperarse desde evidencia persistida por el backend.
+
+## ASR
+
+Faster-Whisper es opcional:
+
+```bash
+uv sync --locked --extra asr
+```
+
+El paquete **no descarga pesos automáticamente**. El consumidor proporciona una
+ruta local absoluta al modelo. El adaptador ASR es perezoso y no carga el modelo
+al importar el paquete.
+
+El modelo ASR, Redis, Celery, Django y PostgreSQL no forman parte de la
+distribución base de `homex-nlp`.
 
 ## Estado del repositorio
 
-- `src/homex_nlp/`: contratos Pydantic, configuración y recursos v1; sin extractor.
-- `schemas/`, `examples/`: JSON Schema y fixtures normativos comprobados en CI.
-- `tests/contract/`: contratos, ejemplos, schemas e importación aislada.
-- `backend/homex_trazabilidad.db`: evidencia SQLite del prototipo, fuera de la
-  ruta de ejecución; los ejecutables y frontend experimentales se retiraron en F06.
-- `data/raw/`, `data/curated/`, `data/manifests/`, `data/splits/`: fuentes
-  verificables, copias curadas, cambios trazables y test sellado de F02.
-- `homex_bd_final_v3.sql`: referencia preservada; ampliaciones finales pendientes
-  de migraciones F07/F08, no esquema ya corregido.
-- `docs/`: arquitectura, integración, requisitos y manifiesto del baseline.
+- `src/homex_nlp/contracts/`: contratos Pydantic públicos y estrictos.
+- `src/homex_nlp/engine.py`: `RulesEngine` operativo en `RULES_ONLY`.
+- `src/homex_nlp/asr/`: validación, servicio y adaptador Faster-Whisper opcional.
+- `training/`: corpus, entrenamiento y evaluación NER reproducibles.
+- `schemas/`, `examples/`: JSON Schema y fixtures contractuales.
+- `tests/contract/`: contrato, schemas y smoke de consumidor backend.
+- `backend/homex_trazabilidad.db`: evidencia histórica SQLite fuera de la ruta activa.
+- `docs/`: arquitectura, decisiones, configuración e integración.
 
-La CI instala desde el lock, revisa formato/lint, ejecuta el contrato y construye
-el wheel. También verifica su importación en un entorno separado sin dependencias.
-No ejecuta el servidor experimental ni inicializa SQLite. El wheel y el sdist
-excluyen el prototipo, SQLite y datasets; las fuentes se conservan en Git.
+## CI y artefactos
+
+Cada push/PR ejecuta calidad, esquemas, corpus, tests y
+`make distribution-check`. Si todo pasa, CI publica como artifact el wheel y el
+sdist con nombre que incluye el SHA del commit:
+
+```text
+homex-nlp-0.1.0-<commit-sha>
+```
+
+Eso permite a F08.0 seleccionar un artefacto y commit exactos. El backend no debe
+depender de `refactor`, `main` u otra rama flotante.
+
+El manifiesto de la primera versión consumible está en
+[release 0.1.0](docs/release-v0.1.0.md).
