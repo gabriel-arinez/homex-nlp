@@ -1,0 +1,620 @@
+{
+  "$defs": {
+    "Accessory": {
+      "additionalProperties": false,
+      "properties": {
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Name",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "Accessory",
+      "type": "object"
+    },
+    "Color": {
+      "additionalProperties": false,
+      "properties": {
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "value": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "Color",
+      "type": "object"
+    },
+    "Component": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Component Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "component_id",
+        "name"
+      ],
+      "title": "Component",
+      "type": "object"
+    },
+    "Dimension": {
+      "additionalProperties": false,
+      "properties": {
+        "axis": {
+          "anyOf": [
+            {
+              "enum": [
+                "ancho",
+                "alto",
+                "profundidad",
+                "largo",
+                "diametro"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Axis"
+        },
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "original_text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Original Text",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "enum": [
+                "m",
+                "cm",
+                "mm"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "value": {
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+          "title": "Value",
+          "type": "string"
+        },
+        "value_mm": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value Mm"
+        }
+      },
+      "required": [
+        "value",
+        "original_text"
+      ],
+      "title": "Dimension",
+      "type": "object"
+    },
+    "Measurement": {
+      "additionalProperties": false,
+      "properties": {
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "original_text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Original Text",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "enum": [
+                "m",
+                "cm",
+                "mm"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "value": {
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+          "title": "Value",
+          "type": "string"
+        },
+        "value_mm": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value Mm"
+        }
+      },
+      "required": [
+        "value",
+        "original_text"
+      ],
+      "title": "Measurement",
+      "type": "object"
+    },
+    "NegotiatedPrice": {
+      "additionalProperties": false,
+      "properties": {
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "currency": {
+          "enum": [
+            "BOB",
+            "USD"
+          ],
+          "title": "Currency",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "line_total": {
+          "pattern": "^(0|[1-9][0-9]{0,11})\\.[0-9]{2}$",
+          "title": "Line Total",
+          "type": "string"
+        },
+        "mode": {
+          "const": "TOTAL_NEGOCIADO",
+          "title": "Mode",
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "EXPLICIT_TOTAL",
+            "HOMEX_DEFAULT_TOTAL"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "reference_is_approximate": {
+          "default": false,
+          "title": "Reference Is Approximate",
+          "type": "boolean"
+        },
+        "stated_amount": {
+          "pattern": "^(0|[1-9][0-9]{0,11})\\.[0-9]{2}$",
+          "title": "Stated Amount",
+          "type": "string"
+        },
+        "unit_price_input": {
+          "default": null,
+          "title": "Unit Price Input",
+          "type": "null"
+        },
+        "unit_price_reference": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Price Reference"
+        }
+      },
+      "required": [
+        "mode",
+        "stated_amount",
+        "currency",
+        "line_total",
+        "origin"
+      ],
+      "title": "NegotiatedPrice",
+      "type": "object"
+    },
+    "UnitPrice": {
+      "additionalProperties": false,
+      "properties": {
+        "component_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Ref"
+        },
+        "currency": {
+          "enum": [
+            "BOB",
+            "USD"
+          ],
+          "title": "Currency",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "line_total": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]{0,11})\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Line Total"
+        },
+        "mode": {
+          "const": "PRECIO_UNITARIO",
+          "title": "Mode",
+          "type": "string"
+        },
+        "origin": {
+          "const": "EXPLICIT_UNIT",
+          "title": "Origin",
+          "type": "string"
+        },
+        "stated_amount": {
+          "pattern": "^(0|[1-9][0-9]{0,11})\\.[0-9]{2}$",
+          "title": "Stated Amount",
+          "type": "string"
+        },
+        "unit_price_input": {
+          "pattern": "^(0|[1-9][0-9]{0,11})\\.[0-9]{2}$",
+          "title": "Unit Price Input",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "stated_amount",
+        "currency",
+        "unit_price_input",
+        "origin"
+      ],
+      "title": "UnitPrice",
+      "type": "object"
+    }
+  },
+  "$id": "urn:homex:nlp:schema:item-proposal-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accessories": {
+      "items": {
+        "$ref": "#/$defs/Accessory"
+      },
+      "title": "Accessories",
+      "type": "array"
+    },
+    "components": {
+      "items": {
+        "$ref": "#/$defs/Component"
+      },
+      "title": "Components",
+      "type": "array"
+    },
+    "dimensions": {
+      "items": {
+        "$ref": "#/$defs/Dimension"
+      },
+      "title": "Dimensions",
+      "type": "array"
+    },
+    "furniture_type_candidate": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Furniture Type Candidate"
+    },
+    "item_type": {
+      "const": "MUEBLE_MEDIDA",
+      "default": "MUEBLE_MEDIDA",
+      "title": "Item Type",
+      "type": "string"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Name"
+    },
+    "observations": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observations"
+    },
+    "price": {
+      "anyOf": [
+        {
+          "discriminator": {
+            "mapping": {
+              "PRECIO_UNITARIO": "#/$defs/UnitPrice",
+              "TOTAL_NEGOCIADO": "#/$defs/NegotiatedPrice"
+            },
+            "propertyName": "mode"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/NegotiatedPrice"
+            },
+            {
+              "$ref": "#/$defs/UnitPrice"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Price"
+    },
+    "primary_color": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Color"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quantity"
+    },
+    "secondary_color": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Color"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "thicknesses": {
+      "items": {
+        "$ref": "#/$defs/Measurement"
+      },
+      "title": "Thicknesses",
+      "type": "array"
+    },
+    "unresolved": {
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "title": "Unresolved",
+      "type": "array"
+    }
+  },
+  "title": "ItemProposal",
+  "type": "object"
+}

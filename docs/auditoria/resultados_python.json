@@ -1,0 +1,358 @@
+{
+  "spacy_version": "3.8.13",
+  "records": 200,
+  "annotations": 2378,
+  "labels": {
+    "CANTIDAD": 200,
+    "PRODUCTO": 200,
+    "ANCHO": 155,
+    "ALTO": 155,
+    "PROFUNDIDAD": 155,
+    "ESPESOR": 154,
+    "ACCESORIO": 556,
+    "OBSERVACION": 153,
+    "PRECIO_TOTAL": 200,
+    "MODELO": 45,
+    "ERGONOMIA": 45,
+    "MATERIAL": 90,
+    "APOYABRAZOS": 45,
+    "CABECERA": 45,
+    "SOPORTE_LUMBAR": 45,
+    "SISTEMA": 45,
+    "INCLINACION": 45,
+    "POSICIONES": 45
+  },
+  "invalid_offsets": [],
+  "overlaps": [],
+  "strict_token_misalignment": [
+    [
+      22,
+      87,
+      96,
+      "PROFUNDIDAD",
+      "0.75 mts."
+    ],
+    [
+      32,
+      103,
+      112,
+      "PROFUNDIDAD",
+      "0.45 mts."
+    ],
+    [
+      52,
+      94,
+      103,
+      "PROFUNDIDAD",
+      "0,82 mts."
+    ],
+    [
+      62,
+      15,
+      30,
+      "PRODUCTO",
+      "ESCRITORIO EN L"
+    ],
+    [
+      72,
+      83,
+      92,
+      "PROFUNDIDAD",
+      "0,38 mts."
+    ],
+    [
+      102,
+      17,
+      32,
+      "PRODUCTO",
+      "ESCRITORIO EN L"
+    ],
+    [
+      102,
+      94,
+      103,
+      "PROFUNDIDAD",
+      "0.80 mts."
+    ],
+    [
+      112,
+      98,
+      107,
+      "PROFUNDIDAD",
+      "0,66 mts."
+    ],
+    [
+      132,
+      92,
+      101,
+      "PROFUNDIDAD",
+      "0,68 mts."
+    ],
+    [
+      142,
+      91,
+      100,
+      "PROFUNDIDAD",
+      "0,76 mts."
+    ],
+    [
+      152,
+      98,
+      107,
+      "PROFUNDIDAD",
+      "0,42 mts."
+    ]
+  ],
+  "exact_duplicate_texts": 0,
+  "converter_current_entities": 0,
+  "labels_rejected_after_key_fix": {
+    "ANCHO": 155,
+    "ALTO": 155,
+    "PROFUNDIDAD": 155,
+    "OBSERVACION": 153,
+    "PRECIO_TOTAL": 200,
+    "MODELO": 45,
+    "ERGONOMIA": 45,
+    "APOYABRAZOS": 45,
+    "CABECERA": 45,
+    "SOPORTE_LUMBAR": 45,
+    "SISTEMA": 45,
+    "INCLINACION": 45,
+    "POSICIONES": 45
+  },
+  "model_path_exists": false,
+  "active_pipeline": [
+    "tok2vec",
+    "morphologizer",
+    "parser",
+    "attribute_ruler",
+    "lemmatizer",
+    "entity_ruler",
+    "ner"
+  ],
+  "probes": [
+    {
+      "texto_original": "Escritorio de melamina de 18 mm, 1.80 metros de ancho y 0.80 metros de alto. cantidad 2. total 1700",
+      "texto_normalizado": "Escritorio de melamina de 18 milimetros, 1.80 metros de ancho y 0.80 metros de alto. cantidad 2. total 1700",
+      "muebles": [
+        {
+          "producto": "ESCRITORIO",
+          "material": "Melamina",
+          "espesor": "18 mm",
+          "color": null,
+          "dimensiones": [
+            "18 milimetros",
+            "1.80 metros",
+            "0.80 metros"
+          ],
+          "cantidad": 2,
+          "precio_total": 1700.0,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [
+        "PRODUCTO",
+        "MATERIAL",
+        "DIMENSION"
+      ],
+      "advertencias": [
+        "Espesor extraído por heurística."
+      ]
+    },
+    {
+      "texto_original": "Un escritorio de melamina color nogal y dos veladores blancos",
+      "texto_normalizado": "Un escritorio de melamina color nogal y dos veladores blancos",
+      "muebles": [
+        {
+          "producto": "ESCRITORIO",
+          "material": "Melamina",
+          "espesor": null,
+          "color": "Nogal",
+          "dimensiones": [],
+          "cantidad": null,
+          "precio_total": null,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [
+        "PRODUCTO",
+        "MATERIAL",
+        "COLOR"
+      ],
+      "advertencias": []
+    },
+    {
+      "texto_original": "total 1,500.00",
+      "texto_normalizado": "total 1.500.00",
+      "muebles": [
+        {
+          "producto": null,
+          "material": null,
+          "espesor": null,
+          "color": null,
+          "dimensiones": [],
+          "cantidad": null,
+          "precio_total": 1.5,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [],
+      "advertencias": []
+    },
+    {
+      "texto_original": "total 1.500 Bs",
+      "texto_normalizado": "total 1.500 Bs",
+      "muebles": [
+        {
+          "producto": null,
+          "material": null,
+          "espesor": null,
+          "color": null,
+          "dimensiones": [],
+          "cantidad": null,
+          "precio_total": 1.5,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [
+        "MISC"
+      ],
+      "advertencias": []
+    },
+    {
+      "texto_original": "sin datos",
+      "texto_normalizado": "sin datos",
+      "muebles": [
+        {
+          "producto": null,
+          "material": null,
+          "espesor": null,
+          "color": null,
+          "dimensiones": [],
+          "cantidad": null,
+          "precio_total": null,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [],
+      "advertencias": [
+        "Segmento 1 no produjo entidades válidas. Revisar texto.",
+        "El motor no detectó ningún mueble en el texto."
+      ]
+    },
+    {
+      "texto_original": "dos escritorios de melamina",
+      "texto_normalizado": "dos escritorios de melamina",
+      "muebles": [
+        {
+          "producto": null,
+          "material": "Melamina",
+          "espesor": null,
+          "color": null,
+          "dimensiones": [],
+          "cantidad": null,
+          "precio_total": null,
+          "accesorios": [],
+          "observaciones": null
+        }
+      ],
+      "num_items_detectados": 1,
+      "labels_detectados": [
+        "MATERIAL"
+      ],
+      "advertencias": []
+    }
+  ],
+  "negative_values_accepted": {
+    "producto": null,
+    "material": null,
+    "espesor": null,
+    "color": null,
+    "dimensiones": [],
+    "cantidad": -2,
+    "precio_total": -10.0,
+    "accesorios": [],
+    "observaciones": null
+  },
+  "empty_metrics": {
+    "campos_totales": 0,
+    "campos_corregidos": 0,
+    "precision_item": 1.0
+  },
+  "order_only_metrics": {
+    "campos_totales": 1,
+    "campos_corregidos": 1,
+    "precision_item": 0.0
+  },
+  "material_spans": {
+    "malla": 9,
+    "espuma de alta densidad moldeada": 1,
+    "ecocuero": 15,
+    "base de nylon reforzado": 12,
+    "tela": 21,
+    "base metálica cromada": 12,
+    "espuma de alta densidad": 15,
+    "espuma inyectada": 5
+  },
+  "products": {
+    "ESCRITORIOS EJECUTIVOS": 1,
+    "CREDENZA MESA AUXILIAR": 1,
+    "CREDENZA": 6,
+    "SILLAS EJECUTIVAS": 1,
+    "CLOSET CAJONERIA": 1,
+    "CLOSETS con CAJONERIA": 1,
+    "CAJONERA MOVIL": 6,
+    "MOSTRADOR DE RECEPCION": 7,
+    "CLOSET": 5,
+    "ARCHIVADOR": 8,
+    "CLOSET CON CAJONERIA": 3,
+    "CREDENZA EJECUTIVA": 7,
+    "LIBRERO": 8,
+    "MESA DE DIRECTORIO": 4,
+    "MUEBLE BAJO": 6,
+    "CAJONERA FIJA": 9,
+    "ESCRITORIO SECRETARIAL": 3,
+    "MUEBLE AEREO": 6,
+    "ARCHIVADOR VERTICAL": 7,
+    "ESCRITORIO GERENCIAL": 8,
+    "MODULO DE RECEPCION": 10,
+    "GABINETE": 7,
+    "MESA AUXILIAR LATERAL": 6,
+    "MESA DE REUNIONES": 6,
+    "MESA AUXILIAR": 2,
+    "MESA DE TRABAJO": 7,
+    "ESCRITORIO EN L": 8,
+    "ESTANTE": 8,
+    "ESCRITORIO EJECUTIVO": 4,
+    "SILLA EJECUTIVA": 11,
+    "SILLA PRESIDENCIAL": 5,
+    "SILLA GERENCIAL": 6,
+    "SILLA DE VISITA": 6,
+    "SILLA OPERATIVA": 5,
+    "SILLA ERGONOMICA": 5,
+    "SILLA SECRETARIAL": 6
+  },
+  "nonexistent_capture_hitl": {
+    "campos_totales": 1,
+    "campos_corregidos": 0,
+    "precision_global": 1.0,
+    "tasa_correccion": 0.0
+  },
+  "duplicate_hitl_rows": 2,
+  "deleted_item_metrics": {
+    "campos_totales": 0,
+    "campos_corregidos": 0,
+    "precision_global": 1.0,
+    "tasa_correccion": 0.0
+  }
+}

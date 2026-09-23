@@ -1,0 +1,35 @@
+name: Paquete NLP
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.9"
+
+      - name: Instalar entorno fijado
+        run: uv sync --locked --extra dev --extra asr --python 3.11.15
+
+      - name: Calidad, esquemas, corpus y contratos
+        run: make check
+
+      - name: Verificar distribución consumible
+        run: make distribution-check
+
+      - name: Publicar artefactos de integración
+        uses: actions/upload-artifact@v4
+        with:
+          name: homex-nlp-0.1.0-${{ github.sha }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,97 @@
+{
+  "$defs": {
+    "TranscriptSegment": {
+      "additionalProperties": false,
+      "properties": {
+        "end_seconds": {
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+          "title": "End Seconds",
+          "type": "string"
+        },
+        "start_seconds": {
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+          "title": "Start Seconds",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start_seconds",
+        "end_seconds",
+        "text"
+      ],
+      "title": "TranscriptSegment",
+      "type": "object"
+    }
+  },
+  "$id": "urn:homex:nlp:schema:transcription-result-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "duration_seconds": {
+      "anyOf": [
+        {
+          "pattern": "^(0|[1-9][0-9]{0,11})(\\.[0-9]{1,12})?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Duration Seconds"
+    },
+    "language": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Language",
+      "type": "string"
+    },
+    "latency_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latency Ms"
+    },
+    "model_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Model Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "segments": {
+      "items": {
+        "$ref": "#/$defs/TranscriptSegment"
+      },
+      "title": "Segments",
+      "type": "array"
+    },
+    "text_original": {
+      "title": "Text Original",
+      "type": "string"
+    }
+  },
+  "required": [
+    "text_original",
+    "language",
+    "model_version"
+  ],
+  "title": "TranscriptionResult",
+  "type": "object"
+}

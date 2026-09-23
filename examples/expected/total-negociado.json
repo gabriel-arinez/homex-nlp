@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "request_id": "example-total-001",
+  "status": "REQUIRES_REVIEW",
+  "text_original": "Tres escritorios, total cien bolivianos",
+  "item_proposal": {
+    "item_type": "MUEBLE_MEDIDA",
+    "name": "escritorios",
+    "furniture_type_candidate": "ESCRITORIO",
+    "quantity": 3,
+    "components": [],
+    "dimensions": [],
+    "thicknesses": [],
+    "primary_color": null,
+    "secondary_color": null,
+    "accessories": [],
+    "price": {
+      "mode": "TOTAL_NEGOCIADO",
+      "stated_amount": "100.00",
+      "currency": "BOB",
+      "line_total": "100.00",
+      "unit_price_input": null,
+      "unit_price_reference": "33.333333",
+      "reference_is_approximate": true,
+      "origin": "EXPLICIT_TOTAL",
+      "evidence_ids": ["price-1"],
+      "component_ref": null
+    },
+    "observations": null,
+    "unresolved": []
+  },
+  "proposed_item_count": 1,
+  "candidates": [
+    {
+      "candidate_id": "product-1",
+      "label": "PRODUCTO",
+      "start": 5,
+      "end": 16,
+      "text": "escritorios",
+      "source": "NER",
+      "normalized_value": "ESCRITORIO",
+      "component_ref": null,
+      "decision": "ACCEPTED",
+      "reason": null
+    },
+    {
+      "candidate_id": "price-1",
+      "label": "PRECIO_TOTAL",
+      "start": 18,
+      "end": 39,
+      "text": "total cien bolivianos",
+      "source": "PARSER",
+      "normalized_value": "100.00",
+      "component_ref": null,
+      "decision": "ACCEPTED",
+      "reason": null
+    }
+  ],
+  "warnings": [],
+  "engine": {
+    "mode": "HYBRID",
+    "model_version": "example-model-1",
+    "rules_version": "1.0",
+    "normalization_version": "1.0"
+  },
+  "error": null,
+  "latency_nlp_ms": 12
+}

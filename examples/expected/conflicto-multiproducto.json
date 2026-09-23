@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "request_id": "example-conflict-001",
+  "status": "NO_PROPOSAL",
+  "text_original": "Un escritorio y una credenza",
+  "item_proposal": null,
+  "proposed_item_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "product-1", "label": "PRODUCTO", "start": 3, "end": 13,
+      "text": "escritorio", "source": "NER", "normalized_value": "ESCRITORIO",
+      "component_ref": null, "decision": "UNRESOLVED", "reason": null
+    },
+    {
+      "candidate_id": "product-2", "label": "PRODUCTO", "start": 20, "end": 28,
+      "text": "credenza", "source": "NER", "normalized_value": "CREDENZA",
+      "component_ref": null, "decision": "UNRESOLVED", "reason": null
+    }
+  ],
+  "warnings": [
+    {"code": "MULTIPLE_MAIN_PRODUCTS", "path": "/item_proposal", "severity": "REVIEW", "message": "La captura contiene más de un producto principal"}
+  ],
+  "engine": {
+    "mode": "HYBRID", "model_version": "example-model-1", "rules_version": "1.0",
+    "normalization_version": "1.0"
+  },
+  "error": null,
+  "latency_nlp_ms": 4
+}

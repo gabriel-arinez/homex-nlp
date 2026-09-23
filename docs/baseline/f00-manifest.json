@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "phase": "F00",
+  "base_commit": "9beefd065c0d76ac1896287232a2f80697ef17cb",
+  "branch": "codex/f00-preparacion",
+  "initial_worktree_status": "?? docs/",
+  "scope": "Hashes previos a F00; docs/ ya existía sin seguimiento. No incluye entornos, caches ni secretos externos.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 22,
+      "sha256": "e3ddd769fe6d850678b58f73dc72dabce9dd7c5cc68f3f6b85a8cc7f4e65e2cb"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "bytes": 64,
+      "sha256": "3061fcdd20742b1969113c79b3270b316f3d28367bb8cd4463afb2a8d58bc6a2"
+    },
+    {
+      "path": "Arquitectura.png",
+      "bytes": 1597486,
+      "sha256": "0487837fb9bc3b142ffa7c3e909ed63affd5187973a75c8beb862b5b167cb139"
+    },
+    {
+      "path": "backend/convert_to_spacy.py",
+      "bytes": 7757,
+      "sha256": "abc95c0377affa063a61e4da57d44b354071df56c216dee64bb8184e181a2657"
+    },
+    {
+      "path": "backend/database.py",
+      "bytes": 17442,
+      "sha256": "addb5b0d40eefd62ddd7a2b5504674f95d82dda6bf6829506020f8ba86f62c83"
+    },
+    {
+      "path": "backend/homex_trazabilidad.db",
+      "bytes": 49152,
+      "sha256": "81aa00258b1e990736de7743244094c41d19a7bf88bdde73d5281fd7dbf19a95"
+    },
+    {
+      "path": "backend/main.py",
+      "bytes": 10961,
+      "sha256": "7992305d845f665e38a79c26718d70a5dbf72c5d7f0477c25ffbc4a24595200b"
+    },
+    {
+      "path": "backend/nlp_engine.py",
+      "bytes": 27371,
+      "sha256": "7d71fbc2a2c5e1406f58d631ea4ad3d3fccefb64535b88b863e6559bdd919a0b"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "bytes": 1291,
+      "sha256": "d44c93853820719577831cf7f223261a050cb1950ac563dfb1e335607dcea05e"
+    },
+    {
+      "path": "data/dataset.jsonl",
+      "bytes": 110983,
+      "sha256": "72aed27e635370254d601fb2bbd708181ddf16f1c50d735ba6f4c3ffc0efadb7"
+    },
+    {
+      "path": "data/homex_catalogo_sillas_ner.jsonl",
+      "bytes": 11064,
+      "sha256": "b0fb1dad526bb65d2d1432b03e82a522fb4ae7a08ba79519a2f1dc7988825ff2"
+    },
+    {
+      "path": "docs/ANALISIS_INTEGRAL_HOMEX.md",
+      "bytes": 46815,
+      "sha256": "1ab2883f6c5befc12b8cca86b1f3ed5d240905fddb428e8ad753f8e45eaead75"
+    },
+    {
+      "path": "docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md",
+      "bytes": 136462,
+      "sha256": "77449ec2493a316367161be3176ef38435354481b60cb3f71ca51f60dac5381e"
+    },
+    {
+      "path": "docs/RUMBO_Y_DECISIONES_HOMEX.md",
+      "bytes": 44909,
+      "sha256": "07a5dea81ad13fed95687d3dcc52ef866f17f94be76893dd9c148a8aa12fa6de"
+    },
+    {
+      "path": "docs/auditoria/README.md",
+      "bytes": 1896,
+      "sha256": "3f89da3fdba8a237cf17614bda61940f10bbb51737cc2decde16c5d1a75160bd"
+    },
+    {
+      "path": "docs/auditoria/S01_aprobacion_atomica.sql",
+      "bytes": 1431,
+      "sha256": "2db3997959d5987b720c34ab83562950e8eaed411ae50e764f0df3d0c22326ab"
+    },
+    {
+      "path": "docs/auditoria/S02_stock_insuficiente_rollback.sql",
+      "bytes": 1583,
+      "sha256": "e8115e198c13d4ac867d5b1268f81abaa5e8cae7644e3287d25e547e4a8e9333"
+    },
+    {
+      "path": "docs/auditoria/S03_total_detalle_adulterable.sql",
+      "bytes": 1336,
+      "sha256": "d42a9278aa8bc19a0715ca3a71f19c8a6acd4f16d038ea581f824f813deb1a9f"
+    },
+    {
+      "path": "docs/auditoria/S04_cabecera_adulterable.sql",
+      "bytes": 1354,
+      "sha256": "0aca447d32e2ca12178f8bc62455a05495491c07ab12cdd7ec0569bfe9e16e5d"
+    },
+    {
+      "path": "docs/auditoria/S05_insert_aprobada_sin_pedido.sql",
+      "bytes": 1463,
+      "sha256": "65ad527be407172ba98e71f4a8e4bd90e793beeabaf8f6da376f80a2157cc662"
+    },
+    {
+      "path": "docs/auditoria/S06_editar_detalle_aprobado.sql",
+      "bytes": 1488,
+      "sha256": "07bfe40fc07cbb64c09df386c51c7cdae8a49844f637c762570c5583d0f265c7"
+    },
+    {
+      "path": "docs/auditoria/S07_reasignar_pedido.sql",
+      "bytes": 1435,
+      "sha256": "07f5cc907e546059dc35aac0b6ab908104d48de7dde9704a6c4ed801c6c8d74d"
+    },
+    {
+      "path": "docs/auditoria/S08_fracciones_piezas.sql",
+      "bytes": 1425,
+      "sha256": "2459f09a42d61ea1e5d881712dc943aa124672610c5d2d3bbc48e95038eb823d"
+    },
+    {
+      "path": "docs/auditoria/S09_captura_detalle_otra_proforma.sql",
+      "bytes": 1313,
+      "sha256": "8ce080c9fd979890a2665ad2a906717883009764b8b6abd906355827d541bf37"
+    },
+    {
+      "path": "docs/auditoria/S10_humano_ia_otra_captura.sql",
+      "bytes": 1470,
+      "sha256": "9b0907b822f8289406f1bc5f1f0ca1e909b690644db62cd7f153aef08734f682"
+    },
+    {
+      "path": "docs/auditoria/S11_json_semantica_invalida.sql",
+      "bytes": 1434,
+      "sha256": "8778e60085cad2a3d1fe014417b5b1d0e4dcb3dc7cda09e7a388c7cb455ba2ac"
+    },
+    {
+      "path": "docs/auditoria/S12_contexto_stock_falsificable.sql",
+      "bytes": 1401,
+      "sha256": "a1d013fbdb4dc02a5442b30b454a53b1b979d89808d4785f744e551cc44805cc"
+    },
+    {
+      "path": "docs/auditoria/S13_borrar_detalles_enviada.sql",
+      "bytes": 1412,
+      "sha256": "3765e959017ddba974bc4a65b5de8340c162fb9ad70801d4a294bdb5fabdb554"
+    },
+    {
+      "path": "docs/auditoria/S14_subtipo_inconsistente.sql",
+      "bytes": 1609,
+      "sha256": "3b021c203e5e977908e431e8ed274b77b38bf515666a38d551babc57649b3f7e"
+    },
+    {
+      "path": "docs/auditoria/S15_stock_update_delete_bloqueados.sql",
+      "bytes": 1577,
+      "sha256": "db539c290c6b86a56ffafed1e7ea10fb268a4f671786102ec774a673b7809934"
+    },
+    {
+      "path": "docs/auditoria/S16_aprobada_regresa_borrador.sql",
+      "bytes": 1516,
+      "sha256": "dcb40de59f0c94076112263bf968e18b64cf706ec541f60c3a32c8e5a86bf929"
+    },
+    {
+      "path": "docs/auditoria/resultados_python.json",
+      "bytes": 7810,
+      "sha256": "6166f58176aed35b534347d984427d027753bac181efaef9920a697900c8a4d5"
+    },
+    {
+      "path": "docs/auditoria/resultados_sql.json",
+      "bytes": 1511,
+      "sha256": "68e8d8292e4a8592f12ea2b47ec5a0b4efa9f3b6c9040ba6705469c286cd4161"
+    },
+    {
+      "path": "docs/auditoria/verificar_python.py",
+      "bytes": 3988,
+      "sha256": "b3808b60c004f4b03b7d11eca1f925f253140cb07ede23b6bb876edfa7ffbafe"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 33825,
+      "sha256": "06381bfafe010f2420ff219a450fdad63975f610a4ccc29d24970a4795c822f3"
+    },
+    {
+      "path": "homex_bd_final_v3.sql",
+      "bytes": 111803,
+      "sha256": "7f49b40eeb186d27223dac7266e166a90e8d07fd77822cf7f09c1b175bbd6ce8"
+    }
+  ],
+  "historical_sql": {
+    "git_object": "e1c874a66516f7f390465af189fa15263ea7dd16:homex_bd.sql",
+    "available": true,
+    "sha256": "c13c1b03367699f5869122944c82e32a159eacca097062a1a02d8d0ffa2d45d8"
+  }
+}
