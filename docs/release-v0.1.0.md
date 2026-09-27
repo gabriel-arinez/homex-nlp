@@ -49,6 +49,14 @@ make distribution-check
 El segundo comando instala wheel y sdist en entornos limpios y ejecuta un smoke
 test del consumidor backend.
 
+## Integración sistémica cerrada
+
+La evidencia de consumo real del artefacto dentro de Vue, Django, PostgreSQL,
+Redis, Celery, faster-whisper y HITL se documenta en
+[`F09_INTEGRACION_SISTEMA.md`](F09_INTEGRACION_SISTEMA.md). El manifiesto
+machine-readable asociado es
+[`integration-system-v0.1.0.json`](integration-system-v0.1.0.json).
+
 ## Límites deliberados
 
 Esta versión no incluye:

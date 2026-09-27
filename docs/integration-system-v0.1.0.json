@@ -1,0 +1,44 @@
+{
+  "evidence_schema": "1.0",
+  "artifact": {
+    "name": "homex-nlp",
+    "version": "0.1.0",
+    "source_commit": "b5fe2921320c9031f6d44dc5c91a18411daa393e",
+    "wheel_filename": "homex_nlp-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "cfacc3a987f6158f43934cb64304fa50ea3e577cfa576f3db1e6d2a9576d19e6"
+  },
+  "contract": {
+    "schema_version": "1.0",
+    "engine_mode": "RULES_ONLY",
+    "python": "3.11",
+    "asr_runtime": "faster-whisper==1.2.1"
+  },
+  "system_evidence": {
+    "frontend_commit": "57c32d3aa2c2e46fbcc7136f6a90995b67c664ea",
+    "frontend_ci_run": "36328986617",
+    "frontend_ci_jobs": "11/11",
+    "backend_commit": "0659dc553af15b2125fad9b4ac0579669916e77b",
+    "backend_ci_run": "36333805267",
+    "backend_ci_jobs": "10/10",
+    "real_e2e": "2 passed"
+  },
+  "verified_flow": [
+    "Vue",
+    "Django",
+    "PostgreSQL/outbox",
+    "Redis",
+    "Celery",
+    "faster-whisper",
+    "homex-nlp",
+    "propuesta",
+    "HITL",
+    "persistencia comercial"
+  ],
+  "boundaries": {
+    "nlp_is_commercial_authority": false,
+    "hitl_approves_proforma": false,
+    "historical_audio_retained": false,
+    "redis_is_source_of_truth": false,
+    "postgresql_is_commercial_authority": true
+  }
+}
