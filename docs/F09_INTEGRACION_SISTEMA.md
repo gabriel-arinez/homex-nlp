@@ -2,7 +2,7 @@
 
 ## Estado
 
-**Implementación documental y evidencia contractual completadas y validadas localmente. El cierre remoto queda pendiente de publicar la rama.**
+**Implementación documental y evidencia contractual completadas y validadas local y remotamente. La rama está lista para fusionarse a `main`; el merge completa el cierre formal de F09.**
 
 Esta fase no cambia el extractor, no promueve NER, no modifica `contract-v1` y no vuelve a entrenar modelos. Su objetivo es cerrar desde `homex-nlp` que el artefacto ya distribuido fue consumido correctamente por el sistema HOMEX real.
 
@@ -132,7 +132,7 @@ El audio no forma parte de `homex-nlp`, media persistente, documentos, R2 ni bac
 
 - commit funcional/documental: `3661d43e7374131f3ed34a0b375102860c406d6a`;
 - merge a `main`: `57c32d3aa2c2e46fbcc7136f6a90995b67c664ea`;
-- GitHub Actions run `36327844337`;
+- GitHub Actions sobre el commit fusionado a `main`: run `36328986617`;
 - resultado: **11/11 jobs verdes**;
 - integración real: **2 passed**.
 
@@ -140,7 +140,7 @@ El audio no forma parte de `homex-nlp`, media persistente, documentos, R2 ni bac
 
 - commit funcional: `e6cf01ba3bc6e7c381fff2866c0ae66229311ab3`;
 - merge a `main`: `0659dc553af15b2125fad9b4ac0579669916e77b`;
-- GitHub Actions run `36333182602`;
+- GitHub Actions sobre el commit fusionado a `main`: run `36333805267`;
 - resultado: **10/10 jobs verdes**;
 - PostgreSQL: **175 passed**;
 - concurrencia: **12 passed**;
@@ -173,7 +173,7 @@ Validan:
 
 La evidencia F09 añade comprobaciones del manifiesto de integración, pero no altera el paquete distribuido ni sus APIs públicas.
 
-## Evidencia local F09
+## Evidencia propia F09
 
 - `make check`: verde;
 - suite propia: **43 passed**;
@@ -187,7 +187,8 @@ La evidencia F09 añade comprobaciones del manifiesto de integración, pero no a
 - wheel instalado en entorno limpio: `backend-consumer-smoke: OK`;
 - sdist instalado en entorno limpio: `backend-consumer-smoke: OK`;
 - documentación y manifiesto F09 incluidos en el sdist;
-- `git diff --check`: limpio.
+- `git diff --check`: limpio;
+- CI de la rama publicada: run `36335111789`, job `package` verde.
 
 No se modificó ningún archivo bajo `src/homex_nlp`, schema público, recurso del motor, corpus o configuración de entrenamiento.
 

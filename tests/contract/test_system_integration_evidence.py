@@ -73,8 +73,8 @@ def test_system_evidence_is_anchored_to_immutable_revisions_and_green_ci() -> No
     assert system["backend_commit"] == "0659dc553af15b2125fad9b4ac0579669916e77b"
     assert GIT_SHA.fullmatch(system["frontend_commit"])
     assert GIT_SHA.fullmatch(system["backend_commit"])
-    assert system["frontend_ci_run"] == "36327844337"
+    assert system["frontend_ci_run"] == "36328986617"
     assert system["frontend_ci_jobs"] == "11/11"
-    assert system["backend_ci_run"] == "36333182602"
+    assert system["backend_ci_run"] == "36333805267"
     assert system["backend_ci_jobs"] == "10/10"
     assert system["real_e2e"] == "2 passed"
