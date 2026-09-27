@@ -13,6 +13,8 @@ La guía general está en
 [Plan Maestro](docs/PLAN_MAESTRO_REFACTORIZACION_HOMEX.md), el contrato público en
 [Contrato v1](docs/contract-v1.md) y la frontera con Django en
 [Integración Django](docs/integration-django.md).
+El cierre de consumo dentro del sistema completo está en
+[NLP F09](docs/F09_INTEGRACION_SISTEMA.md).
 
 ## Entorno reproducible
 
