@@ -1,9 +1,9 @@
 # Plan maestro de refactorización e integración HOMEX
 
-**Fecha:** 13 de septiembre de 2026.  
-**Versión del plan:** 2.1 — respuestas G01–G03, T01–T09, P29–P32 y comienzo de F00.  
+**Fecha:** 30 de septiembre de 2026.  
+**Versión del plan:** 2.2 — despliegue privado y persistencia local proporcional.  
 **Punto de partida:** el repositorio actual `homex-nlp`.  
-**Estado:** F00–F06 completadas localmente; F07–F11 pendientes. Evidencia en [informe F00](F00_PREPARACION.md), [informe F01](F01_CONTRATOS.md), [informe F02](F02_CORPUS.md), [informe F03](F03_MOTOR_DETERMINISTICO.md), [informe F04](F04_NER_EVALUACION.md), [informe F05](F05_ASR.md) e [informe F06](F06_DISTRIBUCION_Y_CIERRE.md).
+**Estado:** F00–F06 cerradas para el componente; la integración coordinada F07–F09 ya está materializada en backend/frontend y F09 cuenta con evidencia en este repositorio. F10–F11 permanecen pendientes y dependen principalmente de `homex-deploy`. Evidencia de F00–F06 en sus informes versionados.
 **Objetivo:** terminar el componente ASR/NLP, dejarlo reproducible, evaluable e integrable y especificar su incorporación al sistema comercial Django/Vue/PostgreSQL.
 
 ## 0. Cómo utilizar este documento
@@ -422,7 +422,13 @@ homex-deploy/
 └── docs/{installation,operations,recovery}.md
 ```
 
-Compose ejecutará frontend/Nginx, API, worker, publicador/reconciliador, PostgreSQL y Redis. El limpiador de audio debe seguir funcionando aunque el worker NLP caiga; no depender exclusivamente de una tarea que compite en la misma cola de inferencia.
+Compose ejecutará frontend/Nginx, API, worker, publicador/reconciliador, PostgreSQL y Redis. La
+instalación productiva inicial conserva los documentos/media en un filesystem persistente separado
+de los temporales ASR y respaldado junto con PostgreSQL. El acceso de usuarios se realiza por la
+red privada definida por deploy; no se requiere dominio público ni storage cloud para ejecutar NLP.
+
+El limpiador de audio debe seguir funcionando aunque el worker NLP caiga; no depender exclusivamente
+de una tarea que compite en la misma cola de inferencia.
 
 ## 6. Contratos de extracción y compatibilidad
 
@@ -1105,7 +1111,9 @@ Publicar primero versiones compatibles del paquete y modelos; construir imagen d
 
 Rollback de aplicación a una versión compatible con el esquema y contrato. No revertir ciegamente migraciones que borrarían recibos o evidencia de intentos; para errores de esquema usar migración correctiva o procedimiento de recuperación documentado.
 
-Backups de PostgreSQL, documentos y manifiestos necesarios; **sin audio**. Ensayar restauración en entorno aislado, incluyendo consistencia de documentos/recibos y recuperación de jobs. Tras restaurar, trabajos ASR cuyo temporal ya no existe deben quedar en error accionable o continuar desde transcripción si existe; no esperar eternamente por audio eliminado.
+Backups de PostgreSQL, **filesystem de media/documentos persistentes** y manifiestos necesarios;
+**sin audio**. Ensayar restauración en entorno aislado, incluyendo consistencia entre keys/rutas de
+PostgreSQL y archivos restaurados, documentos/recibos y recuperación de jobs. Tras restaurar, trabajos ASR cuyo temporal ya no existe deben quedar en error accionable o continuar desde transcripción si existe; no esperar eternamente por audio eliminado.
 
 Definir con operación la frecuencia de copia, RPO/RTO y retención de textos/documentos antes de uso real; no inventar obligaciones de conservación. El runbook incluye disco lleno, Redis caído, trabajador caído, borrado fallido, modelo inválido, restauración y cambio de release.
 
@@ -1317,10 +1325,16 @@ pérdida; contrato v1 validado localmente. No se afirma calidad de extracción.
 
 **Repositorio:** deploy. **Dependencias:** F06–F09.
 
-- Compose, proxy HTTPS, credenciales externas, volúmenes separados y recursos iniciales.
+- Compose reproducible, reverse proxy y acceso privado mediante la capa de red definida por deploy.
+- Producción inicial sin dominio público obligatorio y sin dependencia obligatoria de R2/S3.
+- Filesystem persistente para media comercial, separado del directorio temporal ASR.
 - Modelos preinstalados, manifiesto de release, migraciones controladas, smoke y rollback compatible.
-- Limpieza de temporales fuera del worker, alertas, backup sin audios y restauración ensayada.
-- Ensayo con dos solicitudes simultáneas y fallos de servicios; ajustar límites del plan sin cambiar reglas comerciales.
+- Limpieza de temporales fuera del worker, alertas y backup PostgreSQL + media **sin audios**.
+- Restauración conjunta ensayada antes de producción.
+- Ensayo con dos solicitudes simultáneas, caída de Redis/worker y pérdida temporal de conectividad
+  privada; ajustar recursos sin cambiar reglas comerciales.
+
+El paquete `homex-nlp` no cambia por usar filesystem o S3: nunca administra la media comercial.
 
 **Salida:** OPS-01, seguridad y carga básica pasan; operación dispone de runbook y responsables.
 
@@ -1341,8 +1355,9 @@ pérdida; contrato v1 validado localmente. No se afirma calidad de extracción.
 F00 → F01 → F02 ─┐
          └→ F03 ├→ F04 → F05 → F06
                 ┘                │
-F01 → F07 ──────────────────────┼→ F08 → F09 → F10 → F11
-                                 ┘
+F01 → F07 ──────────────────────┼→ F08 → F09 ── CERRADA
+                                 ┘              ↓
+                                           F10 → F11
 ```
 
 F05 puede iniciarse antes de F04 para desacoplar ASR; su cierre final valida ambos modos. Las dependencias expresan requisitos, no autorizan trabajo paralelo de agentes ni fechas ficticias.

@@ -63,3 +63,16 @@ de sus sustitutos. F00 no conecta Django ni demuestra calidad de extracción.
 CONTRACT-02 comprueba importación sin infraestructura, escritura ni red en un
 proceso aislado y desde un directorio ajeno al repositorio. La integración real y
 las carreras de stock/cobros requieren PostgreSQL multiusuario en F07/F08.
+
+
+## Despliegue productivo proporcional
+
+La topología productiva inicial usa un servidor HOMEX accesible por red privada. El paquete NLP no
+depende de cómo se sirvan las imágenes comerciales.
+
+La media persistente pertenece a backend/deploy y se almacena inicialmente en filesystem
+persistente; puede migrarse a S3/R2 en el futuro sin modificar contratos NLP. El audio ASR sigue
+siendo efímero, privado, separado de esa media y excluido de backups.
+
+Los backups productivos incluyen PostgreSQL, media/documentos persistentes y manifiestos de release,
+pero nunca audio.
