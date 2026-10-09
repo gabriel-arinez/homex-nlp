@@ -69,7 +69,11 @@ def check_privacy(artifact: Path) -> None:
     unsafe = []
     for raw in members(artifact):
         path = Path(raw)
-        if (\n            path.name.lower() in FORBIDDEN_NAMES\n            or forbidden_env_name(path.name)\n            or path.suffix.lower() in FORBIDDEN_SUFFIXES\n        ):
+        if (
+            path.name.lower() in FORBIDDEN_NAMES
+            or forbidden_env_name(path.name)
+            or path.suffix.lower() in FORBIDDEN_SUFFIXES
+        ):
             unsafe.append(raw)
         if any(
             part.lower() in {"audio", "audio-temporal", "models", "secrets"} for part in path.parts
