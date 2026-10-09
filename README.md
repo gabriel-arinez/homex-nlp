@@ -14,7 +14,7 @@ La guía general está en
 [Contrato v1](docs/contract-v1.md) y la frontera con Django en
 [Integración Django](docs/integration-django.md).
 El cierre de consumo dentro del sistema completo está en
-[NLP F09](docs/F09_INTEGRACION_SISTEMA.md).
+[NLP F09](docs/F09_INTEGRACION_SISTEMA.md) y [NLP F10](docs/F10_DESPLIEGUE_RECUPERACION.md).
 
 ## Entorno reproducible
 
@@ -24,6 +24,7 @@ Baseline: Python 3.11.15 y uv 0.12.9.
 uv sync --locked --extra dev --extra asr
 make check
 make distribution-check
+make f10-check
 ```
 
 `make distribution-check` construye wheel y sdist, los instala por separado en

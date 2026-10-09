@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/checkout@v4
+        with:
+          repository: gabriel-arinez/homex-backend
+          ref: bc375894036d30cefbc8cdf7c512315aaf1ab971
+          path: backend-f10
+
       - uses: astral-sh/setup-uv@v6
         with:
           version: "0.12.9"
@@ -25,6 +31,19 @@ jobs:
 
       - name: Verificar distribución consumible
         run: make distribution-check
+
+      - name: Verificar runtime y contrato F10
+        env:
+          BACKEND_F10_PATH: backend-f10
+        run: make f10-check
+
+      - name: Publicar perfil agregado F10
+        uses: actions/upload-artifact@v4
+        with:
+          name: homex-nlp-f10-profile-${{ github.sha }}
+          path: /tmp/homex-nlp-f10-profile.json
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Publicar artefactos de integración
         uses: actions/upload-artifact@v4
