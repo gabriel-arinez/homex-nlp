@@ -142,3 +142,23 @@ D07 ni F11 desde este repositorio.
 
 Los tiempos/RSS concretos son evidencia del host de desarrollo y no se versionan como umbral de
 capacidad. CI vuelve a producir el perfil agregado por commit.
+
+## Evidencia remota del PR
+
+La implementación fue publicada en `feat/f10-deploy-recuperacion` con el commit
+`4b5cd7432b34377468550bc5878ec50ee8cf472a` y abierta como PR
+[#7](https://github.com/gabriel-arinez/homex-nlp/pull/7).
+
+GitHub Actions [run 37960485701](https://github.com/gabriel-arinez/homex-nlp/actions/runs/37960485701)
+terminó correctamente. Su job `package` validó en el mismo commit:
+
+- entorno instalado desde dependencias fijadas;
+- 51 pruebas de calidad, schemas, corpus y contratos;
+- 7 pruebas específicas de F10;
+- wheel y sdist instalables y reproducibles;
+- compatibilidad exacta con Backend F10;
+- runtime, concurrencia, privacidad y perfil agregado F10;
+- publicación de artefactos de distribución y del perfil sin datos sensibles.
+
+La evidencia remota permite integrar la implementación del componente. La promoción productiva de
+F10 continúa condicionada a las comprobaciones reales de modelo y hardware definidas para D07.
