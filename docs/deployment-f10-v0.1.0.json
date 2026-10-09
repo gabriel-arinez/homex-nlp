@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "phase": "NLP_F10",
+  "package": {
+    "name": "homex-nlp",
+    "version": "0.1.0",
+    "python": "3.11.15",
+    "contract": "1.0",
+    "mode": "RULES_ONLY"
+  },
+  "backend": {
+    "revision": "bc375894036d30cefbc8cdf7c512315aaf1ab971",
+    "wheel_sha256": "cfacc3a987f6158f43934cb64304fa50ea3e577cfa576f3db1e6d2a9576d19e6",
+    "faster_whisper": "1.2.1"
+  },
+  "deploy": {
+    "d05_d06_revision": "fb9c321324cfc621ac07cc42fdeb1e3257a968ab",
+    "d07_status": "PENDING"
+  },
+  "boundaries": {
+    "audio_owned_by_backend_temporal_store": true,
+    "package_persists_audio": false,
+    "package_downloads_models": false,
+    "postgresql_redis_celery_owned_by_backend": true,
+    "backup_restore_owned_by_deploy": true,
+    "hitl_remains_required": true
+  },
+  "resource_profile": {
+    "ci_profile_kind": "CONTROLLED_DOUBLE",
+    "workers": 2,
+    "real_model_and_target_hardware_required_in_d07": true,
+    "capacity_claim_from_ci_profile": false
+  }
+}

@@ -3,7 +3,7 @@
 **Fecha:** 30 de septiembre de 2026.  
 **Versión del plan:** 2.2 — despliegue privado y persistencia local proporcional.  
 **Punto de partida:** el repositorio actual `homex-nlp`.  
-**Estado:** F00–F06 cerradas para el componente; la integración coordinada F07–F09 ya está materializada en backend/frontend y F09 cuenta con evidencia en este repositorio. F10–F11 permanecen pendientes y dependen principalmente de `homex-deploy`. Evidencia de F00–F06 en sus informes versionados.
+**Estado:** F00–F06 y F09 cerradas; F10 cuenta con implementación verificable del componente y su promoción productiva depende de D07 en `homex-deploy`. F11 permanece pendiente. Evidencia de F00–F06 en sus informes versionados.
 **Objetivo:** terminar el componente ASR/NLP, dejarlo reproducible, evaluable e integrable y especificar su incorporación al sistema comercial Django/Vue/PostgreSQL.
 
 ## 0. Cómo utilizar este documento
@@ -1335,6 +1335,13 @@ pérdida; contrato v1 validado localmente. No se afirma calidad de extracción.
   privada; ajustar recursos sin cambiar reglas comerciales.
 
 El paquete `homex-nlp` no cambia por usar filesystem o S3: nunca administra la media comercial.
+
+**Verificación propia del componente:** aunque la orquestación pertenece a deploy, este repositorio
+prueba build byte a byte reproducible, compatibilidad con el wheel fijado por backend F10, import
+ASR sin descarga/carga global, dos solicitudes simultáneas, errores saneados, eliminación de
+temporales y perfil agregado sin datos sensibles. La capacidad de faster-whisper sobre el hardware
+objetivo y la combinación final de release permanecen como evidencia obligatoria de D07. Ver
+[`F10_DESPLIEGUE_RECUPERACION.md`](F10_DESPLIEGUE_RECUPERACION.md).
 
 **Salida:** OPS-01, seguridad y carga básica pasan; operación dispone de runbook y responsables.
 
