@@ -162,3 +162,9 @@ terminó correctamente. Su job `package` validó en el mismo commit:
 
 La evidencia remota permite integrar la implementación del componente. La promoción productiva de
 F10 continúa condicionada a las comprobaciones reales de modelo y hardware definidas para D07.
+
+## Revisión de seguridad previa al merge
+
+El gate de distribución rechaza variantes privadas de `.env`, como `.env.production`, `.env.local` y copias de respaldo, con pruebas de regresión. `.env.example` sigue permitido por ser documentación de configuración sin credenciales. Se prueba que la serialización de `ErrorDetail` de ASR no expone rutas ni secretos.
+
+**Límite de logging:** la excepción Python conserva `__cause__` para diagnóstico interno; un logger que emita tracebacks (`exc_info`) puede revelar la excepción original. Los consumidores backend/deploy deben impedir que esos detalles lleguen a respuestas HTTP o logs de acceso general. D07 debe verificar explícitamente esta frontera en el runtime productivo. No se modifica `src/homex_nlp` ni el wheel fijado por backend.
