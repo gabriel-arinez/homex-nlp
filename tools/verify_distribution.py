@@ -18,6 +18,12 @@ FORBIDDEN_SUFFIXES = {".wav", ".mp3", ".m4a", ".ogg", ".webm"}
 FORBIDDEN_NAMES = {".env", "model.bin", "model.safetensors"}
 
 
+def forbidden_env_name(name: str) -> bool:
+    """Rechaza .env y derivados sin bloquear documentación .env.example."""
+    lower = name.lower()
+    return lower == ".env" or lower.startswith(".env.") and lower != ".env.example"
+
+
 def project_version() -> str:
     with (ROOT / "pyproject.toml").open("rb") as source:
         return tomllib.load(source)["project"]["version"]
@@ -63,7 +69,7 @@ def check_privacy(artifact: Path) -> None:
     unsafe = []
     for raw in members(artifact):
         path = Path(raw)
-        if path.name in FORBIDDEN_NAMES or path.suffix.lower() in FORBIDDEN_SUFFIXES:
+        if (\n            path.name.lower() in FORBIDDEN_NAMES\n            or forbidden_env_name(path.name)\n            or path.suffix.lower() in FORBIDDEN_SUFFIXES\n        ):
             unsafe.append(raw)
         if any(
             part.lower() in {"audio", "audio-temporal", "models", "secrets"} for part in path.parts
