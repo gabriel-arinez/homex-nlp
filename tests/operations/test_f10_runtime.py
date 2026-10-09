@@ -5,6 +5,7 @@ import subprocess
 import sys
 import threading
 import types
+from zipfile import ZipFile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -15,6 +16,7 @@ from homex_nlp.asr.faster_whisper_adapter import FasterWhisperAdapter
 from homex_nlp.contracts import ExtractionRequest
 from homex_nlp.engine import RulesEngine
 from homex_nlp.errors import HomexError
+from tools.verify_distribution import check_privacy
 
 
 class ConcurrentTranscriber:
@@ -163,3 +165,40 @@ def test_profile_contains_only_aggregate_metrics(tmp_path: Path) -> None:
     assert profile["real_model_profile_required_in_d07"] is True
     assert "texto controlado" not in completed.stdout
     assert "homex-f10-audio" not in completed.stdout
+
+
+@pytest.mark.parametrize(
+    "private_name",
+    [".env", ".env.production", ".env.local", ".ENV.STAGING", "config/.env.backup"],
+)
+def test_distribution_rejects_private_env_variants(tmp_path: Path, private_name: str) -> None:
+    artifact = tmp_path / "synthetic.whl"
+    with ZipFile(artifact, "w") as archive:
+        archive.writestr(private_name, "DUMMY_SECRET=only_for_test")
+    with pytest.raises(SystemExit, match="archivos privados"):
+        check_privacy(artifact)
+
+
+def test_distribution_accepts_documented_env_example(tmp_path: Path) -> None:
+    artifact = tmp_path / "synthetic.whl"
+    with ZipFile(artifact, "w") as archive:
+        archive.writestr(".env.example", "EXAMPLE_VARIABLE=placeholder")
+    check_privacy(artifact)
+
+
+def test_asr_sensitive_failure_not_present_in_serialized_contract(tmp_path: Path) -> None:
+    class SensitiveFailure:
+        model_version = "test-double"
+
+        def transcribe(self, path: Path):
+            raise RuntimeError(f"private-token-in-{path}")
+
+    path = tmp_path / "secret-audio.wav"
+    path.write_bytes(b"audio-controlado")
+    with pytest.raises(HomexError) as raised:
+        AsrService(SensitiveFailure()).transcribe(path)
+    serialized = raised.value.detail.model_dump_json()
+    assert "private-token" not in serialized
+    assert "secret-audio" not in serialized
+    assert raised.value.__cause__ is not None  # No exponer traceback al cliente ni logs.
+    assert not path.exists()
