@@ -5,9 +5,9 @@ import subprocess
 import sys
 import threading
 import types
-from zipfile import ZipFile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from zipfile import ZipFile
 
 import pytest
 
