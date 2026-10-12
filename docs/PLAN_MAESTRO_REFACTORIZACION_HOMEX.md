@@ -1443,3 +1443,11 @@ T08 impide introducir una restricción general de descuento cero para muebles si
 - [ ] Evaluación real y comparación de tiempos efectuadas bajo protocolo; resultados/limitaciones entregados.
 
 **Cierre:** completar A termina esta parte reutilizable del proyecto. Completar B demuestra su funcionamiento dentro de HOMEX. El plan evita llamar «terminado» a un modelo aislado, a un esquema que solo carga o a una demostración que todavía depende de datos y reglas provisionales.
+
+---
+
+## Actualización coordinada al 11-10-2026 — D07 RC2
+
+NLP F10 integrado en 79efeaf6a8ca738eb3abce414850f973b1962fd8, wheel 0.1.0/contrato 1.0 y RULES_ONLY. D07 RC2 lo fija por SHA, pero el merge de deploy no certifica promoción productiva: faltan ensayo integral de recuperación, prueba real en hardware y autorización de despliegue.
+
+La descripción completa, los gates ejecutados, sus límites y el orden de reanudación están en [trazabilidad D07 RC2](D07_TRAZABILIDAD_INTERREPOSITORIO_20261011.md). Este registro actualiza el **estado** de las fases sin reemplazar sus requisitos originales ni atribuir éxito a puertas todavía pendientes.
