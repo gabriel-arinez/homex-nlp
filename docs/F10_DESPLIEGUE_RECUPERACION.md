@@ -168,3 +168,9 @@ F10 continúa condicionada a las comprobaciones reales de modelo y hardware defi
 El gate de distribución rechaza variantes privadas de `.env`, como `.env.production`, `.env.local` y copias de respaldo, con pruebas de regresión. `.env.example` sigue permitido por ser documentación de configuración sin credenciales. Se prueba que la serialización de `ErrorDetail` de ASR no expone rutas ni secretos.
 
 **Límite de logging:** la excepción Python conserva `__cause__` para diagnóstico interno; un logger que emita tracebacks (`exc_info`) puede revelar la excepción original. Los consumidores backend/deploy deben impedir que esos detalles lleguen a respuestas HTTP o logs de acceso general. D07 debe verificar explícitamente esta frontera en el runtime productivo. No se modifica `src/homex_nlp` ni el wheel fijado por backend.
+
+## Adenda de integración D07 RC2 — 2026-10-11
+
+El manifiesto D07 RC2 fija este componente en `79efeaf6a8ca738eb3abce414850f973b1962fd8` con contrato NLP `1.0`, `RULES_ONLY` y wheel SHA-256 `cfacc3a987f6158f43934cb64304fa50ea3e577cfa576f3db1e6d2a9576d19e6`. El cambio de fencing y migración `capturas.0008_propiedad_ejecucion` pertenece al **backend**, no al paquete NLP. La adquisición real del modelo ASR permanece prohibida en el arranque; hardware definitivo y trayectoria operativa son criterios de deploy.
+
+La copia cifrada Restic/R2 quedó implantada y su restauración fue ensayada aisladamente, pero falta política remota de retención, alertas y recuperación integral de servicios. Deploy D07 se integró en `main` sin promoción a producción ni autorización de despliegue. Véanse [trazabilidad interrepositorio](D07_TRAZABILIDAD_INTERREPOSITORIO_20261011.md) y [pendientes operativos](https://github.com/gabriel-arinez/homex-deploy/blob/main/docs/implementacion/D07_CIERRE_PENDIENTES_20261011.md).
