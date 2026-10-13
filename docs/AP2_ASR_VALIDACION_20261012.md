@@ -12,6 +12,12 @@ CI de `main` [38330659108](https://github.com/gabriel-arinez/homex-nlp/actions/r
 
 Tests: `tests/unit/test_ap2_asr_boundaries.py` y suite anterior `tests/unit/test_asr_service.py`.
 
+## Integridad interrepositorio F10 preservada
+
+El wheel `vendor/homex_nlp-0.1.0-py3-none-any.whl` del backend está fijado por SHA-256 y NO se modifica. El gate `tools/verify_backend_f10.py` ahora contrasta ese wheel con el código de su commit de origen **`b5fe2921320c9031f6d44dc5c91a18411daa393e`** (F06), no con `HEAD` de desarrollo. En GitHub Actions se obtiene ese histórico con `fetch-depth: 0`. El código NLP nuevo continúa sujeto a `make check` y `make distribution-check`; así ambas invariantes se verifican, sin aparentar que F10 consumió la corrección AP2.
+
+**Operativamente**, el fix de directorio estará disponible cuando se cree y valide un **nuevo artefacto NLP** consumido por backend mediante release coordinada y autorizada. El wheel F10 en uso permanece inmutable; AP2 no promociona código nuevo a RC2/producción.
+
 ## Reproducibilidad
 
 ```bash
