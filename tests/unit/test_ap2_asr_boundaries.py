@@ -6,7 +6,7 @@ import pytest
 from pydantic import ValidationError
 
 from homex_nlp.asr.service import AsrService
-from homex_nlp.contracts.input import TranscriptSegment, TranscriptionResult
+from homex_nlp.contracts.input import TranscriptionResult, TranscriptSegment
 from homex_nlp.errors import HomexError
 
 
