@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # F10 verifica el archivo fuente del commit histórico F06
 
       - uses: actions/checkout@v4
         with:
