@@ -22,8 +22,8 @@ homex-asr = "homex_nlp.asr_cli:main"
 
 [project.optional-dependencies]
 asr = ["faster-whisper==1.2.1"]
-demo = ["fastapi==0.136.3", "uvicorn==0.48.0", "python-multipart==0.0.30"]
-dev = ["jsonschema>=4.23,<5", "pytest>=8.3,<9", "ruff>=0.11,<1"]
+demo = ["fastapi==0.136.3", "uvicorn==0.48.0", "python-multipart==0.0.31"]
+dev = ["jsonschema>=4.23,<5", "pytest>=9.0.3,<10", "ruff>=0.11,<1"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/homex_nlp"]
