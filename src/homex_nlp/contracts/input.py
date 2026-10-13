@@ -15,6 +15,8 @@ class TranscriptSegment(Contract):
 
     @model_validator(mode="after")
     def chronological(self):
+        if Decimal(self.start_seconds) < 0:
+            raise ValueError("Inicio de transcripción negativo")
         if Decimal(self.end_seconds) < Decimal(self.start_seconds):
             raise ValueError("Intervalo de transcripción invertido")
         return self
