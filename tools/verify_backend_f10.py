@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_REVISION = "bc375894036d30cefbc8cdf7c512315aaf1ab971"
 WHEEL_PATH = "vendor/homex_nlp-0.1.0-py3-none-any.whl"
 WHEEL_SHA256 = "cfacc3a987f6158f43934cb64304fa50ea3e577cfa576f3db1e6d2a9576d19e6"
+# Fuente histórica exacta usada para crear el wheel F06/F10. No comparar con HEAD móvil.
+NLP_SOURCE_REVISION = "b5fe2921320c9031f6d44dc5c91a18411daa393e"
 
 
 def git_bytes(repository: Path, revision: str, path: str) -> bytes:
@@ -50,9 +52,17 @@ def main() -> None:
             for name in archive.namelist()
             if name.startswith("homex_nlp/") and name.endswith(".py")
         }
+    # F10 es un artefacto congelado. Validar contra SU código fuente histórico,
+    # no contra el árbol de desarrollo que legítimamente evoluciona después de F10.
+    source_paths = subprocess.check_output(
+        ["git", "ls-tree", "-r", "--name-only", NLP_SOURCE_REVISION, "src/homex_nlp"],
+        cwd=ROOT,
+        text=True,
+    ).splitlines()
     source = {
-        path.relative_to(ROOT / "src").as_posix(): path.read_bytes()
-        for path in (ROOT / "src/homex_nlp").rglob("*.py")
+        path.removeprefix("src/"): git_bytes(ROOT, NLP_SOURCE_REVISION, path)
+        for path in source_paths
+        if path.endswith(".py")
     }
     if packaged != source:
         missing = sorted(source.keys() - packaged.keys())
@@ -77,7 +87,8 @@ def main() -> None:
 
     print(
         "f10-backend-contract-ok "
-        f"backend={resolved} package=0.1.0 wheel_sha256={digest} d07_pending=true"
+        f"backend={resolved} package=0.1.0 wheel_sha256={digest} "
+        f"source_revision={NLP_SOURCE_REVISION} d07_pending=true"
     )
 
 
