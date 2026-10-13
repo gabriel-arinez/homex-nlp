@@ -1451,3 +1451,9 @@ T08 impide introducir una restricción general de descuento cero para muebles si
 NLP F10 integrado en 79efeaf6a8ca738eb3abce414850f973b1962fd8, wheel 0.1.0/contrato 1.0 y RULES_ONLY. D07 RC2 lo fija por SHA, pero el merge de deploy no certifica promoción productiva: faltan ensayo integral de recuperación, prueba real en hardware y autorización de despliegue.
 
 La descripción completa, los gates ejecutados, sus límites y el orden de reanudación están en [trazabilidad D07 RC2](D07_TRAZABILIDAD_INTERREPOSITORIO_20261011.md). Este registro actualiza el **estado** de las fases sin reemplazar sus requisitos originales ni atribuir éxito a puertas todavía pendientes.
+
+## Actualización AP6 — adaptación comercial
+
+AP6 no modifica el contrato público NLP v1 ni promueve NER. El adaptador comercial v2 exige que el
+vendedor confirme el precio unitario durante HITL y prohíbe convertir automáticamente el total NLP.
+La decisión y su evidencia se documentan en [AP6_ADAPTACION_COMERCIAL.md](AP6_ADAPTACION_COMERCIAL.md).
