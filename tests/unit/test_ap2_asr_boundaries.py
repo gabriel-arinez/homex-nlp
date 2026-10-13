@@ -26,8 +26,9 @@ class MustNotRun:
 
 
 def test_ap2_no_permite_timestamps_negativos_o_invertidos():
-    with pytest.raises(ValidationError, match="Inicio de transcripción negativo"):
+    with pytest.raises(ValidationError) as rejected:
         TranscriptSegment(start_seconds="-0.1", end_seconds="1", text="mesa")
+    assert rejected.value.errors()[0]["loc"] == ("start_seconds",)
     with pytest.raises(ValidationError, match="Intervalo de transcripción invertido"):
         TranscriptSegment(start_seconds="2", end_seconds="1", text="mesa")
 
