@@ -6,7 +6,7 @@ CI de `main` [38330659108](https://github.com/gabriel-arinez/homex-nlp/actions/r
 
 ## Hallazgos comprobados y solución
 
-1. **Inicio temporal negativo aceptado por `TranscriptSegment`**. El contrato solo comparaba fin e inicio; el nuevo test `test_ap2_no_permite_timestamps_negativos_o_invertidos` exige rechazo de inicio negativo sin cambiar versión `1.0` (precisión semántica del contrato). `TranscriptionResult` mantiene rechazo de solapes y fin superior a la duración.
+1. **Inicio temporal negativo ya estaba prohibido** por el tipo Pydantic `DecimalText` (expresión regular). El nuevo test `test_ap2_no_permite_timestamps_negativos_o_invertidos` lo demuestra explícitamente, sin duplicar validaciones ni cambiar contrato `1.0`. `TranscriptionResult` mantiene rechazo de solapes y fin superior a la duración.
 2. **Directorio recibido como ruta de audio**. `validate_audio_file` produce `AUDIO_INVALID`, pero el `finally` anterior intentaba `unlink` sobre directorio y lo reemplazaba por `IsADirectoryError`. Se protege directorio real sin debilitar el borrado de archivos ni enlaces simbólicos rechazados.
 3. **Fallos parciales de transcriptor/timeout**. Test nuevo con generador que produce primer segmento y después falla: exige `TRANSCRIPTION_FAILED`, `retryable` y archivo temporal eliminado. Audio vacío/excesivo se rechaza sin invocar modelo; symlink se retira sin borrar destino.
 
