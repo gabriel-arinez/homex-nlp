@@ -54,4 +54,7 @@ class AsrService:
                 )
             ) from error
         finally:
-            path.unlink(missing_ok=True)
+            # Un directorio rechazado no se puede borrar con unlink: no ocultar
+            # AUDIO_INVALID detrás de IsADirectoryError. Un symlink sí se retira.
+            if path.is_symlink() or not path.is_dir():
+                path.unlink(missing_ok=True)
