@@ -1,0 +1,20 @@
+{
+  "adapter": "homex-hitl-commercial",
+  "adapter_version": "2.0",
+  "nlp_package": "homex-nlp==0.1.0",
+  "nlp_schema_version": "1.0",
+  "nlp_mode": "RULES_ONLY",
+  "policy": {
+    "nlp_is_commercial_authority": false,
+    "nlp_total_is_copied_to_unit_price": false,
+    "new_line_mode": "PRECIO_UNITARIO",
+    "seller_must_confirm_unit_price": true,
+    "catalog_import_from_ner": false,
+    "approved_quote_automatically": false
+  },
+  "compatibility": {
+    "public_contract_v1_changed": false,
+    "legacy_total_negotiated_evidence_preserved": true,
+    "backend_maps_only_after_hitl": true
+  }
+}
