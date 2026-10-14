@@ -21,3 +21,13 @@ producto maestro.
 
 La ampliación futura del extractor a varios ítems, pisos, zócalos o variantes requerirá un contrato
 NLP versionado nuevo y coordinación con su consumidor. AP6 no simula esa capacidad.
+
+## AP6.0.21 — proyección a `datos_tecnicos`
+
+La tabla comercial dejó de versionar su ficha y ahora usa un único `datos_tecnicos JSONB`. Este
+cambio no modifica el paquete, el wheel, `schema_version=1.0` ni `RULES_ONLY`. Los campos de la
+propuesta siguen siendo evidencia inmutable; durante HITL el vendedor organiza componentes y
+atributos en el objeto comercial. La transcripción se conserva como `descripcion_original` y las
+ambigüedades como advertencias o características generales, sin inventar asociaciones.
+
+No se entrenó ni promovió NER y no se mezcló el JSONL de etiquetado con el catálogo comercial.
