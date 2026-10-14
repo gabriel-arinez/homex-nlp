@@ -516,19 +516,26 @@ Texto sin mueble → `item_proposal=null`, conteo cero y advertencias. No devolv
 1. Evidencia: puede contener valores inválidos del dictado, identificados como tales.
 2. Propuesta: estructura válida, valores interpretados o pendientes, sin exigir completitud comercial.
 3. Propuesta incompleta: permanece en `resultado_raw` y, si corresponde, `items_ia`; el formulario conserva la edición pendiente. El detalle exige nombre, cantidad entera positiva, unidad y fuente de precio válida según modo incluso en BORRADOR. En v3 el unitario es obligatorio; G01 lo adapta para TOTAL_NEGOCIADO en F07. No inventar ceros/unos para persistir faltantes. La proforma puede existir sin líneas.
-4. Emisión/aprobación: cliente registrado, al menos una línea, total positivo, especificaciones de muebles con JSON V1 válido; perfiles solo si HOMEX los ha proporcionado; BOB o USD con precios explícitos en la moneda de la proforma; stock se verifica al aprobar.
+4. Emisión/aprobación: cliente registrado, al menos una línea, total positivo, especificaciones de muebles con `datos_tecnicos` comercial válido; perfiles solo si HOMEX los ha proporcionado; BOB o USD con precios explícitos en la moneda de la proforma; stock se verifica al aprobar.
 
 El perfil de tipo define ejes obligatorios, colores/espesores aplicables. La lista real de perfiles todavía debe cargarse con HOMEX: no inferir una matriz normativa del corpus. La ausencia de perfil no bloquea emisión/aprobación: validar estructura JSON V1 y requisitos generales reales; no inventar obligatoriedad de dimensiones/espesor/color. El vendedor verifica la suficiencia comercial. Solo aplicar un perfil cuando HOMEX lo proporcione.
 
-### 6.6. Adaptador entre contrato rico y JSONB V1
+### 6.6. Adaptador entre contrato NLP v1 y JSONB comercial único
 
 El resultado NLP conserva evidencia, medidas tipadas y componentes en `intentos_captura.resultado_raw`. Es la fuente original; `items_ia` es una proyección con nombre, espesor, colores, dimensiones, accesorios, cantidad, precio_total y observaciones. No copiar todo el contrato a columnas que no existen.
 
-El JSON comercial de `especificaciones_mueble` exige `schema_version=1`, espesor como `{"espesor":"18 mm"}`, dimensiones con claves exclusivamente ancho/alto/profundidad/largo/diametro y valores de texto, y accesorios como array de strings. Ejemplo: `{"ancho":"1.80 mts","alto":"80 cm"}` y `["dos cajones con correderas telescópicas"]`. No almacenar objetos canónicos de valor/unidad en esas columnas ni añadir claves de componente rechazadas por el trigger.
+Desde AP6.0.21, `especificaciones_mueble` usa exclusivamente `datos_tecnicos JSONB` y no tiene
+`schema_version` comercial. Componentes, materiales, espesores, colores, dimensiones, acabados,
+cantidades internas, accesorios y pendientes se organizan dentro de ese objeto. Los atributos por
+componente son abiertos; cada componente identificado requiere un nombre. No se asigna una medida
+o color a un componente cuando la evidencia no demuestra esa relación.
 
-El adaptador conserva unidades originales; normaliza solo para validación/comparación. Cuando existen varios espesores/componentes, preparar una representación textual explícita revisada —por ejemplo `{"espesor":"estructura: 18 mm; mesón: 25 mm"}`— y usar descripción/observaciones para medidas de componentes que no caben en los cinco ejes. La OT debe imprimir esas especificaciones; no confiar en que el taller consulte resultado_raw. Si no se puede representar un caso sin pérdida comprensible, revisar su representación con el vendedor antes de confirmar y revisar el contrato comercial antes de alterar JSON V1. La aceptación de strings por el trigger no certifica completitud técnica del mueble.
+El adaptador conserva unidades originales y normaliza sólo para comparación. HITL permite que el
+vendedor asocie cada atributo al componente correcto; los datos sin relación demostrada permanecen
+como características generales o advertencias. La OT consume `datos_tecnicos`, sin depender de
+`resultado_raw`.
 
-`items_humano` conserva la corrección final en sus campos compatibles, vinculada solo a item_ia. No agregar columnas de dimensiones normalizadas, origen o metadatos duplicados por conveniencia del parser. `schema_version` del contrato NLP y el SMALLINT del JSON comercial son versiones distintas.
+`items_humano` conserva la corrección final en sus campos compatibles, vinculada sólo a item_ia. No agregar columnas de dimensiones normalizadas, origen o metadatos duplicados por conveniencia del parser. `schema_version` pertenece únicamente al contrato NLP v1 y a su evidencia externa.
 
 ## 7. Refactorización del motor de texto
 
@@ -807,7 +814,7 @@ Las siguientes decisiones sustituyen íntegramente la matriz del plan 1.0. La ba
 | `productos_descuento` | Una promoción por producto, antes/ahora, fechas y activo. Se actualiza la misma fila; no historial complejo. |
 | `proformas` | Sin versiones/grupos; prospecto en borrador, snapshots mínimos del cliente al emitir/aprobar. Numero UNIQUE desde secuencia; BOB/USD. |
 | `proformas_detalle` | Cantidad INTEGER positiva, producto obligatorio salvo MUEBLE_MEDIDA, unidad coherente, nombre/precio obligatorios. Snapshots opcionales de promoción; total calculado. Sin origen redundante. Añadir modo_calculo/importe_negociado de G01 en F07. |
-| `especificaciones_mueble` | Una por detalle MUEBLE_MEDIDA; schema_version=1, tipo de mueble opcional y JSONB validado. Espesor/dimensiones/accesorios se conservan como textos con unidades, §6.6. |
+| `especificaciones_mueble` | Una por detalle MUEBLE_MEDIDA; tipo de mueble opcional, `datos_tecnicos JSONB` único y observaciones. Sin `schema_version` comercial ni columnas técnicas paralelas, §6.6. |
 | `pedidos` | UNIQUE(proforma_id), relación inmutable; nace CONFIRMADO al aprobar. Cliente, moneda, detalle y total se obtienen desde proforma. |
 | `transiciones_estado_pedido` | CONFIRMADO → EN_PRODUCCION → LISTO_ENTREGA → ENTREGADO; desde los tres primeros a CANCELADO. Sin EN_PREPARACION ni edición libre de rutas. |
 | `ordenes_trabajo` | UNIQUE(pedido_id); automática PENDIENTE, jefe nullable y asignable después. Conserva campos reales, sin duplicar numero_proforma. |
@@ -1457,3 +1464,11 @@ La descripción completa, los gates ejecutados, sus límites y el orden de reanu
 AP6 no modifica el contrato público NLP v1 ni promueve NER. El adaptador comercial v2 exige que el
 vendedor confirme el precio unitario durante HITL y prohíbe convertir automáticamente el total NLP.
 La decisión y su evidencia se documentan en [AP6_ADAPTACION_COMERCIAL.md](AP6_ADAPTACION_COMERCIAL.md).
+
+### AP6.0.21 — compatibilidad de especificaciones comerciales
+
+La simplificación de `especificaciones_mueble` no cambia `homex-nlp==0.1.0`, el contrato público
+`schema_version == "1.0"`, `RULES_ONLY`, ASR ni el corpus. Django conserva `resultado_raw`,
+`ItemIA` e `ItemHumano` como evidencia y proyecta la revisión final a `datos_tecnicos`. El contrato
+NLP no declara la estructura física de la tabla comercial. La trazabilidad se amplía en
+[AP6_ADAPTACION_COMERCIAL.md](AP6_ADAPTACION_COMERCIAL.md).
