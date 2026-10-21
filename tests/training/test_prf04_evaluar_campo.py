@@ -22,7 +22,7 @@ def sesion(**cambios):
 
 def cargar(tmp_path, *registros):
     archivo = tmp_path / "sesiones-autorizadas-prueba.jsonl"
-    archivo.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in registros)
+    archivo.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in registros))
     return archivo
 
 
