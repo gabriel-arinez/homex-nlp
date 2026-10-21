@@ -1,0 +1,64 @@
+{
+  "particion": "dev",
+  "fuente": "REFERENCIAS_TECNICAS_DESDE_ANOTACIONES_NO_GOLD_HUMANO",
+  "variantes": {
+    "A_RULES_ONLY": {
+      "conteos": {
+        "contrato_valido": 62,
+        "json_exacto": 0,
+        "cantidad_exacta": 29,
+        "unitario_exacto": 29,
+        "relaciones_tp": 80,
+        "relaciones_fp": 16,
+        "relaciones_fn": 507
+      },
+      "documentos": 62,
+      "relaciones": {
+        "precision": 0.8333333333333334,
+        "recall": 0.1362862010221465,
+        "f1": 0.2342606149341142
+      }
+    },
+    "B_NER_ASSEMBLER": {
+      "conteos": {
+        "contrato_valido": 62,
+        "json_exacto": 61,
+        "cantidad_exacta": 62,
+        "unitario_exacto": 62,
+        "relaciones_tp": 587,
+        "relaciones_fp": 0,
+        "relaciones_fn": 0
+      },
+      "documentos": 62,
+      "relaciones": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "C_HYBRID_EXPERIMENTAL": {
+      "conteos": {
+        "contrato_valido": 62,
+        "json_exacto": 51,
+        "cantidad_exacta": 51,
+        "unitario_exacto": 51,
+        "relaciones_tp": 478,
+        "relaciones_fp": 0,
+        "relaciones_fn": 109
+      },
+      "documentos": 62,
+      "relaciones": {
+        "precision": 1.0,
+        "recall": 0.8143100511073254,
+        "f1": 0.8976525821596244
+      }
+    }
+  },
+  "promovido": false,
+  "decision": "Mantener A; B/C requieren revisión de dominio, negativos/habla natural y productividad humana.",
+  "limitaciones": [
+    "No equivale a validación del proyector backend sobre todo el corpus.",
+    "UID se normaliza para comparar contenido; no se infieren asociaciones por índice.",
+    "No ajustar con test; esta evaluación estructurada usa exclusivamente dev."
+  ]
+}
