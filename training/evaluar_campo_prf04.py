@@ -20,9 +20,7 @@ def distancia(referencia, hipotesis):
     for i, palabra in enumerate(referencia, 1):
         actual = [i]
         for j, predicha in enumerate(hipotesis, 1):
-            actual.append(
-                min(actual[-1] + 1, previo[j] + 1, previo[j - 1] + (palabra != predicha))
-            )
+            actual.append(min(actual[-1] + 1, previo[j] + 1, previo[j - 1] + (palabra != predicha)))
         previo = actual
     return previo[-1]
 
@@ -38,7 +36,11 @@ def evaluar(fuente):
     casos_estructurados = 0
     for registro in registros:
         identificador = registro.get("id_sesion")
-        if not isinstance(identificador, str) or not identificador or identificador in identificadores:
+        if (
+            not isinstance(identificador, str)
+            or not identificador
+            or identificador in identificadores
+        )
             raise ValueError("Cada sesión requiere un ID anónimo único.")
         identificadores.add(identificador)
         if registro.get("autorizada") is not True or registro.get("fuente") != "DICTADO_VENDEDOR":
