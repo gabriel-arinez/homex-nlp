@@ -55,6 +55,20 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  prf04-backend-consumer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: gabriel-arinez/homex-backend
+          ref: f752bc3efe89d1c49f08b6a625e44c9a690ffe73
+          path: backend-prf04
+      - name: Contrato wheel NLP 0.1.1 y proyector PRF-04 en backend
+        run: |
+          python3 tools/verificar_backend_prf04.py backend-prf04 \
+            --revision f752bc3efe89d1c49f08b6a625e44c9a690ffe73
+
   secrets:
     runs-on: ubuntu-latest
     steps:
