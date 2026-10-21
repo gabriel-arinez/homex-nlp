@@ -13,9 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def verificar(backend, revision):
-    head = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=backend, text=True
-    ).strip()
+    head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=backend, text=True).strip()
     if head != revision:
         raise ValueError(f"Checkout backend no coincide: {head} != {revision}")
     proyecto = (backend / "pyproject.toml").read_text()
