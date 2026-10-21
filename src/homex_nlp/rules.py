@@ -34,7 +34,7 @@ PRODUCTS = (
     "sillón",
     "sillones",
 )
-ACCESSORIES = ("pasacable", "bisagras", "cajones", "puertas", "jaladores", "bandeja")
+ACCESSORIES = ("pasacable", "bisagras", "cajones", "puertas", "jaladores", "bandeja", "rieles")
 
 
 @dataclass(frozen=True)
@@ -74,7 +74,7 @@ def find_products(text: str) -> list[Match]:
     pattern = re.compile(
         r"\b(?:"
         + "|".join(p + (r"(?:es)?" if p.endswith("r") else r"s?") for p in PRODUCTS)
-        + r")(?:\s+en\s+l)?",
+        + r")\b(?:\s+en\s+l)?",
         re.I,
     )
     return [

@@ -76,3 +76,9 @@ def test_dimensiones_adicionales_y_ambito_explicito_de_pieza():
     assert dims["largo"].value == "250"
     assert dims["diametro"].value == "180"
     assert dims["ancho"].component_ref == resultado.item_proposal.components[0].component_id
+
+
+def test_mesada_no_es_otra_mesa_comercial_y_rieles_se_conservan():
+    resultado = extraer("Un mueble con mesada de 25 mm, rieles telescópicos")
+    assert resultado.status == "REQUIRES_REVIEW"
+    assert any(a.name == "rieles telescópicos" for a in resultado.item_proposal.accessories)
