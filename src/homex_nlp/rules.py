@@ -139,25 +139,46 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
 
 
 def find_measurements(text: str, label: str) -> list[Match]:
+    axes = {
+        "ancho": "ancho|anchura",
+        "alto": "alto|altura",
+        "profundidad": "profundidad|profundo|fondo",
+        "largo": "largo|longitud",
+        "diametro": "di[aá]metro",
+    }
+    axis = "(?:" + axes.get(label, label) + ")"
+    unit = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
     pattern = re.compile(
-        r"(?:"
-        + label
-        + r"\s*(?:de\s+)?([\d.,]+)\s*(mm|cm|m|mts?|metros?)?|"
-        + r"([\d.,]+)\s*(mm|cm|m|mts?|metros?)?\s*(?:de\s+)?"
-        + label
-        + r")",
+        axis
+        + r"\s*(?:de\s+)?([\d.,]+)\s*("
+        + unit
+        + r")?|"
+        + r"([\d.,]+)\s*("
+        + unit
+        + r")?\s*(?:de\s+)?"
+        + axis
+        + r"(?:\s+("
+        + unit
+        + r"))?",
         re.I,
     )
-    found: list[Match] = []
+    found = []
     for match in pattern.finditer(text):
-        raw_value, raw_unit = match.group(1) or match.group(3), match.group(2) or match.group(4)
-        value = decimal_from_text(raw_value)
+        value = decimal_from_text(match.group(1) or match.group(3))
+        raw_unit = match.group(2) or match.group(4) or match.group(5)
         if value is not None:
-            unit = (raw_unit or "").lower().rstrip(".")
-            found.append(
-                Match(
-                    match.start(), match.end(), match.group(), label.upper(), (value, unit or None)
+            normalized = None
+            if raw_unit:
+                token = raw_unit.casefold()
+                normalized = (
+                    "mm"
+                    if token.startswith("mili") or token == "mm"
+                    else "cm"
+                    if token.startswith("cent") or token == "cm"
+                    else "m"
                 )
+            found.append(
+                Match(match.start(), match.end(), match.group(), label.upper(), (value, normalized))
             )
     return found
 

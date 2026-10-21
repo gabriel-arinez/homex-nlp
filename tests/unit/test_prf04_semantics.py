@@ -57,3 +57,14 @@ def test_conjunto_explicito_solo_si_contiene_componentes():
         c.normalized_value == {"conjunto_ref": grupos[0].normalized_value["group_id"]}
         for c in miembros
     )
+
+
+def test_unidades_habladas_compartidas_en_enumeracion_explicita():
+    resultado = extraer("Seis veladores, 45 ancho, 45 profundo, 60 alto centímetros")
+    dims = {d.axis: (d.value, d.unit, d.value_mm) for d in resultado.item_proposal.dimensions}
+    assert dims == {
+        "ancho": ("45", "cm", "450"),
+        "profundidad": ("45", "cm", "450"),
+        "alto": ("60", "cm", "600"),
+    }
+    assert not any(w.code == "MISSING_UNIT" for w in resultado.warnings)

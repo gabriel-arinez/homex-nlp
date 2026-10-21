@@ -203,6 +203,23 @@ class RulesEngine:
                         evidence_ids=[evidence_id],
                     )
                 )
+        # Unidad final compartida de una enumeración explícita de ejes.
+        dimensional_candidates = [
+            c for c in candidates if c.label in {"ANCHO", "ALTO", "PROFUNDIDAD"}
+        ]
+        ordered = sorted(zip(dimensions, dimensional_candidates), key=lambda pair: pair[1].start)
+        if len(ordered) >= 2 and ordered[-1][0].unit and all(not d.unit for d, _ in ordered[:-1]):
+            start, end = ordered[0][1].start, ordered[-1][1].end
+            remainder = text[start:end]
+            for _, c in reversed(ordered):
+                remainder = remainder[: c.start - start] + remainder[c.end - start :]
+            if re.fullmatch(r"[\s,y]+", remainder, re.I):
+                unit = ordered[-1][0].unit
+                for d, _ in ordered[:-1]:
+                    d.unit = unit
+                    d.value_mm = str(Decimal(d.value) * {"m": 1000, "cm": 10, "mm": 1}[unit])
+                    d.evidence_ids.extend(ordered[-1][0].evidence_ids)
+                warnings = [w for w in warnings if w.code != "MISSING_UNIT"]
         thicknesses = []
         for thickness in find_thicknesses(text):
             if any(
