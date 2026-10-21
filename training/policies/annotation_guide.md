@@ -1,21 +1,25 @@
-# Guía de anotación y curación F02
+# Anotación PRF-04
 
-La fuente comercial contiene 200 cotizaciones bajo la clave `label`. La copia
-curada cambia esa clave a `entities` y conserva texto, etiquetas y orden. Cada
-registro incorpora un ID estable, hash de texto y familia. Ninguna ausencia de
-etiqueta significa un valor por defecto ni un negativo implícito.
+Las únicas fuentes operativas son los cuatro JSONL de `data/corpus/`. El usuario
+confirmó el 21-10-2026 que los 675 registros son su fuente de trabajo y que varios
+son originales. `metadata.fuente_autorizada_prf04` registra esta decisión sin
+reescribir la procedencia previa por registro. No equivale a audio real revisado.
 
-Los offsets son índices Python Unicode, inicio inclusivo y fin exclusivo. Deben
-seleccionar texto real y coincidir estrictamente con `spacy.blank("es")` de la
-versión indicada en el manifiesto. Una corrección semántica exige revisión
-comercial; F02 solo corrige los límites técnicos registrados en `changes.jsonl`.
+Offsets Unicode Python `[start,end)` sobre texto literal inmutable; etiquetas
+permitidas en `data/manifests/prf04_labels.json`. `COMPONENTE` identifica piezas;
+`CANTIDAD` representa cantidad comercial, `CANTIDAD_INTERNA` una cantidad asociada
+a una pieza. Material, color, acabado y espesor no se propagan entre ámbitos.
+`PRECIO_TOTAL` y `PRECIO_UNITARIO` conservan significados distintos.
 
-`PRODUCTO`, `CANTIDAD`, dimensiones, `ESPESOR`, `ACCESORIO`, `OBSERVACION`,
-`PRECIO_TOTAL` y `MATERIAL` se conservan para el alcance de muebles. Las etiquetas
-de sillas se preservan en su corpus aislado: `MODELO`, `ERGONOMIA`,
-`APOYABRAZOS`, `CABECERA`, `SOPORTE_LUMBAR`, `SISTEMA`, `INCLINACION`,
-`POSICIONES`, `COLOR` y `DISENO`. Esta conservación no amplía el entrenamiento
-v1 de muebles ni habilita altas automáticas de catálogo.
+Las referencias de `data/expected/` tienen ID y hash de fuente. Se generan desde
+anotaciones, independientemente del motor operativo, y declaran explícitamente
+que requieren revisión de dominio antes de tratarlas como gold humano. No se
+publican como métricas de productividad ni se usan para promover un modelo.
 
-Las particiones se construyen por familia anotada. El test se sella al crear el
-manifiesto y no se vuelve a generar durante el ajuste de reglas o hiperparámetros.
+Las particiones existentes se conservaron por familia y se sellaron con hash.
+No cambiar familias, texto o anotaciones tras observar test para ajustar un
+candidato; una nueva edición de corpus requiere una versión y evaluación nueva.
+
+`make corpus-check docbin-check` valida las cuatro fuentes. Los originales
+anteriores, sus scripts exclusivos y copias se retiraron del árbol operativo;
+el inventario previo conserva hashes/conteos y Git conserva contenido histórico.

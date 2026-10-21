@@ -50,7 +50,7 @@ jobs:
       - name: Publicar artefactos de integración
         uses: actions/upload-artifact@v4
         with:
-          name: homex-nlp-0.1.0-${{ github.sha }}
+          name: homex-nlp-${{ github.sha }}
           path: dist/*
           if-no-files-found: error
           retention-days: 30

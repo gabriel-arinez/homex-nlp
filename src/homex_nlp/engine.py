@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from decimal import Decimal
 from time import perf_counter
 
@@ -30,7 +31,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "f03-rules-v1"
+    rules_version = "prf04-rules-v2"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -102,7 +103,14 @@ class RulesEngine:
                 ],
                 started,
             )
-        products = find_products(text)
+        products = [
+            p
+            for p in find_products(text)
+            if not (
+                p.text.lower().startswith("cajonera")
+                and text[: p.start].rstrip().lower().endswith("con")
+            )
+        ]
         # Una rectificación explícita conserva evidencia rechazada y toma el último.
         if len(products) > 1 and " no " in f" {text.lower()} ":
             for product in products[:-1]:
@@ -197,6 +205,13 @@ class RulesEngine:
                 )
         thicknesses = []
         for thickness in find_thicknesses(text):
+            if any(
+                c.start <= thickness.start
+                and thickness.end <= c.end
+                and c.label in {"ANCHO", "ALTO", "PROFUNDIDAD"}
+                for c in candidates
+            ):
+                continue
             evidence_id = candidate(thickness)
             value, unit = thickness.value
             thicknesses.append(
@@ -224,6 +239,29 @@ class RulesEngine:
                 )
             )
         elif price_match:
+            currency_conflict = (
+                request.currency_context == "BOB"
+                and re.search(r"\b(?:USD|d[oó]lares?)\b|\$", text, re.I)
+                or request.currency_context == "USD"
+                and re.search(r"\b(?:BOB|Bs|bolivianos?)\b", text, re.I)
+            )
+            if currency_conflict:
+                candidate(
+                    price_match, "REJECTED", "La moneda dictada difiere del contexto comercial"
+                )
+                warnings.append(
+                    Warning(
+                        code="UNSUPPORTED_CURRENCY",
+                        path="/item_proposal/price",
+                        severity="REVIEW",
+                        message="La moneda dictada no coincide con la proforma; indique el precio en su moneda.",
+                    )
+                )
+                price_match = None
+        if price_match and price_mode != "INVALID_PRICE":
+            if any(w.code == "UNSUPPORTED_CURRENCY" for w in warnings):
+                price_match = None
+        if price_match and price_mode != "INVALID_PRICE":
             price_id = candidate(price_match)
             amount = money(price_match.value)
             if price_mode == "PRECIO_UNITARIO":
@@ -265,6 +303,9 @@ class RulesEngine:
             accessories=accessories,
             price=price,
         )
+        from homex_nlp.semantics import completar_relaciones
+
+        item = completar_relaciones(item, candidates, text, warnings)
         return self._result(request, item, candidates, warnings, started)
 
     def _result(self, request, item, candidates, warnings, started):

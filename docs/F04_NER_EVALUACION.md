@@ -20,7 +20,7 @@ espesores, dimensiones y etiquetas de apoyo de sillas, sin reabrir el test.
 Reproducir la preparación local:
 
 ```bash
-uv run python -m training.convert_to_docbin data/curated/homex_original_v1.jsonl data/splits/homex_original_v1.json artifacts/f04/corpus
+uv run python -m training.convert_to_docbin data/corpus/muebles_pedido.jsonl data/splits/muebles_pedido.json artifacts/f04/corpus
 uv run python -m spacy train training/configs/ner-v1.cfg --paths.train artifacts/f04/corpus/train.spacy --paths.dev artifacts/f04/corpus/dev.spacy --output artifacts/f04/model --training.max_steps 50 --training.eval_frequency 25 --gpu-id -1
 uv run python -m training.evaluate_ner artifacts/f04/model/model-best artifacts/f04/corpus/test.spacy
 ```

@@ -30,6 +30,9 @@ PRODUCTS = (
     "ropero",
     "closet",
     "cajonera",
+    "vitrina",
+    "sillón",
+    "sillones",
 )
 ACCESSORIES = ("pasacable", "bisagras", "cajones", "puertas", "jaladores", "bandeja")
 
@@ -68,31 +71,63 @@ def money(value: Decimal) -> str:
 def find_products(text: str) -> list[Match]:
     # El núcleo se conserva corto: palabras libres absorbían «y una» o «a» y
     # ocultaban conflictos comerciales entre productos.
-    pattern = re.compile(r"\b(?:" + "|".join(PRODUCTS) + r")s?(?:\s+en\s+l)?", re.I)
+    pattern = re.compile(
+        r"\b(?:"
+        + "|".join(p + (r"(?:es)?" if p.endswith("r") else r"s?") for p in PRODUCTS)
+        + r")(?:\s+en\s+l)?",
+        re.I,
+    )
     return [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO") for m in pattern.finditer(text)
     ]
 
 
 def find_quantity(text: str) -> Match | None:
+    products = find_products(text)
+    if not products:
+        return None
+    main = products[0]
+    prefix = text[: main.start]
     pattern = re.compile(
-        r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s+(?:unidades?\s+(?:de\s+)?)?", re.I
+        r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s+(?:(?:juegos?|unidades?)\s+(?:de\s+)?)?$", re.I
     )
-    for match in pattern.finditer(text):
+    match = pattern.search(prefix)
+    if match:
         token = match.group(1).lower()
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value:
             return Match(match.start(1), match.end(1), match.group(1), "CANTIDAD", value)
+    explicit = re.search(
+        r"\b(?:cantidad(?:\s+comercial)?\s*:\s*|se\s+cotizan\s+)(\d+)\s*(?:piezas?|pzas?\.?|unidades?|juegos?)\b",
+        text,
+        re.I,
+    )
+    if explicit and int(explicit.group(1)) > 0:
+        return Match(
+            explicit.start(1),
+            explicit.end(1),
+            explicit.group(1),
+            "CANTIDAD",
+            int(explicit.group(1)),
+        )
     return None
 
 
 def find_price(text: str) -> tuple[Match | None, str | None]:
     unit = re.search(
-        r"\b(?:a|por)\s+([\d.,]+)\s*(?:bs|bob)?\s+(?:cada\s+uno|c/u|por\s+unidad)\b", text, re.I
+        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:bs|bob|bolivianos?|dólares?|usd)?\s+(?:cada\s+uno|c/u|por\s+unidad)\b",
+        text,
+        re.I,
     )
     total = re.search(
         r"\b(?:total|monto(?:\s+total)?)\s*(?:es|de)?\s*([\d.,]+)\s*(?:bs|bob)?\b", text, re.I
     )
+    declared_unit = re.search(
+        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario)\s*(?:Bs\.?|BOB|USD)?\s*([\d.,]+)",
+        text,
+        re.I,
+    )
+    unit = unit or declared_unit
     chosen = unit or total
     if chosen is None:
         return None, None
@@ -128,12 +163,12 @@ def find_measurements(text: str, label: str) -> list[Match]:
 
 
 def find_thicknesses(text: str) -> list[Match]:
-    pattern = re.compile(r"\b(?:de|a)\s+([\d.,]+)\s*(mm|mil[ií]metros?)\b", re.I)
+    pattern = re.compile(r"\b(?:de\s+|a\s+|espesor\s+)?([\d.,]+)\s*(mm|mil[ií]metros?)\b", re.I)
     return [
         Match(
             m.start(1),
             m.end(2),
-            m.group(1, 2)[0] + " " + m.group(2),
+            text[m.start(1) : m.end(2)],
             "ESPESOR",
             (decimal_from_text(m.group(1)), "mm"),
         )

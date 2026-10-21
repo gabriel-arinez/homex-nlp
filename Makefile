@@ -12,12 +12,18 @@ test:
 schemas:
 	uv run --locked --extra dev python tools/export_schemas.py --check
 
+PRF04_FAMILIES = muebles_pedido sillas pisos_flotantes otros_productos
+
 corpus-check:
-	uv run --locked --extra dev python -m training.validate_corpus data/curated/homex_original_v1.jsonl --labels data/manifests/source_labels_v1.json --curated
-	uv run --locked --extra dev python -m training.validate_corpus data/curated/catalogo_sillas_v1.jsonl --labels data/manifests/source_labels_v1.json --curated
+	@for family in $(PRF04_FAMILIES); do \
+	  uv run --locked --extra dev python -m training.validate_corpus data/corpus/$$family.jsonl --labels data/manifests/prf04_labels.json --curated || exit $$?; \
+	done
+	uv run --locked --extra dev python -m training.audit_prf04 --output /tmp/homex-prf04-inventario.json
 
 docbin-check:
-	uv run --locked --extra dev python -m training.convert_to_docbin data/curated/homex_original_v1.jsonl data/splits/homex_original_v1.json /tmp/homex-docbin-check
+	@for family in $(PRF04_FAMILIES); do \
+	  uv run --locked --extra dev python -m training.convert_to_docbin data/corpus/$$family.jsonl data/splits/$$family.json /tmp/homex-docbin-prf04/$$family || exit $$?; \
+	done
 
 backend-consumer-check:
 	uv run --locked --extra dev pytest tests/contract/test_backend_consumer.py -q
