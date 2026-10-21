@@ -150,10 +150,10 @@ def find_measurements(text: str, label: str) -> list[Match]:
     unit = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
     pattern = re.compile(
         axis
-        + r"\s*(?:de\s+)?([\d.,]+)\s*("
+        + r"\s*(?:de\s+)?(\d+(?:[.,]\d+)*)\s*("
         + unit
         + r")?|"
-        + r"([\d.,]+)\s*("
+        + r"(\d+(?:[.,]\d+)*)\s*("
         + unit
         + r")?\s*(?:de\s+)?"
         + axis

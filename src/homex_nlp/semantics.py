@@ -71,6 +71,13 @@ def completar_relaciones(item, candidates, text, warnings):
             for match in re.finditer(patron, text, re.I):
                 if pieza.end() <= match.start() < limite:
                     evidencia(match, atributo, component=component)
+        for dimension in item.dimensions:
+            ref = next((c for c in candidates if c.candidate_id in dimension.evidence_ids), None)
+            if ref and pieza.end() <= ref.start < limite:
+                connector = text[pieza.end() : ref.start]
+                if re.fullmatch(r"\s+(?:de|con)\s+", connector, re.I):
+                    dimension.component_ref = component
+                    ref.component_ref = component
         for thickness in item.thicknesses:
             referencia = next(
                 (c for c in candidates if c.candidate_id in thickness.evidence_ids), None

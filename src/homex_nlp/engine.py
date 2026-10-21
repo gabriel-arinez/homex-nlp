@@ -172,7 +172,7 @@ class RulesEngine:
                 )
             )
         dimensions: list[Dimension] = []
-        for axis in ("ancho", "alto", "profundidad"):
+        for axis in ("ancho", "alto", "profundidad", "largo", "diametro"):
             for measurement in find_measurements(text, axis):
                 evidence_id = candidate(measurement)
                 value, raw_unit = measurement.value
@@ -205,7 +205,9 @@ class RulesEngine:
                 )
         # Unidad final compartida de una enumeración explícita de ejes.
         dimensional_candidates = [
-            c for c in candidates if c.label in {"ANCHO", "ALTO", "PROFUNDIDAD"}
+            c
+            for c in candidates
+            if c.label in {"ANCHO", "ALTO", "PROFUNDIDAD", "LARGO", "DIAMETRO"}
         ]
         ordered = sorted(zip(dimensions, dimensional_candidates), key=lambda pair: pair[1].start)
         if len(ordered) >= 2 and ordered[-1][0].unit and all(not d.unit for d, _ in ordered[:-1]):
@@ -225,7 +227,7 @@ class RulesEngine:
             if any(
                 c.start <= thickness.start
                 and thickness.end <= c.end
-                and c.label in {"ANCHO", "ALTO", "PROFUNDIDAD"}
+                and c.label in {"ANCHO", "ALTO", "PROFUNDIDAD", "LARGO", "DIAMETRO"}
                 for c in candidates
             ):
                 continue

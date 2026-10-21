@@ -68,3 +68,11 @@ def test_unidades_habladas_compartidas_en_enumeracion_explicita():
         "alto": ("60", "cm", "600"),
     }
     assert not any(w.code == "MISSING_UNIT" for w in resultado.warnings)
+
+
+def test_dimensiones_adicionales_y_ambito_explicito_de_pieza():
+    resultado = extraer("Una mesa de largo 250 cm, diámetro 180 cm; tapa de 43 cm de ancho")
+    dims = {d.axis: d for d in resultado.item_proposal.dimensions}
+    assert dims["largo"].value == "250"
+    assert dims["diametro"].value == "180"
+    assert dims["ancho"].component_ref == resultado.item_proposal.components[0].component_id
