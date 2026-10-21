@@ -126,6 +126,14 @@ class NerExperimentalEngine:
                 if value is None:
                     c.decision = "UNRESOLVED"
                     unresolved.append(c.candidate_id)
+                    warnings.append(
+                        Warning(
+                            code="MISSING_UNIT",
+                            path="/item_proposal/dimensions",
+                            severity="REVIEW",
+                            message=f"Complete valor y unidad de {c.text}.",
+                        )
+                    )
                     continue
                 unit = match[2].lower()
                 data = dict(
