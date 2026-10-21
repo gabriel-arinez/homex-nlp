@@ -40,7 +40,7 @@ def evaluar(fuente):
             not isinstance(identificador, str)
             or not identificador
             or identificador in identificadores
-        )
+        ):
             raise ValueError("Cada sesión requiere un ID anónimo único.")
         identificadores.add(identificador)
         if registro.get("autorizada") is not True or registro.get("fuente") != "DICTADO_VENDEDOR":
