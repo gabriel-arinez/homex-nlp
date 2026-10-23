@@ -6,14 +6,34 @@ from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Component
 from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, money
 
-COMPONENTES = r"panel frontal|estructura|tapa|mesada|cuerpo|cajonera|cajones?|puertas?|estantes?|módulos? laterales|módulos? centrales"
-MATERIALES = r"melamina(?:\s+MDP)?|MDP|MDF|vidrio(?:\s+templado)?|aluminio|metal|madera"
+COMPONENTES = (
+    r"panel frontal|estructura|tableros?|mes[oó]n(?:es)?|"
+    r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
+    r"tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?|"
+    r"puertas?|estantes?|módulos? laterales|módulos? centrales"
+)
+MATERIALES = (
+    r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"
+    r"melamina(?:\s+MDP)?|MDP|MDF|"
+    r"vidrio(?:\s+templado)?|aluminio|metal|madera"
+)
 NUMEROS = "|".join(NUMBER_WORDS)
 
 
 def completar_relaciones(item, candidates, text, warnings):
     """Asocia sólo dentro de la cláusula de una pieza, sin propagar atributos."""
-    piezas = list(re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I))
+    piezas = [
+        pieza
+        for pieza in re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I)
+        if not (
+            pieza.group().lower().startswith("tablero")
+            and re.search(
+                r"\bestructura\s+(?:con|en|de)\s+$",
+                text[max(0, pieza.start() - 40) : pieza.start()],
+                re.I,
+            )
+        )
+    ]
 
     def evidencia(match, label, value=None, component=None):
         identifier = f"c{len(candidates) + 1}"
@@ -35,12 +55,28 @@ def completar_relaciones(item, candidates, text, warnings):
     ambitos = []
     for indice, pieza in enumerate(piezas):
         component = f"pieza-{indice + 1}"
-        evidencia_id = evidencia(pieza, "COMPONENTE", component=component)
-        item.components.append(
-            Component(component_id=component, name=pieza.group(), evidence_ids=[evidencia_id])
+        alias_asr = bool(re.fullmatch(r"me\s+son", pieza.group(), re.I))
+        nombre = "mesón" if alias_asr else pieza.group()
+        evidencia_id = evidencia(
+            pieza,
+            "COMPONENTE",
+            value=nombre if alias_asr else None,
+            component=component,
         )
+        item.components.append(
+            Component(component_id=component, name=nombre, evidence_ids=[evidencia_id])
+        )
+        if alias_asr:
+            warnings.append(
+                Warning(
+                    code="UNKNOWN_TERM",
+                    path="/item_proposal/components",
+                    severity="INFO",
+                    message="Se interpretó 'me son engrosado' como 'mesón'; confirme la pieza.",
+                )
+            )
         limite = piezas[indice + 1].start() if indice + 1 < len(piezas) else len(text)
-        separador = re.search(r"[;.]", text[pieza.end() : limite])
+        separador = re.search(r";|[.,](?!\d)", text[pieza.end() : limite])
         if separador:
             limite = pieza.end() + separador.start()
         fin_ambito = re.search(

@@ -34,7 +34,17 @@ PRODUCTS = (
     "sillón",
     "sillones",
 )
-ACCESSORIES = ("pasacable", "bisagras", "cajones", "puertas", "jaladores", "bandeja", "rieles")
+ACCESSORIES = (
+    "pasacable",
+    "bisagras",
+    "cajones",
+    "puertas",
+    "jaladores",
+    "bandeja",
+    "rieles",
+    r"tapa\s*cantos?",
+    r"toma(?:s)?\s*corrientes?",
+)
 
 
 @dataclass(frozen=True)
@@ -77,9 +87,18 @@ def find_products(text: str) -> list[Match]:
         + r")\b(?:\s+en\s+l)?",
         re.I,
     )
-    return [
-        Match(m.start(), m.end(), m.group().strip(), "PRODUCTO") for m in pattern.finditer(text)
+    reunion = re.compile(
+        r"\bmesas?\s+de\s+reuni[oó]n\b"
+        r"(?:\s+para\s+(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s+personas?)?",
+        re.I,
+    )
+    especificos = [Match(m.start(), m.end(), m.group(), "PRODUCTO") for m in reunion.finditer(text)]
+    generales = [
+        Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")
+        for m in pattern.finditer(text)
+        if not any(x.start <= m.start() < x.end for x in especificos)
     ]
+    return sorted([*especificos, *generales], key=lambda x: x.start)
 
 
 def find_quantity(text: str) -> Match | None:
@@ -199,7 +218,37 @@ def find_thicknesses(text: str) -> list[Match]:
 
 
 def find_accessories(text: str) -> list[Match]:
-    pattern = re.compile(r"\b(?:" + "|".join(ACCESSORIES) + r")(?:\s+[a-záéíóúñ]+){0,3}", re.I)
-    return [
-        Match(m.start(), m.end(), m.group().strip(), "ACCESORIO") for m in pattern.finditer(text)
-    ]
+    pattern = re.compile(
+        r"\b(?:" + "|".join(ACCESSORIES) + r")\b(?:\s+(?!y\b)[a-záéíóúñ]+){0,3}",
+        re.I,
+    )
+    encontrados = []
+    for match in pattern.finditer(text):
+        prefijo = text[max(0, match.start() - 25) : match.start()]
+        cantidad = re.search(
+            r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s*$",
+            prefijo,
+            re.I,
+        )
+        valor = None
+        if cantidad:
+            token = cantidad.group(1).lower()
+            valor = NUMBER_WORDS.get(token)
+            if valor is None and token.isdigit():
+                valor = int(token)
+        texto_accesorio = re.sub(
+            r"(?:\s+(?:de|del|en|con|para|por|a|al))+$",
+            "",
+            match.group().strip(),
+            flags=re.I,
+        )
+        encontrados.append(
+            Match(
+                match.start(),
+                match.start() + len(texto_accesorio),
+                texto_accesorio,
+                "ACCESORIO",
+                valor,
+            )
+        )
+    return encontrados

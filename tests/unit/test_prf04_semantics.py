@@ -82,3 +82,146 @@ def test_mesada_no_es_otra_mesa_comercial_y_rieles_se_conservan():
     resultado = extraer("Un mueble con mesada de 25 mm, rieles telescópicos")
     assert resultado.status == "REQUIRES_REVIEW"
     assert any(a.name == "rieles telescópicos" for a in resultado.item_proposal.accessories)
+
+
+def test_mesa_reunion_relaciones_prf04():
+    resultado = extraer(
+        "Mesa de reunión para 10 personas, "
+        "tablero melamínico de 18 milímetros de grosor; "
+        "mesón engrosado a 27 milímetros; "
+        "estructura con tablero melamínico; "
+        "tapacanto PVC y dos tomacorrientes al centro; "
+        "color a elección; precio total 7.300"
+    )
+
+    item = resultado.item_proposal
+    assert resultado.status == "REQUIRES_REVIEW"
+    assert item.name == "Mesa de reunión para 10 personas"
+    assert item.furniture_type_candidate == "mesa de reunión"
+    assert item.quantity is None
+    assert item.price.line_total == "7300.00"
+    assert [pieza.name.lower() for pieza in item.components] == ["tablero", "mesón", "estructura"]
+    assert [medida.component_ref for medida in item.thicknesses] == [
+        item.components[0].component_id,
+        item.components[1].component_id,
+    ]
+    assert any(
+        accesorio.quantity == 2 and "tomacorrientes" in accesorio.name.lower()
+        for accesorio in item.accessories
+    )
+    assert any("tapacanto" in accesorio.name.lower() for accesorio in item.accessories)
+    assert item.observations == "color a elección"
+
+
+def test_ruido_asr_no_inventa_componentes():
+    resultado = extraer(
+        "Mesa de reunión para 10 personas, "
+        "tablero menamínico de 18 milímetros, "
+        "me sona engrosado a 27 milímetros, "
+        "tapa canto en plume vc y dos tomas corrientes al centro, "
+        "estructura con tablero menamínico, "
+        "color elección, precio total 7.300"
+    )
+
+    item = resultado.item_proposal
+    assert item.quantity is None
+    assert item.furniture_type_candidate == "mesa de reunión"
+    assert all(pieza.name.lower() != "tapa" for pieza in item.components)
+    assert item.thicknesses[0].component_ref is not None
+    assert item.thicknesses[1].component_ref is None
+    assert any(
+        accesorio.quantity == 2 and "tomas corrientes" in accesorio.name.lower()
+        for accesorio in item.accessories
+    )
+    assert item.observations == "color elección"
+
+
+def test_ambitos_respetan_comas_y_decimales():
+    for decimal in ("18.5", "18,5"):
+        resultado = extraer(
+            f"Un escritorio, tablero melamínico de {decimal} mm, superficie auxiliar de 27 mm"
+        )
+
+        item = resultado.item_proposal
+
+        assert item is not None
+        assert len(item.thicknesses) == 2
+        assert item.thicknesses[0].value == "18.5"
+        assert item.thicknesses[0].component_ref is not None
+        assert item.thicknesses[1].component_ref is None
+
+
+def test_componentes_distintos_con_comas_conservan_espesores():
+    resultado = extraer("Un escritorio con tablero de 18.5 mm, estructura de 27 mm")
+
+    item = resultado.item_proposal
+
+    assert item is not None
+    assert len(item.components) == 2
+    assert len(item.thicknesses) == 2
+
+    assert item.thicknesses[0].component_ref == (item.components[0].component_id)
+    assert item.thicknesses[1].component_ref == (item.components[1].component_id)
+
+
+def test_transcripciones_reales_208_209():
+    textos = (
+        "Mesa de reunión para 10 personas, tamaño 2.40 metros de largo "
+        "por 1.20 metros de ancho por 0.80 metros de alto tablero "
+        "melamínico de 18 milímetros de grosor, mesón engrosado a "
+        "27 milímetros, tapacanto en PVC y dos tomacorrientes al centro, "
+        "estructura en tablero melamínico, color a elección, "
+        "precio total 7.300",
+        "Mesa de reunión para 10 personas tamaño 2.40 metros de largo "
+        "por 1.20 metros de ancho por 0.80 metros de alto, tablero "
+        "melamínico de 18 milímetros de grosor me son engrosado a "
+        "27 milímetros, tapacanto en PVC y 2 tomacorrientes al centro, "
+        "estructura en tablero melamínico, color a elección total 7300",
+    )
+
+    for texto in textos:
+        resultado = extraer(texto)
+        item = resultado.item_proposal
+
+        assert item is not None
+        assert resultado.status == "REQUIRES_REVIEW"
+        assert item.quantity is None
+        assert item.price.line_total == "7300.00"
+        assert item.observations == "color a elección"
+
+        assert [p.name.casefold() for p in item.components] == ["tablero", "mesón", "estructura"]
+
+        assert [m.value_mm for m in item.thicknesses] == ["18", "27"]
+        assert [m.component_ref for m in item.thicknesses] == [
+            item.components[0].component_id,
+            item.components[1].component_id,
+        ]
+
+        accesorios = [a.name for a in item.accessories]
+        assert "tapacanto en PVC" in accesorios
+        assert "tapacanto en PVC y" not in accesorios
+
+        assert any(a.quantity == 2 and "tomacorrientes" in a.name for a in item.accessories)
+
+        assert not any(w.code == "CONFLICTING_VALUES" for w in resultado.warnings)
+
+        if "me son engrosado" in texto:
+            alias = [
+                c
+                for c in resultado.candidates
+                if c.label == "COMPONENTE" and c.normalized_value == "mesón"
+            ]
+            assert len(alias) == 1
+            assert alias[0].text == "me son"
+            assert texto[alias[0].start : alias[0].end] == "me son"
+            assert any(
+                w.code == "UNKNOWN_TERM" and "me son" in w.message for w in resultado.warnings
+            )
+
+
+def test_alias_asr_no_se_activa_fuera_del_contexto():
+    resultado = extraer("Una mesa donde me son útiles dos tableros de madera")
+
+    assert resultado.item_proposal is not None
+    assert not any(c.name == "mesón" for c in resultado.item_proposal.components)
+    assert not any(w.code == "UNKNOWN_TERM" and "me son" in w.message for w in resultado.warnings)

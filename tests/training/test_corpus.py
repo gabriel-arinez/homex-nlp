@@ -10,7 +10,7 @@ ROOT = Path(__file__).parents[2]
 LABELS = set(json.loads((ROOT / "data/manifests/prf04_labels.json").read_text())["labels"])
 
 
-@pytest.mark.parametrize("familia,cantidad", zip(FAMILIAS, [380, 101, 97, 97]))
+@pytest.mark.parametrize("familia,cantidad", list(zip(FAMILIAS, [380, 101, 97, 97])))
 def test_fuentes_activas_validas(familia, cantidad):
     report = validate(ROOT / f"data/corpus/{familia}.jsonl", LABELS, curated=True)
     assert report.valid, report.errors

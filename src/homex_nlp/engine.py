@@ -31,7 +31,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v2"
+    rules_version = "prf04-rules-v4"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -243,7 +243,11 @@ class RulesEngine:
                 )
             )
         accessories = [
-            Accessory(name=item.text, evidence_ids=[candidate(item)])
+            Accessory(
+                name=item.text,
+                quantity=item.value,
+                evidence_ids=[candidate(item)],
+            )
             for item in find_accessories(text)
         ]
         price_match, price_mode = find_price(text)
@@ -313,14 +317,42 @@ class RulesEngine:
                     origin="EXPLICIT_TOTAL",
                     evidence_ids=[price_id],
                 )
+        tipo_candidato = re.sub(
+            r"\s+para\s+(?:\d+|"
+            + "|".join(
+                (
+                    "un",
+                    "una",
+                    "dos",
+                    "tres",
+                    "cuatro",
+                    "cinco",
+                    "seis",
+                    "siete",
+                    "ocho",
+                    "nueve",
+                    "diez",
+                )
+            )
+            + r")\s+personas?\s*$",
+            "",
+            products[0].text,
+            flags=re.I,
+        )
+        color_pendiente = re.search(
+            r"\bcolor\s+(?:a\s+)?elecci[oó]n\b",
+            text,
+            re.I,
+        )
         item = ItemProposal(
             name=products[0].text,
-            furniture_type_candidate=products[0].text.lower(),
+            furniture_type_candidate=tipo_candidato.lower(),
             quantity=quantity.value if quantity else None,
             dimensions=dimensions,
             thicknesses=thicknesses,
             accessories=accessories,
             price=price,
+            observations=color_pendiente.group() if color_pendiente else None,
         )
         from homex_nlp.semantics import completar_relaciones
 
