@@ -116,33 +116,44 @@ def find_quantity(text: str) -> Match | None:
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value:
             return Match(match.start(1), match.end(1), match.group(1), "CANTIDAD", value)
+    # La cantidad comercial se reconoce sólo en construcciones inequívocas.
+    # «para 10 personas» y «2 tomacorrientes» no son cantidad de muebles.
     explicit = re.search(
-        r"\b(?:cantidad(?:\s+comercial)?\s*:\s*|se\s+cotizan\s+)(\d+)\s*(?:piezas?|pzas?\.?|unidades?|juegos?)\b",
+        r"\b(?:cantidad(?:\s+comercial)?\s*(?::|de)?\s*|se\s+cotizan\s+)"
+        r"(\d+|" + "|".join(NUMBER_WORDS) + r")\s*"
+        r"(?:piezas?|pzas?\.?|unidades?|juegos?)\b",
         text,
         re.I,
     )
-    if explicit and int(explicit.group(1)) > 0:
-        return Match(
-            explicit.start(1),
-            explicit.end(1),
-            explicit.group(1),
-            "CANTIDAD",
-            int(explicit.group(1)),
-        )
+    if explicit:
+        token = explicit.group(1).lower()
+        value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
+        if value and value > 0:
+            return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
     return None
 
 
 def find_price(text: str) -> tuple[Match | None, str | None]:
+    """Precios comerciales explícitos; nunca convertir un total en unitario aquí."""
+    moneda = r"(?:bs\.?|bob|bolivianos?|d[oó]lares?|usd)"
     unit = re.search(
-        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:bs|bob|bolivianos?|dólares?|usd)?\s+(?:cada\s+uno|c/u|por\s+unidad)\b",
+        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:" + moneda + r"\s*)?"
+        r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b",
         text,
         re.I,
     )
-    total = re.search(
-        r"\b(?:total|monto(?:\s+total)?)\s*(?:es|de)?\s*([\d.,]+)\s*(?:bs|bob)?\b", text, re.I
-    )
     declared_unit = re.search(
-        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario)\s*(?:Bs\.?|BOB|USD)?\s*([\d.,]+)",
+        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario)"
+        r"\s*(?:(?:es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b",
+        text,
+        re.I,
+    )
+    cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
+    tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
+    total = re.search(
+        r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
+        r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
+        r"\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b",
         text,
         re.I,
     )
@@ -155,6 +166,19 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
         return None, "INVALID_PRICE"
     mode = "PRECIO_UNITARIO" if unit else "TOTAL_NEGOCIADO"
     return Match(chosen.start(1), chosen.end(1), chosen.group(1), "PRECIO", parsed), mode
+
+
+def find_ambiguous_price(text: str) -> Match | None:
+    """Conserva evidencia de «precio 7300» sin inventar su modalidad."""
+    if find_price(text)[1] is not None:
+        return None
+    match = re.search(r"\bprecio\s+(?:(?:es|de)\s+)?([\d.,]+)\b", text, re.I)
+    if not match:
+        return None
+    valor = decimal_from_text(match.group(1))
+    if valor is None:
+        return None
+    return Match(match.start(1), match.end(1), match.group(1), "PRECIO_AMBIGUO", valor)
 
 
 def find_measurements(text: str, label: str) -> list[Match]:

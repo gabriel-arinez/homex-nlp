@@ -19,8 +19,10 @@ from homex_nlp.contracts import (
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.result import EngineInfo
 from homex_nlp.rules import (
+    NUMBER_WORDS,
     Match,
     find_accessories,
+    find_ambiguous_price,
     find_measurements,
     find_price,
     find_products,
@@ -31,7 +33,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v4"
+    rules_version = "prf04-rules-v6"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -111,6 +113,39 @@ class RulesEngine:
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]
+        if len(products) > 1:
+            # Una segunda mención de «mesas» dentro del total negociado no
+            # constituye otro producto si coincide con el tipo y la cantidad.
+            principal = products[0].text.split()[0].casefold().rstrip("s")
+            cantidad_principal = find_quantity(text)
+
+            def referencia_del_total(producto: Match) -> bool:
+                if cantidad_principal is None:
+                    return False
+                nombre = producto.text.split()[0].casefold().rstrip("s")
+                if nombre != principal:
+                    return False
+                contexto = text[max(0, producto.start - 120) : producto.start]
+                reiteracion = re.search(
+                    r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
+                    r"\s+de\s+(?:las?|los?)\s+"
+                    r"(\d+|" + "|".join(NUMBER_WORDS) + r")\s+$",
+                    contexto,
+                    re.I,
+                )
+                if reiteracion is None:
+                    return False
+                token = reiteracion.group(1).casefold()
+                cantidad = NUMBER_WORDS.get(token)
+                if cantidad is None and token.isdigit():
+                    cantidad = int(token)
+                return cantidad == cantidad_principal.value
+
+            products = [
+                producto
+                for index, producto in enumerate(products)
+                if index == 0 or not referencia_del_total(producto)
+            ]
         # Una rectificación explícita conserva evidencia rechazada y toma el último.
         if len(products) > 1 and " no " in f" {text.lower()} ":
             for product in products[:-1]:
@@ -251,6 +286,21 @@ class RulesEngine:
             for item in find_accessories(text)
         ]
         price_match, price_mode = find_price(text)
+        if price_match is None and price_mode is None:
+            ambiguo = find_ambiguous_price(text)
+            if ambiguo:
+                candidate(ambiguo, "UNRESOLVED")
+                warnings.append(
+                    Warning(
+                        code="REQUIRED_FIELD_MISSING",
+                        path="/item_proposal/price",
+                        severity="REVIEW",
+                        message=(
+                            f"Se dictó el importe {money(ambiguo.value)} "
+                            f"{request.currency_context}; aclare si es total o precio unitario."
+                        ),
+                    )
+                )
         price = None
         if price_mode == "INVALID_PRICE":
             warnings.append(

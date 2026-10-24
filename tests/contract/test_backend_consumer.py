@@ -15,7 +15,7 @@ def test_backend_consumer_contract_v1() -> None:
     result = RulesEngine().extract(request)
 
     assert isinstance(result, ExtractionResult)
-    assert homex_nlp.__version__ == "0.1.3"
+    assert homex_nlp.__version__ == "0.1.5"
     assert result.schema_version == "1.0"
     assert result.status == "REQUIRES_REVIEW"
     assert result.engine.mode == "RULES_ONLY"
