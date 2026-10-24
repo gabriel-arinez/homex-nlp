@@ -84,7 +84,7 @@ def main() -> None:
 
     profile = {
         "schema_version": "1.0",
-        "package_version": "0.1.0",
+        "package_version": __import__("homex_nlp").__version__,
         "mode": "RULES_ONLY",
         "profile_kind": "CONTROLLED_DOUBLE",
         "iterations": args.iterations,

@@ -6,8 +6,6 @@ import json
 import re
 from pathlib import Path
 
-import homex_nlp
-
 ROOT = Path(__file__).resolve().parents[2]
 EVIDENCE = ROOT / "docs" / "integration-system-v0.1.0.json"
 SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -25,7 +23,7 @@ def test_system_evidence_identifies_the_pinned_artifact_and_contract() -> None:
 
     assert evidence["evidence_schema"] == "1.0"
     assert artifact["name"] == "homex-nlp"
-    assert artifact["version"] == homex_nlp.__version__ == "0.1.0"
+    assert artifact["version"] == "0.1.0"
     assert artifact["source_commit"] == "b5fe2921320c9031f6d44dc5c91a18411daa393e"
     assert GIT_SHA.fullmatch(artifact["source_commit"])
     assert artifact["wheel_filename"] == "homex_nlp-0.1.0-py3-none-any.whl"

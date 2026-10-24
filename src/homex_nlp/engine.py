@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from decimal import Decimal
 from time import perf_counter
 
@@ -18,8 +19,10 @@ from homex_nlp.contracts import (
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.result import EngineInfo
 from homex_nlp.rules import (
+    NUMBER_WORDS,
     Match,
     find_accessories,
+    find_ambiguous_price,
     find_measurements,
     find_price,
     find_products,
@@ -30,7 +33,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "f03-rules-v1"
+    rules_version = "prf04-rules-v6"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -102,7 +105,47 @@ class RulesEngine:
                 ],
                 started,
             )
-        products = find_products(text)
+        products = [
+            p
+            for p in find_products(text)
+            if not (
+                p.text.lower().startswith("cajonera")
+                and text[: p.start].rstrip().lower().endswith("con")
+            )
+        ]
+        if len(products) > 1:
+            # Una segunda mención de «mesas» dentro del total negociado no
+            # constituye otro producto si coincide con el tipo y la cantidad.
+            principal = products[0].text.split()[0].casefold().rstrip("s")
+            cantidad_principal = find_quantity(text)
+
+            def referencia_del_total(producto: Match) -> bool:
+                if cantidad_principal is None:
+                    return False
+                nombre = producto.text.split()[0].casefold().rstrip("s")
+                if nombre != principal:
+                    return False
+                contexto = text[max(0, producto.start - 120) : producto.start]
+                reiteracion = re.search(
+                    r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
+                    r"\s+de\s+(?:las?|los?)\s+"
+                    r"(\d+|" + "|".join(NUMBER_WORDS) + r")\s+$",
+                    contexto,
+                    re.I,
+                )
+                if reiteracion is None:
+                    return False
+                token = reiteracion.group(1).casefold()
+                cantidad = NUMBER_WORDS.get(token)
+                if cantidad is None and token.isdigit():
+                    cantidad = int(token)
+                return cantidad == cantidad_principal.value
+
+            products = [
+                producto
+                for index, producto in enumerate(products)
+                if index == 0 or not referencia_del_total(producto)
+            ]
         # Una rectificación explícita conserva evidencia rechazada y toma el último.
         if len(products) > 1 and " no " in f" {text.lower()} ":
             for product in products[:-1]:
@@ -164,7 +207,7 @@ class RulesEngine:
                 )
             )
         dimensions: list[Dimension] = []
-        for axis in ("ancho", "alto", "profundidad"):
+        for axis in ("ancho", "alto", "profundidad", "largo", "diametro"):
             for measurement in find_measurements(text, axis):
                 evidence_id = candidate(measurement)
                 value, raw_unit = measurement.value
@@ -195,8 +238,34 @@ class RulesEngine:
                         evidence_ids=[evidence_id],
                     )
                 )
+        # Unidad final compartida de una enumeración explícita de ejes.
+        dimensional_candidates = [
+            c
+            for c in candidates
+            if c.label in {"ANCHO", "ALTO", "PROFUNDIDAD", "LARGO", "DIAMETRO"}
+        ]
+        ordered = sorted(zip(dimensions, dimensional_candidates), key=lambda pair: pair[1].start)
+        if len(ordered) >= 2 and ordered[-1][0].unit and all(not d.unit for d, _ in ordered[:-1]):
+            start, end = ordered[0][1].start, ordered[-1][1].end
+            remainder = text[start:end]
+            for _, c in reversed(ordered):
+                remainder = remainder[: c.start - start] + remainder[c.end - start :]
+            if re.fullmatch(r"[\s,y]+", remainder, re.I):
+                unit = ordered[-1][0].unit
+                for d, _ in ordered[:-1]:
+                    d.unit = unit
+                    d.value_mm = str(Decimal(d.value) * {"m": 1000, "cm": 10, "mm": 1}[unit])
+                    d.evidence_ids.extend(ordered[-1][0].evidence_ids)
+                warnings = [w for w in warnings if w.code != "MISSING_UNIT"]
         thicknesses = []
         for thickness in find_thicknesses(text):
+            if any(
+                c.start <= thickness.start
+                and thickness.end <= c.end
+                and c.label in {"ANCHO", "ALTO", "PROFUNDIDAD", "LARGO", "DIAMETRO"}
+                for c in candidates
+            ):
+                continue
             evidence_id = candidate(thickness)
             value, unit = thickness.value
             thicknesses.append(
@@ -209,10 +278,29 @@ class RulesEngine:
                 )
             )
         accessories = [
-            Accessory(name=item.text, evidence_ids=[candidate(item)])
+            Accessory(
+                name=item.text,
+                quantity=item.value,
+                evidence_ids=[candidate(item)],
+            )
             for item in find_accessories(text)
         ]
         price_match, price_mode = find_price(text)
+        if price_match is None and price_mode is None:
+            ambiguo = find_ambiguous_price(text)
+            if ambiguo:
+                candidate(ambiguo, "UNRESOLVED")
+                warnings.append(
+                    Warning(
+                        code="REQUIRED_FIELD_MISSING",
+                        path="/item_proposal/price",
+                        severity="REVIEW",
+                        message=(
+                            f"Se dictó el importe {money(ambiguo.value)} "
+                            f"{request.currency_context}; aclare si es total o precio unitario."
+                        ),
+                    )
+                )
         price = None
         if price_mode == "INVALID_PRICE":
             warnings.append(
@@ -224,6 +312,29 @@ class RulesEngine:
                 )
             )
         elif price_match:
+            currency_conflict = (
+                request.currency_context == "BOB"
+                and re.search(r"\b(?:USD|d[oó]lares?)\b|\$", text, re.I)
+                or request.currency_context == "USD"
+                and re.search(r"\b(?:BOB|Bs|bolivianos?)\b", text, re.I)
+            )
+            if currency_conflict:
+                candidate(
+                    price_match, "REJECTED", "La moneda dictada difiere del contexto comercial"
+                )
+                warnings.append(
+                    Warning(
+                        code="UNSUPPORTED_CURRENCY",
+                        path="/item_proposal/price",
+                        severity="REVIEW",
+                        message="La moneda dictada no coincide con la proforma; indique el precio en su moneda.",
+                    )
+                )
+                price_match = None
+        if price_match and price_mode != "INVALID_PRICE":
+            if any(w.code == "UNSUPPORTED_CURRENCY" for w in warnings):
+                price_match = None
+        if price_match and price_mode != "INVALID_PRICE":
             price_id = candidate(price_match)
             amount = money(price_match.value)
             if price_mode == "PRECIO_UNITARIO":
@@ -256,15 +367,46 @@ class RulesEngine:
                     origin="EXPLICIT_TOTAL",
                     evidence_ids=[price_id],
                 )
+        tipo_candidato = re.sub(
+            r"\s+para\s+(?:\d+|"
+            + "|".join(
+                (
+                    "un",
+                    "una",
+                    "dos",
+                    "tres",
+                    "cuatro",
+                    "cinco",
+                    "seis",
+                    "siete",
+                    "ocho",
+                    "nueve",
+                    "diez",
+                )
+            )
+            + r")\s+personas?\s*$",
+            "",
+            products[0].text,
+            flags=re.I,
+        )
+        color_pendiente = re.search(
+            r"\bcolor\s+(?:a\s+)?elecci[oó]n\b",
+            text,
+            re.I,
+        )
         item = ItemProposal(
             name=products[0].text,
-            furniture_type_candidate=products[0].text.lower(),
+            furniture_type_candidate=tipo_candidato.lower(),
             quantity=quantity.value if quantity else None,
             dimensions=dimensions,
             thicknesses=thicknesses,
             accessories=accessories,
             price=price,
+            observations=color_pendiente.group() if color_pendiente else None,
         )
+        from homex_nlp.semantics import completar_relaciones
+
+        item = completar_relaciones(item, candidates, text, warnings)
         return self._result(request, item, candidates, warnings, started)
 
     def _result(self, request, item, candidates, warnings, started):
