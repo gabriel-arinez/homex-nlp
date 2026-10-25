@@ -102,8 +102,12 @@ def is_explicitly_negated(text: str, start: int) -> bool:
     if re.search(r"\b(?:pero|con|mejor|s[ií]|quiero|necesito)\b", following, re.I):
         return False
     words = re.findall(r"\w+", following, re.UNICODE)
+    if negator not in {"sin", "ni"} and "y" in words:
+        # «No quiero dos mesas y un escritorio»: el segundo también puede
+        # estar en el ámbito negado; no convertirlo en un pedido afirmativo.
+        return len(words) <= 5
     limit = 3 if negator in {"sin", "ni"} else 2
-    return len(words) <= limit and (negator in {"sin", "ni"} or "y" not in words)
+    return len(words) <= limit
 
 
 def find_products(text: str) -> list[Match]:
