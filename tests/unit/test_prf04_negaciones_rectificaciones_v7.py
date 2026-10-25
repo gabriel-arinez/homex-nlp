@@ -72,8 +72,7 @@ def test_componente_positivo_con_cantidad_interna_sigue_operativo():
     resultado = extraer("Seis veladores con dos cajones, a 750 bolivianos por unidad")
     assert resultado.item_proposal.quantity == 6
     assert any(
-        c.label == "CANTIDAD_INTERNA" and c.normalized_value == 2
-        for c in resultado.candidates
+        c.label == "CANTIDAD_INTERNA" and c.normalized_value == 2 for c in resultado.candidates
     )
 
 
@@ -91,4 +90,3 @@ def test_conjuncion_en_negacion_no_se_interpreta_como_orden_positiva():
     resultado = extraer("No quiero dos mesas y un escritorio")
     assert resultado.status == "NO_PROPOSAL"
     assert resultado.item_proposal is None
-
