@@ -114,6 +114,29 @@ class RulesEngine:
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]
+        # «un escritorio, no mesa» no aclara si «mesa» es una corrección
+        # sin pausa o una exclusión. Sin señal inequívoca, abstenerse.
+        if any(
+            re.search(r"[,;]\s*no\s+$", text[a.end : b.start], re.I)
+            for a, b in zip(products, products[1:])
+        ):
+            for ambiguous in products:
+                candidate(ambiguous, "UNRESOLVED")
+            return self._result(
+                request,
+                None,
+                candidates,
+                warnings
+                + [
+                    Warning(
+                        code="MULTIPLE_MAIN_PRODUCTS",
+                        path="/item_proposal/name",
+                        severity="REVIEW",
+                        message="La negación del producto es ambigua; indique cuál desea cotizar.",
+                    )
+                ],
+                started,
+            )
         negated_products = [p for p in products if is_explicitly_negated(text, p.start)]
         for negated in negated_products:
             candidate(negated, "REJECTED", "Producto explícitamente negado")
