@@ -55,7 +55,15 @@ def completar_relaciones(item, candidates, text, warnings):
         pieza
         for pieza in re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I)
         if not (
-            pieza.group().lower().startswith("tablero")
+            # No duplicar un producto principal como componente propio.
+            any(
+                c.label == "PRODUCTO"
+                and c.decision == "ACCEPTED"
+                and c.start == pieza.start()
+                and c.end == pieza.end()
+                for c in candidates
+            )
+            or pieza.group().lower().startswith("tablero")
             and re.search(
                 r"\bestructura\s+(?:con|en|de)\s+$",
                 text[max(0, pieza.start() - 40) : pieza.start()],

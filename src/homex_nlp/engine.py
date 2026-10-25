@@ -34,7 +34,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v10"
+    rules_version = "prf04-rules-v11"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -112,6 +112,26 @@ class RulesEngine:
             if not (
                 p.text.lower().startswith("cajonera")
                 and text[: p.start].rstrip().lower().endswith("con")
+            )
+        ]
+        # «Estantes» después de «con N ...» describe componentes,
+        # no una segunda línea comercial; pedidos independientes siguen en revisión.
+        menciones = products[:]
+        products = [
+            producto
+            for producto in menciones
+            if not (
+                re.fullmatch(r"estantes?", producto.text, re.I)
+                and any(
+                    anterior.end <= producto.start
+                    and re.fullmatch(
+                        r"\s*,?\s*con\b[\w\s,]{0,100}\b(?:" + "|".join(NUMBER_WORDS) + r"|\d+)\s+",
+                        text[anterior.end : producto.start],
+                        re.I,
+                    )
+                    for anterior in menciones
+                    if anterior != producto
+                )
             )
         ]
         # «un escritorio, no mesa» no aclara si «mesa» es una corrección
