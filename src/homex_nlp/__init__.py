@@ -4,4 +4,4 @@ F00 prepara la distribución. La extracción y sus contratos se implementarán
 por fases; el experimento anterior no se importa desde este paquete.
 """
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
