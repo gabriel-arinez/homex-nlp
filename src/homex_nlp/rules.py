@@ -78,6 +78,34 @@ def money(value: Decimal) -> str:
     return f"{value.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP):.2f}"
 
 
+def is_explicitly_negated(text: str, start: int) -> bool:
+    """Detecta exclusiones locales inequívocas sin normalizar el texto ni perder offsets.
+
+    Un «no, mejor» introduce una corrección, no niega el producto que sigue.
+    La cláusula termina en puntuación fuerte o coma; nunca se propaga
+    una negación a toda la especificación.
+    """
+    clause = re.split(r"[.;,\n]", text[max(0, start - 140) : start])[-1]
+    matches = list(
+        re.finditer(
+            r"\b(?:sin|ni|no(?:\s+(?:quiero|necesito|lleva|tiene|incluye|es|son))?)\b",
+            clause,
+            re.I,
+        )
+    )
+    if not matches:
+        return False
+    negator = matches[-1].group().casefold()
+    following = clause[matches[-1].end() :]
+    # Una negación demasiado alejada no autoriza a descartar un producto.
+    # «sin cajones y con puertas»: puertas sí están presentes.
+    if re.search(r"\b(?:pero|con|mejor|s[ií]|quiero|necesito)\b", following, re.I):
+        return False
+    words = re.findall(r"\w+", following, re.UNICODE)
+    limit = 3 if negator in {"sin", "ni"} else 2
+    return len(words) <= limit and (negator in {"sin", "ni"} or "y" not in words)
+
+
 def find_products(text: str) -> list[Match]:
     # El núcleo se conserva corto: palabras libres absorbían «y una» o «a» y
     # ocultaban conflictos comerciales entre productos.
