@@ -23,20 +23,28 @@ NUMERO = rf"(?:{NUMEROS}|\d+)"
 # y una nueva cantidad explícita. No interpretamos un "no dos cajones"
 # como instrucción suficiente para alterar la ficha.
 CORRECCION_PIEZA = re.compile(
-    rf"\s*[,;]\s*(?:no\s*,?\s*mejor|perd[oó]n\s*,?\s*mejor|"
+    rf"\s*[,;.]?\s*(?:no\s*,?\s*mejor|perd[oó]n\s*,?\s*mejor|"
     rf"corrijo\s*,?\s*mejor|mejor)\s+{NUMERO}\s+",
     re.I,
 )
-AMBIGUA_PIEZA = re.compile(rf"\s*[,;]\s*no\s*,\s*{NUMERO}\s+", re.I)
+AMBIGUA_PIEZA = re.compile(rf"\s*[,;.]?\s*no\s*,\s*{NUMERO}\s+", re.I)
 AMBIGUA_CANTIDAD = re.compile(
-    rf"\s*[,;]\s*no\s*,\s*(?P<numero>{NUMERO})\b"
+    rf"\s*[,;.]?\s*no\s*,\s*(?P<numero>{NUMERO})\b"
     rf"(?=\s*(?:[,;.]|$))",
     re.I,
 )
 CORRECCION_CANTIDAD = re.compile(
-    rf"\s*[,;]\s*(?:no\s*,?\s*mejor|perd[oó]n\s*,?\s*mejor|"
+    rf"\s*[,;.]?\s*(?:no\s*,?\s*mejor|perd[oó]n\s*,?\s*mejor|"
     rf"corrijo\s*,?\s*mejor|mejor)\s+(?P<numero>{NUMERO})\b"
     rf"(?=\s*(?:[,;.]|$))",
+    re.I,
+)
+
+# Cuando el ASR omite signos en correcciones ENCADENADAS, nunca se
+# acepta silenciosamente la cantidad anterior ni una intermedia.
+CORRECCION_INCOMPLETA = re.compile(
+    rf"\s*[,;.]?\s*(?:no\s*,?\s*mejor|perd[oó]n\s*,?\s*mejor|"
+    rf"corrijo\s*,?\s*mejor|mejor)\s+(?P<numero>{NUMERO})\b",
     re.I,
 )
 
@@ -209,10 +217,14 @@ def completar_relaciones(item, candidates, text, warnings):
         fragmento = text[pieza.end() : proxima]
         rectificacion = CORRECCION_CANTIDAD.match(fragmento)
         ambigua = AMBIGUA_CANTIDAD.match(fragmento) if not rectificacion else None
+        if not rectificacion and not ambigua:
+            # Una corrección explícita seguida de otra sin delimitadores no
+            # satisface el patrón estricto: conservar todos los valores dudosos.
+            ambigua = CORRECCION_INCOMPLETA.match(fragmento)
         # Varias rectificaciones sucesivas sin repetir la pieza no autorizan
         # a elegir una cantidad intermedia: se remite todo a revisión.
         if rectificacion and re.search(
-            r"[,;]\s*no\s*,?\s*(?:mejor|\d+|" + NUMEROS + r")\b",
+            r"(?:[,;.]|\s)\s*no\s*,?\s*(?:mejor|\d+|" + NUMEROS + r")\b",
             fragmento[rectificacion.end() :],
             re.I,
         ):
@@ -259,7 +271,7 @@ def completar_relaciones(item, candidates, text, warnings):
             # cuando se dicta «dos, no, mejor cuatro».
             if ambigua and rectificacion is None:
                 for adicional in re.finditer(
-                    rf"[,;]\s*no\s*,?\s*mejor\s+(?P<numero>{NUMERO})\b",
+                    rf"(?:[,;.]|\s)\s*no\s*,?\s*mejor\s+(?P<numero>{NUMERO})\b",
                     fragmento[nueva_cantidad.end() :],
                     re.I,
                 ):
