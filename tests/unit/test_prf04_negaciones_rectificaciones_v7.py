@@ -86,3 +86,9 @@ def test_sin_producto_afirmado_no_inventa_propuesta():
 
 def test_version_de_reglas_identifica_este_correctivo():
     assert extraer("Un escritorio").engine.rules_version == "prf04-rules-v7"
+
+def test_conjuncion_en_negacion_no_se_interpreta_como_orden_positiva():
+    resultado = extraer("No quiero dos mesas y un escritorio")
+    assert resultado.status == "NO_PROPOSAL"
+    assert resultado.item_proposal is None
+
