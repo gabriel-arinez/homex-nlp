@@ -1,6 +1,7 @@
-"""Comprueba el consumo real de homex-nlp 0.1.5 en backend PRF-04.
+"""Comprueba el wheel operativo NLP v6 del backend PRF-04 histórico.
 
-Independiente del gate histórico F10, que permanece fijado a wheel 0.1.0.
+El código de trabajo v7 evoluciona sin reescribir la procedencia del wheel 0.1.5.
+El futuro wheel v7 requiere una versión y un gate de integración independientes.
 """
 
 import argparse
@@ -10,6 +11,8 @@ from pathlib import Path
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
+NLP_SOURCE_REVISION = "449a5cf34db2202bdb27aed74c61923ea3176dde"
+WHEEL_SHA256 = "ccf0b0d87af865faa51ee23d6857565e26599d3b28a52c3a55193e8c5742965f"
 
 
 def verificar(backend, revision):
@@ -24,21 +27,30 @@ def verificar(backend, revision):
         raise ValueError("Versión ASR de backend no fijada.")
     wheel = backend / "vendor/homex_nlp-0.1.5-py3-none-any.whl"
     digest = hashlib.sha256(wheel.read_bytes()).hexdigest()
-    if digest not in lock:
-        raise ValueError("El digest del wheel no figura en el lock de backend.")
+    if digest != WHEEL_SHA256 or digest not in lock:
+        raise ValueError("La huella del wheel PRF-04 histórico no coincide con el lock.")
     with ZipFile(wheel) as paquete:
         empaquetados = {
             nombre: paquete.read(nombre)
             for nombre in paquete.namelist()
             if nombre.startswith("homex_nlp/") and nombre.endswith(".py")
         }
-    locales = {
-        ruta.relative_to(ROOT / "src").as_posix(): ruta.read_bytes()
-        for ruta in (ROOT / "src/homex_nlp").rglob("*.py")
+    rutas_fuente = subprocess.check_output(
+        ["git", "ls-tree", "-r", "--name-only", NLP_SOURCE_REVISION, "src/homex_nlp"],
+        cwd=ROOT,
+        text=True,
+    ).splitlines()
+    fuente_historica = {
+        ruta.removeprefix("src/"): subprocess.check_output(
+            ["git", "show", f"{NLP_SOURCE_REVISION}:{ruta}"], cwd=ROOT
+        )
+        for ruta in rutas_fuente
+        if ruta.endswith(".py")
     }
-    if empaquetados != locales:
+    if empaquetados != fuente_historica:
         raise ValueError(
-            f"Fuente/wheel divergen; fuente={len(locales)}, wheel={len(empaquetados)}."
+            "La fuente histórica NLP v6 diverge del wheel 0.1.5: "
+            f"fuente={len(fuente_historica)}, wheel={len(empaquetados)}."
         )
     adapter = (backend / "apps/capturas/nlp/adapter.py").read_text()
     if 'MODO_OPERATIVO = "RULES_ONLY"' not in adapter:
@@ -46,7 +58,10 @@ def verificar(backend, revision):
     proyector = (backend / "apps/capturas/proyeccion_prf03.py").read_text()
     if 'VERSION_PROYECCION = "PRF04_2"' not in proyector:
         raise ValueError("Backend no contiene la proyección aprobada.")
-    print(f"prf04-backend-nlp-ok backend={head} wheel_sha256={digest}")
+    print(
+        f"prf04-backend-nlp-v6-ok backend={head} "
+        f"source={NLP_SOURCE_REVISION} wheel_sha256={digest}"
+    )
 
 
 if __name__ == "__main__":

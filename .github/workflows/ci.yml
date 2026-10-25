@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: gabriel-arinez/homex-backend
-          ref: f752bc3efe89d1c49f08b6a625e44c9a690ffe73
+          ref: 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
           path: backend-prf04
 
       - uses: astral-sh/setup-uv@v6
@@ -37,10 +37,10 @@ jobs:
       - name: Calidad, esquemas, corpus y contratos
         run: make check
 
-      - name: Verificar integridad wheel PRF-04 con backend final
+      - name: Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)
         run: |
           python3 tools/verificar_backend_prf04.py backend-prf04 \
-            --revision f752bc3efe89d1c49f08b6a625e44c9a690ffe73
+            --revision 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
 
       - name: Verificar distribución consumible
         run: make distribution-check
