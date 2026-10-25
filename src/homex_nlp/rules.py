@@ -129,8 +129,8 @@ def find_products(text: str) -> list[Match]:
     return sorted([*especificos, *generales], key=lambda x: x.start)
 
 
-def find_quantity(text: str) -> Match | None:
-    products = find_products(text)
+def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
+    products = [main_product] if main_product is not None else find_products(text)
     if not products:
         return None
     main = products[0]
