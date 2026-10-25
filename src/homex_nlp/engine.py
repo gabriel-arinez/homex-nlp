@@ -28,12 +28,13 @@ from homex_nlp.rules import (
     find_products,
     find_quantity,
     find_thicknesses,
+    is_explicitly_negated,
     money,
 )
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v6"
+    rules_version = "prf04-rules-v7"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -113,11 +114,47 @@ class RulesEngine:
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]
+        # «un escritorio, no mesa» no aclara si «mesa» es una corrección
+        # sin pausa o una exclusión. Sin señal inequívoca, abstenerse.
+        if any(
+            re.search(r"[,;]\s*no\s+$", text[a.end : b.start], re.I)
+            for a, b in zip(products, products[1:])
+        ):
+            for ambiguous in products:
+                candidate(ambiguous, "UNRESOLVED")
+            return self._result(
+                request,
+                None,
+                candidates,
+                warnings
+                + [
+                    Warning(
+                        code="MULTIPLE_MAIN_PRODUCTS",
+                        path="/item_proposal/name",
+                        severity="REVIEW",
+                        message="La negación del producto es ambigua; indique cuál desea cotizar.",
+                    )
+                ],
+                started,
+            )
+        negated_products = [p for p in products if is_explicitly_negated(text, p.start)]
+        for negated in negated_products:
+            candidate(negated, "REJECTED", "Producto explícitamente negado")
+        products = [p for p in products if p not in negated_products]
+        if negated_products:
+            warnings.append(
+                Warning(
+                    code="CONFLICTING_VALUES",
+                    path="/item_proposal/name",
+                    severity="REVIEW",
+                    message="Se excluyó una referencia de producto negada; revise el nombre.",
+                )
+            )
         if len(products) > 1:
             # Una segunda mención de «mesas» dentro del total negociado no
             # constituye otro producto si coincide con el tipo y la cantidad.
             principal = products[0].text.split()[0].casefold().rstrip("s")
-            cantidad_principal = find_quantity(text)
+            cantidad_principal = find_quantity(text, main_product=products[0])
 
             def referencia_del_total(producto: Match) -> bool:
                 if cantidad_principal is None:
@@ -146,8 +183,23 @@ class RulesEngine:
                 for index, producto in enumerate(products)
                 if index == 0 or not referencia_del_total(producto)
             ]
-        # Una rectificación explícita conserva evidencia rechazada y toma el último.
-        if len(products) > 1 and " no " in f" {text.lower()} ":
+
+        # Corregir sólo con una señal positiva inequívoca ENTRE menciones.
+        # «mesa, no un escritorio» niega el segundo producto, no rectifica al primero.
+        # Una conjunción comercial («mesas y escritorios») sigue sin propuesta.
+        def correccion_entre(anterior: Match, siguiente: Match) -> bool:
+            fragmento = text[anterior.end : siguiente.start]
+            return bool(
+                re.search(
+                    r"\b(?:no\s*,?\s*(?:mejor|quiero|necesito|sino)|"
+                    r"perd[oó]n\s*,?\s*(?:mejor|quiero|sino)?|"
+                    r"corrijo\s*,?\s*(?:es|mejor)|mejor|sino)\b",
+                    fragmento,
+                    re.I,
+                )
+            )
+
+        if len(products) > 1 and correccion_entre(products[-2], products[-1]):
             for product in products[:-1]:
                 candidate(product, "REJECTED", "Rectificado explícitamente en el dictado")
             products = [products[-1]]
@@ -194,7 +246,7 @@ class RulesEngine:
                 started,
             )
         candidate(products[0])
-        quantity = find_quantity(text)
+        quantity = find_quantity(text, main_product=products[0])
         if quantity:
             candidate(quantity)
         if quantity is None:
@@ -277,14 +329,18 @@ class RulesEngine:
                     evidence_ids=[evidence_id],
                 )
             )
-        accessories = [
-            Accessory(
-                name=item.text,
-                quantity=item.value,
-                evidence_ids=[candidate(item)],
+        accessories = []
+        for accessory in find_accessories(text):
+            if is_explicitly_negated(text, accessory.start):
+                candidate(accessory, "REJECTED", "Accesorio explícitamente excluido")
+                continue
+            accessories.append(
+                Accessory(
+                    name=accessory.text,
+                    quantity=accessory.value,
+                    evidence_ids=[candidate(accessory)],
+                )
             )
-            for item in find_accessories(text)
-        ]
         price_match, price_mode = find_price(text)
         if price_match is None and price_mode is None:
             ambiguo = find_ambiguous_price(text)

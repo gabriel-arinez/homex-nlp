@@ -4,7 +4,7 @@ import re
 
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Component
-from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, money
+from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
 
 COMPONENTES = (
     r"panel frontal|estructura|tableros?|mes[oó]n(?:es)?|"
@@ -34,6 +34,22 @@ def completar_relaciones(item, candidates, text, warnings):
             )
         )
     ]
+
+    negadas = [pieza for pieza in piezas if is_explicitly_negated(text, pieza.start())]
+    piezas = [pieza for pieza in piezas if pieza not in negadas]
+    for negada in negadas:
+        candidates.append(
+            Candidate(
+                candidate_id=f"c{len(candidates) + 1}",
+                label="COMPONENTE",
+                start=negada.start(),
+                end=negada.end(),
+                text=negada.group(),
+                source="RULE",
+                decision="REJECTED",
+                reason="Componente explícitamente excluido",
+            )
+        )
 
     def evidencia(match, label, value=None, component=None):
         identifier = f"c{len(candidates) + 1}"

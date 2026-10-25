@@ -39,7 +39,10 @@ def test_prices_are_parsed_completely_and_missing_unit_requires_review() -> None
     assert any(warning.code == "MISSING_UNIT" for warning in missing_unit.warnings)
 
 
-def test_explicit_rectification_keeps_rejected_evidence() -> None:
+def test_ambiguous_rectification_does_not_invent_main_product() -> None:
+    # «no mesa» puede negar la mesa o ser una rectificación con pausa omitida.
     result = run("un escritorio, no mesa, total 100")
-    assert result.item_proposal.name == "mesa"
-    assert any(candidate.decision == "REJECTED" for candidate in result.candidates)
+    assert result.status == "NO_PROPOSAL"
+    assert result.item_proposal is None
+    assert any(warning.code == "MULTIPLE_MAIN_PRODUCTS" for warning in result.warnings)
+    assert len([c for c in result.candidates if c.decision == "UNRESOLVED"]) == 2
