@@ -165,29 +165,62 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     return None
 
 
-def find_price(text: str) -> tuple[Match | None, str | None]:
-    """Precios comerciales explícitos; nunca convertir un total en unitario aquí."""
-    moneda = r"(?:bs\.?|bob|bolivianos?|d[oó]lares?|usd)"
-    unit = re.search(
-        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:" + moneda + r"\s*)?"
-        r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b",
-        text,
-        re.I,
+def _numero_es_medida_no_precio(text: str, encontrado: re.Match[str]) -> bool:
+    """Nunca convertir medidas dimensionales explícitas en precios comerciales.
+
+    Mantener los offsets del texto original; no depende de normalización ASR.
+    No bloquea importes sin moneda cuando el contexto comercial es claro.
+    """
+    unidad_dimension = (
+        r"(?:mm|cm|m|mts?|mil[ií]metros?|cent[ií]metros?|metros?|"
+        r"pulgadas?|pies)\b"
     )
-    declared_unit = re.search(
+    if re.match(r"\s*" + unidad_dimension, text[encontrado.end(1) :], re.I):
+        return True
+    anterior = text[max(0, encontrado.start() - 42) : encontrado.start()]
+    return bool(
+        re.search(
+            r"\b(?:ancho|anchura|alto|altura|largo|longitud|fondo|"
+            r"profundidad|di[aá]metro|espesor)\s*$",
+            anterior,
+            re.I,
+        )
+        and encontrado.group().casefold().lstrip().startswith("total")
+    )
+
+
+def find_price(text: str) -> tuple[Match | None, str | None]:
+    """Precios comerciales explícitos; nunca convertir un total en unitario aquí.
+
+    Una medida como «ancho total 180 centímetros» NO es «Bs 180».
+    Si aparece un precio real después de una medida, seguir buscándolo.
+    """
+    moneda = r"(?:bs\.?|bob|bolivianos?|d[oó]lares?|usd)"
+
+    def primero_aplicable(patron: str):
+        return next(
+            (
+                encontrado
+                for encontrado in re.finditer(patron, text, re.I)
+                if not _numero_es_medida_no_precio(text, encontrado)
+            ),
+            None,
+        )
+
+    unit = primero_aplicable(
+        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:" + moneda + r"\s*)?"
+        r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
+    )
+    declared_unit = primero_aplicable(
         r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario)"
-        r"\s*(?:(?:es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b",
-        text,
-        re.I,
+        r"\s*(?:(?:es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
-    total = re.search(
+    total = primero_aplicable(
         r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
         r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
-        r"\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b",
-        text,
-        re.I,
+        r"\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
     unit = unit or declared_unit
     chosen = unit or total

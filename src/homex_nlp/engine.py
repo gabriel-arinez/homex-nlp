@@ -34,7 +34,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v9"
+    rules_version = "prf04-rules-v10"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
