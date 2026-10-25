@@ -160,6 +160,7 @@ class RulesEngine:
                 for index, producto in enumerate(products)
                 if index == 0 or not referencia_del_total(producto)
             ]
+
         # Corregir sólo con una señal positiva inequívoca ENTRE menciones.
         # «mesa, no un escritorio» niega el segundo producto, no rectifica al primero.
         # Una conjunción comercial («mesas y escritorios») sigue sin propuesta.
