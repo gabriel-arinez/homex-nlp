@@ -59,8 +59,7 @@ def verificar(backend, revision):
     if 'VERSION_PROYECCION = "PRF04_2"' not in proyector:
         raise ValueError("Backend no contiene la proyección aprobada.")
     print(
-        f"prf04-backend-nlp-v6-ok backend={head} "
-        f"source={NLP_SOURCE_REVISION} wheel_sha256={digest}"
+        f"prf04-backend-nlp-v6-ok backend={head} source={NLP_SOURCE_REVISION} wheel_sha256={digest}"
     )
 
 
