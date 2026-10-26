@@ -246,6 +246,190 @@ def find_ambiguous_price(text: str) -> Match | None:
     return Match(match.start(1), match.end(1), match.group(1), "PRECIO_AMBIGUO", valor)
 
 
+# Valores dimensionales en palabras del ASR. Intencionadamente no se incorpora
+# al lector general de precios/cantidades: una palabra sólo es una medida si
+# aparece acompañada de eje explícito y unidad de longitud reconocida.
+_DIM_UNIDADES = {
+    "un": 1,
+    "uno": 1,
+    "una": 1,
+    "dos": 2,
+    "tres": 3,
+    "cuatro": 4,
+    "cinco": 5,
+    "seis": 6,
+    "siete": 7,
+    "ocho": 8,
+    "nueve": 9,
+}
+_DIM_CORTOS = {
+    "diez": 10,
+    "once": 11,
+    "doce": 12,
+    "trece": 13,
+    "catorce": 14,
+    "quince": 15,
+    "dieciseis": 16,
+    "diecisiete": 17,
+    "dieciocho": 18,
+    "diecinueve": 19,
+    "veinte": 20,
+    "veintiuno": 21,
+    "veintiun": 21,
+    "veintiuna": 21,
+    "veintidos": 22,
+    "veintitres": 23,
+    "veinticuatro": 24,
+    "veinticinco": 25,
+    "veintiseis": 26,
+    "veintisiete": 27,
+    "veintiocho": 28,
+    "veintinueve": 29,
+}
+_DIM_DECENAS = {
+    "treinta": 30,
+    "cuarenta": 40,
+    "cincuenta": 50,
+    "sesenta": 60,
+    "setenta": 70,
+    "ochenta": 80,
+    "noventa": 90,
+}
+_DIM_CENTENAS = {
+    "cien": 100,
+    "ciento": 100,
+    "doscientos": 200,
+    "doscientas": 200,
+    "trescientos": 300,
+    "trescientas": 300,
+    "cuatrocientos": 400,
+    "cuatrocientas": 400,
+    "quinientos": 500,
+    "quinientas": 500,
+    "seiscientos": 600,
+    "seiscientas": 600,
+    "setecientos": 700,
+    "setecientas": 700,
+    "ochocientos": 800,
+    "ochocientas": 800,
+    "novecientos": 900,
+    "novecientas": 900,
+}
+
+
+def _dimension_numero_palabras(raw: str) -> Decimal | None:
+    """Parseo estricto de enteros españoles 1..9999; nunca adivina valores.
+
+    Rechaza gramáticas incompletas: «ciento y...», decenas + «ciento»,
+    tokens intermedios extraños y cifras mezcladas. Los offsets quedan intactos.
+    """
+    import unicodedata
+
+    frase = "".join(
+        char
+        for char in unicodedata.normalize("NFD", raw.casefold())
+        if unicodedata.category(char) != "Mn"
+    )
+    tokens = frase.split()
+    if not tokens or len(tokens) > 7:
+        return None
+
+    def menor_100(partes: list[str]) -> int | None:
+        if len(partes) == 1:
+            return (
+                _DIM_UNIDADES.get(partes[0])
+                or _DIM_CORTOS.get(partes[0])
+                or _DIM_DECENAS.get(partes[0])
+            )
+        if (
+            len(partes) == 3
+            and partes[1] == "y"
+            and partes[0] in _DIM_DECENAS
+            and partes[2] in _DIM_UNIDADES
+        ):
+            return _DIM_DECENAS[partes[0]] + _DIM_UNIDADES[partes[2]]
+        return None
+
+    def menor_1000(partes: list[str]) -> int | None:
+        if not partes:
+            return None
+        numero = menor_100(partes)
+        if numero is not None:
+            return numero
+        centena = _DIM_CENTENAS.get(partes[0])
+        if centena is None:
+            return None
+        if len(partes) == 1:
+            return centena if partes[0] != "ciento" else None
+        if partes[0] == "cien":
+            return None
+        resto = menor_100(partes[1:])
+        return centena + resto if resto is not None else None
+
+    if "mil" in tokens:
+        indice = tokens.index("mil")
+        if indice == 0:
+            miles = 1
+        elif indice == 1 and tokens[0] in _DIM_UNIDADES:
+            miles = _DIM_UNIDADES[tokens[0]]
+        else:
+            return None
+        resto = menor_1000(tokens[indice + 1 :]) if indice + 1 < len(tokens) else 0
+        numero = miles * 1000 + resto if resto is not None else None
+    else:
+        numero = menor_1000(tokens)
+    return Decimal(numero) if numero is not None and 1 <= numero <= 9999 else None
+
+
+# La gramática se acota mediante léxico explícito. «y» sólo se acepta dentro
+# de una decena compuesta; la función numérica valida la secuencia íntegra.
+_DIM_LEXICO = (
+    set(_DIM_UNIDADES)
+    | set(_DIM_CORTOS)
+    | set(_DIM_DECENAS)
+    | set(_DIM_CENTENAS)
+    | {"mil", "y", "dieciséis", "veintidós", "veintitrés", "veintiséis", "veintiún"}
+)
+_DIM_PALABRAS_PATRON = (
+    r"\b(?:"
+    + "|".join(sorted(_DIM_LEXICO - {"y"}, key=len, reverse=True))
+    + r")\b"
+    + r"(?:\s+(?:"
+    + "|".join(sorted(_DIM_LEXICO, key=len, reverse=True))
+    + r")\b){0,6}"
+)
+
+
+def _fragmento_numerico_truncado(text: str, start: int) -> bool:
+    """Impide que se tome sólo el sufijo de una expresión numérica inválida."""
+    import unicodedata
+
+    contexto = "".join(
+        char
+        for char in unicodedata.normalize("NFD", text[max(0, start - 40) : start].casefold())
+        if unicodedata.category(char) != "Mn"
+    )
+    anterior = re.findall(r"\w+", contexto)
+    if (
+        len(anterior) >= 2
+        and anterior[-1] == "y"
+        and (
+            anterior[-2] in _DIM_LEXICO
+            or anterior[-2] in {"metro", "metros", "centimetro", "centimetros", "cm", "mm"}
+        )
+    ):
+        return True
+    if (
+        len(anterior) >= 2
+        and anterior[-1] in {"coma", "punto", "con"}
+        and (anterior[-2] in _DIM_LEXICO or anterior[-2].isdigit())
+    ):
+        return True
+    if anterior and anterior[-1] in _DIM_LEXICO and anterior[-1] != "y":
+        return True
+    return False
+
+
 def find_measurements(text: str, label: str) -> list[Match]:
     axes = {
         "ancho": "ancho|anchura",
@@ -280,7 +464,7 @@ def find_measurements(text: str, label: str) -> list[Match]:
                 token = raw_unit.casefold()
                 normalized = (
                     "mm"
-                    if token.startswith("mili") or token == "mm"
+                    if token.startswith(("mili", "milí")) or token == "mm"
                     else "cm"
                     if token.startswith("cent") or token == "cm"
                     else "m"
@@ -288,7 +472,44 @@ def find_measurements(text: str, label: str) -> list[Match]:
             found.append(
                 Match(match.start(), match.end(), match.group(), label.upper(), (value, normalized))
             )
-    return found
+
+    # Sólo los valores en palabras con unidad inequívoca y eje explícito.
+    # La ruta preexistente de dígitos queda sin alteración alguna.
+    palabras_eje = re.compile(
+        axis + r"\s*(?:de\s+)?(?:total\s+)?(" + _DIM_PALABRAS_PATRON + r")\s+(" + unit + r")",
+        re.I,
+    )
+    palabras_invertido = re.compile(
+        r"(" + _DIM_PALABRAS_PATRON + r")\s+(" + unit + r")\s*(?:de\s+)?" + axis + r"\b",
+        re.I,
+    )
+    for patron in (palabras_eje, palabras_invertido):
+        for coincidencia in patron.finditer(text):
+            if patron is palabras_invertido and _fragmento_numerico_truncado(
+                text, coincidencia.start(1)
+            ):
+                continue
+            valor = _dimension_numero_palabras(coincidencia.group(1))
+            if valor is None:
+                continue
+            unidad = coincidencia.group(2).casefold()
+            normalizada = (
+                "mm"
+                if unidad.startswith(("mili", "milí")) or unidad == "mm"
+                else "cm"
+                if unidad.startswith("cent") or unidad == "cm"
+                else "m"
+            )
+            found.append(
+                Match(
+                    coincidencia.start(),
+                    coincidencia.end(),
+                    coincidencia.group(),
+                    label.upper(),
+                    (valor, normalizada),
+                )
+            )
+    return sorted(found, key=lambda encontrada: encontrada.start)
 
 
 def find_thicknesses(text: str) -> list[Match]:
