@@ -1,0 +1,3446 @@
+[
+  {
+    "annotated": "[[PRODUCTO|mesa de reuniones]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], para [[OBSERVACION|diez personas]]. [[COMPONENTE|Tablero]] de [[MATERIAL|melamina]] de [[ESPESOR|18 mm]]; [[COMPONENTE|mesón]] engrosado a [[ESPESOR|27 mm]]. Total [[PRECIO_TOTAL|6800]], descuento [[DESCUENTO|cero]].",
+    "assertions": [
+      {
+        "literal": "mesa de reuniones",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa de reuniones"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "6800",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "6800"
+      },
+      {
+        "literal": "cero",
+        "path": "comercial.descuento_linea",
+        "rule": "numero_palabras",
+        "value": "0"
+      },
+      {
+        "literal": "Tablero",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Tablero",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Tablero"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "18 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "literal",
+        "value": "18 mm"
+      },
+      {
+        "literal": "mesón",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "mesón",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "mesón"
+      },
+      {
+        "literal": "27 mm",
+        "path": "especificacion.datos_tecnicos.componentes.1.espesor",
+        "rule": "literal",
+        "value": "27 mm"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "mesa de reuniones",
+        "precio_total_explicito": "6800",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "derived_unit_price": "3400.00",
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "espesor": "18 mm",
+              "material": "melamina",
+              "nombre": "Tablero",
+              "uid": "c1"
+            },
+            {
+              "espesor": "27 mm",
+              "nombre": "mesón",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D01",
+    "phenomena": [
+      "cantidad_palabras",
+      "capacidad",
+      "espesor_por_componente",
+      "total_exacto",
+      "lista_componentes"
+    ],
+    "relations": [
+      {
+        "kind": "CAPACIDAD",
+        "literal": "diez personas",
+        "value": 10
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|mesa de reuniones]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], para [[OBSERVACION|diez personas]]. [[COMPONENTE|Tablero]] de [[MATERIAL|melamina]] de [[ESPESOR|18 mm]]; [[COMPONENTE|mesón]] engrosado a [[ESPESOR|27 mm]]. Total [[PRECIO_TOTAL|6800]], descuento [[DESCUENTO|cero]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "mesa de reuniones",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa de reuniones"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "6800",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "6800"
+      },
+      {
+        "literal": "cero",
+        "path": "comercial.descuento_linea",
+        "rule": "numero_palabras",
+        "value": "0"
+      },
+      {
+        "literal": "Tablero",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Tablero",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Tablero"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "18 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "literal",
+        "value": "18 mm"
+      },
+      {
+        "literal": "mesón",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "mesón",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "mesón"
+      },
+      {
+        "literal": "27 mm",
+        "path": "especificacion.datos_tecnicos.componentes.1.espesor",
+        "rule": "literal",
+        "value": "27 mm"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "mesa de reuniones",
+        "precio_total_explicito": "6800",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "derived_unit_price": "3400.00",
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "espesor": "18 mm",
+              "material": "melamina",
+              "nombre": "Tablero",
+              "uid": "c1"
+            },
+            {
+              "espesor": "27 mm",
+              "nombre": "mesón",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O01",
+    "parent_id": "V2-REC-D01",
+    "phenomena": [
+      "cantidad_palabras",
+      "capacidad",
+      "espesor_por_componente",
+      "total_exacto",
+      "oral_sintetico",
+      "coloquial_hipotetico",
+      "lista_componentes"
+    ],
+    "relations": [
+      {
+        "kind": "CAPACIDAD",
+        "literal": "diez personas",
+        "value": 10
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|escritorio]]; [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]]. [[COMPONENTE|Cajonera]] con [[OBSERVACION|dos]] [[COMPONENTE|cajones]] y [[ACCESORIO|rieles telescópicos]]. Color [[OBSERVACION|a elección]].",
+    "assertions": [
+      {
+        "literal": "escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "escritorio"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "Cajonera",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Cajonera",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Cajonera"
+      },
+      {
+        "literal": "cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "cajones"
+      },
+      {
+        "literal": "dos cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.cantidad_interna",
+        "rule": "cantidad_interna",
+        "value": 2
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "nombre": "Cajonera",
+              "uid": "c1"
+            },
+            {
+              "cantidad_interna": 2,
+              "nombre": "cajones",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D02",
+    "phenomena": [
+      "cantidad_interna",
+      "color_pendiente",
+      "precio_ausente"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|escritorio]]; [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]]. [[COMPONENTE|Cajonera]] con [[OBSERVACION|dos]] [[COMPONENTE|cajones]] y [[ACCESORIO|rieles telescópicos]]. Color [[OBSERVACION|a elección]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "escritorio"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "Cajonera",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Cajonera",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Cajonera"
+      },
+      {
+        "literal": "cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "cajones"
+      },
+      {
+        "literal": "dos cajones",
+        "path": "especificacion.datos_tecnicos.componentes.1.cantidad_interna",
+        "rule": "cantidad_interna",
+        "value": 2
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "nombre": "Cajonera",
+              "uid": "c1"
+            },
+            {
+              "cantidad_interna": 2,
+              "nombre": "cajones",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O02",
+    "parent_id": "V2-REC-D02",
+    "phenomena": [
+      "cantidad_interna",
+      "color_pendiente",
+      "precio_ausente",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|estante]]; [[CANTIDAD|tres]] [[UNIDAD_MEDIDA|piezas]]. Ancho [[ANCHO|90 cm]], alto [[ALTO|180 cm]], profundidad [[PROFUNDIDAD|35 cm]]. [[COMPONENTE|Repisas]] de [[MATERIAL|melamina]] de [[ESPESOR|18 mm]].",
+    "assertions": [
+      {
+        "literal": "estante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "estante"
+      },
+      {
+        "literal": "tres",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "Ancho 90 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "90"
+        }
+      },
+      {
+        "literal": "alto 180 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "180"
+        }
+      },
+      {
+        "literal": "profundidad 35 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.profundidad",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "35"
+        }
+      },
+      {
+        "literal": "Repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Repisas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "18 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "literal",
+        "value": "18 mm"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "estante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "180"
+              },
+              "ancho": {
+                "unidad": "cm",
+                "valor": "90"
+              },
+              "profundidad": {
+                "unidad": "cm",
+                "valor": "35"
+              }
+            }
+          },
+          "componentes": [
+            {
+              "espesor": "18 mm",
+              "material": "melamina",
+              "nombre": "Repisas",
+              "uid": "c1"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D03",
+    "phenomena": [
+      "ejes_explicitos",
+      "orden_variable",
+      "plural"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[CANTIDAD|tres]] [[UNIDAD_MEDIDA|piezas]] de [[PRODUCTO|estante]]. Ancho [[ANCHO|90 cm]], alto [[ALTO|180 cm]], profundidad [[PROFUNDIDAD|35 cm]]. [[COMPONENTE|Repisas]] de [[MATERIAL|melamina]] de [[ESPESOR|18 mm]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "estante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "estante"
+      },
+      {
+        "literal": "tres",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "Ancho 90 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "90"
+        }
+      },
+      {
+        "literal": "alto 180 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "180"
+        }
+      },
+      {
+        "literal": "profundidad 35 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.profundidad",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "35"
+        }
+      },
+      {
+        "literal": "Repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Repisas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "18 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "literal",
+        "value": "18 mm"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "estante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "180"
+              },
+              "ancho": {
+                "unidad": "cm",
+                "valor": "90"
+              },
+              "profundidad": {
+                "unidad": "cm",
+                "valor": "35"
+              }
+            }
+          },
+          "componentes": [
+            {
+              "espesor": "18 mm",
+              "material": "melamina",
+              "nombre": "Repisas",
+              "uid": "c1"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O03",
+    "parent_id": "V2-REC-D03",
+    "phenomena": [
+      "ejes_explicitos",
+      "orden_variable",
+      "plural",
+      "oral_sintetico",
+      "coloquial_hipotetico",
+      "cantidad_inicio"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|credenza]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]]. [[COMPONENTE|Puertas]] de [[MATERIAL|melamina]], color [[COLOR|blanco]]. [[COMPONENTE|Cuerpo]] color [[COLOR|cedro]]. Precio por pieza [[PRECIO_UNITARIO|975,50]].",
+    "assertions": [
+      {
+        "literal": "credenza",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "credenza"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "975,50",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal_coma",
+        "value": "975.50"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Puertas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "blanco",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "literal",
+        "value": "blanco"
+      },
+      {
+        "literal": "Cuerpo",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "Cuerpo",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "Cuerpo"
+      },
+      {
+        "literal": "cedro",
+        "path": "especificacion.datos_tecnicos.componentes.1.color",
+        "rule": "literal",
+        "value": "cedro"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "credenza",
+        "precio_total_explicito": null,
+        "precio_unitario": "975.50",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "color": "blanco",
+              "material": "melamina",
+              "nombre": "Puertas",
+              "uid": "c1"
+            },
+            {
+              "color": "cedro",
+              "nombre": "Cuerpo",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D04",
+    "phenomena": [
+      "color_por_componente",
+      "decimal_coma",
+      "unitario"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|credenza]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]]. [[COMPONENTE|Puertas]] de [[MATERIAL|melamina]], color [[COLOR|blanco]]. [[COMPONENTE|Cuerpo]] color [[COLOR|cedro]]. Precio por pieza [[PRECIO_UNITARIO|975,50]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "credenza",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "credenza"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "975,50",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal_coma",
+        "value": "975.50"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "Puertas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "blanco",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "literal",
+        "value": "blanco"
+      },
+      {
+        "literal": "Cuerpo",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "Cuerpo",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "Cuerpo"
+      },
+      {
+        "literal": "cedro",
+        "path": "especificacion.datos_tecnicos.componentes.1.color",
+        "rule": "literal",
+        "value": "cedro"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "credenza",
+        "precio_total_explicito": null,
+        "precio_unitario": "975.50",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "color": "blanco",
+              "material": "melamina",
+              "nombre": "Puertas",
+              "uid": "c1"
+            },
+            {
+              "color": "cedro",
+              "nombre": "Cuerpo",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O04",
+    "parent_id": "V2-REC-D04",
+    "phenomena": [
+      "color_por_componente",
+      "decimal_coma",
+      "unitario",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|juego de mesas]]; [[CANTIDAD|un]] [[UNIDAD_MEDIDA|juego]]. Contiene [[OBSERVACION|una mesa central y dos laterales]].",
+    "assertions": [
+      {
+        "literal": "juego de mesas",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "juego de mesas"
+      },
+      {
+        "literal": "un",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "juego",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "JUEGO"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "juego de mesas",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "JUEGO"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D05",
+    "phenomena": [
+      "juego_vs_piezas",
+      "cantidad_interna",
+      "sin_precio"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "una mesa central",
+        "target": "mesa central",
+        "value": 1
+      },
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "dos laterales",
+        "target": "laterales",
+        "value": 2
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|juego de mesas]]; [[CANTIDAD|un]] [[UNIDAD_MEDIDA|juego]]. Contiene [[OBSERVACION|una mesa central y dos laterales]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "juego de mesas",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "juego de mesas"
+      },
+      {
+        "literal": "un",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "juego",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "JUEGO"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "juego de mesas",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "JUEGO"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O05",
+    "parent_id": "V2-REC-D05",
+    "phenomena": [
+      "juego_vs_piezas",
+      "cantidad_interna",
+      "sin_precio",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "una mesa central",
+        "target": "mesa central",
+        "value": 1
+      },
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "dos laterales",
+        "target": "laterales",
+        "value": 2
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|gavetero]]; [[CANTIDAD|tres]] [[UNIDAD_MEDIDA|piezas]]. Total [[PRECIO_TOTAL|1000]], descuento [[DESCUENTO|cero]].",
+    "assertions": [
+      {
+        "literal": "gavetero",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "gavetero"
+      },
+      {
+        "literal": "tres",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "1000",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "1000"
+      },
+      {
+        "literal": "cero",
+        "path": "comercial.descuento_linea",
+        "rule": "numero_palabras",
+        "value": "0"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "gavetero",
+        "precio_total_explicito": "1000",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-D06",
+    "phenomena": [
+      "total_indivisible",
+      "precio_unitario_pendiente"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|gavetero]]; [[CANTIDAD|tres]] [[UNIDAD_MEDIDA|piezas]]. Total [[PRECIO_TOTAL|1000]], descuento [[DESCUENTO|cero]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "gavetero",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "gavetero"
+      },
+      {
+        "literal": "tres",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "1000",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "1000"
+      },
+      {
+        "literal": "cero",
+        "path": "comercial.descuento_linea",
+        "rule": "numero_palabras",
+        "value": "0"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "gavetero",
+        "precio_total_explicito": "1000",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-O06",
+    "parent_id": "V2-REC-D06",
+    "phenomena": [
+      "total_indivisible",
+      "precio_unitario_pendiente",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|silla operativa]]; [[CANTIDAD|cuatro]] [[UNIDAD_MEDIDA|piezas]], [[COLOR|negro]], precio unitario [[PRECIO_UNITARIO|460.25]].",
+    "assertions": [
+      {
+        "literal": "silla operativa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "silla operativa"
+      },
+      {
+        "literal": "cuatro",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "4"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "460.25",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "460.25"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": "4",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla operativa",
+        "precio_total_explicito": null,
+        "precio_unitario": "460.25",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-D07",
+    "phenomena": [
+      "cantidad_palabras",
+      "decimal_punto",
+      "silla_sin_sku"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|silla operativa]]; [[CANTIDAD|cuatro]] [[UNIDAD_MEDIDA|piezas]], [[COLOR|negro]], precio unitario [[PRECIO_UNITARIO|460.25]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "silla operativa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "silla operativa"
+      },
+      {
+        "literal": "cuatro",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "4"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "460.25",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "460.25"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": "4",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla operativa",
+        "precio_total_explicito": null,
+        "precio_unitario": "460.25",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-O07",
+    "parent_id": "V2-REC-D07",
+    "phenomena": [
+      "cantidad_palabras",
+      "decimal_punto",
+      "silla_sin_sku",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|silla de espera]], [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]], [[OBSERVACION|cinco patas]]; color [[OBSERVACION|por confirmar]].",
+    "assertions": [
+      {
+        "literal": "silla de espera",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "silla de espera"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla de espera",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-D08",
+    "phenomena": [
+      "capacidad_vs_cantidad",
+      "color_pendiente",
+      "singular"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "cinco patas",
+        "target": "patas",
+        "value": 5
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|silla de espera]], [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]], [[OBSERVACION|cinco patas]]; color [[OBSERVACION|por confirmar]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "silla de espera",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "silla de espera"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla de espera",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-O08",
+    "parent_id": "V2-REC-D08",
+    "phenomena": [
+      "capacidad_vs_cantidad",
+      "color_pendiente",
+      "singular",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "cinco patas",
+        "target": "patas",
+        "value": 5
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|piso flotante]]; [[CANTIDAD|23,75]] [[UNIDAD_MEDIDA|metros cuadrados]], [[MATERIAL|HDF]] de [[ESPESOR|8 mm]], precio por metro cuadrado [[PRECIO_UNITARIO|112]].",
+    "assertions": [
+      {
+        "literal": "piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "piso flotante"
+      },
+      {
+        "literal": "23,75",
+        "path": "comercial.cantidad",
+        "rule": "decimal_coma",
+        "value": "23.75"
+      },
+      {
+        "literal": "metros cuadrados",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "M2"
+      },
+      {
+        "literal": "112",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "112"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": "23.75",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "piso flotante",
+        "precio_total_explicito": null,
+        "precio_unitario": "112",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-D09",
+    "phenomena": [
+      "m2_decimal",
+      "decimal_coma",
+      "unidad_comercial"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|piso flotante]]; [[CANTIDAD|23,75]] [[UNIDAD_MEDIDA|metros cuadrados]], [[MATERIAL|HDF]] de [[ESPESOR|8 mm]], precio por metro cuadrado [[PRECIO_UNITARIO|112]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "piso flotante"
+      },
+      {
+        "literal": "23,75",
+        "path": "comercial.cantidad",
+        "rule": "decimal_coma",
+        "value": "23.75"
+      },
+      {
+        "literal": "metros cuadrados",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "M2"
+      },
+      {
+        "literal": "112",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "112"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": "23.75",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "piso flotante",
+        "precio_total_explicito": null,
+        "precio_unitario": "112",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-O09",
+    "parent_id": "V2-REC-D09",
+    "phenomena": [
+      "m2_decimal",
+      "decimal_coma",
+      "unidad_comercial",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|piso flotante]]; [[CANTIDAD|18.5]] [[UNIDAD_MEDIDA|m²]], precio unitario [[PRECIO_UNITARIO|118]], descuento de línea [[DESCUENTO|13]], total [[PRECIO_TOTAL|2170]].",
+    "assertions": [
+      {
+        "literal": "piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "piso flotante"
+      },
+      {
+        "literal": "18.5",
+        "path": "comercial.cantidad",
+        "rule": "decimal",
+        "value": "18.5"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "M2"
+      },
+      {
+        "literal": "118",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "118"
+      },
+      {
+        "literal": "13",
+        "path": "comercial.descuento_linea",
+        "rule": "decimal",
+        "value": "13"
+      },
+      {
+        "literal": "2170",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "2170"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": "18.5",
+        "descuento_linea": "13",
+        "moneda_codigo": null,
+        "nombre": "piso flotante",
+        "precio_total_explicito": "2170",
+        "precio_unitario": "118",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-D10",
+    "phenomena": [
+      "m2_decimal",
+      "descuento_linea",
+      "total_vs_unitario"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|piso flotante]]; [[CANTIDAD|18.5]] [[UNIDAD_MEDIDA|m²]], precio unitario [[PRECIO_UNITARIO|118]], descuento de línea [[DESCUENTO|13]], total [[PRECIO_TOTAL|2170]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "piso flotante"
+      },
+      {
+        "literal": "18.5",
+        "path": "comercial.cantidad",
+        "rule": "decimal",
+        "value": "18.5"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "M2"
+      },
+      {
+        "literal": "118",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "118"
+      },
+      {
+        "literal": "13",
+        "path": "comercial.descuento_linea",
+        "rule": "decimal",
+        "value": "13"
+      },
+      {
+        "literal": "2170",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "2170"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": "18.5",
+        "descuento_linea": "13",
+        "moneda_codigo": null,
+        "nombre": "piso flotante",
+        "precio_total_explicito": "2170",
+        "precio_unitario": "118",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-O10",
+    "parent_id": "V2-REC-D10",
+    "phenomena": [
+      "m2_decimal",
+      "descuento_linea",
+      "total_vs_unitario",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|zócalo]]; [[CANTIDAD|siete]] [[UNIDAD_MEDIDA|barras]]. Largo físico por barra [[LARGO|2,44 m]] de largo. Precio por barra [[PRECIO_UNITARIO|48]].",
+    "assertions": [
+      {
+        "literal": "zócalo",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "zócalo"
+      },
+      {
+        "literal": "siete",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "7"
+      },
+      {
+        "literal": "barras",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "BARRA"
+      },
+      {
+        "literal": "48",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "48"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": "7",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "zócalo",
+        "precio_total_explicito": null,
+        "precio_unitario": "48",
+        "unidad_codigo": "BARRA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-D11",
+    "phenomena": [
+      "barra_vs_largo",
+      "cantidad_palabras"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|zócalo]]; [[CANTIDAD|siete]] [[UNIDAD_MEDIDA|barras]]. Largo físico por barra [[LARGO|2,44 m]] de largo. Precio por barra [[PRECIO_UNITARIO|48]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "zócalo",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "zócalo"
+      },
+      {
+        "literal": "siete",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "7"
+      },
+      {
+        "literal": "barras",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "BARRA"
+      },
+      {
+        "literal": "48",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "48"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": "7",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "zócalo",
+        "precio_total_explicito": null,
+        "precio_unitario": "48",
+        "unidad_codigo": "BARRA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-O11",
+    "parent_id": "V2-REC-D11",
+    "phenomena": [
+      "barra_vs_largo",
+      "cantidad_palabras",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|repisa prefabricada]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], [[MATERIAL|MDF]], color [[COLOR|roble]].",
+    "assertions": [
+      {
+        "literal": "repisa prefabricada",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "repisa prefabricada"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "repisa prefabricada",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-D12",
+    "phenomena": [
+      "otros_catalogo",
+      "sin_precio"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "documental"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|repisa prefabricada]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], [[MATERIAL|MDF]], color [[COLOR|roble]]. Anotá eso nomás.",
+    "assertions": [
+      {
+        "literal": "repisa prefabricada",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "repisa prefabricada"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "repisa prefabricada",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-O12",
+    "parent_id": "V2-REC-D12",
+    "phenomena": [
+      "otros_catalogo",
+      "sin_precio",
+      "oral_sintetico",
+      "coloquial_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Anotá [[PRODUCTO|mesa]] para [[OBSERVACION|diez personas]], no dije diez mesas.",
+    "assertions": [
+      {
+        "literal": "mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "No convertir capacidad en cantidad."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A21",
+    "phenomena": [
+      "capacidad",
+      "cantidad_ausente",
+      "negacion"
+    ],
+    "relations": [
+      {
+        "kind": "CAPACIDAD",
+        "literal": "diez personas",
+        "value": 10
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|escritorio]] con [[OBSERVACION|dos cajones]], [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]] nomás.",
+    "assertions": [
+      {
+        "literal": "escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "escritorio"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A22",
+    "phenomena": [
+      "cantidad_final",
+      "cantidad_interna"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "dos cajones",
+        "target": "cajones",
+        "value": 2
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]]; [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], precio [[OBSERVACION|6400]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "Importe sin modalidad; no unitario ni total."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A23",
+    "phenomena": [
+      "precio_ambiguo"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|escritorio]] y [[PRODUCTO|credenza]], cada uno por separado.",
+    "assertions": [],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": null,
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Dos productos independientes: no proponer una línea."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A24",
+    "phenomena": [
+      "multiproducto",
+      "negativo"
+    ],
+    "relations": [],
+    "status": "ABSTAIN",
+    "style": "oral"
+  },
+  {
+    "annotated": "Haceme una [[PRODUCTO|mesa]] de [[OBSERVACION|120 por 60]].",
+    "assertions": [
+      {
+        "literal": "mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "No asignar ejes ni unidades; cantidad no inequívoca."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A25",
+    "phenomena": [
+      "ejes_omitidos",
+      "unidad_omitida"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Una [[PRODUCTO|mesa]], de ancho [[OBSERVACION|1,40]], nada más.",
+    "assertions": [
+      {
+        "literal": "mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Ancho sin unidad."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A26",
+    "phenomena": [
+      "unidad_omitida",
+      "sin_precio"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "La [[PRODUCTO|mesa]] de alto [[OBSERVACION|40 m]], así figura, revisalo.",
+    "assertions": [
+      {
+        "literal": "mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Preservar 40 m; revisión humana antes de fabricar."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A27",
+    "phenomena": [
+      "unidad_sospechosa",
+      "negativo_documental"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|escritorio]]: alto [[OBSERVACION|80mts]], por confirmar.",
+    "assertions": [
+      {
+        "literal": "escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "escritorio"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "No sustituir por 0.80 m."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A28",
+    "phenomena": [
+      "unidad_sospechosa"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Estante]], [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]]; [[COMPONENTE|puertas]] sin [[OBSERVACION|vidrio]], de [[MATERIAL|melamina]].",
+    "assertions": [
+      {
+        "literal": "Estante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Estante"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "puertas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Estante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "Vidrio negado; excluir material vidrio de propuesta."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "material": "melamina",
+              "nombre": "puertas",
+              "uid": "c1"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A29",
+    "phenomena": [
+      "negacion",
+      "material_corregido"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]] color [[OBSERVACION|negro]], no, corregí: [[COLOR|blanco]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "blanco",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.color",
+        "rule": "literal",
+        "value": "blanco"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Negro sustituido por blanco."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "color": "blanco"
+          },
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A30",
+    "phenomena": [
+      "rectificacion",
+      "color"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]] de ancho [[OBSERVACION|120 cm]], perdón, ancho [[ANCHO|140 cm]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "ancho 140 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "dimension",
+        "value": {
+          "unidad": "cm",
+          "valor": "140"
+        }
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "120 cm reemplazado explícitamente por 140 cm."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "ancho": {
+                "unidad": "cm",
+                "valor": "140"
+              }
+            }
+          },
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A31",
+    "phenomena": [
+      "rectificacion",
+      "dimension"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]], [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], total [[OBSERVACION|6000]], corrijo total [[PRECIO_TOTAL|6600]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "6600",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "6600"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": "6600",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "No derivar unitario: descuento no declarado."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A32",
+    "phenomena": [
+      "rectificacion",
+      "precio_total"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "El [[PRODUCTO|estante]], eh... con [[COMPONENTE|repisas]] de [[MATERIAL|melamina]]; y las [[COMPONENTE|puertas]], de la misma melamina.",
+    "assertions": [
+      {
+        "literal": "estante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "estante"
+      },
+      {
+        "literal": "repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "literal",
+        "value": "c1"
+      },
+      {
+        "literal": "repisas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "literal",
+        "value": "repisas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "literal",
+        "value": "melamina"
+      },
+      {
+        "literal": "puertas",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "literal",
+        "value": "c2"
+      },
+      {
+        "literal": "puertas",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "literal",
+        "value": "puertas"
+      },
+      {
+        "literal": "de la misma melamina",
+        "path": "especificacion.datos_tecnicos.componentes.1.material",
+        "rule": "anafora_explicita",
+        "value": "melamina"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "estante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Anáfora con antecedente explícito único."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "material": "melamina",
+              "nombre": "repisas",
+              "uid": "c1"
+            },
+            {
+              "material": "melamina",
+              "nombre": "puertas",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A33",
+    "phenomena": [
+      "pausas",
+      "anafora",
+      "interrupcion"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Escritorio]], la parte de arriba de lo mismo que aquel.",
+    "assertions": [
+      {
+        "literal": "Escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Escritorio"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Antecedente ausente; no material."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A34",
+    "phenomena": [
+      "anafora_ambigua",
+      "elipsis"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Escritorio]] en [[OBSERVACION|melanina]], con [[OBSERVACION|tapacante]], un [[OBSERVACION|failero]].",
+    "assertions": [
+      {
+        "literal": "Escritorio",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Escritorio"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Escritorio",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Perturbación textual hipotética; no audio ASR real; no normalizar sin revisión."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A35",
+    "phenomena": [
+      "perturbacion_asr_sintetica",
+      "vocabulario_hipotetico"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]], [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], precio unitario [[PRECIO_UNITARIO|120]] [[OBSERVACION|USD]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "120",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "120"
+      },
+      {
+        "literal": "USD",
+        "path": "comercial.moneda_codigo",
+        "rule": "moneda",
+        "value": "USD"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": "USD",
+        "nombre": "Mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": "120",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "Moneda literal conservada. Moneda de Condiciones no proporcionada; no convertir."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A36",
+    "phenomena": [
+      "moneda_literal",
+      "no_conversion"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]], [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], unitario [[PRECIO_UNITARIO|1000]], descuento de línea [[DESCUENTO|50]], total [[PRECIO_TOTAL|1950]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "1000",
+        "path": "comercial.precio_unitario",
+        "rule": "decimal",
+        "value": "1000"
+      },
+      {
+        "literal": "50",
+        "path": "comercial.descuento_linea",
+        "rule": "decimal",
+        "value": "50"
+      },
+      {
+        "literal": "1950",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "1950"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "50",
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": "1950",
+        "precio_unitario": "1000",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A37",
+    "phenomena": [
+      "descuento",
+      "aritmetica"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|mesa]], mesa, [[CANTIDAD|una]] [[UNIDAD_MEDIDA|pieza]].",
+    "assertions": [
+      {
+        "literal": "mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "mesa"
+      },
+      {
+        "literal": "una",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "Repetición de nombre no es un segundo ítem."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A38",
+    "phenomena": [
+      "repeticion",
+      "singular"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]], de alto [[ALTO|setenta y cinco centímetros]], ancho [[ANCHO|un metro]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "alto setenta y cinco centímetros",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "dimension_palabras",
+        "value": {
+          "unidad": "cm",
+          "valor": "75"
+        }
+      },
+      {
+        "literal": "ancho un metro",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "dimension_palabras",
+        "value": {
+          "unidad": "m",
+          "valor": "1"
+        }
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "75"
+              },
+              "ancho": {
+                "unidad": "m",
+                "valor": "1"
+              }
+            }
+          },
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A39",
+    "phenomena": [
+      "numeros_palabras_dimensiones"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Mesa]], [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]], [[OBSERVACION|sin descuento]], total por las dos [[PRECIO_TOTAL|6400]].",
+    "assertions": [
+      {
+        "literal": "Mesa",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Mesa"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "sin descuento",
+        "path": "comercial.descuento_linea",
+        "rule": "cero_explicito",
+        "value": "0"
+      },
+      {
+        "literal": "6400",
+        "path": "comercial.precio_total_explicito",
+        "rule": "decimal",
+        "value": "6400"
+      }
+    ],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "Mesa",
+        "precio_total_explicito": "6400",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "derived_unit_price": "3200.00",
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_oral",
+    "id": "V2-REC-A40",
+    "phenomena": [
+      "cantidad_media",
+      "total_exactamente_divisible"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "La [[PRODUCTO|silla]], [[OBSERVACION|cinco ruedas]], [[CANTIDAD|dos]] [[UNIDAD_MEDIDA|piezas]] por favor.",
+    "assertions": [
+      {
+        "literal": "silla",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "silla"
+      },
+      {
+        "literal": "dos",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "PIEZA"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-A41",
+    "phenomena": [
+      "cantidad_final",
+      "cantidad_interna"
+    ],
+    "relations": [
+      {
+        "kind": "CANTIDAD_INTERNA",
+        "literal": "cinco ruedas",
+        "target": "ruedas",
+        "value": 5
+      }
+    ],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Silla]] modelo [[OBSERVACION|ZZ-INEXISTENTE]], confirmá ese código.",
+    "assertions": [
+      {
+        "literal": "Silla",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Silla"
+      }
+    ],
+    "category": "sillas",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Silla",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Código ficticio de estrés no confirmado en catálogo."
+      ],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "silla_oral",
+    "id": "V2-REC-A42",
+    "phenomena": [
+      "sku_no_verificado",
+      "negativo"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Piso flotante]], necesito [[CANTIDAD|12,5]] [[UNIDAD_MEDIDA|m²]], no doce barras.",
+    "assertions": [
+      {
+        "literal": "Piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Piso flotante"
+      },
+      {
+        "literal": "12,5",
+        "path": "comercial.cantidad",
+        "rule": "decimal_coma",
+        "value": "12.5"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "M2"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": "12.5",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Piso flotante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "M2"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-A43",
+    "phenomena": [
+      "m2_vs_barras",
+      "negacion"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Piso flotante]] para un cuarto, superficie por confirmar.",
+    "assertions": [
+      {
+        "literal": "Piso flotante",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Piso flotante"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Piso flotante",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "piso_oral",
+    "id": "V2-REC-A44",
+    "phenomena": [
+      "cantidad_ausente"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Zócalo]], [[CANTIDAD|ocho]] [[UNIDAD_MEDIDA|barras]], cada una de [[LARGO|2,44 m]] de largo.",
+    "assertions": [
+      {
+        "literal": "Zócalo",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Zócalo"
+      },
+      {
+        "literal": "ocho",
+        "path": "comercial.cantidad",
+        "rule": "numero_palabras",
+        "value": "8"
+      },
+      {
+        "literal": "barras",
+        "path": "comercial.unidad_codigo",
+        "rule": "unidad",
+        "value": "BARRA"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": "8",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Zócalo",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": "BARRA"
+      },
+      "decisions": [],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-A45",
+    "phenomena": [
+      "barra_vs_metros"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "[[PRODUCTO|Zócalo]], necesito [[OBSERVACION|20 metros lineales]], falta definir las barras.",
+    "assertions": [
+      {
+        "literal": "Zócalo",
+        "path": "comercial.nombre",
+        "rule": "literal",
+        "value": "Zócalo"
+      }
+    ],
+    "category": "otros_productos",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "Zócalo",
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "No convertir metros a barras redondeando."
+      ],
+      "especificacion": {
+        "atributos_catalogo": []
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "otros_oral",
+    "id": "V2-REC-A46",
+    "phenomena": [
+      "unidad_ambigua",
+      "cantidad_no_inferida"
+    ],
+    "relations": [],
+    "status": "REQUIRES_REVIEW",
+    "style": "oral"
+  },
+  {
+    "annotated": "Mañana va a llover, llamame después.",
+    "assertions": [],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": null,
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Sin solicitud de mueble."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_fuera",
+    "id": "V2-REC-A47",
+    "phenomena": [
+      "fuera_de_alcance",
+      "negativo"
+    ],
+    "relations": [],
+    "status": "ABSTAIN",
+    "style": "oral"
+  },
+  {
+    "annotated": "No, cancelá todo lo que dije.",
+    "assertions": [],
+    "category": "muebles_pedido",
+    "expected": {
+      "comercial": {
+        "cantidad": null,
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": null,
+        "precio_total_explicito": null,
+        "precio_unitario": null,
+        "unidad_codigo": null
+      },
+      "decisions": [
+        "Cancelación explícita."
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [],
+          "conjuntos": []
+        }
+      },
+      "missing_policy": "SIN_EVIDENCIA_NO_COMPLETAR"
+    },
+    "group": "mueble_fuera",
+    "id": "V2-REC-A48",
+    "phenomena": [
+      "cancelacion",
+      "negativo"
+    ],
+    "relations": [],
+    "status": "ABSTAIN",
+    "style": "oral"
+  }
+]
