@@ -101,6 +101,18 @@ def evaluar(fuente):
 
 
 if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] in {
+        "validate",
+        "prepare-review",
+        "score",
+        "aggregate",
+        "schema",
+    }:
+        from training.benchmark_campo.cli import main
+
+        raise SystemExit(main())
     parser = argparse.ArgumentParser()
     parser.add_argument("sesiones", type=Path, help="JSONL local fuera del repositorio")
     parser.add_argument("--output", type=Path, required=True)

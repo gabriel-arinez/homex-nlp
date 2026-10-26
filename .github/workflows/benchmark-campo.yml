@@ -1,0 +1,41 @@
+name: Benchmark campo — offline sin entrenamiento
+on:
+  push:
+    paths:
+      - 'training/benchmark_campo/**'
+      - 'training/evaluar_campo_prf04.py'
+      - 'tests/training/test_benchmark_campo.py'
+      - 'tests/fixtures/benchmark_campo/**'
+      - 'tools/ci_corpus_scope.py'
+      - 'docs/implementacion/PRF_04_BENCHMARK_CAMPO.md'
+      - '.github/workflows/benchmark-campo.yml'
+  pull_request:
+    paths:
+      - 'training/benchmark_campo/**'
+      - 'training/evaluar_campo_prf04.py'
+      - 'tests/training/test_benchmark_campo.py'
+      - 'tests/fixtures/benchmark_campo/**'
+      - 'tools/ci_corpus_scope.py'
+      - 'docs/implementacion/PRF_04_BENCHMARK_CAMPO.md'
+      - '.github/workflows/benchmark-campo.yml'
+permissions:
+  contents: read
+jobs:
+  benchmark-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.12.9'
+      - run: uv sync --locked --extra dev --python 3.11.15
+      - name: Full regression with training APIs blocked
+        run: uv run --locked --extra dev python -m training.benchmark_campo.gate --evidence "$RUNNER_TEMP/field-gate"
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: benchmark-offline-${{ github.sha }}
+          path: ${{ runner.temp }}/field-gate/result.json
+          retention-days: 14

@@ -11,6 +11,19 @@ def corpus_only(paths):
     allowed_files = {
         "tests/training/test_corpus_v2_rc2.py",
         "tools/ci_corpus_scope.py",
+        "training/evaluar_campo_prf04.py",
+        "training/benchmark_campo/__init__.py",
+        "training/benchmark_campo/models.py",
+        "training/benchmark_campo/metrics.py",
+        "training/benchmark_campo/pipeline.py",
+        "training/benchmark_campo/cli.py",
+        "training/benchmark_campo/gate.py",
+        "tests/training/test_benchmark_campo.py",
+        "tests/fixtures/benchmark_campo/synthetic.json",
+        "tests/fixtures/benchmark_campo/report.json",
+        "tests/fixtures/benchmark_campo/schema.json",
+        "docs/implementacion/PRF_04_BENCHMARK_CAMPO.md",
+        ".github/workflows/benchmark-campo.yml",
         ".github/workflows/corpus-v2-rc2.yml",
         ".github/workflows/ci.yml",
     }
@@ -59,7 +72,10 @@ def changed_paths(event, head="HEAD"):
         if not base or not base.strip("0"):
             # A new branch's parent is sufficient only for a single, direct rc2 commit.
             base = subprocess.check_output(["git", "rev-parse", head + "^"], text=True).strip()
-            if base != "0154ecba0a53d1a7f3cca4ef10a6cf78cc2ef317":
+            if base not in {
+                "0154ecba0a53d1a7f3cca4ef10a6cf78cc2ef317",
+                "b27edfa522f08c4621d31113b14295ece08e2109",
+            }:
                 return ["__UNKNOWN_NEW_BRANCH_RANGE_REQUIRES_HISTORICAL_CI__"]
     return subprocess.check_output(
         ["git", "diff", "--name-only", base, head], text=True
