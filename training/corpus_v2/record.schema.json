@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "text",
+    "text_sha256",
+    "entities",
+    "origin",
+    "style",
+    "split",
+    "source_ref",
+    "human_reviewed",
+    "supervised",
+    "leakage_group",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "enum": [
+        "muebles_pedido",
+        "sillas",
+        "pisos_flotantes",
+        "otros_productos"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "origin": {
+      "enum": [
+        "SINTETICO_DOCUMENTAL",
+        "SINTETICO_ORAL"
+      ]
+    },
+    "style": {
+      "enum": [
+        "documental",
+        "oral"
+      ]
+    },
+    "split": {
+      "enum": [
+        "train",
+        "dev",
+        "test"
+      ]
+    },
+    "human_reviewed": {
+      "const": false
+    },
+    "supervised": {
+      "const": true
+    },
+    "source_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "path",
+        "id"
+      ]
+    },
+    "leakage_group": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "REQUIRES_REVIEW",
+        "ABSTAIN"
+      ]
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "enum": [
+              "ACABADO",
+              "ACCESORIO",
+              "ALTO",
+              "ANCHO",
+              "APOYABRAZOS",
+              "CABECERA",
+              "CANTIDAD",
+              "CLASE_RESISTENCIA",
+              "COLOR",
+              "COMPONENTE",
+              "DESCUENTO",
+              "DIAMETRO",
+              "ERGONOMIA",
+              "ESPESOR",
+              "LARGO",
+              "MATERIAL",
+              "OBSERVACION",
+              "PRECIO_TOTAL",
+              "PRECIO_UNITARIO",
+              "PRODUCTO",
+              "PROFUNDIDAD",
+              "SISTEMA",
+              "SOPORTE_LUMBAR",
+              "UNIDAD_MEDIDA"
+            ]
+          }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      }
+    }
+  }
+}
