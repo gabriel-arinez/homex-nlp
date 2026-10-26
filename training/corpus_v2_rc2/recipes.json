@@ -1,0 +1,1796 @@
+[
+  {
+    "annotated": "Proyecto sintético de atención: [[PRODUCTO|mostrador curvo]] para recepción. Entregar [[CANTIDAD|2]] [[UNIDAD_MEDIDA|piezas]]. [[COMPONENTE|Superficie]] de [[MATERIAL|melamina]], [[ESPESOR|25 mm]], color [[COLOR|olmo]], [[ACABADO|tapacanto PVC]]. [[COMPONENTE|Abertura pasacables]]: diámetro [[DIAMETRO|6 cm]]. Medidas generales del mostrador: Largo [[LARGO|210 cm]], profundidad [[PROFUNDIDAD|65 cm]], alto [[ALTO|108 cm]], ancho [[ANCHO|90 cm]]. Accesorio [[ACCESORIO|bandeja portacables]]. Precio unitario [[PRECIO_UNITARIO|2380]], descuento de línea [[DESCUENTO|60]], total [[PRECIO_TOTAL|4700]]. [[OBSERVACION|Lado de acceso por confirmar]].",
+    "assertions": [
+      {
+        "literal": "mostrador curvo",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "mostrador curvo"
+      },
+      {
+        "literal": "2",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "2380",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2380"
+      },
+      {
+        "literal": "60",
+        "path": "comercial.descuento_linea",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "60"
+      },
+      {
+        "literal": "4700",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "4700"
+      },
+      {
+        "literal": "Superficie",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "c1"
+      },
+      {
+        "literal": "Superficie",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Superficie"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "melamina"
+      },
+      {
+        "literal": "25 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "25 mm"
+      },
+      {
+        "literal": "olmo",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "olmo"
+      },
+      {
+        "literal": "tapacanto PVC",
+        "path": "especificacion.datos_tecnicos.componentes.0.acabado",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "tapacanto PVC"
+      },
+      {
+        "literal": "Largo 210 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.largo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "210"
+        }
+      },
+      {
+        "literal": "profundidad 65 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.profundidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "65"
+        }
+      },
+      {
+        "literal": "alto 108 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "108"
+        }
+      },
+      {
+        "literal": "ancho 90 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "90"
+        }
+      },
+      {
+        "literal": "Abertura pasacables",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "SCOPE_COMPONENT",
+        "value": "c2"
+      },
+      {
+        "literal": "Abertura pasacables",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "SCOPE_COMPONENT",
+        "value": "Abertura pasacables"
+      },
+      {
+        "literal": "diámetro 6 cm",
+        "path": "especificacion.datos_tecnicos.componentes.1.dimensiones",
+        "rule": "EXPLICIT_COMPONENT_AXIS_UNIT",
+        "value": {
+          "diametro": "6 cm"
+        }
+      }
+    ],
+    "category": "muebles_pedido",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "60",
+        "moneda_codigo": null,
+        "nombre": "mostrador curvo",
+        "precio_total_explicito": "4700",
+        "precio_unitario": "2380",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "diametro_funcional",
+        "lista_componentes",
+        "cantidades_precio"
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "108"
+              },
+              "ancho": {
+                "unidad": "cm",
+                "valor": "90"
+              },
+              "largo": {
+                "unidad": "cm",
+                "valor": "210"
+              },
+              "profundidad": {
+                "unidad": "cm",
+                "valor": "65"
+              }
+            }
+          },
+          "componentes": [
+            {
+              "acabado": "tapacanto PVC",
+              "color": "olmo",
+              "espesor": "25 mm",
+              "material": "melamina",
+              "nombre": "Superficie",
+              "uid": "c1"
+            },
+            {
+              "dimensiones": {
+                "diametro": "6 cm"
+              },
+              "nombre": "Abertura pasacables",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-recepcion-cableado",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-recepcion-cableado",
+    "phenomena": [
+      "diametro_funcional",
+      "lista_componentes",
+      "cantidades_precio"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "recepcion",
+    "source_case_id": "synthetic-design-recepcion-cableado",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-recepcion-cableado"
+  },
+  {
+    "annotated": "Anotá [[CANTIDAD|3]] [[UNIDAD_MEDIDA|piezas]] de [[PRODUCTO|biblioteca mural]] para el archivo nomás. [[COMPONENTE|Laterales]] en [[MATERIAL|MDF]], de [[ESPESOR|19 mm]], [[COLOR|gris]], [[ACABADO|lacado mate]]. Quiero largo [[LARGO|165 cm]], ancho [[ANCHO|80 cm]], alto [[ALTO|225 cm]] y profundidad [[PROFUNDIDAD|32 cm]]; [[COMPONENTE|perforación para cable]] de diámetro [[DIAMETRO|5 cm]]. [[ACCESORIO|Soportes de pared]] incluidos. Total [[PRECIO_TOTAL|8910]], sin descuento [[DESCUENTO|cero]]. [[OBSERVACION|No son tres repisas, son tres muebles]].",
+    "assertions": [
+      {
+        "literal": "biblioteca mural",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "biblioteca mural"
+      },
+      {
+        "literal": "3",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "8910",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "8910"
+      },
+      {
+        "literal": "cero",
+        "path": "comercial.descuento_linea",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "0"
+      },
+      {
+        "literal": "Laterales",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "c1"
+      },
+      {
+        "literal": "Laterales",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Laterales"
+      },
+      {
+        "literal": "MDF",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "MDF"
+      },
+      {
+        "literal": "19 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "19 mm"
+      },
+      {
+        "literal": "gris",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "gris"
+      },
+      {
+        "literal": "lacado mate",
+        "path": "especificacion.datos_tecnicos.componentes.0.acabado",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "lacado mate"
+      },
+      {
+        "literal": "largo 165 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.largo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "165"
+        }
+      },
+      {
+        "literal": "ancho 80 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.ancho",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "80"
+        }
+      },
+      {
+        "literal": "alto 225 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "225"
+        }
+      },
+      {
+        "literal": "profundidad 32 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.profundidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "32"
+        }
+      },
+      {
+        "literal": "perforación para cable",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "SCOPE_COMPONENT",
+        "value": "c2"
+      },
+      {
+        "literal": "perforación para cable",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "SCOPE_COMPONENT",
+        "value": "perforación para cable"
+      },
+      {
+        "literal": "diámetro 5 cm",
+        "path": "especificacion.datos_tecnicos.componentes.1.dimensiones",
+        "rule": "EXPLICIT_COMPONENT_AXIS_UNIT",
+        "value": {
+          "diametro": "5 cm"
+        }
+      }
+    ],
+    "category": "muebles_pedido",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "biblioteca mural",
+        "precio_total_explicito": "8910",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "cantidad_inicio",
+        "cantidad_interna_negada",
+        "dimensiones_por_eje"
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "225"
+              },
+              "ancho": {
+                "unidad": "cm",
+                "valor": "80"
+              },
+              "largo": {
+                "unidad": "cm",
+                "valor": "165"
+              },
+              "profundidad": {
+                "unidad": "cm",
+                "valor": "32"
+              }
+            }
+          },
+          "componentes": [
+            {
+              "acabado": "lacado mate",
+              "color": "gris",
+              "espesor": "19 mm",
+              "material": "MDF",
+              "nombre": "Laterales",
+              "uid": "c1"
+            },
+            {
+              "dimensiones": {
+                "diametro": "5 cm"
+              },
+              "nombre": "perforación para cable",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-biblioteca-mural",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-biblioteca-mural",
+    "phenomena": [
+      "cantidad_inicio",
+      "cantidad_interna_negada",
+      "dimensiones_por_eje"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "biblioteca",
+    "source_case_id": "synthetic-design-biblioteca-mural",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-biblioteca-mural"
+  },
+  {
+    "annotated": "Especificación de práctica: [[PRODUCTO|mesa auxiliar circular]]; cantidad [[CANTIDAD|1]] [[UNIDAD_MEDIDA|pieza]]. [[COMPONENTE|Tapa]] en [[MATERIAL|vidrio templado]], espesor [[ESPESOR|10 mm]], [[COLOR|transparente]], acabado [[ACABADO|canto pulido]]. Alto [[ALTO|64 cm]]; diámetro [[DIAMETRO|88 cm]]. [[COMPONENTE|Bastidor]] con ancho [[ANCHO|45 cm]], largo [[LARGO|50 cm]], profundidad [[PROFUNDIDAD|40 cm]]. [[ACCESORIO|Topes de silicona]] incluidos; precio unitario [[PRECIO_UNITARIO|1735]], total [[PRECIO_TOTAL|1735]], descuento de línea [[DESCUENTO|0]]. [[OBSERVACION|No usar como mesa de comedor]].",
+    "assertions": [
+      {
+        "literal": "mesa auxiliar circular",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "mesa auxiliar circular"
+      },
+      {
+        "literal": "1",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "1"
+      },
+      {
+        "literal": "pieza",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "1735",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "1735"
+      },
+      {
+        "literal": "1735",
+        "occurrence": 1,
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "1735"
+      },
+      {
+        "literal": "0",
+        "path": "comercial.descuento_linea",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "0"
+      },
+      {
+        "literal": "Tapa",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "c1"
+      },
+      {
+        "literal": "Tapa",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Tapa"
+      },
+      {
+        "literal": "vidrio templado",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "vidrio templado"
+      },
+      {
+        "literal": "10 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "10 mm"
+      },
+      {
+        "literal": "transparente",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "transparente"
+      },
+      {
+        "literal": "canto pulido",
+        "path": "especificacion.datos_tecnicos.componentes.0.acabado",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "canto pulido"
+      },
+      {
+        "literal": "Bastidor",
+        "path": "especificacion.datos_tecnicos.componentes.1.uid",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "c2"
+      },
+      {
+        "literal": "Bastidor",
+        "path": "especificacion.datos_tecnicos.componentes.1.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Bastidor"
+      },
+      {
+        "literal": "Alto 64 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.alto",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "64"
+        }
+      },
+      {
+        "literal": "diámetro 88 cm",
+        "path": "especificacion.datos_tecnicos.caracteristicas_generales.dimensiones.diametro",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "unidad": "cm",
+          "valor": "88"
+        }
+      },
+      {
+        "literal": "ancho 45 cm, largo 50 cm, profundidad 40 cm",
+        "path": "especificacion.datos_tecnicos.componentes.1.dimensiones",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": {
+          "ancho": "45 cm",
+          "largo": "50 cm",
+          "profundidad": "40 cm"
+        }
+      }
+    ],
+    "category": "muebles_pedido",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "1",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "mesa auxiliar circular",
+        "precio_total_explicito": "1735",
+        "precio_unitario": "1735",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "componentes_ejes_locales",
+        "acabado_vidrio"
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {
+            "dimensiones": {
+              "alto": {
+                "unidad": "cm",
+                "valor": "64"
+              },
+              "diametro": {
+                "unidad": "cm",
+                "valor": "88"
+              }
+            }
+          },
+          "componentes": [
+            {
+              "acabado": "canto pulido",
+              "color": "transparente",
+              "espesor": "10 mm",
+              "material": "vidrio templado",
+              "nombre": "Tapa",
+              "uid": "c1"
+            },
+            {
+              "dimensiones": {
+                "ancho": "45 cm",
+                "largo": "50 cm",
+                "profundidad": "40 cm"
+              },
+              "nombre": "Bastidor",
+              "uid": "c2"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-laboratorio-rincon",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-laboratorio-rincon",
+    "phenomena": [
+      "componentes_ejes_locales",
+      "acabado_vidrio"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "laboratorio",
+    "source_case_id": "synthetic-design-laboratorio-rincon",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-laboratorio-rincon"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|sillón de operador]] para una prueba de equipamiento. Se requieren [[CANTIDAD|2]] [[UNIDAD_MEDIDA|piezas]]. Prestaciones: [[CABECERA|cabecera regulable]]; [[APOYABRAZOS|apoyabrazos de altura ajustable]]; [[SOPORTE_LUMBAR|soporte lumbar de profundidad regulable]]; [[ERGONOMIA|asiento ergonómico]]; [[SISTEMA|mecanismo sincronizado]]. Base de [[MATERIAL|acero]], color [[COLOR|negro]]. [[ACCESORIO|Ruedas con freno]]. Precio unitario [[PRECIO_UNITARIO|845]], total [[PRECIO_TOTAL|1690]]. [[OBSERVACION|Sin código de catálogo asignado]].",
+    "assertions": [
+      {
+        "literal": "sillón de operador",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "sillón de operador"
+      },
+      {
+        "literal": "2",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "845",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "845"
+      },
+      {
+        "literal": "1690",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "1690"
+      },
+      {
+        "literal": "cabecera regulable",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "cabecera regulable"
+      },
+      {
+        "literal": "apoyabrazos de altura ajustable",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "apoyabrazos de altura ajustable"
+      },
+      {
+        "literal": "soporte lumbar de profundidad regulable",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "soporte lumbar de profundidad regulable"
+      },
+      {
+        "literal": "asiento ergonómico",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "asiento ergonómico"
+      },
+      {
+        "literal": "mecanismo sincronizado",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "mecanismo sincronizado"
+      },
+      {
+        "literal": "acero",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "acero"
+      },
+      {
+        "literal": "negro",
+        "path": "especificacion.atributos_catalogo.6",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "negro"
+      },
+      {
+        "literal": "Ruedas con freno",
+        "path": "especificacion.atributos_catalogo.7",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Ruedas con freno"
+      }
+    ],
+    "category": "sillas",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "sillón de operador",
+        "precio_total_explicito": "1690",
+        "precio_unitario": "845",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "silla_sin_sku",
+        "ajustes_ergonomicos",
+        "silla-turnos"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "cabecera regulable",
+          "apoyabrazos de altura ajustable",
+          "soporte lumbar de profundidad regulable",
+          "asiento ergonómico",
+          "mecanismo sincronizado",
+          "acero",
+          "negro",
+          "Ruedas con freno"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-silla-turnos",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-silla-turnos",
+    "phenomena": [
+      "silla_sin_sku",
+      "ajustes_ergonomicos",
+      "silla-turnos"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "silla",
+    "source_case_id": "synthetic-design-silla-turnos",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-silla-turnos"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|butaca reclinable de espera]] para sala de descanso; priorizá el acceso lateral. Se requieren [[CANTIDAD|3]] [[UNIDAD_MEDIDA|piezas]]. Para pacientes que esperan sentados: [[CABECERA|reposacabezas acolchado]]; [[APOYABRAZOS|brazos abatibles]]; [[SOPORTE_LUMBAR|apoyo lumbar acolchado]]; [[ERGONOMIA|respaldo anatómico]]; [[SISTEMA|sistema de bloqueo de inclinación]]. Base de [[MATERIAL|madera]], color [[COLOR|azul]]. [[ACCESORIO|Ruedas con freno]]. Precio unitario [[PRECIO_UNITARIO|730]], total [[PRECIO_TOTAL|2190]]. [[OBSERVACION|Sin código de catálogo asignado]].",
+    "assertions": [
+      {
+        "literal": "butaca reclinable de espera",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "butaca reclinable de espera"
+      },
+      {
+        "literal": "3",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "3"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "730",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "730"
+      },
+      {
+        "literal": "2190",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2190"
+      },
+      {
+        "literal": "reposacabezas acolchado",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "reposacabezas acolchado"
+      },
+      {
+        "literal": "brazos abatibles",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "brazos abatibles"
+      },
+      {
+        "literal": "apoyo lumbar acolchado",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "apoyo lumbar acolchado"
+      },
+      {
+        "literal": "respaldo anatómico",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "respaldo anatómico"
+      },
+      {
+        "literal": "sistema de bloqueo de inclinación",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "sistema de bloqueo de inclinación"
+      },
+      {
+        "literal": "madera",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "madera"
+      },
+      {
+        "literal": "azul",
+        "path": "especificacion.atributos_catalogo.6",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "azul"
+      },
+      {
+        "literal": "Ruedas con freno",
+        "path": "especificacion.atributos_catalogo.7",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Ruedas con freno"
+      }
+    ],
+    "category": "sillas",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "3",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "butaca reclinable de espera",
+        "precio_total_explicito": "2190",
+        "precio_unitario": "730",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "silla_sin_sku",
+        "ajustes_ergonomicos",
+        "silla-espera-reclinable"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "reposacabezas acolchado",
+          "brazos abatibles",
+          "apoyo lumbar acolchado",
+          "respaldo anatómico",
+          "sistema de bloqueo de inclinación",
+          "madera",
+          "azul",
+          "Ruedas con freno"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-silla-espera-reclinable",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-silla-espera-reclinable",
+    "phenomena": [
+      "silla_sin_sku",
+      "ajustes_ergonomicos",
+      "silla-espera-reclinable"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "silla",
+    "source_case_id": "synthetic-design-silla-espera-reclinable",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-silla-espera-reclinable"
+  },
+  {
+    "annotated": "Cotizame [[PRODUCTO|silla para mesa técnica]] para puesto de inspección; ajuste del usuario pendiente. Se requieren [[CANTIDAD|4]] [[UNIDAD_MEDIDA|piezas]]. Opciones requeridas para ese puesto: [[CABECERA|cabecera orientable]]; [[APOYABRAZOS|apoyabrazos desplazables]]; [[SOPORTE_LUMBAR|soporte lumbar ajustable en altura]]; [[ERGONOMIA|diseño ergonómico]]; [[SISTEMA|regulación neumática]]. Base de [[MATERIAL|aluminio]], color [[COLOR|plomo]]. [[ACCESORIO|Ruedas con freno]]. Precio unitario [[PRECIO_UNITARIO|965]], total [[PRECIO_TOTAL|3860]]. [[OBSERVACION|Sin código de catálogo asignado]].",
+    "assertions": [
+      {
+        "literal": "silla para mesa técnica",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "silla para mesa técnica"
+      },
+      {
+        "literal": "4",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "4"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "965",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "965"
+      },
+      {
+        "literal": "3860",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "3860"
+      },
+      {
+        "literal": "cabecera orientable",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "cabecera orientable"
+      },
+      {
+        "literal": "apoyabrazos desplazables",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "apoyabrazos desplazables"
+      },
+      {
+        "literal": "soporte lumbar ajustable en altura",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "soporte lumbar ajustable en altura"
+      },
+      {
+        "literal": "diseño ergonómico",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "diseño ergonómico"
+      },
+      {
+        "literal": "regulación neumática",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "regulación neumática"
+      },
+      {
+        "literal": "aluminio",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "aluminio"
+      },
+      {
+        "literal": "plomo",
+        "path": "especificacion.atributos_catalogo.6",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "plomo"
+      },
+      {
+        "literal": "Ruedas con freno",
+        "path": "especificacion.atributos_catalogo.7",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Ruedas con freno"
+      }
+    ],
+    "category": "sillas",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "4",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "silla para mesa técnica",
+        "precio_total_explicito": "3860",
+        "precio_unitario": "965",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "silla_sin_sku",
+        "ajustes_ergonomicos",
+        "silla-mesa-tecnica"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "cabecera orientable",
+          "apoyabrazos desplazables",
+          "soporte lumbar ajustable en altura",
+          "diseño ergonómico",
+          "regulación neumática",
+          "aluminio",
+          "plomo",
+          "Ruedas con freno"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-silla-mesa-tecnica",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-silla-mesa-tecnica",
+    "phenomena": [
+      "silla_sin_sku",
+      "ajustes_ergonomicos",
+      "silla-mesa-tecnica"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "silla",
+    "source_case_id": "synthetic-design-silla-mesa-tecnica",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-silla-mesa-tecnica"
+  },
+  {
+    "annotated": "Haceme [[PRODUCTO|módulo esquinero de cocina]], [[CANTIDAD|2]] [[UNIDAD_MEDIDA|piezas]] en total. [[COMPONENTE|Puertas]] de [[MATERIAL|melamina]] de [[ESPESOR|18 mm]], [[COLOR|blanco]], [[ACABADO|canto termosellado]]. [[ACCESORIO|Bisagras hidráulicas]] para las puertas; [[OBSERVACION|sin jaladores]]. Total [[PRECIO_TOTAL|3460]], descuento de línea [[DESCUENTO|0]].",
+    "assertions": [
+      {
+        "literal": "módulo esquinero de cocina",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "módulo esquinero de cocina"
+      },
+      {
+        "literal": "2",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "3460",
+        "path": "comercial.precio_total_explicito",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "3460"
+      },
+      {
+        "literal": "0",
+        "path": "comercial.descuento_linea",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "0"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.uid",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "c1"
+      },
+      {
+        "literal": "Puertas",
+        "path": "especificacion.datos_tecnicos.componentes.0.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Puertas"
+      },
+      {
+        "literal": "melamina",
+        "path": "especificacion.datos_tecnicos.componentes.0.material",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "melamina"
+      },
+      {
+        "literal": "18 mm",
+        "path": "especificacion.datos_tecnicos.componentes.0.espesor",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "18 mm"
+      },
+      {
+        "literal": "blanco",
+        "path": "especificacion.datos_tecnicos.componentes.0.color",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "blanco"
+      },
+      {
+        "literal": "canto termosellado",
+        "path": "especificacion.datos_tecnicos.componentes.0.acabado",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "canto termosellado"
+      }
+    ],
+    "category": "muebles_pedido",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "2",
+        "descuento_linea": "0",
+        "moneda_codigo": null,
+        "nombre": "módulo esquinero de cocina",
+        "precio_total_explicito": "3460",
+        "precio_unitario": null,
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "negacion_accesorio",
+        "cantidad_final"
+      ],
+      "especificacion": {
+        "datos_tecnicos": {
+          "accesorios": [],
+          "advertencias": [],
+          "caracteristicas_generales": {},
+          "componentes": [
+            {
+              "acabado": "canto termosellado",
+              "color": "blanco",
+              "espesor": "18 mm",
+              "material": "melamina",
+              "nombre": "Puertas",
+              "uid": "c1"
+            }
+          ],
+          "conjuntos": []
+        }
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-cocina-puertas",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-cocina-puertas",
+    "phenomena": [
+      "negacion_accesorio",
+      "cantidad_final"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "cocina",
+    "source_case_id": "synthetic-design-cocina-puertas",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-cocina-puertas"
+  },
+  {
+    "annotated": "[[PRODUCTO|piso laminado doméstico]]: [[MATERIAL|HDF]], espesor [[ESPESOR|7 mm]]. Resistencia [[CLASE_RESISTENCIA|AC3]] y montaje por [[SISTEMA|unión clic flotante]]. Acabado tonal [[COLOR|roble claro]]. Cantidad [[CANTIDAD|18,75]] [[UNIDAD_MEDIDA|m²]]. Precio unitario [[PRECIO_UNITARIO|104]]. [[ACCESORIO|Membrana aislante]] incluida; [[OBSERVACION|no presupuestar zócalos en esta línea]].",
+    "assertions": [
+      {
+        "literal": "piso laminado doméstico",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "piso laminado doméstico"
+      },
+      {
+        "literal": "18,75",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "18.75"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "M2"
+      },
+      {
+        "literal": "104",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "104"
+      },
+      {
+        "literal": "HDF",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "HDF"
+      },
+      {
+        "literal": "7 mm",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "7 mm"
+      },
+      {
+        "literal": "AC3",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "AC3"
+      },
+      {
+        "literal": "unión clic flotante",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "unión clic flotante"
+      },
+      {
+        "literal": "roble claro",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "roble claro"
+      },
+      {
+        "literal": "Membrana aislante",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Membrana aislante"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "18.75",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "piso laminado doméstico",
+        "precio_total_explicito": null,
+        "precio_unitario": "104",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [
+        "superficie_decimal",
+        "clase_resistencia",
+        "instalacion_independiente",
+        "piso-vivienda"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "HDF",
+          "7 mm",
+          "AC3",
+          "unión clic flotante",
+          "roble claro",
+          "Membrana aislante"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-piso-vivienda",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-piso-vivienda",
+    "phenomena": [
+      "superficie_decimal",
+      "clase_resistencia",
+      "instalacion_independiente",
+      "piso-vivienda"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "piso",
+    "source_case_id": "synthetic-design-piso-vivienda",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-piso-vivienda"
+  },
+  {
+    "annotated": "Anotá para un local de circulación intensa, [[PRODUCTO|revestimiento flotante comercial]], ojo, [[MATERIAL|HDF de alta densidad]], espesor [[ESPESOR|12 mm]]. Resistencia [[CLASE_RESISTENCIA|AC5]] y montaje por [[SISTEMA|encastre de doble cierre]]. Acabado tonal [[COLOR|gris cemento]]. Cantidad [[CANTIDAD|31.5]] [[UNIDAD_MEDIDA|m²]]. Precio unitario [[PRECIO_UNITARIO|152]]. [[ACCESORIO|Membrana aislante]] incluida; [[OBSERVACION|no presupuestar zócalos en esta línea]].",
+    "assertions": [
+      {
+        "literal": "revestimiento flotante comercial",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "revestimiento flotante comercial"
+      },
+      {
+        "literal": "31.5",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "31.5"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "M2"
+      },
+      {
+        "literal": "152",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "152"
+      },
+      {
+        "literal": "HDF de alta densidad",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "HDF de alta densidad"
+      },
+      {
+        "literal": "12 mm",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "12 mm"
+      },
+      {
+        "literal": "AC5",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "AC5"
+      },
+      {
+        "literal": "encastre de doble cierre",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "encastre de doble cierre"
+      },
+      {
+        "literal": "gris cemento",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "gris cemento"
+      },
+      {
+        "literal": "Membrana aislante",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Membrana aislante"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "31.5",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "revestimiento flotante comercial",
+        "precio_total_explicito": null,
+        "precio_unitario": "152",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [
+        "superficie_decimal",
+        "clase_resistencia",
+        "instalacion_independiente",
+        "piso-comercio"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "HDF de alta densidad",
+          "12 mm",
+          "AC5",
+          "encastre de doble cierre",
+          "gris cemento",
+          "Membrana aislante"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-piso-comercio",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-piso-comercio",
+    "phenomena": [
+      "superficie_decimal",
+      "clase_resistencia",
+      "instalacion_independiente",
+      "piso-comercio"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "piso",
+    "source_case_id": "synthetic-design-piso-comercio",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-piso-comercio"
+  },
+  {
+    "annotated": "Pedido sintético para sala de edición: [[PRODUCTO|pavimento flotante de estudio]]: [[MATERIAL|tablero HDF]], espesor [[ESPESOR|9 mm]]. Resistencia [[CLASE_RESISTENCIA|AC4]] con uniones de tipo [[SISTEMA|sistema machihembrado]]. Acabado tonal [[COLOR|nogal]]. Cantidad [[CANTIDAD|26,25]] [[UNIDAD_MEDIDA|m²]]. Precio unitario [[PRECIO_UNITARIO|137]]. [[ACCESORIO|Membrana aislante]] incluida; [[OBSERVACION|no presupuestar zócalos en esta línea]].",
+    "assertions": [
+      {
+        "literal": "pavimento flotante de estudio",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "pavimento flotante de estudio"
+      },
+      {
+        "literal": "26,25",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "26.25"
+      },
+      {
+        "literal": "m²",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "M2"
+      },
+      {
+        "literal": "137",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "137"
+      },
+      {
+        "literal": "tablero HDF",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "tablero HDF"
+      },
+      {
+        "literal": "9 mm",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "9 mm"
+      },
+      {
+        "literal": "AC4",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "AC4"
+      },
+      {
+        "literal": "sistema machihembrado",
+        "path": "especificacion.atributos_catalogo.3",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "sistema machihembrado"
+      },
+      {
+        "literal": "nogal",
+        "path": "especificacion.atributos_catalogo.4",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "nogal"
+      },
+      {
+        "literal": "Membrana aislante",
+        "path": "especificacion.atributos_catalogo.5",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Membrana aislante"
+      }
+    ],
+    "category": "pisos_flotantes",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "26.25",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "pavimento flotante de estudio",
+        "precio_total_explicito": null,
+        "precio_unitario": "137",
+        "unidad_codigo": "M2"
+      },
+      "decisions": [
+        "superficie_decimal",
+        "clase_resistencia",
+        "instalacion_independiente",
+        "piso-estudio"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "tablero HDF",
+          "9 mm",
+          "AC4",
+          "sistema machihembrado",
+          "nogal",
+          "Membrana aislante"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-piso-estudio",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-piso-estudio",
+    "phenomena": [
+      "superficie_decimal",
+      "clase_resistencia",
+      "instalacion_independiente",
+      "piso-estudio"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "piso",
+    "source_case_id": "synthetic-design-piso-estudio",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-piso-estudio"
+  },
+  {
+    "annotated": "Cotización de práctica, [[PRODUCTO|perfil de terminación]]. [[CANTIDAD|9]] [[UNIDAD_MEDIDA|barras]]; material [[MATERIAL|PVC]] color [[COLOR|blanco]]. Largo físico [[LARGO|2,44 m]] por unidad; precio unitario [[PRECIO_UNITARIO|39]]. [[OBSERVACION|Montaje no incluido]].",
+    "assertions": [
+      {
+        "literal": "perfil de terminación",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "perfil de terminación"
+      },
+      {
+        "literal": "9",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "9"
+      },
+      {
+        "literal": "barras",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "BARRA"
+      },
+      {
+        "literal": "39",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "39"
+      },
+      {
+        "literal": "PVC",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PVC"
+      },
+      {
+        "literal": "blanco",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "blanco"
+      },
+      {
+        "literal": "2,44 m",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2,44 m"
+      }
+    ],
+    "category": "otros_productos",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "9",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "perfil de terminación",
+        "precio_total_explicito": null,
+        "precio_unitario": "39",
+        "unidad_codigo": "BARRA"
+      },
+      "decisions": [
+        "largo_fisico_vs_unidad",
+        "barra-terminacion"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "PVC",
+          "blanco",
+          "2,44 m"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-barra-terminacion",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-barra-terminacion",
+    "phenomena": [
+      "largo_fisico_vs_unidad",
+      "barra-terminacion"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "barra",
+    "source_case_id": "synthetic-design-barra-terminacion",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-barra-terminacion"
+  },
+  {
+    "annotated": "Ficha de soporte para repisa, [[PRODUCTO|soporte mural prefabricado]]. [[CANTIDAD|4]] [[UNIDAD_MEDIDA|piezas]]; material [[MATERIAL|acero]] color [[COLOR|negro]]. Largo físico [[LARGO|45 cm]] ; cada soporte se vende como pieza; precio unitario [[PRECIO_UNITARIO|86]]. [[OBSERVACION|Montaje no incluido]].",
+    "assertions": [
+      {
+        "literal": "soporte mural prefabricado",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "soporte mural prefabricado"
+      },
+      {
+        "literal": "4",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "4"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "86",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "86"
+      },
+      {
+        "literal": "acero",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "acero"
+      },
+      {
+        "literal": "negro",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "negro"
+      },
+      {
+        "literal": "45 cm",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "45 cm"
+      }
+    ],
+    "category": "otros_productos",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "4",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "soporte mural prefabricado",
+        "precio_total_explicito": null,
+        "precio_unitario": "86",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "largo_fisico_vs_unidad",
+        "soporte-metal"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "acero",
+          "negro",
+          "45 cm"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-soporte-metal",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-soporte-metal",
+    "phenomena": [
+      "largo_fisico_vs_unidad",
+      "soporte-metal"
+    ],
+    "requested_split": "train",
+    "scenario_family_id": "soporte",
+    "source_case_id": "synthetic-design-soporte-metal",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-soporte-metal"
+  },
+  {
+    "annotated": "Necesito resolver las esquinas del pasillo, anotá [[PRODUCTO|moldura de esquina]]. [[CANTIDAD|6]] [[UNIDAD_MEDIDA|barras]]; material [[MATERIAL|MDF]] color [[COLOR|cedro]]. Largo físico [[LARGO|2,20 m]] por unidad; precio unitario [[PRECIO_UNITARIO|44]]. [[OBSERVACION|Montaje no incluido]].",
+    "assertions": [
+      {
+        "literal": "moldura de esquina",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "moldura de esquina"
+      },
+      {
+        "literal": "6",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "6"
+      },
+      {
+        "literal": "barras",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "BARRA"
+      },
+      {
+        "literal": "44",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "44"
+      },
+      {
+        "literal": "MDF",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "MDF"
+      },
+      {
+        "literal": "cedro",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "cedro"
+      },
+      {
+        "literal": "2,20 m",
+        "path": "especificacion.atributos_catalogo.2",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "2,20 m"
+      }
+    ],
+    "category": "otros_productos",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "6",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "moldura de esquina",
+        "precio_total_explicito": null,
+        "precio_unitario": "44",
+        "unidad_codigo": "BARRA"
+      },
+      "decisions": [
+        "largo_fisico_vs_unidad",
+        "moldura-esquina"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "MDF",
+          "cedro",
+          "2,20 m"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-moldura-esquina",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_ORAL",
+    "paraphrase_group_id": "case-moldura-esquina",
+    "phenomena": [
+      "largo_fisico_vs_unidad",
+      "moldura-esquina"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "moldura",
+    "source_case_id": "synthetic-design-moldura-esquina",
+    "status": "REQUIRES_REVIEW",
+    "style": "oral",
+    "template_id": "authored-layout-moldura-esquina"
+  },
+  {
+    "annotated": "Requerimiento de simulación: [[PRODUCTO|asiento fijo de visita]], [[CANTIDAD|5]] [[UNIDAD_MEDIDA|piezas]]. [[APOYABRAZOS|Brazos fijos]], [[ERGONOMIA|respaldo anatómico]], [[OBSERVACION|sin cabecera ni apoyo lumbar regulable]]. No añadir ajustes que no se pidieron. Precio unitario [[PRECIO_UNITARIO|328]].",
+    "assertions": [
+      {
+        "literal": "asiento fijo de visita",
+        "path": "comercial.nombre",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "asiento fijo de visita"
+      },
+      {
+        "literal": "5",
+        "path": "comercial.cantidad",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "5"
+      },
+      {
+        "literal": "piezas",
+        "path": "comercial.unidad_codigo",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "PIEZA"
+      },
+      {
+        "literal": "328",
+        "path": "comercial.precio_unitario",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "328"
+      },
+      {
+        "literal": "Brazos fijos",
+        "path": "especificacion.atributos_catalogo.0",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "Brazos fijos"
+      },
+      {
+        "literal": "respaldo anatómico",
+        "path": "especificacion.atributos_catalogo.1",
+        "rule": "EXPLICIT_AUTHORED_REFERENCE_NOT_FROM_NER",
+        "value": "respaldo anatómico"
+      }
+    ],
+    "category": "sillas",
+    "example_kind": "POSITIVO_PARCIAL",
+    "expected": {
+      "comercial": {
+        "cantidad": "5",
+        "descuento_linea": null,
+        "moneda_codigo": null,
+        "nombre": "asiento fijo de visita",
+        "precio_total_explicito": null,
+        "precio_unitario": "328",
+        "unidad_codigo": "PIEZA"
+      },
+      "decisions": [
+        "negacion_caracteristicas_silla"
+      ],
+      "especificacion": {
+        "atributos_catalogo": [
+          "Brazos fijos",
+          "respaldo anatómico"
+        ]
+      },
+      "human_reviewed": false,
+      "status": "REQUIRES_REVIEW"
+    },
+    "id": "RC2-silla-ajuste-negado",
+    "independence": "NEW_AUTHORED_SCENARIO_NO_SOURCE_DOCUMENT_OR_V1_PARENT",
+    "origin": "SINTETICO_DOCUMENTAL",
+    "paraphrase_group_id": "case-silla-ajuste-negado",
+    "phenomena": [
+      "negacion_caracteristicas_silla"
+    ],
+    "requested_split": "dev",
+    "scenario_family_id": "silla",
+    "source_case_id": "synthetic-design-silla-ajuste-negado",
+    "status": "REQUIRES_REVIEW",
+    "style": "documental",
+    "template_id": "authored-layout-silla-ajuste-negado"
+  }
+]

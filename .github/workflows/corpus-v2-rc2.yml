@@ -1,0 +1,39 @@
+name: Corpus V2 rc2 — data only
+on:
+  push:
+    paths:
+      - 'data/candidates/corpus_v2_rc2/**'
+      - 'training/corpus_v2_rc2/**'
+      - 'tests/training/test_corpus_v2_rc2.py'
+      - 'tools/ci_corpus_scope.py'
+      - '.github/workflows/corpus-v2-rc2.yml'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    paths:
+      - 'data/candidates/corpus_v2_rc2/**'
+      - 'training/corpus_v2_rc2/**'
+      - 'tests/training/test_corpus_v2_rc2.py'
+      - 'tools/ci_corpus_scope.py'
+      - '.github/workflows/corpus-v2-rc2.yml'
+      - '.github/workflows/ci.yml'
+permissions:
+  contents: read
+jobs:
+  validate-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.12.9'
+      - run: uv sync --locked --extra dev --python 3.11.15
+      - name: Validate data with training and weight loading disabled
+        run: uv run --locked --extra dev python -m training.corpus_v2_rc2.ci_gate --evidence "$RUNNER_TEMP/rc2-data-gate"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corpus-v2-rc2-data-only-${{ github.sha }}
+          path: ${{ runner.temp }}/rc2-data-gate
+          retention-days: 14
