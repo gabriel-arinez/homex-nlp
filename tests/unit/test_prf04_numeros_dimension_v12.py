@@ -42,7 +42,7 @@ def test_dimension_escrita_en_palabras(texto, eje, valor_mm):
     assert len(medidas) == 1
     assert medidas[0].value_mm == valor_mm
     assert res.item_proposal.price is None
-    assert res.engine.rules_version == "prf04-rules-v12"
+    assert res.engine.rules_version == "prf04-rules-v13"
     for c in res.candidates:
         assert texto[c.start : c.end] == c.text
 
