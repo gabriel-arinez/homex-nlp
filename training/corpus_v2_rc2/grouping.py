@@ -132,7 +132,7 @@ def old_graph(rows):
                         "a": keys[key],
                         "b": row["id"],
                         "signal": kind,
-                        "key_sha256": hashlib.sha256(value.encode()).hexdigest(),
+                        "grouping_value_digest": hashlib.sha256(value.encode()).hexdigest(),
                         "merged_components": before,
                         "rc2_interpretation": "ARCHIVE_PROVENANCE"
                         if kind == "proforma"

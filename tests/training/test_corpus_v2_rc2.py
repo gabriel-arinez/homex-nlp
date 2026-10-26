@@ -323,3 +323,22 @@ def test_human_decision_binds_reference_value_not_only_text():
     kit[0]["after"] = "changed reference with same source text"
     with pytest.raises(ValueError):
         import_decisions(kit, votes, registry)
+
+
+def test_secret_scan_exceptions_are_exact_and_do_not_allow_future_secrets(monkeypatch):
+    from tools.ci_corpus_scope import safe_digest_exceptions
+
+    assert safe_digest_exceptions()
+    original = Path.read_text
+
+    def forged(path, *args, **kwargs):
+        value = original(path, *args, **kwargs)
+        return (
+            value + "\nUNKNOWN_COMMIT:any-path:any-rule:1\n"
+            if str(path) == ".gitleaksignore"
+            else value
+        )
+
+    monkeypatch.setattr(Path, "read_text", forged)
+    assert not safe_digest_exceptions()
+    assert not corpus_only([".gitleaksignore", "training/corpus_v2_rc2/grouping.py"])
