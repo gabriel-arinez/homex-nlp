@@ -169,9 +169,7 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     ):
         return None
     offset = principal.end + inicio.start("numero")
-    return Match(
-        offset, offset + len(token), text[offset : offset + len(token)], "CANTIDAD", valor
-    )
+    return Match(offset, offset + len(token), text[offset : offset + len(token)], "CANTIDAD", valor)
 
 
 def find_quantity(text: str, main_product: Match | None = None) -> Match | None:

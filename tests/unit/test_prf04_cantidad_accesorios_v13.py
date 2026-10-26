@@ -103,7 +103,7 @@ def test_accesorios_sin_sangrar_clausulas_y_sin_recortar_atributos(texto, nombre
     match = found[0]
     assert match.text == nombre
     assert match.value == cantidad
-    assert texto[match.start:match.end] == match.text
+    assert texto[match.start : match.end] == match.text
 
 
 def test_tomas_corrientes_con_ruido_asr_en_captura_mesa():
@@ -116,7 +116,7 @@ def test_tomas_corrientes_con_ruido_asr_en_captura_mesa():
     assert r.item_proposal.price.mode == "PRECIO_UNITARIO"
     assert r.item_proposal.accessories[0].name == "tomacorrientes al centro"
     assert r.item_proposal.accessories[0].quantity == 2
-    assert all(texto[c.start:c.end] == c.text for c in r.candidates)
+    assert all(texto[c.start : c.end] == c.text for c in r.candidates)
 
 
 def test_version_paquete_y_modo_invariables():
