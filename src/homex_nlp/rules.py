@@ -133,6 +133,45 @@ def find_products(text: str) -> list[Match]:
     return sorted([*especificos, *generales], key=lambda x: x.start)
 
 
+def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
+    """Cantidad contigua al producto, sin consumir especificaciones de piezas.
+
+    «mesa de reunión para diez personas, una pieza tamaño ...» describe una
+    unidad comercial; «mesa, una pieza de vidrio» no es concluyente.
+    Ante una rectificación de la misma cantidad sin puntuación, abstenerse.
+    """
+    tramo = text[principal.end : principal.end + 180]
+    inicio = re.match(
+        r"\s*[,;:]?\s*(?P<numero>\d+|" + "|".join(NUMBER_WORDS) + r")"
+        r"\s+(?P<unidad>piezas?|pzas?\.?|unidades?|juegos?)\b",
+        tramo,
+        re.I,
+    )
+    if inicio is None:
+        return None
+    token = inicio.group("numero").casefold()
+    valor = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
+    if valor is None or valor <= 0:
+        return None
+    despues = tramo[inicio.end() :]
+    # «una pieza de vidrio», «dos piezas para el tablero»: componentes, no
+    # líneas comerciales. No consumirlas para inferir importes.
+    if re.match(r"\s+(?:de|del|para)\b", despues, re.I):
+        return None
+    # Una rectificación posterior de la misma magnitud exige arbitraje;
+    # nunca conservar por defecto la primera cifra como comercial.
+    if re.match(
+        r"\s*[,;.]?\s*(?:no\s*,?\s*(?:mejor|\d+|"
+        + "|".join(NUMBER_WORDS)
+        + r")|perd[oó]n|corrijo|mejor)\b",
+        despues,
+        re.I,
+    ):
+        return None
+    offset = principal.end + inicio.start("numero")
+    return Match(offset, offset + len(token), text[offset : offset + len(token)], "CANTIDAD", valor)
+
+
 def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     products = [main_product] if main_product is not None else find_products(text)
     if not products:
@@ -162,7 +201,7 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value and value > 0:
             return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
-    return None
+    return _cantidad_comercial_pospuesta(text, main)
 
 
 def _numero_es_medida_no_precio(text: str, encontrado: re.Match[str]) -> bool:
@@ -546,10 +585,29 @@ def find_accessories(text: str) -> list[Match]:
             valor = NUMBER_WORDS.get(token)
             if valor is None and token.isdigit():
                 valor = int(token)
+        texto_accesorio = match.group().strip()
+        # El ASR a menudo omite la coma antes de otra cláusula:
+        # «dos tomacorrientes al centro estructura en tablero».
+        # No eliminar «estructura» si es objeto de «de/en/para/con», pues
+        # puede ser una descripción propia de un accesorio.
+        for nuevo_campo in re.finditer(
+            r"\b(?:estructura|precio|dimensiones?)\b", texto_accesorio, re.I
+        ):
+            if nuevo_campo.start() == 0:
+                continue
+            prefijo_palabra = re.search(r"\b(\w+)\s+$", texto_accesorio[: nuevo_campo.start()])
+            if (
+                nuevo_campo.group().casefold() == "estructura"
+                and prefijo_palabra
+                and prefijo_palabra.group(1).casefold() in {"de", "del", "en", "para", "con"}
+            ):
+                continue
+            texto_accesorio = texto_accesorio[: nuevo_campo.start()].rstrip()
+            break
         texto_accesorio = re.sub(
             r"(?:\s+(?:de|del|en|con|para|por|a|al))+$",
             "",
-            match.group().strip(),
+            texto_accesorio,
             flags=re.I,
         )
         encontrados.append(
