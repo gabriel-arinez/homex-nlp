@@ -8,7 +8,20 @@ permissions:
   contents: read
 
 jobs:
+  scope:
+    runs-on: ubuntu-latest
+    outputs:
+      corpus_only: ${{ steps.paths.outputs.corpus_only }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: paths
+        run: python3 tools/ci_corpus_scope.py --event "$GITHUB_EVENT_PATH" --output "$GITHUB_OUTPUT"
+
   package:
+    needs: scope
+    if: needs.scope.outputs.corpus_only != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +88,7 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
   dependency-audit:
     runs-on: ubuntu-latest
     steps:
@@ -87,6 +100,8 @@ jobs:
         run: uv audit --locked
 
   prf04-experiment:
+    needs: scope
+    if: needs.scope.outputs.corpus_only != 'true'
     runs-on: ubuntu-latest
     env:
       OMP_NUM_THREADS: "2"
