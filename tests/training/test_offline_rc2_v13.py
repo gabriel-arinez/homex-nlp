@@ -473,3 +473,154 @@ def test_multiple_product_false_proposal_has_explicit_denominator():
     refs["SYN-1"]["status"] = "NO_PROPOSAL"
     c = summarize(rows, refs, p)["engines"]["B"]["muebles_pedido"]["commercial"]
     assert c["multiple_product_negatives"] == 1 and c["multiple_product_false_proposals"] == 1
+
+
+def test_same_view_accepted_excludes_unresolved_b_entities():
+    rows, refs, predictions = stub_report()
+    predictions["rows"][0]["results"]["B"]["candidates"][0]["decision"] = "UNRESOLVED"
+    # Historical cached B ner spans remain raw. Comparable views must be derived
+    # from the sealed DTO through the real evidence adapter, not from this cache.
+    accepted = summarize(rows, refs, predictions, ner_view="accepted")
+    raw = summarize(rows, refs, predictions, ner_view="all_candidates")
+    assert accepted["engines"]["A"]["muebles_pedido"]["ner"]["micro"]["tp"] == 1
+    assert accepted["engines"]["B"]["muebles_pedido"]["ner"]["micro"]["fn"] == 1
+    assert raw["engines"]["B"]["muebles_pedido"]["ner"]["micro"]["tp"] == 1
+
+
+def comparison_fixture(tmp_path, monkeypatch):
+    from training.offline_rc2_v13 import protocol
+
+    rows, refs, p = stub_report()
+    p["model_files_digest"] = "SYNTHETIC_MODEL_TREE"
+    monkeypatch.setattr(protocol, "load_split", lambda split: rows)
+    monkeypatch.setattr(protocol, "references", lambda split: refs)
+    plan = tmp_path / "preflight.json"
+    plan.write_text(json.dumps({"protocol_digest": digest(config()), "machine": {}}))
+    perf = {
+        "load_seconds": {},
+        "process_peak_rss_kib": 1,
+        "model_bytes": 1,
+        "method": "SYNTHETIC_STUB",
+        "latencies": [
+            {"id": "SYN-1", "phase": "first_dev_call", "milliseconds": dict.fromkeys("ABC", 1)}
+        ],
+    }
+    dirs = [tmp_path / "eval-1", tmp_path / "eval-2"]
+    for d in dirs:
+        d.mkdir()
+        (d / "predictions.json").write_text(json.dumps(p))
+        (d / "performance.json").write_text(json.dumps(perf))
+    return dirs, plan
+
+
+@pytest.mark.parametrize("alias", ["same", "symlink", "dotdot"])
+def test_duplicate_evaluation_directory_rejected(tmp_path, monkeypatch, alias):
+    from training.offline_rc2_v13.scoring import comparison
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    if alias == "symlink":
+        second = tmp_path / "alias"
+        second.symlink_to(dirs[0], target_is_directory=True)
+    elif alias == "dotdot":
+        second = dirs[1] / ".." / "eval-1"
+    else:
+        second = dirs[0]
+    with pytest.raises(ValueError, match="DUPLICATE_EVALUATION_DIRECTORY"):
+        comparison([dirs[0], second], plan)
+
+
+def test_copied_evaluation_is_not_verified_independence(tmp_path, monkeypatch):
+    from training.offline_rc2_v13.scoring import comparison
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    rep = comparison(dirs, plan)["reproducibility"]
+    assert rep["evaluations_supplied"] == 2
+    assert rep["distinct_artifacts"] == 1
+    assert rep["independent_runs_verified"] == 0
+    assert rep["independence_status"] == "UNVERIFIED"
+    assert rep["independent_evaluation_processes"] is None
+
+
+def test_distinct_documented_measurements_remain_honestly_unverified(tmp_path, monkeypatch):
+    from training.offline_rc2_v13.scoring import comparison
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    # A different elapsed time and a self-declared run ID do not authenticate
+    # separate OS processes or linkage to different fits. Historical files read.
+    source = dirs[1] / "performance.json"
+    perf = json.loads(source.read_text())
+    perf["latencies"][0]["milliseconds"]["A"] = 2
+    perf["run_id"] = "SELF_DECLARED_NOT_TRUSTED"
+    source.write_text(json.dumps(perf))
+    report = comparison(dirs, plan)
+    rep = report["reproducibility"]
+    assert rep["distinct_artifacts"] == 2 and rep["evaluations_supplied"] == 2
+    assert rep["independence_status"] == "UNVERIFIED" and rep["independent_runs_verified"] == 0
+    assert rep["predictions_identical"] and rep["model_files_identical"]
+
+
+@pytest.mark.parametrize("field", ["protocol_digest", "model_files_digest"])
+def test_comparison_rejects_protocol_or_model_mismatch(tmp_path, monkeypatch, field):
+    from training.offline_rc2_v13.scoring import comparison
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    source = dirs[1] / "predictions.json"
+    p = json.loads(source.read_text())
+    p[field] = "CHANGED"
+    source.write_text(json.dumps(p))
+    with pytest.raises(ValueError):
+        comparison(dirs, plan)
+
+
+def test_post_hoc_views_support_hashes_c_policy_and_determinism(tmp_path, monkeypatch):
+    from training.offline_rc2_v13.scoring import supplementary_comparison
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    one = supplementary_comparison(dirs, plan)
+    assert canonical(one) == canonical(supplementary_comparison(dirs, plan))
+    assert one["analysis_type"] == "SUPPLEMENTARY_POST_HOC" and not one["protocol_changed"]
+    assert one["original_predictions_sha256"][0] == one["original_predictions_sha256"][1]
+    assert set(one["views"]["accepted"]) == set("ABC")
+    assert set(one["views"]["all_candidates"]) == set("AB")
+    for view in one["views"].values():
+        for families in view.values():
+            m = families["muebles_pedido"]
+            assert (m["documents"], m["entities"], m["groups"]) == (1, 1, 1)
+            label = m["ner"]["by_label"]["PRODUCTO"]
+            assert label["reference_entities"] == label["tp"] + label["fn"] == 1
+            absent = m["ner"]["by_label"]["ACABADO"]
+            assert absent["f1"] is None and absent["reference_entities"] == 0
+    public = canonical(one)
+    assert '"text"' not in public and "SYN-1" not in public and str(tmp_path) not in public
+
+
+def test_unknown_view_cannot_silently_fall_back_to_legacy():
+    with pytest.raises(ValueError, match="UNKNOWN_NER_VIEW"):
+        summarize(*stub_report(), ner_view="accidental-mixed")
+
+
+def test_cli_supplement_is_postprocessing_only(tmp_path, monkeypatch):
+    import sys
+
+    from training.offline_rc2_v13 import cli
+
+    dirs, plan = comparison_fixture(tmp_path, monkeypatch)
+    tmp_path.chmod(0o700)
+    target = tmp_path / "supplement.json"
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "cli",
+            "supplement",
+            "--evaluation-dirs",
+            *map(str, dirs),
+            "--preflight",
+            str(plan),
+            "--output",
+            str(target),
+        ],
+    )
+    cli.main()
+    assert json.loads(target.read_text())["analysis_type"] == "SUPPLEMENTARY_POST_HOC"
+    assert target.stat().st_mode & 0o777 == 0o600

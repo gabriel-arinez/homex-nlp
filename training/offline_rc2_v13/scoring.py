@@ -3,6 +3,7 @@
 import re
 from collections import Counter, defaultdict
 from decimal import Decimal
+from pathlib import Path
 
 from training.benchmark_campo.metrics import ner_counts, ner_report, prf, ratio, stats
 from training.benchmark_campo.models import Span
@@ -164,7 +165,21 @@ def compare_fields(wanted, actual, reviewed):
     return {k: dict(v) for k, v in counts.items()}
 
 
-def summarize(rows, refs, predictions):
+def summarize(rows, refs, predictions, *, ner_view=None):
+    """Default preserves historical mixed-view numbers; explicit views are post hoc.
+
+    Same-view NER is reconstructed from sealed DTO candidates through the original
+    adapter, never from the historical A-accepted/B-raw cached ``ner`` member.
+    """
+    if ner_view not in {None, "accepted", "all_candidates"}:
+        raise ValueError("UNKNOWN_NER_VIEW")
+    if ner_view is not None:
+        import json
+
+        from training.offline_rc2_v13.protocol import ROOT
+        from training.offline_rc2_v13.worker import evidence
+
+        labels = json.loads((ROOT / "data/manifests/prf04_labels.json").read_text())["labels"]
     check_runtime(predictions["v13"])
     if predictions["protocol_digest"] != digest(config()):
         raise ValueError("SCORING_PROTOCOL_CHANGED")
@@ -190,7 +205,9 @@ def summarize(rows, refs, predictions):
         "prediction_digest": digest(predictions),
         "engines": {},
     }
-    for engine in ("A", "B", "C"):
+    if ner_view is not None:
+        result.update(analysis_type="SUPPLEMENTARY_POST_HOC", ner_view=ner_view)
+    for engine in ("A", "B") if ner_view == "all_candidates" else ("A", "B", "C"):
         report = {}
         for family in [
             "ALL_SYNTHETIC",
@@ -209,6 +226,8 @@ def summarize(rows, refs, predictions):
                 and r["category"] != "muebles_pedido"
             ]
             counts = defaultdict(lambda: [0, 0, 0])
+            if ner_view is not None:
+                counts.update({label: [0, 0, 0] for label in labels})
             ner_n = 0
             fields = defaultdict(Counter)
             commercial_n = 0
@@ -226,7 +245,12 @@ def summarize(rows, refs, predictions):
                     continue
                 ner_n += 1
                 gold = [Span(start=a, end=b, label=label) for a, b, label in r["entities"]]
-                predicted = [Span(start=a, end=b, label=label) for a, b, label in p["ner"][engine]]
+                spans = (
+                    p["ner"][engine]
+                    if ner_view is None
+                    else evidence(actual, labels, raw=ner_view == "all_candidates")[0]
+                )
+                predicted = [Span(start=a, end=b, label=label) for a, b, label in spans]
                 for label, values in ner_counts(gold, predicted).items():
                     counts[label] = [a + b for a, b in zip(counts[label], values)]
                 if r["category"] != "muebles_pedido":
@@ -407,6 +431,9 @@ def comparison(evaluation_dirs, preflight):
 
     if len(evaluation_dirs) < 2:
         raise ValueError("TWO_INDEPENDENT_EVALUATIONS_REQUIRED")
+    evaluation_dirs = [Path(directory).resolve(strict=True) for directory in evaluation_dirs]
+    if len(set(evaluation_dirs)) != len(evaluation_dirs):
+        raise ValueError("DUPLICATE_EVALUATION_DIRECTORY")
     plan = json.loads(preflight.read_text())
     rows, refs = load_split("dev"), references("dev")
     predictions = [json.loads((p / "predictions.json").read_text()) for p in evaluation_dirs]
@@ -430,13 +457,34 @@ def comparison(evaluation_dirs, preflight):
         }
         performance.append(item)
     return reports[0] | {
+        "ner_metric_policy": "LEGACY_MIXED_VIEWS_A_C_ACCEPTED_B_RAW_NOT_A_SAME_VIEW_COMPARISON",
         "engine_provenance": predictions[0]["v13"],
         "experimental_model_digest": predictions[0]["model_files_digest"],
         "reproducibility": {
             "predictions_identical": same,
             "summaries_identical": all(digest(r) == digest(reports[0]) for r in reports),
             "model_files_identical": len({p["model_files_digest"] for p in predictions}) == 1,
-            "independent_evaluation_processes": len(predictions),
+            "evaluations_supplied": len(evaluation_dirs),
+            "distinct_evaluation_directories": len(set(evaluation_dirs)),
+            "distinct_artifacts": len(
+                {
+                    digest(
+                        {
+                            name: __import__("hashlib")
+                            .sha256((directory / name).read_bytes())
+                            .hexdigest()
+                            for name in ("predictions.json", "performance.json")
+                        }
+                    )
+                    for directory in evaluation_dirs
+                }
+            ),
+            "independent_runs_verified": 0,
+            "independence_status": "UNVERIFIED",
+            "independence_basis": "DISTINCT_PATHS_ONLY_NO_TRUSTED_PROCESS_AND_TRAINING_CHAIN",
+            # Compatibility: historical integer counted inputs, not verified processes.
+            "independent_evaluation_processes": None,
+            "legacy_field_note": "Historical reports counted paths; retained unchanged as historical evidence only",
             "deterministic_predictions_sha256": __import__("hashlib")
             .sha256((evaluation_dirs[0] / "predictions.json").read_bytes())
             .hexdigest(),
@@ -451,4 +499,56 @@ def comparison(evaluation_dirs, preflight):
             "First dev call after provenance probe is not true cold ASR; model loading separate",
             "Timings and process RSS vary, not part of deterministic quality hash",
         ],
+    }
+
+
+def supplementary_comparison(evaluation_dirs, preflight):
+    """Retrospective sealed-prediction analysis; never executes an engine or fit.
+
+    Historical process logs lack IDs/timestamps bound to individual model runs;
+    they cannot establish independent processes. No retrospective certificates
+    are minted. Different paths/measurements are only artifact distinctions.
+    """
+    import hashlib
+    import json
+
+    from training.offline_rc2_v13.protocol import load_split, references
+
+    historical = comparison(evaluation_dirs, preflight)
+    rows, refs = load_split("dev"), references("dev")
+    sources = [
+        Path(directory).resolve(strict=True) / "predictions.json" for directory in evaluation_dirs
+    ]
+    predictions = json.loads(sources[0].read_text())
+    views = {}
+    for view in ("accepted", "all_candidates"):
+        report = summarize(rows, refs, predictions, ner_view=view)
+        views[view] = {
+            engine: {
+                family: {
+                    key: metrics[key]
+                    for key in ("documents", "entities", "groups", "ner", "not_evaluable")
+                }
+                for family, metrics in families.items()
+            }
+            for engine, families in report["engines"].items()
+        }
+    return {
+        "analysis_type": "SUPPLEMENTARY_POST_HOC",
+        "protocol_changed": False,
+        "HUMAN_GOLD": "NO",
+        "TEST_VOZ_REAL": "NO",
+        "HOLDOUT_EXTERNO": 0,
+        "PROMOCION": "NO",
+        "protocol_digest": predictions["protocol_digest"],
+        "original_predictions_sha256": [
+            hashlib.sha256(source.read_bytes()).hexdigest() for source in sources
+        ],
+        "experimental_model_digest": predictions["model_files_digest"],
+        "views": views,
+        "C_raw_status": "NOT_COMPARABLE_AUDIT_REJECTED_CANDIDATES_ACCEPTED_VETO_VIEW_ONLY",
+        "reproducibility": historical["reproducibility"],
+        "historical_metrics": "Preserved in results.json legacy fields and commit 3dcb8d8; mixed views are not a direct NER comparison",
+        "recommendation": "MANTENER_RULES_ONLY_SIN_EVIDENCIA_EXTERNA",
+        "conclusion": "B raw F1 exceeds A raw; B accepted F1 is lower than A accepted on furniture; no field-accuracy claim",
     }

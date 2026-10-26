@@ -1,3 +1,82 @@
+# Correctivo metodológico PR #24 — análisis suplementario retrospectivo
+
+**SUPPLEMENTARY_POST_HOC**, sin reentrenamiento ni cambio del protocolo predeclarado.
+HUMAN_GOLD=NO; TEST_VOZ_REAL=NO; HOLDOUT_EXTERNO=0; PROMOCION=NO.
+Recomendación: **mantener RULES_ONLY**, sin afirmar precisión de campo.
+
+El informe original comparaba A/C ACCEPTED con B raw: son vistas diferentes y
+sus F1 no acreditan una mejora comparable. Se conserva íntegro abajo como histórico;
+el correctivo y el nuevo results.json distinguen explícitamente ambas vistas.
+`results.json.historical_report` mantiene todos los valores originales; el nuevo
+`supplementary_post_hoc` contiene TP/FP/FN/P/R/F1, documentos/entidades/grupos y
+soporte por etiqueta/familia en ambas vistas. Etiquetas sin soporte tienen null,
+no F1 perfecto. Ningún dato, peso, motor ni referencia fue modificado.
+
+| Vista comparable, 16 muebles / 98 entidades / 11 grupos | Motor | TP | FP | FN | P | R | F1 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| ACCEPTED | A v13 | 33 | 15 | 65 | 0.6875 | 0.3367 | 0.4521 |
+| ACCEPTED | B NER | 26 | 12 | 72 | 0.6842 | 0.2653 | 0.3824 |
+| ACCEPTED / veto | C híbrido | 33 | 15 | 65 | 0.6875 | 0.3367 | 0.4521 |
+| Todos los candidatos | A v13 | 37 | 18 | 61 | 0.6727 | 0.3776 | 0.4837 |
+| Todos los candidatos | B NER | 51 | 21 | 47 | 0.7083 | 0.5204 | 0.6000 |
+
+B supera a A en raw F1 y queda por debajo en accepted F1 y campos comerciales.
+C solo se informa en la vista aceptada/veto: sus candidatos REJECTED de auditoría
+no son raw NER equiparable a A/B. No se atribuye causalidad ASR ni significación
+estadística. Los 11 auxiliares fuera del alcance de voz se separan en el agregado.
+
+## Independencia: corrección de la certificación
+
+`comparison` canonicaliza rutas con Path.resolve y rechaza el mismo directorio,
+symlinks y alias con `..`. Se separan `evaluations_supplied`, directorios distintos,
+`distinct_artifacts` (pares de archivos predicciones/rendimiento por contenido) y
+`independent_runs_verified`. Ni rutas distintas ni hashes iguales prueban procesos
+independientes. Copias idénticas cuentan como un conjunto de artefactos.
+
+Para eval-1/eval-2 históricos: dos directorios y dos conjuntos de artefactos
+(las mediciones difieren); predicciones/pesos idénticos. **Independencia UNVERIFIED,
+0 procesos certificados**, porque no hay IDs de proceso/ejecución confiables unidos
+a entrenamientos distintos. Los logs de finalización, tiempos y los training.json
+son evidencia conservada, pero no proporcionan esa cadena. No se inventan metadatos
+a posteriori. `independent_evaluation_processes=null` conserva el nombre legado
+sin volver a contar rutas como procesos. Los informes originales con valor2 son
+históricos, no una certificación vigente. No se realizaron nuevos fits ni inferencias.
+
+## Reproducción del suplemento, sin entrenamiento ni carga de modelos
+
+Con el código del correctivo y el paquete original privado extraído:
+
+```bash
+export TASK_ORIGINAL="$HOME/Descargas/HOMEX_EXPERIMENTO_RC2_V13_20261026"
+export TASK_SUPPLEMENT="$HOME/Descargas/HOMEX_CORRECTIVO_PR24_20261026"
+uv run --locked --extra dev python -m training.offline_rc2_v13.cli supplement \
+  --evaluation-dirs "$TASK_ORIGINAL/eval-1" "$TASK_ORIGINAL/eval-2" \
+  --preflight "$TASK_ORIGINAL/predeclared.json" \
+  --output "$TASK_SUPPLEMENT/supplementary-repeat.json"
+```
+
+Solo se leen DTO sellados mediante el adaptador `worker.evidence` sin cambiarlo.
+Cada vista se recalcula con las mismas referencias técnicas y partición dev.
+SHA-256 original de predictions.json de ambas rutas:
+`2d28ea71fa1109323f4e25ff9e9bc428441a1eea87225440f5bc088d7a0824ab`.
+El suplemento registra estos hashes y el digest de modelo/protocolo. No es un
+experimento prospectivo nuevo ni modifica seeds/epochs/config/modelos.
+
+Pruebas de regresión: B UNRESOLVED se excluye en accepted y se incluye en raw;
+C raw omitido; duplicados/alias rechazados; copias sin procedencia y mediciones
+distintas sin autenticación permanecen UNVERIFIED; protocolos/modelos incompatibles
+siguen rechazados. La entrega privada aporta pruebas fallidas antes del parche,
+los cuatro recuentos con los DTO reales y el pase posterior sin reentrenamiento.
+
+## Informe original preservado — histórico del commit 3dcb8d8
+
+Las tablas y afirmaciones que siguen reproducen la entrega original. Su comparación
+NER mezclaba vistas y su afirmación de independencia no está certificada; se
+interpretan únicamente con las correcciones anteriores. Para el resultado vigente,
+consultar el suplemento. No se han borrado las cifras anteriores.
+
+---
+
 # Experimento offline limitado RC2 / v13 — etapa 6
 
 Estado: **EXPERIMENTO_OFFLINE_LIMITADO_EJECUTADO**. Recomendación: **mantener RULES_ONLY**.

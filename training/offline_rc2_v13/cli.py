@@ -10,7 +10,9 @@ from training.offline_rc2_v13.protocol import load_split, prepare, references
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("operation", choices=["prepare", "train", "evaluate", "summarize", "compare"])
+    p.add_argument(
+        "operation", choices=["prepare", "train", "evaluate", "summarize", "compare", "supplement"]
+    )
     p.add_argument("--wheel", type=Path)
     p.add_argument("--model-run", type=Path)
     p.add_argument("--output", type=Path, required=True)
@@ -30,6 +32,10 @@ def main():
         from training.offline_rc2_v13.worker import evaluate
 
         evaluate(a.wheel, a.model_run, a.output)
+    elif a.operation == "supplement":
+        from training.offline_rc2_v13.scoring import supplementary_comparison
+
+        write_private(a.output, supplementary_comparison(a.evaluation_dirs, a.preflight))
     elif a.operation == "compare":
         from training.offline_rc2_v13.scoring import comparison
 
