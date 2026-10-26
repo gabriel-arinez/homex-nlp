@@ -1,0 +1,258 @@
+{
+  "batch_id": "SYN-BATCH-01",
+  "frozen_date": "2026-10-26",
+  "schema_version": "field-benchmark-1",
+  "sessions": [
+    {
+      "asr": {
+        "sha256": "53705164f3d331a4876f8618c9a37f99582bf09a7138abf16a94d78a2e794c22",
+        "text": "Una mesa azul de dos metros"
+      },
+      "batch_id": "SYN-BATCH-01",
+      "capture_mode": "synthetic_fixture",
+      "case_id": "SYN-CASE-01",
+      "condition": "quiet",
+      "consent": {},
+      "engines": [
+        {
+          "commercial": {
+            "facts": [
+              {
+                "field": "product",
+                "scope": "ITEM",
+                "value": "mesa"
+              },
+              {
+                "field": "sold_quantity",
+                "scope": "ITEM",
+                "value": "1"
+              },
+              {
+                "field": "capacity",
+                "scope": "ITEM",
+                "value": "10"
+              },
+              {
+                "field": "length",
+                "scope": "ITEM",
+                "unit": "m",
+                "value": "2,00"
+              },
+              {
+                "field": "unit_price",
+                "scope": "ITEM",
+                "value": "3650.00"
+              },
+              {
+                "field": "total_price",
+                "scope": "ITEM",
+                "value": "3650.00"
+              },
+              {
+                "field": "discount",
+                "scope": "ITEM",
+                "value": "0"
+              },
+              {
+                "evidence": "conditions",
+                "field": "currency",
+                "scope": "CONDITIONS",
+                "value": "BOB"
+              },
+              {
+                "field": "thickness",
+                "scope": "TABLERO",
+                "unit": "mm",
+                "value": "18"
+              },
+              {
+                "field": "thickness",
+                "scope": "MESON",
+                "unit": "mm",
+                "value": "27"
+              },
+              {
+                "field": "material",
+                "scope": "TABLERO",
+                "value": "melamina"
+              },
+              {
+                "field": "color",
+                "scope": "TABLERO",
+                "value": "azul"
+              },
+              {
+                "field": "accessory_quantity",
+                "scope": "TOMA",
+                "value": "2"
+              }
+            ],
+            "scopes": {
+              "CONDITIONS": "conditions",
+              "ITEM": "item",
+              "MESON": "component",
+              "TABLERO": "component",
+              "TOMA": "accessory"
+            }
+          },
+          "commit": "0000000000000000000000000000000000000000",
+          "coordinate": "asr",
+          "engine_id": "SYN-ENGINE",
+          "ner": {
+            "coordinate": "asr",
+            "spans": [
+              {
+                "end": 8,
+                "label": "PRODUCTO",
+                "start": 4
+              },
+              {
+                "end": 13,
+                "label": "COLOR",
+                "start": 9
+              }
+            ],
+            "text_sha256": "53705164f3d331a4876f8618c9a37f99582bf09a7138abf16a94d78a2e794c22"
+          },
+          "rules_version": "SYN-RULES",
+          "text_sha256": "53705164f3d331a4876f8618c9a37f99582bf09a7138abf16a94d78a2e794c22",
+          "version": "SYNTHETIC_NOT_A_WHEEL",
+          "wheel_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "hardware_class": "CPU",
+      "productivity": {
+        "assisted_seconds": 70.0,
+        "case_id": "SYN-CASE-01",
+        "commercial_validated": true,
+        "corrections": 1,
+        "exclusion": "NONE",
+        "manual_seconds": 120.0,
+        "order": "manual_first"
+      },
+      "provenance": {
+        "partition": "QUARANTINE",
+        "source_id": "SYN-SOURCE-01",
+        "speaker_id": "SYN-SPEAKER-01",
+        "template_id": "SYN-TEMPLATE-01"
+      },
+      "reference": {
+        "commercial": {
+          "facts": [
+            {
+              "field": "product",
+              "scope": "ITEM",
+              "value": "mesa"
+            },
+            {
+              "field": "sold_quantity",
+              "scope": "ITEM",
+              "value": "1"
+            },
+            {
+              "field": "capacity",
+              "scope": "ITEM",
+              "value": "10"
+            },
+            {
+              "field": "length",
+              "scope": "ITEM",
+              "unit": "m",
+              "value": "2,00"
+            },
+            {
+              "field": "unit_price",
+              "scope": "ITEM",
+              "value": "3650.00"
+            },
+            {
+              "field": "total_price",
+              "scope": "ITEM",
+              "value": "3650.00"
+            },
+            {
+              "field": "discount",
+              "scope": "ITEM",
+              "value": "0"
+            },
+            {
+              "evidence": "conditions",
+              "field": "currency",
+              "scope": "CONDITIONS",
+              "value": "BOB"
+            },
+            {
+              "field": "thickness",
+              "scope": "TABLERO",
+              "unit": "mm",
+              "value": "18"
+            },
+            {
+              "field": "thickness",
+              "scope": "MESON",
+              "unit": "mm",
+              "value": "27"
+            },
+            {
+              "field": "material",
+              "scope": "TABLERO",
+              "value": "melamina"
+            },
+            {
+              "field": "color",
+              "scope": "TABLERO",
+              "value": "azul"
+            },
+            {
+              "field": "accessory_quantity",
+              "scope": "TOMA",
+              "value": "2"
+            }
+          ],
+          "scopes": {
+            "CONDITIONS": "conditions",
+            "ITEM": "item",
+            "MESON": "component",
+            "TABLERO": "component",
+            "TOMA": "accessory"
+          }
+        },
+        "faithful": {
+          "sha256": "28218507ab4290e7a0fbd6d3b6737cc6127f66180f061b40ac9cc2810519d905",
+          "text": "Una mesa roja de dos metros"
+        },
+        "ner": {
+          "coordinate": "asr",
+          "spans": [
+            {
+              "end": 8,
+              "label": "PRODUCTO",
+              "start": 4
+            },
+            {
+              "end": 13,
+              "label": "COLOR",
+              "start": 9
+            }
+          ],
+          "text_sha256": "53705164f3d331a4876f8618c9a37f99582bf09a7138abf16a94d78a2e794c22"
+        },
+        "origin": "synthetic_fixture"
+      },
+      "session_id": "SYN-SESSION-01",
+      "source_type": "SINTETICO_PRUEBA",
+      "temperature": "warm",
+      "timings": [
+        {
+          "clock": "monotonic_common",
+          "end": 4200.0,
+          "end_boundary": "form_usable",
+          "metric": "end_to_form",
+          "start": 0.0,
+          "start_boundary": "recording_end",
+          "unit": "ms"
+        }
+      ]
+    }
+  ]
+}

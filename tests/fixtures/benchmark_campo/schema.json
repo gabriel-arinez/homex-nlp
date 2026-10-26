@@ -1,0 +1,908 @@
+{
+  "batch": {
+    "$defs": {
+      "Audio": {
+        "additionalProperties": false,
+        "properties": {
+          "private_ref": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Private Ref",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "private_ref",
+          "sha256"
+        ],
+        "title": "Audio",
+        "type": "object"
+      },
+      "Commercial": {
+        "additionalProperties": false,
+        "properties": {
+          "coverage": {
+            "default": "complete",
+            "enum": [
+              "complete",
+              "partial"
+            ],
+            "title": "Coverage",
+            "type": "string"
+          },
+          "facts": {
+            "items": {
+              "$ref": "#/$defs/Fact"
+            },
+            "title": "Facts",
+            "type": "array"
+          },
+          "reviewed_keys": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Reviewed Keys",
+            "type": "array"
+          },
+          "scopes": {
+            "patternProperties": {
+              "^[A-Z0-9][A-Z0-9_-]{1,63}$": {
+                "enum": [
+                  "item",
+                  "component",
+                  "accessory",
+                  "conditions"
+                ],
+                "type": "string"
+              }
+            },
+            "title": "Scopes",
+            "type": "object"
+          }
+        },
+        "required": [
+          "scopes",
+          "facts"
+        ],
+        "title": "Commercial",
+        "type": "object"
+      },
+      "Consent": {
+        "additionalProperties": false,
+        "properties": {
+          "act_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Act Id"
+          },
+          "human_declared": {
+            "default": false,
+            "title": "Human Declared",
+            "type": "boolean"
+          },
+          "retention_policy_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Retention Policy Id"
+          },
+          "use_policy_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Use Policy Id"
+          }
+        },
+        "title": "Consent",
+        "type": "object"
+      },
+      "Diagnosis": {
+        "additionalProperties": false,
+        "properties": {
+          "cause": {
+            "default": "unknown",
+            "enum": [
+              "ASR",
+              "NLP",
+              "projection",
+              "UI",
+              "human_review",
+              "unknown"
+            ],
+            "title": "Cause",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "default": [],
+            "items": {
+              "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+              "type": "string"
+            },
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "title": "Diagnosis",
+        "type": "object"
+      },
+      "Engine": {
+        "additionalProperties": false,
+        "properties": {
+          "commercial": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Commercial"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "commit": {
+            "pattern": "^[a-f0-9]{40}$",
+            "title": "Commit",
+            "type": "string"
+          },
+          "coordinate": {
+            "enum": [
+              "asr",
+              "faithful"
+            ],
+            "title": "Coordinate",
+            "type": "string"
+          },
+          "engine_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Engine Id",
+            "type": "string"
+          },
+          "ner": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Ner"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "rules_version": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Rules Version",
+            "type": "string"
+          },
+          "text_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Text Sha256",
+            "type": "string"
+          },
+          "version": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Version",
+            "type": "string"
+          },
+          "wheel_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Wheel Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "engine_id",
+          "commit",
+          "wheel_sha256",
+          "version",
+          "rules_version",
+          "coordinate",
+          "text_sha256"
+        ],
+        "title": "Engine",
+        "type": "object"
+      },
+      "Fact": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence": {
+            "default": "explicit",
+            "enum": [
+              "explicit",
+              "conditions",
+              "human_adjudicated",
+              "inferred"
+            ],
+            "title": "Evidence",
+            "type": "string"
+          },
+          "field": {
+            "enum": [
+              "product",
+              "sold_quantity",
+              "internal_quantity",
+              "capacity",
+              "unit",
+              "length",
+              "width",
+              "height",
+              "thickness",
+              "material",
+              "color",
+              "accessory_quantity",
+              "unit_price",
+              "total_price",
+              "discount",
+              "currency"
+            ],
+            "title": "Field",
+            "type": "string"
+          },
+          "scope": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Scope",
+            "type": "string"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "enum": [
+                  "mm",
+                  "cm",
+                  "m",
+                  "m2",
+                  "PIEZA",
+                  "JUEGO",
+                  "BARRA",
+                  "PERCENT"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Unit"
+          },
+          "value": {
+            "minLength": 1,
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "field",
+          "value"
+        ],
+        "title": "Fact",
+        "type": "object"
+      },
+      "Ner": {
+        "additionalProperties": false,
+        "properties": {
+          "coordinate": {
+            "enum": [
+              "asr",
+              "faithful"
+            ],
+            "title": "Coordinate",
+            "type": "string"
+          },
+          "coverage": {
+            "default": "complete",
+            "enum": [
+              "complete",
+              "partial"
+            ],
+            "title": "Coverage",
+            "type": "string"
+          },
+          "spans": {
+            "items": {
+              "$ref": "#/$defs/Span"
+            },
+            "title": "Spans",
+            "type": "array"
+          },
+          "text_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Text Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "coordinate",
+          "text_sha256",
+          "spans"
+        ],
+        "title": "Ner",
+        "type": "object"
+      },
+      "Productivity": {
+        "additionalProperties": false,
+        "properties": {
+          "assisted_seconds": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Assisted Seconds"
+          },
+          "case_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Case Id",
+            "type": "string"
+          },
+          "commercial_validated": {
+            "default": false,
+            "title": "Commercial Validated",
+            "type": "boolean"
+          },
+          "corrections": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Corrections"
+          },
+          "exclusion": {
+            "default": "INCOMPLETE",
+            "enum": [
+              "INCOMPLETE",
+              "NOT_VALIDATED",
+              "NONE"
+            ],
+            "title": "Exclusion",
+            "type": "string"
+          },
+          "manual_seconds": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Manual Seconds"
+          },
+          "order": {
+            "enum": [
+              "manual_first",
+              "assisted_first"
+            ],
+            "title": "Order",
+            "type": "string"
+          },
+          "seller_corrections": {
+            "default": [],
+            "items": {
+              "$ref": "#/$defs/Fact"
+            },
+            "title": "Seller Corrections",
+            "type": "array"
+          }
+        },
+        "required": [
+          "case_id",
+          "order"
+        ],
+        "title": "Productivity",
+        "type": "object"
+      },
+      "Provenance": {
+        "additionalProperties": false,
+        "properties": {
+          "access_act_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Access Act Id"
+          },
+          "independence": {
+            "default": "PENDING",
+            "enum": [
+              "PENDING",
+              "human_declared"
+            ],
+            "title": "Independence",
+            "type": "string"
+          },
+          "partition": {
+            "enum": [
+              "QUARANTINE",
+              "TRAIN",
+              "DEV",
+              "EXTERNAL_CANDIDATE",
+              "PREVIOUSLY_OPEN"
+            ],
+            "title": "Partition",
+            "type": "string"
+          },
+          "source_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "speaker_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Speaker Id",
+            "type": "string"
+          },
+          "template_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Template Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "template_id",
+          "speaker_id",
+          "partition"
+        ],
+        "title": "Provenance",
+        "type": "object"
+      },
+      "Reference": {
+        "additionalProperties": false,
+        "properties": {
+          "arbitration": {
+            "default": "PENDING",
+            "enum": [
+              "PENDING",
+              "DISPUTED",
+              "RESOLVED"
+            ],
+            "title": "Arbitration",
+            "type": "string"
+          },
+          "attestation_ids": {
+            "default": [],
+            "items": {
+              "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+              "type": "string"
+            },
+            "title": "Attestation Ids",
+            "type": "array"
+          },
+          "commercial": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Commercial"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "faithful": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Text"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "ner": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Ner"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "origin": {
+            "enum": [
+              "independent_human",
+              "synthetic_fixture"
+            ],
+            "title": "Origin",
+            "type": "string"
+          },
+          "review_status": {
+            "default": "PENDING",
+            "enum": [
+              "PENDING",
+              "human_declared",
+              "human_verified"
+            ],
+            "title": "Review Status",
+            "type": "string"
+          },
+          "reviewer_ids": {
+            "default": [],
+            "items": {
+              "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+              "type": "string"
+            },
+            "title": "Reviewer Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "origin"
+        ],
+        "title": "Reference",
+        "type": "object"
+      },
+      "Session": {
+        "additionalProperties": false,
+        "properties": {
+          "asr": {
+            "$ref": "#/$defs/Text"
+          },
+          "audio": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Audio"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "batch_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "capture_mode": {
+            "enum": [
+              "offline_audio",
+              "ephemeral_audio",
+              "imported_asr",
+              "synthetic_fixture"
+            ],
+            "title": "Capture Mode",
+            "type": "string"
+          },
+          "case_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Case Id",
+            "type": "string"
+          },
+          "condition": {
+            "default": "unknown",
+            "enum": [
+              "quiet",
+              "noise",
+              "unknown"
+            ],
+            "title": "Condition",
+            "type": "string"
+          },
+          "consent": {
+            "$ref": "#/$defs/Consent"
+          },
+          "diagnosis": {
+            "$ref": "#/$defs/Diagnosis",
+            "default": {
+              "cause": "unknown",
+              "evidence_ids": []
+            }
+          },
+          "engines": {
+            "default": [],
+            "items": {
+              "$ref": "#/$defs/Engine"
+            },
+            "title": "Engines",
+            "type": "array"
+          },
+          "hardware_class": {
+            "default": "unknown",
+            "enum": [
+              "CPU",
+              "GPU",
+              "unknown"
+            ],
+            "title": "Hardware Class",
+            "type": "string"
+          },
+          "language": {
+            "default": "es",
+            "enum": [
+              "es",
+              "en",
+              "other"
+            ],
+            "title": "Language",
+            "type": "string"
+          },
+          "productivity": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Productivity"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "provenance": {
+            "$ref": "#/$defs/Provenance"
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Reference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "session_id": {
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+            "title": "Session Id",
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "ASR_REAL",
+              "SINTETICO_PRUEBA"
+            ],
+            "title": "Source Type",
+            "type": "string"
+          },
+          "temperature": {
+            "default": "unknown",
+            "enum": [
+              "cold",
+              "warm",
+              "unknown"
+            ],
+            "title": "Temperature",
+            "type": "string"
+          },
+          "timings": {
+            "default": [],
+            "items": {
+              "$ref": "#/$defs/Timing"
+            },
+            "title": "Timings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "batch_id",
+          "session_id",
+          "case_id",
+          "source_type",
+          "capture_mode",
+          "consent",
+          "provenance",
+          "asr"
+        ],
+        "title": "Session",
+        "type": "object"
+      },
+      "Span": {
+        "additionalProperties": false,
+        "properties": {
+          "end": {
+            "exclusiveMinimum": 0,
+            "title": "End",
+            "type": "integer"
+          },
+          "label": {
+            "enum": [
+              "ACABADO",
+              "ACCESORIO",
+              "ALTO",
+              "ANCHO",
+              "APOYABRAZOS",
+              "CABECERA",
+              "CANTIDAD",
+              "CLASE_RESISTENCIA",
+              "COLOR",
+              "COMPONENTE",
+              "DESCUENTO",
+              "DIAMETRO",
+              "ERGONOMIA",
+              "ESPESOR",
+              "LARGO",
+              "MATERIAL",
+              "OBSERVACION",
+              "PRECIO_TOTAL",
+              "PRECIO_UNITARIO",
+              "PRODUCTO",
+              "PROFUNDIDAD",
+              "SISTEMA",
+              "SOPORTE_LUMBAR",
+              "UNIDAD_MEDIDA"
+            ],
+            "title": "Label",
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start",
+          "end",
+          "label"
+        ],
+        "title": "Span",
+        "type": "object"
+      },
+      "Text": {
+        "additionalProperties": false,
+        "properties": {
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "sha256"
+        ],
+        "title": "Text",
+        "type": "object"
+      },
+      "Timing": {
+        "additionalProperties": false,
+        "properties": {
+          "clock": {
+            "enum": [
+              "monotonic_common",
+              "synchronized_common"
+            ],
+            "title": "Clock",
+            "type": "string"
+          },
+          "end": {
+            "title": "End",
+            "type": "number"
+          },
+          "end_boundary": {
+            "title": "End Boundary",
+            "type": "string"
+          },
+          "metric": {
+            "enum": [
+              "queue",
+              "asr",
+              "nlp",
+              "projection",
+              "frontend",
+              "end_to_form"
+            ],
+            "title": "Metric",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "number"
+          },
+          "start_boundary": {
+            "title": "Start Boundary",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "s",
+              "ms"
+            ],
+            "title": "Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "metric",
+          "unit",
+          "start_boundary",
+          "end_boundary",
+          "start",
+          "end",
+          "clock"
+        ],
+        "title": "Timing",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "batch_id": {
+        "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$",
+        "title": "Batch Id",
+        "type": "string"
+      },
+      "frozen_date": {
+        "format": "date",
+        "title": "Frozen Date",
+        "type": "string"
+      },
+      "schema_version": {
+        "const": "field-benchmark-1",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "sessions": {
+        "items": {
+          "$ref": "#/$defs/Session"
+        },
+        "title": "Sessions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "schema_version",
+      "batch_id",
+      "frozen_date",
+      "sessions"
+    ],
+    "title": "Batch",
+    "type": "object"
+  }
+}
