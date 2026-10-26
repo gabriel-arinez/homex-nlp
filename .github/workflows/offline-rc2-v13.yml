@@ -1,0 +1,35 @@
+name: Offline RC2 v13 — tests only, no training
+on:
+  push:
+    paths:
+      - 'training/offline_rc2_v13/**'
+      - 'tests/training/test_offline_rc2_v13.py'
+      - 'tools/ci_corpus_scope.py'
+      - '.github/workflows/offline-rc2-v13.yml'
+  pull_request:
+    paths:
+      - 'training/offline_rc2_v13/**'
+      - 'tests/training/test_offline_rc2_v13.py'
+      - 'tools/ci_corpus_scope.py'
+      - '.github/workflows/offline-rc2-v13.yml'
+permissions:
+  contents: read
+jobs:
+  offline-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.12.9'
+      - run: uv sync --locked --extra dev --python 3.11.15
+      - name: Stub contracts and full regression with training/loading blocked
+        run: uv run --locked --extra dev python -m training.offline_rc2_v13.gate --evidence "$RUNNER_TEMP/offline-tools"
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: offline-tools-${{ github.sha }}
+          path: ${{ runner.temp }}/offline-tools/result.json
+          retention-days: 14
