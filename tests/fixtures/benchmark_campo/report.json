@@ -65,11 +65,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "capacity": {
               "accuracy": 1.0,
@@ -77,11 +79,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "color": {
               "accuracy": 1.0,
@@ -89,11 +93,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "currency": {
               "accuracy": 1.0,
@@ -101,11 +107,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "discount": {
               "accuracy": 1.0,
@@ -113,11 +121,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "length": {
               "accuracy": 1.0,
@@ -125,11 +135,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "material": {
               "accuracy": 1.0,
@@ -137,11 +149,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "product": {
               "accuracy": 1.0,
@@ -149,11 +163,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "sold_quantity": {
               "accuracy": 1.0,
@@ -161,11 +177,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "thickness": {
               "accuracy": 1.0,
@@ -173,11 +191,13 @@
               "expected_positive": 2,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 2,
               "predicted_positive": 2,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "total_price": {
               "accuracy": 1.0,
@@ -185,11 +205,13 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             },
             "unit_price": {
               "accuracy": 1.0,
@@ -197,16 +219,21 @@
               "expected_positive": 1,
               "false_assertion": 0,
               "false_assertion_rate": 0.0,
+              "negative_opportunities": 0,
               "omission": 0,
               "omission_rate": 0.0,
               "opportunities": 1,
               "predicted_positive": 1,
-              "safe_abstention": 0
+              "safe_abstention": 0,
+              "safe_abstention_rate": null
             }
           },
           "critical_error_rate": 0.0,
           "critical_errors": 0,
           "critical_opportunities": 11,
+          "negative_opportunities": 0,
+          "safe_abstention_rate": null,
+          "safe_abstentions": 0,
           "sessions": 1,
           "status": "EVALUABLE"
         }
@@ -311,13 +338,17 @@
   },
   "leakage": {
     "baseline_rows": 1468,
+    "comparisons": {
+      "historical_evidence_pairs": 1468,
+      "session_pairs": 0
+    },
     "findings": {},
     "paraphrase_detection": "lexical screening only; independent human semantic/access review required",
     "status": "NO_AUTOMATIC_MATCH_NOT_PROOF_OF_INDEPENDENCE"
   },
   "methods": {
     "causes": "externally supplied evidence IDs only; discrepancy alone never establishes cause",
-    "commercial": "exact Decimal, axis field + unit; no currency conversion; wrong value counts omission and false assertion; complete refs include predicted-only negatives; partial only reviewed_keys",
+    "commercial": "exact Decimal, axis field + unit; no currency conversion; wrong value counts omission and false assertion; complete refs include predicted-only negatives and adjudicated reviewed_keys; partial only reviewed_keys; safe abstentions use negative opportunities, never positive accuracy",
     "latency": "seconds; p50 median, p95 nearest rank ceil(.95*n), max; shared clock; cold/warm/hardware/condition strata",
     "ner": "exact label/start/end on same coordinate and text hash; undefined ratios null; macro over defined label F1",
     "productivity": "same independent case, validated task completion, paired manual minus assisted; incomplete excluded; order recorded",
@@ -332,7 +363,7 @@
     "date": "2026-10-26",
     "human_independence_access_verified": 0,
     "partition_digest": "1b517e515f0d9624f365dd8d7a7afb018b30fb6d76d8d1e82d6dd50d7cfce34b",
-    "scoring_rules_digest": "d6c390a1be9bf2308e680a52db5eab1307bc6b5dcf467d0047235b2a19b05a84"
+    "scoring_rules_digest": "37b6cd1e0ea0349ad477493a0b1a07257c6a40c590b9e38e55e1a7f44cc92524"
   },
   "status": "BENCHMARK_HERRAMIENTAS_VERIFICABLES",
   "training": false

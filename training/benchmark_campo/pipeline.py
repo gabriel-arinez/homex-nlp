@@ -178,16 +178,48 @@ def baseline_rows():
                 yield {"text": row["text"], "case_id": row.get("id"), "partition": "DEVELOPMENT"}
 
 
+def evidence_texts(row):
+    """Authorized index supports legacy text, ASR and faithful strings/Text objects.
+
+    Also accepts reference.faithful as in the session contract. One evidence row
+    remains one comparison, regardless of how many representations match.
+    """
+    if not isinstance(row, dict):
+        raise ValueError("INVALID_LEAKAGE_EVIDENCE")
+    values = [row.get("text"), row.get("asr"), row.get("faithful")]
+    reference = row.get("reference")
+    if reference is not None:
+        if not isinstance(reference, dict):
+            raise ValueError("INVALID_LEAKAGE_REFERENCE")
+        values.append(reference.get("faithful"))
+    result = set()
+    for value in values:
+        if value is None:
+            continue
+        if isinstance(value, dict):
+            if "sha256" in value and (
+                not isinstance(value.get("text"), str)
+                or hashlib.sha256(value["text"].encode()).hexdigest() != value["sha256"]
+            ):
+                raise ValueError("INVALID_LEAKAGE_TEXT_DIGEST")
+            value = value.get("text")
+        if not isinstance(value, str):
+            raise ValueError("INVALID_LEAKAGE_TEXT")
+        normalized = " ".join(palabras(value))
+        if normalized:
+            result.add(normalized)
+    return result
+
+
 def leakage(batch, opened=()):
     refs = list(baseline_rows()) + list(opened)
     findings = defaultdict(int)
     seen = []
+    indexed = [(row, evidence_texts(row)) for row in refs]
     for s in batch.sessions:
-        target_texts = {" ".join(palabras(s.asr.text))}
-        if s.reference and s.reference.faithful:
-            target_texts.add(" ".join(palabras(s.reference.faithful.text)))
         current = {
-            "text": s.asr.text,
+            "asr": s.asr.text,
+            "faithful": s.reference.faithful.text if s.reference and s.reference.faithful else None,
             "case_id": s.case_id,
             "source_id": s.provenance.source_id,
             "template_id": s.provenance.template_id,
@@ -195,9 +227,8 @@ def leakage(batch, opened=()):
             "partition": s.provenance.partition,
             "audio_sha256": s.audio.sha256 if s.audio else None,
         }
-        for other in refs + seen:
-            other_text = " ".join(palabras(other.get("text", "")))
-            ot = set(palabras(other_text))
+        target_texts = evidence_texts(current)
+        for other, other_texts in indexed + seen:
             same_case = any(
                 current[k] == other.get(k)
                 for k in ("case_id", "source_id", "template_id", "speaker_id")
@@ -205,28 +236,36 @@ def leakage(batch, opened=()):
             same_audio = current["audio_sha256"] and current["audio_sha256"] == other.get(
                 "audio_sha256"
             )
+            exact = bool(target_texts & other_texts)
+            near = not exact and any(
+                a and b and len(a & b) / len(a | b) >= 0.8
+                for a in (set(palabras(text)) for text in target_texts)
+                for b in (set(palabras(text)) for text in other_texts)
+            )
             if same_audio:
                 findings["same_dictation_audio"] += 1
-            if other_text in target_texts:
+            if exact:
                 findings["duplicate_text"] += 1
-            elif any(
-                tokens and ot and len(tokens & ot) / len(tokens | ot) >= 0.8
-                for tokens in (set(palabras(text)) for text in target_texts)
-            ):
+            elif near:
                 findings["possible_paraphrase_jaccard_0_8"] += 1
             if same_case:
                 findings["shared_provenance_requires_adjudication"] += 1
-            if (same_case or same_audio or other_text in target_texts) and current[
+            if (same_case or same_audio or exact or near) and current["partition"] != other.get(
                 "partition"
-            ] != other.get("partition"):
+            ):
                 findings["cross_partition_overlap"] += 1
-        seen.append(current)
+        seen.append((current, target_texts))
+    sessions = len(batch.sessions)
     return {
         "findings": dict(sorted(findings.items())),
         "status": "REQUIRES_HUMAN_ADJUDICATION"
         if findings
         else "NO_AUTOMATIC_MATCH_NOT_PROOF_OF_INDEPENDENCE",
         "baseline_rows": len(refs),
+        "comparisons": {
+            "session_pairs": sessions * (sessions - 1) // 2,
+            "historical_evidence_pairs": sessions * len(refs),
+        },
         "paraphrase_detection": "lexical screening only; independent human semantic/access review required",
     }
 
@@ -350,7 +389,7 @@ def score(batch, decisions=(), authorized=(), opened=(), private_detail=False):
         "methods": {
             "wer": "legacy palabras: Unicode regex word tokens, casefold; punctuation removed, no number/word rewriting; Levenshtein ties diagonal/delete/insert; empty reference NOT_EVALUABLE with I retained",
             "ner": "exact label/start/end on same coordinate and text hash; undefined ratios null; macro over defined label F1",
-            "commercial": "exact Decimal, axis field + unit; no currency conversion; wrong value counts omission and false assertion; complete refs include predicted-only negatives; partial only reviewed_keys",
+            "commercial": "exact Decimal, axis field + unit; no currency conversion; wrong value counts omission and false assertion; complete refs include predicted-only negatives and adjudicated reviewed_keys; partial only reviewed_keys; safe abstentions use negative opportunities, never positive accuracy",
             "latency": "seconds; p50 median, p95 nearest rank ceil(.95*n), max; shared clock; cold/warm/hardware/condition strata",
             "productivity": "same independent case, validated task completion, paired manual minus assisted; incomplete excluded; order recorded",
             "causes": "externally supplied evidence IDs only; discrepancy alone never establishes cause",

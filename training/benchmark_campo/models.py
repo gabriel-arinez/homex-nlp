@@ -134,8 +134,10 @@ class Commercial(Strict):
     scopes: dict[ID, Literal["item", "component", "accessory", "conditions"]]
     facts: list[Fact]
     coverage: Literal["complete", "partial"] = "complete"
-    # Partial references may score only explicitly reviewed (including negative) keys.
-    reviewed_keys: list[str] = []
+    reviewed_keys: list[str] = Field(
+        default=[],
+        description="Adjudicated keys including explicit negatives in complete references; exclusive scoring scope for partial references.",
+    )
 
     @model_validator(mode="after")
     def scope(self):
@@ -146,13 +148,11 @@ class Commercial(Strict):
             for key, kind in self.scopes.items()
         ):
             raise ValueError("ONE_COMMERCIAL_ITEM")
-        keys = []
-        for f in self.facts:
-            if f.scope not in self.scopes:
-                raise ValueError("UNKNOWN_COMPONENT_SCOPE")
-            kind = self.scopes[f.scope]
+
+        def check_scope(scope, field):
+            kind = self.scopes[scope]
             if (
-                f.field
+                field
                 in {
                     "product",
                     "sold_quantity",
@@ -165,13 +165,25 @@ class Commercial(Strict):
                 and kind != "item"
             ):
                 raise ValueError("COMMERCIAL_SCOPE")
-            if f.field == "accessory_quantity" and kind != "accessory":
+            if field == "currency" and scope != "CONDITIONS":
+                raise ValueError("CURRENCY_SCOPE")
+            if field == "accessory_quantity" and kind != "accessory":
                 raise ValueError("ACCESSORY_SCOPE")
-            if f.field in {"internal_quantity", "material", "color", "thickness"} and kind not in {
+            if field == "internal_quantity" and kind not in {"component", "accessory"}:
+                raise ValueError("RELATION_SCOPE")
+            # PRF-03 general attributes are scoped to ITEM, not a fabricated component.
+            if field in {"material", "color", "thickness"} and kind not in {
+                "item",
                 "component",
                 "accessory",
             }:
                 raise ValueError("RELATION_SCOPE")
+
+        keys = []
+        for f in self.facts:
+            if f.scope not in self.scopes:
+                raise ValueError("UNKNOWN_COMPONENT_SCOPE")
+            check_scope(f.scope, f.field)
             keys.append(f.scope + ":" + f.field)
         if len(keys) != len(set(keys)):
             raise ValueError("DUPLICATE_FACT")
@@ -187,6 +199,7 @@ class Commercial(Strict):
                 or parts[1] not in Fact.model_fields["field"].annotation.__args__
             ):
                 raise ValueError("REVIEW_SCOPE")
+            check_scope(parts[0], parts[1])
         return self
 
 

@@ -480,3 +480,324 @@ def test_rc1_baseline_includes_its_actual_layout():
     rows = list(baseline_rows())
     # V1 675 + RC1 documentary/oral 727 + RC2 development 66.
     assert len(rows) == 1468
+
+
+def test_audit_a_complete_adjudicated_negative_abstention():
+    negative = Commercial(
+        scopes={"ITEM": "item", "CONDITIONS": "conditions"},
+        facts=[],
+        coverage="complete",
+        reviewed_keys=["ITEM:sold_quantity"],
+    )
+    counts, errors, denominator = commercial_counts(negative, None)
+    assert counts["sold_quantity"]["safe_abstention"] == 1
+    assert counts["sold_quantity"]["expected_positive"] == 0
+    assert errors == 0 and denominator == 1
+
+
+def audit_pair():
+    """Two artificial sessions: first faithful equals second ASR; no shared IDs."""
+    from training.benchmark_campo.models import sha
+
+    d = raw()
+    first = d["sessions"][0]
+    first["asr"] = {"text": "orbita nube solar", "sha256": sha("orbita nube solar")}
+    first["reference"]["faithful"] = {
+        "text": "cuarzo azul brillante",
+        "sha256": sha("cuarzo azul brillante"),
+    }
+    first["reference"]["ner"] = None
+    first["engines"] = []
+    first["provenance"]["partition"] = "TRAIN"
+    second = copy.deepcopy(first)
+    second.update(session_id="SYN-SESSION-02", case_id="SYN-CASE-02", productivity=None)
+    second["provenance"].update(
+        source_id="SYN-SOURCE-02",
+        template_id="SYN-TEMPLATE-02",
+        speaker_id="SYN-SPEAKER-02",
+        partition="EXTERNAL_CANDIDATE",
+    )
+    second["asr"] = copy.deepcopy(first["reference"]["faithful"])
+    second["reference"]["faithful"] = {
+        "text": "motor lunar remoto",
+        "sha256": sha("motor lunar remoto"),
+    }
+    d["sessions"].append(second)
+    return d
+
+
+def test_audit_b_faithful_asr_cross_session_leak():
+    findings = leakage(batch(audit_pair()))["findings"]
+    assert findings.get("duplicate_text", 0) == 1
+    assert findings.get("cross_partition_overlap", 0) == 1
+
+
+def test_audit_c_general_attribute_without_invented_component():
+    from training.benchmark_campo.models import Fact
+
+    reference = Commercial(
+        scopes={"ITEM": "item", "CONDITIONS": "conditions"},
+        facts=[Fact(scope="ITEM", field="color", value="roble")],
+    )
+    assert reference.facts[0].scope == "ITEM"
+
+
+@pytest.mark.parametrize("coverage", ["complete", "partial"])
+@pytest.mark.parametrize("prediction", ["none", "empty", "spurious"])
+def test_adjudicated_negative_denominators_and_no_positive_inflation(coverage, prediction):
+    from training.benchmark_campo.metrics import commercial_report
+    from training.benchmark_campo.models import Fact
+
+    scopes = {"ITEM": "item", "CONDITIONS": "conditions"}
+    gold = Commercial(
+        scopes=scopes,
+        facts=[],
+        coverage=coverage,
+        reviewed_keys=["ITEM:sold_quantity", "ITEM:unit_price"],
+    )
+    actual = None if prediction == "none" else Commercial(scopes=scopes, facts=[])
+    if prediction == "spurious":
+        actual.facts.append(Fact(scope="ITEM", field="sold_quantity", value="2"))
+    counts, errors, n = commercial_counts(gold, actual)
+    report = commercial_report(counts, errors, n, 1)
+    expected_safe = 1 if prediction == "spurious" else 2
+    assert report["negative_opportunities"] == 2
+    assert report["safe_abstentions"] == expected_safe
+    assert report["safe_abstention_rate"] == expected_safe / 2
+    assert errors == (1 if prediction == "spurious" else 0) and n == 2
+    assert all(r["accuracy"] is None and r["correct"] == 0 for r in report["by_field"].values())
+    assert counts["sold_quantity"]["false_assertion"] == (prediction == "spurious")
+
+
+def test_empty_complete_without_adjudication_has_no_negative_denominator():
+    from training.benchmark_campo.metrics import commercial_report
+
+    gold = Commercial(scopes={"ITEM": "item", "CONDITIONS": "conditions"}, facts=[])
+    counts, errors, n = commercial_counts(gold, None)
+    assert (counts, errors, n) == ({}, 0, 0)
+    report = commercial_report(counts, errors, n, 1)
+    assert report["safe_abstention_rate"] is None and report["negative_opportunities"] == 0
+
+
+def test_positive_accuracy_does_not_include_reviewed_negative():
+    from training.benchmark_campo.metrics import commercial_report
+    from training.benchmark_campo.models import Fact
+
+    gold = Commercial(
+        scopes={"ITEM": "item", "CONDITIONS": "conditions"},
+        facts=[Fact(scope="ITEM", field="product", value="mesa")],
+        reviewed_keys=["ITEM:sold_quantity"],
+    )
+    counts, errors, n = commercial_counts(gold, gold)
+    report = commercial_report(counts, errors, n, 1)
+    assert report["by_field"]["product"]["accuracy"] == 1
+    assert report["by_field"]["sold_quantity"]["accuracy"] is None
+    assert report["safe_abstentions"] == 1
+    assert sum(row["correct"] for row in counts.values()) == 1
+
+
+def set_synthetic_text(session, coordinate, text):
+    from training.benchmark_campo.models import sha
+
+    value = {"text": text, "sha256": sha(text)}
+    if coordinate == "asr":
+        session["asr"] = value
+    else:
+        session["reference"]["faithful"] = value
+
+
+@pytest.mark.parametrize("first_coordinate", ["asr", "faithful"])
+@pytest.mark.parametrize("second_coordinate", ["asr", "faithful"])
+def test_all_text_coordinate_pairs_and_permutations(first_coordinate, second_coordinate):
+    d = audit_pair()
+    for i, session in enumerate(d["sessions"]):
+        set_synthetic_text(session, "asr", ["orbita nube solar", "motor lunar remoto"][i])
+        set_synthetic_text(session, "faithful", ["nieve hielo blanco", "tigre selva verde"][i])
+    for session, coordinate in zip(d["sessions"], [first_coordinate, second_coordinate]):
+        set_synthetic_text(session, coordinate, "cuarzo azul brillante")
+    b = batch(d)
+    forward = leakage(b)
+    b.sessions.reverse()
+    reverse = leakage(b)
+    assert forward == reverse
+    assert forward["findings"] == {"cross_partition_overlap": 1, "duplicate_text": 1}
+    assert forward["comparisons"] == {"session_pairs": 1, "historical_evidence_pairs": 2936}
+    assert forward["baseline_rows"] == 1468
+
+
+def test_near_duplicate_faithful_asr_is_order_independent():
+    d = audit_pair()
+    set_synthetic_text(d["sessions"][0], "faithful", "cuarzo azul brillante lejano celeste")
+    set_synthetic_text(d["sessions"][1], "asr", "cuarzo azul brillante lejano celeste extra")
+    b = batch(d)
+    a = leakage(b)
+    b.sessions.reverse()
+    assert a == leakage(b)
+    assert a["findings"] == {"cross_partition_overlap": 1, "possible_paraphrase_jaccard_0_8": 1}
+
+
+def test_multiple_matching_representations_and_audio_count_once_per_pair():
+    d = audit_pair()
+    for session in d["sessions"]:
+        for coordinate in ("asr", "faithful"):
+            set_synthetic_text(session, coordinate, "cuarzo azul brillante")
+        session["audio"] = {"private_ref": "SYN-AUDIO", "sha256": "c" * 64}
+    findings = leakage(batch(d))["findings"]
+    assert findings == {
+        "cross_partition_overlap": 1,
+        "duplicate_text": 1,
+        "same_dictation_audio": 1,
+    }
+
+
+@pytest.mark.parametrize("key", ["text", "asr", "faithful", "reference"])
+@pytest.mark.parametrize("wrapped", [False, True])
+def test_previously_open_equivalent_text_fields(key, wrapped):
+    b = batch(audit_pair())
+    b.sessions = b.sessions[:1]
+    value = "orbita nube solar"
+    if wrapped:
+        from training.benchmark_campo.models import sha
+
+        value = {"text": value, "sha256": sha(value)}
+    row = {
+        key: {"faithful": value} if key == "reference" else value,
+        "partition": "PREVIOUSLY_OPEN",
+    }
+    result = leakage(b, [row])
+    assert result["findings"] == {"cross_partition_overlap": 1, "duplicate_text": 1}
+    assert result["comparisons"]["historical_evidence_pairs"] == 1469
+
+
+def test_previously_open_all_representations_are_one_evidence_pair():
+    b = batch(audit_pair())
+    b.sessions = b.sessions[:1]
+    row = {
+        "text": "orbita nube solar",
+        "asr": "orbita nube solar",
+        "faithful": "cuarzo azul brillante",
+        "partition": "DEV",
+    }
+    result = leakage(b, [row])
+    assert result["findings"]["duplicate_text"] == 1
+    assert result["findings"]["cross_partition_overlap"] == 1
+
+
+def test_three_session_permutations_stable_and_no_empty_text_matches():
+    from itertools import permutations
+
+    d = audit_pair()
+    third = copy.deepcopy(d["sessions"][1])
+    third.update(session_id="SYN-SESSION-03", case_id="SYN-CASE-03")
+    third["provenance"].update(
+        source_id="SYN-SOURCE-03",
+        template_id="SYN-TEMPLATE-03",
+        speaker_id="SYN-SPEAKER-03",
+        partition="DEV",
+    )
+    d["sessions"].append(third)
+    expected = None
+    for rows in permutations(d["sessions"]):
+        d["sessions"] = list(rows)
+        result = leakage(batch(d), [{"audio_sha256": "0" * 64, "partition": "DEV"}])
+        assert result["comparisons"]["session_pairs"] == 3
+        if expected is None:
+            expected = result
+        assert result == expected
+    assert result["findings"]["duplicate_text"] == 3
+
+
+@pytest.mark.parametrize(
+    "field,value,unit",
+    [("material", "melamina", None), ("color", "roble", None), ("thickness", "18", "mm")],
+)
+def test_general_attributes_exact_and_not_component_equivalents(field, value, unit):
+    from training.benchmark_campo.models import Fact
+
+    scopes = {
+        "ITEM": "item",
+        "CONDITIONS": "conditions",
+        "TABLERO": "component",
+        "MESON": "component",
+    }
+    gold = Commercial(
+        scopes=scopes, facts=[Fact(scope="ITEM", field=field, value=value, unit=unit)]
+    )
+    counts, errors, _ = commercial_counts(gold, gold)
+    assert counts[field]["correct"] == 1 and errors == 0
+    wrong = Commercial(
+        scopes=scopes, facts=[Fact(scope="TABLERO", field=field, value=value, unit=unit)]
+    )
+    counts, _, _ = commercial_counts(gold, wrong)
+    assert counts[field]["correct"] == 0
+    assert counts[field]["omission"] == 1 and counts[field]["false_assertion"] == 1
+    meson = Commercial(
+        scopes=scopes, facts=[Fact(scope="MESON", field=field, value=value, unit=unit)]
+    )
+    assert commercial_counts(wrong, meson)[0][field]["correct"] == 0
+
+
+@pytest.mark.parametrize(
+    "scope,field,value",
+    [
+        ("ITEM", "internal_quantity", "2"),
+        ("ITEM", "currency", "BOB"),
+        ("TABLERO", "unit_price", "10"),
+        ("TABLERO", "sold_quantity", "2"),
+        ("CONDITIONS", "color", "roble"),
+        ("ITEM", "accessory_quantity", "2"),
+    ],
+)
+@pytest.mark.parametrize("negative", [False, True])
+def test_scope_restrictions_still_apply_to_facts_and_adjudicated_negatives(
+    scope, field, value, negative
+):
+    from training.benchmark_campo.models import Fact
+
+    scopes = {"ITEM": "item", "CONDITIONS": "conditions", "TABLERO": "component"}
+    with pytest.raises(ValueError):
+        if negative:
+            Commercial(scopes=scopes, facts=[], reviewed_keys=[scope + ":" + field])
+        else:
+            Commercial(scopes=scopes, facts=[Fact(scope=scope, field=field, value=value)])
+
+
+@pytest.mark.parametrize(
+    "row",
+    [
+        [],
+        {"asr": []},
+        {"faithful": {"text": "synthetic", "sha256": "0" * 64}},
+        {"reference": "invalid"},
+    ],
+)
+def test_malformed_previously_open_representations_rejected(row):
+    with pytest.raises(ValueError):
+        leakage(batch(), [row])
+
+
+def test_historical_fixture_input_and_results_preserved_additively():
+    import subprocess
+
+    old_input = subprocess.check_output(
+        ["git", "show", "59a7a03:tests/fixtures/benchmark_campo/synthetic.json"], text=True
+    )
+    assert FIXTURE.read_text() == old_input
+    old_report = json.loads(
+        subprocess.check_output(
+            ["git", "show", "59a7a03:tests/fixtures/benchmark_campo/report.json"], text=True
+        )
+    )
+    current = score(batch())
+    intentional = {("seal", "scoring_rules_digest"), ("methods", "commercial")}
+
+    def previous_contract(before, after, path=()):
+        if path in intentional:
+            return
+        if isinstance(before, dict):
+            for key, value in before.items():
+                previous_contract(value, after[key], (*path, key))
+        else:
+            assert before == after, path
+
+    previous_contract(old_report, current)

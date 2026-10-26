@@ -144,9 +144,10 @@ def commercial_counts(gold, predicted):
     a = {(f.scope, f.field): f for f in gold.facts}
     b = {(f.scope, f.field): f for f in predicted.facts} if predicted else {}
     keys = set(a) | set(b)
-    if gold.coverage == "partial":
-        keys &= {tuple(x.split(":")) for x in gold.reviewed_keys}
-        keys |= {tuple(x.split(":")) for x in gold.reviewed_keys}
+    reviewed = {tuple(x.split(":")) for x in gold.reviewed_keys}
+    # Complete references also include explicitly adjudicated absences, never
+    # the unbounded universe of absent fields. Partial references remain scoped.
+    keys = reviewed if gold.coverage == "partial" else keys | reviewed
     result = defaultdict(lambda: defaultdict(int))
     critical_errors = critical_n = 0
     for key in sorted(keys):
@@ -173,9 +174,21 @@ def commercial_report(counts, errors, n, sessions):
     return {
         "status": "EVALUABLE" if sessions else "NOT_EVALUABLE",
         "sessions": sessions,
+        "negative_opportunities": sum(
+            v["opportunities"] - v["expected_positive"] for v in counts.values()
+        ),
+        "safe_abstentions": sum(v["safe_abstention"] for v in counts.values()),
+        "safe_abstention_rate": ratio(
+            sum(v["safe_abstention"] for v in counts.values()),
+            sum(v["opportunities"] - v["expected_positive"] for v in counts.values()),
+        ),
         "by_field": {
             k: dict(v)
             | {
+                "negative_opportunities": v["opportunities"] - v["expected_positive"],
+                "safe_abstention_rate": ratio(
+                    v["safe_abstention"], v["opportunities"] - v["expected_positive"]
+                ),
                 "accuracy": ratio(v["correct"], v["expected_positive"]),
                 "omission_rate": ratio(v["omission"], v["expected_positive"]),
                 "false_assertion_rate": ratio(v["false_assertion"], v["predicted_positive"]),

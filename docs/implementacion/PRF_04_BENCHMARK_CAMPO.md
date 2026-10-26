@@ -39,6 +39,11 @@ Ninguna opción asigna automáticamente un test ciego aprobado.
   `sold_quantity`, `capacity`, `internal_quantity`, `accessory_quantity` son distintos.
   ITEM es único; un caso multiproducto requiere referencia de abstención/negativos,
   no fusionar productos. Moneda solo en CONDITIONS. No convertir valores.
+  `ITEM:material`, `ITEM:color` y `ITEM:thickness` representan atributos generales
+  explícitos de PRF-03 (`caracteristicas_generales.atributos`), sin fabricar un
+  componente ni propagar el atributo a TABLERO/MESON. El resto de restricciones
+  permanece: cantidad interna solo componente/accesorio, venta/precios solo ITEM,
+  moneda solo CONDITIONS. Espesor conserva unidad y Decimal exactos.
 - `engines`: identidad/commit exacto/wheel SHA/version/rules_version, texto de entrada
   y salidas NER/comerciales. Un adaptador externo debe mapear sus componentes a
   los IDs de scope del caso independientemente revisados. El evaluador no los alinea
@@ -148,8 +153,14 @@ uv run --locked --extra dev python -m training.evaluar_campo_prf04 score \
   --output "$HOME/Descargas/homex-campo-privado/agregado.json"
 ```
 
-`--previously-open` es lista JSON de text, case_id/source_id/template_id/speaker_id,
-partition y audio_sha256 cuando exista; debe incluir **todo** test previamente
+`--previously-open` es lista JSON de evidencias autorizadas: case_id/source_id/
+template_id/speaker_id, partition y audio_sha256 cuando exista. Cada fila puede
+conservar `text` histórico, `asr`, `faithful` y/o `reference.faithful`; los textos
+admiten string o `{text, sha256}` (hash opcional, validado si se suministra).
+Las representaciones se comparan en ambos lados sin crear filas adicionales:
+una fila sigue siendo una evidencia y un par de sesiones se cuenta una sola vez.
+No se leen rutas de audio ni fuentes adicionales del laboratorio. El custodio
+solo aporta material autorizado y debe incluir **todo** test previamente
 abierto, no una muestra conveniente. La herramienta no conoce registros externos
 que no se suministren. `aggregate lote1.json lote2.json --output ...` suma conteos,
 no promedia porcentajes; conserva cada lote y su vínculo de revisión; IDs duplicados
@@ -184,8 +195,14 @@ MESON/espesor27; accesorios conservan scope y cantidad. Valores erróneos cuenta
 omisión + falsa afirmación; faltantes no son acierto. Exactitud=correctos/positivos
 esperados, omisión=omisiones/positivos esperados, falsas afirmaciones=incorrectos/
 positivos predichos. Negativos completos cubren la unión de claves esperadas y
-predichas; negativos explícitos parciales usan reviewed_keys. Abstención segura se
-cuenta separada y no infla exactitud positiva. En parcial no se evalúan otras claves.
+predichas más `reviewed_keys` adjudicadas, incluidos negativos explícitos completos.
+En parcial solo se evalúan `reviewed_keys`. No se crea un universo de campos
+negativos por defecto: complete vacío sin claves revisadas tiene cero oportunidades
+negativas y tasa de abstención null. Cada ausencia adjudicada cuenta una oportunidad
+negativa; si tampoco hay predicción suma safe_abstention, si la hay es falsa afirmación.
+El reporte expone negative_opportunities, safe_abstentions y safe_abstention_rate
+(total y por campo; contador por campo safe_abstention). La tasa usa exclusivamente
+el denominador negativo; no se suma abstención a la exactitud positiva.
 Críticos: producto/cantidad vendida/unidad/importes/descuento/moneda/ejes/espesor/
 material/cantidad accesorio; denominador oportunidades revisadas en esos campos,
 una oportunidad por scope/campo, no por audio. Referencia nula nunca habilita métricas.
@@ -211,7 +228,15 @@ unknown. No atribuir automáticamente causalidad.
 
 Independencia: comparación con V1 y textos RC1/RC2 publicados, más índice privado
 previamente abierto; exactos normalizados, audio SHA, caso/fuente/plantilla/speaker,
-y Jaccard léxico ≥0,8 para paráfrasis candidatas. No detecta todas las paráfrasis
+y Jaccard léxico ≥0,8 para paráfrasis candidatas. Se compara el conjunto deduplicado
+de ASR y fiel de cada sesión contra ambas representaciones de otra sesión/evidencia,
+independientemente del orden. Texto vacío no cuenta como coincidencia. Exacto tiene
+prioridad sobre near-duplicate; cada riesgo se cuenta como máximo una vez por par,
+aunque coincidan ASR, fiel y audio. Cruce de partición cubre exactos, near-duplicates,
+audio y procedencia compartida. Denominadores: session_pairs=n*(n-1)/2;
+historical_evidence_pairs=n*(1468+filas privadas aportadas). Son comparaciones,
+no observaciones humanas independientes; el custodio debe depurar evidencias repetidas.
+No detecta todas las paráfrasis
 semánticas; requiere revisión humana y acceso externo antes de test ciego. Reporte
 sin matches no prueba independencia. El sello liga JSON canónico autorizado (solo
 si consentimiento verificado o fixture sintética), candidato, reglas Python+evaluador
@@ -264,3 +289,34 @@ independiente; dos revisores reales; arbitraje; screening semántico y test cieg
 medición de tarea real; umbrales de aceptación. Estos trabajos no se sustituyen con
 pruebas unitarias. Los estados técnicos PASS dependen de las verificaciones locales
 y remotas del SHA final, enlazadas en PR e informe de entrega.
+
+
+## Correctivo de auditoría independiente de PR #23
+
+Sobre `59a7a03`, tres regresiones añadidas antes del parche fallaron: A omitía
+abstenciones de negativos completos adjudicados; B omitía el cruce fiel→ASR con
+IDs diferentes y dependía del orden; C rechazaba atributos generales ITEM.
+Las pruebas `test_audit_a_*`, `test_audit_b_*`, `test_audit_c_*` pasan tras corregirlos.
+
+La representación general ITEM está respaldada por el contrato PRF-03 leído sin
+editar Backend/Frontend: `apps/proformas/validacion_tecnica.py`,
+`validar_datos_tecnicos` acepta `caracteristicas_generales.atributos`;
+`src/modules/proformas/services/muebleTecnico.ts` recoge esos atributos generales.
+El benchmark no proyecta ni modifica datos productivos. Una referencia general
+no equivale a un componente particular ni autoriza inferir material/color/espesor.
+
+La fixture histórica `synthetic.json` se conserva byte a byte. Schema y reporte
+se regeneran con cambios aditivos: descripción de reviewed_keys, denominadores y
+tasa de abstención, conteos de pares de screening. Todos los campos/resultados
+numéricos anteriores de la fixture quedan iguales; cambian intencionalmente la
+explicación comercial y el hash de reglas. No se altera la API antigua ni las 63
+pruebas aprobadas. La prueba de compatibilidad compara contra el reporte Git 59a7a03.
+
+```bash
+uv run --locked --extra dev pytest -q tests/training/test_benchmark_campo.py -k test_audit_
+```
+
+Los logs antes/después, manifestaciones sintéticas y evidencia del SHA correctivo
+están en una entrega privada nueva; no sobrescribe el bundle inicial. Los resultados
+actualizados de suite completa y CI están en el mismo PR #23. Se conservan
+HUMAN_GOLD=NO, TEST_VOZ_REAL=NO y HOLDOUT_EXTERNO_SIN_MUESTRAS.
