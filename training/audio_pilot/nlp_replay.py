@@ -14,7 +14,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from training.benchmark_campo.pipeline import digest, write_private
+from training.benchmark_campo.pipeline import write_private
 from training.audio_pilot.dataset import IDS, PilotError
 from training.audio_pilot.runner import load_run, private_directory
 
