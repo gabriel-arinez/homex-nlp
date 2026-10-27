@@ -34,7 +34,7 @@ from homex_nlp.rules import (
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v14"
+    rules_version = "prf04-rules-v15"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -411,6 +411,27 @@ class RulesEngine:
                 )
             )
         price_match, price_mode = find_price(text)
+        # Un marcador ASR degradado no acredita la escala de un decimal
+        # con punto. Conservar evidencia y exigir confirmación, sin multiplicar.
+        if (
+            price_match
+            and re.search(
+                r"\b(?:presionitario|presunitario|prese\s+unitario)\s*[,;:]?\s*$",
+                text[: price_match.start],
+                re.I,
+            )
+            and re.fullmatch(r"\d+\.\d{1,2}", price_match.text)
+        ):
+            candidate(price_match, "UNRESOLVED", "Escala monetaria incierta tras marcador ASR")
+            warnings.append(
+                Warning(
+                    code="INVALID_PRICE",
+                    path="/item_proposal/price",
+                    severity="REVIEW",
+                    message=f"Confirme el importe dictado {price_match.text}; no se infiere su escala.",
+                )
+            )
+            price_match, price_mode = None, "REVIEW_PRICE"
         if price_match is None and price_mode is None:
             ambiguo = find_ambiguous_price(text)
             if ambiguo:

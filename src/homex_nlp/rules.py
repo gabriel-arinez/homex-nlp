@@ -43,9 +43,13 @@ ACCESSORIES = (
     "cajones",
     "puertas",
     "jaladores",
+    "tiradores",
+    "ruedas",
+    r"cerraduras?|chapas?(?:\s+de\s+seguridad)?",
+    r"soportes?\s+lateral(?:es)?\s+para\s+CPU",
     "bandeja",
     "rieles",
-    r"tapa\s*cantos?",
+    r"tapa\s*cantos?(?:\s+(?:de|en))?(?:\s+(?:PVC|P\.V\.C\.?))?",
     r"toma(?:s)?\s*corrientes?",
 )
 
@@ -671,7 +675,11 @@ def find_thicknesses(text: str) -> list[Match]:
 
 def find_accessories(text: str) -> list[Match]:
     pattern = re.compile(
-        r"\b(?:" + "|".join(ACCESSORIES) + r")\b(?:\s+(?!y\b)[a-záéíóúñ]+){0,3}",
+        r"\b(?:"
+        + "|".join(ACCESSORIES)
+        + r")\b(?:\s+(?!(?:y|con|pero|sin|color|precio)\b)(?!(?:"
+        + "|".join(ACCESSORIES)
+        + r")\b)[a-záéíóúñ]+){0,3}",
         re.I,
     )
     encontrados = []
