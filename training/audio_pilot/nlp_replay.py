@@ -18,7 +18,7 @@ from training.audio_pilot.dataset import IDS, PilotError
 from training.audio_pilot.runner import load_run, private_directory
 from training.benchmark_campo.pipeline import write_private
 
-EXPECTED_NLP_COMMIT = "eae7b003cc2932a21823efb17d1c32ec07e94ecc"
+EXPECTED_NLP_COMMIT = "7b7bea6f0fca8ca4e305537ef86da3010c2071f8"
 
 
 def _git(directory, *arguments):
