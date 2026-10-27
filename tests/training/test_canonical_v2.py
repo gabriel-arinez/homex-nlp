@@ -260,3 +260,14 @@ def test_truncated_description_with_thickness_is_not_a_product_title():
     assert not any(label == "PRODUCTO" for r in rows for _, _, label in r["entities"])
     assert any(label == "MATERIAL" for r in rows for _, _, label in r["entities"])
     assert validate(rows, refs)["valid"]
+
+
+def test_catalog_attributes_stop_before_another_component_or_system():
+    source = item(
+        "SILLA COD: EXAMPLE\tapoya brazos regulable de goma, patas en PVC reforzado, apoyo lumbar regulable, sistema de rodilla."
+    )
+    source.update(source_file="inventario de sillas.txt", document_level="CATALOGO")
+    rows, refs, _ = documentary([source], set())
+    attributes = [r["text"] for r in rows if r["phenomena"] == ["catalog_attribute"]]
+    assert attributes == ["apoya brazos regulable de goma", "apoyo lumbar regulable"]
+    assert validate(rows, refs)["valid"]

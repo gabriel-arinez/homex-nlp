@@ -18,7 +18,7 @@ from training.canonical_v2.private_ingest import ingest
 from training.canonical_v2.validate import ROOT, normalized, validate
 
 FAMILIES = ("muebles_pedido", "sillas", "pisos_flotantes", "otros_productos")
-VERSION = "2.0.0-offline.2"
+VERSION = "2.0.0-offline.3"
 
 
 def family(item):
@@ -142,7 +142,12 @@ def documentary(items, excluded):
             ]:
                 for m in re.finditer(pattern, text, re.I):
                     a, b = m.span()
-                    literal = m[0].rstrip(" ,")
+                    literal = re.split(
+                        r"\s+y\s+patas\b|,\s*(?:patas|apoyo lumbar|sistema)\b",
+                        m[0],
+                        maxsplit=1,
+                        flags=re.I,
+                    )[0].rstrip(" ,")
                     b = a + len(literal)
                     found.append((a, b, [[0, b - a, label]], "catalog_attribute"))
         for n, (a, b, es, kind) in enumerate(found):
