@@ -20,7 +20,7 @@ def test_profundidad_sin_unidad_no_se_infiere():
     resultado = RulesEngine().extract(
         ExtractionRequest(
             request_id="p10",
-            text="Un atril, 0.50 de profundidad y 0.48 metros de ancho",
+            text="Un atril, 0.48 metros de ancho, 0.50 de profundidad y 1.18 metros de alto",
             currency_context="BOB",
         )
     )
