@@ -114,6 +114,36 @@ class RulesEngine:
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]
+        # En una única línea comercial, «cada escritorio» reitera el mueble
+        # inicial y «cajonera con N cajones» refiere a la cajonería integrada.
+        # Rechazar otras conjunciones de productos sigue siendo obligatorio.
+        if products:
+            principal = products[0]
+            integracion = bool(
+                re.search(r"\bcajoner[ií]a\b[^.;]{0,45}\bintegrad[ao]s?\b", text, re.I)
+            )
+            filtrados = [principal]
+            for producto in products[1:]:
+                contexto = text[max(0, producto.start - 24) : producto.start]
+                repeticion = (
+                    producto.text.split()[0].casefold().rstrip("s")
+                    == principal.text.split()[0].casefold().rstrip("s")
+                    and re.search(r"\bcada\s+$", contexto, re.I)
+                )
+                componente = (
+                    integracion
+                    and producto.text.casefold().startswith("cajonera")
+                    and re.search(r"\bcajonera\s+con\s+(?:\d+|uno|una|dos|tres|cuatro)\s+cajones\b", text[producto.start:], re.I)
+                )
+                referencia_mesa = (
+                    principal.text.casefold().startswith("mesa")
+                    and producto.text.casefold().startswith("mesa")
+                    and re.search(r"\buna\s+sola\s+$", contexto, re.I)
+                )
+                if not (repeticion or componente or referencia_mesa):
+                    filtrados.append(producto)
+            products = filtrados
+
         # «Estantes» después de «con N ...» describe componentes,
         # no una segunda línea comercial; pedidos independientes siguen en revisión.
         menciones = products[:]
