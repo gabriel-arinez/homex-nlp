@@ -342,3 +342,35 @@ def test_secret_scan_exceptions_are_exact_and_do_not_allow_future_secrets(monkey
     monkeypatch.setattr(Path, "read_text", forged)
     assert not safe_digest_exceptions()
     assert not corpus_only([".gitleaksignore", "training/corpus_v2_rc2/grouping.py"])
+
+
+def test_ci_gate_subprocess_imports_are_pinned_to_checkout(monkeypatch, tmp_path):
+    """Regression: a foreign installed homex_nlp must not shadow this checkout."""
+    import os
+    import sys
+    from pathlib import Path
+    from types import SimpleNamespace
+
+    from training.corpus_v2_rc2 import ci_gate
+
+    seen = []
+
+    def fake_run(command, stdout, stderr, env):
+        seen.append((command, env.copy()))
+        return SimpleNamespace(returncode=2)  # stop before generating any candidate
+
+    monkeypatch.setattr(ci_gate.subprocess, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", ["ci_gate", "--evidence", str(tmp_path / "gate")])
+    monkeypatch.setenv("PYTHONPATH", "/foreign/site-packages")
+
+    assert ci_gate.main() == 1
+    assert len(seen) == 1
+    command, env = seen[0]
+    paths = env["PYTHONPATH"].split(os.pathsep)
+    assert paths == [
+        str((tmp_path / "gate" / "guard").resolve()),
+        str(Path.cwd() / "src"),
+        str(Path.cwd()),
+    ]
+    assert env["HOMEX_DATA_GATE_NO_TRAINING"] == "1"
+    assert command[:3] == [sys.executable, "-m", "pytest"]
