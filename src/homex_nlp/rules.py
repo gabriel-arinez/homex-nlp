@@ -273,7 +273,7 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
     declared_unit = primero_aplicable(
         r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario|"
         r"presionitario|presunitario|prese\s+unitario)"
-        r"\s*[,;:]?\s*(?:(?:es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
