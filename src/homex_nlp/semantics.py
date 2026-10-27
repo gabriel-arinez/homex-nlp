@@ -7,17 +7,20 @@ from homex_nlp.contracts.item import Color, Component
 from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
 
 COMPONENTES = (
-    r"panel frontal|estructura|tableros?|mes[oó]n(?:es)?|"
+    r"panel frontal|panel(?:es)?|repisas?|divisi[oó]n(?:es)?(?: interiores?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
     r"tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?|"
-    r"puertas?|estantes?|módulos? laterales|módulos? centrales"
+    r"puertas?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (
     r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"
     r"melamin[ae](?:\s+MDP)?|MDP|MDF|"
     r"vidrio(?:\s+templado)?|aluminio|metal|madera"
 )
-COLORES = r"blanc[oa]|negr[oa](?: mate)?|gris(?: ceniza)?|olmo|roble|transparente"
+COLORES = (
+    r"blanc[oa]|negr[oa](?: mate)?|gris(?: claro| oscuro| ceniza)?|"
+    r"olmo|roble(?: claro| oscuro)?|nogal|no-gal|haya|transparente|madera clara"
+)
 NUMEROS = "|".join(NUMBER_WORDS)
 NUMERO = rf"(?:{NUMEROS}|\d+)"
 # Rectificaciones internas inequívocas: exige una señal positiva ("mejor")
@@ -101,6 +104,11 @@ def completar_relaciones(item, candidates, text, warnings):
             )
         )
 
+    colores_explicitos = list(re.finditer(r"\bcolor\s+(?:" + COLORES + r")\b", text, re.I))
+
+    def es_material(match):
+        return not any(c.start() <= match.start() < c.end() for c in colores_explicitos)
+
     def evidencia(match, label, value=None, component=None, decision="ACCEPTED", reason=None):
         if (
             label in {"MATERIAL", "COLOR"}
@@ -109,6 +117,8 @@ def completar_relaciones(item, candidates, text, warnings):
         ):
             decision = "REJECTED"
             reason = "Atributo explícitamente excluido"
+        if label == "COLOR" and match.group().casefold() == "no-gal":
+            value = "nogal"
         if label == "MATERIAL" and re.fullmatch(r"melamine(?:\s+MDP)?", match.group(), re.I):
             value = re.sub("melamine", "melamina", match.group(), flags=re.I)
             warnings.append(
@@ -135,6 +145,23 @@ def completar_relaciones(item, candidates, text, warnings):
             )
         )
         return identifier
+
+    restricciones = [
+        m.group().strip()
+        for m in re.finditer(
+            r"\b(?:sin|no\s+lleva)\s+(?:"
+            + NUMERO
+            + r"\s+)?(?:"
+            + COMPONENTES
+            + r"|chapas?(?: de seguridad)?|cerraduras?)\b",
+            text,
+            re.I,
+        )
+    ]
+    if restricciones:
+        item.observations = "; ".join(
+            dict.fromkeys(filter(None, [item.observations, *restricciones]))
+        )
 
     def cantidad_anterior(pieza):
         comienzo = max(0, pieza.start() - 20)
@@ -242,7 +269,7 @@ def completar_relaciones(item, candidates, text, warnings):
             limite = pieza.end() + nueva_entidad.start()
         ambitos.append((pieza.end(), limite))
         for material in re.finditer(r"\b(?:" + MATERIALES + r")\b", text, re.I):
-            if pieza.end() <= material.start() < limite:
+            if pieza.end() <= material.start() < limite and es_material(material):
                 evidencia(material, "MATERIAL", component=component)
         cantidad = cantidad_anterior(pieza)
         # «tres cajones, no, mejor dos» sustituye únicamente la cantidad
@@ -337,6 +364,17 @@ def completar_relaciones(item, candidates, text, warnings):
                     evidencia(match, atributo, component=component)
         for dimension in item.dimensions:
             ref = next((c for c in candidates if c.candidate_id in dimension.evidence_ids), None)
+            if (
+                ref
+                and ref.start < pieza.start() < ref.end
+                and re.fullmatch(
+                    r"(?:ancho|alto|altura|largo|profundidad|fondo)\s+de\s+",
+                    text[ref.start : pieza.start()],
+                    re.I,
+                )
+            ):
+                dimension.component_ref = component
+                ref.component_ref = component
             if ref and pieza.end() <= ref.start < limite:
                 connector = text[pieza.end() : ref.start]
                 if re.fullmatch(r"\s+(?:de|con)\s+", connector, re.I):
@@ -364,8 +402,24 @@ def completar_relaciones(item, candidates, text, warnings):
         ("COLOR", COLORES),
     ):
         for match in re.finditer(r"\b(?:" + patron + r")\b", text, re.I):
+            if label == "MATERIAL" and not es_material(match):
+                continue
             if not any(inicio <= match.start() < fin for inicio, fin in ambitos):
                 evidencia(match, label)
+    # Segmentación ASR: prefijo explícito «color» unido a un valor conocido.
+    # No normalizar el texto ni reconocer sufijos dentro de palabras libres.
+    for unido in re.finditer(r"\bcolor(?P<color>" + COLORES + r")\b", text, re.I):
+        inicio = unido.start("color")
+        literal = re.compile(re.escape(unido.group("color"))).match(text, inicio)
+        componente = next(
+            (
+                item.components[i].component_id
+                for i, (a, b) in enumerate(ambitos)
+                if a <= inicio < b
+            ),
+            None,
+        )
+        evidencia(literal, "COLOR", component=componente)
     # Sólo el atributo contiguo del producto principal. No propagar colores
     # de piezas, negaciones, alternativas o rectificaciones a primary_color.
     principal = next(
@@ -398,6 +452,26 @@ def completar_relaciones(item, candidates, text, warnings):
                 valor = re.sub(r"^negra", "negro", valor, flags=re.I).casefold()
                 color.normalized_value = valor
                 item.primary_color = Color(value=valor, evidence_ids=[color.candidate_id])
+    # «dos lados de ...» describe geometría compuesta, no el largo global.
+    # El contrato de dimensión sólo admite un eje por medida: solicitar croquis.
+    lados = re.search(r"\b(?:dos|2)\s+lados\s+de\s+", text, re.I)
+    if lados:
+        for dimension in item.dimensions[:]:
+            ref = next((c for c in candidates if c.candidate_id in dimension.evidence_ids), None)
+            if ref and lados.end() <= ref.start <= lados.end() + 2:
+                item.dimensions.remove(dimension)
+                ref.label = "DIMENSION"
+                ref.decision = "UNRESOLVED"
+                ref.reason = "Medida de dos lados: requiere geometría explícita"
+                item.unresolved.append(ref.candidate_id)
+                warnings.append(
+                    Warning(
+                        code="MISSING_AXIS",
+                        path="/item_proposal/dimensions",
+                        severity="REVIEW",
+                        message="Confirme por separado las medidas y orientación de ambos lados.",
+                    )
+                )
     grupos = list(
         re.finditer(
             r"\bconjunto\s+([a-záéíóúñ ]{1,40}?)(?=\s+(?:con|compuesto)|[:;,.])", text, re.I
