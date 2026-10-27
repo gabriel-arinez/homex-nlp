@@ -1,18 +1,18 @@
 # HOMEX — informe de ejecución Corpus V2 offline y entrenamiento
 
-Fecha: 27-10-2026. Implementación: `2292a0c1a6c1c6b6969e4680d8219f4f3fc37432`.
+Fecha: 27-10-2026. Base de implementación `2292a0c1a6c1c6b6969e4680d8219f4f3fc37432`; curación final `1209c44679f5b46ea6c68a5ef7f203463543f645`.
 
 Se generó un corpus utilizable y se ejecutaron los diez entrenamientos previstos con los datos verificados. **No se declara completado el alcance íntegro de un corpus de cotizaciones completas con todas sus relaciones homologadas**: la parte auténtica aquí anotada está formada por extractos de ámbito cerrado; no hay test independiente ni revisión humana comercial nueva. Las limitaciones no se sustituyen por métricas sintéticas.
 
 ## A. Corpus final disponible
 
-Versión `2.0.0-offline.1`: **340 registros**, 313 train / 27 dev, 24 etiquetas. 274 extractos literales auténticos y 66 casos sintéticos recuperados. Estilo documental 293 y oral sintético 47. No hay audios en entrenamiento. Todos los documentos auténticos quedan en train; sus variantes/extractos comparten grupo conservador. El dev conocido tiene 18 orales y 9 documentales sintéticos.
+Versión `2.0.0-offline.3`: **339 registros**, 312 train / 27 dev, 24 etiquetas. 273 extractos literales auténticos y 66 casos sintéticos recuperados. Estilo documental 292 y oral sintético 47. No hay audios en entrenamiento. Todos los documentos auténticos quedan en train; sus variantes/extractos comparten grupo conservador. El dev conocido tiene 18 orales y 9 documentales sintéticos.
 
 | Familia | Train | Dev | Total |
 |---|---:|---:|---:|
 | muebles_pedido | 187 | 16 | 203 |
 | otros_productos | 16 | 3 | 19 |
-| pisos_flotantes | 26 | 3 | 29 |
+| pisos_flotantes | 25 | 3 | 28 |
 | sillas | 84 | 5 | 89 |
 
 Los fenómenos y soporte por etiqueta/split están en `AUDIT.json` y `RESULTS.json`. Se conservan cantidades comerciales, dimensiones, componentes y espesores independientes, exclusiones/rectificaciones y negativos sintéticos. Las 24 etiquetas tienen presencia global; ese dato no garantiza suficiente soporte por familia ni por experimento. D3 solo tiene 29 ejemplos de entrenamiento y pierde cobertura de etiquetas.
@@ -27,7 +27,7 @@ Los tres documentos son auténticos. Se preservan byte a byte con permisos priva
 | SILLAS-PISOS-OTROS.txt | `8e22fc29be4d2ed1d75d9745409df02c24cd953bca25a79dc06c083a77fd7ca0` |
 | inventario de sillas.txt | `43417573bc0ec98b90d63de89bd9b7dab236760724bbe74377a03fd63d4a0089` |
 
-Se inventariaron 120 bloques candidatos a ítem, **sin identificadores de proforma demostrados**. De 112 bloques se extrajeron 484 ocurrencias literales; deduplicadas, quedan 274 observaciones. Cada una mantiene documento → bloque → rango absoluto/líneas → offsets del extracto → anotación/expected y enlaces adicionales cuando el mismo literal aparece en varias fuentes.
+Se inventariaron 120 bloques candidatos a ítem, **sin identificadores de proforma demostrados**. De 112 bloques se extrajeron 483 ocurrencias literales; deduplicadas, quedan 273 observaciones. Cada una mantiene documento → bloque → rango absoluto/líneas → offsets del extracto → anotación/expected y enlaces adicionales cuando el mismo literal aparece en varias fuentes.
 
 Ocho bloques contienen anomalías: unidades sospechosas, número malformado o discrepancia de importes con cantidad ausente. Quedan segregados íntegros. Se corrigió un falso positivo del detector histórico: `0,80mts` no puede confundirse con `80mts`. No se arreglaron dimensiones ni importes por intuición. Los precios de catálogo y los negociados conservan campos/contextos distintos.
 
@@ -39,17 +39,17 @@ Se recuperaron selectivamente PR20/22/24/31 y se revisaron PR23/26/27/28/34/35. 
 
 La historia conserva las **375 propuestas RC1** por registro y los 300 casos sin cambio propuesto. No se homologan ciegamente ni se aplican al test. Se auditaron técnicamente los 577 V1 train/dev; los 98 test solo se verifican como archivo/split protegido. Las **49 extensiones reversibles de ACCESORIO** quedan en overlay, sin editar V1. La matriz V1 tiene 49 estados CORREGIDO (overlay) y 626 PENDIENTE/protegido, sin fingir revisión humana.
 
-En el corpus entrenable: 339 APROBADO técnicamente y 1 CORREGIDO (segunda mención explícita de melamina en V2-REC-A33). Además, ocho bloques originales están PENDIENTE y excluidos. “APROBADO” aquí significa control técnico del ámbito anotado, no validación comercial humana. El piloto histórico de 48 frases no se recuperó; no se lo reemplazó silenciosamente con los 40 orales RC1.
+Matriz final: 333 APROBADO técnicamente, 6 CORREGIDO (cinco fronteras de atributos y la segunda mención de melamina), 8 bloques originales PENDIENTE y un candidato previo DESCARTADO por título truncado. Tres IDs de extractos se renumeraron sin cambiar su contenido; se enlazan por bloque y offset absoluto en AUDIT.json. “APROBADO” aquí significa control técnico del ámbito anotado, no validación comercial humana. El piloto histórico de 48 frases no se recuperó; no se lo reemplazó silenciosamente con los 40 orales RC1.
 
 ## D. Pruebas y controles
 
-- **468 tests** aprobados, incluidos 32 nuevos controles y mutaciones de offsets, etiquetas, hashes, solapes, precios, relaciones, grupos, unidades, privacidad y abstenciones.
+- **470 tests** aprobados, incluidos 34 nuevos controles y mutaciones de offsets, etiquetas, hashes, solapes, precios, relaciones, grupos, unidades, privacidad y abstenciones.
 - Ruff check y format, esquemas, corpus histórico y DocBin aprobados.
 - Reconstrucción del bundle dos veces con **todos los hashes idénticos**, incluidos DocBin y originales.
 - Auditoría privada de cada rango literal sin errores. Cero pares entre train/dev con Jaccard de 4-gramas normalizados ≥ 0,50; las alertas menores están reportadas. No se equipara este detector con independencia semántica probada.
 - Distribución 0.1.15 reconstruida y verificada de forma reproducible; wheel y sdist fuera de producción.
 - `uv audit --locked`: 70 paquetes auditados sin vulnerabilidades conocidas ni estados adversos.
-- Gitleaks 8.30.1: el primer escaneo de resultados señaló 20 hashes públicos de tokenizer/key2row de los diez modelos. Se verificó cada línea como SHA-256 de artefacto, no credencial; se agregaron 20 fingerprints exactos de commit/ruta/regla/línea a `.gitleaksignore`, siguiendo el mecanismo histórico de dos hashes equivalentes. No se excluye ningún archivo ni regla completa. El reescaneo debe quedar limpio. La publicación previa de esos hashes se conserva en Git sin reescribir historia.
+- Gitleaks 8.30.1: se verificaron 20 falsos positivos de hashes públicos tokenizer/key2row en el primer commit de resultados. Los fingerprints exactos de commit/ruta/regla/línea se validan por test, sin excluir archivos ni reglas completas. Los nuevos manifiestos usan listas de digest y nombre de archivo para evitar la ambigüedad. El reescaneo está limpio y se preserva la historia.
 
 Comandos ejecutados (logs y retornos bajo el directorio privado de evidencias):
 
@@ -72,16 +72,16 @@ CPU, spaCy 3.8.13, dependencias fijadas en uv.lock, OMP/BLAS/MKL=2, semillas 404
 |---|---:|---:|---:|---:|---:|---:|
 | D1 | 404 | 483 | 22 | 16 | 0.3894 | 113.57 |
 | D1 | 405 | 483 | 20 | 14 | 0.3826 | 101.04 |
-| D2 | 404 | 284 | 25 | 21 | 0.5087 | 17.08 |
-| D2 | 405 | 284 | 25 | 22 | 0.5106 | 16.92 |
-| D3 | 404 | 29 | 8 | 1 | 0.0000 | 1.68 |
-| D3 | 405 | 29 | 8 | 1 | 0.0206 | 1.54 |
-| D4 | 404 | 313 | 25 | 24 | 0.7086 | 20.50 |
-| D4 | 405 | 313 | 25 | 21 | 0.7115 | 21.30 |
-| D4W | 404 | 313 | 25 | 23 | 0.7178 | 24.24 |
-| D4W | 405 | 313 | 22 | 16 | 0.6987 | 22.18 |
+| D2 | 404 | 283 | 22 | 16 | 0.5151 | 15.52 |
+| D2 | 405 | 283 | 25 | 20 | 0.5409 | 17.53 |
+| D3 | 404 | 29 | 8 | 1 | 0.0000 | 1.57 |
+| D3 | 405 | 29 | 8 | 1 | 0.0206 | 1.55 |
+| D4 | 404 | 312 | 25 | 19 | 0.6981 | 20.37 |
+| D4 | 405 | 312 | 25 | 22 | 0.7170 | 20.63 |
+| D4W | 404 | 312 | 21 | 15 | 0.7173 | 20.08 |
+| D4W | 405 | 312 | 22 | 16 | 0.7311 | 21.16 |
 
-D1: 483 train históricos. D2: documental técnico (extractos auténticos + casos sintéticos). D3: oral sintético. D4: mezcla natural. D4W: misma mezcla, repite las 29 observaciones orales por época (342 exposiciones). D5 no evaluable: no existen referencias humanas autorizadas de entrenamiento. Se entrenaron modelos de ~3,9 MB cada uno; pesos, configuración spaCy y hashes por archivo permanecen privados, y sus hashes se reportan en RESULTS.json. No se descargó un modelo base externo.
+D1: 483 train históricos. D2: documental técnico (extractos auténticos + casos sintéticos). D3: oral sintético. D4: mezcla natural. D4W: misma mezcla, repite las 29 observaciones orales por época (341 exposiciones). D5 no evaluable: no existen referencias humanas autorizadas de entrenamiento. Se entrenaron modelos de ~3,9 MB cada uno; pesos, configuración spaCy y hashes por archivo permanecen privados, y sus hashes se reportan en RESULTS.json. No se descargó un modelo base externo. D1 se ajustó dos veces de forma independiente con cada semilla: pesos idénticos byte a byte. Para offline.3 se reutilizan los baselines tras probar igualdad exacta de textos, spans e IDs de train/dev y del protocolo; la prueba y los manifiestos originales se conservan. Los ocho candidatos documentales/orales restantes se reentrenaron con el corpus final.
 
 ## F. Evaluación comparativa
 
@@ -89,25 +89,25 @@ Mismo dev sintético de 27 casos; la exactitud comercial se limita a **16 mueble
 
 | Datos | Motor | F1 accepted ±σ | Exactitud comercial | Falsas propuestas por seed | p95 NLP warm medio ms |
 |---|---|---:|---:|---|---:|
-| D1 | M-B | 0.0541 ± 0.0101 | 18.75% | [0, 0] / 3 negativos | 7.66 |
-| D1 | M-C | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 7.83 |
-| D2 | M-B | 0.3078 ± 0.0590 | 25.00% | [0, 0] / 3 negativos | 8.69 |
-| D2 | M-C | 0.3684 ± 0.0000 | 31.25% | [0, 0] / 3 negativos | 8.94 |
-| D3 | M-B | 0.0000 ± 0.0000 | 18.75% | [0, 0] / 3 negativos | 7.44 |
-| D3 | M-C | 0.3668 ± 0.0071 | 31.25% | [0, 0] / 3 negativos | 7.72 |
-| D4 | M-B | 0.5359 ± 0.0400 | 25.00% | [1, 1] / 3 negativos | 7.18 |
-| D4 | M-C | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 7.35 |
-| D4W | M-A | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 0.92 |
-| D4W | M-B | 0.5829 ± 0.0769 | 21.88% | [1, 1] / 3 negativos | 7.25 |
-| D4W | M-C | 0.3704 ± 0.0036 | 37.50% | [0, 0] / 3 negativos | 7.49 |
+| D1 | M-B | 0.0541 ± 0.0101 | 18.75% | [0, 0] / 3 negativos | 7.37 |
+| D1 | M-C | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 7.63 |
+| D2 | M-B | 0.3650 ± 0.0302 | 28.12% | [0, 0] / 3 negativos | 8.16 |
+| D2 | M-C | 0.3684 ± 0.0072 | 28.12% | [0, 0] / 3 negativos | 8.39 |
+| D3 | M-B | 0.0000 ± 0.0000 | 18.75% | [0, 0] / 3 negativos | 7.58 |
+| D3 | M-C | 0.3668 ± 0.0071 | 31.25% | [0, 0] / 3 negativos | 8.00 |
+| D4 | M-B | 0.5560 ± 0.0154 | 31.25% | [1, 1] / 3 negativos | 7.84 |
+| D4 | M-C | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 8.21 |
+| D4W | M-A | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 1.12 |
+| D4W | M-B | 0.5767 ± 0.0470 | 25.00% | [2, 1] / 3 negativos | 6.97 |
+| D4W | M-C | 0.3739 ± 0.0000 | 37.50% | [0, 0] / 3 negativos | 7.19 |
 
-El mejor checkpoint bruto es D4W/404, época 23, F1 0,7178; no equivale al F1 accepted del ensamblador ni a exactitud comercial. La ponderación mejora NER, pero no resuelve el ensamblado. M-B genera una falsa propuesta en cada seed D4/D4W. El híbrido con veto conserva cero falsas propuestas, pero no supera las reglas y puede perder campos correctos por desacuerdo.
+El mejor checkpoint bruto es D4W/405, época 16, F1 0.7311; no equivale al F1 accepted del ensamblador ni a exactitud comercial. La ponderación mejora NER, pero no resuelve el ensamblado. M-B genera una falsa propuesta por seed D4 y dos/una en D4W, sobre tres negativos. El híbrido con veto conserva cero falsas propuestas, pero no supera las reglas y puede perder campos correctos por desacuerdo.
 
 Ablaciones diagnósticas V15 de salida: exactitud comercial base 6/16, sin medidas 5/16, sin precio 4/16, sin cantidad (y precio dependiente) 4/16. Son ablaciones de salida validadas, no nuevos motores optimizados. No se les atribuye una latencia independiente.
 
 Matrices TP/FP/FN, micro/macro, soporte y resultados por familia/etiqueta están en el informe público seleccionado y en el resultado completo privado. Los eventos críticos suman FP+FN por campo, excluyendo color/acabado: una sustitución cuenta dos eventos; no son cotizaciones reales fallidas. Las cantidades internas y el descuento sin campo estructurado NLP, la proyección PRF-03 completa y el rendimiento end-to-end se declaran no evaluables en este comparador.
 
-Se repitió la evaluación en procesos nuevos para siete modelos: métricas y matrices idénticas en las siete comparaciones, sin exigir igualdad de tiempos. La RAM reportada es el pico del proceso nuevo (incluye imports), no RAM marginal de NER. Primera llamada, carga y p50/p95 solo corresponden a NLP; no incluyen ASR, colas, backend o frontend.
+En la versión previa se repitió la evaluación en procesos nuevos para siete modelos, con métricas y matrices idénticas. En la versión final se verificó además que los refits D1 de ambas semillas producen pesos idénticos; los modelos documentales se reentrenaron con los spans finales. Los tiempos no se exigen idénticos. La RAM reportada es el pico del proceso nuevo (incluye imports), no RAM marginal de NER. Primera llamada, carga y p50/p95 solo corresponden a NLP; no incluyen ASR, colas, backend o frontend.
 
 ## G. Seguridad e integridad
 

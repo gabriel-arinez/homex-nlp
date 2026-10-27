@@ -82,7 +82,7 @@
       "families": {
         "muebles_pedido": 187,
         "otros_productos": 16,
-        "pisos_flotantes": 26,
+        "pisos_flotantes": 25,
         "sillas": 84
       },
       "groups": 28,
@@ -106,7 +106,7 @@
         "OBSERVACION": 28,
         "PRECIO_TOTAL": 83,
         "PRECIO_UNITARIO": 83,
-        "PRODUCTO": 111,
+        "PRODUCTO": 110,
         "PROFUNDIDAD": 4,
         "SISTEMA": 4,
         "SOPORTE_LUMBAR": 5,
@@ -114,10 +114,10 @@
       },
       "lengths": {
         "max": 386,
-        "median": 17,
+        "median": 16.0,
         "min": 6
       },
-      "records": 313
+      "records": 312
     }
   },
   "external_records": 0,
@@ -145,9 +145,11 @@
   "proformas_identified": 0,
   "protected_test_ids": 98,
   "provenance_errors": 0,
+  "review_population": "339 current records, eight quarantined source blocks, one removed historical candidate; changes matched by source item + absolute start + phenomenon, not ordinal ID",
   "review_states": {
-    "APROBADO": 339,
-    "CORREGIDO": 1,
+    "APROBADO": 333,
+    "CORREGIDO": 6,
+    "DESCARTADO": 1,
     "PENDIENTE": 8
   },
   "source_blocks": 120,
@@ -195,17 +197,115 @@
       "OBSERVACION": 46,
       "PRECIO_TOTAL": 92,
       "PRECIO_UNITARIO": 92,
-      "PRODUCTO": 137,
+      "PRODUCTO": 136,
       "PROFUNDIDAD": 5,
       "SISTEMA": 6,
       "SOPORTE_LUMBAR": 6,
       "UNIDAD_MEDIDA": 77
     },
-    "records": 340,
+    "records": 339,
     "splits": {
       "dev": 27,
-      "train": 313
+      "train": 312
     },
     "valid": true
-  }
+  },
+  "version_changes": [
+    {
+      "current_id": "43417573bc0e-item-007-extract-02",
+      "fields": [
+        "text",
+        "entities"
+      ],
+      "previous_id": "43417573bc0e-item-007-extract-02",
+      "previous_text_sha256": "a8b1186612b85b9029ceffb333bde700a138c1b92d8748373bd23967d287f1d8",
+      "reason": "ATTRIBUTE_BOUNDARY",
+      "state": "CORREGIDO",
+      "text_sha256": "3bb2b78af76b6007c47a5c41353cc93657884a5b97ae948b843c9a9f0c24cd1b"
+    },
+    {
+      "current_id": "43417573bc0e-item-008-extract-02",
+      "fields": [
+        "text",
+        "entities"
+      ],
+      "previous_id": "43417573bc0e-item-008-extract-02",
+      "previous_text_sha256": "e022ba77c69d20d463c5a9fcf5c8b12dbbff36b2f2a1a88fb1301a47e5b4e319",
+      "reason": "ATTRIBUTE_BOUNDARY",
+      "state": "CORREGIDO",
+      "text_sha256": "617436a3cc1fa6091b465571ca6809949f98616d4b09115bdf4f9c90c767913a"
+    },
+    {
+      "current_id": "43417573bc0e-item-009-extract-02",
+      "fields": [
+        "text",
+        "entities"
+      ],
+      "previous_id": "43417573bc0e-item-009-extract-02",
+      "previous_text_sha256": "602eabf5eee41e271713ead36e16e16f4b96a3914fe592410d93759f63a6db56",
+      "reason": "ATTRIBUTE_BOUNDARY",
+      "state": "CORREGIDO",
+      "text_sha256": "69761f0b7bc06c5cd294323454c2e6d64c99595606b6c27fd2b991191f9f5bf8"
+    },
+    {
+      "current_id": "43417573bc0e-item-009-extract-03",
+      "fields": [
+        "text",
+        "entities"
+      ],
+      "previous_id": "43417573bc0e-item-009-extract-03",
+      "previous_text_sha256": "b74f85bfa01325a8ac202acca8dbee9a00b564e904fbe3246eab0d6298c85617",
+      "reason": "ATTRIBUTE_BOUNDARY",
+      "state": "CORREGIDO",
+      "text_sha256": "042c1c899556c0e054de0da440907e8ba173063dbdf2e3f77c237c1a7981ab04"
+    },
+    {
+      "current_id": "43417573bc0e-item-010-extract-02",
+      "fields": [
+        "text",
+        "entities"
+      ],
+      "previous_id": "43417573bc0e-item-010-extract-02",
+      "previous_text_sha256": "e4a77ca3de0ab29684badece86721576c79f3c84256833195a0c63a1731e3138",
+      "reason": "ATTRIBUTE_BOUNDARY",
+      "state": "CORREGIDO",
+      "text_sha256": "ef1be2e9ac5fbb5923e918fd6bdbac46d1663cbdc827ad741f61321dee30c8c8"
+    },
+    {
+      "current_id": null,
+      "fields": [],
+      "previous_id": "8e22fc29be4d-item-005-extract-00",
+      "previous_text_sha256": "b81f03847e837c7c046b511bcad18caacdf23eb1f244d92d9a7ab0cd04a798a8",
+      "reason": "TRUNCATED_DESCRIPTION_NOT_PRODUCT_TITLE",
+      "state": "DESCARTADO",
+      "text_sha256": null
+    },
+    {
+      "current_id": "8e22fc29be4d-item-005-extract-00",
+      "fields": [],
+      "previous_id": "8e22fc29be4d-item-005-extract-01",
+      "previous_text_sha256": "da700e6d7d246b293db9aaad0c295212eb63520088eab198c3d12ba99d5c55e6",
+      "reason": "ID_RENUMBERED_SAME_SOURCE_ANCHOR_AND_CONTENT",
+      "state": "APROBADO",
+      "text_sha256": "da700e6d7d246b293db9aaad0c295212eb63520088eab198c3d12ba99d5c55e6"
+    },
+    {
+      "current_id": "8e22fc29be4d-item-005-extract-01",
+      "fields": [],
+      "previous_id": "8e22fc29be4d-item-005-extract-02",
+      "previous_text_sha256": "8917ceb53d4bcbbb22b92071fbed0007c0c6db31c5a4892cf149e12c9f962d9c",
+      "reason": "ID_RENUMBERED_SAME_SOURCE_ANCHOR_AND_CONTENT",
+      "state": "APROBADO",
+      "text_sha256": "8917ceb53d4bcbbb22b92071fbed0007c0c6db31c5a4892cf149e12c9f962d9c"
+    },
+    {
+      "current_id": "8e22fc29be4d-item-005-extract-02",
+      "fields": [],
+      "previous_id": "8e22fc29be4d-item-005-extract-03",
+      "previous_text_sha256": "8957089abb977ca728bde5db314e9c25e256a1680e2a2f6b632481f78690e738",
+      "reason": "ID_RENUMBERED_SAME_SOURCE_ANCHOR_AND_CONTENT",
+      "state": "APROBADO",
+      "text_sha256": "8957089abb977ca728bde5db314e9c25e256a1680e2a2f6b632481f78690e738"
+    }
+  ]
 }

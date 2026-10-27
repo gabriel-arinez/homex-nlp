@@ -42,3 +42,5 @@ no se curan ni originan variantes. Las referencias son técnicas, con
 La publicación contiene casos sintéticos previamente disponibles y herramientas.
 Los originales, precios reales, referencias privadas, predicciones y pesos se
 mantienen fuera de Git, con manifest SHA-256 y permisos privados.
+
+En offline.3 se excluye como título una línea descriptiva truncada que contiene espesor. Los atributos de brazos/lumbar terminan antes de otro componente o sistema; se corrigieron cinco fronteras. La conciliación entre versiones usa bloque y offset absoluto, pues retirar un extracto puede renumerar los ordinales de sus sucesores. AUDIT.json enlaza tres IDs renumerados sin cambiar el contenido.

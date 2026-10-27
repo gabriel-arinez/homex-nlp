@@ -1,6 +1,6 @@
 # Corpus V2 offline: fuente canónica y experimentos
 
-Versión `2.0.0-offline.1`, base NLP V15 `81d70395d2bb6cfa4757eaaacb95c6179feae332`.
+Versión `2.0.0-offline.3`, base NLP V15 `81d70395d2bb6cfa4757eaaacb95c6179feae332`.
 El runtime comercial continúa `homex-nlp==0.1.15`, `RULES_ONLY`. Esta entrega
 no instala modelos ni cambia contratos, backend, frontend, bases o workers.
 
@@ -14,11 +14,11 @@ segunda versión RC1/RC2 activa en este checkout.
 
 ## Datos realmente disponibles
 
-340 observaciones: 274 **extractos literales únicos** de documentos HOMEX auténticos
+339 observaciones: 273 **extractos literales únicos** de documentos HOMEX auténticos
 y 66 casos sintéticos RC2 (incluyen los 12 casos base y 40 orales de RC1, más
 14 escenarios RC2). No se suman nuevamente las entregas anteriores.
-313 train / 27 dev; las 24 etiquetas históricas se conservan. El corpus contiene
-203 muebles, 89 sillas, 29 pisos y 19 otros. El estilo oral tiene 29 train / 18 dev.
+312 train / 27 dev; las 24 etiquetas históricas se conservan. El corpus contiene
+203 muebles, 89 sillas, 28 pisos y 19 otros. El estilo oral tiene 29 train / 18 dev.
 Los extractos documentales solo entran en train, en un único grupo conservador.
 Los 27 dev son sintéticos ya conocidos: **no son evaluación ciega ni documental**.
 No se ha construido test interno o externo independiente.
@@ -26,8 +26,8 @@ No se ha construido test interno o externo independiente.
 Los originales aportan 120 bloques candidatos, no 120 proformas identificadas.
 Se preservan íntegros, con SHA-256, líneas y offsets. Hay extractos utilizables de
 112 bloques; ocho contienen anomalías literales y se segregan. Los extractos
-mantienen todos sus enlaces originales incluso tras deduplicarlos (484 ocurrencias
-se reducen a 274 observaciones). No son fichas completas de fabricación.
+mantienen todos sus enlaces originales incluso tras deduplicarlos (483 ocurrencias
+se reducen a 273 observaciones). No son fichas completas de fabricación.
 Los precios de catálogo tienen `catalog_price` separado del unitario negociado.
 El identificador de proforma queda nulo cuando no figura en el documento.
 
