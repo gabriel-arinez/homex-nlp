@@ -182,3 +182,9 @@ real/sintética del contenido por sí sola y no habilita ASR real en CI.
 **Bloqueos científicos:** transcripción fiel y doble revisión/consentimiento verificable
 pendientes; WER y precisión real N/A; correspondencia22↔20 UNVERIFIED; cero holdout.
 Este trabajo prepara medición verificable y no corrige el NLP ni cierra etapa8.
+
+## Captura y doble revisión humana
+
+La [guía HUMAN_GOLD / WER](HUMAN_GOLD_WER.md) extiende este evaluador con CLI local,
+lecturas sin precarga ASR, historial privado, adjudicación, aprobación explícita y
+exportación al scorer #23. Las anotaciones humanas reales siguen pendientes.

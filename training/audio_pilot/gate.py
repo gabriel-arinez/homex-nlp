@@ -18,6 +18,10 @@ from .dataset import validate
 BASE = "9b2d57d145c09d6ac354ee3d8ecef4f294db94ee"
 ALLOWED = {
     "training/audio_pilot/__init__.py",
+    "training/audio_pilot/human.py",
+    "training/audio_pilot/human_cli.py",
+    "training/audio_pilot/HUMAN_GOLD_WER.md",
+    "tests/training/test_human_gold.py",
     "training/audio_pilot/dataset.py",
     "training/audio_pilot/asr.py",
     "training/audio_pilot/runner.py",
