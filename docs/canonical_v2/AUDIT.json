@@ -1,0 +1,211 @@
+{
+  "canonical_test_records": 0,
+  "coverage": {
+    "dev": {
+      "families": {
+        "muebles_pedido": 16,
+        "otros_productos": 3,
+        "pisos_flotantes": 3,
+        "sillas": 5
+      },
+      "groups": 19,
+      "labels": {
+        "ACABADO": 2,
+        "ACCESORIO": 6,
+        "ALTO": 2,
+        "ANCHO": 2,
+        "APOYABRAZOS": 2,
+        "CABECERA": 1,
+        "CANTIDAD": 21,
+        "CLASE_RESISTENCIA": 1,
+        "COLOR": 11,
+        "COMPONENTE": 13,
+        "DESCUENTO": 6,
+        "DIAMETRO": 1,
+        "ERGONOMIA": 2,
+        "ESPESOR": 3,
+        "LARGO": 2,
+        "MATERIAL": 11,
+        "OBSERVACION": 18,
+        "PRECIO_TOTAL": 9,
+        "PRECIO_UNITARIO": 9,
+        "PRODUCTO": 26,
+        "PROFUNDIDAD": 1,
+        "SISTEMA": 2,
+        "SOPORTE_LUMBAR": 1,
+        "UNIDAD_MEDIDA": 21
+      },
+      "lengths": {
+        "max": 388,
+        "median": 79,
+        "min": 29
+      },
+      "records": 27
+    },
+    "test": {
+      "families": {},
+      "groups": 0,
+      "labels": {
+        "ACABADO": 0,
+        "ACCESORIO": 0,
+        "ALTO": 0,
+        "ANCHO": 0,
+        "APOYABRAZOS": 0,
+        "CABECERA": 0,
+        "CANTIDAD": 0,
+        "CLASE_RESISTENCIA": 0,
+        "COLOR": 0,
+        "COMPONENTE": 0,
+        "DESCUENTO": 0,
+        "DIAMETRO": 0,
+        "ERGONOMIA": 0,
+        "ESPESOR": 0,
+        "LARGO": 0,
+        "MATERIAL": 0,
+        "OBSERVACION": 0,
+        "PRECIO_TOTAL": 0,
+        "PRECIO_UNITARIO": 0,
+        "PRODUCTO": 0,
+        "PROFUNDIDAD": 0,
+        "SISTEMA": 0,
+        "SOPORTE_LUMBAR": 0,
+        "UNIDAD_MEDIDA": 0
+      },
+      "lengths": {
+        "max": null,
+        "median": null,
+        "min": null
+      },
+      "records": 0
+    },
+    "train": {
+      "families": {
+        "muebles_pedido": 187,
+        "otros_productos": 16,
+        "pisos_flotantes": 26,
+        "sillas": 84
+      },
+      "groups": 28,
+      "labels": {
+        "ACABADO": 2,
+        "ACCESORIO": 6,
+        "ALTO": 4,
+        "ANCHO": 5,
+        "APOYABRAZOS": 14,
+        "CABECERA": 3,
+        "CANTIDAD": 56,
+        "CLASE_RESISTENCIA": 3,
+        "COLOR": 11,
+        "COMPONENTE": 17,
+        "DESCUENTO": 5,
+        "DIAMETRO": 2,
+        "ERGONOMIA": 2,
+        "ESPESOR": 24,
+        "LARGO": 7,
+        "MATERIAL": 24,
+        "OBSERVACION": 28,
+        "PRECIO_TOTAL": 83,
+        "PRECIO_UNITARIO": 83,
+        "PRODUCTO": 111,
+        "PROFUNDIDAD": 4,
+        "SISTEMA": 4,
+        "SOPORTE_LUMBAR": 5,
+        "UNIDAD_MEDIDA": 56
+      },
+      "lengths": {
+        "max": 386,
+        "median": 17,
+        "min": 6
+      },
+      "records": 313
+    }
+  },
+  "external_records": 0,
+  "high_risk_cross_split_pairs": 0,
+  "historical_rc1_operations": {
+    "APROBADO_SIN_CAMBIO": 300,
+    "CORREGIDO": 375,
+    "NUEVO_SINTETICO": 52
+  },
+  "historical_v1_dispositions": {
+    "CORREGIDO": 49,
+    "PENDIENTE": 626
+  },
+  "human_reviewed": 0,
+  "known_limits": [
+    "Literal fragments are not complete quotation specifications",
+    "RC1/RC2 and historical dev already observed; no blind test",
+    "Semantic embedding independence not established",
+    "48-case historic pilot not recovered; RC1 40 oral cases differ",
+    "V1 synthetic templates share linguistic source despite original ID split",
+    "No domain-human sign-off or real voice generalization claim"
+  ],
+  "lower_similarity_cross_split_alerts": 3,
+  "missing_train_labels": [],
+  "proformas_identified": 0,
+  "protected_test_ids": 98,
+  "provenance_errors": 0,
+  "review_states": {
+    "APROBADO": 339,
+    "CORREGIDO": 1,
+    "PENDIENTE": 8
+  },
+  "source_blocks": 120,
+  "source_manifests": [
+    {
+      "bytes": 40007,
+      "file": "PROFORMAS.txt",
+      "lines": 378,
+      "sha256": "f9497615494ba59c8b76c79c21c5411bbc919aa895c1eff2cc70c88bec0b8020"
+    },
+    {
+      "bytes": 7344,
+      "file": "SILLAS-PISOS-OTROS.txt",
+      "lines": 96,
+      "sha256": "8e22fc29be4d2ed1d75d9745409df02c24cd953bca25a79dc06c083a77fd7ca0"
+    },
+    {
+      "bytes": 6933,
+      "file": "inventario de sillas.txt",
+      "lines": 20,
+      "sha256": "43417573bc0ec98b90d63de89bd9b7dab236760724bbe74377a03fd63d4a0089"
+    }
+  ],
+  "threshold_policy": "Normalized numeric-masked 4grams; >=.5 high, .25-.5 lexical alert. Does not certify semantic independence.",
+  "valid": true,
+  "validation": {
+    "errors": [],
+    "labels": {
+      "ACABADO": 4,
+      "ACCESORIO": 12,
+      "ALTO": 6,
+      "ANCHO": 7,
+      "APOYABRAZOS": 16,
+      "CABECERA": 4,
+      "CANTIDAD": 77,
+      "CLASE_RESISTENCIA": 4,
+      "COLOR": 22,
+      "COMPONENTE": 30,
+      "DESCUENTO": 11,
+      "DIAMETRO": 3,
+      "ERGONOMIA": 4,
+      "ESPESOR": 27,
+      "LARGO": 9,
+      "MATERIAL": 35,
+      "OBSERVACION": 46,
+      "PRECIO_TOTAL": 92,
+      "PRECIO_UNITARIO": 92,
+      "PRODUCTO": 137,
+      "PROFUNDIDAD": 5,
+      "SISTEMA": 6,
+      "SOPORTE_LUMBAR": 6,
+      "UNIDAD_MEDIDA": 77
+    },
+    "records": 340,
+    "splits": {
+      "dev": 27,
+      "train": 313
+    },
+    "valid": true
+  }
+}
