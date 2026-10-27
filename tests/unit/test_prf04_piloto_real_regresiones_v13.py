@@ -15,14 +15,30 @@ def extraer(texto):
 @pytest.mark.parametrize(
     ("texto", "producto", "cantidad", "importe"),
     [
-        ("Solicito tres gabeteros móviles de 0.49 metros de ancho, presionitario, 1.150 bolivianos",
-         "gabeteros", 3, "1150.00"),
-        ("Solicito tres gaveteros móviles de 0.49 metros de ancho, precio unitario 1150 bolivianos",
-         "gaveteros", 3, "1150.00"),
-        ("Necesito un escritor ejecutivo, una unidad de 1.70 metros de ancho, precio unitario, 4.850 bolivianos",
-         "escritor ejecutivo", 1, "4850.00"),
-        ("Necesito un atril, una unidad de 0.48 metros de ancho, presunitario 920 bolivianos",
-         "atril", 1, "920.00"),
+        (
+            "Solicito tres gabeteros móviles de 0.49 metros de ancho, presionitario, 1.150 bolivianos",
+            "gabeteros",
+            3,
+            "1150.00",
+        ),
+        (
+            "Solicito tres gaveteros móviles de 0.49 metros de ancho, precio unitario 1150 bolivianos",
+            "gaveteros",
+            3,
+            "1150.00",
+        ),
+        (
+            "Necesito un escritor ejecutivo, una unidad de 1.70 metros de ancho, precio unitario, 4.850 bolivianos",
+            "escritor ejecutivo",
+            1,
+            "4850.00",
+        ),
+        (
+            "Necesito un atril, una unidad de 0.48 metros de ancho, presunitario 920 bolivianos",
+            "atril",
+            1,
+            "920.00",
+        ),
     ],
 )
 def test_productos_asr_acotados(texto, producto, cantidad, importe):
@@ -33,7 +49,7 @@ def test_productos_asr_acotados(texto, producto, cantidad, importe):
     assert r.item_proposal.quantity == cantidad
     assert r.item_proposal.price.mode == "PRECIO_UNITARIO"
     assert r.item_proposal.price.stated_amount == importe
-    assert all(texto[c.start:c.end] == c.text for c in r.candidates)
+    assert all(texto[c.start : c.end] == c.text for c in r.candidates)
 
 
 def test_escritorio_en_l_y_cajonera_integrada_son_una_linea():
@@ -71,12 +87,15 @@ def test_cantidad_contradictoria_no_se_silencia():
     assert any(w.code == "MULTIPLE_MAIN_PRODUCTS" for w in r.warnings)
 
 
-@pytest.mark.parametrize("texto", [
-    "Un escritor de novelas que habla de una ciudad",
-    "Se necesitan un escritorio y una mesa",
-    "Cotiza mesa y cajonera independientes",
-    "Dos escritorios y una cajonera adicional",
-])
+@pytest.mark.parametrize(
+    "texto",
+    [
+        "Un escritor de novelas que habla de una ciudad",
+        "Se necesitan un escritorio y una mesa",
+        "Cotiza mesa y cajonera independientes",
+        "Dos escritorios y una cajonera adicional",
+    ],
+)
 def test_sin_inferencias_inseguras(texto):
     r = extraer(texto)
     if "escritor de novelas" in texto:
@@ -86,12 +105,15 @@ def test_sin_inferencias_inseguras(texto):
         assert any(w.code == "MULTIPLE_MAIN_PRODUCTS" for w in r.warnings)
 
 
-@pytest.mark.parametrize(("texto", "mode", "amount"), [
-    ("Un escritorio, precio total negociado, 5.400 bolivianos", "TOTAL_NEGOCIADO", "5400.00"),
-    ("Una credenza, precio total negociado 5400 bolivianos", "TOTAL_NEGOCIADO", "5400.00"),
-    ("Un escritorio, el precio unitario es de 2.450 bolivianos", "PRECIO_UNITARIO", "2450.00"),
-    ("Una mesa, prese unitario 7.280 bolivianos", "PRECIO_UNITARIO", "7280.00"),
-])
+@pytest.mark.parametrize(
+    ("texto", "mode", "amount"),
+    [
+        ("Un escritorio, precio total negociado, 5.400 bolivianos", "TOTAL_NEGOCIADO", "5400.00"),
+        ("Una credenza, precio total negociado 5400 bolivianos", "TOTAL_NEGOCIADO", "5400.00"),
+        ("Un escritorio, el precio unitario es de 2.450 bolivianos", "PRECIO_UNITARIO", "2450.00"),
+        ("Una mesa, prese unitario 7.280 bolivianos", "PRECIO_UNITARIO", "7280.00"),
+    ],
+)
 def test_precios_comerciales_con_separadores(texto, mode, amount):
     r = extraer(texto)
     assert r.item_proposal is not None
