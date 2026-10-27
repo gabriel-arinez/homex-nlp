@@ -139,6 +139,11 @@ class RulesEngine:
                     principal.text.casefold().startswith("mesa")
                     and producto.text.casefold().startswith("mesa")
                     and re.search(r"\buna\s+sola\s+$", contexto, re.I)
+                    and (
+                        (cantidad := find_quantity(text, main_product=principal)) is not None
+                        and cantidad.value == 1
+                        and cantidad.start > principal.end
+                    )
                 )
                 if not (repeticion or componente or referencia_mesa):
                     filtrados.append(producto)
