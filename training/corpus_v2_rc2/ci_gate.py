@@ -54,7 +54,7 @@ def main():
         "from training.corpus_v2_rc2.no_training import install\ninstall()\n"
     )
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(hook) + os.pathsep + str(Path.cwd())
+    env["PYTHONPATH"] = os.pathsep.join((str(hook), str(Path.cwd() / "src"), str(Path.cwd())))
     env["HOMEX_DATA_GATE_NO_TRAINING"] = "1"
     results = []
     for i, command in enumerate(commands(dest)):
