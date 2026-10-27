@@ -138,3 +138,18 @@ def test_negative_restriction_preserves_existing_observation():
     result = extract("Un estante color a elección, sin puertas pero con dos repisas")
     assert "color a elección" in result.item_proposal.observations
     assert "sin puertas" in result.item_proposal.observations
+
+
+def test_no_gal_is_not_a_negation_of_coordinated_drawers():
+    result = extract("Un escritorio color no-gal y dos cajones")
+    assert [c.name for c in result.item_proposal.components] == ["cajones"]
+    assert not any(c.label == "COMPONENTE" and c.decision == "REJECTED" for c in result.candidates)
+
+
+def test_singular_panel_has_its_explicit_thickness():
+    result = extract("Un escritorio con panel de 18 mm")
+    assert result.item_proposal.components[0].name == "panel"
+    assert (
+        result.item_proposal.thicknesses[0].component_ref
+        == result.item_proposal.components[0].component_id
+    )

@@ -7,7 +7,7 @@ from homex_nlp.contracts.item import Color, Component
 from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
 
 COMPONENTES = (
-    r"panel frontal|paneles?|repisas?|divisi[oó]n(?:es)?(?: interiores?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?|"
+    r"panel frontal|panel(?:es)?|repisas?|divisi[oó]n(?:es)?(?: interiores?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
     r"tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?|"
     r"puertas?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"

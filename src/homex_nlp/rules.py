@@ -95,7 +95,7 @@ def is_explicitly_negated(text: str, start: int) -> bool:
     clause = re.split(r"[.;,\n]", text[max(0, start - 140) : start])[-1]
     matches = list(
         re.finditer(
-            r"\b(?:sin|ni|no(?:\s+(?:quiero|necesito|lleva|tiene|incluye|es|son))?)\b",
+            r"\b(?:sin|ni|no(?!-)(?:\s+(?:quiero|necesito|lleva|tiene|incluye|es|son))?)\b",
             clause,
             re.I,
         )
