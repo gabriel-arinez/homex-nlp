@@ -249,3 +249,14 @@ def test_secret_scanner_exemptions_are_exact_public_artifact_digests():
         content = subprocess.check_output(["git", "show", commit + ":" + path], cwd=ROOT, text=True)
         source_line = content.splitlines()[int(line) - 1]
         assert re.fullmatch(r'\s*"(?:tokenizer|vocab/key2row)": "[0-9a-f]{64}",?\s*', source_line)
+
+
+def test_truncated_description_with_thickness_is_not_a_product_title():
+    source = item(
+        "Piso flotante Aglomerado HDF de 8mm de espesor, de fácil\n12,00 Mts.2\ninstalación."
+    )
+    rows, refs, _ = documentary([source], set())
+    assert rows
+    assert not any(label == "PRODUCTO" for r in rows for _, _, label in r["entities"])
+    assert any(label == "MATERIAL" for r in rows for _, _, label in r["entities"])
+    assert validate(rows, refs)["valid"]

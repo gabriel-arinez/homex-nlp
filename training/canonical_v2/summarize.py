@@ -75,7 +75,10 @@ def summarize(bundle, experiments):
             }
             | {
                 "model_tree_sha256": digest(json.dumps(r["model_sha256"], sort_keys=True)),
-                "model_files_sha256": r["model_sha256"],
+                "model_files_sha256": [
+                    {"digest": value, "relative_file": name}
+                    for name, value in sorted(r["model_sha256"].items())
+                ],
             }
             for r in training
         ],

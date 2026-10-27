@@ -18,7 +18,7 @@ from training.canonical_v2.private_ingest import ingest
 from training.canonical_v2.validate import ROOT, normalized, validate
 
 FAMILIES = ("muebles_pedido", "sillas", "pisos_flotantes", "otros_productos")
-VERSION = "2.0.0-offline.1"
+VERSION = "2.0.0-offline.2"
 
 
 def family(item):
@@ -54,7 +54,7 @@ def documentary(items, excluded):
             title
             and len(title[0].split()) <= 12
             and not re.match(r"\d", title[0])
-            and not re.search(r"precio|tamaño|características|materiales", title[0], re.I)
+            and not re.search(r"precio|tamaño|características|materiales|\d+\s*mm\b", title[0], re.I)
         ):
             literal = title[0].strip()
             if len(literal) > 3:
