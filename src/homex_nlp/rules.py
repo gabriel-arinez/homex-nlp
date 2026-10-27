@@ -128,7 +128,7 @@ def find_products(text: str) -> list[Match]:
         re.I,
     )
     # Variante ASR contextual: «escritor ejecutivo», no «escritor» aislado.
-    ejecutivo_asr = re.compile(r"\bescritores?\s+ejecutivos?\b", re.I)
+    ejecutivo_asr = re.compile(r"\bescritor(?:es)?\s+ejecutivos?\b", re.I)
     especificos = [
         Match(m.start(), m.end(), m.group(), "PRODUCTO")
         for patron in (reunion, ejecutivo_asr)
@@ -267,7 +267,7 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
     total = primero_aplicable(
-        r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
+        r"\b(?:precio\s+total(?:\s+negociado)?|total(?:\s+negociado)?|monto(?:\s+total)?)"
         r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
         r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
