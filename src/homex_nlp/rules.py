@@ -210,6 +210,17 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value and value > 0:
             return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
+    # «se cotiza una sola mesa» declara una unidad, no un segundo producto.
+    # Aceptar únicamente el mismo tipo principal, sin extrapolar cantidades.
+    if main.text.casefold().startswith("mesa"):
+        una_sola = re.search(
+            r"\bse\s+cotiza\s+(una)\s+sola\s+mesa\b",
+            text[main.end :],
+            re.I,
+        )
+        if una_sola:
+            start = main.end + una_sola.start(1)
+            return Match(start, start + 3, text[start : start + 3], "CANTIDAD", 1)
     return _cantidad_comercial_pospuesta(text, main)
 
 
