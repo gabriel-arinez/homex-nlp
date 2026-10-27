@@ -73,7 +73,12 @@ def test_component_quantities_must_not_become_commercial_units(text):
     assert find_quantity(text, main_product=product).value == 1
     # The product's initial «una» remains the only commercial quantity.
     result = extract(text)
-    assert result.item_proposal.quantity == 1
+    if "unidades de mesa" in text:
+        # Dos muebles principales compiten; mantener la abstención segura.
+        assert result.status == "NO_PROPOSAL"
+        assert result.item_proposal is None
+    else:
+        assert result.item_proposal.quantity == 1
 
 
 @pytest.mark.parametrize(
