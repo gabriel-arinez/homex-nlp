@@ -13,6 +13,7 @@ from homex_nlp.rules import _dimension_numero_palabras, find_measurements
     ("texto", "eje", "valor_mm"),
     [
         ("Un ropero de dos metros de alto", "alto", "2000"),
+        ("Un ropero de un metro y veinte centímetros de alto", "alto", "1200"),
         ("Un ropero de noventa centímetros de ancho", "ancho", "900"),
         ("Una mesa de setenta y cinco centímetros de altura", "alto", "750"),
         ("Un escritorio con alto de dos metros", "alto", "2000"),
@@ -42,7 +43,7 @@ def test_dimension_escrita_en_palabras(texto, eje, valor_mm):
     assert len(medidas) == 1
     assert medidas[0].value_mm == valor_mm
     assert res.item_proposal.price is None
-    assert res.engine.rules_version == "prf04-rules-v13"
+    assert res.engine.rules_version == "prf04-rules-v14"
     for c in res.candidates:
         assert texto[c.start : c.end] == c.text
 
@@ -78,7 +79,6 @@ def test_l06_variantes_equivalentes_y_orden_de_ejes():
         "Un ropero de ciento cinco y dos metros de alto",  # secuencia inválida
         "Un ropero de dos coma cinco metros de alto",  # decimal oral no soportado
         "Un ropero de dos punto cinco metros de alto",  # decimal oral no soportado
-        "Un ropero de un metro y veinte centímetros de alto",  # medida oral compuesta no soportada
         "Un ropero de dos centímetros y veinte milímetros de alto",  # múltiples unidades
         "Un ropero de alto diez mil metros",  # fuera de rango
         "Un ropero de cero metros de alto",  # cero inválido

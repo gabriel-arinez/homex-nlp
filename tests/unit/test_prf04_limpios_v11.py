@@ -141,7 +141,7 @@ def test_dieciseis_guiones_comerciales(texto, producto, cantidad, componentes, d
     resultado = extraer(texto)
     ficha = resultado.item_proposal
     assert ficha is not None
-    assert resultado.engine.rules_version == "prf04-rules-v13"
+    assert resultado.engine.rules_version == "prf04-rules-v14"
     assert ficha.name.casefold().rstrip("s") == producto.rstrip("s")
     assert ficha.quantity == cantidad
     cantidades = {}

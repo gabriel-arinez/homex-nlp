@@ -501,6 +501,66 @@ def _fragmento_numerico_truncado(text: str, start: int) -> bool:
     return False
 
 
+def _medidas_orales_compuestas(text: str, axis: str, axis_prefix: str, unit: str):
+    """Metros enteros + resto centimétrico, con eje explícito y span íntegro.
+
+    Elipsis «un metro veinte/20»: sólo restos 10..99 sin conjunción. Con
+    «y» se exige centímetros explícitos; no adivinar «un metro y cinco».
+    Se devuelven también spans inválidos para impedir que los lectores simples
+    acepten sólo «20 de ancho» o «ancho un metro» de una expresión compuesta.
+    """
+    numero = r"(?:\d+(?:[.,]\d+)*|" + _DIM_PALABRAS_PATRON + r")"
+    cuerpo = (
+        r"(?P<metros>" + numero + r")\s+(?P<unidad_m>metros?)\s+"
+        r"(?:(?P<conjuncion>y)\s+)?(?P<resto>" + numero + r")"
+        r"(?:\s*(?P<unidad_resto>" + unit + r"|pulgadas?\b|pies\b))?"
+    )
+    patrones = (
+        re.compile(
+            r"\b"
+            + axis
+            + r"\b"
+            + axis_prefix
+            + cuerpo
+            + r"(?=\s*(?:[,.;]|$)|\s+y\s+(?:ancho|alto|altura|anchura|largo|longitud|profundidad|fondo|di[aá]metro)\b)",
+            re.I,
+        ),
+        re.compile(r"(?<![\w.,+\-])" + cuerpo + r"\s+(?:de\s+)?" + axis + r"\b", re.I),
+    )
+    found, spans = [], []
+    for patron in patrones:
+        for match in patron.finditer(text):
+            spans.append((match.start(), match.end()))
+            if _fragmento_numerico_truncado(text, match.start("metros")):
+                continue
+            if is_explicitly_negated(text, match.start()):
+                continue
+
+            def entero(raw):
+                return (
+                    Decimal(raw)
+                    if re.fullmatch(r"[1-9][0-9]*", raw)
+                    else _dimension_numero_palabras(raw)
+                )
+
+            metros, resto = entero(match.group("metros")), entero(match.group("resto"))
+            if metros is None or resto is None or not 1 <= metros <= 9 or not 1 <= resto <= 99:
+                continue
+            # Concordancia explícita, sin aceptar «dos metro» ni decimales.
+            if (metros == 1) != (match.group("unidad_m").casefold() == "metro"):
+                continue
+            unidad_resto = (match.group("unidad_resto") or "").casefold()
+            if unidad_resto:
+                if not (unidad_resto == "cm" or unidad_resto.startswith("cent")):
+                    continue
+            elif match.group("conjuncion") or resto < 10:
+                continue
+            found.append(
+                Match(match.start(), match.end(), match.group(), "", (metros * 100 + resto, "cm"))
+            )
+    return found, spans
+
+
 def find_measurements(text: str, label: str) -> list[Match]:
     axes = {
         "ancho": "ancho|anchura",
@@ -533,6 +593,7 @@ def find_measurements(text: str, label: str) -> list[Match]:
         + r"))?",
         re.I,
     )
+    compuestas, spans_compuestos = _medidas_orales_compuestas(text, axis, axis_prefix, unit)
     found = []
     for match in pattern.finditer(text):
         value = decimal_from_text(match.group(1) or match.group(3))
@@ -588,6 +649,8 @@ def find_measurements(text: str, label: str) -> list[Match]:
                     (valor, normalizada),
                 )
             )
+    found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
+    found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
     return sorted(found, key=lambda encontrada: encontrada.start)
 
 
