@@ -43,13 +43,13 @@ En el corpus entrenable: 339 APROBADO técnicamente y 1 CORREGIDO (segunda menci
 
 ## D. Pruebas y controles
 
-- **467 tests** aprobados, incluidos 31 nuevos controles y mutaciones de offsets, etiquetas, hashes, solapes, precios, relaciones, grupos, unidades, privacidad y abstenciones.
+- **468 tests** aprobados, incluidos 32 nuevos controles y mutaciones de offsets, etiquetas, hashes, solapes, precios, relaciones, grupos, unidades, privacidad y abstenciones.
 - Ruff check y format, esquemas, corpus histórico y DocBin aprobados.
 - Reconstrucción del bundle dos veces con **todos los hashes idénticos**, incluidos DocBin y originales.
 - Auditoría privada de cada rango literal sin errores. Cero pares entre train/dev con Jaccard de 4-gramas normalizados ≥ 0,50; las alertas menores están reportadas. No se equipara este detector con independencia semántica probada.
 - Distribución 0.1.15 reconstruida y verificada de forma reproducible; wheel y sdist fuera de producción.
 - `uv audit --locked`: 70 paquetes auditados sin vulnerabilidades conocidas ni estados adversos.
-- Gitleaks 8.30.1: cero hallazgos en los cambios. El escaneo del árbol completo señala dos hashes públicos de tokenizer/keys en un manifiesto histórico, ya documentados en `.gitleaksignore`; no se añadió ninguna exclusión ni se desactivó un detector.
+- Gitleaks 8.30.1: el primer escaneo de resultados señaló 20 hashes públicos de tokenizer/key2row de los diez modelos. Se verificó cada línea como SHA-256 de artefacto, no credencial; se agregaron 20 fingerprints exactos de commit/ruta/regla/línea a `.gitleaksignore`, siguiendo el mecanismo histórico de dos hashes equivalentes. No se excluye ningún archivo ni regla completa. El reescaneo debe quedar limpio. La publicación previa de esos hashes se conserva en Git sin reescribir historia.
 
 Comandos ejecutados (logs y retornos bajo el directorio privado de evidencias):
 

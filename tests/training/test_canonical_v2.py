@@ -230,3 +230,22 @@ def test_semantic_and_parent_mutations(corpus, mutation, code):
         ref["facts"][0]["value"] = "false-value"
     report = validate(rows, refs)
     assert code in {e["code"] for e in report["errors"]}
+
+
+def test_secret_scanner_exemptions_are_exact_public_artifact_digests():
+    import re
+    import subprocess
+
+    fingerprints = [
+        line
+        for line in (ROOT / ".gitleaksignore").read_text().splitlines()
+        if ":docs/canonical_v2/RESULTS.json:" in line
+    ]
+    assert len(fingerprints) == 20
+    for entry in fingerprints:
+        commit, path, rule, line = entry.split(":")
+        assert re.fullmatch("[0-9a-f]{40}", commit)
+        assert rule == "generic-api-key"
+        content = subprocess.check_output(["git", "show", commit + ":" + path], cwd=ROOT, text=True)
+        source_line = content.splitlines()[int(line) - 1]
+        assert re.fullmatch(r'\s*"(?:tokenizer|vocab/key2row)": "[0-9a-f]{64}",?\s*', source_line)

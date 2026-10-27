@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Verify narrowly scoped historical artifact-hash fingerprints.
       - uses: astral-sh/setup-uv@v6
         with:
           version: "0.12.9"
