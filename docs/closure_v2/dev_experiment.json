@@ -1,0 +1,800 @@
+{
+  "format": "homex-dev-diagnostic-1",
+  "dataset": "V1_675",
+  "scope": "muebles_pedido_dev_62",
+  "references": "SYNTHETIC_PREANNOTATION_NOT_HUMAN_GOLD",
+  "test_scored": false,
+  "promotion": false,
+  "wer": null,
+  "comparison_limit": "accepted evidence includes assembler abstention; raw NER reported separately",
+  "independence": "UNVERIFIED_TEMPLATE_SIMILARITY_RISK",
+  "timing": {
+    "ner_load_ms": 194.393526,
+    "warmups_per_engine": 5,
+    "passes": 3,
+    "order": [
+      "A_RULES_ONLY",
+      "B_NER_ASSEMBLER"
+    ],
+    "concurrency": 1,
+    "e2e": false
+  },
+  "environment": {
+    "python": "3.11.15",
+    "spacy": "3.8.13",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "processor": "x86_64"
+  },
+  "model_files_sha256": {
+    "config.cfg": "e69b0c4e20a8e770d88de8f862b36f15c86c76f075b093084b4f16453a3cf51f",
+    "meta.json": "27088b253919dd432a9a999595b627b84833f26d8cf62d47dad71fc3ae3b10d4",
+    "ner/cfg": "a7172edadafba9f472e9ac0f2660eec04b6405e471be9e20267b79c67288d22d",
+    "ner/model": "890ec6a863750488ba5e49837ceb9b67d4507e36b0bf93559f2701d15667feab",
+    "ner/moves": "37c7cc6117fab427c8d0d054ef9c39ca62b457242e03f3ffa970e4ee1ab4acd2",
+    "tokenizer": "b59b7b576c81115906b8fcf07f331a84846f77b431676a0803906c94c817462f",
+    "vocab/key2row": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+    "vocab/lookups.bin": "76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71",
+    "vocab/strings.json": "e44cfb56714557ab6ee5ab7b99b2969dff95e962bfcaab1a617c5f9956e804ec",
+    "vocab/vectors": "14772b683e726436d5948ad3fff2b43d036ef2ebbe3458aafed6004e05a40706",
+    "vocab/vectors.cfg": "ff4359091952c8cd16f1f0482f5770fb82d1707368d5cca3c46aa501f552e3c5"
+  },
+  "data_sha256": {
+    "data/corpus/muebles_pedido.jsonl": "5c8d51d4794c8e8b2eef6a450d226a8479f95365b35456eb9c1fa7d036f12315",
+    "data/splits/muebles_pedido.json": "a97ae15777b0d9b9e94b0fbe0332348dfca1f119effcb444d38933ff2ab22c6d",
+    "uv.lock": "a638572a3db02b70dc813444051ddc3273e776c48fb1a62337876bbd7f8a8b2d"
+  },
+  "variants": {
+    "A_RULES_ONLY": {
+      "accepted_evidence": {
+        "documents": 62,
+        "by_label": {
+          "ACABADO": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 123,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 55
+          },
+          "ACCESORIO": {
+            "tp": 13,
+            "fp": 27,
+            "fn": 79,
+            "precision": 0.325,
+            "recall": 0.14130434782608695,
+            "f1": 0.19696969696969696,
+            "documents_with_reference": 62
+          },
+          "ALTO": {
+            "tp": 0,
+            "fp": 31,
+            "fn": 62,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 62
+          },
+          "ANCHO": {
+            "tp": 0,
+            "fp": 24,
+            "fn": 55,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 55
+          },
+          "APOYABRAZOS": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CABECERA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CANTIDAD": {
+            "tp": 31,
+            "fp": 0,
+            "fn": 31,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "documents_with_reference": 62
+          },
+          "CLASE_RESISTENCIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "COLOR": {
+            "tp": 43,
+            "fp": 10,
+            "fn": 108,
+            "precision": 0.8113207547169812,
+            "recall": 0.2847682119205298,
+            "f1": 0.4215686274509804,
+            "documents_with_reference": 62
+          },
+          "COMPONENTE": {
+            "tp": 44,
+            "fp": 9,
+            "fn": 115,
+            "precision": 0.8301886792452831,
+            "recall": 0.27672955974842767,
+            "f1": 0.41509433962264153,
+            "documents_with_reference": 62
+          },
+          "DESCUENTO": {
+            "tp": 0,
+            "fp": 17,
+            "fn": 33,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 33
+          },
+          "DIAMETRO": {
+            "tp": 0,
+            "fp": 7,
+            "fn": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 7
+          },
+          "ERGONOMIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "ESPESOR": {
+            "tp": 75,
+            "fp": 0,
+            "fn": 79,
+            "precision": 1.0,
+            "recall": 0.487012987012987,
+            "f1": 0.6550218340611353,
+            "documents_with_reference": 62
+          },
+          "LARGO": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "MATERIAL": {
+            "tp": 66,
+            "fp": 0,
+            "fn": 93,
+            "precision": 1.0,
+            "recall": 0.41509433962264153,
+            "f1": 0.5866666666666667,
+            "documents_with_reference": 62
+          },
+          "OBSERVACION": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 8,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 8
+          },
+          "PRECIO_TOTAL": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 62,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 62
+          },
+          "PRECIO_UNITARIO": {
+            "tp": 31,
+            "fp": 0,
+            "fn": 31,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "documents_with_reference": 62
+          },
+          "PRODUCTO": {
+            "tp": 13,
+            "fp": 18,
+            "fn": 49,
+            "precision": 0.41935483870967744,
+            "recall": 0.20967741935483872,
+            "f1": 0.27956989247311825,
+            "documents_with_reference": 62
+          },
+          "PROFUNDIDAD": {
+            "tp": 0,
+            "fp": 24,
+            "fn": 55,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "documents_with_reference": 55
+          },
+          "SISTEMA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "SOPORTE_LUMBAR": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "UNIDAD_MEDIDA": {
+            "tp": 18,
+            "fp": 2,
+            "fn": 44,
+            "precision": 0.9,
+            "recall": 0.2903225806451613,
+            "f1": 0.43902439024390244,
+            "documents_with_reference": 62
+          }
+        },
+        "micro": {
+          "tp": 334,
+          "fp": 169,
+          "fn": 1034,
+          "precision": 0.6640159045725647,
+          "recall": 0.24415204678362573,
+          "f1": 0.3570283270978087
+        },
+        "macro": {
+          "precision": {
+            "value": 0.5204188766194243,
+            "labels": 14
+          },
+          "recall": {
+            "value": 0.18264173212533372,
+            "labels": 17
+          },
+          "f1": {
+            "value": 0.254544045930675,
+            "labels": 17
+          }
+        }
+      },
+      "latency": {
+        "n": 186,
+        "p50_ms": 0.376769,
+        "p95_ms": 1.968796,
+        "method": "nearest_rank",
+        "scope": "warm_extraction_only"
+      },
+      "contract_valid": 186,
+      "contract_denominator": 186
+    },
+    "B_NER_ASSEMBLER": {
+      "accepted_evidence": {
+        "documents": 62,
+        "by_label": {
+          "ACABADO": {
+            "tp": 123,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "ACCESORIO": {
+            "tp": 92,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "ALTO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "ANCHO": {
+            "tp": 55,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "APOYABRAZOS": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CABECERA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CANTIDAD": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "CLASE_RESISTENCIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "COLOR": {
+            "tp": 151,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "COMPONENTE": {
+            "tp": 159,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "DESCUENTO": {
+            "tp": 33,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 33
+          },
+          "DIAMETRO": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 7
+          },
+          "ERGONOMIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "ESPESOR": {
+            "tp": 154,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "LARGO": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "MATERIAL": {
+            "tp": 159,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "OBSERVACION": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 8
+          },
+          "PRECIO_TOTAL": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PRECIO_UNITARIO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PRODUCTO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PROFUNDIDAD": {
+            "tp": 55,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "SISTEMA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "SOPORTE_LUMBAR": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "UNIDAD_MEDIDA": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          }
+        },
+        "micro": {
+          "tp": 1368,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "macro": {
+          "precision": {
+            "value": 1.0,
+            "labels": 17
+          },
+          "recall": {
+            "value": 1.0,
+            "labels": 17
+          },
+          "f1": {
+            "value": 1.0,
+            "labels": 17
+          }
+        }
+      },
+      "latency": {
+        "n": 186,
+        "p50_ms": 13.388565,
+        "p95_ms": 16.834519,
+        "method": "nearest_rank",
+        "scope": "warm_extraction_only"
+      },
+      "contract_valid": 186,
+      "contract_denominator": 186,
+      "raw_statistical_spans": {
+        "documents": 62,
+        "by_label": {
+          "ACABADO": {
+            "tp": 123,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "ACCESORIO": {
+            "tp": 92,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "ALTO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "ANCHO": {
+            "tp": 55,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "APOYABRAZOS": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CABECERA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "CANTIDAD": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "CLASE_RESISTENCIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "COLOR": {
+            "tp": 151,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "COMPONENTE": {
+            "tp": 159,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "DESCUENTO": {
+            "tp": 33,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 33
+          },
+          "DIAMETRO": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 7
+          },
+          "ERGONOMIA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "ESPESOR": {
+            "tp": 154,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "LARGO": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "MATERIAL": {
+            "tp": 159,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "OBSERVACION": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 8
+          },
+          "PRECIO_TOTAL": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PRECIO_UNITARIO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PRODUCTO": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          },
+          "PROFUNDIDAD": {
+            "tp": 55,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 55
+          },
+          "SISTEMA": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "SOPORTE_LUMBAR": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "documents_with_reference": 0
+          },
+          "UNIDAD_MEDIDA": {
+            "tp": 62,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "documents_with_reference": 62
+          }
+        },
+        "micro": {
+          "tp": 1368,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "macro": {
+          "precision": {
+            "value": 1.0,
+            "labels": 17
+          },
+          "recall": {
+            "value": 1.0,
+            "labels": 17
+          },
+          "f1": {
+            "value": 1.0,
+            "labels": 17
+          }
+        }
+      }
+    }
+  }
+}
