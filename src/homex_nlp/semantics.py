@@ -406,6 +406,20 @@ def completar_relaciones(item, candidates, text, warnings):
                 continue
             if not any(inicio <= match.start() < fin for inicio, fin in ambitos):
                 evidencia(match, label)
+    # Segmentación ASR: prefijo explícito «color» unido a un valor conocido.
+    # No normalizar el texto ni reconocer sufijos dentro de palabras libres.
+    for unido in re.finditer(r"\bcolor(?P<color>" + COLORES + r")\b", text, re.I):
+        inicio = unido.start("color")
+        literal = re.compile(re.escape(unido.group("color"))).match(text, inicio)
+        componente = next(
+            (
+                item.components[i].component_id
+                for i, (a, b) in enumerate(ambitos)
+                if a <= inicio < b
+            ),
+            None,
+        )
+        evidencia(literal, "COLOR", component=componente)
     # Sólo el atributo contiguo del producto principal. No propagar colores
     # de piezas, negaciones, alternativas o rectificaciones a primary_color.
     principal = next(

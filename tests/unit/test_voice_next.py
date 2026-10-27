@@ -153,3 +153,16 @@ def test_singular_panel_has_its_explicit_thickness():
         result.item_proposal.thicknesses[0].component_ref
         == result.item_proposal.components[0].component_id
     )
+
+
+@pytest.mark.parametrize("color", ["nogal", "gris claro", "roble claro"])
+def test_explicit_color_prefix_joined_by_asr_preserves_offsets(color):
+    text = f"Un escritorio. Color{color}, precio unitario 1000 bolivianos"
+    result = extract(text)
+    colors = [c for c in result.candidates if c.label == "COLOR"]
+    assert len(colors) == 1 and colors[0].text == color
+    assert text[colors[0].start : colors[0].end] == color
+    assert colors[0].component_ref is None
+    assert not [
+        c for c in extract(f"Un escritorio decolor{color}").candidates if c.label == "COLOR"
+    ]
