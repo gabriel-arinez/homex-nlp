@@ -169,10 +169,10 @@ este overlay automáticamente en corpus activo ni abrir test para iterar.
 
 ## Verificación ejecutada y bloqueos de calidad
 
-- `make closure-v2-check`: 28 pruebas de mutación/límites y reconstrucción exacta PASS.
-- Suite completa final: **136 passed**, Python 3.11.15.
+- `make closure-v2-check`: 29 pruebas de mutación/límites y reconstrucción exacta PASS.
+- Suite completa final: **137 passed**, Python 3.11.15.
 - `make check docbin-check distribution-check`: PASS (suite entonces 135; se añadió
-  después una prueba de alineación de todos los parches, y suite final 136 PASS).
+  después pruebas de alineación de todos los parches y rechazo privado de JSON malformado, y suite final 137 PASS).
 - `ruff check`, `ruff format --check`, esquemas y `git diff --check`: PASS.
 - Comparación byte a byte entre dos auditorías y dos overlays: PASS.
 - Diff contra base para `data`, `src`, `schemas`, `pyproject.toml`, `uv.lock`: vacío.
@@ -186,3 +186,16 @@ este overlay automáticamente en corpus activo ni abrir test para iterar.
 No se ejecutaron suites/servicios backend/frontend ni bases de datos en este trabajo.
 El smoke consumidor incluido en distribution-check valida el artefacto en entorno
 Python temporal; no es integración Django ni prueba de persistencia comercial.
+
+### CI de la entrega
+
+Primera corrida [40480095975](https://github.com/gabriel-arinez/homex-nlp/actions/runs/40480095975):
+closure y experimento PASS. Dependency-audit FAIL por los cuatro avisos anteriores.
+Package pasa make check y falla en verificación cruzada: el workflow histórico
+fija backend `f752bc3`, que no consume NLP 0.1.5. Se deja este bloqueo de integración
+visible para el frente correspondiente; no se modifica backend ni se omite el check.
+Secrets detectó dos falsos positivos sobre hashes públicos de `tokenizer` y
+`vocab/key2row` del modelo local. Se añadieron únicamente sus fingerprints exactos
+(commit/archivo/regla/línea) a `.gitleaksignore`, sin desactivar el escaneo.
+La corrida de HEAD final debe consultarse en el PR #31; esta observación no afirma
+que todos sus jobs estén verdes.

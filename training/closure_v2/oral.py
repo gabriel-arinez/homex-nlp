@@ -158,6 +158,8 @@ def main():
         rows = [json.loads(line) for line in args.input.read_text().splitlines() if line.strip()]
         # JSON arrays become tuples only at the boundary, retaining strict integer validation.
         for row in rows:
+            if not isinstance(row, dict):
+                raise ValueError("RECORD_OBJECT_REQUIRED")
             if isinstance(row.get("entities"), list):
                 row["entities"] = [tuple(e) if isinstance(e, list) else e for e in row["entities"]]
         print(json.dumps(validate(rows, labels, parents)))

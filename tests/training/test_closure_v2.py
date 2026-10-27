@@ -229,3 +229,17 @@ def test_all_generated_patches_have_valid_unicode_token_boundaries():
             assert doc.char_span(start, end, alignment_mode="strict") is not None
         for fact in overlay["technical_facts"]:
             assert row["text"][fact["start"] : fact["end"]] == fact["literal"]
+
+
+def test_oral_cli_withholds_malformed_private_input(tmp_path, monkeypatch, capsys):
+    import sys
+
+    from training.closure_v2.oral import main
+
+    path = tmp_path / "private.jsonl"
+    path.write_text(json.dumps("private@example.com") + "\n")
+    monkeypatch.setattr(sys, "argv", ["oral", str(path)])
+    assert main() == 2
+    output = capsys.readouterr().out
+    assert "private@example.com" not in output
+    assert "INVALID_ORAL_INPUT" in output
