@@ -214,7 +214,7 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     # Aceptar únicamente el mismo tipo principal, sin extrapolar cantidades.
     if main.text.casefold().startswith("mesa"):
         una_sola = re.search(
-            r"\bse\s+cotiza\s+(una)\s+sola\s+mesa\b",
+            r"\b(?:se\s+cotiza|secotiza)\s+(una)\s+sola\s+mesa\b",
             text[main.end :],
             re.I,
         )
