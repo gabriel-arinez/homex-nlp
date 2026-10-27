@@ -6,7 +6,7 @@ import pytest
 
 from homex_nlp.contracts import ExtractionRequest
 from homex_nlp.engine import RulesEngine
-from homex_nlp.rules import find_price, find_quantity, find_products
+from homex_nlp.rules import find_price, find_products, find_quantity
 
 
 def extract(text):
