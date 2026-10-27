@@ -60,6 +60,10 @@ def test_mesa_reunion_una_sola_unidad_al_final():
     # Nunca convertir 8.50 en 8050 a partir de la intención supuesta.
     assert r.item_proposal.price.stated_amount == "8.50"
 
+    asr = extraer(texto.replace("se cotiza", "secotiza"))
+    assert asr.item_proposal is not None
+    assert asr.item_proposal.quantity == 1
+
 
 def test_cantidad_contradictoria_no_se_silencia():
     r = extraer("Dos mesas de reunión, se cotiza una sola mesa")
