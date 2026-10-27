@@ -96,4 +96,4 @@ def test_no_cambia_precio_total():
 
 
 def test_version_identifica_nueva_regla():
-    assert extraer("Un escritorio").engine.rules_version == "prf04-rules-v13"
+    assert extraer("Un escritorio").engine.rules_version == "prf04-rules-v14"

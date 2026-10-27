@@ -3,7 +3,7 @@
 import re
 
 from homex_nlp.contracts.evidence import Candidate, Warning
-from homex_nlp.contracts.item import Component
+from homex_nlp.contracts.item import Color, Component
 from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
 
 COMPONENTES = (
@@ -14,9 +14,10 @@ COMPONENTES = (
 )
 MATERIALES = (
     r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"
-    r"melamina(?:\s+MDP)?|MDP|MDF|"
+    r"melamin[ae](?:\s+MDP)?|MDP|MDF|"
     r"vidrio(?:\s+templado)?|aluminio|metal|madera"
 )
+COLORES = r"blanc[oa]|negr[oa](?: mate)?|gris(?: ceniza)?|olmo|roble|transparente"
 NUMEROS = "|".join(NUMBER_WORDS)
 NUMERO = rf"(?:{NUMEROS}|\d+)"
 # Rectificaciones internas inequívocas: exige una señal positiva ("mejor")
@@ -101,6 +102,23 @@ def completar_relaciones(item, candidates, text, warnings):
         )
 
     def evidencia(match, label, value=None, component=None, decision="ACCEPTED", reason=None):
+        if (
+            label in {"MATERIAL", "COLOR"}
+            and decision == "ACCEPTED"
+            and is_explicitly_negated(text, match.start())
+        ):
+            decision = "REJECTED"
+            reason = "Atributo explícitamente excluido"
+        if label == "MATERIAL" and re.fullmatch(r"melamine(?:\s+MDP)?", match.group(), re.I):
+            value = re.sub("melamine", "melamina", match.group(), flags=re.I)
+            warnings.append(
+                Warning(
+                    code="UNKNOWN_TERM",
+                    path="/candidates",
+                    severity="INFO",
+                    message="Se interpretó 'melamine' como 'melamina'; confirme el material.",
+                )
+            )
         identifier = f"c{len(candidates) + 1}"
         candidates.append(
             Candidate(
@@ -300,7 +318,7 @@ def completar_relaciones(item, candidates, text, warnings):
                         )
                         item.unresolved.append(identifier)
         for atributo, patron in (
-            ("COLOR", r"\b(?:blanco|negro(?: mate)?|gris(?: ceniza)?|olmo|roble|transparente)\b"),
+            ("COLOR", r"\b(?:" + COLORES + r")\b"),
             ("ACABADO", r"\b(?:epoxi|satinado|canto termosellado|mate|brillante)\b"),
         ):
             for match in re.finditer(patron, text, re.I):
@@ -322,11 +340,43 @@ def completar_relaciones(item, candidates, text, warnings):
                 referencia.component_ref = component
     for label, patron in (
         ("MATERIAL", MATERIALES),
-        ("COLOR", r"blanco|negro(?: mate)?|gris(?: ceniza)?|olmo|roble|transparente"),
+        ("COLOR", COLORES),
     ):
         for match in re.finditer(r"\b(?:" + patron + r")\b", text, re.I):
             if not any(inicio <= match.start() < fin for inicio, fin in ambitos):
                 evidencia(match, label)
+    # Sólo el atributo contiguo del producto principal. No propagar colores
+    # de piezas, negaciones, alternativas o rectificaciones a primary_color.
+    principal = next(
+        (c for c in candidates if c.label == "PRODUCTO" and c.decision == "ACCEPTED"), None
+    )
+    if principal:
+        especificacion = re.match(
+            r"\s+de\s+(?P<material>"
+            + MATERIALES
+            + r")\s+(?P<color>"
+            + COLORES
+            + r")\b(?=\s*(?:[,.;]|$))",
+            text[principal.end :],
+            re.I,
+        )
+        colores = [c for c in candidates if c.label == "COLOR"]
+        materiales = [c for c in candidates if c.label == "MATERIAL"]
+        ambigua = re.search(
+            r"\b(?:o|no|sino|mejor|perd[oó]n|corrijo|sin)\b", text[principal.end :], re.I
+        )
+        if especificacion and not ambigua and len(colores) == 1 and len(materiales) == 1:
+            color = colores[0]
+            inicio = principal.end + especificacion.start("color")
+            if (
+                color.start == inicio
+                and color.component_ref is None
+                and color.decision == "ACCEPTED"
+            ):
+                valor = re.sub(r"^blanca$", "blanco", color.text, flags=re.I)
+                valor = re.sub(r"^negra", "negro", valor, flags=re.I).casefold()
+                color.normalized_value = valor
+                item.primary_color = Color(value=valor, evidence_ids=[color.candidate_id])
     grupos = list(
         re.finditer(
             r"\bconjunto\s+([a-záéíóúñ ]{1,40}?)(?=\s+(?:con|compuesto)|[:;,.])", text, re.I
