@@ -10,25 +10,8 @@ from pathlib import Path
 from typing import Any
 
 SOURCE_FILES = {
-    "homex_original": Path("data/raw/homex_original.jsonl"),
-    "catalogo_sillas": Path("data/raw/catalogo_sillas_original.jsonl"),
-}
-
-# Correcciones exclusivamente técnicas, verificadas contra la fuente antes de
-# aplicar. Las anotaciones de producto incluyen ``L.`` porque el tokenizador de
-# spaCy considera la abreviatura como un único token.
-OFFSET_PATCHES: dict[tuple[str, int, int, str], tuple[int, int, str]] = {
-    ("homex_original", 22, 87, "PROFUNDIDAD"): (87, 95, "puntuación final fuera del token"),
-    ("homex_original", 32, 103, "PROFUNDIDAD"): (103, 111, "puntuación final fuera del token"),
-    ("homex_original", 52, 94, "PROFUNDIDAD"): (94, 102, "puntuación final fuera del token"),
-    ("homex_original", 62, 15, "PRODUCTO"): (15, 31, "abreviatura L. debe conservarse completa"),
-    ("homex_original", 72, 83, "PROFUNDIDAD"): (83, 91, "puntuación final fuera del token"),
-    ("homex_original", 102, 17, "PRODUCTO"): (17, 33, "abreviatura L. debe conservarse completa"),
-    ("homex_original", 102, 94, "PROFUNDIDAD"): (94, 102, "puntuación final fuera del token"),
-    ("homex_original", 112, 98, "PROFUNDIDAD"): (98, 106, "puntuación final fuera del token"),
-    ("homex_original", 132, 92, "PROFUNDIDAD"): (92, 100, "puntuación final fuera del token"),
-    ("homex_original", 142, 91, "PROFUNDIDAD"): (91, 99, "puntuación final fuera del token"),
-    ("homex_original", 152, 98, "PROFUNDIDAD"): (98, 106, "puntuación final fuera del token"),
+    name: Path(f"data/corpus/{name}.jsonl")
+    for name in ("muebles_pedido", "sillas", "pisos_flotantes", "otros_productos")
 }
 
 

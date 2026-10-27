@@ -17,12 +17,12 @@ from convert_to_spacy import LABELS_VALIDOS, registros_a_ejemplos_spacy
 from nlp_engine import MotorNLP, DetalleMueble
 logging.getLogger().setLevel(logging.ERROR)
 
-rows = [json.loads(line) for line in (ROOT / 'data/dataset.jsonl').read_text().splitlines() if line.strip()]
+rows = [json.loads(line) for line in (ROOT / 'data/corpus/muebles_pedido.jsonl').read_text().splitlines() if line.strip()]
 labels = collections.Counter()
 invalid, overlaps, misaligned = [], [], []
 nlp = spacy.blank('es')
 for i, row in enumerate(rows, 1):
-    text, spans = row['text'], row['label']
+    text, spans = row['text'], row['entities']
     doc = nlp.make_doc(text)
     for start, end, label in spans:
         labels[label] += 1

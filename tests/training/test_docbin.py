@@ -7,11 +7,11 @@ ROOT = Path(__file__).parents[2]
 
 def test_docbin_conversion_respects_the_sealed_split(tmp_path: Path) -> None:
     counts = convert(
-        ROOT / "data/curated/homex_original_v1.jsonl",
-        ROOT / "data/splits/homex_original_v1.json",
+        ROOT / "data/corpus/muebles_pedido.jsonl",
+        ROOT / "data/splits/muebles_pedido.json",
         tmp_path,
     )
-    assert counts == {"dev": 30, "test": 32, "train": 138}
+    assert counts == {"dev": 62, "test": 56, "train": 262}
     assert {path.name for path in tmp_path.glob("*.spacy")} == {
         "train.spacy",
         "dev.spacy",

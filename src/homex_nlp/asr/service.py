@@ -32,7 +32,11 @@ class AsrService:
         try:
             validate_audio_file(path, max_bytes=self._max_bytes)
             segments = [
-                TranscriptSegment(start_seconds=str(start), end_seconds=str(end), text=text)
+                TranscriptSegment(
+                    start_seconds=f"{start:.6f}",
+                    end_seconds=f"{end:.6f}",
+                    text=text,
+                )
                 for start, end, text in self._transcriber.transcribe(path)
             ]
             text = " ".join(segment.text.strip() for segment in segments if segment.text.strip())

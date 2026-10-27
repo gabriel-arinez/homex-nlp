@@ -48,3 +48,20 @@ def test_invalid_audio_is_removed_too(tmp_path: Path) -> None:
         AsrService(FakeTranscriber()).transcribe(path)
     assert error.value.detail.code == "AUDIO_INVALID"
     assert not path.exists()
+
+
+class FloatingTimestampTranscriber(FakeTranscriber):
+    def transcribe(self, path: Path):
+        yield 0.0, 33.120000000000005, "un ropero"
+        yield 33.120000000000005, 35.21000000000001, " con cajones"
+
+
+def test_asr_normaliza_timestamps_float(tmp_path: Path) -> None:
+    path = audio(tmp_path)
+    resultado = AsrService(FloatingTimestampTranscriber()).transcribe(path)
+
+    assert resultado.text_original == "un ropero con cajones"
+    assert resultado.segments[0].end_seconds == "33.120000"
+    assert resultado.segments[1].start_seconds == "33.120000"
+    assert resultado.segments[1].end_seconds == "35.210000"
+    assert not path.exists()
