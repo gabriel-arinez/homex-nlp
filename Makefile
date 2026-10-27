@@ -42,3 +42,8 @@ f10-check:
 	uv run --locked --extra dev pytest tests/operations/test_f10_runtime.py -q
 	uv run --locked --extra dev python tools/verify_backend_f10.py $(BACKEND_F10_PATH) --revision bc375894036d30cefbc8cdf7c512315aaf1ab971
 	uv run --locked --extra dev python tools/profile_f10_runtime.py --iterations 100 --output /tmp/homex-nlp-f10-profile.json
+
+.PHONY: closure-v2-check
+closure-v2-check:
+	uv run --locked --extra dev pytest tests/training/test_closure_v2.py -q
+	uv run --locked --extra dev python -m training.closure_v2.verify

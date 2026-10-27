@@ -1,0 +1,16 @@
+name: NLP closure V2 mechanical gates
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.12.9'
+      - run: uv sync --locked --extra dev --python 3.11.15
+      - run: make closure-v2-check

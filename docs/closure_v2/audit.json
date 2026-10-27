@@ -1,0 +1,122 @@
+{
+  "format": "homex-closure-audit-1",
+  "files_sha256": {
+    "corpus/muebles_pedido.jsonl": "5c8d51d4794c8e8b2eef6a450d226a8479f95365b35456eb9c1fa7d036f12315",
+    "splits/muebles_pedido.json": "a97ae15777b0d9b9e94b0fbe0332348dfca1f119effcb444d38933ff2ab22c6d",
+    "expected/muebles_pedido.jsonl": "01ae9f6529ff9758b1336c4f8140e0a898836186c5f0619ea29fcc3888a8b642",
+    "corpus/sillas.jsonl": "1d626cfa64e42d1569f8262d8f255ae788e4d72ee3a150c0c5f98212df735b68",
+    "splits/sillas.json": "dfe31a5d01bf7d46951e7e146051c998d58ab7157a2e13823332bbbf53c3520c",
+    "expected/sillas.jsonl": "ff377bd682826c04304e608912eba09a062fde75e6485082776771e5b6896031",
+    "corpus/pisos_flotantes.jsonl": "2762fc4be08ef13d62da4e513d43e33aeed21e66b1815cd41ad857ef1ede919a",
+    "splits/pisos_flotantes.json": "b3c79469b29af43211664d96be3f6b36f801ec64ab9e6762c50f5342e143c141",
+    "expected/pisos_flotantes.jsonl": "df99fdd907d156a49f260ce3da00b3b374927026824cfae70c015c77ce0d97c3",
+    "corpus/otros_productos.jsonl": "bbe851818072e7d86eb0c8a13b7594df7f57bfdcf9e4ea2c47c8fcfb400eae87",
+    "splits/otros_productos.json": "744cf56a37eb5b61104be5d404e7f701d22dfdb8537c2644a9140573c03e4f6c",
+    "expected/otros_productos.jsonl": "117c1f6d5b7b823f5d8393ce9a4a7473cf5711cbe29ee6d3eeef546669ad2c53"
+  },
+  "records": 675,
+  "splits": {
+    "train": 483,
+    "dev": 94,
+    "test": 98
+  },
+  "families": {
+    "muebles_pedido": {
+      "train": 262,
+      "dev": 62,
+      "test": 56
+    },
+    "sillas": {
+      "train": 75,
+      "test": 14,
+      "dev": 12
+    },
+    "pisos_flotantes": {
+      "train": 73,
+      "test": 14,
+      "dev": 10
+    },
+    "otros_productos": {
+      "train": 73,
+      "test": 14,
+      "dev": 10
+    }
+  },
+  "origin": {
+    "SINTETICO": 675
+  },
+  "quality": {
+    "PREANOTACION_SINTETICA_AUDITADA": 675
+  },
+  "unique_proformas": 300,
+  "unique_families": 65,
+  "cross_split_groups": {
+    "id": 0,
+    "family_id": 0,
+    "proforma_id": 0,
+    "exact": 0,
+    "normalized": 0,
+    "prefix65": 79,
+    "source_id": 1
+  },
+  "exact_duplicate_records": 0,
+  "normalized_duplicate_records": 0,
+  "formal_errors": {},
+  "development_entity_counts": {
+    "train": {
+      "ACABADO": 547,
+      "ACCESORIO": 697,
+      "ALTO": 280,
+      "ANCHO": 253,
+      "APOYABRAZOS": 35,
+      "CABECERA": 5,
+      "CANTIDAD": 483,
+      "CLASE_RESISTENCIA": 73,
+      "COLOR": 880,
+      "COMPONENTE": 694,
+      "DESCUENTO": 200,
+      "DIAMETRO": 9,
+      "ERGONOMIA": 44,
+      "ESPESOR": 750,
+      "LARGO": 18,
+      "MATERIAL": 915,
+      "OBSERVACION": 49,
+      "PRECIO_TOTAL": 483,
+      "PRECIO_UNITARIO": 483,
+      "PRODUCTO": 483,
+      "PROFUNDIDAD": 253,
+      "SISTEMA": 73,
+      "SOPORTE_LUMBAR": 20,
+      "UNIDAD_MEDIDA": 483
+    },
+    "dev": {
+      "ACABADO": 123,
+      "ACCESORIO": 137,
+      "ALTO": 67,
+      "ANCHO": 55,
+      "APOYABRAZOS": 4,
+      "CANTIDAD": 94,
+      "CLASE_RESISTENCIA": 10,
+      "COLOR": 183,
+      "COMPONENTE": 159,
+      "DESCUENTO": 47,
+      "DIAMETRO": 7,
+      "ERGONOMIA": 7,
+      "ESPESOR": 164,
+      "LARGO": 5,
+      "MATERIAL": 191,
+      "OBSERVACION": 8,
+      "PRECIO_TOTAL": 94,
+      "PRECIO_UNITARIO": 94,
+      "PRODUCTO": 94,
+      "PROFUNDIDAD": 55,
+      "SISTEMA": 10,
+      "SOPORTE_LUMBAR": 4,
+      "UNIDAD_MEDIDA": 94
+    }
+  },
+  "test_policy": "MECHANICAL_AGGREGATES_ONLY_NO_SCORING_OR_CURATION",
+  "similarity_policy": "prefix65/source_id are alerts, not proven semantic leakage",
+  "human_gold": false,
+  "promotion": false
+}
