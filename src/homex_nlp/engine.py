@@ -125,15 +125,19 @@ class RulesEngine:
             filtrados = [principal]
             for producto in products[1:]:
                 contexto = text[max(0, producto.start - 24) : producto.start]
-                repeticion = (
-                    producto.text.split()[0].casefold().rstrip("s")
-                    == principal.text.split()[0].casefold().rstrip("s")
-                    and re.search(r"\bcada\s+$", contexto, re.I)
+                repeticion = producto.text.split()[0].casefold().rstrip(
+                    "s"
+                ) == principal.text.split()[0].casefold().rstrip("s") and re.search(
+                    r"\bcada\s+$", contexto, re.I
                 )
                 componente = (
                     integracion
                     and producto.text.casefold().startswith("cajonera")
-                    and re.search(r"\bcajonera\s+con\s+(?:\d+|uno|una|dos|tres|cuatro)\s+cajones\b", text[producto.start:], re.I)
+                    and re.search(
+                        r"\bcajonera\s+con\s+(?:\d+|uno|una|dos|tres|cuatro)\s+cajones\b",
+                        text[producto.start :],
+                        re.I,
+                    )
                 )
                 referencia_mesa = (
                     principal.text.casefold().startswith("mesa")
