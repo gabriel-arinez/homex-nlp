@@ -1,0 +1,21 @@
+{
+  "version": "canonical-v2-experiment-1",
+  "seeds": [404, 405],
+  "experiments": ["D1", "D2", "D3", "D4", "D4W"],
+  "epochs": 25,
+  "minimum_epochs": 8,
+  "patience": 6,
+  "batch_size": 8,
+  "dropout": 0.2,
+  "selection": "maximum synthetic common dev micro NER F1; first checkpoint wins ties",
+  "evaluation_split": "dev",
+  "D1": "Frozen V1 train only, diagnostic source/template dependence retained",
+  "D2": "Canonical documentary style: literal excerpts plus synthetic documentary cases",
+  "D3": "Canonical synthetic oral only; small technical diagnostic",
+  "D4": "All canonical train observations, natural sampling",
+  "D4W": "All canonical train; oral observations sampled twice per epoch",
+  "D5": "Not evaluable: no authorized human transcription training records",
+  "test_policy": "No frozen test prediction, selection, annotation or derived example",
+  "promotion": false,
+  "models": ["M-A", "M-A2-price", "M-A2-quantity", "M-A2-dimensions", "M-B", "M-C"]
+}
