@@ -229,6 +229,12 @@ def completar_relaciones(item, candidates, text, warnings):
         )
         if fin_ambito:
             limite = pieza.end() + fin_ambito.start()
+        # Una nueva entidad coordinada corta el ámbito aunque su nombre
+        # no esté en el vocabulario (p. ej. «y una etapa de 18 mm»).
+        # No corregir ASR ni fabricar una tapa por similitud léxica.
+        nueva_entidad = re.search(rf"\b(?:y|con)\s+{NUMERO}\s+", text[pieza.end() : limite], re.I)
+        if nueva_entidad:
+            limite = pieza.end() + nueva_entidad.start()
         ambitos.append((pieza.end(), limite))
         for material in re.finditer(r"\b(?:" + MATERIALES + r")\b", text, re.I):
             if pieza.end() <= material.start() < limite:
@@ -338,6 +344,16 @@ def completar_relaciones(item, candidates, text, warnings):
             if referencia and pieza.end() <= referencia.start < limite:
                 thickness.component_ref = component
                 referencia.component_ref = component
+    for thickness in item.thicknesses:
+        if thickness.component_ref is None:
+            warnings.append(
+                Warning(
+                    code="REQUIRED_FIELD_MISSING",
+                    path="/item_proposal/thicknesses",
+                    severity="REVIEW",
+                    message=f"El espesor {thickness.original_text} requiere identificar su pieza.",
+                )
+            )
     for label, patron in (
         ("MATERIAL", MATERIALES),
         ("COLOR", COLORES),

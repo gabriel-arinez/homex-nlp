@@ -33,7 +33,7 @@ def test_captura_23_tres_variantes_y_especificaciones(medida, material):
     assert r.engine.rules_version == "prf04-rules-v14"
     assert r.engine.model_version is None
     assert r.schema_version == "1.0"
-    assert __version__ == "0.1.13"
+    assert __version__ == "0.1.14"
     assert len(item.dimensions) == 3
     assert {d.axis: d.value_mm for d in item.dimensions} == {
         "ancho": "1200",
@@ -215,3 +215,46 @@ def test_compuesta_prefija_seguida_de_otro_eje():
         "ancho": "1200",
         "alto": "750",
     }
+
+
+@pytest.mark.parametrize(
+    "texto",
+    [
+        "Quiero un escritorio de 120 de ancho y 75 centímetros de alto",
+        "Quiero un escritorio de ancho 120 y alto 75 cm",
+        "Quiero un escritorio de 120 de ancho, 75 cm de alto",
+    ],
+)
+def test_voz_real_no_comparte_unidad_local(texto):
+    r = extraer(texto)
+    dims = {d.axis: d for d in r.item_proposal.dimensions}
+    assert (dims["ancho"].value, dims["ancho"].unit, dims["ancho"].value_mm) == ("120", None, None)
+    assert (dims["alto"].unit, dims["alto"].value_mm) == ("cm", "750")
+    assert any(w.code == "MISSING_UNIT" for w in r.warnings)
+    assert len(dims["ancho"].evidence_ids) == 1
+
+
+@pytest.mark.parametrize("pieza", ["etapa", "pieza desconocida", "base"])
+@pytest.mark.parametrize("material", ["melamine", "melamina"])
+def test_voz_real_otra_entidad_no_presta_espesor_a_cajones(pieza, material):
+    texto = (
+        f"Necesito un escritorio de {material} a blanca de 120 centímetros de ancho "
+        f"con 2 cajones y una {pieza} de 18 milímetros de espesor"
+    )
+    r = extraer(texto)
+    item = r.item_proposal
+    assert [(d.axis, d.value_mm) for d in item.dimensions] == [("ancho", "1200")]
+    assert [c.name for c in item.components] == ["cajones"]
+    assert [c.normalized_value for c in r.candidates if c.label == "CANTIDAD_INTERNA"] == [2]
+    assert len(item.thicknesses) == 1
+    assert item.thicknesses[0].value_mm == "18"
+    assert item.thicknesses[0].component_ref is None
+    assert any(w.path == "/item_proposal/thicknesses" for w in r.warnings)
+    assert all(texto[c.start : c.end] == c.text for c in r.candidates)
+
+
+def test_voz_real_espesor_explicito_de_cajones_se_conserva():
+    r = extraer("Un escritorio con 2 cajones de melamina de 18 milímetros de espesor")
+    assert (
+        r.item_proposal.thicknesses[0].component_ref == r.item_proposal.components[0].component_id
+    )
