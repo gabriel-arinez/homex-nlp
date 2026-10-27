@@ -258,3 +258,11 @@ def test_voz_real_espesor_explicito_de_cajones_se_conserva():
     assert (
         r.item_proposal.thicknesses[0].component_ref == r.item_proposal.components[0].component_id
     )
+
+
+@pytest.mark.parametrize("unidad", ["mm", "milímetros"])
+def test_conflicto_seguro_espesores_no_es_otra_entidad(unidad):
+    r = extraer(f"Una mesa; tapa de 18 {unidad} y 25 {unidad}")
+    item = r.item_proposal
+    assert [t.value_mm for t in item.thicknesses] == ["18", "25"]
+    assert all(t.component_ref == item.components[0].component_id for t in item.thicknesses)

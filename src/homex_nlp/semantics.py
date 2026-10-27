@@ -232,7 +232,12 @@ def completar_relaciones(item, candidates, text, warnings):
         # Una nueva entidad coordinada corta el ámbito aunque su nombre
         # no esté en el vocabulario (p. ej. «y una etapa de 18 mm»).
         # No corregir ASR ni fabricar una tapa por similitud léxica.
-        nueva_entidad = re.search(rf"\b(?:y|con)\s+{NUMERO}\s+", text[pieza.end() : limite], re.I)
+        nueva_entidad = re.search(
+            rf"\b(?:y|con)\s+{NUMERO}\s+"
+            r"(?!(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\b)\w+",
+            text[pieza.end() : limite],
+            re.I,
+        )
         if nueva_entidad:
             limite = pieza.end() + nueva_entidad.start()
         ambitos.append((pieza.end(), limite))
