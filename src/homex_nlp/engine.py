@@ -361,7 +361,17 @@ class RulesEngine:
             remainder = text[start:end]
             for _, c in reversed(ordered):
                 remainder = remainder[: c.start - start] + remainder[c.end - start :]
-            if re.fullmatch(r"[\s,y]+", remainder, re.I):
+            # Sólo «45 ancho, 60 alto centímetros» declara una unidad
+            # final fuera del valor. «120 de ancho y 75 cm de alto»
+            # deja la primera medida sin unidad: no extrapolar la segunda.
+            unidad_final = re.search(
+                r"\b(?:ancho|anchura|alto|altura|profundo|profundidad|fondo|"
+                r"largo|longitud|diametro|diámetro)\s+"
+                r"(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\s*$",
+                ordered[-1][1].text,
+                re.I,
+            )
+            if unidad_final and re.fullmatch(r"[\s,y]+", remainder, re.I):
                 unit = ordered[-1][0].unit
                 for d, _ in ordered[:-1]:
                     d.unit = unit
