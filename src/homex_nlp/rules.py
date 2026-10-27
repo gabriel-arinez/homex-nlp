@@ -30,6 +30,9 @@ PRODUCTS = (
     "ropero",
     "closet",
     "cajonera",
+    "gavetero",
+    "gabetero",
+    "atril",
     "vitrina",
     "sillón",
     "sillones",
@@ -124,7 +127,13 @@ def find_products(text: str) -> list[Match]:
         r"(?:\s+para\s+(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s+personas?)?",
         re.I,
     )
-    especificos = [Match(m.start(), m.end(), m.group(), "PRODUCTO") for m in reunion.finditer(text)]
+    # Variante ASR contextual: «escritor ejecutivo», no «escritor» aislado.
+    ejecutivo_asr = re.compile(r"\bescritor(?:es)?\s+ejecutivos?\b", re.I)
+    especificos = [
+        Match(m.start(), m.end(), m.group(), "PRODUCTO")
+        for patron in (reunion, ejecutivo_asr)
+        for m in patron.finditer(text)
+    ]
     generales = [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")
         for m in pattern.finditer(text)
@@ -201,6 +210,17 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value and value > 0:
             return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
+    # «se cotiza una sola mesa» declara una unidad, no un segundo producto.
+    # Aceptar únicamente el mismo tipo principal, sin extrapolar cantidades.
+    if main.text.casefold().startswith("mesa"):
+        una_sola = re.search(
+            r"\b(?:se\s+cotiza|secotiza)\s+(una)\s+sola\s+mesa\b",
+            text[main.end :],
+            re.I,
+        )
+        if una_sola:
+            start = main.end + una_sola.start(1)
+            return Match(start, start + 3, text[start : start + 3], "CANTIDAD", 1)
     return _cantidad_comercial_pospuesta(text, main)
 
 
@@ -251,15 +271,16 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
-        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario)"
-        r"\s*(?:(?:es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
+        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario|"
+        r"presionitario|presunitario|prese\s+unitario)"
+        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
     total = primero_aplicable(
-        r"\b(?:precio\s+total|total|monto(?:\s+total)?)"
+        r"\b(?:precio\s+total(?:\s+negociado)?|total(?:\s+negociado)?|monto(?:\s+total)?)"
         r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
-        r"\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b"
     )
     unit = unit or declared_unit
     chosen = unit or total
