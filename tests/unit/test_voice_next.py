@@ -132,3 +132,9 @@ def test_explicit_component_axis_is_not_overall_dimension():
     height = next(d for d in result.item_proposal.dimensions if d.axis == "alto")
     assert depth.component_ref == result.item_proposal.components[0].component_id
     assert height.component_ref is None
+
+
+def test_negative_restriction_preserves_existing_observation():
+    result = extract("Un estante color a elección, sin puertas pero con dos repisas")
+    assert "color a elección" in result.item_proposal.observations
+    assert "sin puertas" in result.item_proposal.observations

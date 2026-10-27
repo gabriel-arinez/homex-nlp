@@ -159,7 +159,9 @@ def completar_relaciones(item, candidates, text, warnings):
         )
     ]
     if restricciones:
-        item.observations = "; ".join(dict.fromkeys(restricciones))
+        item.observations = "; ".join(
+            dict.fromkeys(filter(None, [item.observations, *restricciones]))
+        )
 
     def cantidad_anterior(pieza):
         comienzo = max(0, pieza.start() - 20)
