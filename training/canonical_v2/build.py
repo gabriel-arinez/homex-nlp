@@ -54,7 +54,9 @@ def documentary(items, excluded):
             title
             and len(title[0].split()) <= 12
             and not re.match(r"\d", title[0])
-            and not re.search(r"precio|tamaño|características|materiales|\d+\s*mm\b", title[0], re.I)
+            and not re.search(
+                r"precio|tamaño|características|materiales|\d+\s*mm\b", title[0], re.I
+            )
         ):
             literal = title[0].strip()
             if len(literal) > 3:
