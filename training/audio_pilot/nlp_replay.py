@@ -14,9 +14,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-from training.benchmark_campo.pipeline import write_private
 from training.audio_pilot.dataset import IDS, PilotError
 from training.audio_pilot.runner import load_run, private_directory
+from training.benchmark_campo.pipeline import write_private
 
 EXPECTED_NLP_COMMIT = "0e3d8a77ce8ba990114317835055ade038af3e9b"
 
