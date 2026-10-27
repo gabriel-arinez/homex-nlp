@@ -166,7 +166,18 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     # «una pieza de vidrio», «dos piezas para el tablero»: componentes, no
     # líneas comerciales. No consumirlas para inferir importes.
     if re.match(r"\s+(?:de|del|para)\b", despues, re.I):
-        return None
+        # «dos unidades de 1.50 metros de ancho» declara cantidad
+        # comercial seguida de la dimensión del mismo mueble.
+        # «dos piezas de vidrio» y «dos unidades de 18 mm» no.
+        dimension_del_mueble = re.match(
+            r"\s+de\s+\d+(?:[.,]\d+)?\s*"
+            r"(?:m(?:etros?)?|cm|cent[ií]metros?)\s+"
+            r"de\s+(?:ancho|alto|largo|profundidad|fondo)\b",
+            despues,
+            re.I,
+        )
+        if not dimension_del_mueble:
+            return None
     # Una rectificación posterior de la misma magnitud exige arbitraje;
     # nunca conservar por defecto la primera cifra como comercial.
     if re.match(
@@ -267,7 +278,7 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
         )
 
     unit = primero_aplicable(
-        r"\b(?:a\s+|por\s+)?([\d.,]+)\s*(?:" + moneda + r"\s*)?"
+        r"\b(?:a\s+|por\s+)?(\d[\d.,]*)\s*(?:" + moneda + r"\s*)?"
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
@@ -500,9 +511,17 @@ def find_measurements(text: str, label: str) -> list[Match]:
     }
     axis = "(?:" + axes.get(label, label) + ")"
     unit = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
+    # «profundidad de cubierta de 0.60 metros» es una medida explícita.
+    # No aceptar calificadores abiertos ni extrapolar a otros ejes.
+    axis_prefix = (
+        r"\s*(?:de\s+(?:cubierta|tablero)\s+)?(?:de\s+)?(?:total\s+)?"
+        if label == "profundidad"
+        else r"\s*(?:de\s+)?(?:total\s+)?"
+    )
     pattern = re.compile(
         axis
-        + r"\s*(?:de\s+)?(?:total\s+)?(\d+(?:[.,]\d+)*)\s*("
+        + axis_prefix
+        + r"(\d+(?:[.,]\d+)*)\s*("
         + unit
         + r")?|"
         + r"(\d+(?:[.,]\d+)*)\s*("
