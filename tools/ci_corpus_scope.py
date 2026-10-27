@@ -12,6 +12,10 @@ def corpus_only(paths):
         "tests/training/test_corpus_v2_rc2.py",
         "tools/ci_corpus_scope.py",
         "training/audio_pilot/__init__.py",
+        "training/audio_pilot/human.py",
+        "training/audio_pilot/human_cli.py",
+        "training/audio_pilot/HUMAN_GOLD_WER.md",
+        "tests/training/test_human_gold.py",
         "training/audio_pilot/dataset.py",
         "training/audio_pilot/asr.py",
         "training/audio_pilot/runner.py",
@@ -86,6 +90,7 @@ def changed_paths(event, head="HEAD"):
                 "0154ecba0a53d1a7f3cca4ef10a6cf78cc2ef317",
                 "b27edfa522f08c4621d31113b14295ece08e2109",
                 "9b2d57d145c09d6ac354ee3d8ecef4f294db94ee",
+                "7ba61ea3447174dc9d373494209cb5edcc1261cb",
             }:
                 return ["__UNKNOWN_NEW_BRANCH_RANGE_REQUIRES_HISTORICAL_CI__"]
     return subprocess.check_output(

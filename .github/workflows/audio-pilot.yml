@@ -4,12 +4,14 @@ on:
     paths:
       - 'training/audio_pilot/**'
       - 'tests/training/test_audio_pilot.py'
+      - 'tests/training/test_human_gold.py'
       - 'tools/ci_corpus_scope.py'
       - '.github/workflows/audio-pilot.yml'
   pull_request:
     paths:
       - 'training/audio_pilot/**'
       - 'tests/training/test_audio_pilot.py'
+      - 'tests/training/test_human_gold.py'
       - 'tools/ci_corpus_scope.py'
       - '.github/workflows/audio-pilot.yml'
 permissions:

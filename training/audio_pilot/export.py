@@ -9,9 +9,10 @@ from .dataset import IDS, PilotError
 from .runner import load_run
 
 
-def export_batch(directory, declarations, annotations=None):
+def export_batch(directory, declarations, annotations=None, *, synthetic=False):
     run = load_run(directory)
-    if run["input"]["source_type"] != "PILOTO_REAL_DIAGNOSTICO_CONOCIDO":
+    expected = "SINTETICO_SOLO_PRUEBA" if synthetic else "PILOTO_REAL_DIAGNOSTICO_CONOCIDO"
+    if run["input"]["source_type"] != expected:
         raise PilotError("EXPORT_REQUIRES_REAL_RUN_NOT_SYNTHETIC_FIXTURE")
     if any(r["status"] != "OK" for r in run["records"]):
         raise PilotError("EXPORT_REQUIRES_COMPLETE_ASR_RUN")
@@ -41,8 +42,8 @@ def export_batch(directory, declarations, annotations=None):
                 "batch_id": declared["batch_id"],
                 "session_id": "AUDIO-" + case,
                 "case_id": "PILOTO-" + case,
-                "source_type": "ASR_REAL",
-                "capture_mode": "offline_audio",
+                "source_type": "SINTETICO_PRUEBA" if synthetic else "ASR_REAL",
+                "capture_mode": "synthetic_fixture" if synthetic else "offline_audio",
                 "consent": people[case]["consent"],
                 "provenance": {
                     "source_id": "WAV-" + case,
