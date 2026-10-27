@@ -4,7 +4,7 @@
 
 El PR #26 produce `run.json` privado a partir de los 20 WAV reales y reutiliza
 el benchmark #23. El PR #25, commit exacto
-`eae7b003cc2932a21823efb17d1c32ec07e94ecc`, implementa el
+`7b7bea6f0fca8ca4e305537ef86da3010c2071f8`, implementa el
 correctivo determinístico v13 de productos, repeticiones, precios y anomalías observadas en audios 02/05.
 Esta herramienta une **las salidas ASR ya obtenidas** y ese motor NLP,
 sin transcribir de nuevo, sin hacer merge, sin instalar otro wheel, sin
@@ -32,7 +32,7 @@ git -C "$HOME/HOMEX/homex-nlp" worktree add --detach \
 
 git -C "$HOME/HOMEX/homex-nlp" worktree add --detach \
   "$HOME/Descargas/homex-piloto-nlp-pr25-fijado" \
-  eae7b003cc2932a21823efb17d1c32ec07e94ecc
+  7b7bea6f0fca8ca4e305537ef86da3010c2071f8
 
 cd "$HOME/Descargas/homex-piloto-asr-nlp-pr27"
 uv sync --locked --extra dev
@@ -54,7 +54,7 @@ cd "$HOME/Descargas/homex-piloto-asr-nlp-pr27"
 uv run --locked --extra dev python -m training.audio_pilot.nlp_replay \
   --asr-run-dir "/RUTA/PRIVADA/CORRIDA_ASR_PR26" \
   --nlp-source-dir "$HOME/Descargas/homex-piloto-nlp-pr25-fijado/src" \
-  --expected-nlp-commit eae7b003cc2932a21823efb17d1c32ec07e94ecc \
+  --expected-nlp-commit 7b7bea6f0fca8ca4e305537ef86da3010c2071f8 \
   --currency BOB \
   --output-dir "$HOME/Descargas/homex-piloto-integracion-20-$(date +%Y%m%d-%H%M%S)"
 ```
