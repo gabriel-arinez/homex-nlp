@@ -11,6 +11,11 @@ from decimal import Decimal
 from training.integral_v2.numbers import folded, measurement
 
 
+def lexical_name(value):
+    """Identity is lexical even if a bad prediction names a piece '47 mm'."""
+    return " ".join(folded(str(value)).split())
+
+
 def normalized_value(value):
     if isinstance(value, str):
         try:
@@ -190,19 +195,19 @@ def fields(expected):
             )
     tech = expected.get("especificacion", {}).get("datos_tecnicos", {})
     groups = {g["uid"]: g["nombre"] for g in tech.get("conjuntos", [])}
-    names = Counter(normalized_value(c["nombre"]) for c in tech.get("componentes", []))
+    names = Counter(lexical_name(c["nombre"]) for c in tech.get("componentes", []))
     for i, component in enumerate(tech.get("componentes", [])):
         # Stable semantic identity ignores array ordering and generated IDs; groups
         # disambiguate repeated names and are also scored as explicit relations.
-        name = normalized_value(component["nombre"])
+        name = lexical_name(component["nombre"])
         scope = "COMP:" + name
         if names[name] > 1:
-            scope += ":GROUP:" + normalized_value(
+            scope += ":GROUP:" + lexical_name(
                 groups.get(component.get("conjunto_uid"), "SIN_GRUPO")
             )
         output[scope, "nombre"] = name
         if component.get("conjunto_uid"):
-            output[scope, "conjunto"] = normalized_value(groups[component["conjunto_uid"]])
+            output[scope, "conjunto"] = lexical_name(groups[component["conjunto_uid"]])
         for key in ("material", "color", "acabado", "espesor", "cantidad_interna"):
             if component.get(key) is not None:
                 output[scope, key] = normalized_value(component[key])
@@ -221,7 +226,7 @@ def fields(expected):
             target = ("ITEM", key + ":" + str(i))
         output[target] = normalized_value(a["valor"])
     for a in tech.get("accesorios", []):
-        output["ACCESSORY:" + normalized_value(a), "nombre"] = normalized_value(a)
+        output["ACCESSORY:" + lexical_name(a), "nombre"] = lexical_name(a)
     return output
 
 
