@@ -7,8 +7,11 @@ reescribir la procedencia previa por registro. No equivale a audio real revisado
 
 Offsets Unicode Python `[start,end)` sobre texto literal inmutable; etiquetas
 permitidas en `data/manifests/prf04_labels.json`. `COMPONENTE` identifica piezas;
-`CANTIDAD` representa cantidad comercial, `CANTIDAD_INTERNA` una cantidad asociada
-a una pieza. Material, color, acabado y espesor no se propagan entre ámbitos.
+`CANTIDAD` representa exclusivamente cantidad comercial. La cantidad interna
+se conserva en la referencia semántica como `cantidad_interna`, asociada a una
+pieza: `CANTIDAD_INTERNA` no pertenece a las 24 etiquetas NER del manifiesto.
+El DTO de candidatos puede transportarla como evidencia auxiliar sin ampliar
+el esquema de entrenamiento. Material, color, acabado y espesor no se propagan entre ámbitos.
 `PRECIO_TOTAL` y `PRECIO_UNITARIO` conservan significados distintos.
 
 Las referencias de `data/expected/` tienen ID y hash de fuente. Se generan desde
