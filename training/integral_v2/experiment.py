@@ -129,6 +129,7 @@ def evaluate(bundle, run):
                 "negatives": 0,
                 "false_proposals": 0,
                 "contract_failures": 0,
+                "reconciliation_failures": 0,
                 "commercial_n": 0,
             }
             for m in ("M-A", "M-A2-price", "M-A2-quantity", "M-A2-dimensions", "M-B", "M-C")
@@ -152,9 +153,11 @@ def evaluate(bundle, run):
                 failure = True
             b_ms = (time.perf_counter() - start) * 1000
             start = time.perf_counter()
+            reconciliation_failure = False
             try:
                 cr = hybrid(ar, br, b.model_version)
             except (ValueError, TypeError):
+                reconciliation_failure = True
                 cr = ar.model_copy(deep=True)
             c_ms = a_ms + b_ms + (time.perf_counter() - start) * 1000
             results = {"M-A": ar, "M-B": br, "M-C": cr}
@@ -168,6 +171,7 @@ def evaluate(bundle, run):
                 s["latencies"].append({"M-A": a_ms, "M-B": b_ms, "M-C": c_ms}.get(name, a_ms))
                 s["raw_predictions"].append(evidence(serialized, LABELS)[0] if serialized else [])
                 s["contract_failures"] += name == "M-B" and failure
+                s["reconciliation_failures"] += name == "M-C" and reconciliation_failure
                 # Documentary chair/floor data is evaluated for NER. A furniture
                 # voice proposal for those families remains outside this task.
                 if row["category"] != "muebles_pedido":
@@ -259,6 +263,7 @@ def evaluate(bundle, run):
                 "negatives": s["negatives"],
                 "false_proposals": s["false_proposals"],
                 "contract_failures": s["contract_failures"],
+                "reconciliation_failures": s["reconciliation_failures"],
                 "ner_accepted": base.ner_metrics(subset, s["raw_predictions"]),
                 "families": {k: dict(v) for k, v in s["families"].items()},
                 "latency_ms": {
@@ -380,6 +385,8 @@ def run_all(bundle, output):
                                 "wilson95",
                                 "false_proposals",
                                 "contract_failures",
+                                "reconciliation_failures",
+                                "critical_errors",
                                 "latency_ms",
                             )
                         }
