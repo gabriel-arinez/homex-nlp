@@ -1,6 +1,6 @@
 # Corpus V2 offline: fuente canónica y experimentos
 
-Versión `2.0.0-offline.3`, base NLP V15 `81d70395d2bb6cfa4757eaaacb95c6179feae332`.
+Generador versión `2.0.0-offline.4`, base NLP V15 `81d70395d2bb6cfa4757eaaacb95c6179feae332`.
 El runtime comercial continúa `homex-nlp==0.1.15`, `RULES_ONLY`. Esta entrega
 no instala modelos ni cambia contratos, backend, frontend, bases o workers.
 
@@ -14,7 +14,7 @@ segunda versión RC1/RC2 activa en este checkout.
 
 ## Datos realmente disponibles
 
-339 observaciones: 273 **extractos literales únicos** de documentos HOMEX auténticos
+La corrida **histórica `offline.3`** obtuvo 339 observaciones: 273 **extractos literales únicos** de documentos HOMEX auténticos
 y 66 casos sintéticos RC2 (incluyen los 12 casos base y 40 orales de RC1, más
 14 escenarios RC2). No se suman nuevamente las entregas anteriores.
 312 train / 27 dev; las 24 etiquetas históricas se conservan. El corpus contiene
@@ -101,6 +101,35 @@ Latencias son solo NLP con `perf_counter`, primera llamada y warm p50/p95;
 el híbrido suma A+B+conciliación. Las ablaciones no tienen timing independiente.
 RAM es pico del proceso de evaluación nuevo, incluidos imports; no se atribuye
 como RAM marginal del modelo. No se mide ASR, colas, proyección o interacción UI.
+
+## Correctivos posteriores a la corrida offline.3
+
+El generador offline.4 corrige la extracción de cantidades comerciales **enteras**
+(«25 piezas») y sus unidades, sin convertir números internos de componentes
+(«2 tomacorrientes») en cantidad comercial. Conserva los formatos documentales
+«6,00 Pza.», «52,00 Mts.2» y «12 m²». Se añadieron pruebas de regresión.
+
+El nuevo archivo **privado** `full_item_review.jsonl` conserva el texto literal
+completo de cada bloque original junto con los fragmentos ya reconocidos y sus
+offsets referidos al ítem íntegro; incluye incluso bloques en cuarentena. Cada
+expediente lleva `supervised=false`, `eligible_for_training=false` y
+`commercial_expected=null`. **No se entrena con spans parciales de una
+descripción completa**, porque eso convertiría entidades reales no anotadas en
+falsos negativos.
+
+Las cifras de 339 registros, métricas D1–D4W y hashes en
+`INFORME_A_J.md`, `AUDIT.json` y `RESULTS.json` describen **solo la
+corrida offline.3**: NO corresponden automáticamente al generador offline.4.
+Se debe reconstruir el bundle privado desde los tres originales, validar
+sus nuevos hashes y repetir D2/D3/D4/D4W antes de comparar resultados.
+El contenido privado de `~/Descargas/homex-v2-final-evidence/` no está
+disponible para los controles públicos de CI, por lo que no se deben
+declarar completados esos ensayos a partir de las suites sintéticas.
+
+Para promover ítems completos a entrenamiento se requiere terminar de revisar
+entidades y relaciones por pieza, los estados ambiguos y el contrato comercial.
+La construcción de expedientes es **preparación verificable de esa revisión**,
+no homologación inventada ni cierre del Plan Maestro.
 
 ## Recuperación selectiva y seguridad
 
