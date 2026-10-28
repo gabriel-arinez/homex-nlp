@@ -350,7 +350,6 @@ def test_full_item_review_fails_closed_on_tampered_offsets():
         full_item_review([source], set(), rows)
 
 
-
 def test_private_complete_item_review_build_is_deterministic(tmp_path):
     from training.canonical_v2.build import build
 
@@ -397,6 +396,4 @@ def test_private_complete_item_review_build_is_deterministic(tmp_path):
         )
         outputs.append(output)
     for path in ("records.jsonl", "expected.jsonl", "full_item_review.jsonl", "manifest.json"):
-        assert digest((outputs[0] / path).read_bytes()) == digest(
-            (outputs[1] / path).read_bytes()
-        )
+        assert digest((outputs[0] / path).read_bytes()) == digest((outputs[1] / path).read_bytes())
