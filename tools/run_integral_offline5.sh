@@ -45,7 +45,7 @@ if bash -euo pipefail -s -- "$REPO" "$RUN" "$SCANNER" "$@" > "$RUN/execution.log
     make check docbin-check distribution-check
     uv run --locked --extra dev pytest tests/operations/test_f10_runtime.py -q
     uv audit --locked
-    "$SCANNER" git --no-banner --redact
+    "$SCANNER" git --log-opts="origin/main..HEAD" --no-banner --redact
     uv run --locked --extra dev --extra asr python -m training.integral_v2.experiment run \
         --bundle "$RUN/corpus" --output "$RUN/models"
     uv run --locked --extra dev --extra asr python -m training.integral_v2.validate "$RUN/corpus" --training

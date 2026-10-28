@@ -24,7 +24,7 @@ from training.integral_v2.review import VERSION, seal, validate_review
 from training.integral_v2.tokenizer import create_nlp
 
 
-def partition(items, links=()):
+def partition(items, links=(), *, coverage_items=()):
     """Join numerical/template variants before hashing whole groups into splits.
 
     This is an internal holdout of known documents, not external source
@@ -80,6 +80,38 @@ def partition(items, links=()):
         split = "test" if bucket == 0 else "dev" if bucket == 1 else "train"
         for key in members:
             assignment[key] = {"leakage_group": group, "split": split}
+    # Coverage planning uses annotations only, never predictions or scores.
+    # Move whole rare-label groups into train without emptying dev or holdout.
+    labels = {entry[2] for item in coverage_items for entry in item.get("entities", [])}
+    eligible = {item["id"]: item for item in coverage_items}
+    for label in sorted(labels):
+        carrying = {
+            assignment[key]["leakage_group"]
+            for key, item in eligible.items()
+            if any(entity[2] == label for entity in item.get("entities", []))
+        }
+        if any(
+            value["split"] == "train" and value["leakage_group"] in carrying
+            for value in assignment.values()
+        ):
+            continue
+        candidates = []
+        for group in carrying:
+            members = [key for key, value in assignment.items() if value["leakage_group"] == group]
+            split = assignment[members[0]]["split"]
+            others = {
+                value["leakage_group"]
+                for value in assignment.values()
+                if value["split"] == split and value["leakage_group"] != group
+            }
+            if others:
+                candidates.append((len(members), digest(group), group))
+        if not candidates:
+            raise ValueError("RARE_LABEL_CANNOT_BE_ISOLATED_WITH_TRAIN_SUPPORT")
+        chosen = min(candidates)[2]
+        for value in assignment.values():
+            if value["leakage_group"] == chosen:
+                value["split"] = "train"
     return assignment, edges
 
 
@@ -116,7 +148,12 @@ def build(sources, adjudications, certificates, output, oral_reviews=None):
         validate_review(entry["item"], entry["review"], entry["certificate"])
     partition_items = [item | {"entities": by_id[item["id"]]["entities"]} for item in items]
     partition_items += [e["item"] | {"entities": e["review"]["entities"]} for e in oral]
-    assignments, edges = partition(partition_items, links)
+    coverage_items = [
+        item
+        for item in partition_items
+        if item["id"] not in by_id or by_id[item["id"]]["decision"] == "APTO"
+    ]
+    assignments, edges = partition(partition_items, links, coverage_items=coverage_items)
     nlp = create_nlp()
     rows, refs, ledger = [], [], []
     bins = {s: DocBin(store_user_data=True) for s in ("train", "dev", "test")}
@@ -272,6 +309,10 @@ def build(sources, adjudications, certificates, output, oral_reviews=None):
         "origins": dict(Counter(r["origin"] for r in rows)),
         "families": dict(Counter(r["category"] for r in rows)),
         "labels": dict(Counter(e[2] for r in rows for e in r["entities"])),
+        "train_labels": dict(
+            Counter(e[2] for r in rows if r["split"] == "train" for e in r["entities"])
+        ),
+        "split_policy": "group hash plus deterministic rare-label train coverage; no prediction-based assignment",
         "splits": dict(Counter(r["split"] for r in rows)),
         "independence": "HOLDOUT_INTERNO_DE_DOCUMENTOS_CONOCIDOS",
         "human_gold": False,

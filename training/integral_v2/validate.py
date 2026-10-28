@@ -73,6 +73,8 @@ def validate_bundle(bundle, *, training=False):
         for parent in [entry["parent_id"], *entry.get("additional_parent_ids", [])]:
             if assignments[entry["item"]["id"]] != assignments[parent]:
                 raise ValueError("PARAPHRASE_LEAKAGE")
+    if training and set(manifest["labels"]) - set(manifest.get("train_labels", {})):
+        raise ValueError("TRAIN_LABEL_COVERAGE_GAP")
     if training and not manifest["training_ready"]:
         raise ValueError("TRAINING_GATE_NOT_READY")
     return {

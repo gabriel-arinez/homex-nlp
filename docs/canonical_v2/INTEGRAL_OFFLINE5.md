@@ -31,7 +31,8 @@ resuelven por proximidad. Se conservan las 24 etiquetas efectivas; cantidades
 internas y conjuntos se transportan como evidencia auxiliar del DTO existente.
 
 El generador agrupa padres, múltiples padres, duplicados numéricos y plantillas
-antes de asignar splits. Compara texto normalizado (umbral 0,80) y esqueletos de
+antes de asignar splits. La cobertura de etiquetas raras se asegura moviendo
+grupos completos a train, antes de observar modelos o resultados. Compara texto normalizado (umbral 0,80) y esqueletos de
 anotación largos (0,85), uniendo transitivamente sus familias. El holdout se llama
 `HOLDOUT_INTERNO_DE_DOCUMENTOS_CONOCIDOS`: no es externo, ciego ni gold humano.
 Las 27 observaciones sintéticas históricas, incluidos sus 16 muebles, se evalúan
@@ -66,7 +67,8 @@ bash tools/run_integral_offline5.sh \
 
 Ejecutar desde el worktree autorizado limpio. El runner crea una salida única en
 `~/Descargas/`, restringe permisos, compila dos veces, compara hashes, valida,
-reimporta DocBin, ejecuta checks/auditorías, entrena y evalúa. Una falla detiene el
+reimporta DocBin, ejecuta checks/auditorías, entrena y evalúa. El escaneo Git cubre todos los
+commits del PR desde `origin/main`, sin nuevas exclusiones de secretos. Una falla detiene el
 proceso y devuelve FAIL: el cuerpo corre en otro Bash con `errexit`, evitando que
 un condicional externo suprima ese control. Rechaza destinos existentes; no
 sobrescribe offline.3/4 ni el borrador anterior. Reconstruir requiere los tres
