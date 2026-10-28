@@ -81,6 +81,16 @@ def project(result):
         for g in groups.values()
         if any(c.get("conjunto_uid") == g["uid"] for c in components.values())
     ]
+    accepted_groups = {g["uid"] for g in technical["conjuntos"]}
+    for component in technical["componentes"]:
+        if (
+            component.get("conjunto_uid") is not None
+            and component["conjunto_uid"] not in accepted_groups
+        ):
+            component.pop("conjunto_uid")
+            technical["advertencias"].append(
+                "Relación de conjunto sin evidencia aceptada; no proyectada."
+            )
     for key in ("dimensions", "thicknesses"):
         for m in item[key]:
             target = components.get(m.get("component_ref"), general)
