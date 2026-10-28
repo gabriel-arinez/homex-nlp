@@ -82,7 +82,6 @@ un condicional externo suprima ese control. Rechaza destinos existentes; no
 sobrescribe offline.3/4 ni el borrador anterior. Reconstruir requiere los tres
 originales y los tres archivos privados de anotación. No subirlos a Git/CI.
 
-Los resultados cuantitativos de esta corrida se publicarán como agregados,
-separados de las métricas históricas. No se atribuyen resultados a entrenamientos
-que todavía no hayan concluido. La homologación humana, voz real/WER y una nueva
+Los diez entrenamientos y evaluaciones finalizaron. Los [resultados agregados](FINAL_OFFLINE5_1.md)
+se publican separados de las métricas históricas; sus pesos y ejemplos permanecen privados. La homologación humana, voz real/WER y una nueva
 fuente externa son controles distintos y no se afirman por esta ejecución técnica.

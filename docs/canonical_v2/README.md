@@ -1,3 +1,9 @@
+> **Versión activa del cierre integral:** `2.0.0-offline.5.1`, constructor
+> `training.integral_v2.build`. Ver [resultados nuevos](FINAL_OFFLINE5_1.md) y
+> [reproducción con seis entradas privadas](INTEGRAL_OFFLINE5.md).
+> El contenido siguiente conserva el contexto histórico offline.3/4; sus
+> extractos y métricas no representan la versión integral actual.
+
 # Corpus V2 offline: fuente canónica y experimentos
 
 Generador versión `2.0.0-offline.4`, base NLP V15 `81d70395d2bb6cfa4757eaaacb95c6179feae332`.
