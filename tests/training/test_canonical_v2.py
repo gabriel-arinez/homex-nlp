@@ -271,3 +271,81 @@ def test_catalog_attributes_stop_before_another_component_or_system():
     attributes = [r["text"] for r in rows if r["phenomena"] == ["catalog_attribute"]]
     assert attributes == ["apoya brazos regulable de goma", "apoyo lumbar regulable"]
     assert validate(rows, refs)["valid"]
+
+
+@pytest.mark.parametrize(
+    "literal,expected_quantity,expected_unit",
+    [
+        ("ESCRITORIO\n25 piezas. precio unitario 2200,00. total 55000,00", "25", "PIEZA"),
+        ("MESA\n2 piezas, precio unitario 7300, total 14600", "2", "PIEZA"),
+        ("VELADOR\n6,00 Pza. precio unitario 750,00. total 4500,00", "6.00", "PIEZA"),
+        ("ZOCALO\n60,00 barra precio unitario 50,00. total 3000,00", "60.00", "BARRA"),
+        ("PISO\n52,00 Mts.2 precio unitario 125,00. total 6500,00", "52.00", "M2"),
+        ("PISO\n12 m² precio unitario 135,00. total 1620,00", "12", "M2"),
+    ],
+)
+def test_documentary_actual_commercial_quantities(literal, expected_quantity, expected_unit):
+    rows, refs, _ = documentary([item(literal)], set())
+    quantities = [
+        (ref["comercial"]["cantidad"], ref["comercial"]["unidad_codigo"])
+        for ref in refs
+        if ref["comercial"]["cantidad"] is not None
+    ]
+    assert quantities == [(expected_quantity, expected_unit)]
+    assert validate(rows, refs)["valid"]
+
+
+def test_documentary_internal_piece_counts_not_sold_quantities():
+    source = item(
+        "MESA\nMesa para diez personas con 2 tomacorrientes y 3 cajones. "
+        "Patas de melamina de 18mm."
+    )
+    rows, refs, _ = documentary([source], set())
+    assert rows
+    assert not any(
+        label == "CANTIDAD" for row in rows for _, _, label in row["entities"]
+    )
+    assert all(ref["comercial"]["cantidad"] is None for ref in refs)
+    assert validate(rows, refs)["valid"]
+
+
+def test_full_item_review_never_promotes_partial_source_to_gold():
+    from training.canonical_v2.full_item_review import full_item_review
+
+    first = item(
+        "MESA CIRCULAR\n1,00 Pza. Mesón de melamina de 25mm. "
+        "Patas de melamina de 18mm. precio unitario 1500,00. total 1500,00."
+    )
+    second = dict(first, id="second", char_start=1000)
+    excluded = dict(item("MUEBLE\nAltura=40m"), id="excluded")
+    original = [first, second, excluded]
+    rows, _, _ = documentary(original, {"excluded"})
+    review = full_item_review(original, {"excluded"}, rows)
+    assert len(review) == 3
+    assert review[0]["text"] == first["item_text"]
+    assert review[0]["fragments"]
+    assert review[1]["fragments"]
+    for entry in review:
+        assert entry["supervised"] is False
+        assert entry["eligible_for_training"] is False
+        assert entry["human_reviewed"] is False
+        assert entry["commercial_expected"] is None
+        assert entry["annotation_scope"] == "INCOMPLETE_FULL_ITEM"
+        for fragment in entry["fragments"]:
+            assert digest(entry["text"][fragment["start"]:fragment["end"]]) == fragment[
+                "text_sha256"
+            ]
+            for a, b, _ in fragment["entities"]:
+                assert 0 <= a < b <= len(entry["text"])
+    assert review[2]["review_state"] == "QUARANTINE"
+    assert review[2]["fragments"] == []
+
+
+def test_full_item_review_fails_closed_on_tampered_offsets():
+    from training.canonical_v2.full_item_review import full_item_review
+
+    source = item("MESA\n1,00 Pza. precio unitario 500,00")
+    rows, _, _ = documentary([source], set())
+    rows[0]["source_ref"]["char_start"] += 1
+    with pytest.raises(ValueError, match="FULL_ITEM_REVIEW_ABSOLUTE_OFFSET_MISMATCH"):
+        full_item_review([source], set(), rows)
