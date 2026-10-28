@@ -399,7 +399,6 @@ def test_private_complete_item_review_build_is_deterministic(tmp_path):
         assert digest((outputs[0] / path).read_bytes()) == digest((outputs[1] / path).read_bytes())
 
 
-
 @pytest.mark.parametrize(
     "mutation,error",
     [
