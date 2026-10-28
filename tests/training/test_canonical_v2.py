@@ -397,3 +397,35 @@ def test_private_complete_item_review_build_is_deterministic(tmp_path):
         outputs.append(output)
     for path in ("records.jsonl", "expected.jsonl", "full_item_review.jsonl", "manifest.json"):
         assert digest((outputs[0] / path).read_bytes()) == digest((outputs[1] / path).read_bytes())
+
+
+
+@pytest.mark.parametrize(
+    "mutation,error",
+    [
+        ("duplicate", "FULL_ITEM_REVIEW_DUPLICATE_ITEM_ID"),
+        ("orphan", "FULL_ITEM_REVIEW_ORPHAN_FRAGMENT"),
+        ("quarantine", "FULL_ITEM_REVIEW_UNKNOWN_QUARANTINE_ID"),
+        ("source_bounds", "FULL_ITEM_REVIEW_SOURCE_BOUNDS_MISMATCH"),
+        ("fragment_bounds", "FULL_ITEM_REVIEW_ABSOLUTE_OFFSET_MISMATCH"),
+    ],
+)
+def test_full_item_review_rejects_invalid_source_inventory(mutation, error):
+    from training.canonical_v2.full_item_review import full_item_review
+
+    source = item("MESA\n1,00 Pza. precio unitario 500,00")
+    rows, _, _ = documentary([source], set())
+    items = [source]
+    exclusions = set()
+    if mutation == "duplicate":
+        items = [source, deepcopy(source)]
+    elif mutation == "orphan":
+        rows[0]["source_ref"]["source_item_id"] = "missing-item"
+    elif mutation == "quarantine":
+        exclusions = {"missing-item"}
+    elif mutation == "source_bounds":
+        source["char_end"] += 1
+    elif mutation == "fragment_bounds":
+        rows[0]["source_ref"]["char_end"] += 1
+    with pytest.raises(ValueError, match=error):
+        full_item_review(items, exclusions, rows)
