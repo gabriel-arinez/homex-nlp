@@ -65,7 +65,9 @@ def full_item_review(items, excluded, excerpts):
                 "text_sha256": digest(text),
                 "fragments": fragments,
                 "fragments_count": len(fragments),
-                "review_state": "QUARANTINE" if item["id"] in excluded else "REQUIRES_FULL_ITEM_REVIEW",
+                "review_state": "QUARANTINE"
+                if item["id"] in excluded
+                else "REQUIRES_FULL_ITEM_REVIEW",
                 "annotation_scope": "INCOMPLETE_FULL_ITEM",
                 "human_reviewed": False,
                 "supervised": False,
