@@ -19,7 +19,7 @@ from training.canonical_v2.private_ingest import ingest
 from training.canonical_v2.validate import ROOT, normalized, validate
 
 FAMILIES = ("muebles_pedido", "sillas", "pisos_flotantes", "otros_productos")
-VERSION = "2.0.0-offline.3"
+VERSION = "2.0.0-offline.4"
 
 
 def family(item):
