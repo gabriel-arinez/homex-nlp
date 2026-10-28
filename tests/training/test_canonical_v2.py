@@ -428,3 +428,9 @@ def test_full_item_review_rejects_invalid_source_inventory(mutation, error):
         rows[0]["source_ref"]["char_end"] += 1
     with pytest.raises(ValueError, match=error):
         full_item_review(items, exclusions, rows)
+
+
+def test_offline4_private_runner_bash_syntax():
+    import subprocess
+
+    subprocess.run(["bash", "-n", str(ROOT / "tools/run_canonical_offline4.sh")], check=True)
