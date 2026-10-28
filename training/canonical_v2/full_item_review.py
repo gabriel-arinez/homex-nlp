@@ -16,6 +16,11 @@ def full_item_review(items, excluded, excerpts):
     The resulting entries are NOT supervised NER examples. Every item is kept,
     including quarantined originals and entries with zero recognized fragments.
     """
+    item_ids = [item["id"] for item in items]
+    if len(item_ids) != len(set(item_ids)):
+        raise ValueError("FULL_ITEM_REVIEW_DUPLICATE_ITEM_ID")
+    if not set(excluded) <= set(item_ids):
+        raise ValueError("FULL_ITEM_REVIEW_UNKNOWN_QUARANTINE_ID")
     by_item = defaultdict(list)
     for row in excerpts:
         if row["origin"] != "DOCUMENTO_HOMEX_LITERAL":
@@ -24,9 +29,14 @@ def full_item_review(items, excluded, excerpts):
         for link in links:
             by_item[link["source_item_id"]].append((row, link))
 
+    if not set(by_item) <= set(item_ids):
+        raise ValueError("FULL_ITEM_REVIEW_ORPHAN_FRAGMENT")
+
     result = []
     for item in items:
         text = item["item_text"]
+        if item["char_end"] != item["char_start"] + len(text):
+            raise ValueError("FULL_ITEM_REVIEW_SOURCE_BOUNDS_MISMATCH")
         fragments = []
         for row, link in by_item.get(item["id"], []):
             a, b = link["item_offset"]
@@ -34,7 +44,9 @@ def full_item_review(items, excluded, excerpts):
                 raise ValueError("FULL_ITEM_REVIEW_ANCHOR_MISMATCH")
             if link["source_sha256"] != item["source_sha256"]:
                 raise ValueError("FULL_ITEM_REVIEW_SOURCE_MISMATCH")
-            if link["char_start"] != item["char_start"] + a:
+            if link["char_start"] != item["char_start"] + a or link["char_end"] != item[
+                "char_start"
+            ] + b:
                 raise ValueError("FULL_ITEM_REVIEW_ABSOLUTE_OFFSET_MISMATCH")
             entities = []
             for start, end, label in row["entities"]:
