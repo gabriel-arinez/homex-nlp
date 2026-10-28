@@ -85,7 +85,10 @@ fallbacks por error de conciliación; no se ocultan como abstenciones correctas.
 `make check docbin-check distribution-check`: **536 tests generales**, Ruff,
 esquemas y distribución. Pruebas operacionales: **14**. `uv audit --locked`:
 70 paquetes, sin vulnerabilidades conocidas. Gitleaks sobre commits del PR:
-sin hallazgos, sin añadir exclusiones. Un canario secreto inventado fue detectado
+sin hallazgos reales. Se clasifica un falso positivo nuevo de SHA del tokenizador
+y se añade únicamente su fingerprint exacto de commit/ruta/regla/línea, siguiendo
+la política existente; no se excluyen archivos ni reglas. El hash fue verificado
+contra el preflight congelado y el detector conserva su control positivo. Un canario secreto inventado fue detectado
 por el escáner externo. El escaneo histórico inicial tuvo 4094 coincidencias,
 verificadas como metadatos SHA-256 preexistentes; no se lo presenta como cero
 hallazgos históricos. El contenido privado no se publica en CI.
