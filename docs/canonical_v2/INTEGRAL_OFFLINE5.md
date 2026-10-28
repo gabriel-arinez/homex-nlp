@@ -76,7 +76,9 @@ bash tools/run_integral_offline5.sh \
 Ejecutar desde el worktree autorizado limpio. El runner crea una salida única en
 `~/Descargas/`, restringe permisos, compila dos veces, compara hashes, valida,
 reimporta DocBin, ejecuta checks/auditorías, entrena y evalúa. El escaneo Git cubre todos los
-commits del PR desde `origin/main`, sin nuevas exclusiones de secretos. Una falla detiene el
+commits del PR desde `origin/main`. Solo se clasifica por fingerprint exacto un
+SHA público del tokenizador verificado, como documentan los resultados finales;
+no se omiten archivos ni reglas de secretos. Una falla detiene el
 proceso y devuelve FAIL: el cuerpo corre en otro Bash con `errexit`, evitando que
 un condicional externo suprima ese control. Rechaza destinos existentes; no
 sobrescribe offline.3/4 ni el borrador anterior. Reconstruir requiere los tres
