@@ -348,3 +348,55 @@ def test_full_item_review_fails_closed_on_tampered_offsets():
     rows[0]["source_ref"]["char_start"] += 1
     with pytest.raises(ValueError, match="FULL_ITEM_REVIEW_ABSOLUTE_OFFSET_MISMATCH"):
         full_item_review([source], set(), rows)
+
+
+
+def test_private_complete_item_review_build_is_deterministic(tmp_path):
+    from training.canonical_v2.build import build
+
+    source_dir = tmp_path / "originals"
+    source_dir.mkdir()
+    docs = {
+        "PROFORMAS.txt": (
+            "MESA DE REUNION\n"
+            "2 piezas, precio unitario 7300,00. total 14600,00.\n"
+            "Tablero de melamina de 18mm. Mesón engrosado a 27mm.\n"
+        ),
+        "SILLAS-PISOS-OTROS.txt": (
+            "PISO FLOTANTE\n52,00 Mts.2\n"
+            "Piso flotante Aglomerado HDF de 8mm. "
+            "precio unitario 125,00. total 6500,00.\n"
+        ),
+        "inventario de sillas.txt": (
+            "SILLA COD: B15\tSilla ergonómica con apoyo lumbar.\tBs1.700,00\n"
+        ),
+    }
+    sources = []
+    for name, contents in docs.items():
+        path = source_dir / name
+        path.write_text(contents, encoding="utf-8")
+        sources.append(path)
+    outputs = []
+    for name in ("build-a", "build-b"):
+        output = tmp_path / name
+        manifest = build(output, sources)
+        assert manifest["source_items"] == 3
+        assert manifest["full_item_review_count"] == 3
+        assert manifest["full_item_training_ready"] == 0
+        assert manifest["full_item_review_pending"] == 3
+        assert manifest["full_item_quarantined"] == 0
+        full = read(output / "full_item_review.jsonl")
+        assert len(full) == 3
+        assert all(x["eligible_for_training"] is False for x in full)
+        assert all(x["text_sha256"] == digest(x["text"]) for x in full)
+        assert all(x["fragments_count"] > 0 for x in full)
+        assert (output / "validation.json").is_file()
+        assert all(
+            (output / "sources" / "originals" / doc).read_text(encoding="utf-8") == txt
+            for doc, txt in docs.items()
+        )
+        outputs.append(output)
+    for path in ("records.jsonl", "expected.jsonl", "full_item_review.jsonl", "manifest.json"):
+        assert digest((outputs[0] / path).read_bytes()) == digest(
+            (outputs[1] / path).read_bytes()
+        )
