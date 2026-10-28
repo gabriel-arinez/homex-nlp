@@ -11,6 +11,7 @@ from collections import Counter
 from copy import deepcopy
 from pathlib import Path
 
+from training.canonical_v2.full_item_review import full_item_review
 from training.canonical_v2.io import digest, dump, jsonl, private_path, protect, read
 from training.canonical_v2.literal_v1 import audit_literal
 from training.canonical_v2.patches_v1 import patches
@@ -68,21 +69,34 @@ def documentary(items, excluded):
                         "title",
                     )
                 )
-        # Quantity must be at the beginning of a physical source line, with a commercial unit.
-        for m in re.finditer(
-            r"(?m)^\s*(\d+[,.]\d+)\s+(Pza[s.]?|Pzas\.?|PIEZAS|Unidad|Juego|Mts\.2|barras?)\b",
-            text,
-            re.I,
-        ):
-            a, b = m.start(1), m.end(2)
-            found.append(
-                (
-                    a,
-                    b,
-                    [[0, m.end(1) - a, "CANTIDAD"], [m.start(2) - a, b - a, "UNIDAD_MEDIDA"]],
-                    "quantity_unit",
+        # Original quotations use both line-initial "6,00 Pza." and
+        # inline "2 piezas, precio unitario ...". Internal component counts
+        # without a commercial unit/price context must never become sold units.
+        quantity_patterns = (
+            r"(?im)^\s*(\d+(?:[,.]\d+)?)\s+"
+            r"(Pzas?|Piezas?|Unidades?|Juegos?|Mts\.?\s*2|m²|barras?)\b",
+            r"(?i)(?<![\w.,])(\d+(?:[,.]\d+)?)\s+"
+            r"(piezas?|pzas?|juegos?|unidades?|m²|barras?)"
+            r"(?=\s*[,.;]?\s*(?:precio\s+unitario|total\b))",
+        )
+        seen_quantities = set()
+        for pattern in quantity_patterns:
+            for m in re.finditer(pattern, text):
+                a, b = m.start(1), m.end(2)
+                if (a, b) in seen_quantities:
+                    continue
+                seen_quantities.add((a, b))
+                found.append(
+                    (
+                        a,
+                        b,
+                        [
+                            [0, m.end(1) - a, "CANTIDAD"],
+                            [m.start(2) - a, b - a, "UNIDAD_MEDIDA"],
+                        ],
+                        "quantity_unit",
+                    )
                 )
-            )
         for m in re.finditer(r"\b(precio unitario|total)\s+(\d+(?:[.,]\d+)*)", text, re.I):
             a, b = m.span()
             # A sentence-final dot is outside the number and source excerpt.
@@ -210,7 +224,7 @@ def documentary(items, excluded):
                 if label == "UNIDAD_MEDIDA":
                     c["unidad_codigo"] = (
                         "M2"
-                        if "Mts" in raw
+                        if re.fullmatch(r"(?i)(?:mts?\.?\s*2|m²)", raw.strip())
                         else "JUEGO"
                         if raw.casefold() == "juego"
                         else "BARRA"
@@ -283,6 +297,10 @@ def build(output, sources):
         ):
             excluded.add(item["id"])
     docs, doc_refs, raw_fragments = documentary(items, excluded)
+    # An unsupervised full-item review is kept outside Git. Fragment labels
+    # are not complete NER annotations of the surrounding quotation.
+    full_items = full_item_review(items, excluded, docs)
+    jsonl(output / "full_item_review.jsonl", full_items)
     rows = read(ROOT / "data/canonical_v2/synthetic.jsonl")
     refs = read(ROOT / "data/canonical_v2/synthetic_expected.jsonl")
     synthetic_ids = {r["id"] for r in rows}
@@ -377,6 +395,12 @@ def build(output, sources):
         source_anomalies=len(excluded),
         documentary_excerpts=len(docs),
         raw_documentary_excerpts=raw_fragments,
+        full_item_review_count=len(full_items),
+        full_item_training_ready=0,
+        full_item_review_pending=sum(
+            item["review_state"] == "REQUIRES_FULL_ITEM_REVIEW" for item in full_items
+        ),
+        full_item_quarantined=sum(item["review_state"] == "QUARANTINE" for item in full_items),
         synthetic_records=len(synthetic_ids),
         historical_records=len(matrix),
         historical_entity_corrections=sum(bool(p["operations"]) for p in overlays),
