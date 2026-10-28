@@ -118,19 +118,21 @@ def preflight(bundle):
     } | {"protocol": digest(PROTOCOL.read_bytes())}
 
 
-def train(bundle, destination, variant, seed):
+def train(
+    bundle, destination, variant, seed, *, protocol_path=None, preflight_fn=None, nlp_factory=None
+):
     private_path(destination)
     if destination.exists():
         raise ValueError("MODEL_DESTINATION_EXISTS")
-    sealed = preflight(bundle)
-    config = json.loads(PROTOCOL.read_text())
+    sealed = (preflight_fn or preflight)(bundle)
+    config = json.loads((protocol_path or PROTOCOL).read_text())
     if seed not in config["seeds"]:
         raise ValueError("UNDECLARED_SEED")
     train_rows, dev = load_data(bundle, variant)
     destination.mkdir(parents=True, mode=0o700)
     fix_random_seed(seed)
     rng = random.Random(seed)
-    nlp = spacy.blank("es")
+    nlp = nlp_factory() if nlp_factory else spacy.blank("es")
     ner = nlp.add_pipe("ner")
     for label in LABELS:
         ner.add_label(label)

@@ -73,6 +73,20 @@ def fixture():
     review["entities"][1][:2] = [start, start + 1]
     for fact in review["facts"]:
         fact["entity_refs"] = [0, 1]
+    coverage = []
+    cursor = 0
+    for a, b, _ in review["entities"]:
+        if a > cursor:
+            coverage.append(
+                {"start": cursor, "end": a, "text": text[cursor:a], "role": "REVIEWED_CONTEXT"}
+            )
+        coverage.append({"start": a, "end": b, "text": text[a:b], "role": "ENTITY"})
+        cursor = b
+    if cursor < len(text):
+        coverage.append(
+            {"start": cursor, "end": len(text), "text": text[cursor:], "role": "REVIEWED_CONTEXT"}
+        )
+    review["coverage"] = coverage
     return item, review, seal(payload(review))
 
 

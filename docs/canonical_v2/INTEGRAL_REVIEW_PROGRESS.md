@@ -1,3 +1,6 @@
+> Registro histórico del borrador `4f10480`. La continuación está documentada en
+> [INTEGRAL_OFFLINE5.md](INTEGRAL_OFFLINE5.md); estos conteos no describen la edición final.
+
 # Revisión integral: trabajo pendiente, no cierre del Corpus V2
 
 La versión `2.0.0-offline.5-review` es un **borrador de anotación**. No sustituye

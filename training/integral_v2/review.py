@@ -11,9 +11,10 @@ from decimal import Decimal
 
 from training.canonical_v2.io import digest
 from training.canonical_v2.validate import LABELS
+from training.integral_v2.numbers import folded, measurement, number
 from training.integral_v2.tokenizer import create_nlp
 
-VERSION = "2.0.0-offline.5-review"
+VERSION = "2.0.0-offline.5"
 CHECKS = (
     "segmentation",
     "entities_24",
@@ -87,8 +88,12 @@ def validate_review(item, review, certificate):
         require(label in LABELS, "LABEL")
         require(doc.char_span(start, end, alignment_mode="strict") is not None, "ALIGNMENT")
         last = end
-    require(any(e[2] == "PRODUCTO" for e in entities), "MISSING_PRODUCT")
     expected = review["expected"]
+    require(
+        any(e[2] == "PRODUCTO" for e in entities)
+        or (item["document_level"] == "SINTETICO_ORAL" and expected.get("status") == "NO_PROPOSAL"),
+        "MISSING_PRODUCT",
+    )
     tech = expected["especificacion"]["datos_tecnicos"]
     require(tech["descripcion_original"] == text, "INCOMPLETE_LITERAL")
     components = tech["componentes"]
@@ -164,6 +169,48 @@ def validate_review(item, review, certificate):
             )
         for index in fact.get("entity_refs", []):
             require(type(index) is int and 0 <= index < len(entities), "ORPHAN_ENTITY")
+        semantic_label = None
+        field_path = fact["path"]
+        if field_path.endswith(("/material", "/color", "/acabado", "/espesor")):
+            semantic_label = field_path.rsplit("/", 1)[1].upper()
+        for axis in ("alto", "ancho", "largo", "profundidad", "diametro"):
+            if "/dimensiones/" + axis in field_path:
+                semantic_label = axis.upper()
+        if "/espesor/" in field_path:
+            semantic_label = "ESPESOR"
+        if semantic_label and fact["state"] == "EXPLICITO" and fact["value"] is not None:
+            relevant = [
+                entities[i] for i in fact.get("entity_refs", []) if entities[i][2] == semantic_label
+            ]
+            require(bool(relevant), "MISSING_SEMANTIC_ENTITY")
+            for ev in fact["evidence"]:
+                require(
+                    not (
+                        ev["text"][0].isdigit()
+                        and ev["start"] > 0
+                        and text[ev["start"] - 1].isdigit()
+                    ),
+                    "NUMERIC_SUFFIX_EVIDENCE",
+                )
+            if semantic_label in {"MATERIAL", "COLOR", "ACABADO"} and isinstance(
+                fact["value"], str
+            ):
+                require(
+                    any(folded(ev["text"]) == folded(fact["value"]) for ev in fact["evidence"]),
+                    "SEMANTIC_LITERAL_VALUE",
+                )
+            if (
+                semantic_label == "ESPESOR"
+                and field_path.endswith("/espesor")
+                and isinstance(fact["value"], str)
+            ):
+                require(
+                    any(
+                        measurement(ev["text"]) == measurement(fact["value"])
+                        for ev in fact["evidence"]
+                    ),
+                    "THICKNESS_VALUE_CONFLICT",
+                )
     commercial = expected["comercial"]
     by_path = {f["path"]: f for f in facts}
     for key, label in (
@@ -183,7 +230,7 @@ def validate_review(item, review, certificate):
         require(bool(matching), "COMMERCIAL_INTERNAL_QUANTITY_OR_PRICE_CONFUSION")
         literals = [text[entities[i][0] : entities[i][1]] for i in matching]
         require(
-            any(v.replace(",", ".") == value for v in literals), "COMMERCIAL_VALUE_NOT_SUPPORTED"
+            any(number(v) == Decimal(value) for v in literals), "COMMERCIAL_VALUE_NOT_SUPPORTED"
         )
     q, unit, total = [
         commercial.get(k) for k in ("cantidad", "precio_unitario", "precio_total_explicito")
@@ -191,14 +238,22 @@ def validate_review(item, review, certificate):
     if item["document_level"] == "CATALOGO":
         require(unit is None and total is None and q is None, "CATALOGUE_AS_NEGOTIATED")
     if q is not None and unit is not None and total is not None:
-        require(Decimal(q) * Decimal(unit) == Decimal(total), "MONEY_ARITHMETIC")
+        require(
+            Decimal(q) * Decimal(unit) - Decimal(commercial.get("descuento_linea") or "0")
+            == Decimal(total),
+            "MONEY_ARITHMETIC",
+        )
     # Every character is assigned to an exact reviewed span or to explicitly
     # reviewed context. This cannot mathematically prove linguistic correctness.
     coverage = review["coverage"]
     cursor = 0
+    covered_entities = []
     for clause in coverage:
         require(clause["start"] == cursor and clause["end"] > cursor, "COVERAGE_GAP")
         require(clause["role"] in {"ENTITY", "REVIEWED_CONTEXT"}, "UNREVIEWED_TEXT")
         require(text[cursor : clause["end"]] == clause["text"], "COVERAGE_LITERAL")
+        if clause["role"] == "ENTITY":
+            covered_entities.append((clause["start"], clause["end"]))
         cursor = clause["end"]
+    require(covered_entities == [(a, b) for a, b, _ in entities], "ENTITY_COVERAGE_DISAGREES")
     require(cursor == len(text), "PARTIAL_TEXT_COVERAGE")
