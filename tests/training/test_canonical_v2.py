@@ -109,6 +109,7 @@ def item(text, **extra):
         line_start=1,
         line_end=2,
         char_start=0,
+        char_end=len(text),
         **extra,
     )
 
@@ -316,7 +317,9 @@ def test_full_item_review_never_promotes_partial_source_to_gold():
         "MESA CIRCULAR\n1,00 Pza. Mesón de melamina de 25mm. "
         "Patas de melamina de 18mm. precio unitario 1500,00. total 1500,00."
     )
-    second = dict(first, id="second", char_start=1000)
+    second = dict(
+        first, id="second", char_start=1000, char_end=1000 + len(first["item_text"])
+    )
     excluded = dict(item("MUEBLE\nAltura=40m"), id="excluded")
     original = [first, second, excluded]
     rows, _, _ = documentary(original, {"excluded"})
