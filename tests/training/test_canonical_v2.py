@@ -298,14 +298,11 @@ def test_documentary_actual_commercial_quantities(literal, expected_quantity, ex
 
 def test_documentary_internal_piece_counts_not_sold_quantities():
     source = item(
-        "MESA\nMesa para diez personas con 2 tomacorrientes y 3 cajones. "
-        "Patas de melamina de 18mm."
+        "MESA\nMesa para diez personas con 2 tomacorrientes y 3 cajones. Patas de melamina de 18mm."
     )
     rows, refs, _ = documentary([source], set())
     assert rows
-    assert not any(
-        label == "CANTIDAD" for row in rows for _, _, label in row["entities"]
-    )
+    assert not any(label == "CANTIDAD" for row in rows for _, _, label in row["entities"])
     assert all(ref["comercial"]["cantidad"] is None for ref in refs)
     assert validate(rows, refs)["valid"]
 
@@ -317,9 +314,7 @@ def test_full_item_review_never_promotes_partial_source_to_gold():
         "MESA CIRCULAR\n1,00 Pza. Mesón de melamina de 25mm. "
         "Patas de melamina de 18mm. precio unitario 1500,00. total 1500,00."
     )
-    second = dict(
-        first, id="second", char_start=1000, char_end=1000 + len(first["item_text"])
-    )
+    second = dict(first, id="second", char_start=1000, char_end=1000 + len(first["item_text"]))
     excluded = dict(item("MUEBLE\nAltura=40m"), id="excluded")
     original = [first, second, excluded]
     rows, _, _ = documentary(original, {"excluded"})
@@ -335,9 +330,10 @@ def test_full_item_review_never_promotes_partial_source_to_gold():
         assert entry["commercial_expected"] is None
         assert entry["annotation_scope"] == "INCOMPLETE_FULL_ITEM"
         for fragment in entry["fragments"]:
-            assert digest(entry["text"][fragment["start"]:fragment["end"]]) == fragment[
-                "text_sha256"
-            ]
+            assert (
+                digest(entry["text"][fragment["start"] : fragment["end"]])
+                == fragment["text_sha256"]
+            )
             for a, b, _ in fragment["entities"]:
                 assert 0 <= a < b <= len(entry["text"])
     assert review[2]["review_state"] == "QUARANTINE"
