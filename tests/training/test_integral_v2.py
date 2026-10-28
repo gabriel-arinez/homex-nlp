@@ -190,3 +190,19 @@ def test_wrong_group_reference_fails_with_new_certificate():
     tech["componentes"] = [{"uid": "c1", "nombre": "pata", "conjunto_uid": "unknown"}]
     with pytest.raises(ValueError, match="ORPHAN_COMPONENT"):
         validate_review(item, review, seal(payload(review)))
+
+
+def test_named_axis_without_unit_cannot_be_supervised_as_o():
+    item, review, _ = fixture()
+    item["item_text"] += " 1.73 de ancho."
+    review["text_sha256"] = digest(item["item_text"])
+    with pytest.raises(ValueError, match="UNANNOTATED_NAMED_AXIS"):
+        validate_review(item, review, seal(payload(review)))
+
+
+def test_multisegment_named_axis_cannot_be_reduced_to_last_scalar():
+    item, review, _ = fixture()
+    item["item_text"] += " 1.73 x 1.81m de ancho."
+    review["text_sha256"] = digest(item["item_text"])
+    with pytest.raises(ValueError, match="UNANNOTATED_COMPLEX_AXIS"):
+        validate_review(item, review, seal(payload(review)))

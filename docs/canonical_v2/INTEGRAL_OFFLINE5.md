@@ -1,6 +1,14 @@
-# Corpus integral V2 offline.5
+# Corpus integral V2 offline.5.1
 
-Esta ejecución continúa el cierre del PR #37. Sustituye el borrador
+Esta ejecución continúa el cierre del PR #37. La revisión de anotación final es
+`2.0.0-offline.5.1`: corrige 16 escalares con eje conocido y unidad ausente, y
+cuatro expresiones multiextensión con eje explícito. Se preservan las corridas
+anteriores; no se reutilizan sus métricas como resultados finales. El valor sin
+unidad conserva `unidad=null` y no hereda metros de otra dimensión. Los controles
+rechazan ahora la omisión de estas entidades incluso si se vuelve a sellar una
+adjudicación incorrecta.
+
+Sustituye el borrador
 `offline.5-review` únicamente para el alcance offline; no promueve modelos ni
 modifica V15/RULES_ONLY. Los originales y los 675 registros históricos V1,
 incluidos sus 98 test, permanecen inmutables.

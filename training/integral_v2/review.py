@@ -7,6 +7,7 @@ No private lexicon, source text or trained parameters belong in this package.
 """
 
 import json
+import re
 from decimal import Decimal
 
 from training.canonical_v2.io import digest
@@ -14,7 +15,7 @@ from training.canonical_v2.validate import LABELS
 from training.integral_v2.numbers import folded, measurement, number
 from training.integral_v2.tokenizer import create_nlp
 
-VERSION = "2.0.0-offline.5"
+VERSION = "2.0.0-offline.5.1"
 CHECKS = (
     "segmentation",
     "entities_24",
@@ -88,6 +89,31 @@ def validate_review(item, review, certificate):
         require(label in LABELS, "LABEL")
         require(doc.char_span(start, end, alignment_mode="strict") is not None, "ALIGNMENT")
         last = end
+    # A known axis does not cease to be an NER entity when its unit is absent.
+    axes = {"ancho": "ANCHO", "alto": "ALTO", "profundidad": "PROFUNDIDAD", "prof": "PROFUNDIDAD"}
+    for match in re.finditer(
+        r"(?i)(?<![\w.,])(\d+[.,]\d+)\s+(?:de\s+)?(ancho|alto|profundidad|prof\.?)\b", text
+    ):
+        label = axes[match[2].rstrip(".").lower()]
+        require(
+            any(
+                a <= match.start(1) and b >= match.end(1) and entity_label == label
+                for a, b, entity_label in entities
+            ),
+            "UNANNOTATED_NAMED_AXIS",
+        )
+    for match in re.finditer(
+        r"(?i)(?<![\w.,])(\d+(?:[.,]\d+)?\s*[xX]\s*\d+(?:[.,]\d+)?\s*m)\s*(?:de\s+)?(ancho|profundidad)\b",
+        text,
+    ):
+        label = axes[match[2].lower()]
+        require(
+            any(
+                a <= match.start(1) and b >= match.end(1) and entity_label == label
+                for a, b, entity_label in entities
+            ),
+            "UNANNOTATED_COMPLEX_AXIS",
+        )
     expected = review["expected"]
     require(
         any(e[2] == "PRODUCTO" for e in entities)

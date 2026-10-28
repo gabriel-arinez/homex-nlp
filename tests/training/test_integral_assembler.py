@@ -150,3 +150,26 @@ def test_price_label_without_commercial_role_is_not_enough():
         [("Una", "CANTIDAD"), ("mesa inventada", "PRODUCTO"), ("31", "PRECIO_UNITARIO")],
     )
     assert r.item_proposal.price is None
+
+
+def test_each_piece_is_explicit_unit_price():
+    r = assemble(
+        "Tres mesas inventadas, cuatrocientos diez cada pieza.",
+        [
+            ("Tres", "CANTIDAD"),
+            ("mesas inventadas", "PRODUCTO"),
+            ("cuatrocientos diez", "PRECIO_UNITARIO"),
+        ],
+    )
+    assert r.item_proposal.price.mode == "PRECIO_UNITARIO"
+    assert r.item_proposal.price.line_total == "1230.00"
+
+
+def test_whole_lot_is_explicit_total_and_abstention_version_is_current():
+    r = assemble(
+        "Dos mesas inventadas, novecientos por todo el lote.",
+        [("Dos", "CANTIDAD"), ("mesas inventadas", "PRODUCTO"), ("novecientos", "PRECIO_TOTAL")],
+    )
+    assert r.item_proposal.price.mode == "TOTAL_NEGOCIADO"
+    r = assemble("No generes una propuesta.", [])
+    assert r.engine.rules_version == "integral-offline-assembler-2"

@@ -43,6 +43,11 @@ def corrected(text, candidate, following):
 class IntegralNerEngine(NerExperimentalEngine):
     """Experimental only: explicit scopes, cancelled evidence, internal counts."""
 
+    def _result(self, request, item, candidates, warnings):
+        result = super()._result(request, item, candidates, warnings)
+        result.engine.rules_version = "integral-offline-assembler-2"
+        return result
+
     def extract(self, request):
         return self.assemble(
             request, [(e.start_char, e.end_char, e.label_) for e in self.nlp(request.text).ents]
@@ -331,7 +336,7 @@ class IntegralNerEngine(NerExperimentalEngine):
                     )
                     or bool(
                         re.match(
-                            r"\s*(?:por\s+(?:unidad|pieza|metro)|cada\s+(?:uno|una)|la\s+(?:pieza|unidad|barra)|el\s+metro)",
+                            r"\s*(?:por\s+(?:unidad|pieza|metro)|cada\s+(?:uno|una|pieza|unidad|juego|barra)|la\s+(?:pieza|unidad|barra)|el\s+metro)",
                             suffix,
                         )
                     )
@@ -339,7 +344,7 @@ class IntegralNerEngine(NerExperimentalEngine):
                 if c.label == "PRECIO_UNITARIO"
                 else bool(
                     re.search(r"total|importe", prefix)
-                    or re.match(r"\s*(?:el\s+)?(?:total|en total)", suffix)
+                    or re.match(r"\s*(?:el\s+)?(?:total|en total|por todo)", suffix)
                 )
                 if c.label == "PRECIO_TOTAL"
                 else bool(re.search(r"descuento", prefix) or re.match(r"\s*de descuento", suffix))
