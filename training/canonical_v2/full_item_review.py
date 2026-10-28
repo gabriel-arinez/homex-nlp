@@ -44,9 +44,10 @@ def full_item_review(items, excluded, excerpts):
                 raise ValueError("FULL_ITEM_REVIEW_ANCHOR_MISMATCH")
             if link["source_sha256"] != item["source_sha256"]:
                 raise ValueError("FULL_ITEM_REVIEW_SOURCE_MISMATCH")
-            if link["char_start"] != item["char_start"] + a or link["char_end"] != item[
-                "char_start"
-            ] + b:
+            if (
+                link["char_start"] != item["char_start"] + a
+                or link["char_end"] != item["char_start"] + b
+            ):
                 raise ValueError("FULL_ITEM_REVIEW_ABSOLUTE_OFFSET_MISMATCH")
             entities = []
             for start, end, label in row["entities"]:
