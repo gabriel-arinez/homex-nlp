@@ -167,3 +167,11 @@ def test_explicit_inconsistent_unit_and_total_are_unresolved():
     assert (
         extract("Dos escritorios precio unitario 250 precio total 700").item_proposal.price is None
     )
+
+
+def test_reference_rounding_agrees_with_contract_and_never_changes_total():
+    r = extract("128 escritorios precio total 1")
+    assert r.item_proposal.price.line_total == "1.00"
+    assert r.item_proposal.price.unit_price_reference == "0.007813"
+    assert r.item_proposal.price.reference_is_approximate is True
+    assert r.item_proposal.price.unit_price_input is None

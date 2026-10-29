@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal
 from time import perf_counter
 
 from homex_nlp.contracts import (
@@ -556,9 +556,9 @@ class RulesEngine:
                 approximate = False
                 if quantity:
                     quotient = price_match.value / quantity.value
-                    reference = f"{quotient.quantize(Decimal('0.000001')):f}".rstrip("0").rstrip(
-                        "."
-                    )
+                    reference = f"{quotient.quantize(Decimal('0.000001'), rounding=ROUND_HALF_UP):f}".rstrip(
+                        "0"
+                    ).rstrip(".")
                     approximate = Decimal(reference) * quantity.value != price_match.value
                 price = NegotiatedPrice(
                     mode="TOTAL_NEGOCIADO",

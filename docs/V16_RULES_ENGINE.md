@@ -13,6 +13,7 @@ Paquete 0.1.16, `prf04-rules-v16`, contrato público 1.0 sin cambios.
   Modalidades unitario/total explícitas pueden corroborarse si coinciden exactamente.
   Decimal continúa siendo la única aritmética monetaria; la referencia aproximada
   del contrato histórico sigue sin convertirse en precio efectivo.
+  Su redondeo HALF_UP coincide con el validador, incluso en empates a seis decimales.
 - Componentes: laterales sustantivos, calificadores interiores/laterales/abatibles,
   cantidades internas, herrajes vinculados al ámbito y espesores diferenciados.
   No se añaden relaciones padre-hijo ni códigos de catálogo.
