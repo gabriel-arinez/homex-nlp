@@ -58,7 +58,7 @@ def test_compound_color_is_complete_and_not_material(color):
 @pytest.mark.parametrize("restriction", ["sin puertas", "sin cajones", "no lleva puertas"])
 def test_negative_pieces_are_consultable_and_never_positive(restriction):
     result = extract(f"Un estante {restriction}, pero con dos repisas laterales")
-    assert [c.name for c in result.item_proposal.components] == ["repisas"]
+    assert [c.name for c in result.item_proposal.components] == ["repisas laterales"]
     assert restriction in result.item_proposal.observations
     assert any(c.label == "COMPONENTE" and c.decision == "REJECTED" for c in result.candidates)
 

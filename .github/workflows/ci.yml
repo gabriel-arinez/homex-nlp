@@ -86,31 +86,17 @@ jobs:
       - name: Audit frozen dependency lock (all extras and groups)
         run: uv audit --locked
 
-  prf04-experiment:
+  rules-only-freeze:
     runs-on: ubuntu-latest
-    env:
-      OMP_NUM_THREADS: "2"
-      OPENBLAS_NUM_THREADS: "2"
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
           version: "0.12.9"
       - run: uv sync --locked --extra dev
-      - name: Train experimental NER using sealed train/dev only
-        run: >-
-          uv run python -m training.train_prf04 --epochs 10
-          --destination "$RUNNER_TEMP/prf04-ner"
-      - name: Validate structured A/B/C outputs on dev without promotion
-        run: >-
-          uv run python -m training.evaluate_structured_prf04
-          "$RUNNER_TEMP/prf04-ner/model-dev-best"
-          "$RUNNER_TEMP/prf04-structured-dev.json"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: prf04-experiment-${{ github.sha }}
-          path: |
-            ${{ runner.temp }}/prf04-ner/entrenamiento.json
-            ${{ runner.temp }}/prf04-structured-dev.json
-          if-no-files-found: error
-          retention-days: 30
+      - name: Verify deterministic invariants without NER or research imports
+        run: uv run pytest tests/unit/test_final_consolidation.py tests/unit/test_v16_safety.py -q
+      - name: Verify frozen wheel identity
+        run: |
+          SOURCE_DATE_EPOCH=0 uv build --wheel
+          uv run python -c 'import hashlib,json,pathlib; r=json.loads(pathlib.Path("docs/nlp-final-release.json").read_text()); p=pathlib.Path("dist")/r["wheel"]; assert hashlib.sha256(p.read_bytes()).hexdigest()==r["wheel_sha256"]'

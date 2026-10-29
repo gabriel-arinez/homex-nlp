@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal
 from time import perf_counter
 
 from homex_nlp.contracts import (
@@ -29,12 +29,15 @@ from homex_nlp.rules import (
     find_quantity,
     find_thicknesses,
     is_explicitly_negated,
+    is_price_alternative,
+    is_price_correction,
     money,
+    price_mentions,
 )
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-v15"
+    rules_version = "prf04-rules-final"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
@@ -90,7 +93,25 @@ class RulesEngine:
                 ],
                 started,
             )
-        if "silla" in text.lower() or "piso" in text.lower():
+        # La familia se determina por una mención comercial, nunca por
+        # subcadenas («casillero») o una referencia espacial («del piso»).
+        fuera = list(re.finditer(r"\b(?:sillas?|pisos?(?:\s+flotantes?)?)\b", text, re.I))
+        conocidos = find_products(text)
+        fuera_comercial = any(
+            not is_explicitly_negated(text, m.start())
+            and (
+                not conocidos
+                or m.start() < conocidos[0].start
+                or re.search(
+                    r"\b(?:y|adem[aá]s)\s+(?:quiero\s+|necesito\s+)?"
+                    r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s+$",
+                    text[max(0, m.start() - 45) : m.start()],
+                    re.I,
+                )
+            )
+            for m in fuera
+        )
+        if fuera_comercial:
             return self._result(
                 request,
                 None,
@@ -120,7 +141,7 @@ class RulesEngine:
         if products:
             principal = products[0]
             integracion = bool(
-                re.search(r"\bcajoner[ií]a\b[^.;]{0,45}\bintegrad[ao]s?\b", text, re.I)
+                re.search(r"\bcajoner(?:[ií]a|a)\b[^.;]{0,45}\bintegrad[ao]s?\b", text, re.I)
             )
             filtrados = [principal]
             for producto in products[1:]:
@@ -307,6 +328,36 @@ class RulesEngine:
         candidate(products[0])
         quantity = find_quantity(text, main_product=products[0])
         if quantity:
+            # Sólo correcciones contiguas y encadenadas del mismo campo.
+            # Una cantidad seguida de un componente jamás sustituye muebles.
+            offset = products[0].end
+            original_quantity = quantity
+            corrected = []
+            pattern = re.compile(
+                r"\s*[,;.]?\s*(?:no\s*,?\s*mejor|corrijo|perd[oó]n)\s*[,;]?\s*"
+                r"(?P<number>cero|\d+|" + "|".join(NUMBER_WORDS) + r")\b"
+                r"(?:\s+(?:unidades?|muebles?))?",
+                re.I,
+            )
+            while correction := pattern.match(text[offset:]):
+                token = correction.group("number")
+                value = NUMBER_WORDS.get(token.casefold(), int(token) if token.isdigit() else None)
+                start = offset + correction.start("number")
+                corrected.append(Match(start, start + len(token), token, "CANTIDAD", value))
+                offset += correction.end()
+            if corrected:
+                boundary = re.match(r"\s*(?:[,;.]|con\b|$)", text[offset:])
+                if boundary and all(c.value and c.value > 0 for c in corrected):
+                    for old in [original_quantity, *corrected[:-1]]:
+                        candidate(old, "REJECTED", "Cantidad comercial rectificada")
+                    quantity = corrected[-1]
+                else:
+                    for uncertain in [original_quantity, *corrected]:
+                        candidate(
+                            uncertain, "UNRESOLVED", "Rectificación comercial incompleta o ambigua"
+                        )
+                    quantity = None
+        if quantity:
             candidate(quantity)
         if quantity is None:
             warnings.append(
@@ -410,7 +461,68 @@ class RulesEngine:
                     evidence_ids=[candidate(accessory)],
                 )
             )
-        price_match, price_mode = find_price(text)
+        monetary_mentions, _ = price_mentions(text)
+        price_match, price_mode = find_price(
+            text, monetary_mentions, quantity_override=quantity.value if quantity else None
+        )
+        for mention, mention_mode in monetary_mentions:
+            if price_match is None or mention.start != price_match.start:
+                independent_total = (
+                    price_match is not None
+                    and price_mode == "PRECIO_UNITARIO"
+                    and mention_mode == "TOTAL_NEGOCIADO"
+                    and mention.value is not None
+                    and not is_price_alternative(
+                        text[
+                            min(mention.end, price_match.end) : max(
+                                mention.start, price_match.start
+                            )
+                        ]
+                    )
+                    and not is_price_correction(
+                        text[
+                            min(mention.end, price_match.end) : max(
+                                mention.start, price_match.start
+                            )
+                        ]
+                    )
+                )
+                if independent_total:
+                    candidate(
+                        Match(
+                            mention.start,
+                            mention.end,
+                            mention.text,
+                            "PRECIO_TOTAL",
+                            money(mention.value),
+                        )
+                    )
+                    if quantity is None:
+                        warnings.append(
+                            Warning(
+                                code="REQUIRED_FIELD_MISSING",
+                                path="/item_proposal/price",
+                                severity="REVIEW",
+                                message="Total y unitario explícitos conservados; falta cantidad para comprobar su relación.",
+                            )
+                        )
+                    continue
+                candidate(
+                    mention,
+                    "REJECTED" if price_match else "UNRESOLVED",
+                    "Importe sustituido o reiterado"
+                    if price_match
+                    else "Importes incompatibles o inválidos",
+                )
+        if price_mode == "CONFLICTING_VALUES":
+            warnings.append(
+                Warning(
+                    code="CONFLICTING_VALUES",
+                    path="/item_proposal/price",
+                    severity="REVIEW",
+                    message="Hay varios precios sin rectificación inequívoca; confirme importe y modalidad.",
+                )
+            )
         # Un marcador ASR degradado no acredita la escala de un decimal
         # con punto. Conservar evidencia y exigir confirmación, sin multiplicar.
         if (
@@ -499,9 +611,9 @@ class RulesEngine:
                 approximate = False
                 if quantity:
                     quotient = price_match.value / quantity.value
-                    reference = f"{quotient.quantize(Decimal('0.000001')):f}".rstrip("0").rstrip(
-                        "."
-                    )
+                    reference = f"{quotient.quantize(Decimal('0.000001'), rounding=ROUND_HALF_UP):f}".rstrip(
+                        "0"
+                    ).rstrip(".")
                     approximate = Decimal(reference) * quantity.value != price_match.value
                 price = NegotiatedPrice(
                     mode="TOTAL_NEGOCIADO",
@@ -549,6 +661,7 @@ class RulesEngine:
             accessories=accessories,
             price=price,
             observations=color_pendiente.group() if color_pendiente else None,
+            unresolved=[c.candidate_id for c in candidates if c.decision == "UNRESOLVED"],
         )
         from homex_nlp.semantics import completar_relaciones
 
