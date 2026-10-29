@@ -13,6 +13,9 @@ mono PCM 16 kHz/16 bit, SHA/tamaño coincidentes con el manifiesto. No se altera
 los originales. Se transcribieron los veinte con Faster-Whisper 1.2.1,
 CTranslate2 4.8.2 y el modelo small existente del worker, CPU/int8/español,
 con parámetros fijos. ASR p50/p95: 3,807/6,650 s; carga: 1,049 s.
+Un transcriptor offline se reutilizó para congelar los veinte textos; la carga
+se midió aparte. No se implantó caché en el worker: si el servicio reconstruye
+el modelo por captura, ese coste debe sumarse. Pico RSS ASR: 869128 KiB del proceso.
 Los veinte textos ASR quedaron congelados antes de comparar motores.
 
 Se ejecutaron **21 mecanismos**: V15, los diez NER y sus diez híbridos, sobre
