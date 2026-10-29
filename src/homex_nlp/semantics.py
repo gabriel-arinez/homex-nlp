@@ -7,10 +7,10 @@ from homex_nlp.contracts.item import Color, Component
 from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
 
 COMPONENTES = (
-    r"panel frontal|panel(?:es)?|repisas?|divisi[oó]n(?:es)?(?: interiores?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?|"
+    r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
-    r"tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?|"
-    r"puertas?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
+    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?(?: lateral(?:es)?)?|"
+    r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (
     r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"
@@ -59,6 +59,14 @@ def completar_relaciones(item, candidates, text, warnings):
         pieza
         for pieza in re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I)
         if not (
+            # «repisas laterales» usa un adjetivo, no otra pieza.
+            re.fullmatch(r"lateral(?:es)?", pieza.group(), re.I)
+            and re.search(
+                r"\b(?:repisas?|cajones?|m[oó]dulos?|paneles?|puertas?)\s+$",
+                text[max(0, pieza.start() - 30) : pieza.start()],
+                re.I,
+            )
+            or
             # No duplicar un producto principal como componente propio.
             any(
                 c.label == "PRODUCTO"
@@ -104,7 +112,7 @@ def completar_relaciones(item, candidates, text, warnings):
             )
         )
 
-    colores_explicitos = list(re.finditer(r"\bcolor\s+(?:" + COLORES + r")\b", text, re.I))
+    colores_explicitos = list(re.finditer(r"\b(?:" + COLORES + r")\b", text, re.I))
 
     def es_material(match):
         return not any(c.start() <= match.start() < c.end() for c in colores_explicitos)
@@ -380,6 +388,11 @@ def completar_relaciones(item, candidates, text, warnings):
                 if re.fullmatch(r"\s+(?:de|con)\s+", connector, re.I):
                     dimension.component_ref = component
                     ref.component_ref = component
+        for accesorio in item.accessories:
+            ref = next((c for c in candidates if c.candidate_id in accesorio.evidence_ids), None)
+            if ref and pieza.end() <= ref.start < limite:
+                accesorio.component_ref = component
+                ref.component_ref = component
         for thickness in item.thicknesses:
             referencia = next(
                 (c for c in candidates if c.candidate_id in thickness.evidence_ids), None
@@ -531,6 +544,11 @@ def completar_relaciones(item, candidates, text, warnings):
                 message="Una corrección interna no identifica una cantidad o pieza inequívoca.",
             )
         )
+    cero_descuento = re.search(
+        r"\bsin\s+descuento\b|\bdescuento\s+(?:de\s+)?(?:0(?:[.,]00)?|cero)\b", text, re.I
+    )
+    if cero_descuento:
+        evidencia(cero_descuento, "DESCUENTO", "0.00")
     descuento = re.search(
         r"\bdescuento(?:\s+(?:de\s+)?l[ií]nea|\s+monetario\s+total)?\s*(?:Bs\.?|BOB)?\s*([\d.,]+)",
         text,
@@ -569,4 +587,116 @@ def completar_relaciones(item, candidates, text, warnings):
                 message=f"Indique ejes y unidades de {match.group()}.",
             )
         )
+    for excluded in negadas:
+        boundary = next(
+            (p.start() for p in piezas_originales if p.start() > excluded.start()), len(text)
+        )
+        stop = re.search(r"[,;.]|\b(?:pero|con)\b", text[excluded.end() : boundary], re.I)
+        if stop:
+            boundary = excluded.end() + stop.start()
+        for c in candidates:
+            if (
+                c.label in {"COLOR", "MATERIAL", "ACABADO", "ESPESOR"}
+                and excluded.end() <= c.start < boundary
+            ):
+                c.decision = "REJECTED"
+                c.reason = "Atributo de una pieza excluida"
+                item.thicknesses = [
+                    m for m in item.thicknesses if c.candidate_id not in m.evidence_ids
+                ]
+    resolver_atributos(item, candidates, text, warnings)
     return item
+
+
+def resolver_atributos(item, candidates, text, warnings):
+    """Resuelve alternativas/correcciones sólo en el mismo campo y ámbito.
+
+    Los pendientes conservan los spans literales; no se selecciona el último
+    color/material por orden de aparición. Las medidas sin rectificación
+    permanecen múltiples para el arbitraje histórico de PRF-03.
+    """
+    grupos = {}
+    for c in candidates:
+        if c.decision == "ACCEPTED" and c.label in {"COLOR", "MATERIAL", "ACABADO"}:
+            grupos.setdefault((c.label, c.component_ref), []).append(c)
+    for valores in grupos.values():
+        for anterior, siguiente in zip(valores, valores[1:]):
+            tramo = text[anterior.end : siguiente.start]
+            if re.fullmatch(
+                r"\s*[,;]?\s*(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;]?\s*(?:de\s+)?",
+                tramo,
+                re.I,
+            ):
+                anterior.decision = "REJECTED"
+                anterior.reason = "Atributo rectificado explícitamente"
+            elif re.fullmatch(r"\s+o\s+(?:de\s+)?", tramo, re.I):
+                for c in (anterior, siguiente):
+                    c.decision = "UNRESOLVED"
+                    c.reason = "Alternativa sin selección explícita"
+                    if c.candidate_id not in item.unresolved:
+                        item.unresolved.append(c.candidate_id)
+                warnings.append(
+                    Warning(
+                        code="CONFLICTING_VALUES",
+                        path="/candidates",
+                        severity="REVIEW",
+                        message="Seleccione una de las alternativas dictadas.",
+                    )
+                )
+    for collection in (item.dimensions, item.thicknesses):
+        scoped = {}
+        ordered = sorted(
+            collection,
+            key=lambda m: next(c.start for c in candidates if c.candidate_id in m.evidence_ids),
+        )
+        for previous, following in zip(ordered, ordered[1:]):
+            a = next(c for c in candidates if c.candidate_id in previous.evidence_ids)
+            b = next(c for c in candidates if c.candidate_id in following.evidence_ids)
+            if (
+                following.component_ref is None
+                and previous.component_ref is not None
+                and getattr(previous, "axis", None) == getattr(following, "axis", None)
+                and re.fullmatch(
+                    r"\s*[,;]?\s*(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;]?\s*(?:de\s+)?",
+                    text[a.end : b.start],
+                    re.I,
+                )
+            ):
+                following.component_ref = previous.component_ref
+                b.component_ref = previous.component_ref
+        for medida in collection:
+            scoped.setdefault((getattr(medida, "axis", None), medida.component_ref), []).append(
+                medida
+            )
+        for medidas in scoped.values():
+            medidas.sort(
+                key=lambda m: next(c.start for c in candidates if c.candidate_id in m.evidence_ids)
+            )
+            for anterior, siguiente in zip(medidas, medidas[1:]):
+                a = next(c for c in candidates if c.candidate_id in anterior.evidence_ids)
+                b = next(c for c in candidates if c.candidate_id in siguiente.evidence_ids)
+                tramo = text[a.end : b.start]
+                if re.fullmatch(
+                    r"\s*[,;]?\s*(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;]?\s*(?:de\s+)?",
+                    tramo,
+                    re.I,
+                ):
+                    a.decision = "REJECTED"
+                    a.reason = "Medida rectificada explícitamente"
+                    if anterior in collection:
+                        collection.remove(anterior)
+    for collection in (item.dimensions, item.thicknesses):
+        for value in collection[:]:
+            ref = next(c for c in candidates if c.candidate_id in value.evidence_ids)
+            if is_explicitly_negated(text, ref.start):
+                ref.decision = "REJECTED"
+                ref.reason = "Medida explícitamente negada"
+                collection.remove(value)
+    if item.primary_color:
+        if any(
+            c.candidate_id in item.primary_color.evidence_ids and c.decision != "ACCEPTED"
+            for c in candidates
+        ):
+            item.primary_color = None
+    # Un accesorio integrado sólo refiere a la pieza del mismo ámbito.
+    # No se fabrican relaciones padre-hijo entre componentes.
