@@ -32,7 +32,7 @@ def test_cantidad_comercial_segura_y_offset(texto, cantidad, fragmento):
     resultado = extraer(texto)
     assert resultado.status == "REQUIRES_REVIEW"
     assert resultado.engine.mode == "RULES_ONLY"
-    assert resultado.engine.rules_version == "prf04-rules-v15"
+    assert resultado.engine.rules_version == "prf04-rules-v16"
     assert resultado.item_proposal.quantity == cantidad
     spans = [c for c in resultado.candidates if c.label == "CANTIDAD" and c.decision == "ACCEPTED"]
     assert len(spans) == 1
@@ -120,7 +120,7 @@ def test_tomas_corrientes_con_ruido_asr_en_captura_mesa():
 
 
 def test_version_paquete_y_modo_invariables():
-    assert __version__ == "0.1.15"
+    assert __version__ == "0.1.16"
     r = extraer("Una mesa alto dos metros")
     assert r.engine.mode == "RULES_ONLY"
     assert r.engine.model_version is None
