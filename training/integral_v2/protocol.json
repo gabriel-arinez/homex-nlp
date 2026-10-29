@@ -1,0 +1,19 @@
+{
+  "version": "canonical-integral-offline5-1",
+  "seeds": [404, 405],
+  "experiments": ["D1", "D2", "D3", "D4", "D4W"],
+  "epochs": 25,
+  "minimum_epochs": 8,
+  "patience": 6,
+  "batch_size": 8,
+  "dropout": 0.2,
+  "selection": "maximum common internal dev raw NER micro F1; first checkpoint wins ties",
+  "D1": "Frozen historical V1 train, original tokenizer; no overlay applied",
+  "D2": "Full adjudicated documentary items only",
+  "D3": "New authored synthetic oral cases only; never real voice",
+  "D4": "Full documentary plus authored oral, natural sampling",
+  "D4W": "Same mixed corpus, oral observations twice per epoch; compensate documentary length",
+  "test_policy": "Internal known-document holdout, evaluated once after every checkpoint is selected; no V1 test predictions",
+  "known_dev": "27 historical synthetic dev observations reported separately, never training data",
+  "promotion": false
+}
