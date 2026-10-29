@@ -33,7 +33,7 @@ def test_captura_23_tres_variantes_y_especificaciones(medida, material):
     assert r.engine.rules_version == "prf04-rules-final"
     assert r.engine.model_version is None
     assert r.schema_version == "1.0"
-    assert __version__ == "0.1.17"
+    assert __version__ == "0.1.18"
     assert len(item.dimensions) == 3
     assert {d.axis: d.value_mm for d in item.dimensions} == {
         "ancho": "1200",

@@ -146,3 +146,20 @@ def test_color_alternative_does_not_cancel_independent_explicit_prices():
     assert r.item_proposal.price.unit_price_input == "600.00"
     assert any(c.label == "PRECIO_TOTAL" and c.decision == "ACCEPTED" for c in r.candidates)
     assert all(c.decision == "UNRESOLVED" for c in r.candidates if c.label == "COLOR")
+
+
+def test_support_lateral_is_an_accessory_not_an_extra_lateral_piece():
+    r = extract("Un escritorio con dos cajones y un soporte lateral para CPU")
+    assert [c.name for c in r.item_proposal.components] == ["cajones"]
+    assert any("soporte lateral para CPU" == a.name for a in r.item_proposal.accessories)
+
+
+def test_compound_main_name_does_not_create_its_own_component():
+    r = extract("Un estante de pared, una unidad, con cinco repisas abiertas")
+    assert [c.name for c in r.item_proposal.components] == ["repisas abiertas"]
+    assert not any(c.normalized_value == 1 for c in r.candidates if c.label == "CANTIDAD_INTERNA")
+
+
+def test_integrated_drawer_unit_description_is_not_a_second_unit():
+    r = extract("Un escritorio con cajonera rodante integrada. Cajonera con dos cajones")
+    assert [c.name.casefold() for c in r.item_proposal.components] == ["cajonera", "cajones"]

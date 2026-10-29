@@ -120,7 +120,7 @@ def test_tomas_corrientes_con_ruido_asr_en_captura_mesa():
 
 
 def test_version_paquete_y_modo_invariables():
-    assert __version__ == "0.1.17"
+    assert __version__ == "0.1.18"
     r = extraer("Una mesa alto dos metros")
     assert r.engine.mode == "RULES_ONLY"
     assert r.engine.model_version is None

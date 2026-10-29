@@ -1,8 +1,8 @@
 # Motor determinístico definitivo de HOMEX
 
-**Selección:** homex-nlp 0.1.17, reglas `prf04-rules-final`, RULES_ONLY.
+**Selección:** homex-nlp 0.1.18, reglas `prf04-rules-final`, RULES_ONLY.
 Es una consolidación estable de V15/V16; no inicia otra campaña experimental.
-La referencia de cierre será `nlp-final-0.1.17-20261029`. Su commit y el SHA256
+La referencia de cierre será `nlp-final-0.1.18-20261029`. Su commit y el SHA256
 reproducible del wheel identifican el componente. Metadatos: `nlp-final-release.json`.
 Python 3.11; dependencias exactas en uv.lock. Contrato público **1.0**, sin cambios.
 
@@ -85,7 +85,7 @@ python3 tools/verify_nlp_freeze.py /ruta/privada/al/expediente
 ```
 
 El wheel se instala desde el artefacto con SHA256 fijado; backend debe exigir
-exactamente **0.1.17**, RULES_ONLY y contrato 1.0. El PR consumidor fija wheel,
+exactamente **0.1.18**, RULES_ONLY y contrato 1.0. El PR consumidor fija wheel,
 lock y verificadores de worker. La integración se ejecuta en PostgreSQL/Redis
 nuevos y datos ficticios. Los 20 WAV LFS y ASR congelados se verifican en el
 expediente privado; no se necesitan retranscripciones por cambio NLP. La rama

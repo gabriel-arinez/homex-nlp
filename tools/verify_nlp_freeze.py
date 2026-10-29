@@ -23,7 +23,7 @@ def main():
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != entry["sha256"]:
             raise SystemExit(f"SHA256 mismatch: {path}")
     release = read(root / "versiones_hashes.json")
-    assert release["version"] == "0.1.17" and release["rules_version"] == "prf04-rules-final"
+    assert release["version"] == "0.1.18" and release["rules_version"] == "prf04-rules-final"
     assert release["mode"] == "RULES_ONLY" and release["schema_version"] == "1.0"
     assert read(root / "estado_ci.json")["all_success"]
     freeze = read(root / "git_freeze.json")

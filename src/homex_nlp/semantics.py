@@ -62,7 +62,7 @@ def completar_relaciones(item, candidates, text, warnings):
             # «repisas laterales» usa un adjetivo, no otra pieza.
             re.fullmatch(r"lateral(?:es)?", pieza.group(), re.I)
             and re.search(
-                r"\b(?:repisas?|cajones?|m[oó]dulos?|paneles?|puertas?)\s+$",
+                r"\b(?:repisas?|cajones?|m[oó]dulos?|paneles?|puertas?|soportes?)\s+$",
                 text[max(0, pieza.start() - 30) : pieza.start()],
                 re.I,
             )
@@ -72,7 +72,7 @@ def completar_relaciones(item, candidates, text, warnings):
                 c.label == "PRODUCTO"
                 and c.decision == "ACCEPTED"
                 and c.start == pieza.start()
-                and c.end == pieza.end()
+                and c.end >= pieza.end()
                 for c in candidates
             )
             or pieza.group().lower().startswith("tablero")
@@ -84,6 +84,38 @@ def completar_relaciones(item, candidates, text, warnings):
         )
     ]
 
+    # Una cajonera integrada reiterada como «cajonera con N cajones»
+    # describe su contenido, no una segunda pieza. No fusionar «otra».
+    repeated = []
+    for index, pieza in enumerate(piezas):
+        if (
+            pieza.group().casefold() == "cajonera"
+            and re.match(r"\s+con\s+" + NUMERO + r"\s+cajones\b", text[pieza.end() :], re.I)
+            and not re.search(
+                r"\b(?:otra|segunda|dos|2)\s+$",
+                text[max(0, pieza.start() - 15) : pieza.start()],
+                re.I,
+            )
+            and any(
+                old.group().casefold() == "cajonera"
+                and re.match(r"[^.;]{0,45}\bintegrad[ao]\b", text[old.end() : pieza.start()], re.I)
+                for old in piezas[:index]
+            )
+        ):
+            repeated.append(pieza)
+            candidates.append(
+                Candidate(
+                    candidate_id=f"c{len(candidates) + 1}",
+                    label="COMPONENTE",
+                    start=pieza.start(),
+                    end=pieza.end(),
+                    text=pieza.group(),
+                    source="RULE",
+                    decision="REJECTED",
+                    reason="Reiteración descriptiva de la cajonera integrada",
+                )
+            )
+    piezas = [p for p in piezas if p not in repeated]
     piezas_originales = piezas[:]
     # Una pausa de ASR tras «no,» no basta para decidir qué pieza se pidió.
     piezas_ambiguas = []
