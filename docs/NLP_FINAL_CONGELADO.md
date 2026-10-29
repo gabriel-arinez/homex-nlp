@@ -108,3 +108,7 @@ vendedor sigue siendo parte normal de la operación comercial.
 La próxima etapa es ASR. Su optimización no modifica el motor NLP congelado:
 Faster-Whisper continuará entregando texto por el contrato1.0 existente. No se
 cambian aquí modelo, idioma, VAD, decodificación, caché ni infraestructura ASR.
+
+La CI final sustituye el job histórico de entrenamiento por `rules-only-freeze`:
+comprueba invariantes determinísticos y SHA256 del wheel. Los scripts de estudio
+se conservan como archivos históricos, sin job de entrenamiento automático.
