@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 
 NUMBER_WORDS = {
+    "uno": 1,
     "un": 1,
     "una": 1,
     "dos": 2,
@@ -93,6 +94,14 @@ def is_explicitly_negated(text: str, start: int) -> bool:
     una negación a toda la especificación.
     """
     clause = re.split(r"[.;,\n]", text[max(0, start - 140) : start])[-1]
+    if re.search(
+        r"\b(?:anul[aá]|anular|anule|anulo|cancel[aá]|cancelar|cancele|cancelo)"
+        r"\s+(?:el\s+|este\s+)?(?:pedido|cotizaci[oó]n)\s+de\s+"
+        r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s*$",
+        clause,
+        re.I,
+    ):
+        return True
     matches = list(
         re.finditer(
             r"\b(?:sin|ni|no(?!-)(?:\s+(?:quiero|necesito|lleva|tiene|incluye|es|son))?)\b",
@@ -143,7 +152,18 @@ def find_products(text: str) -> list[Match]:
         for m in pattern.finditer(text)
         if not any(x.start <= m.start() < x.end for x in especificos)
     ]
-    return sorted([*especificos, *generales], key=lambda x: x.start)
+    results = sorted([*especificos, *generales], key=lambda x: x.start)
+    extended = []
+    for m in results:
+        qualifier = re.match(
+            r"(?:\s+(?:operativos?|ejecutivos?|rectos?|m[oó]viles?|en\s+ele|"
+            r"de\s+(?:recepci[oó]n|pared)))\b",
+            text[m.end :],
+            re.I,
+        )
+        end = m.end + qualifier.end() if qualifier else m.end
+        extended.append(Match(m.start, end, text[m.start : end], m.label, m.value))
+    return extended
 
 
 def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
@@ -207,6 +227,8 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     )
     match = pattern.search(prefix)
     if match:
+        if re.search(r"[-−]\s*$", prefix[: match.start(1)]):
+            return None
         token = match.group(1).lower()
         value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
         if value:
@@ -263,7 +285,7 @@ def _numero_es_medida_no_precio(text: str, encontrado: re.Match[str]) -> bool:
     )
 
 
-def find_price(text: str) -> tuple[Match | None, str | None]:
+def price_mentions(text: str):
     """Precios comerciales explícitos; nunca convertir un total en unitario aquí.
 
     Una medida como «ancho total 180 centímetros» NO es «Bs 180».
@@ -272,40 +294,176 @@ def find_price(text: str) -> tuple[Match | None, str | None]:
     moneda = r"(?:bs\.?|bob|bolivianos?|d[oó]lares?|usd)"
 
     def primero_aplicable(patron: str):
-        return next(
-            (
-                encontrado
-                for encontrado in re.finditer(patron, text, re.I)
-                if not _numero_es_medida_no_precio(text, encontrado)
-            ),
-            None,
-        )
+        return [
+            encontrado
+            for encontrado in re.finditer(patron, text, re.I)
+            if not _numero_es_medida_no_precio(text, encontrado)
+        ]
 
     unit = primero_aplicable(
-        r"\b(?:a\s+|por\s+)?(\d[\d.,]*)\s*(?:" + moneda + r"\s*)?"
+        r"\b(?:a\s+|por\s+)?([-−]?\d[\d.,]*)\s*(?:" + moneda + r"\s*)?"
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
         r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario|"
         r"presionitario|presunitario|prese\s+unitario)"
-        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?([\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?([-−]?[\d.,]+)\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
     total = primero_aplicable(
         r"\b(?:precio\s+total(?:\s+negociado)?|total(?:\s+negociado)?|monto(?:\s+total)?)"
         r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
-        r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([-−]?[\d.,]+)\b"
     )
-    unit = unit or declared_unit
-    chosen = unit or total
-    if chosen is None:
+    mentions = sorted(
+        [(m, "PRECIO_UNITARIO") for m in unit + declared_unit]
+        + [(m, "TOTAL_NEGOCIADO") for m in total],
+        key=lambda pair: pair[0].start(1),
+    )
+    unique = {}
+    for m, mode in mentions:
+        raw = m.group(1).rstrip(".,")
+        # Un signo menos no puede desaparecer al buscar el primer dígito.
+        negative = re.search(r"[-−]\s*$", text[m.start() : m.start(1)])
+        value = None if negative else decimal_from_text(raw)
+        unique[(m.start(1), m.start(1) + len(raw))] = (
+            Match(m.start(1), m.start(1) + len(raw), raw, "PRECIO", value),
+            mode,
+        )
+    for m in re.finditer(
+        r"\b(?P<mode>precio\s+unitario|precio\s+total(?:\s+negociado)?)"
+        r"\s+(?:de\s+)?(?P<amount>" + _DIM_PALABRAS_PATRON + r")"
+        r"\s+(?:bolivianos?|d[oó]lares?|BOB|USD)\b",
+        text,
+        re.I,
+    ):
+        value = _dimension_numero_palabras(m.group("amount"))
+        if value is not None:
+            start, end = m.span("amount")
+            mode = (
+                "PRECIO_UNITARIO" if "unitario" in m.group("mode").casefold() else "TOTAL_NEGOCIADO"
+            )
+            unique[(start, end)] = (Match(start, end, text[start:end], "PRECIO", value), mode)
+    values = list(unique.values())
+    if not values:
+        return [], None
+    # Una corrección sin repetir modalidad hereda únicamente el marcador
+    # inequívoco anterior; cada valor cancelado conserva su span original.
+    expanded = []
+    for mention, mode in values:
+        expanded.append((mention, mode))
+        tail = text[mention.end :]
+        correction = re.match(
+            r"\s*(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*[,;]?\s*"
+            r"(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;:]?\s*(?:de\s+)?"
+            r"(?P<amount>[-−]?\d[\d.,]*)",
+            tail,
+            re.I,
+        )
+        while correction:
+            start = mention.end + correction.start("amount")
+            raw = correction.group("amount").rstrip(".,")
+            if re.match(
+                r"\s*(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\b",
+                text[start + len(raw) :],
+                re.I,
+            ):
+                return expanded + [
+                    (Match(start, start + len(raw), raw, "PRECIO", None), mode)
+                ], None
+            mention = Match(start, start + len(raw), raw, "PRECIO", decimal_from_text(raw))
+            expanded.append((mention, mode))
+            tail = text[mention.end :]
+            correction = re.match(
+                r"\s*[,;]?\s*(?:corrijo|perd[oó]n|no\s*,?\s*mejor)"
+                r"\s*[,;:]?\s*(?:de\s+)?(?P<amount>[-−]?\d[\d.,]*)",
+                tail,
+                re.I,
+            )
+    values = sorted(
+        {(m.start, m.end): (m, mode) for m, mode in expanded}.values(), key=lambda p: p[0].start
+    )
+    return values, None
+
+
+def is_price_correction(fragment: str) -> bool:
+    """La corrección debe conectar importes, no una rectificación de otra pieza."""
+    return bool(
+        re.fullmatch(
+            r"\s*(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*[,;.]?\s*"
+            r"(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;:]?\s*"
+            r"(?:(?:precio\s+(?:unitario|total(?:\s+negociado)?)|valor\s+unitario|total(?:\s+negociado)?)\s+)?"
+            r"(?:de\s+)?(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*",
+            fragment,
+            re.I,
+        )
+    )
+
+
+def is_price_alternative(fragment: str) -> bool:
+    """Alternativa entre precios; una «o» dentro de un color no cambia el precio."""
+    return bool(
+        re.fullmatch(
+            r"\s*(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*[,;]?\s+o\s+"
+            r"(?:(?:precio\s+(?:unitario|total(?:\s+negociado)?)|total)\s+)?"
+            r"(?:de\s+)?(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*",
+            fragment,
+            re.I,
+        )
+    )
+
+
+def find_price(text: str, mentions=None, quantity_override=...) -> tuple[Match | None, str | None]:
+    if mentions is None:
+        mentions, _ = price_mentions(text)
+    if not mentions:
         return None, None
-    parsed = decimal_from_text(chosen.group(1))
-    if parsed is None:
+    if any(m.value is None or is_explicitly_negated(text, m.start) for m, _ in mentions):
         return None, "INVALID_PRICE"
-    mode = "PRECIO_UNITARIO" if unit else "TOTAL_NEGOCIADO"
-    return Match(chosen.start(1), chosen.end(1), chosen.group(1), "PRECIO", parsed), mode
+    for kind in ("PRECIO_UNITARIO", "TOTAL_NEGOCIADO"):
+        same_kind = [m for m, k in mentions if k == kind]
+        for a, b in zip(same_kind, same_kind[1:]):
+            if a.value != b.value and not is_price_correction(text[a.end : b.start]):
+                return None, "CONFLICTING_VALUES"
+    current, mode = mentions[0]
+    for following, following_mode in mentions[1:]:
+        between = text[current.end : following.start]
+        correction = is_price_correction(between)
+        if correction:
+            current, mode = following, following_mode
+        elif following.value != current.value or following_mode != mode:
+            # Dos modalidades explícitas pueden corroborarse aritméticamente;
+            # no se deriva un unitario nuevo de un total ni se inventa descuento.
+            quantity = find_quantity(text) if quantity_override is ... else None
+            quantity_value = (
+                quantity.value
+                if quantity
+                else (None if quantity_override is ... else quantity_override)
+            )
+            if (
+                following_mode != mode
+                and quantity_value is None
+                and not is_price_alternative(between)
+            ):
+                # Ambos importes son literales independientes. La falta de
+                # cantidad impide comprobar su relación, no invalida el unitario.
+                current = current if mode == "PRECIO_UNITARIO" else following
+                mode = "PRECIO_UNITARIO"
+                continue
+            if (
+                following_mode != mode
+                and not is_price_alternative(between)
+                and quantity_value
+                and not re.search(r"\bdescuento\s+(?!cero\b|0\b)\d", text, re.I)
+            ):
+                unit = current if mode == "PRECIO_UNITARIO" else following
+                total = following if mode == "PRECIO_UNITARIO" else current
+                if unit.value * quantity_value == total.value:
+                    current, mode = unit, "PRECIO_UNITARIO"
+                    continue
+            return None, "CONFLICTING_VALUES"
+    return current, mode
 
 
 def find_ambiguous_price(text: str) -> Match | None:
@@ -600,7 +758,16 @@ def find_measurements(text: str, label: str) -> list[Match]:
     compuestas, spans_compuestos = _medidas_orales_compuestas(text, axis, axis_prefix, unit)
     found = []
     for match in pattern.finditer(text):
-        value = decimal_from_text(match.group(1) or match.group(3))
+        if re.search(r"[-−]\s*$", text[max(0, match.start() - 3) : match.start()]):
+            continue
+        raw_value = match.group(1) or match.group(3)
+        value = (
+            Decimal(raw_value.replace(",", "."))
+            if re.fullmatch(r"\d+(?:[.,]\d+)?", raw_value)
+            else None
+        )
+        if value is not None and value <= 0:
+            value = None
         raw_unit = match.group(2) or match.group(4) or match.group(5)
         if value is not None:
             normalized = None
@@ -659,18 +826,30 @@ def find_measurements(text: str, label: str) -> list[Match]:
 
 
 def find_thicknesses(text: str) -> list[Match]:
+    spoken = []
+    for m in re.finditer(r"\b(" + _DIM_PALABRAS_PATRON + r")\s+(mm|mil[ií]metros?)\b", text, re.I):
+        value = _dimension_numero_palabras(m.group(1))
+        if value is not None and not _fragmento_numerico_truncado(text, m.start(1)):
+            spoken.append(
+                Match(m.start(1), m.end(2), text[m.start(1) : m.end(2)], "ESPESOR", (value, "mm"))
+            )
     pattern = re.compile(r"\b(?:de\s+|a\s+|espesor\s+)?([\d.,]+)\s*(mm|mil[ií]metros?)\b", re.I)
-    return [
-        Match(
-            m.start(1),
-            m.end(2),
-            text[m.start(1) : m.end(2)],
-            "ESPESOR",
-            (decimal_from_text(m.group(1)), "mm"),
-        )
-        for m in pattern.finditer(text)
-        if decimal_from_text(m.group(1))
-    ]
+    return sorted(
+        spoken
+        + [
+            Match(
+                m.start(1),
+                m.end(2),
+                text[m.start(1) : m.end(2)],
+                "ESPESOR",
+                (decimal_from_text(m.group(1)), "mm"),
+            )
+            for m in pattern.finditer(text)
+            if decimal_from_text(m.group(1))
+            and not re.search(r"[-−]\s*$", text[max(0, m.start(1) - 3) : m.start(1)])
+        ],
+        key=lambda m: m.start,
+    )
 
 
 def find_accessories(text: str) -> list[Match]:
