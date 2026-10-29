@@ -1,3 +1,7 @@
+> **Selección comparativa posterior con los 20 WAV reales:**
+> [V15 RULES_ONLY para captura asistida](DECISION_NLP.md).
+> No implica despliegue, guardado automático ni nueva versión de corpus.
+
 > **Versión activa del cierre integral:** `2.0.0-offline.5.1`, constructor
 > `training.integral_v2.build`. Ver [resultados nuevos](FINAL_OFFLINE5_1.md) y
 > [reproducción con seis entradas privadas](INTEGRAL_OFFLINE5.md).

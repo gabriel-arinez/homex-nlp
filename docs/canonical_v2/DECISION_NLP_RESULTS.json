@@ -1,0 +1,2951 @@
+{
+  "winner": "V15 RULES_ONLY",
+  "version": "0.1.15",
+  "rules_version": "prf04-rules-v15",
+  "audio_count": 20,
+  "audio_seconds": 522.635,
+  "models_evaluated": 10,
+  "mechanisms": 21,
+  "inputs_per_mechanism": 103,
+  "human_gold": false,
+  "human_WER": "NO_EVALUABLE",
+  "external_blind_test": false,
+  "new_training": false,
+  "runtime_changed": false,
+  "production_integration": false,
+  "semantic_reproduction": {
+    "compared_individual_outputs": 1239,
+    "new_training": false,
+    "only_excluded_field": "latency_nlp_ms measured time, not extraction behavior",
+    "raw_serialized_differences": 53,
+    "semantic_outputs_unchanged": true
+  },
+  "ASR": {
+    "cold_load_seconds": 1.048573273998045,
+    "n": 20,
+    "p50_seconds": 3.806743330500467,
+    "p95_seconds": 6.650190724001732,
+    "total_seconds": 85.31432387098903
+  },
+  "runs": [
+    {
+      "name": "M-A",
+      "variant": null,
+      "seed": null,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 91,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 38,
+          "requires_review": 10,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 45,
+          "critical_fn": 85,
+          "requires_review": 19,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 18,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-A",
+        "imports_seconds": 0.12393986800452694,
+        "load_seconds": 4.269000783096999e-06,
+        "first_inference_ms": 58.18676699709613,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 1.026401499984786,
+        "warm_p95_ms": 1.4452360046561807,
+        "peak_rss_kib": 32072,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D1-404",
+      "variant": "D1",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 35,
+          "critical_fn": 110,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 19,
+          "critical_fn": 86,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 81,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 3,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 293,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D1-404",
+        "imports_seconds": 0.08676085600018268,
+        "load_seconds": 0.44151949599472573,
+        "first_inference_ms": 6.6309070025454275,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.786331501440145,
+        "warm_p95_ms": 7.6182470002095215,
+        "peak_rss_kib": 110672,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D1-404",
+      "variant": "D1",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 126,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 3,
+          "critical_fn": 96,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 38,
+          "requires_review": 10,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 43,
+          "critical_fn": 105,
+          "requires_review": 17,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 17,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D1-404",
+        "imports_seconds": 0.4545576090022223,
+        "load_seconds": 0.08471180099877529,
+        "first_inference_ms": 57.11448699730681,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.618190996960038,
+        "warm_p95_ms": 8.580626999901142,
+        "peak_rss_kib": 111480,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D1-405",
+      "variant": "D1",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 7,
+          "critical_fn": 132,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 8,
+          "critical_fn": 91,
+          "requires_review": 2,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 5,
+          "critical_fn": 78,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 3,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 297,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D1-405",
+        "imports_seconds": 0.08465877999697113,
+        "load_seconds": 0.39701589600008447,
+        "first_inference_ms": 5.5995109942159615,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 4.836591499042697,
+        "warm_p95_ms": 6.178800998895895,
+        "peak_rss_kib": 110664,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D1-405",
+      "variant": "D1",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 11,
+          "critical_fn": 100,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 13,
+          "critical_fn": 83,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 38,
+          "requires_review": 11,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 45,
+          "critical_fn": 85,
+          "requires_review": 19,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 18,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D1-405",
+        "imports_seconds": 0.4025783440010855,
+        "load_seconds": 0.08386737399996491,
+        "first_inference_ms": 57.09175100491848,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.798133996198885,
+        "warm_p95_ms": 8.466519000648987,
+        "peak_rss_kib": 111452,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D2-404",
+      "variant": "D2",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 5,
+          "critical_fn": 95,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 22,
+          "critical_fn": 67,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 1,
+          "critical_fn": 76,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 3,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 4,
+          "critical_fn": 290,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D2-404",
+        "imports_seconds": 0.1030255580044468,
+        "load_seconds": 0.42772624699864537,
+        "first_inference_ms": 5.648229998769239,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.050523996033007,
+        "warm_p95_ms": 6.463850004365668,
+        "peak_rss_kib": 110588,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D2-404",
+      "variant": "D2",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 89,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 38,
+          "requires_review": 10,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 43,
+          "critical_fn": 96,
+          "requires_review": 18,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 17,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D2-404",
+        "imports_seconds": 0.41809241300506983,
+        "load_seconds": 0.10102928599371808,
+        "first_inference_ms": 58.08832999900915,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 7.174687500082655,
+        "warm_p95_ms": 9.215430000040215,
+        "peak_rss_kib": 111756,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D2-405",
+      "variant": "D2",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 70,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 27,
+          "critical_fn": 51,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 4,
+          "critical_fn": 78,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 3,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 2,
+          "critical_fn": 290,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D2-405",
+        "imports_seconds": 0.0912414929989609,
+        "load_seconds": 0.43706491000193637,
+        "first_inference_ms": 5.666414996085223,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.058597496827133,
+        "warm_p95_ms": 6.337851002172101,
+        "peak_rss_kib": 110760,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D2-405",
+      "variant": "D2",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 6,
+          "critical_fn": 107,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 8,
+          "critical_fn": 47,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 5,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 45,
+          "critical_fn": 85,
+          "requires_review": 19,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 17,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D2-405",
+        "imports_seconds": 0.4212799000015366,
+        "load_seconds": 0.10889645100542111,
+        "first_inference_ms": 59.77072599489475,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.541869002830936,
+        "warm_p95_ms": 8.500349998939782,
+        "peak_rss_kib": 111532,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D3-404",
+      "variant": "D3",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 1,
+          "critical_fn": 123,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 4,
+          "critical_fn": 92,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 5,
+          "critical_fn": 79,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 2,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 25,
+          "critical_fn": 184,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 15,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D3-404",
+        "imports_seconds": 0.09089034399949014,
+        "load_seconds": 0.42937852799514076,
+        "first_inference_ms": 7.12626900349278,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.557660999329528,
+        "warm_p95_ms": 7.224109998787753,
+        "peak_rss_kib": 110740,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D3-404",
+      "variant": "D3",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 87,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 15,
+          "critical_fn": 79,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 7,
+          "critical_fn": 43,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 5,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 11,
+          "critical_fn": 228,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 5,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D3-404",
+        "imports_seconds": 0.42213137799990363,
+        "load_seconds": 0.10709458099881886,
+        "first_inference_ms": 56.89458300184924,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.840043501142645,
+        "warm_p95_ms": 9.01939399773255,
+        "peak_rss_kib": 111620,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D3-405",
+      "variant": "D3",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 7,
+          "critical_fn": 121,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 42,
+          "critical_fn": 82,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 9,
+          "critical_fn": 71,
+          "requires_review": 5,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 2,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 46,
+          "critical_fn": 210,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 13,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D3-405",
+        "imports_seconds": 0.09101292500417912,
+        "load_seconds": 0.4158873529959237,
+        "first_inference_ms": 6.855373998405412,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.191792999743484,
+        "warm_p95_ms": 8.078783001110423,
+        "peak_rss_kib": 110744,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D3-405",
+      "variant": "D3",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 90,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 98,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 9,
+          "critical_fn": 39,
+          "requires_review": 9,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 219,
+          "requires_review": 7,
+          "contract_failures": 1,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D3-405",
+        "imports_seconds": 0.43983653099712683,
+        "load_seconds": 0.1024677649984369,
+        "first_inference_ms": 56.99377199925948,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.551631500769872,
+        "warm_p95_ms": 8.846347998769488,
+        "peak_rss_kib": 111320,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D4-404",
+      "variant": "D4",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 4,
+          "critical_fn": 98,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 28,
+          "critical_fn": 54,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 12,
+          "critical_fn": 62,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 2,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 47,
+          "critical_fn": 169,
+          "requires_review": 15,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 13,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D4-404",
+        "imports_seconds": 0.08513784199749352,
+        "load_seconds": 0.43240414100000635,
+        "first_inference_ms": 7.657208996533882,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.496494497492677,
+        "warm_p95_ms": 7.139335997635499,
+        "peak_rss_kib": 110868,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D4-404",
+      "variant": "D4",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 14,
+          "critical_fn": 91,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 2,
+          "critical_fn": 55,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 5,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 19,
+          "critical_fn": 199,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 9,
+          "contract_failures": 1,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D4-404",
+        "imports_seconds": 0.40475037000578595,
+        "load_seconds": 0.10124019200156908,
+        "first_inference_ms": 66.39924299815902,
+        "warm_successful_calls": 57,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 7.644691999303177,
+        "warm_p95_ms": 9.648904997447971,
+        "peak_rss_kib": 111728,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D4-405",
+      "variant": "D4",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 1,
+          "critical_fn": 99,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 17,
+          "critical_fn": 70,
+          "requires_review": 2,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 12,
+          "critical_fn": 50,
+          "requires_review": 11,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 2,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 29,
+          "critical_fn": 169,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D4-405",
+        "imports_seconds": 0.10040642500098329,
+        "load_seconds": 0.4390957610012265,
+        "first_inference_ms": 7.180335000157356,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.399506000685506,
+        "warm_p95_ms": 6.769712999812327,
+        "peak_rss_kib": 110964,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D4-405",
+      "variant": "D4",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 7,
+          "critical_fn": 93,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 1,
+          "critical_fn": 52,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 6,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 15,
+          "critical_fn": 213,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 7,
+          "contract_failures": 1,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D4-405",
+        "imports_seconds": 0.4107463269974687,
+        "load_seconds": 0.10259344699443318,
+        "first_inference_ms": 63.38847099686973,
+        "warm_successful_calls": 57,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 7.242264997330494,
+        "warm_p95_ms": 9.281705002649687,
+        "peak_rss_kib": 111808,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D4W-404",
+      "variant": "D4W",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 15,
+          "critical_fn": 77,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 26,
+          "critical_fn": 42,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 10,
+          "critical_fn": 68,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 2,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 39,
+          "critical_fn": 178,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 15,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D4W-404",
+        "imports_seconds": 0.09458247300062794,
+        "load_seconds": 0.4224202069963212,
+        "first_inference_ms": 7.7718710017506965,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.3930709982523695,
+        "warm_p95_ms": 7.696454005781561,
+        "peak_rss_kib": 110912,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D4W-404",
+      "variant": "D4W",
+      "seed": 404,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 19,
+          "critical_fn": 84,
+          "requires_review": 8,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 18,
+          "critical_fn": 77,
+          "requires_review": 4,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 2,
+          "critical_fn": 59,
+          "requires_review": 5,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 5,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 13,
+          "critical_fn": 225,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D4W-404",
+        "imports_seconds": 0.4449516000022413,
+        "load_seconds": 0.11086958899977617,
+        "first_inference_ms": 59.583285998087376,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.963398001971655,
+        "warm_p95_ms": 8.860952002578415,
+        "peak_rss_kib": 111524,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-B-D4W-405",
+      "variant": "D4W",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 2,
+          "critical_fn": 81,
+          "requires_review": 5,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 26,
+          "critical_fn": 34,
+          "requires_review": 5,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 1,
+          "wilson95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ],
+          "negative_n": 3,
+          "false_proposals": 1,
+          "critical_fp": 5,
+          "critical_fn": 69,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 3,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 33,
+          "critical_fn": 162,
+          "requires_review": 14,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 13,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 0,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-B-D4W-405",
+        "imports_seconds": 0.0844369890037342,
+        "load_seconds": 0.4279876620057621,
+        "first_inference_ms": 7.37931900221156,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 5.320022497471655,
+        "warm_p95_ms": 6.728726999426726,
+        "peak_rss_kib": 110684,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    },
+    {
+      "name": "M-C-D4W-405",
+      "variant": "D4W",
+      "seed": 405,
+      "subsets": {
+        "dev": {
+          "entries": 21,
+          "commercial_n": 11,
+          "positive_full_n": 11,
+          "full_exact": 0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.2588400172488141
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 6,
+          "critical_fn": 99,
+          "requires_review": 6,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "holdout_internal": {
+          "entries": 11,
+          "commercial_n": 5,
+          "positive_full_n": 5,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.43449149475208104
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 15,
+          "critical_fn": 79,
+          "requires_review": 3,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "known_synthetic_dev": {
+          "entries": 27,
+          "commercial_n": 16,
+          "positive_full_n": 13,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.22810184305529166
+          ],
+          "negative_n": 3,
+          "false_proposals": 0,
+          "critical_fp": 5,
+          "critical_fn": 47,
+          "requires_review": 7,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 5,
+            "n": 16
+          }
+        },
+        "planned_script_text": {
+          "entries": 20,
+          "commercial_n": 20,
+          "positive_full_n": 20,
+          "full_exact": 0,
+          "wilson95": [
+            0,
+            0.16113012549493322
+          ],
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 17,
+          "critical_fn": 206,
+          "requires_review": 8,
+          "contract_failures": 1,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "real_audio_asr": {
+          "entries": 20,
+          "commercial_n": 0,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 0,
+          "false_proposals": 0,
+          "critical_fp": 0,
+          "critical_fn": 0,
+          "requires_review": 10,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        },
+        "training_negative_diagnostic": {
+          "entries": 4,
+          "commercial_n": 4,
+          "positive_full_n": 0,
+          "full_exact": 0,
+          "wilson95": null,
+          "negative_n": 4,
+          "false_proposals": 1,
+          "critical_fp": 2,
+          "critical_fn": 0,
+          "requires_review": 1,
+          "contract_failures": 0,
+          "projection_failures": 0,
+          "legacy_16": {
+            "exact": 0,
+            "n": 0
+          }
+        }
+      },
+      "benchmark": {
+        "engine": "M-C-D4W-405",
+        "imports_seconds": 0.4087892719981028,
+        "load_seconds": 0.1005976960004773,
+        "first_inference_ms": 64.4888489987352,
+        "warm_successful_calls": 60,
+        "warm_total_calls": 60,
+        "warm_p50_ms": 6.680473496089689,
+        "warm_p95_ms": 8.672026997373905,
+        "peak_rss_kib": 111732,
+        "memory_scope": "fresh engine-specific process including imports; not service RSS or marginal allocation"
+      }
+    }
+  ]
+}
