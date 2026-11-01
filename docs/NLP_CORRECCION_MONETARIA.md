@@ -31,3 +31,20 @@ La comparación diferencial conserva todo el léxico cardinal aceptado previamen
 incluidas centenas femeninas y veintiuna. El candidato intermedio omitía nueve
 formas; se detectaron con pruebas rojas sintéticas y se restauraron antes del
 cierre. Metadatos distinguen SHA intermedio y final;0.1.18 permanece intacto.
+
+## CORR-PLN-03 (2026-11-01)
+
+El patrón anterior podía truncar «10 mil 500» a 10000, o a 500 en la
+ruta «cada uno». Ahora consume la frase numérica adyacente completa, sin límite
+de nueve tokens; valida la gramática antes de aceptar un valor. Admite
+coeficiente oral o entero y resto entero de 0 a 999 o cardinal. Restos negativos,
+escalas repetidas, fracciones de resto y secuencias malformadas quedan sin resolver.
+No modifica texto, offsets, dimensiones ni la distinción total/unitario.
+
+Se mantiene 0.1.19 porque es una propuesta sin tag ni release publicados
+(comprobados mediante GitHub el 2026-11-01). Cada candidato anterior conserva
+su commit y artefacto histórico; no se sustituye un release inmutable. La nueva
+huella es `prf04-rules-money-2`. El SHA anterior ac33987d corresponde al cierre
+1b35e4c, y ac19d9f9 al candidato previo al restablecimiento del léxico femenino;
+ninguno prueba este cambio. El manifiesto nlp-money-release.json fija el nuevo
+wheel y conserva ambos SHA anteriores como procedencia.

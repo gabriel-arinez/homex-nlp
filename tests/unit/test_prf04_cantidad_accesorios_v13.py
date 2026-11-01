@@ -32,7 +32,7 @@ def test_cantidad_comercial_segura_y_offset(texto, cantidad, fragmento):
     resultado = extraer(texto)
     assert resultado.status == "REQUIRES_REVIEW"
     assert resultado.engine.mode == "RULES_ONLY"
-    assert resultado.engine.rules_version == "prf04-rules-money-1"
+    assert resultado.engine.rules_version == "prf04-rules-money-2"
     assert resultado.item_proposal.quantity == cantidad
     spans = [c for c in resultado.candidates if c.label == "CANTIDAD" and c.decision == "ACCEPTED"]
     assert len(spans) == 1

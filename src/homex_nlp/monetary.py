@@ -54,15 +54,10 @@ LEXICON = (
     }
 )
 WORD = r"(?:" + "|".join(sorted(LEXICON, key=len, reverse=True)) + r")\b"
-WORDS = WORD + r"(?:\s+" + WORD + r"){0,8}"
-# Capture a complete mixed scale, not its smaller numeric prefix. Reject unknown tails below.
-AMOUNT = (
-    r"(?:[-−]?\d[\d.,]*(?:\s+(?:mil|mill[oó]n|millones|bill[oó]n|billones)\b(?:\s+"
-    + WORDS
-    + r")?)?|[-−]?"
-    + WORDS
-    + r")"
-)
+# Consume the whole adjacent numeric phrase, including invalid tails. Validation
+# must see every token; a repetition limit or optional scale tail accepts prefixes.
+ATOM = r"(?:(?:[-−]\s*)?\d[\w.,]*|mil\d\w*|(?:[-−]\s*)?" + WORD + r")"
+AMOUNT = ATOM + r"(?:\s+" + ATOM + r")*"
 
 
 def cardinal(tokens):
@@ -100,14 +95,30 @@ def monetary_amount(raw, numeric_parser):
     text = "".join(
         c for c in unicodedata.normalize("NFD", raw.casefold()) if unicodedata.category(c) != "Mn"
     )
-    mixed = re.fullmatch(r"(\d[\d.,]*)\s+mil(?:\s+(.+))?", text)
+    mixed = re.fullmatch(r"(.+?)\s+mil(?:\s+(.+))?", text)
     if mixed:
-        coefficient = numeric_parser(mixed[1])
-        rest = cardinal(mixed[2].split()) if mixed[2] else 0
-        if coefficient is None or coefficient >= 1000 or rest is None or rest >= 1000:
+        coefficient = (
+            numeric_parser(mixed[1])
+            if re.fullmatch(r"\d+", mixed[1])
+            else cardinal(mixed[1].split())
+        )
+        tail = mixed[2]
+        rest = (
+            int(tail)
+            if tail and re.fullmatch(r"\d{1,3}", tail)
+            else cardinal(tail.split())
+            if tail
+            else 0
+        )
+        if (
+            coefficient is None
+            or not 0 < coefficient < 1000
+            or rest is None
+            or not 0 <= rest < 1000
+        ):
             return None
-        return coefficient * Decimal(1000) + Decimal(rest)
+        return Decimal(coefficient) * Decimal(1000) + Decimal(rest)
     if re.search(r"\d", text):
-        return numeric_parser(text)
+        return numeric_parser(text) if re.fullmatch(r"\d[\d.,]*", text) else None
     n = cardinal(text.split())
     return Decimal(n) if n is not None and 0 < n <= 999999 else None

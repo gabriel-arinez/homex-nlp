@@ -30,7 +30,7 @@ def test_captura_23_tres_variantes_y_especificaciones(medida, material):
     item = r.item_proposal
     assert r.status == "REQUIRES_REVIEW"
     assert r.engine.mode == "RULES_ONLY"
-    assert r.engine.rules_version == "prf04-rules-money-1"
+    assert r.engine.rules_version == "prf04-rules-money-2"
     assert r.engine.model_version is None
     assert r.schema_version == "1.0"
     assert __version__ == "0.1.19"
