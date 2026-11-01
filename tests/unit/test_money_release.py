@@ -107,3 +107,20 @@ def test_multiple_products_remain_review_not_mixed():
 def test_negative_prefix_never_lost(phrase):
     mentions, _ = price_mentions(phrase)
     assert not any(m.value is not None for m, _ in mentions)
+
+
+@pytest.mark.parametrize("separator", [": ", ", ", " es de "])
+@pytest.mark.parametrize(
+    "words,amount", [("ocho mil seiscientos", "8600.00"), ("mil setecientos", "1700.00")]
+)
+@pytest.mark.parametrize("mode", ["unitario", "total negociado"])
+def test_spoken_money_with_explicit_marker_and_punctuation(separator, words, amount, mode):
+    text = f"Tres mesas de taller. Precio {mode}{separator}{words} bolivianos."
+    r = RulesEngine().extract(
+        ExtractionRequest(request_id="spoken-punctuation", text=text, currency_context="BOB")
+    )
+    assert r.item_proposal.price.stated_amount == amount
+    assert r.item_proposal.price.mode == (
+        "PRECIO_UNITARIO" if mode == "unitario" else "TOTAL_NEGOCIADO"
+    )
+    assert all(text[c.start : c.end] == c.text for c in r.candidates)
