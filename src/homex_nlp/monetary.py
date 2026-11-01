@@ -56,7 +56,8 @@ LEXICON = (
 WORD = r"(?:" + "|".join(sorted(LEXICON, key=len, reverse=True)) + r")\b"
 # Consume the whole adjacent numeric phrase, including invalid tails. Validation
 # must see every token; a repetition limit or optional scale tail accepts prefixes.
-ATOM = r"(?:(?:[-−]\s*)?\d[\w.,]*|mil\d\w*|(?:[-−]\s*)?" + WORD + r")"
+NUMERIC_WORD = WORD.removesuffix(r"\b") + r"\w*\b"
+ATOM = r"(?:(?:[-−]\s*)?\d[\w.,]*|(?:[-−]\s*)?" + NUMERIC_WORD + r")"
 AMOUNT = ATOM + r"(?:\s+" + ATOM + r")*"
 
 
