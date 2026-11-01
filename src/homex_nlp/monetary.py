@@ -27,6 +27,11 @@ HUNDREDS = dict(
         [100, 100, 200, 300, 400, 500, 600, 700, 800, 900],
     )
 )
+SHORT["veintiuna"] = 21
+HUNDREDS.update(
+    {word[:-2] + "as": value for word, value in list(HUNDREDS.items()) if word.endswith("ientos")}
+)
+
 LEXICON = (
     set(UNITS)
     | set(SHORT)

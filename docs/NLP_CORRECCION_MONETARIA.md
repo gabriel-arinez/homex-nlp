@@ -26,3 +26,8 @@ se modifican. No se atribuye exactitud comercial humana a textos sintéticos.
 Reproducción: uv sync --locked --extra dev; make check; make distribution-check.
 Build determinístico SOURCE_DATE_EPOCH=0. Backend requiere consumidor0.1.19 con
 wheel/SHA fijados en PR dependiente. Sin merge, tag final ni despliegue.
+
+La comparación diferencial conserva todo el léxico cardinal aceptado previamente,
+incluidas centenas femeninas y veintiuna. El candidato intermedio omitía nueve
+formas; se detectaron con pruebas rojas sintéticas y se restauraron antes del
+cierre. Metadatos distinguen SHA intermedio y final;0.1.18 permanece intacto.

@@ -6,7 +6,13 @@ import pytest
 
 from homex_nlp.contracts import ExtractionRequest, ExtractionResult
 from homex_nlp.engine import RulesEngine
-from homex_nlp.rules import price_mentions
+from homex_nlp.monetary import monetary_amount
+from homex_nlp.rules import (
+    _DIM_LEXICO,
+    _dimension_numero_palabras,
+    decimal_from_text,
+    price_mentions,
+)
 
 
 @pytest.mark.parametrize("amount", ["10 mil", "diez mil", "10.000", "10000"])
@@ -124,3 +130,29 @@ def test_spoken_money_with_explicit_marker_and_punctuation(separator, words, amo
         "PRECIO_UNITARIO" if mode == "unitario" else "TOTAL_NEGOCIADO"
     )
     assert all(text[c.start : c.end] == c.text for c in r.candidates)
+
+
+@pytest.mark.parametrize("word", sorted(_DIM_LEXICO))
+def test_monetary_grammar_preserves_legacy_accepted_cardinals(word):
+    assert monetary_amount(word, decimal_from_text) == _dimension_numero_palabras(word)
+
+
+@pytest.mark.parametrize(
+    "hundred",
+    [
+        "doscientas",
+        "trescientas",
+        "cuatrocientas",
+        "quinientas",
+        "seiscientas",
+        "setecientas",
+        "ochocientas",
+        "novecientas",
+    ],
+)
+@pytest.mark.parametrize("tail", [" una", " veintiuna", " cincuenta y una"])
+def test_legacy_feminine_compound_amounts(hundred, tail):
+    words = "dos mil " + hundred + tail
+    expected = _dimension_numero_palabras(words)
+    assert expected is not None
+    assert monetary_amount(words, decimal_from_text) == expected
