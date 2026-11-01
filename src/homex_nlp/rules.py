@@ -6,6 +6,8 @@ import re
 from dataclasses import dataclass
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 
+from homex_nlp.monetary import AMOUNT, monetary_amount
+
 NUMBER_WORDS = {
     "uno": 1,
     "un": 1,
@@ -301,20 +303,20 @@ def price_mentions(text: str):
         ]
 
     unit = primero_aplicable(
-        r"\b(?:a\s+|por\s+)?([-−]?\d[\d.,]*)\s*(?:" + moneda + r"\s*)?"
+        r"(?<![\w.,−-])(?:a\s+|por\s+)?(" + AMOUNT + r")\s*(?:" + moneda + r"\s*)?"
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
         r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario|"
         r"presionitario|presunitario|prese\s+unitario)"
-        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?([-−]?[\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
     tipo = r"(?:mesas?|escritorios?|veladores?|muebles?|roperos?|libreros?|credenzas?|estantes?)"
     total = primero_aplicable(
         r"\b(?:precio\s+total(?:\s+negociado)?|total(?:\s+negociado)?|monto(?:\s+total)?)"
         r"(?:\s+de\s+(?:las?|los?)\s+" + cantidad + r"\s+" + tipo + r")?"
-        r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?([-−]?[\d.,]+)\b"
+        r"\s*[,;:]?\s*(?:(?:es|de)\s+)*(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )
     mentions = sorted(
         [(m, "PRECIO_UNITARIO") for m in unit + declared_unit]
@@ -326,25 +328,11 @@ def price_mentions(text: str):
         raw = m.group(1).rstrip(".,")
         # Un signo menos no puede desaparecer al buscar el primer dígito.
         negative = re.search(r"[-−]\s*$", text[m.start() : m.start(1)])
-        value = None if negative else decimal_from_text(raw)
+        value = None if negative else monetary_amount(raw, decimal_from_text)
         unique[(m.start(1), m.start(1) + len(raw))] = (
             Match(m.start(1), m.start(1) + len(raw), raw, "PRECIO", value),
             mode,
         )
-    for m in re.finditer(
-        r"\b(?P<mode>precio\s+unitario|precio\s+total(?:\s+negociado)?)"
-        r"\s+(?:de\s+)?(?P<amount>" + _DIM_PALABRAS_PATRON + r")"
-        r"\s+(?:bolivianos?|d[oó]lares?|BOB|USD)\b",
-        text,
-        re.I,
-    ):
-        value = _dimension_numero_palabras(m.group("amount"))
-        if value is not None:
-            start, end = m.span("amount")
-            mode = (
-                "PRECIO_UNITARIO" if "unitario" in m.group("mode").casefold() else "TOTAL_NEGOCIADO"
-            )
-            unique[(start, end)] = (Match(start, end, text[start:end], "PRECIO", value), mode)
     values = list(unique.values())
     if not values:
         return [], None
@@ -357,7 +345,7 @@ def price_mentions(text: str):
         correction = re.match(
             r"\s*(?:bolivianos?|d[oó]lares?|BOB|USD|Bs\.?)?\s*[,;]?\s*"
             r"(?:corrijo|perd[oó]n|no\s*,?\s*mejor)\s*[,;:]?\s*(?:de\s+)?"
-            r"(?P<amount>[-−]?\d[\d.,]*)",
+            r"(?P<amount>" + AMOUNT + r")",
             tail,
             re.I,
         )
@@ -372,12 +360,14 @@ def price_mentions(text: str):
                 return expanded + [
                     (Match(start, start + len(raw), raw, "PRECIO", None), mode)
                 ], None
-            mention = Match(start, start + len(raw), raw, "PRECIO", decimal_from_text(raw))
+            mention = Match(
+                start, start + len(raw), raw, "PRECIO", monetary_amount(raw, decimal_from_text)
+            )
             expanded.append((mention, mode))
             tail = text[mention.end :]
             correction = re.match(
                 r"\s*[,;]?\s*(?:corrijo|perd[oó]n|no\s*,?\s*mejor)"
-                r"\s*[,;:]?\s*(?:de\s+)?(?P<amount>[-−]?\d[\d.,]*)",
+                r"\s*[,;:]?\s*(?:de\s+)?(?P<amount>" + AMOUNT + r")",
                 tail,
                 re.I,
             )
