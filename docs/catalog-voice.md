@@ -35,3 +35,19 @@ alfanuméricos dependen de la calidad ASR y deben revisarse en la transcripción
 No cambia Whisper Small, CPU/int8, su caché, sus parámetros, el contrato V1 ni las
 reglas congeladas de muebles. La distribución 0.1.19 se conserva en el historial;
 la ampliación se publica como 0.1.20.
+
+## Corrección 0.1.21
+
+Los ejemplos reales de HOMEX demostraron pérdida de nombres sin etiquetas,
+medidas orales mayores de diez, combinaciones de colores y códigos truncados.
+La corrección conserva los tres extractores y reutiliza cardinales, decimales,
+precios y negaciones existentes. Admite frases nominales iniciales y conserva su
+texto descriptivo, dos colores activos unidos por «con»/«y», códigos literales y
+medidas explícitas en ambas direcciones. Las alternativas y códigos hablados
+ambiguos requieren revisión. Las evidencias usan offsets del texto original,
+incluso con acentos Unicode descompuestos. Los materiales de respaldo y asiento
+se distinguen por su contexto; el nylon del cuerpo no implica material de base.
+
+Los parsers monetarios, reglas de muebles y parámetros/cache ASR permanecen
+intactos. Las versiones publicadas 0.1.19 y 0.1.20 se conservan; la identidad del
+artefacto anterior figura en `catalog-release-0.1.20.json`.
