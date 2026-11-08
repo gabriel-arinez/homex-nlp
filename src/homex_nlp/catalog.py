@@ -14,8 +14,10 @@ from pydantic import BaseModel, ConfigDict, Field
 from homex_nlp.contracts.evidence import Candidate
 from homex_nlp.monetary import AMOUNT, cardinal
 from homex_nlp.rules import (
+    _numero_es_medida_no_precio,
     decimal_from_text,
     is_explicitly_negated,
+    monetary_amount,
     money,
     price_mentions,
 )
@@ -177,6 +179,50 @@ class Extractor:
                 if mode == "PRECIO_UNITARIO" and m.value is not None
             ],
         )
+        has_quantity_context = bool(
+            re.search(r"\b(?:stock|existencias|cantidad|cajas?|lotes?)\b", self.text, re.I)
+        )
+        if "precio_lista" not in self.result.fields:
+            if not has_quantity_context:
+                # Si no se declaró cantidad ni stock, un "total" dictado representa el importe del producto
+                total_mentions = [
+                    (m.start, m.end, money(m.value))
+                    for m, mode in mentions
+                    if m.value is not None
+                ]
+                if total_mentions:
+                    self.add("precio_lista", total_mentions)
+
+        if "precio_lista" not in self.result.fields:
+            moneda_cat = r"(?:bs\.?|bob|bolivianos?|bolivios?|d[oó]lares?|usd)"
+            # Captura directa: "precio 4000", "precio de lista 5200", "precio de 5000", "total 3000" (sin contexto de cantidad)
+            prefix = (
+                r"\b(?:precio(?:\s+de\s+lista)?|valor|cuesta)\b"
+                if has_quantity_context
+                else r"\b(?:precio(?:\s+de\s+lista)?|total|valor|cuesta)\b"
+            )
+            for m in re.finditer(
+                prefix
+                + r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:"
+                + moneda_cat
+                + r"\s*)?"
+                + r"(?P<amount>"
+                + AMOUNT
+                + r")"
+                + r"(?:\s*(?:"
+                + moneda_cat
+                + r"))?\b",
+                self.text,
+                re.I,
+            ):
+                if not _numero_es_medida_no_precio(self.text, m):
+                    raw = m.group("amount").rstrip(".,")
+                    val = monetary_amount(raw, decimal_from_text)
+                    if val is not None and val > 0:
+                        start = m.start("amount")
+                        end = start + len(raw)
+                        self.add("precio_lista", [(start, end, money(val))])
+                        break
         if "precio_lista" in self.result.fields:
             self.result.warnings.append(
                 "Precio dictado: sugerencia pendiente de revisión comercial."

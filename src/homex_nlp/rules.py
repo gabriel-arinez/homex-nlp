@@ -293,7 +293,7 @@ def price_mentions(text: str):
     Una medida como «ancho total 180 centímetros» NO es «Bs 180».
     Si aparece un precio real después de una medida, seguir buscándolo.
     """
-    moneda = r"(?:bs\.?|bob|bolivianos?|d[oó]lares?|usd)"
+    moneda = r"(?:bs\.?|bob|bolivianos?|bolivios?|d[oó]lares?|usd)"
 
     def primero_aplicable(patron: str):
         return [
@@ -307,7 +307,9 @@ def price_mentions(text: str):
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
-        r"\b(?:precio\s+(?:por\s+unidad|unitario)|valor\s+unitario|"
+        r"\b(?:precio\s+(?:por\s+unidad|unitario|de\s+lista)|"
+        r"precio\s+de\s+lista|"
+        r"valor\s+unitario|"
         r"presionitario|presunitario|prese\s+unitario)"
         r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )

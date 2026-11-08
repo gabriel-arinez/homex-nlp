@@ -212,3 +212,19 @@ def test_ambiguous_model_retains_unresolved_literal_evidence():
     r = extract("SILLA", "modelo B quince")
     assert "modelo" not in r.fields
     assert any(e.text == "B quince" and e.decision == "UNRESOLVED" for e in r.evidence)
+
+
+@pytest.mark.parametrize(
+    ("phrase", "expected"),
+    [
+        ("nombre Silla Ergonómica, precio 4000", "4000.00"),
+        ("nombre Silla Gamer, total 3000", "3000.00"),
+        ("nombre Silla Ejecutiva, precio unitario 3500", "3500.00"),
+        ("nombre Silla Ergonómica, precio de lista 5200 bolivios", "5200.00"),
+        ("nombre Silla Presidencial, cuesta 4500 Bs", "4500.00"),
+    ],
+)
+def test_flexible_catalog_price_expressions(phrase, expected):
+    r = extract("SILLA", phrase)
+    assert r.fields["precio_lista"] == expected
+
