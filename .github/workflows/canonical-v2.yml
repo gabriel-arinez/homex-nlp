@@ -1,0 +1,23 @@
+name: Canonical V2 public data controls
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  canonical-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Verify narrowly scoped historical artifact-hash fingerprints.
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.9"
+      - run: uv sync --locked --extra dev
+      - name: Span, provenance, quarantine and mutation regressions
+        run: uv run pytest tests/training/test_canonical_v2.py -q
+      - name: Code quality
+        run: |
+          uv run ruff check training/canonical_v2 tests/training/test_canonical_v2.py
+          uv run ruff format --check training/canonical_v2 tests/training/test_canonical_v2.py
