@@ -261,7 +261,10 @@ class Extractor:
     def model(self):
         matches = []
         for m in re.finditer(
-            r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*([\w-]+(?:-\s*[\w]+)?)", self.text, re.I
+            r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*"
+            r"([A-Za-z0-9]+(?:\s*(?:-|gui[oó]n)\s*[A-Za-z0-9]+)*)",
+            self.text,
+            re.I,
         ):
             raw = m.group(1)
             tail = self.text[m.end() :]
@@ -270,6 +273,10 @@ class Extractor:
                 tail,
                 re.I,
             )
+            if re.search(r"gui[oó]n", raw, re.I):
+                normalized = re.sub(r"\s*gui[oó]n\s*", "-", raw, flags=re.I).strip()
+                matches.append((m.start(1), m.end(1), normalized))
+                continue
             if len(raw) < 2 or continuation:
                 self.result.warnings.append("modelo: código ambiguo; revise la transcripción.")
                 end = m.end() + (continuation.end() if continuation else 0)
@@ -344,15 +351,15 @@ class ChairExtractor(Extractor):
             "apoyo_lumbar": r"apoyo lumbar|reposa lumbar|parte lumbar",
             "reposacabezas": r"reposa cabezas?|reposacabezas|reposa cabeza",
             "reposapies": r"reposa pi[eé]s|reposapi[eé]s",
-            "brazos_regulables": r"(?:brazos|apoya ?brazos|reposa ?brazos) (?:regulables?|ajustables?)",
-            "material_respaldo": r"malla|(?:respaldo|espaldar) (?:de |en )?(?:PVC|espuma de alta densidad)",
+            "brazos_regulables": r"(?:brazos|apoya ?brazos|reposa ?brazos)\s*(?:regulables?|ajustables?|acolchados?|ergon[oó]micos?)|apoyabrazos acolchados?",
+            "material_respaldo": r"malla|(?:respaldo|espaldar)\s*(?:con|de|en)?\s*(?:malla|PVC|espuma(?:\s+de\s+alta\s+densidad)?|espuma)",
             "tapiz": r"cuero ecol[oó]gico|tela repelente a l[ií]quidos|(?:tapiz|tela) de alto tr[aá]fico",
-            "asiento": r"espuma (?:inyectada|de alta densidad)|esponja de alta densidad",
-            "suspension": r"suspensi[oó]n hidr[aá]ulica|pist[oó]n clase [1234]",
-            "mecanismo": r"doble palanca|una palanca|sistema de rodilla",
+            "asiento": r"(?:asiento\s+)?(?:espuma\s+(?:inyectada|de\s+alta\s+densidad)|esponja\s+de\s+alta\s+densidad|acolchado)|asiento acolchado",
+            "suspension": r"(?:altura|ajuste|suspensi[oó]n|sistema)?\s*hidr[aá]ulic[ao]|pist[oó]n (?:clase\s+[1234]|a\s+gas)",
+            "mecanismo": r"doble palanca|una palanca|sistema de rodilla|mecanismo sincr[oó]nico",
             "capacidad": r"\d+\s*kg",
             "patas": r"(?:[1-9]|cinco|cuatro)\s+patas(?: con ruedas)?",
-            "giro": r"360\s*(?:grados|º|°)",
+            "giro": r"(?:360|370|trescientos\s+sesenta)\s*(?:grados|º|°)|giro(?:\s+de\s+\d+\s*grados|\s+completo)?",
             "base": r"base cromada|base (?:de |en )?PVC|base met[aá]lica de cromo grueso|patas cromadas|(?:base|patas)(?: de)? nylon de alta resistencia",
         }.items():
             self.add(

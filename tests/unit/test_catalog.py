@@ -228,3 +228,25 @@ def test_flexible_catalog_price_expressions(phrase, expected):
     r = extract("SILLA", phrase)
     assert r.fields["precio_lista"] == expected
 
+
+def test_spoken_chair_full_dictation():
+    text = (
+        "Registrar sillón semi-executivo. Modelo NF Guión 810, color negro, "
+        "tapiz de cuero ecológico, asiento acolchado, respaldo con espuma a altura hidráulica, "
+        "apoyabrazos acolchados, cinco patas cromadas y giro de 370 grados, unidad pieza, precio 1500 bolivianos."
+    )
+    r = extract("SILLA", text)
+    assert r.fields["nombre"] == "sillón semi-executivo"
+    assert r.fields["modelo"] == "NF-810"
+    assert r.fields["precio_lista"] == "1500.00"
+    specs = r.fields["especificaciones"]
+    assert specs["tapiz"] == "cuero ecológico"
+    assert specs["asiento"] == "asiento acolchado"
+    assert specs["material_respaldo"] == "respaldo con espuma"
+    assert specs["suspension"] == "altura hidráulica"
+    assert specs["brazos_regulables"] == "apoyabrazos acolchados"
+    assert specs["base"] == "patas cromadas"
+    assert specs["patas"] == "cinco patas"
+    assert specs["giro"] == "giro de 370 grados"
+
+
