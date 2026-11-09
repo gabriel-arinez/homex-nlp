@@ -186,9 +186,7 @@ class Extractor:
             if not has_quantity_context:
                 # Si no se declaró cantidad ni stock, un "total" dictado representa el importe del producto
                 total_mentions = [
-                    (m.start, m.end, money(m.value))
-                    for m, mode in mentions
-                    if m.value is not None
+                    (m.start, m.end, money(m.value)) for m, mode in mentions if m.value is not None
                 ]
                 if total_mentions:
                     self.add("precio_lista", total_mentions)

@@ -248,5 +248,3 @@ def test_spoken_chair_full_dictation():
     assert specs["base"] == "patas cromadas"
     assert specs["patas"] == "cinco patas"
     assert specs["giro"] == "giro de 370 grados"
-
-
