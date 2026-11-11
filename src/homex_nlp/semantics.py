@@ -636,6 +636,9 @@ def completar_relaciones(item, candidates, text, warnings):
                 item.thicknesses = [
                     m for m in item.thicknesses if c.candidate_id not in m.evidence_ids
                 ]
+    from homex_nlp.product_relations import merge_drawer_references
+
+    merge_drawer_references(item, candidates, text)
     resolver_atributos(item, candidates, text, warnings)
     # La nueva ruta oral no afirma un espesor GENERAL por carecer de pieza.
     # El valor literal permanece trazable y resoluble por PRF-03. La ruta

@@ -44,6 +44,7 @@ PRODUCTS = (
     "sillones",
 )
 ACCESSORIES = (
+    r"puertos?\s+USB|USB|HDMI|conectores?|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
     "pasacable",
     "bisagras",
     "cajones",
@@ -149,7 +150,11 @@ def find_products(text: str) -> list[Match]:
     ejecutivo_asr = re.compile(r"\bescritor(?:es)?\s+ejecutivos?\b", re.I)
     especificos = [
         Match(m.start(), m.end(), m.group(), "PRODUCTO")
-        for patron in (reunion, ejecutivo_asr)
+        for patron in (
+            reunion,
+            ejecutivo_asr,
+            re.compile(r"\bcubos?\s+m[oó]viles?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I),
+        )
         for m in patron.finditer(text)
     ]
     generales = [
@@ -313,7 +318,7 @@ def price_mentions(text: str):
         r"\b(?:precio\s+(?:por\s+(?:unidad|juego|pieza|barra|metro\s+cuadrado)|unitario|de\s+lista)|"
         r"precio\s+de\s+lista|"
         r"valor\s+unitario|"
-        r"presionitario|presunitario|prese\s+unitario)"
+        r"presionitario|presiunitario|presunitario|prese\s+unitario)"
         r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
@@ -815,6 +820,37 @@ def find_measurements(text: str, label: str) -> list[Match]:
                     (valor, normalizada),
                 )
             )
+    # Preserve unitless spoken values, but never fabricate their unit here.
+    for pattern_words in (
+        re.compile(r"(" + _DIM_PALABRAS_PATRON + r")\s+(?:de\s+)?" + axis + r"\b", re.I),
+    ):
+        for match in pattern_words.finditer(text):
+            value = _dimension_numero_palabras(match.group(1))
+            if (
+                value
+                and not _fragmento_numerico_truncado(text, match.start(1))
+                and not re.search(
+                    r"\b(?:metros?|cm|mm|cent[ií]metros?)\s+$", text[: match.start(1)], re.I
+                )
+                and not any(m.start <= match.start() and match.end() <= m.end for m in found)
+            ):
+                found.append(
+                    Match(match.start(), match.end(), match.group(), label.upper(), (value, None))
+                )
+    # A preceding product adjective cannot override the axis explicitly following
+    # the same value (armario alto de80cm de ancho).
+    opposite = r"(?:ancho|anchura|alto|altura|largo|longitud|profundidad|fondo|di[aá]metro|espesor)"
+    filtered = []
+    for measurement in found:
+        tail_axis = re.match(r"\s+(?:de\s+)?(" + opposite + r")\b", text[measurement.end :], re.I)
+        if (
+            re.match(axis + r"\b", measurement.text, re.I)
+            and tail_axis
+            and not re.fullmatch(axis, tail_axis.group(1), re.I)
+        ):
+            continue
+        filtered.append(measurement)
+    found = filtered
     found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
     found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
     return sorted(found, key=lambda encontrada: encontrada.start)
@@ -853,23 +889,13 @@ def find_accessories(text: str) -> list[Match]:
         + "|".join(ACCESSORIES)
         + r")\b(?:\s+(?!(?:y|con|pero|sin|color|precio)\b)(?!(?:"
         + "|".join(ACCESSORIES)
+        + r")\b)(?!(?:"
+        + "|".join(NUMBER_WORDS)
         + r")\b)[a-záéíóúñ]+){0,3}",
         re.I,
     )
     encontrados = []
     for match in pattern.finditer(text):
-        prefijo = text[max(0, match.start() - 25) : match.start()]
-        cantidad = re.search(
-            r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s*$",
-            prefijo,
-            re.I,
-        )
-        valor = None
-        if cantidad:
-            token = cantidad.group(1).lower()
-            valor = NUMBER_WORDS.get(token)
-            if valor is None and token.isdigit():
-                valor = int(token)
         texto_accesorio = match.group().strip()
         # El ASR a menudo omite la coma antes de otra cláusula:
         # «dos tomacorrientes al centro estructura en tablero».
@@ -901,7 +927,39 @@ def find_accessories(text: str) -> list[Match]:
                 match.start() + len(texto_accesorio),
                 texto_accesorio,
                 "ACCESORIO",
-                valor,
+                quantity.value
+                if (
+                    quantity := find_accessory_quantity(
+                        text, match.start(), match.start() + len(texto_accesorio)
+                    )
+                )
+                else None,
             )
         )
     return encontrados
+
+
+def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
+    """Only explicit adjacent integer counts; protocol numbers are not quantities."""
+    number = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
+    prefix_start = max(0, start - 30)
+    prefix = re.search(r"(?<![\w.,−-])(" + number + r")\s*$", text[prefix_start:start], re.I)
+    suffix = re.match(
+        r"\s*(?:\(\s*|:\s*)(" + number + r")(?:\s+unidades?)?\s*(?:\)|[,.;]|$)", text[end:], re.I
+    )
+    found = []
+    for match, offset in [(prefix, prefix_start), (suffix, end)]:
+        if match is None:
+            continue
+        raw = match.group(1)
+        value = NUMBER_WORDS.get(raw.casefold(), int(raw) if raw.isdigit() else None)
+        if value and value > 0:
+            found.append(
+                Match(
+                    offset + match.start(1), offset + match.end(1), raw, "CANTIDAD_ACCESORIO", value
+                )
+            )
+    if len(found) == 2 and found[0].value != found[1].value:
+        a, b = found
+        return Match(a.start, b.end, text[a.start : b.end], "CANTIDAD_ACCESORIO", None)
+    return found[0] if found else None
