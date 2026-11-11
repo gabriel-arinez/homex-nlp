@@ -49,7 +49,7 @@ class CatalogResult(BaseModel):
     evidence: list[Candidate] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     unrecognized: list[str] = Field(default_factory=list)
-    version: str = "catalog-0.1.21"
+    version: str = "catalog-0.1.22"
 
 
 def fold(text):
@@ -172,6 +172,11 @@ class Extractor:
             )
             # Preserve the literal description, including heterogeneous specifications.
             if "nombre" in self.result.fields:
+                for evidence in self.result.evidence:
+                    if evidence.label == "nombre" and evidence.decision == "ACCEPTED":
+                        evidence.reason = (
+                            "Nombre delimitado antes de especificaciones técnicas o comerciales"
+                        )
                 self.add("observaciones", [(0, len(self.text), self.text)])
         if "observaciones" not in self.result.fields:
             self.labeled(
@@ -474,7 +479,7 @@ class FloorExtractor(Extractor):
                 # HDF board gauge is a thickness specification in this category.
                 # Do not reinterpret an explicitly named other axis or a size pair.
                 patterns.append(
-                    rf"\bHDF\s+de\s+({number})\s*(mm|mil[ií]metros?)\b"
+                    rf"\bHDF\s*(?:de\s+)?({number})\s*(mm|mil[ií]metros?)\b"
                     r"(?!\s+(?:de\s+)?(?:ancho|largo|por|x)\b)"
                 )
             for pattern in patterns:

@@ -101,3 +101,7 @@ contradiction and explicit correction still use the shared evidence rules.
 `OTRO` continues to support only its existing common fields, never `modelo` or
 chair/floor-specific fields. ASR text, schemas and backend calculations do not
 change.
+
+### Conservative context guards in0.1.22
+
+Initial `de`/`a` in a spoken model clause can be an ordinary preposition, so `modelo de43` and `modelo a nueve` remain unresolved. Internal spelled letters after an unambiguous letter (`be de...`) and literal `D43` remain supported. Explicit HDF gauges with millimetres do not require a transcribed `de`; even glued `HDF8 milímetros` is evidence of8mm unless the clause explicitly names another axis. The original source slice is retained.

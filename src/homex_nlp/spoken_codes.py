@@ -35,6 +35,10 @@ def _is_spoken_start(raw):
 def _spoken_code(raw):
     """Decode a complete phrase only: both a letter and a digit are mandatory."""
     words = _fold(raw).split()
+    # At the start these are also ordinary model prepositions. An internal
+    # letter after an unambiguous spelling token remains valid (be de...).
+    if words and words[0] in {"de", "a"}:
+        return None
     output = []
     i = 0
     while i < len(words):

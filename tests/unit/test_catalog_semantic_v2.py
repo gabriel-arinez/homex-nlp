@@ -28,6 +28,10 @@ def test_implicit_name_stops_before_technical_clause(text, expected):
     result = extract(text, "OTRO")
     assert result.fields["nombre"] == expected
     assert result.fields["observaciones"] == text
+    assert (
+        next(c for c in result.evidence if c.label == "nombre").reason
+        == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+    )
     assert "cantidad" not in result.fields
     assert "stock" not in result.fields
 
@@ -92,3 +96,19 @@ def test_literal_models_unchanged(literal):
 
 def test_spoken_code_requires_explicit_model_cue():
     assert "modelo" not in extract("jota ka guion setecientos cuarenta y dos").fields
+
+
+@pytest.mark.parametrize("phrase", ["de 43", "de cuarenta y tres", "a nueve"])
+def test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence(phrase):
+    result = extract(f"modelo {phrase}; color negro")
+    assert "modelo" not in result.fields
+    evidence = next(c for c in result.evidence if c.label == "modelo")
+    assert evidence.decision == "UNRESOLVED"
+    assert evidence.text == phrase
+
+
+@pytest.mark.parametrize("gauge", ["HDF8 milímetros", "HDF ocho mm"])
+def test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model(gauge):
+    result = extract(f"Piso flotante de aglomerado {gauge}", "PISO_FLOTANTE")
+    assert result.fields["espesor_mm"] == "8"
+    assert "espesor_mm" not in extract(f"Piso {gauge} de ancho", "PISO_FLOTANTE").fields

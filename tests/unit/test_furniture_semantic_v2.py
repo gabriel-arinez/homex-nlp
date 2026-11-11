@@ -124,3 +124,14 @@ def test_explicit_steel_is_not_invented_from_generic_metal():
 def test_new_family_mentions_as_usage_do_not_create_an_independent_order():
     result = extract("Dos casilleros para estaciones de trabajo. Precio unitario 900 bolivianos.")
     assert result.item_proposal is not None and result.item_proposal.quantity == 2
+
+
+def test_compound_accessory_count_is_not_truncated_to_last_word():
+    result = extract("Una mesa con treinta y dos conectores HDMI.")
+    assert next(a for a in result.item_proposal.accessories if "HDMI" in a.name).quantity == 32
+
+
+def test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer():
+    result = extract("Una mesa con tablero de 18 mm y dos USB.")
+    assert next(a for a in result.item_proposal.accessories if "USB" in a.name).quantity == 2
+    assert extract("Una mesa con dos o tres USB.").item_proposal.accessories[0].quantity is None

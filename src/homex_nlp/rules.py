@@ -44,7 +44,7 @@ PRODUCTS = (
     "sillones",
 )
 ACCESSORIES = (
-    r"puertos?\s+USB|USB|HDMI|conectores?|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
+    r"puertos?\s+(?:USB|HDMI)|conectores?(?:\s+(?:USB|HDMI))?|USB|HDMI|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
     "pasacable",
     "bisagras",
     "cajones",
@@ -945,8 +945,8 @@ def find_accessories(text: str) -> list[Match]:
 
 def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
     """Only explicit adjacent integer counts; protocol numbers are not quantities."""
-    number = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
-    prefix_start = max(0, start - 30)
+    number = r"(?!y\b)" + AMOUNT
+    prefix_start = max(0, start - 200)
     prefix = re.search(r"(?<![\w.,−-])(" + number + r")\s*$", text[prefix_start:start], re.I)
     suffix = re.match(
         r"\s*(?:\(\s*|:\s*)(" + number + r")(?:\s+unidades?)?\s*(?:\)|[,.;]|$)", text[end:], re.I
@@ -956,7 +956,22 @@ def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
         if match is None:
             continue
         raw = match.group(1)
-        value = NUMBER_WORDS.get(raw.casefold(), int(raw) if raw.isdigit() else None)
+        if re.search(r"\b(?:o|menos)\s*$", text[: offset + match.start(1)], re.I):
+            continue
+        if (
+            prefix_start
+            and offset + match.start(1) == prefix_start
+            and text[prefix_start - 1].isalnum()
+        ):
+            continue
+        parsed = Decimal(raw) if raw.isdigit() else _dimension_numero_palabras(raw)
+        value = (
+            int(parsed)
+            if parsed is not None
+            and parsed == parsed.to_integral_value()
+            and not re.search(r"[.,]", raw)
+            else None
+        )
         if value and value > 0:
             found.append(
                 Match(
