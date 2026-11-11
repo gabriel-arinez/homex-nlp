@@ -16,9 +16,9 @@ Runner: existing Python 3.11 venv, pytest; artifacts in corpus evaluaciones/ and
 ## Tasks
 - T1 [S1,S3,S8] inline (mapping worker completed read-only reconnaissance); complete: ten commercial corrections plus three canonical labels;73/27/7/13=120, independent verifier confirmed240 hashes and all noncategory fields unchanged; commit pending.
 - T2 [S2,S4,S8] inline tooling, delegated long execution (per-action rule); complete: 120/120 baseline cases COMPLETE; frozen ASR/source hashes and corrected routing retained; evaluator/tests/usage guide committed as c02c6dfe117003c7ee0ee82efe76b58fe41a89f1 on chore/real-voice-120-01-evaluation. WER1495/6627,CER7758/42777 are script-relative, not audio-adjudicated accuracy.
-- T3 [S4,S5] inline unless independent bounded units justify writers; partial: six bounded root-cause classes fixed and independently verified; full supported-field annotation and remaining semantic defects pending; commit pending.
+- T3 [S4,S5] inline unless independent bounded units justify writers; partial: six bounded root-cause classes fixed and independently verified; full supported-field annotation and remaining semantic defects pending; bounded fixes committed f139bd224f54f0c643b023c121c2ccba79e68054.
 - T4 [S5,S6,S7] verification delegated only for named high-risk items or long suites; partial: before/after120 pairs, final799 NLP tests,99 backend,306 frontend; prior4-form and latest3-poltrona real browser/audio probes PASS; independent audio-generalization evaluation pending; commit pending.
-- T5 [S8,S9] inline; partial: initial diagnosis,120-case aggregate, root matrix and progress report saved; commits/remote release/CI pending; commit pending.
+- T5 [S8,S9] inline; partial: reports saved; local feature chain committed (ff4df92 tracker,c02c6df evaluator,f139bd2 fixes). Remote credential/destination consent, issue/policy lookup, draft PRs, versioned release and CI remain pending.
 
 ## Log
 ### L1 Original request (verbatim)
@@ -402,3 +402,8 @@ Tracker ff4df9220665d026bce42ba48bfc8c3954576c42 contains only this specificatio
 ### L13 Evaluation slice verified / extraction slice frozen
 Evaluation commit c02c6dfe117003c7ee0ee82efe76b58fe41a89f1 targets tracker ff4df92;339 authored lines. Clean detached worktree ran769 tests, schemas, Ruff lint/format, four curated corpus validators, inventory audit and CLI help successfully. No source modifications in that slice; rollback removes evaluator/tests/guide only.
 Extraction child stages the exact24-module-hash candidate already independently verified (799 NLP/99 backend, previous306 frontend, real4-form plus latest3-poltrona browser proofs), with its30 public-interface regression cases and grammar docs. Risk:item3(shared rules/extraction); no new source changes while slicing. Public schema/model/dependencies unchanged; no remote/production operations.
+
+### L14 Committed extraction slice verified
+Fix commit f139bd224f54f0c643b023c121c2ccba79e68054 targets c02c6df;196 authored lines before this evidence update. Clean detached worktree ran799 tests, schemas, Ruff lint/format(88files), four curated corpus validators(380/101/97/97records), inventory audit successfully. All24source hashes match after-nlp-v5. RDD remains disabled/unmanaged.
+Offline build/distribution checks passed: wheel and sdist isolated installs, backend smoke, privacy/required-file checks, identical deterministic rebuild(SOURCE_DATE_EPOCH=0). Private scratch dependency cache only; no downloads. Temporary version0.1.21 wheel SHA256 ca1ecbbefaa74794e07f0d8e76b9c5b8f27ffdb71add6c38754b6d302dc55b38,sdist4e5999427d6acbe322903d45528af5d1bd7332f08dc241334fa18fc4d92e370b. These are test artifacts,NOT a release; main-workspace published distributions and installed backend remain unchanged. Rollback boundary: this child diff only; neither corpus originals nor evaluator slice is removed.
+Local branch chain prepared; no push/remote lookup/PR/CI/merge executed. Remote publication requires explicit destination+credential/session authorization. Full audit, versioned package/vendor integration and remaining semantic/generalization work remain open.
