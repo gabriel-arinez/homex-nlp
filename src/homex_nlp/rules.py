@@ -32,6 +32,9 @@ PRODUCTS = (
     "velador",
     "ropero",
     "closet",
+    "clóset",
+    "armario",
+    "casillero",
     "cajonera",
     "gavetero",
     "gabetero",
@@ -307,7 +310,7 @@ def price_mentions(text: str):
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
-        r"\b(?:precio\s+(?:por\s+unidad|unitario|de\s+lista)|"
+        r"\b(?:precio\s+(?:por\s+(?:unidad|juego|pieza|barra|metro\s+cuadrado)|unitario|de\s+lista)|"
         r"precio\s+de\s+lista|"
         r"valor\s+unitario|"
         r"presionitario|presunitario|prese\s+unitario)"

@@ -131,7 +131,7 @@ class RulesEngine:
             p
             for p in find_products(text)
             if not (
-                p.text.lower().startswith("cajonera")
+                p.text.lower().startswith(("cajonera", "casillero"))
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]

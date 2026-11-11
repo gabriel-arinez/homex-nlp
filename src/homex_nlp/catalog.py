@@ -158,7 +158,11 @@ class Extractor:
             self.labeled(
                 "nombre",
                 r"^\s*(?:(?:quiero registrar|registrar|agregar|crear|se llama)\s+(?:un[ao]?\s+)?)?"
-                r"((?!no\b|sin\b|nombres?\b|modelos?\b|color\b|marca\b|precio\b|cantidad\b|stock\b|total\b|espesor\b)"
+                # ASR may spell an initial count as digits. Keep the literal phrase,
+                # without turning a standalone measurement/amount into a product.
+                r"((?!\d+\s+(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?|"
+                r"bolivianos?|BOB|Bs|USD|d[oó]lares?)\b)(?:[1-9]\d*\s+)?"
+                r"(?!no\b|sin\b|nombres?\b|modelos?\b|color\b|marca\b|precio\b|cantidad\b|stock\b|total\b|espesor\b)"
                 r"[a-záéíóúñ][\wáéíóúñ -]*?)"
                 r"(?=\s+(?:de\s+(?:malla|espuma)|con|modelo|c[oó]digo|color|marca|precio|espesor|largo|ancho)\b"
                 r"|\s+(?:de\s+)?\d|[.;,:\n]|$)",
@@ -331,6 +335,12 @@ class ChairExtractor(Extractor):
             super().catalogs()
 
     def feature_context(self, name, start):
+        # An explicit component in this match outranks a preceding component.
+        # Bare material words still need the surrounding clause for association.
+        if name == "material_respaldo" and re.match(
+            r"(?:respaldo|espaldar)\b", self.text[start:], re.I
+        ):
+            return True
         prefix = re.split(r"[.;,\n]", self.text[max(0, start - 100) : start])[-1]
         parts = re.findall(r"\b(asiento|espaldar|respaldo)\b", prefix, re.I)
         if not parts:
@@ -402,7 +412,9 @@ class FloorExtractor(Extractor):
 
     def specific(self):
         self.model()
-        number = rf"(?:\d+(?:[,.]\d+)?|(?!\d){AMOUNT})(?:\s+(?:coma|punto)\s+(?:{AMOUNT}))?"
+        # A clause conjunction may precede a number, but cannot begin one.
+        # Keep internal 'y' (treinta y dos) and full invalid tails for abstention.
+        number = rf"(?:\d+(?:[,.]\d+)?|(?!\d|y\b){AMOUNT})(?:\s+(?:coma|punto)\s+(?:{AMOUNT}))?"
         for field, label in [
             ("espesor_mm", "espesor"),
             ("largo_mm", "largo"),
@@ -415,6 +427,13 @@ class FloorExtractor(Extractor):
             patterns.append(
                 rf"(?<![\w.,−-])({number})\s*(mm|cm|mil[ií]metros?|cent[ií]metros?|metros?|m)\s+de {label}\b"
             )
+            if field == "espesor_mm":
+                # HDF board gauge is a thickness specification in this category.
+                # Do not reinterpret an explicitly named other axis or a size pair.
+                patterns.append(
+                    rf"\bHDF\s+de\s+({number})\s*(mm|mil[ií]metros?)\b"
+                    r"(?!\s+(?:de\s+)?(?:ancho|largo|por|x)\b)"
+                )
             for pattern in patterns:
                 for m in re.finditer(pattern, self.text, re.I):
                     value = measure_number(m.group(1))
