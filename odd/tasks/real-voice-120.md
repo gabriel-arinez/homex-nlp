@@ -15,7 +15,7 @@ Runner: existing Python 3.11 venv, pytest; artifacts in corpus evaluaciones/ and
 
 ## Tasks
 - T1 [S1,S3,S8] inline (mapping worker completed read-only reconnaissance); complete: ten commercial corrections plus three canonical labels;73/27/7/13=120, independent verifier confirmed240 hashes and all noncategory fields unchanged; commit pending.
-- T2 [S2,S4,S8] inline tooling, delegated long execution (per-action rule); complete: 120/120 baseline cases COMPLETE; all source hashes frozen, WER 1495/6627 and CER 7758/42777 (script-relative, not verified audio accuracy); commit pending.
+- T2 [S2,S4,S8] inline tooling, delegated long execution (per-action rule); complete: 120/120 baseline cases COMPLETE; frozen ASR/source hashes and corrected routing retained; evaluator/tests/usage guide in chore/real-voice-120-01-evaluation, commit identity recorded by the next child. WER1495/6627,CER7758/42777 are script-relative, not audio-adjudicated accuracy.
 - T3 [S4,S5] inline unless independent bounded units justify writers; partial: six bounded root-cause classes fixed and independently verified; full supported-field annotation and remaining semantic defects pending; commit pending.
 - T4 [S5,S6,S7] verification delegated only for named high-risk items or long suites; partial: before/after120 pairs, final799 NLP tests,99 backend,306 frontend; prior4-form and latest3-poltrona real browser/audio probes PASS; independent audio-generalization evaluation pending; commit pending.
 - T5 [S8,S9] inline; partial: initial diagnosis,120-case aggregate, root matrix and progress report saved; commits/remote release/CI pending; commit pending.
@@ -395,3 +395,6 @@ User: "si, procede"
 Accepted previous explicit proposal: feature-branch-chain; draft/no-merge tracker feat/real-voice-120, based on c94e7a8. Original audit/real-voice-120 branch remains intact.
 Review slices: tracker audit specification/evidence; chore/real-voice-120-01-evaluation (safe evaluator, tests and usage guide); fix/real-voice-120-02-extraction (six bounded fixes, regressions and grammar docs). Later release/integration work remains separate and pending.
 Each child targets its immediate parent. Local commits are authorized; remote credential/session and publication must still be explicitly authorized before any remote lookup, push or PR call.
+
+### L12 First local review slice
+Tracker ff4df9220665d026bce42ba48bfc8c3954576c42 contains only this specification/evidence (397 authored lines); passive structural readback and diff check passed. Evaluation child includes the safe runner,3 deterministic metric tests and usage guide; no extraction-rule changes staged in this slice. Existing source corrections remain untouched for the next child. Functional proof: original120case run and metric tests3passed; branch-isolated full checks follow after commit. Rollback boundary: tools/evaluate_real_voice.py,tests/evaluation/test_real_voice.py,docs/real-voice-evaluation.md only, preserving corpus and extractor behavior. RDD is disabled/unmanaged; no remote actions.
