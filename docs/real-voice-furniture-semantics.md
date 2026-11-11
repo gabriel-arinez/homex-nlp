@@ -17,3 +17,5 @@ Electrical accessories include USB, HDMI and connectors. Counts require an expli
 - All120 cases are development data. Textual scalar agreement does not establish acoustic or component-association accuracy.
 
 Risk: item3 (shared parsing and evidence consumers). Independent verification and installed-wheel integration remain required before delivery.
+
+Explicit `acero` and metallic adjectives are evidence, not inferred steel grades. A material adjective inside a component name (for example `patas metálicas`) belongs to that component. Board material and thickness remain attached to the board. Two additional regressions failed before this correction; all812 unit/contract cases then passed.

@@ -99,3 +99,23 @@ def test_explicit_recognition_variant_is_unit_price_not_negotiated_total():
     assert result.item_proposal.price.mode == "PRECIO_UNITARIO"
     assert result.item_proposal.price.stated_amount == "2300.00"
     assert extract("Una mesa. Presiunitario de 80 centímetros.").item_proposal.price is None
+
+
+def test_component_adjective_materials_and_thickness_stay_local():
+    result = extract("Una mesa con patas metálicas y tablero de MDF de 22 mm.")
+    item = result.item_proposal
+    legs = next(c.component_id for c in item.components if c.name == "patas metálicas")
+    board = next(c.component_id for c in item.components if c.name == "tablero")
+    metal = next(c for c in result.candidates if c.label == "MATERIAL" and c.text == "metálicas")
+    mdf = next(c for c in result.candidates if c.label == "MATERIAL" and c.text == "MDF")
+    assert metal.component_ref == legs and mdf.component_ref == board
+    assert item.thicknesses[0].component_ref == board
+    assert not any(c.label == "MATERIAL" and c.component_ref is None for c in result.candidates)
+
+
+def test_explicit_steel_is_not_invented_from_generic_metal():
+    result = extract("Una mesa con patas de acero y tablero de madera.")
+    steel = next(c for c in result.candidates if c.label == "MATERIAL" and c.text == "acero")
+    legs = next(c.component_id for c in result.item_proposal.components if c.name == "patas")
+    assert steel.component_ref == legs
+    assert not any(c.normalized_value == "acero" for c in extract("Una mesa metálica.").candidates)

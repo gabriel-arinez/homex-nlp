@@ -15,7 +15,7 @@ COMPONENTES = (
 MATERIALES = (
     r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"
     r"melamin[ae](?:\s+MDP)?|MDP|MDF|"
-    r"vidrio(?:\s+templado)?|aluminio|metal|madera"
+    r"vidrio(?:\s+templado)?|aluminio|acero(?:\s+inoxidable)?|met[aá]lic[oa]s?|metal|madera"
 )
 COLORES = (
     r"blanc[oa]|negr[oa](?: mate)?|gris(?: claro| oscuro| ceniza)?|"
@@ -309,7 +309,10 @@ def completar_relaciones(item, candidates, text, warnings):
             limite = pieza.end() + nueva_entidad.start()
         ambitos.append((pieza.end(), limite))
         for material in re.finditer(r"\b(?:" + MATERIALES + r")\b", text, re.I):
-            if pieza.end() <= material.start() < limite and es_material(material):
+            if (
+                pieza.end() <= material.start() < limite
+                or pieza.start() <= material.start() < material.end() <= pieza.end()
+            ) and es_material(material):
                 evidencia(material, "MATERIAL", component=component)
         cantidad = cantidad_anterior(pieza)
         # «tres cajones, no, mejor dos» sustituye únicamente la cantidad
@@ -449,7 +452,10 @@ def completar_relaciones(item, candidates, text, warnings):
         for match in re.finditer(r"\b(?:" + patron + r")\b", text, re.I):
             if label == "MATERIAL" and not es_material(match):
                 continue
-            if not any(inicio <= match.start() < fin for inicio, fin in ambitos):
+            if not any(inicio <= match.start() < fin for inicio, fin in ambitos) and not any(
+                c.label == label and c.start == match.start() and c.end == match.end()
+                for c in candidates
+            ):
                 evidencia(match, label)
     # Segmentación ASR: prefijo explícito «color» unido a un valor conocido.
     # No normalizar el texto ni reconocer sufijos dentro de palabras libres.
