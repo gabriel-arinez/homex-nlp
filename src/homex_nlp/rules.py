@@ -156,6 +156,10 @@ def find_products(text: str) -> list[Match]:
             re.compile(r"\bcubos?\s+m[oó]viles?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I),
         )
         for m in patron.finditer(text)
+        if not (
+            re.match(r"(?:estaci|cubo)", m.group(), re.I)
+            and re.search(r"\bpara\s+(?:(?:los?|las?)\s+)?$", text[: m.start()], re.I)
+        )
     ]
     generales = [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")

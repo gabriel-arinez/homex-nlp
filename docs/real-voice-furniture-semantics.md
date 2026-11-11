@@ -19,3 +19,5 @@ Electrical accessories include USB, HDMI and connectors. Counts require an expli
 Risk: item3 (shared parsing and evidence consumers). Independent verification and installed-wheel integration remain required before delivery.
 
 Explicit `acero` and metallic adjectives are evidence, not inferred steel grades. A material adjective inside a component name (for example `patas metálicas`) belongs to that component. Board material and thickness remain attached to the board. Two additional regressions failed before this correction; all812 unit/contract cases then passed.
+
+New workstation/mobile-cube aliases exclude explicit usage complements introduced by `para`. For example `casilleros para estaciones de trabajo` must remain an order of lockers, not two commercial products. The new guard reproduced as1 failure before correction;813 unit/contract tests passed afterwards.

@@ -119,3 +119,8 @@ def test_explicit_steel_is_not_invented_from_generic_metal():
     legs = next(c.component_id for c in result.item_proposal.components if c.name == "patas")
     assert steel.component_ref == legs
     assert not any(c.normalized_value == "acero" for c in extract("Una mesa metálica.").candidates)
+
+
+def test_new_family_mentions_as_usage_do_not_create_an_independent_order():
+    result = extract("Dos casilleros para estaciones de trabajo. Precio unitario 900 bolivianos.")
+    assert result.item_proposal is not None and result.item_proposal.quantity == 2
