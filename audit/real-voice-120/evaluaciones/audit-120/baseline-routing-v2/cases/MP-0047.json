@@ -1,0 +1,165 @@
+{
+  "id": "MP-0047",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0047.aac",
+    "original_sha256": "2ea3ad1e8e66c4722cc51987b60bb6c3e11c72490eeb862719ffc82efc04c6c4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0047.wav",
+    "wav_sha256": "b1e27873c3a8e3e37451d37f9730c10a82bbac3c7a9a747827a495fcc31c8690"
+  },
+  "reference": "Cuatro estaciones de trabajo de un metro treinta por un metro treinta, ochenta centímetros de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de dieciocho milímetros, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de tres mil bolivianos.",
+  "source": {
+    "id": "MP-0047",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      47
+    ],
+    "titulo_fuente": "ESTACION DE TRABAJO",
+    "grupo_familia": "ESCRITORIO_EN_L_CUBO",
+    "guion": "Cuatro estaciones de trabajo de un metro treinta por un metro treinta, ochenta centímetros de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de dieciocho milímetros, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de tres mil bolivianos.",
+    "audio_esperado": "MP-0047.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0047.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "5fd52d6c7665efb3e52af57e68be4718da4056604219c65edb88a83d813d7b04",
+    "audio_compatible_asr": "MP-0047.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0047.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 37.5466875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad, estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3000 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.160000",
+        "text": " 4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad,"
+      },
+      {
+        "start_seconds": "11.160000",
+        "end_seconds": "22.640000",
+        "text": " estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media"
+      },
+      {
+        "start_seconds": "22.640000",
+        "end_seconds": "31.400000",
+        "text": " altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad,"
+      },
+      {
+        "start_seconds": "31.400000",
+        "end_seconds": "36.160000",
+        "text": " color elección, precio unitario de 3000 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4244
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0047",
+    "status": "NO_PROPOSAL",
+    "text_original": "4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad, estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3000 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.22375999833457172,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0047-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Cuatro estaciones de trabajo de un metro treinta por un metro treinta, ochenta centímetros de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de dieciocho milímetros, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de tres mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.1444910012651235,
+  "metrics": {
+    "wer": {
+      "errors": 12,
+      "substitutions": 8,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 63,
+      "rate": 0.19047619047619047
+    },
+    "cer": {
+      "errors": 74,
+      "substitutions": 17,
+      "deletions": 57,
+      "insertions": 0,
+      "reference_length": 392,
+      "rate": 0.18877551020408162
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.330179353004496,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0047.json",
+    "original_case_sha256": "d9476f5aaf492bf3e430b431b40b9972e87fd0368d103c21d97e25ad4fb7c0d7",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

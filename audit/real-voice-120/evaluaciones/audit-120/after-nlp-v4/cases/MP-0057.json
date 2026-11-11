@@ -1,0 +1,204 @@
+{
+  "id": "MP-0057",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0057.aac",
+    "original_sha256": "554403b9289562755822248bea5ac94827eaeca0abb60275e8abff4cef0c2df8",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0057.wav",
+    "wav_sha256": "3aba668dc61050dc1ab0836a0d7f456c81970bcb2799f7ddabcade4e5dd5ff37"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0057-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un casillero de seis puertas para estación de trabajo, de un metro de ancho, cuarenta centímetros de profundidad y un metro setenta de alto. Melamina de dieciocho milímetros con tapacantos PVC. Seis casilleros, cada uno con jalador metálico y chapa de seguridad. Color blanco. Precio de dos mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 12,
+        "text": "casillero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 199,
+        "end": 209,
+        "text": "casilleros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.17052799375960603,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0057-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "un casillero de seis puertas para estación de trabajo de un metro de ancho 40 centímetros de profundidad y un metro 70 de alto me lamina de 18 milímetros con tapacantos PVC seis casilleros cada uno con gelado rometálico y chapa de seguridad color blanco precio de 2500 bolivianos",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 12,
+        "text": "casillero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 178,
+        "end": 188,
+        "text": "casilleros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.14688700321130455,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "cuarenta"
+        ],
+        "asr": [
+          "40"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta"
+        ],
+        "asr": [
+          "70"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "melamina"
+        ],
+        "asr": [
+          "me",
+          "lamina"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "jalador",
+          "metálico"
+        ],
+        "asr": [
+          "gelado",
+          "rometálico"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos",
+          "mil",
+          "quinientos"
+        ],
+        "asr": [
+          "2500"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0057",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "2500",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

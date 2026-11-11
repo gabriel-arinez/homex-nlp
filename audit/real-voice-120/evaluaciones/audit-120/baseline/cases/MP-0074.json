@@ -1,0 +1,204 @@
+{
+  "id": "MP-0074",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0074.aac",
+    "original_sha256": "d0c7c4b7a804d8d63cf91eba22e2ea442970ea8d3910c4f9c3e96c79ad1faf8e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0074.wav",
+    "wav_sha256": "3e77f8349c51daab0544170d91591364abbdd187c8380e1fa2ac0a226509ee4e"
+  },
+  "reference": "Estante librero de un metro diecisiete de ancho, dos metros treinta de alto y cuarenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, bandejas divisorias, puertas corredizas inferiores y puertas de vidrio en la parte superior, con bandeja de separación. Precio de cuatro mil seiscientos bolivianos.",
+  "source": {
+    "id": "MP-0074",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      75
+    ],
+    "titulo_fuente": "ESTANTE LIBRERO",
+    "grupo_familia": "PRO_075",
+    "guion": "Estante librero de un metro diecisiete de ancho, dos metros treinta de alto y cuarenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, bandejas divisorias, puertas corredizas inferiores y puertas de vidrio en la parte superior, con bandeja de separación. Precio de cuatro mil seiscientos bolivianos.",
+    "audio_esperado": "MP-0074.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0074.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "FUENTE_INCOMPLETA: falta cantidad numérica explícita; no inferirla del total."
+    ],
+    "sha256_fuente": "842367cce04a1e8690a5b0c8797036142b24e1b613688ffa5244ea7d04745b86",
+    "audio_compatible_asr": "MP-0074.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0074.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 36.5946875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Estante Librero de 1 metro 17 de ancho, 2 metros 30 de alto y 40 centímetros de profundidad, estructura de velamina de 18 milímetros, bandejas divisorias, puertas corredizas y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "14.280000",
+        "text": " Estante Librero de 1 metro 17 de ancho, 2 metros 30 de alto y 40 centímetros de profundidad,"
+      },
+      {
+        "start_seconds": "14.280000",
+        "end_seconds": "23.240000",
+        "text": " estructura de velamina de 18 milímetros, bandejas divisorias, puertas corredizas"
+      },
+      {
+        "start_seconds": "23.240000",
+        "end_seconds": "35.240000",
+        "text": " y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 3861
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0074",
+    "status": "NO_PROPOSAL",
+    "text_original": "Estante Librero de 1 metro 17 de ancho, 2 metros 30 de alto y 40 centímetros de profundidad, estructura de velamina de 18 milímetros, bandejas divisorias, puertas corredizas y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 0,
+        "end": 7,
+        "text": "Estante",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 8,
+        "end": 15,
+        "text": "Librero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.36571099917637184,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0074-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Estante librero de un metro diecisiete de ancho, dos metros treinta de alto y cuarenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, bandejas divisorias, puertas corredizas inferiores y puertas de vidrio en la parte superior, con bandeja de separación. Precio de cuatro mil seiscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 0,
+        "end": 7,
+        "text": "Estante",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 8,
+        "end": 15,
+        "text": "librero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.22419799643103033,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 8,
+      "deletions": 2,
+      "insertions": 1,
+      "reference_length": 47,
+      "rate": 0.23404255319148937
+    },
+    "cer": {
+      "errors": 64,
+      "substitutions": 15,
+      "deletions": 47,
+      "insertions": 2,
+      "reference_length": 320,
+      "rate": 0.2
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 3.9304672380021657,
+  "process_peak_rss_kib": 1282048
+}

@@ -1,0 +1,253 @@
+{
+  "id": "MP-0003",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0003.aac",
+    "original_sha256": "65dda54e3f842de8910a5bcd6756f3e26edccc52adba39f77afc33e70fecd3e9",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0003.wav",
+    "wav_sha256": "cab90dfcafadcb61a794f762439f88db3adbbb6b399516cb1e084b54f2fa5edb"
+  },
+  "reference": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños, con tableros de melamina de veinticinco milímetros y patas de varillas de acero. La mesa grande tiene ochenta centímetros de diámetro. La pequeña tiene sesenta centímetros de diámetro y treinta centímetros de altura. Pintura electrostática de soporte y patas y color del tablero a elección, con topes en las patas. Precio por juego de diez mil bolivianos.",
+  "source": {
+    "id": "MP-0003",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      3
+    ],
+    "titulo_fuente": "JUEGO DE MESAS AREA COMUN - SALA ESPERA",
+    "grupo_familia": "JUEGO_MESAS_SALA_ESPERA",
+    "guion": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños, con tableros de melamina de veinticinco milímetros y patas de varillas de acero. La mesa grande tiene ochenta centímetros de diámetro. La pequeña tiene sesenta centímetros de diámetro y treinta centímetros de altura. Pintura electrostática de soporte y patas y color del tablero a elección, con topes en las patas. Precio por juego de diez mil bolivianos.",
+    "audio_esperado": "MP-0003.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0003.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: altura de la mesa grande «40m»; se omite, no se convierte silenciosamente a 40 cm.",
+      "FUENTE_AMBIGUA: diámetro de varillas «0.05mm» físicamente improbable; se omite.",
+      "FUENTE_AMBIGUA: texto enumera conjuntos «1 juegos (tamaño 1 y 2), 2 juegos (tamaño 3 y 4)» sin definir los otros tamaños; solo se conserva el juego de 2 mesas explícitas."
+    ],
+    "sha256_fuente": "b849ffec29bf96c60cda2dc62a16707301e054eaefcb1393595075ef8a404e8e",
+    "audio_compatible_asr": "MP-0003.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0003.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 43.1659375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños con tableros de melamina de 25 mm y patas de varillas de acero. La mesa grande tiene 80 cm de diámetro. La pequeña tiene 60 cm de diámetro y 30 cm de altura. Pintura electrostática de soporte y patas y color de tablero a elección. Con topes en las patas, precio por juego de 10 pins bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "7.000000",
+        "text": " Un juego de mesas para área común y sala de espera."
+      },
+      {
+        "start_seconds": "7.000000",
+        "end_seconds": "17.000000",
+        "text": " Dos mesas de diferentes tamaños con tableros de melamina de 25 mm y patas de varillas de acero."
+      },
+      {
+        "start_seconds": "17.000000",
+        "end_seconds": "21.000000",
+        "text": " La mesa grande tiene 80 cm de diámetro."
+      },
+      {
+        "start_seconds": "21.000000",
+        "end_seconds": "28.000000",
+        "text": " La pequeña tiene 60 cm de diámetro y 30 cm de altura."
+      },
+      {
+        "start_seconds": "28.000000",
+        "end_seconds": "34.000000",
+        "text": " Pintura electrostática de soporte y patas y color de tablero a elección."
+      },
+      {
+        "start_seconds": "34.000000",
+        "end_seconds": "41.000000",
+        "text": " Con topes en las patas, precio por juego de 10 pins bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4188
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0003",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños con tableros de melamina de 25 mm y patas de varillas de acero. La mesa grande tiene 80 cm de diámetro. La pequeña tiene 60 cm de diámetro y 30 cm de altura. Pintura electrostática de soporte y patas y color de tablero a elección. Con topes en las patas, precio por juego de 10 pins bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 56,
+        "end": 61,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 151,
+        "end": 155,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.8857880020514131,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0003-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños, con tableros de melamina de veinticinco milímetros y patas de varillas de acero. La mesa grande tiene ochenta centímetros de diámetro. La pequeña tiene sesenta centímetros de diámetro y treinta centímetros de altura. Pintura electrostática de soporte y patas y color del tablero a elección, con topes en las patas. Precio por juego de diez mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 56,
+        "end": 61,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 169,
+        "end": 173,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.2274250000482425,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 11,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 73,
+      "rate": 0.1506849315068493
+    },
+    "cer": {
+      "errors": 75,
+      "substitutions": 12,
+      "deletions": 62,
+      "insertions": 1,
+      "reference_length": 432,
+      "rate": 0.1736111111111111
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.283987107999565,
+  "process_peak_rss_kib": 824912,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0003.json",
+    "original_case_sha256": "de7fd3168c22741136d1e9377c9eb7b6c8fbe2b3fda33c870cb88fda7e542d57",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "repository": "gabriel-arinez/homex-nlp",
+  "strategy": "feature-branch-chain",
+  "user_authorization": "si, procede (accepts chain strategy; does not identify a remote credential)",
+  "draft_no_merge": true,
+  "remote_contacted": false,
+  "remote_auth_inspected": false,
+  "pushed": false,
+  "pull_requests_created": false,
+  "remote_ci": "UNKNOWN_NOT_QUERIED",
+  "branches": [
+    {
+      "position": 0,
+      "head": "feat/real-voice-120",
+      "base": "main",
+      "base_commit": "c94e7a89995a7157bd113a03bb8304321d30b0b1",
+      "title": "docs(audit): track real voice evaluation and remaining work",
+      "type_label": "type:docs",
+      "scope": "Audit specification, original request, decisions and retained evidence; draft integration tracker only.",
+      "tests": "Passive document structural readback and git diff --check passed. No new executable behavior in this branch.",
+      "risk": "none (passive specification/evidence)",
+      "file": "00-tracker.md",
+      "head_commit": "ff4df9220665d026bce42ba48bfc8c3954576c42",
+      "authored_lines": 397
+    },
+    {
+      "position": 1,
+      "head": "chore/real-voice-120-01-evaluation",
+      "base": "feat/real-voice-120",
+      "title": "feat(evaluation): preserve auditable real voice baseline results",
+      "type_label": "type:feature",
+      "scope": "Safe exclusive/resumable corpus runner, deterministic metric tests and usage guide. Extractor rules are unchanged in this slice.",
+      "tests": "Clean detached commit:769 tests passed; schemas, Ruff lint/format,4 curated corpus validators and inventory audit passed. CLI help verified. Original120-case run evidence retained outside Git.",
+      "risk": "none for production behavior; audio preservation verified on240 original hashes",
+      "file": "01-evaluation.md",
+      "head_commit": "c02c6dfe117003c7ee0ee82efe76b58fe41a89f1",
+      "authored_lines": 339
+    },
+    {
+      "position": 2,
+      "head": "fix/real-voice-120-02-extraction",
+      "base": "chore/real-voice-120-01-evaluation",
+      "title": "fix(nlp): preserve commercial fields in natural dictation",
+      "type_label": "type:bug",
+      "scope": "Six bounded extraction fixes with30 public-interface regression cases and grammar docs; no public schema, model or dependency change.",
+      "tests": "Clean detached code commitf139bd2:799 tests; schemas/Ruff/corpus/inventory passed.24 source hashes match after-nlp-v5 and independently verified candidate. Previously observed99 backend/306 frontend checks and real4-form plus latest3-poltrona uploads retained; these are selected-field application proofs, not full corpus semantic accuracy. Offline wheel/sdist smoke/privacy/reproducible rebuild passed; temporary artifacts are NOT a release.",
+      "risk": "item3(shared extraction/parser behavior); independent verification performed",
+      "file": "02-extraction.md",
+      "head_commit": "40e4665b1d45d0db11073e50902a6fb7fc87d2ec",
+      "authored_lines": 205
+    }
+  ],
+  "commits": [
+    {
+      "sha": "ff4df9220665d026bce42ba48bfc8c3954576c42",
+      "subject": "docs(audit): record real voice evaluation scope and evidence"
+    },
+    {
+      "sha": "c02c6dfe117003c7ee0ee82efe76b58fe41a89f1",
+      "subject": "feat(evaluation): preserve auditable real voice baseline results"
+    },
+    {
+      "sha": "f139bd224f54f0c643b023c121c2ccba79e68054",
+      "subject": "fix(nlp): preserve commercial fields in natural dictation"
+    },
+    {
+      "sha": "40e4665b1d45d0db11073e50902a6fb7fc87d2ec",
+      "subject": "docs(audit): record isolated feature chain verification"
+    }
+  ]
+}

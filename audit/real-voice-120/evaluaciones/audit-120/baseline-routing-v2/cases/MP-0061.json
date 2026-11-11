@@ -1,0 +1,241 @@
+{
+  "id": "MP-0061",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0061.aac",
+    "original_sha256": "d3d033272ba3afa44b3c70348b8090967ecdec7bc6af927a1d104ba882246b66",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0061.wav",
+    "wav_sha256": "253058fbdff616ea5a10e1eddf4b3bed68b8358b5f698cffc2f2c35dc8c03061"
+  },
+  "reference": "Un juego de mesas para sala de espera. Tableros de melamina de veinticinco milímetros y patas de varillas de acero con pintura electrostática y topes de goma. Mesa grande de ochenta centímetros de diámetro; mesa pequeña de sesenta centímetros de diámetro y treinta centímetros de altura. Colores a elección. Precio por juego de diez mil bolivianos.",
+  "source": {
+    "id": "MP-0061",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      61
+    ],
+    "titulo_fuente": "JUEGO DE MESAS AREA COMUN - SALA ESPERA",
+    "grupo_familia": "JUEGO_MESAS_SALA_ESPERA",
+    "guion": "Un juego de mesas para sala de espera. Tableros de melamina de veinticinco milímetros y patas de varillas de acero con pintura electrostática y topes de goma. Mesa grande de ochenta centímetros de diámetro; mesa pequeña de sesenta centímetros de diámetro y treinta centímetros de altura. Colores a elección. Precio por juego de diez mil bolivianos.",
+    "audio_esperado": "MP-0061.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0061.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: altura mesa grande «40m» y varillas «0.05mm»; omitidas."
+    ],
+    "sha256_fuente": "66af2c2aa18ece0d9efe89f935679ebe3636ca6b9aeb2ecf4006823dbc8b97d5",
+    "audio_compatible_asr": "MP-0061.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0061.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 32.7865625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "En juego de mesas para sala de espera, tableros de melamina de 25 milímetros y patas de varillas de acero con pintura electrostática y topes de goma, mesa grande de 80 centímetros de diámetro, mesa pequeña de 60 centímetros de diámetro y 30 centímetros de altura, colores a elección, precio por juego de 10 mil bolivianas.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.280000",
+        "text": " En juego de mesas para sala de espera, tableros de melamina de 25 milímetros y patas de varillas"
+      },
+      {
+        "start_seconds": "11.280000",
+        "end_seconds": "19.800000",
+        "text": " de acero con pintura electrostática y topes de goma, mesa grande de 80 centímetros de diámetro,"
+      },
+      {
+        "start_seconds": "19.800000",
+        "end_seconds": "28.160000",
+        "text": " mesa pequeña de 60 centímetros de diámetro y 30 centímetros de altura, colores a elección,"
+      },
+      {
+        "start_seconds": "28.160000",
+        "end_seconds": "31.520000",
+        "text": " precio por juego de 10 mil bolivianas."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4360
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0061",
+    "status": "NO_PROPOSAL",
+    "text_original": "En juego de mesas para sala de espera, tableros de melamina de 25 milímetros y patas de varillas de acero con pintura electrostática y topes de goma, mesa grande de 80 centímetros de diámetro, mesa pequeña de 60 centímetros de diámetro y 30 centímetros de altura, colores a elección, precio por juego de 10 mil bolivianas.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 150,
+        "end": 154,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 193,
+        "end": 197,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.4077339981449768,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0061-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para sala de espera. Tableros de melamina de veinticinco milímetros y patas de varillas de acero con pintura electrostática y topes de goma. Mesa grande de ochenta centímetros de diámetro; mesa pequeña de sesenta centímetros de diámetro y treinta centímetros de altura. Colores a elección. Precio por juego de diez mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 159,
+        "end": 163,
+        "text": "Mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 207,
+        "end": 211,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.2766919933492318,
+  "metrics": {
+    "wer": {
+      "errors": 7,
+      "substitutions": 7,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 56,
+      "rate": 0.125
+    },
+    "cer": {
+      "errors": 38,
+      "substitutions": 12,
+      "deletions": 26,
+      "insertions": 0,
+      "reference_length": 342,
+      "rate": 0.1111111111111111
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.435891054999956,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0061.json",
+    "original_case_sha256": "8e2dd414a826c458fc732a4e28a0d28556da83bcee31c5121f7d6825e5dafb57",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

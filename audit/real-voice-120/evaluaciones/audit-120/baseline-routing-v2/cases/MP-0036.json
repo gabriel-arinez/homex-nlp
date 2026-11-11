@@ -1,0 +1,165 @@
+{
+  "id": "MP-0036",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0036.aac",
+    "original_sha256": "d519499d1d94d1d2785f9d842b04a3a49e2b2cb11f2a48e3e861e5511da24dd6",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0036.wav",
+    "wav_sha256": "22a1daf7a231426e65df63c5021d443e5bdec1ae113856a5206b57845ac194c0"
+  },
+  "reference": "Un armario alto de ochenta centímetros de ancho, cincuenta de profundidad y dos metros diez de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de tres mil cuatrocientos bolivianos.",
+  "source": {
+    "id": "MP-0036",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      36
+    ],
+    "titulo_fuente": "ARMARIO ALTO",
+    "grupo_familia": "PRO_036",
+    "guion": "Un armario alto de ochenta centímetros de ancho, cincuenta de profundidad y dos metros diez de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de tres mil cuatrocientos bolivianos.",
+    "audio_esperado": "MP-0036.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0036.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "4a6c2b72d1fdf896668ce1d14589fb5b6f8c7922c84bcf588da24b1f2e7fc952",
+    "audio_compatible_asr": "MP-0036.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0036.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 33.251,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "9.140000",
+        "text": " Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de"
+      },
+      {
+        "start_seconds": "9.140000",
+        "end_seconds": "17.260000",
+        "text": " alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18,"
+      },
+      {
+        "start_seconds": "17.260000",
+        "end_seconds": "24.460000",
+        "text": " tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero"
+      },
+      {
+        "start_seconds": "24.460000",
+        "end_seconds": "31.860000",
+        "text": " con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4320
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0036",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.21282499801600352,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0036-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario alto de ochenta centímetros de ancho, cincuenta de profundidad y dos metros diez de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de tres mil cuatrocientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.12936699931742623,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 8,
+      "deletions": 4,
+      "insertions": 1,
+      "reference_length": 52,
+      "rate": 0.25
+    },
+    "cer": {
+      "errors": 71,
+      "substitutions": 16,
+      "deletions": 54,
+      "insertions": 1,
+      "reference_length": 341,
+      "rate": 0.20821114369501467
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.387674353005423,
+  "process_peak_rss_kib": 892484,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0036.json",
+    "original_case_sha256": "d3e0d0015f233bba9402add01d7231f081c56c44c369eca0a1d65fb9a7788180",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

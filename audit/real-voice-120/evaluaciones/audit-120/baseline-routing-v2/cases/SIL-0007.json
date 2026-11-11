@@ -1,0 +1,436 @@
+{
+  "id": "SIL-0007",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0007.aac",
+    "original_sha256": "e095f9d72c4c7daab144a3355380d064bb97c66b7e53450844fcf30c25c7ddae",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0007.wav",
+    "wav_sha256": "0c8bfb11dd1ddda2c111e533eb034c08421eedf8cb57e8b0aa037cadfba0a24d"
+  },
+  "reference": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+  "source": {
+    "id": "SIL-0007",
+    "categoria": "sillas",
+    "archivo_origen": "SILLAS-PISOS-OTROS(3).txt",
+    "registros_fuente": [
+      14
+    ],
+    "titulo_fuente": "SILLA SEMI EJECUTIVA B15b",
+    "grupo_familia": "SILLA_B15B",
+    "guion": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+    "audio_esperado": "SIL-0007.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0007.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "DIFERENCIA_ENTRE_FUENTES: B15b Bs 1750 en proforma frente a Bs 1500 en inventario; ambas se conservan."
+    ],
+    "sha256_fuente": "7984d95c5e76bc6648087a4ecf5b34c61b061e1ab9d9c7a62fb764dc56a4e84f",
+    "audio_compatible_asr": "SIL-0007.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0007.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 56.888875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.520000",
+        "text": " Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla,"
+      },
+      {
+        "start_seconds": "11.520000",
+        "end_seconds": "21.040000",
+        "text": " apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable,"
+      },
+      {
+        "start_seconds": "21.040000",
+        "end_seconds": "31.040000",
+        "text": " asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres"
+      },
+      {
+        "start_seconds": "31.040000",
+        "end_seconds": "40.640000",
+        "text": " posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de"
+      },
+      {
+        "start_seconds": "40.640000",
+        "end_seconds": "55.600000",
+        "text": " 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 6654
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla Semi Ejecutiva",
+      "observaciones": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+      "precio_lista": "1750.00",
+      "modelo": "B15B",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "malla",
+        "mecanismo": "doble palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-399-404",
+        "label": "unidad_stock",
+        "start": 399,
+        "end": 404,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-366-371",
+        "label": "color_primario",
+        "start": 366,
+        "end": 371,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla Semi Ejecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-442",
+        "label": "observaciones",
+        "start": 0,
+        "end": 442,
+        "text": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-425-430",
+        "label": "precio_lista",
+        "start": 425,
+        "end": 430,
+        "text": "1.750",
+        "source": "RULE",
+        "normalized_value": "1750.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-29-33",
+        "label": "modelo",
+        "start": 29,
+        "end": 33,
+        "text": "B15B",
+        "source": "RULE",
+        "normalized_value": "B15B",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-78-100",
+        "label": "especificaciones.brazos_regulables",
+        "start": 78,
+        "end": 100,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-71-76",
+        "label": "especificaciones.material_respaldo",
+        "start": 71,
+        "end": 76,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-223-236",
+        "label": "especificaciones.mecanismo",
+        "start": 223,
+        "end": 236,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-310-328",
+        "label": "especificaciones.giro",
+        "start": 310,
+        "end": 328,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-280-292",
+        "label": "especificaciones.base",
+        "start": 280,
+        "end": 292,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 16.705789996194653,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semiejecutiva",
+      "observaciones": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+      "precio_lista": "1750.00",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "malla",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-438-443",
+        "label": "unidad_stock",
+        "start": 438,
+        "end": 443,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-405-410",
+        "label": "color_primario",
+        "start": 405,
+        "end": 410,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-19",
+        "label": "nombre",
+        "start": 0,
+        "end": 19,
+        "text": "Silla semiejecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-501",
+        "label": "observaciones",
+        "start": 0,
+        "end": 501,
+        "text": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-464-489",
+        "label": "precio_lista",
+        "start": 464,
+        "end": 489,
+        "text": "mil setecientos cincuenta",
+        "source": "RULE",
+        "normalized_value": "1750.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-37",
+        "label": "modelo",
+        "start": 28,
+        "end": 37,
+        "text": "be quince",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-85-107",
+        "label": "especificaciones.brazos_regulables",
+        "start": 85,
+        "end": 107,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-78-83",
+        "label": "especificaciones.material_respaldo",
+        "start": 78,
+        "end": 83,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-228-241",
+        "label": "especificaciones.mecanismo",
+        "start": 228,
+        "end": 241,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-314-318",
+        "label": "especificaciones.giro",
+        "start": 314,
+        "end": 318,
+        "text": "giro",
+        "source": "RULE",
+        "normalized_value": "giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-322-348",
+        "label": "especificaciones.giro",
+        "start": 322,
+        "end": 348,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-284-296",
+        "label": "especificaciones.base",
+        "start": 284,
+        "end": 296,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 18.840641998394858,
+  "metrics": {
+    "wer": {
+      "errors": 16,
+      "substitutions": 7,
+      "deletions": 7,
+      "insertions": 2,
+      "reference_length": 70,
+      "rate": 0.22857142857142856
+    },
+    "cer": {
+      "errors": 81,
+      "substitutions": 13,
+      "deletions": 63,
+      "insertions": 5,
+      "reference_length": 485,
+      "rate": 0.1670103092783505
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 6.826361031002307,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0007.json",
+    "original_case_sha256": "7cdf6f4bd9fa91bf218cbc8c4ebde08779f3f583f03180651403a5242896cb0e",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

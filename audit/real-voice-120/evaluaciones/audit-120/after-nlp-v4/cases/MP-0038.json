@@ -1,0 +1,681 @@
+{
+  "id": "MP-0038",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0038.aac",
+    "original_sha256": "9dca9f8c4da439e43a43aa2eda036b361cf460c9511ecd7e3dd1eecbb55e067c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0038.wav",
+    "wav_sha256": "3c1e98bdc7b11939c0e71ffda673a17193212594c457e5e600738ad7d8de573f"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0038-reference",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Tres escritorios rectos de un metro veinte de ancho, ochenta centímetros de alto y sesenta de profundidad. Melamina de dieciocho milímetros, tapacantos PVC, mesón engrosado a veinticinco, faldón a media altura y cajonería de dos cajones flotantes con jaladores metálicos y chapa lateral. Colores cedro y negro. Precio unitario de mil quinientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios rectos",
+      "furniture_type_candidate": "escritorios rectos",
+      "quantity": 3,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "cajones",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "lateral",
+          "evidence_ids": [
+            "c14"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "un metro veinte de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "name": "tapacantos PVC",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-2",
+          "name": "jaladores metálicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-2",
+          "name": "chapa lateral",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c10"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "1500.00",
+        "currency": "BOB",
+        "unit_price_input": "1500.00",
+        "line_total": "4500.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": [
+        "c5"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 5,
+        "end": 23,
+        "text": "escritorios rectos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 4,
+        "text": "Tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 27,
+        "end": 51,
+        "text": "un metro veinte de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 53,
+        "end": 80,
+        "text": "ochenta centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 119,
+        "end": 139,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 141,
+        "end": 155,
+        "text": "tapacantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 229,
+        "end": 246,
+        "text": "cajones flotantes",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 251,
+        "end": 270,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 273,
+        "end": 286,
+        "text": "chapa lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "PRECIO",
+        "start": 330,
+        "end": 344,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 157,
+        "end": 162,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 229,
+        "end": 236,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "CANTIDAD_INTERNA",
+        "start": 225,
+        "end": 228,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 279,
+        "end": 286,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "MATERIAL",
+        "start": 107,
+        "end": 115,
+        "text": "Melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COLOR",
+        "start": 304,
+        "end": 309,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_reference_ms": 1.7962439960683696,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0038-asr",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Tres escritorios rectos de un metro veinte de ancho, ochenta centímetros de alto y sesenta de profundidad, melamina de dieciocho milímetros, tapacantus PVC, mesón engrosado a veinticinco, faldón a media altura y cajonería de dos cajones flotantes con jaladores metálicos y chapa lateral, colores cedro y negro, precio unitario de mil quinientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios rectos",
+      "furniture_type_candidate": "escritorios rectos",
+      "quantity": 3,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "cajones",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "lateral",
+          "evidence_ids": [
+            "c13"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "un metro veinte de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-2",
+          "name": "jaladores metálicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-2",
+          "name": "chapa lateral",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c9"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "1500.00",
+        "currency": "BOB",
+        "unit_price_input": "1500.00",
+        "line_total": "4500.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": [
+        "c5"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 5,
+        "end": 23,
+        "text": "escritorios rectos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 4,
+        "text": "Tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 27,
+        "end": 51,
+        "text": "un metro veinte de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 53,
+        "end": 80,
+        "text": "ochenta centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 119,
+        "end": 139,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 229,
+        "end": 246,
+        "text": "cajones flotantes",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 251,
+        "end": 270,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 273,
+        "end": 286,
+        "text": "chapa lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "PRECIO",
+        "start": 330,
+        "end": 344,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 157,
+        "end": 162,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 229,
+        "end": 236,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "CANTIDAD_INTERNA",
+        "start": 225,
+        "end": 228,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 279,
+        "end": 286,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "MATERIAL",
+        "start": 107,
+        "end": 115,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COLOR",
+        "start": 304,
+        "end": 309,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_asr_ms": 1.6710749987396412,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "tapacantos"
+        ],
+        "asr": [
+          "tapacantus"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0038",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "1500",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

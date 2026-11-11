@@ -1,0 +1,598 @@
+{
+  "id": "MP-0069",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0069.aac",
+    "original_sha256": "d48194120196a8914523d02f4d56e44dfefc0d25e16ede31d6bb957a7a63f831",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0069.wav",
+    "wav_sha256": "34318b7648e31eb5869124bc2a0eba8db0a2524846700d2066f4f3e10f2d4fdb"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0069-reference",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un mueble para impresora de setenta centímetros de ancho, ochenta de alto y cuarenta de profundidad. Estructura de melamina de dieciocho milímetros, tapacantos PVC, una puerta batiente y varios espacios abiertos. Colores cedro y negro. Precio de mil seiscientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mueble",
+      "furniture_type_candidate": "mueble",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c6"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "puerta",
+          "evidence_ids": [
+            "c8"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "setenta centímetros de ancho",
+          "value_mm": "700",
+          "axis": "ancho"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "name": "tapacantos PVC",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 9,
+        "text": "mueble",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 28,
+        "end": 56,
+        "text": "setenta centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ESPESOR",
+        "start": 127,
+        "end": 147,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ACCESORIO",
+        "start": 149,
+        "end": 163,
+        "text": "tapacantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "COMPONENTE",
+        "start": 101,
+        "end": 111,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "MATERIAL",
+        "start": 115,
+        "end": 123,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "COMPONENTE",
+        "start": 169,
+        "end": 175,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "CANTIDAD_INTERNA",
+        "start": 165,
+        "end": 168,
+        "text": "una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COLOR",
+        "start": 229,
+        "end": 234,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_reference_ms": 1.478295998822432,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0069-asr",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un mueble para impresora de 70 centímetros de ancho, 80 de alto y 40 de profundidad. Estructura de melamina de 18 milímetros. Tapacantos PVC, una puerta batiente y varios espacios abiertos. Colores cedro y negro. Precio de 1600 bolivianos. Precio de 1600 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mueble",
+      "furniture_type_candidate": "mueble",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c9"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "puerta",
+          "evidence_ids": [
+            "c11"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "70 centímetros de ancho",
+          "value_mm": "700",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": null,
+          "original_text": "80 de alto",
+          "value_mm": null,
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "40",
+          "unit": null,
+          "original_text": "40 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "Tapacantos PVC",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c8"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 9,
+        "text": "mueble",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 28,
+        "end": 51,
+        "text": "70 centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 53,
+        "end": 63,
+        "text": "80 de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 66,
+        "end": 83,
+        "text": "40 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "40",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 111,
+        "end": 124,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 126,
+        "end": 140,
+        "text": "Tapacantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "PRECIO_AMBIGUO",
+        "start": 223,
+        "end": 227,
+        "text": "1600",
+        "source": "RULE",
+        "normalized_value": "1600",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 85,
+        "end": 95,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 99,
+        "end": 107,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 146,
+        "end": 152,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "CANTIDAD_INTERNA",
+        "start": 142,
+        "end": 145,
+        "text": "una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COLOR",
+        "start": 206,
+        "end": 211,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '80 de alto' no tiene unidad."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '40 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 1600.00 BOB; aclare si es total o precio unitario."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_asr_ms": 1.5031009970698506,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta"
+        ],
+        "asr": [
+          "70"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuarenta"
+        ],
+        "asr": [
+          "40"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "mil",
+          "seiscientos"
+        ],
+        "asr": [
+          "1600"
+        ]
+      },
+      {
+        "operation": "insert",
+        "reference": [],
+        "asr": [
+          "precio",
+          "de",
+          "1600",
+          "bolivianos"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0069",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "1600",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

@@ -1,0 +1,277 @@
+{
+  "id": "SIL-0003",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0003.aac",
+    "original_sha256": "00fad13370546709c29fb8c8d9577045ca8f498665af606399d1decc1f789339",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0003.wav",
+    "wav_sha256": "f59f41165027f284b3809a7d14609a4e3800cf6e0f266d0a65d923e929b5289c"
+  },
+  "reference": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+  "source": {
+    "id": "SIL-0003",
+    "categoria": "sillas",
+    "archivo_origen": "SILLAS-PISOS-OTROS(3).txt",
+    "registros_fuente": [
+      8
+    ],
+    "titulo_fuente": "SILLAS ESTATICAS",
+    "grupo_familia": "SILLA_ESTATICA",
+    "guion": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+    "audio_esperado": "SIL-0003.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0003.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "7859a9225eb15282274e4facf1707753306d92cb451e4b8bda5838f1b986840d",
+    "audio_compatible_asr": "SIL-0003.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0003.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 25.5419375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.600000",
+        "text": " Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta"
+      },
+      {
+        "start_seconds": "11.600000",
+        "end_seconds": "24.240000",
+        "text": " densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 2702
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla estática de estructura metálica",
+      "observaciones": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-163-168",
+        "label": "unidad_stock",
+        "start": 163,
+        "end": 168,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-149-154",
+        "label": "color_primario",
+        "start": 149,
+        "end": 154,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-37",
+        "label": "nombre",
+        "start": 0,
+        "end": 37,
+        "text": "Silla estática de estructura metálica",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-204",
+        "label": "observaciones",
+        "start": 0,
+        "end": 204,
+        "text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-189-192",
+        "label": "precio_lista",
+        "start": 189,
+        "end": 192,
+        "text": "380",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-120-141",
+        "label": "especificaciones.tapiz",
+        "start": 120,
+        "end": 141,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 8.956238001701422,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla estática de estructura metálica",
+      "observaciones": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-164-169",
+        "label": "unidad_stock",
+        "start": 164,
+        "end": 169,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-150-155",
+        "label": "color_primario",
+        "start": 150,
+        "end": 155,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-37",
+        "label": "nombre",
+        "start": 0,
+        "end": 37,
+        "text": "Silla estática de estructura metálica",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-221",
+        "label": "observaciones",
+        "start": 0,
+        "end": 221,
+        "text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-190-209",
+        "label": "precio_lista",
+        "start": 190,
+        "end": 209,
+        "text": "trescientos ochenta",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-121-142",
+        "label": "especificaciones.tapiz",
+        "start": 121,
+        "end": 142,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 9.558245001244359,
+  "metrics": {
+    "wer": {
+      "errors": 3,
+      "substitutions": 2,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 33,
+      "rate": 0.09090909090909091
+    },
+    "cer": {
+      "errors": 21,
+      "substitutions": 4,
+      "deletions": 17,
+      "insertions": 0,
+      "reference_length": 215,
+      "rate": 0.09767441860465116
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 2.747790975001408,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0003.json",
+    "original_case_sha256": "4eb41db02e1ce0881f8503d9c456ca77652e08467cafa6ab904b7cc80655e019",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

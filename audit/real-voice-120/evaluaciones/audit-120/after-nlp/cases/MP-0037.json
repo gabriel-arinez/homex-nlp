@@ -1,0 +1,217 @@
+{
+  "id": "MP-0037",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0037.aac",
+    "original_sha256": "2a620e2f6cbe8120de1559063faacd2ce2f27c87319d920b6a3e60320a8da7db",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0037.wav",
+    "wav_sha256": "85932c43490016fb574d826ba8041539f41e259a6ecd15814d7cf4d34cb372c7"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0037-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio operativo con cajonera rodante, de un metro cuarenta por setenta centímetros y setenta y tres de altura. Tapa MDP de veinticinco milímetros, panel frontal de dieciocho, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxi, zapatas regulables y fijación minifix. Colores maderable y blanco. Incluye cajonera rodante. Precio de tres mil cuatrocientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio operativo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 335,
+        "end": 343,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.20047900034114718,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0037-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio operativo con cajonera rodante de 1,40 m x 70 cm y 73 cm de altura. Tapa MDP de 25 mm, panel frontal de 18 mm, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxy, zapatas regulables y fijación minifix, colores maderable y blanco. Incluye cajonera rodante, precio 3,400 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio operativo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 277,
+        "end": 285,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.154918001499027,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "un",
+          "metro",
+          "cuarenta",
+          "por",
+          "setenta",
+          "centímetros"
+        ],
+        "asr": [
+          "1,40",
+          "m",
+          "x",
+          "70",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta",
+          "y",
+          "tres"
+        ],
+        "asr": [
+          "73",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco",
+          "milímetros"
+        ],
+        "asr": [
+          "25",
+          "mm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18",
+          "mm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "epoxi"
+        ],
+        "asr": [
+          "epoxy"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "de",
+          "tres",
+          "mil",
+          "cuatrocientos"
+        ],
+        "asr": [
+          "3,400"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0037",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "3400",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

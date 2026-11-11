@@ -1,0 +1,208 @@
+{
+  "id": "MP-0067",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0067.aac",
+    "original_sha256": "a13e478244d574bc45b1f01df0ac5f0d573f966e7e83a7cc6574332b437d085a",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0067.wav",
+    "wav_sha256": "fb3f835a99fe8d894e827625542cd2285cc971e98e44d859c724b9ebb653e97d"
+  },
+  "reference": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+  "source": {
+    "id": "MP-0067",
+    "categoria": "OTRO",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      67
+    ],
+    "titulo_fuente": "POLTRONA FIJA",
+    "grupo_familia": "POLTRONA_FIJA",
+    "guion": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+    "audio_esperado": "MP-0067.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0067.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "509fe5827129a643372af64e388cdc0f784884a0b7767d6570fd896601bc123a",
+    "audio_compatible_asr": "MP-0067.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0067.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 28.119375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "9.400000",
+        "text": " Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela"
+      },
+      {
+        "start_seconds": "9.400000",
+        "end_seconds": "17.040000",
+        "text": " repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro"
+      },
+      {
+        "start_seconds": "17.040000",
+        "end_seconds": "24.520000",
+        "text": " patas con topes de goma, color de patas y tapiz elección, precio unitario de"
+      },
+      {
+        "start_seconds": "24.520000",
+        "end_seconds": "26.720000",
+        "text": " 5.500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4573
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "nombre": "Dos poltronas fijas de estructura y patas de madera de eucalipto",
+      "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+      "precio_lista": "5500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "nombre-0-64",
+        "label": "nombre",
+        "start": 0,
+        "end": 64,
+        "text": "Dos poltronas fijas de estructura y patas de madera de eucalipto",
+        "source": "RULE",
+        "normalized_value": "Dos poltronas fijas de estructura y patas de madera de eucalipto",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-261",
+        "label": "observaciones",
+        "start": 0,
+        "end": 261,
+        "text": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-244-249",
+        "label": "precio_lista",
+        "start": 244,
+        "end": 249,
+        "text": "5.500",
+        "source": "RULE",
+        "normalized_value": "5500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "Complete manualmente: unidad_stock"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 2.7561210008570924,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "nombre": "Dos poltronas fijas",
+      "observaciones": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+      "precio_lista": "5500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "nombre-0-19",
+        "label": "nombre",
+        "start": 0,
+        "end": 19,
+        "text": "Dos poltronas fijas",
+        "source": "RULE",
+        "normalized_value": "Dos poltronas fijas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-284",
+        "label": "observaciones",
+        "start": 0,
+        "end": 284,
+        "text": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-252-272",
+        "label": "precio_lista",
+        "start": 252,
+        "end": 272,
+        "text": "cinco mil quinientos",
+        "source": "RULE",
+        "normalized_value": "5500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "Complete manualmente: unidad_stock"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 2.8298990000621416,
+  "metrics": {
+    "wer": {
+      "errors": 6,
+      "substitutions": 3,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.13043478260869565
+    },
+    "cer": {
+      "errors": 33,
+      "substitutions": 9,
+      "deletions": 23,
+      "insertions": 1,
+      "reference_length": 278,
+      "rate": 0.11870503597122302
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.626924494004925,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0067.json",
+    "original_case_sha256": "0849b7ff9ee178f2af7112f01ec7c9223e6980782d9489d95efce272f8fe1663",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "OTRO",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  },
+  "rerouting_elapsed_seconds": 0.0056114019971573725
+}

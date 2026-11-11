@@ -1,0 +1,399 @@
+{
+  "id": "MP-0017",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0017.aac",
+    "original_sha256": "01ec257e9cf9b2b68c0a606b0eab6ee6cd48d5ce1bd589665d9a0834b29d6c33",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0017.wav",
+    "wav_sha256": "25d65e9924a13f42e3e9873d585b5ad5af18fdb314c7eb06a38f1b0b01cc4b59"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017-reference",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Mesón",
+          "evidence_ids": [
+            "c6"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas metálicas",
+          "evidence_ids": [
+            "c7"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de ancho",
+          "value_mm": "800",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "130",
+          "unit": "cm",
+          "original_text": "un metro treinta de largo",
+          "value_mm": "1300",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "veinticinco milímetros",
+          "value_mm": "25"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 72,
+        "end": 100,
+        "text": "ochenta centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "LARGO",
+        "start": 45,
+        "end": 70,
+        "text": "un metro treinta de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "130",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 140,
+        "end": 162,
+        "text": "veinticinco milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "COMPONENTE",
+        "start": 122,
+        "end": 127,
+        "text": "Mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "COMPONENTE",
+        "start": 180,
+        "end": 195,
+        "text": "patas metálicas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_reference_ms": 1.747340000292752,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 bolivianos. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 237,
+        "end": 241,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 349,
+        "end": 353,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.25129799905698746,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta"
+        ],
+        "asr": [
+          "30"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "mesón"
+        ],
+        "asr": [
+          "me",
+          "son"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco"
+        ],
+        "asr": [
+          "25"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "a"
+        ],
+        "asr": [
+          "de"
+        ]
+      },
+      {
+        "operation": "insert",
+        "reference": [],
+        "asr": [
+          "2900",
+          "bolivianos",
+          "una",
+          "mesa"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos",
+          "mil",
+          "novecientos",
+          "bolivianos"
+        ],
+        "asr": [
+          "reuniones",
+          "para",
+          "seis",
+          "personas",
+          "de",
+          "un",
+          "metro",
+          "30",
+          "de",
+          "largo",
+          "80",
+          "centímetros",
+          "bordes",
+          "de",
+          "ancho",
+          "y",
+          "80",
+          "de",
+          "altura",
+          "una",
+          "mesa",
+          "de",
+          "reuniones",
+          "para",
+          "seis",
+          "personas",
+          "de",
+          "un",
+          "metro",
+          "30",
+          "de",
+          "largo",
+          "80",
+          "centímetros",
+          "bordes",
+          "de",
+          "ancho",
+          "y",
+          "80",
+          "de",
+          "altura"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0017",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "2900",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

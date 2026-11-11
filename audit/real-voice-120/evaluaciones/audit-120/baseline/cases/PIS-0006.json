@@ -1,0 +1,249 @@
+{
+  "id": "PIS-0006",
+  "category": "PISO_FLOTANTE",
+  "corpus_category": "pisos",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios/PIS-0006.aac",
+    "original_sha256": "a5a524ac7a6a8b9a621268c86311ec0ee362057eeb867de5ae6f9c9ca97785e1",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios_asr/PIS-0006.wav",
+    "wav_sha256": "76b54c04ccaacf6b48c2c688d85b0983bf33c4e9956dce67c1000d7390314d42"
+  },
+  "reference": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+  "source": {
+    "id": "PIS-0006",
+    "categoria": "pisos",
+    "archivo_origen": "SILLAS-PISOS-OTROS(3).txt",
+    "registros_fuente": [
+      16
+    ],
+    "titulo_fuente": "PISO FLOTANTE \"GANESHA\"",
+    "grupo_familia": "PISO_GANESHA",
+    "guion": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+    "audio_esperado": "PIS-0006.aac",
+    "ruta_audio_esperada": "03_pisos/audios/PIS-0006.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "c085510f0586479b1c8325dd0294b9c1e5f6f2c118040558e606fc38a148c4ff",
+    "audio_compatible_asr": "PIS-0006.wav",
+    "ruta_audio_compatible_asr": "03_pisos/audios_asr/PIS-0006.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 46.1148125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "16.000000",
+        "text": " Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros."
+      },
+      {
+        "start_seconds": "16.000000",
+        "end_seconds": "27.000000",
+        "text": " Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos,"
+      },
+      {
+        "start_seconds": "27.000000",
+        "end_seconds": "41.000000",
+        "text": " clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado,"
+      },
+      {
+        "start_seconds": "41.000000",
+        "end_seconds": "46.000000",
+        "text": " precio unitario de 135 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 6262
+  },
+  "nlp_asr": {
+    "category": "PISO_FLOTANTE",
+    "fields": {
+      "unidad_stock": 56,
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+      "precio_lista": "135.00",
+      "modelo": "NA9174"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-245-259",
+        "label": "unidad_stock",
+        "start": 245,
+        "end": 259,
+        "text": "metro cuadrado",
+        "source": "RULE",
+        "normalized_value": 56,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Piso flotante Ganesha",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-295",
+        "label": "observaciones",
+        "start": 0,
+        "end": 295,
+        "text": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-280-283",
+        "label": "precio_lista",
+        "start": 280,
+        "end": 283,
+        "text": "135",
+        "source": "RULE",
+        "normalized_value": "135.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-30-36",
+        "label": "modelo",
+        "start": 30,
+        "end": 36,
+        "text": "NA9174",
+        "source": "RULE",
+        "normalized_value": "NA9174",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 5.106789001729339,
+  "nlp_reference": {
+    "category": "PISO_FLOTANTE",
+    "fields": {
+      "unidad_stock": 56,
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+      "precio_lista": "135.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-286-300",
+        "label": "unidad_stock",
+        "start": 286,
+        "end": 300,
+        "text": "metro cuadrado",
+        "source": "RULE",
+        "normalized_value": 56,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Piso flotante Ganesha",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-355",
+        "label": "observaciones",
+        "start": 0,
+        "end": 355,
+        "text": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-321-343",
+        "label": "precio_lista",
+        "start": 321,
+        "end": 343,
+        "text": "ciento treinta y cinco",
+        "source": "RULE",
+        "normalized_value": "135.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-30-35",
+        "label": "modelo",
+        "start": 30,
+        "end": 35,
+        "text": "ene a",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 6.135044000984635,
+  "metrics": {
+    "wer": {
+      "errors": 19,
+      "substitutions": 4,
+      "deletions": 15,
+      "insertions": 0,
+      "reference_length": 51,
+      "rate": 0.37254901960784315
+    },
+    "cer": {
+      "errors": 70,
+      "substitutions": 9,
+      "deletions": 61,
+      "insertions": 0,
+      "reference_length": 342,
+      "rate": 0.2046783625730994
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 6.337092923000455,
+  "process_peak_rss_kib": 1282048
+}

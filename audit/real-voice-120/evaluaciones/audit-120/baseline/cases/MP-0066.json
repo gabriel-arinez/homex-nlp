@@ -1,0 +1,209 @@
+{
+  "id": "MP-0066",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0066.aac",
+    "original_sha256": "dd5178243e74b5ed727c39c508aebad19ccaa3903fc76c6ee58a9f428a68e58b",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0066.wav",
+    "wav_sha256": "383bb96b0a8be443fa8396040b5b2999149e5b1a3f0b46cf208f22cc62bdaa1e"
+  },
+  "reference": "Un juego de mesas para área común. Tableros de melamina de veinticinco milímetros, patas de varillas de acero, pintura electrostática y topes de goma. Incluye una mesa de ochenta centímetros de diámetro, y otra de sesenta centímetros de diámetro y treinta de alto. Colores a elección. Precio por juego de diez mil bolivianos.",
+  "source": {
+    "id": "MP-0066",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      66
+    ],
+    "titulo_fuente": "JUEGO DE MESAS AREA COMUN - SALA ESPERA",
+    "grupo_familia": "JUEGO_MESAS_SALA_ESPERA",
+    "guion": "Un juego de mesas para área común. Tableros de melamina de veinticinco milímetros, patas de varillas de acero, pintura electrostática y topes de goma. Incluye una mesa de ochenta centímetros de diámetro, y otra de sesenta centímetros de diámetro y treinta de alto. Colores a elección. Precio por juego de diez mil bolivianos.",
+    "audio_esperado": "MP-0066.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0066.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: altura mesa grande «40m» y varillas «0.05mm»; omitidas."
+    ],
+    "sha256_fuente": "f2bbf7cfff3561ea6e7b0c509f8dc0c5c76aed2c350f74ea7248b36439fbb523",
+    "audio_compatible_asr": "MP-0066.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0066.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 33.158125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Juego de mesas para área común, tablero de melamina de 25 milímetros, patas de varillas de acero, pintura electrostática y topes de goma, incluye una mesa de 80 centímetros de diámetro y otra de 60 centímetros de diámetro y 30 de alto, colores a elección, presio por juego de 10 mil bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "10.360000",
+        "text": " Juego de mesas para área común, tablero de melamina de 25 milímetros, patas de varillas"
+      },
+      {
+        "start_seconds": "10.360000",
+        "end_seconds": "19.440000",
+        "text": " de acero, pintura electrostática y topes de goma, incluye una mesa de 80 centímetros"
+      },
+      {
+        "start_seconds": "19.440000",
+        "end_seconds": "28.840000",
+        "text": " de diámetro y otra de 60 centímetros de diámetro y 30 de alto, colores a elección,"
+      },
+      {
+        "start_seconds": "28.840000",
+        "end_seconds": "31.840000",
+        "text": " presio por juego de 10 mil bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4406
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0066",
+    "status": "NO_PROPOSAL",
+    "text_original": "Juego de mesas para área común, tablero de melamina de 25 milímetros, patas de varillas de acero, pintura electrostática y topes de goma, incluye una mesa de 80 centímetros de diámetro y otra de 60 centímetros de diámetro y 30 de alto, colores a elección, presio por juego de 10 mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 9,
+        "end": 14,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 150,
+        "end": 154,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.4689540000981651,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0066-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común. Tableros de melamina de veinticinco milímetros, patas de varillas de acero, pintura electrostática y topes de goma. Incluye una mesa de ochenta centímetros de diámetro, y otra de sesenta centímetros de diámetro y treinta de alto. Colores a elección. Precio por juego de diez mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 163,
+        "end": 167,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.26041099772555754,
+  "metrics": {
+    "wer": {
+      "errors": 8,
+      "substitutions": 7,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 53,
+      "rate": 0.1509433962264151
+    },
+    "cer": {
+      "errors": 41,
+      "substitutions": 11,
+      "deletions": 30,
+      "insertions": 0,
+      "reference_length": 317,
+      "rate": 0.12933753943217666
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.47121391199471,
+  "process_peak_rss_kib": 1282048
+}

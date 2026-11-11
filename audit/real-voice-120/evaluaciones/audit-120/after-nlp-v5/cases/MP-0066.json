@@ -1,0 +1,216 @@
+{
+  "id": "MP-0066",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0066.aac",
+    "original_sha256": "dd5178243e74b5ed727c39c508aebad19ccaa3903fc76c6ee58a9f428a68e58b",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0066.wav",
+    "wav_sha256": "383bb96b0a8be443fa8396040b5b2999149e5b1a3f0b46cf208f22cc62bdaa1e"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0066-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común. Tableros de melamina de veinticinco milímetros, patas de varillas de acero, pintura electrostática y topes de goma. Incluye una mesa de ochenta centímetros de diámetro, y otra de sesenta centímetros de diámetro y treinta de alto. Colores a elección. Precio por juego de diez mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 163,
+        "end": 167,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.1854900037869811,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0066-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Juego de mesas para área común, tablero de melamina de 25 milímetros, patas de varillas de acero, pintura electrostática y topes de goma, incluye una mesa de 80 centímetros de diámetro y otra de 60 centímetros de diámetro y 30 de alto, colores a elección, presio por juego de 10 mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 9,
+        "end": 14,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 150,
+        "end": 154,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.15115799760678783,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "delete",
+        "reference": [
+          "un"
+        ],
+        "asr": []
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "tableros"
+        ],
+        "asr": [
+          "tablero"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco"
+        ],
+        "asr": [
+          "25"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "sesenta"
+        ],
+        "asr": [
+          "60"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta"
+        ],
+        "asr": [
+          "30"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "precio"
+        ],
+        "asr": [
+          "presio"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "diez"
+        ],
+        "asr": [
+          "10"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0066",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "10000",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

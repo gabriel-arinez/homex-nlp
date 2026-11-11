@@ -1,0 +1,152 @@
+{
+  "id": "MP-0040",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0040.aac",
+    "original_sha256": "00a651d8dbd1610bbe88037d5571b73476aade215fe44f0f0830cf35b1195a59",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0040.wav",
+    "wav_sha256": "1ed8b92db086ff092c1961ee4b1b9809d8b1c04a654b843f22e280cb500274eb"
+  },
+  "reference": "Un clóset modular de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Melamina de dieciocho milímetros, tapacantos PVC, cajones con rieles telescópicos y barra colgadora de acero inoxidable. Acabado según diseño. Precio de seis mil quinientos bolivianos.",
+  "source": {
+    "id": "MP-0040",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      40
+    ],
+    "titulo_fuente": "CLOSET MODULAR",
+    "grupo_familia": "CLOSET_170",
+    "guion": "Un clóset modular de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Melamina de dieciocho milímetros, tapacantos PVC, cajones con rieles telescópicos y barra colgadora de acero inoxidable. Acabado según diseño. Precio de seis mil quinientos bolivianos.",
+    "audio_esperado": "MP-0040.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0040.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "53ad55945235dc5594dc498725efc0834e94f77077a62bf2b635a83577e8b71b",
+    "audio_compatible_asr": "MP-0040.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0040.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 31.3469375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un clóset modular de 1,70 metros de ancho, 2,55 metros de alto y 60 centímetros de profundidad. Melamina de 18 milímetros, tapacantos PVC, cajones con reales telescópicos y barra colgadora de acero inoxidable. Acabado, según diseño, precio de 6,500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "12.000000",
+        "text": " Un clóset modular de 1,70 metros de ancho, 2,55 metros de alto y 60 centímetros de profundidad."
+      },
+      {
+        "start_seconds": "12.000000",
+        "end_seconds": "24.000000",
+        "text": " Melamina de 18 milímetros, tapacantos PVC, cajones con reales telescópicos y barra colgadora de acero inoxidable."
+      },
+      {
+        "start_seconds": "24.000000",
+        "end_seconds": "30.000000",
+        "text": " Acabado, según diseño, precio de 6,500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4045
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0040",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset modular de 1,70 metros de ancho, 2,55 metros de alto y 60 centímetros de profundidad. Melamina de 18 milímetros, tapacantos PVC, cajones con reales telescópicos y barra colgadora de acero inoxidable. Acabado, según diseño, precio de 6,500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.16509200213477015,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0040-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset modular de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Melamina de dieciocho milímetros, tapacantos PVC, cajones con rieles telescópicos y barra colgadora de acero inoxidable. Acabado según diseño. Precio de seis mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.10943000233964995,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 7,
+      "deletions": 6,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.2826086956521739
+    },
+    "cer": {
+      "errors": 70,
+      "substitutions": 16,
+      "deletions": 51,
+      "insertions": 3,
+      "reference_length": 300,
+      "rate": 0.23333333333333334
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.095488535000186,
+  "process_peak_rss_kib": 1282048
+}

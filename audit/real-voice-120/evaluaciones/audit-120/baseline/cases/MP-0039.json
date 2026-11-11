@@ -1,0 +1,649 @@
+{
+  "id": "MP-0039",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0039.aac",
+    "original_sha256": "de51dc88cb6823c0e0e3608a89e22bb29dc5952bb5e0e892881537c2778c200c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0039.wav",
+    "wav_sha256": "988c037e451fc9d5d1177a6108c1c07571760fac3021a4e1e57c48dd5e1f586f"
+  },
+  "reference": "Un estante de cinco espacios de ochenta centímetros de ancho, dos metros de alto y treinta y cinco de profundidad. Melamina de dieciocho milímetros, bandejas divisorias, dos puertas inferiores, jaladores metálicos y chapa de seguridad frontal. Colores cedro y negro. Precio de dos mil ochocientos bolivianos.",
+  "source": {
+    "id": "MP-0039",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      39
+    ],
+    "titulo_fuente": "ESTANTE DE 5 ESPACIOS",
+    "grupo_familia": "ESTANTE_5_ESPACIOS",
+    "guion": "Un estante de cinco espacios de ochenta centímetros de ancho, dos metros de alto y treinta y cinco de profundidad. Melamina de dieciocho milímetros, bandejas divisorias, dos puertas inferiores, jaladores metálicos y chapa de seguridad frontal. Colores cedro y negro. Precio de dos mil ochocientos bolivianos.",
+    "audio_esperado": "MP-0039.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0039.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "07a7cf25e8ac6970acfa8c522cdc68aaae99a7f7368da226f6ebe6a140bc3a9f",
+    "audio_compatible_asr": "MP-0039.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0039.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 29.6286875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un estante de 5 espacios de 80 cm de ancho, 2 metros de alto y 35 de profundidad, melamina de 18 mm, bandejas divisorias, 2 puertas inferiores, jaladores metálicos y chapa de seguridad frontal, colores cedro y negro, precio de 2800 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.760000",
+        "text": " Un estante de 5 espacios de 80 cm de ancho, 2 metros de alto y 35 de profundidad, melamina"
+      },
+      {
+        "start_seconds": "11.760000",
+        "end_seconds": "21.300000",
+        "text": " de 18 mm, bandejas divisorias, 2 puertas inferiores, jaladores metálicos y chapa de seguridad"
+      },
+      {
+        "start_seconds": "21.300000",
+        "end_seconds": "28.520000",
+        "text": " frontal, colores cedro y negro, precio de 2800 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 22910
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0039",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un estante de 5 espacios de 80 cm de ancho, 2 metros de alto y 35 de profundidad, melamina de 18 mm, bandejas divisorias, 2 puertas inferiores, jaladores metálicos y chapa de seguridad frontal, colores cedro y negro, precio de 2800 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "estante",
+      "furniture_type_candidate": "estante",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "puertas inferiores",
+          "evidence_ids": [
+            "c11"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 cm de ancho",
+          "value_mm": "800",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "2",
+          "unit": "m",
+          "original_text": "2 metros de alto",
+          "value_mm": "2000",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "35",
+          "unit": null,
+          "original_text": "35 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 mm",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad frontal",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c10"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 10,
+        "text": "estante",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 28,
+        "end": 42,
+        "text": "80 cm de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 44,
+        "end": 60,
+        "text": "2 metros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "2",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 63,
+        "end": 80,
+        "text": "35 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "35",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 94,
+        "end": 99,
+        "text": "18 mm",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 124,
+        "end": 142,
+        "text": "puertas inferiores",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 144,
+        "end": 163,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 166,
+        "end": 192,
+        "text": "chapa de seguridad frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "PRECIO_AMBIGUO",
+        "start": 227,
+        "end": 231,
+        "text": "2800",
+        "source": "RULE",
+        "normalized_value": "2800",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 124,
+        "end": 142,
+        "text": "puertas inferiores",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "CANTIDAD_INTERNA",
+        "start": 122,
+        "end": 123,
+        "text": "2",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 82,
+        "end": 90,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COLOR",
+        "start": 210,
+        "end": 215,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '35 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 2800.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 18 mm requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_asr_ms": 1.9083919978584163,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0039-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un estante de cinco espacios de ochenta centímetros de ancho, dos metros de alto y treinta y cinco de profundidad. Melamina de dieciocho milímetros, bandejas divisorias, dos puertas inferiores, jaladores metálicos y chapa de seguridad frontal. Colores cedro y negro. Precio de dos mil ochocientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "estante",
+      "furniture_type_candidate": "estante",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "puertas inferiores",
+          "evidence_ids": [
+            "c9"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de ancho",
+          "value_mm": "800",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "2",
+          "unit": "m",
+          "original_text": "dos metros de alto",
+          "value_mm": "2000",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad frontal",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c5"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 10,
+        "text": "estante",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 32,
+        "end": 60,
+        "text": "ochenta centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 62,
+        "end": 80,
+        "text": "dos metros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "2",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 127,
+        "end": 147,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 174,
+        "end": 192,
+        "text": "puertas inferiores",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 194,
+        "end": 213,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 216,
+        "end": 242,
+        "text": "chapa de seguridad frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 174,
+        "end": 192,
+        "text": "puertas inferiores",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "CANTIDAD_INTERNA",
+        "start": 170,
+        "end": 173,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 115,
+        "end": 123,
+        "text": "Melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COLOR",
+        "start": 260,
+        "end": 265,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_reference_ms": 2.002614004595671,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 9,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.2826086956521739
+    },
+    "cer": {
+      "errors": 78,
+      "substitutions": 13,
+      "deletions": 65,
+      "insertions": 0,
+      "reference_length": 300,
+      "rate": 0.26
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 22.963218409997353,
+  "process_peak_rss_kib": 1282048
+}

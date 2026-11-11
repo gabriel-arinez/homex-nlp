@@ -1,0 +1,383 @@
+{
+  "id": "MP-0012",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0012.aac",
+    "original_sha256": "66f884432666c095f07fc5510fae55831874a4a87150a4339e6fc93fe5b00e55",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0012.wav",
+    "wav_sha256": "a72e32b5b765ab62bff58103946a42619423f7b8ba24fe403037237e5a5d5514"
+  },
+  "reference": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de altura y cincuenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, tapacantos de PVC, puerta frontal y repisa interna. Precio de tres mil ochocientos bolivianos.",
+  "source": {
+    "id": "MP-0012",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      12
+    ],
+    "titulo_fuente": "ATRIL",
+    "grupo_familia": "ATRIL",
+    "guion": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de altura y cincuenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, tapacantos de PVC, puerta frontal y repisa interna. Precio de tres mil ochocientos bolivianos.",
+    "audio_esperado": "MP-0012.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0012.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: «Meson 0.50 Cm» no es una medida clara (0,50 cm vs 0,50 m); se omite esa medida."
+    ],
+    "sha256_fuente": "530b2514209533a2a068795010448ff984f77621021fee7f2fd225bb2515701e",
+    "audio_compatible_asr": "MP-0012.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0012.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 25.3794375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Una trill de 45 centímetros de ancho, un metro veinte de altura y 50 centímetros de profundidad. Estructura de melamina de 18 milímetros, tapa canta de PVC, puerta frontal y repisa interna. Precio de 3800 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.000000",
+        "text": " Una trill de 45 centímetros de ancho, un metro veinte de altura y 50 centímetros de profundidad."
+      },
+      {
+        "start_seconds": "11.000000",
+        "end_seconds": "21.000000",
+        "text": " Estructura de melamina de 18 milímetros, tapa canta de PVC, puerta frontal y repisa interna."
+      },
+      {
+        "start_seconds": "21.000000",
+        "end_seconds": "25.000000",
+        "text": " Precio de 3800 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 2256
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0012",
+    "status": "NO_PROPOSAL",
+    "text_original": "Una trill de 45 centímetros de ancho, un metro veinte de altura y 50 centímetros de profundidad. Estructura de melamina de 18 milímetros, tapa canta de PVC, puerta frontal y repisa interna. Precio de 3800 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.18741800158750266,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0012-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de altura y cincuenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, tapacantos de PVC, puerta frontal y repisa interna. Precio de tres mil ochocientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "atril",
+      "furniture_type_candidate": "atril",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c8"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "puerta",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "repisa",
+          "evidence_ids": [
+            "c11"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "45",
+          "unit": "cm",
+          "original_text": "cuarenta y cinco centímetros de ancho",
+          "value_mm": "450",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "un metro veinte de altura",
+          "value_mm": "1200",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "50",
+          "unit": "cm",
+          "original_text": "cincuenta centímetros de profundidad",
+          "value_mm": "500",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "tapacantos de PVC",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 8,
+        "text": "atril",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 12,
+        "end": 49,
+        "text": "cuarenta y cinco centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "45",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 51,
+        "end": 76,
+        "text": "un metro veinte de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 79,
+        "end": 115,
+        "text": "cincuenta centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "50",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 143,
+        "end": 163,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 165,
+        "end": 182,
+        "text": "tapacantos de PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "COMPONENTE",
+        "start": 117,
+        "end": 127,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "MATERIAL",
+        "start": 131,
+        "end": 139,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 184,
+        "end": 190,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 201,
+        "end": 207,
+        "text": "repisa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.4998999942908995,
+  "metrics": {
+    "wer": {
+      "errors": 12,
+      "substitutions": 7,
+      "deletions": 4,
+      "insertions": 1,
+      "reference_length": 39,
+      "rate": 0.3076923076923077
+    },
+    "cer": {
+      "errors": 60,
+      "substitutions": 15,
+      "deletions": 44,
+      "insertions": 1,
+      "reference_length": 253,
+      "rate": 0.23715415019762845
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 2.296221256998251,
+  "process_peak_rss_kib": 892152
+}

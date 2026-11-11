@@ -1,0 +1,35 @@
+........................................................................ [  9%]
+........................................................................ [ 18%]
+........................................................................ [ 27%]
+........................................................................ [ 36%]
+........................................................................ [ 45%]
+........................................................................ [ 54%]
+........................................................................ [ 63%]
+........................................................................ [ 72%]
+........................................................................ [ 82%]
+...........................................................F............ [ 91%]
+......................................................................   [100%]
+=================================== FAILURES ===================================
+_ test_secondary_out_of_scope_words_do_not_reject_furniture[Un mueble con casilleros] _
+
+text = 'Un mueble con casilleros'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Un escritorio con espacio para silla",
+            "Un estante a 20 cm del piso",
+            "Un mueble con casilleros",
+            "Una mesa sin sillas",
+        ],
+    )
+    def test_secondary_out_of_scope_words_do_not_reject_furniture(text):
+>       assert extract(text).item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='v16', status='NO_PROPOSAL', text_original='Un mueble con casilleros...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+E        +    where ExtractionResult(schema_version='1.0', request_id='v16', status='NO_PROPOSAL', text_original='Un mueble con casilleros...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0) = extract('Un mueble con casilleros')
+
+tests/unit/test_v16_safety.py:28: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_v16_safety.py::test_secondary_out_of_scope_words_do_not_reject_furniture[Un mueble con casilleros]
+1 failed, 789 passed in 3.44s

@@ -1,0 +1,36 @@
+﻿id;archivo_origen;bloque;tipo;descripcion
+MP-0003;PROFORMAS(4).txt;3;FUENTE_AMBIGUA;"altura de la mesa grande «40m»; se omite, no se convierte silenciosamente a 40 cm."
+MP-0003;PROFORMAS(4).txt;3;FUENTE_AMBIGUA;"diámetro de varillas «0.05mm» físicamente improbable; se omite."
+MP-0003;PROFORMAS(4).txt;3;FUENTE_AMBIGUA;"texto enumera conjuntos «1 juegos (tamaño 1 y 2), 2 juegos (tamaño 3 y 4)» sin definir los otros tamaños; solo se conserva el juego de 2 mesas explícitas."
+MP-0005;PROFORMAS(4).txt;5;FUENTE_AMBIGUA;"varillas «Ø=0.05mm» improbables; se dicta material sin ese diámetro."
+MP-0009;PROFORMAS(4).txt;9;FUENTE_INCOMPLETA;"cantidad comercial no expresada de manera explícita; no se infiere a partir del total."
+MP-0012;PROFORMAS(4).txt;12;FUENTE_AMBIGUA;"«Meson 0.50 Cm» no es una medida clara (0,50 cm vs 0,50 m); se omite esa medida."
+MP-0015;PROFORMAS(4).txt;15;FUENTE_AMBIGUA;"«80mts de alto» probablemente es un error de unidad; se omite altura."
+MP-0026;PROFORMAS(4).txt;26;FUENTE_AMBIGUA;"profundidad de mesada «60,50» sin unidad o separación interpretable; se omite esa medida."
+MP-0026;PROFORMAS(4).txt;26;FUENTE_CON_ALTERNATIVAS;"mecanismo de cerradura ofrece opciones; se conserva «cerradura de seguridad» sin seleccionar mecanismo."
+MP-0033;PROFORMAS(4).txt;33;FUENTE_AMBIGUA;"«Meson 0.50 Cm» no permite fijar medida confiable; se omite."
+MP-0042;PROFORMAS(4).txt;42;FUENTE_AMBIGUA;"profundidad escrita «0,3.6 mts» no es un decimal válido; se omite."
+MP-0056;PROFORMAS(4).txt;56;VALOR_NO_CONFIRMADO;"«Solamen» se conserva literalmente como color escrito; verificar si existe en catálogo."
+MP-0061;PROFORMAS(4).txt;61;FUENTE_AMBIGUA;"altura mesa grande «40m» y varillas «0.05mm»; omitidas."
+MP-0066;PROFORMAS(4).txt;66;FUENTE_AMBIGUA;"altura mesa grande «40m» y varillas «0.05mm»; omitidas."
+MP-0068;PROFORMAS(4).txt;68,69;BLOQUE_FRAGMENTADO;"bloques 68 y 69 corresponden a un único renglón; se unen para un audio."
+MP-0068;PROFORMAS(4).txt;68,69;FUENTE_AMBIGUA;"varillas «0.05mm» improbables; se omite diámetro."
+MP-0074;PROFORMAS(4).txt;75;FUENTE_INCOMPLETA;"falta cantidad numérica explícita; no inferirla del total."
+MP-0075;PROFORMAS(4).txt;76;FUENTE_CONTRADICTORIA;"precio unitario Bs 1800 y total Bs 1700 sin cantidad explícita; se omite precio del guion."
+MP-0075;PROFORMAS(4).txt;76;FUENTE_INCOMPLETA;cantidad comercial no expresada.
+MP-0078;PROFORMAS(4).txt;79;FUENTE_INCOMPLETA;"cantidad numérica no expresada; no inferir."
+MP-0079;PROFORMAS(4).txt;80;FUENTE_INCOMPLETA;"cantidad numérica no expresada; no inferir."
+SIL-0002;SILLAS-PISOS-OTROS(3).txt;4;FUENTE_INCOMPLETA;"cantidad no escrita, pese a haber total comercial; no se dicta inventario."
+PIS-0002;SILLAS-PISOS-OTROS(3).txt;5;FUENTE_INCOMPLETA;"extracto sin encabezado Ganesha; no se atribuye marca a partir de filas similares."
+SIL-0007;SILLAS-PISOS-OTROS(3).txt;14;DIFERENCIA_ENTRE_FUENTES;"B15b Bs 1750 en proforma frente a Bs 1500 en inventario; ambas se conservan."
+PIS-0007;SILLAS-PISOS-OTROS(3).txt;17;FUENTE_INCOMPLETA;"frase «rayos» cortada; no se agrega UV por inferencia."
+SIL-0009;SILLAS-PISOS-OTROS(3).txt;19;DIFERENCIA_ENTRE_FUENTES;"D43 Bs 1200 en proforma frente a Bs 1090 en inventario; ambas se conservan."
+SIL-0010;SILLAS-PISOS-OTROS(3).txt;20;DIFERENCIA_ENTRE_FUENTES;"NF-810 Bs 1500 en proforma frente a Bs 1400 en inventario; ambas se conservan."
+SIL-0011;SILLAS-PISOS-OTROS(3).txt;21;FUENTE_CON_ALTERNATIVAS;"varios colores posibles; no seleccionar uno para el producto sin confirmación."
+SIL-0014;inventario de sillas(1).txt;2;DIFERENCIA_ENTRE_FUENTES;"B15b en inventario Bs 1500 frente a proforma Bs 1750; no consolidar automáticamente."
+SIL-0015;inventario de sillas(1).txt;3;FUENTE_CONTRADICTORIA;"encabezado «CELESTE» pero descripción color «turquesa»; se preserva ambos sin asumir equivalencia."
+SIL-0016;inventario de sillas(1).txt;4;DIFERENCIA_ENTRE_FUENTES;D43 en inventario Bs 1090 frente a proforma Bs 1200.
+SIL-0020;inventario de sillas(1).txt;8;DIFERENCIA_ENTRE_FUENTES;NF-810 en inventario Bs 1400 frente a proforma Bs 1500.
+SIL-0023;inventario de sillas(1).txt;11;FUENTE_CON_ALTERNATIVAS;cuatro colores disponibles, no variante individual.
+SIL-0024;inventario de sillas(1).txt;12;FUENTE_CON_ALTERNATIVAS;negro, guindo y plomo.
+SIL-0029;inventario de sillas(1).txt;17;FUENTE_CON_ALTERNATIVAS;"texto «negro y café» puede indicar variantes o combinación; no fijar color combinado automáticamente."

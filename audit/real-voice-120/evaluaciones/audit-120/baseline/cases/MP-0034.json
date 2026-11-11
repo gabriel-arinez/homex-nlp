@@ -1,0 +1,147 @@
+{
+  "id": "MP-0034",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0034.aac",
+    "original_sha256": "923d7215bf5308924aa15295d0cbf75290f2e98c931b6d30fb508efe804fc5f8",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0034.wav",
+    "wav_sha256": "a2a2e7ebf267f4952fe7ce04caa84f129f39477f63a36281fdb213187b8ef987"
+  },
+  "reference": "Un armario bajo de ochenta centímetros de ancho, cincuenta de profundidad y setenta y tres de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, una repisa interna graduable, llave de seguridad y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil cuatrocientos bolivianos.",
+  "source": {
+    "id": "MP-0034",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      34
+    ],
+    "titulo_fuente": "ARMARIO BAJO",
+    "grupo_familia": "PRO_034",
+    "guion": "Un armario bajo de ochenta centímetros de ancho, cincuenta de profundidad y setenta y tres de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, una repisa interna graduable, llave de seguridad y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil cuatrocientos bolivianos.",
+    "audio_esperado": "MP-0034.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0034.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "3ee722845c19b86d9a194572b11aa4b7a71417f5dc34a535d8708bebb6d0ae90",
+    "audio_compatible_asr": "MP-0034.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0034.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 36.8733125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un armario bajo de 80 centímetros de ancho, 50 de profundidad y 73 de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, una repisa interna, graduable, llave de seguridad y zócalo de acero con tratamiento anticorroso. Colora elección, precio de 2.400 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "29.000000",
+        "text": " Un armario bajo de 80 centímetros de ancho, 50 de profundidad y 73 de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, una repisa interna, graduable, llave de seguridad y zócalo de acero con tratamiento anticorroso."
+      },
+      {
+        "start_seconds": "30.000000",
+        "end_seconds": "35.000000",
+        "text": " Colora elección, precio de 2.400 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 3973
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0034",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario bajo de 80 centímetros de ancho, 50 de profundidad y 73 de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, una repisa interna, graduable, llave de seguridad y zócalo de acero con tratamiento anticorroso. Colora elección, precio de 2.400 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.533894999534823,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0034-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario bajo de ochenta centímetros de ancho, cincuenta de profundidad y setenta y tres de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, una repisa interna graduable, llave de seguridad y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil cuatrocientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.3060570015804842,
+  "metrics": {
+    "wer": {
+      "errors": 15,
+      "substitutions": 9,
+      "deletions": 5,
+      "insertions": 1,
+      "reference_length": 55,
+      "rate": 0.2727272727272727
+    },
+    "cer": {
+      "errors": 75,
+      "substitutions": 15,
+      "deletions": 59,
+      "insertions": 1,
+      "reference_length": 351,
+      "rate": 0.21367521367521367
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.05093496000336,
+  "process_peak_rss_kib": 892484
+}

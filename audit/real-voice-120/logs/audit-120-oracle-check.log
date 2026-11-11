@@ -1,0 +1,21 @@
+Bounded audit oracle verification (no source writes; no new NLP sweep)
+
+Oracle annotations
+- Rows: 120; EXPLICIT_UNIT: 85; UNQUALIFIED_PRICE_REQUIRES_REVIEW: 34; NOT_STATED: 1 (MP-0075).
+- Independently converted Spanish price number words in all 119 stated cases using a separate arithmetic map (no HOMEX parser); all annotations matched the reference script numeric phrases; 0 amount mismatches.
+- All 85 EXPLICIT_UNIT cues are unitario, de lista, or por juego. All 34 unqualified “precio de …” cases remain modality-review cases. MP-0075 correctly has no stated price.
+- Oracle basis explicitly says original scripts, not audio review; reference-to-audio confirmation remains pending.
+
+Explicit-unit price results (match / missing / wrong; denominator 85)
+- ASR: before 59/26/0; after 62/23/0.
+- Reference text: before 64/21/0; after 67/18/0.
+- All +3 price-field gains are OTRO “precio por juego” records MP-0005, MP-0063, MP-0068.
+- Category counts, ASR before -> after: MUEBLE_MEDIDA 18/41 -> 18/41; OTRO 7/10 -> 10/10; PISO_FLOTANTE 7/7 -> 7/7; SILLA 27/27 -> 27/27. Reference: MUEBLE_MEDIDA 23/41 -> 23/41; OTRO 7/10 -> 10/10; PISO_FLOTANTE 7/7 -> 7/7; SILLA 27/27 -> 27/27. No wrong extracted amounts hidden in these explicit-unit results.
+
+Bounded before/after evidence
+- Semantic diff: 9 field-level entries across five IDs: MP-0005/MP-0063/MP-0068 price_list; PIS-0001 thickness; SIL-0001 backrest (reference-input output only).
+- All 120 after-NLP ASR inputs match the baseline transcription exactly (engine text_original or catalog observations).
+- Floor oracle marks all seven PIS cases as explicit 8 mm HDF. The current extractor reports 8 mm in only 4/7 on both ASR and reference input (PIS-0001, 0002, 0003, 0007); PIS-0004/0005/0006 remain missing. Baseline was 3/7. Do not claim all floor thicknesses fixed.
+- Baseline identity's 24 source hashes match git base c94e7a89995a7157bd113a03bb8304321d30b0b1. After-NLP's 24 hashes match current source; only expected catalog.py and rules.py differ from base. ASR adapter/service/model files remain unchanged.
+
+Conclusion: no manual price annotation or explicit-unit count defect found. This is a partial oracle, not full field or audio-verified semantic accuracy.

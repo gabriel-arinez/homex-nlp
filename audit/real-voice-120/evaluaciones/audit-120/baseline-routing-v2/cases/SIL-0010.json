@@ -1,0 +1,233 @@
+{
+  "id": "SIL-0010",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0010.aac",
+    "original_sha256": "2d1bfc8fe20737f05e6f27fed646f63199847f2345325f46f8e190b1edccaf32",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0010.wav",
+    "wav_sha256": "231e3e75a2fe5cf236e4701af8378b789113d4353d68bf9fdde07f2db0aedd4a"
+  },
+  "reference": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+  "source": {
+    "id": "SIL-0010",
+    "categoria": "OTRO",
+    "archivo_origen": "SILLAS-PISOS-OTROS(3).txt",
+    "registros_fuente": [
+      20
+    ],
+    "titulo_fuente": "SILLON SEMI EJECUTIVO",
+    "grupo_familia": "SILLA_NF810",
+    "guion": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+    "audio_esperado": "SIL-0010.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0010.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "DIFERENCIA_ENTRE_FUENTES: NF-810 Bs 1500 en proforma frente a Bs 1400 en inventario; ambas se conservan."
+    ],
+    "sha256_fuente": "562ee5a275703a73eb4ef0d34e4095d287935947cd357563163b8ad6fcdd49ba",
+    "audio_compatible_asr": "SIL-0010.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0010.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 46.974,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro, cinco patas cromadas con ruedas, apoya brazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "16.440000",
+        "text": " Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados"
+      },
+      {
+        "start_seconds": "16.440000",
+        "end_seconds": "24.920000",
+        "text": " con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color"
+      },
+      {
+        "start_seconds": "24.920000",
+        "end_seconds": "34.040000",
+        "text": " negro, cinco patas cromadas con ruedas, apoya brazos acolchados, regulación hidráulica de"
+      },
+      {
+        "start_seconds": "34.040000",
+        "end_seconds": "45.800000",
+        "text": " altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 5492
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Semi Ejecutivo",
+      "observaciones": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro, cinco patas cromadas con ruedas, apoya brazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+      "precio_lista": "1500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-332-337",
+        "label": "unidad_stock",
+        "start": 332,
+        "end": 337,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Sillon Semi Ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillon Semi Ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-374",
+        "label": "observaciones",
+        "start": 0,
+        "end": 374,
+        "text": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro, cinco patas cromadas con ruedas, apoya brazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro, cinco patas cromadas con ruedas, apoya brazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-358-362",
+        "label": "precio_lista",
+        "start": 358,
+        "end": 362,
+        "text": "1500",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 5.878242998733185,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillón semiejecutivo",
+      "observaciones": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+      "precio_lista": "1500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-364-369",
+        "label": "unidad_stock",
+        "start": 364,
+        "end": 369,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Sillón semiejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillón semiejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-416",
+        "label": "observaciones",
+        "start": 0,
+        "end": 416,
+        "text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-390-404",
+        "label": "precio_lista",
+        "start": 390,
+        "end": 404,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 5.468559000291862,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 9,
+      "deletions": 3,
+      "insertions": 1,
+      "reference_length": 56,
+      "rate": 0.23214285714285715
+    },
+    "cer": {
+      "errors": 57,
+      "substitutions": 11,
+      "deletions": 44,
+      "insertions": 2,
+      "reference_length": 404,
+      "rate": 0.14108910891089108
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.602210282006126,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0010.json",
+    "original_case_sha256": "9074b28d50e3efcd74b2d22de876b1f8a0e63eadee3cb348b72dab33401d91e3",
+    "original_category": "OTRO",
+    "effective_category": "OTRO",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

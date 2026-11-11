@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+_____________ ERROR collecting tests/evaluation/test_real_voice.py _____________
+ImportError while importing test module '/home/gabriel/HOMEX/homex-nlp/tests/evaluation/test_real_voice.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/evaluation/test_real_voice.py:1: in <module>
+    from tools.evaluate_real_voice import edit_counts, normalized_words
+E   ModuleNotFoundError: No module named 'tools.evaluate_real_voice'
+=========================== short test summary info ============================
+ERROR tests/evaluation/test_real_voice.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.12s

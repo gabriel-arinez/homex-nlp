@@ -1,0 +1,157 @@
+{
+  "id": "MP-0035",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0035.aac",
+    "original_sha256": "49a58ca2a8f1efb73f033f3d162d712b07751ba6da5424a1fb2392ad4fe8fa5c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0035.wav",
+    "wav_sha256": "4c1c54a1e6212fd3081b164a383bdd43c9c67ad65fe1358ee99aaf9dd352aa69"
+  },
+  "reference": "Un armario medio de dos puertas, de ochenta centímetros de ancho, cincuenta de profundidad y un metro de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil quinientos cincuenta bolivianos.",
+  "source": {
+    "id": "MP-0035",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      35
+    ],
+    "titulo_fuente": "ARMARIO MEDIO DOS PUERTAS",
+    "grupo_familia": "PRO_035",
+    "guion": "Un armario medio de dos puertas, de ochenta centímetros de ancho, cincuenta de profundidad y un metro de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil quinientos cincuenta bolivianos.",
+    "audio_esperado": "MP-0035.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0035.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "65671156edb3591d82370362ff9fc4e025b02f4d092be7d7524b47bfc4d22102",
+    "audio_compatible_asr": "MP-0035.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0035.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 36.4553125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un armario medio de dos puertas de 80 centímetros de ancho, 50 de profundidad y un metro de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio de 2.550 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.000000",
+        "text": " Un armario medio de dos puertas de 80 centímetros de ancho, 50 de profundidad y un metro de alto."
+      },
+      {
+        "start_seconds": "11.000000",
+        "end_seconds": "19.000000",
+        "text": " Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18."
+      },
+      {
+        "start_seconds": "19.000000",
+        "end_seconds": "27.000000",
+        "text": " Tapa cantos PVC, dos repisas internas graduables, cerradura y zócalo de acero"
+      },
+      {
+        "start_seconds": "27.000000",
+        "end_seconds": "36.000000",
+        "text": " con tratamiento anticorrosivo, color elección, precio de 2.550 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4779
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0035",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario medio de dos puertas de 80 centímetros de ancho, 50 de profundidad y un metro de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio de 2.550 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.1891470019472763,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0035-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario medio de dos puertas, de ochenta centímetros de ancho, cincuenta de profundidad y un metro de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil quinientos cincuenta bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.13196300278650597,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 6,
+      "deletions": 4,
+      "insertions": 1,
+      "reference_length": 56,
+      "rate": 0.19642857142857142
+    },
+    "cer": {
+      "errors": 67,
+      "substitutions": 13,
+      "deletions": 53,
+      "insertions": 1,
+      "reference_length": 362,
+      "rate": 0.1850828729281768
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.86609287099418,
+  "process_peak_rss_kib": 892484
+}

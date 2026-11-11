@@ -1,0 +1,755 @@
+{
+  "id": "MP-0011",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0011.aac",
+    "original_sha256": "e6b0c230e0c1ae0fefa645091a1b413b0ac1b91a4c33e15dc0f4219dc9ffaf8f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0011.wav",
+    "wav_sha256": "cf150b7b387ccd14834a296777cb78a862e1898d26ffb2479719a21872cdd39b"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0011-reference",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa de reuniones para diez personas, de dos metros cuarenta de largo, un metro veinte de ancho y ochenta centímetros de alto. Tablero de melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacantos de PVC, estructura de melamina y dos tomacorrientes centrales. Color a elección. Precio unitario de siete mil trescientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Tablero",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "mesón",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "estructura",
+          "evidence_ids": [
+            "c13"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "un metro veinte de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "240",
+          "unit": "cm",
+          "original_text": "dos metros cuarenta de largo",
+          "value_mm": "2400",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "tapacantos de PVC",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "tomacorrientes centrales",
+          "quantity": 2
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c9"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "7300.00",
+        "currency": "BOB",
+        "unit_price_input": "7300.00",
+        "line_total": "7300.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": "Color a elección",
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 75,
+        "end": 99,
+        "text": "un metro veinte de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 102,
+        "end": 129,
+        "text": "ochenta centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "LARGO",
+        "start": 45,
+        "end": 73,
+        "text": "dos metros cuarenta de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "240",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 154,
+        "end": 174,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 207,
+        "end": 224,
+        "text": "tapacantos de PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 255,
+        "end": 279,
+        "text": "tomacorrientes centrales",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "PRECIO",
+        "start": 318,
+        "end": 339,
+        "text": "siete mil trescientos",
+        "source": "RULE",
+        "normalized_value": "7300",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 131,
+        "end": 138,
+        "text": "Tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 142,
+        "end": 150,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 176,
+        "end": 181,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 226,
+        "end": 236,
+        "text": "estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "MATERIAL",
+        "start": 240,
+        "end": 248,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.6986510056303814,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0011-asr",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa de reuniones para 10 personas. De 2 metros 40 de largo, 1 metro 20 de ancho y 80 centímetros de alto. Tablero de melamina de 18 milímetros. Mesón engrosado a 27 tapacantos de PVC. Estructura de melamina y dos tomacorrientes centrales. Colora elección, precio unitario de 7.300 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Tablero",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "Mesón",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c13"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "1 metro 20 de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "240",
+          "unit": "cm",
+          "original_text": "2 metros 40 de largo",
+          "value_mm": "2400",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-2",
+          "name": "tapacantos de PVC",
+          "quantity": 27
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "tomacorrientes centrales",
+          "quantity": 2
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c9"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "7300.00",
+        "currency": "BOB",
+        "unit_price_input": "7300.00",
+        "line_total": "7300.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 65,
+        "end": 84,
+        "text": "1 metro 20 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 87,
+        "end": 109,
+        "text": "80 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "LARGO",
+        "start": 43,
+        "end": 63,
+        "text": "2 metros 40 de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "240",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 134,
+        "end": 147,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 170,
+        "end": 187,
+        "text": "tapacantos de PVC",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 218,
+        "end": 242,
+        "text": "tomacorrientes centrales",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "PRECIO",
+        "start": 280,
+        "end": 285,
+        "text": "7.300",
+        "source": "RULE",
+        "normalized_value": "7300",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 111,
+        "end": 118,
+        "text": "Tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 122,
+        "end": 130,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 149,
+        "end": 154,
+        "text": "Mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 189,
+        "end": 199,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "MATERIAL",
+        "start": 203,
+        "end": 211,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_asr_ms": 1.9925889937439933,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "diez"
+        ],
+        "asr": [
+          "10"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuarenta"
+        ],
+        "asr": [
+          "40"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "un"
+        ],
+        "asr": [
+          "1"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinte"
+        ],
+        "asr": [
+          "20"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veintisiete"
+        ],
+        "asr": [
+          "27"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "color",
+          "a"
+        ],
+        "asr": [
+          "colora"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "siete",
+          "mil",
+          "trescientos"
+        ],
+        "asr": [
+          "7.300"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0011",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "7300",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

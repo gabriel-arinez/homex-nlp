@@ -1,0 +1,365 @@
+{
+  "id": "SIL-0028",
+  "category": "SILLA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0028.aac",
+    "original_sha256": "330b5410a29d7d9c3b58c14b18e3395a5ba73798d92e4d3c325d1a0cb9992e4f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0028.wav",
+    "wav_sha256": "cccac13c6d80727f2454f9d4690dfac8785b41a91028c4f85a3c6091b2f9f83b"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semiejecutiva",
+      "observaciones": "Silla semiejecutiva, modelo ene efe guion quinientos trece ele. Respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC con cinco ruedas. Color negro. Unidad pieza. Precio de lista de novecientos cincuenta bolivianos.",
+      "precio_lista": "950.00",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "base": "base de PVC"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-299-304",
+        "label": "unidad_stock",
+        "start": 299,
+        "end": 304,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-285-290",
+        "label": "color_primario",
+        "start": 285,
+        "end": 290,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-19",
+        "label": "nombre",
+        "start": 0,
+        "end": 19,
+        "text": "Silla semiejecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-358",
+        "label": "observaciones",
+        "start": 0,
+        "end": 358,
+        "text": "Silla semiejecutiva, modelo ene efe guion quinientos trece ele. Respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC con cinco ruedas. Color negro. Unidad pieza. Precio de lista de novecientos cincuenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva, modelo ene efe guion quinientos trece ele. Respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC con cinco ruedas. Color negro. Unidad pieza. Precio de lista de novecientos cincuenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-325-346",
+        "label": "precio_lista",
+        "start": 325,
+        "end": 346,
+        "text": "novecientos cincuenta",
+        "source": "RULE",
+        "normalized_value": "950.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-35",
+        "label": "modelo",
+        "start": 28,
+        "end": 35,
+        "text": "ene efe",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-131-151",
+        "label": "especificaciones.tapiz",
+        "start": 131,
+        "end": 151,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-92-115",
+        "label": "especificaciones.asiento",
+        "start": 92,
+        "end": 115,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-223-234",
+        "label": "especificaciones.mecanismo",
+        "start": 223,
+        "end": 234,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-249-260",
+        "label": "especificaciones.base",
+        "start": 249,
+        "end": 260,
+        "text": "base de PVC",
+        "source": "RULE",
+        "normalized_value": "base de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 10.807452999870293,
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semi-executiva",
+      "observaciones": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas, color negro, unidad pieza, precio de lista de 950 bolivianos.",
+      "precio_lista": "950.00",
+      "modelo": "NF-513L",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-276-281",
+        "label": "unidad_stock",
+        "start": 276,
+        "end": 281,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-262-267",
+        "label": "color_primario",
+        "start": 262,
+        "end": 267,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla semi-executiva",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-317",
+        "label": "observaciones",
+        "start": 0,
+        "end": 317,
+        "text": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas, color negro, unidad pieza, precio de lista de 950 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas, color negro, unidad pieza, precio de lista de 950 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-302-305",
+        "label": "precio_lista",
+        "start": 302,
+        "end": 305,
+        "text": "950",
+        "source": "RULE",
+        "normalized_value": "950.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-41",
+        "label": "modelo",
+        "start": 28,
+        "end": 41,
+        "text": "NF Guion 513L",
+        "source": "RULE",
+        "normalized_value": "NF-513L",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-110-130",
+        "label": "especificaciones.tapiz",
+        "start": 110,
+        "end": 130,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-71-94",
+        "label": "especificaciones.asiento",
+        "start": 71,
+        "end": 94,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-199-210",
+        "label": "especificaciones.mecanismo",
+        "start": 199,
+        "end": 210,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 9.535550998407416,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "semiejecutiva"
+        ],
+        "asr": [
+          "semi-executiva"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ene",
+          "efe"
+        ],
+        "asr": [
+          "nf"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "quinientos",
+          "trece",
+          "ele"
+        ],
+        "asr": [
+          "513l"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "tres"
+        ],
+        "asr": [
+          "3"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "pvc"
+        ],
+        "asr": [
+          "upvc"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "novecientos",
+          "cincuenta"
+        ],
+        "asr": [
+          "950"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "SIL-0028",
+    "category": "SILLA",
+    "stated_commercial_amount": "950",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

@@ -1,0 +1,654 @@
+{
+  "id": "MP-0031",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0031.aac",
+    "original_sha256": "ff8329ded314d6e84433dcbb7a686d61e2f66a3049cf6e6e21aa4f9a89729a2e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0031.wav",
+    "wav_sha256": "4e16612eb2547997ecd385d9fcbf533038a4da1fb68fdaf6c0e096bcc6b2c099"
+  },
+  "reference": "Un escritorio recto de un metro de ancho, ochenta centímetros de alto y sesenta de profundidad. Melamina de dieciocho milímetros con tapacantos de PVC, mesón engrosado a veinticinco, faldón a media altura y un cajón central con rieles telescópicos, jalador metálico y chapa lateral. Un color a elección. Precio de dos mil bolivianos.",
+  "source": {
+    "id": "MP-0031",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      31
+    ],
+    "titulo_fuente": "ESCRITORIO RECTO",
+    "grupo_familia": "PRO_031",
+    "guion": "Un escritorio recto de un metro de ancho, ochenta centímetros de alto y sesenta de profundidad. Melamina de dieciocho milímetros con tapacantos de PVC, mesón engrosado a veinticinco, faldón a media altura y un cajón central con rieles telescópicos, jalador metálico y chapa lateral. Un color a elección. Precio de dos mil bolivianos.",
+    "audio_esperado": "MP-0031.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0031.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "3602b14f6618fde59ddea15bf82862f51fdce1c12e24faefb4b5e097dadb5421",
+    "audio_compatible_asr": "MP-0031.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0031.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 33.715375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un escritorio recto de un metro de ancho, 80 centímetros de alto y 60 de profundidad. Me lamina de 18 milímetros con tapacantos de PVC, me son engrosado a 25. Faldón a media altura y un cajón central con rieles telescópicos. Jalador metálico y chapa lateral. Un color elección. Precio de 2000 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "10.000000",
+        "text": " Un escritorio recto de un metro de ancho, 80 centímetros de alto y 60 de profundidad."
+      },
+      {
+        "start_seconds": "10.000000",
+        "end_seconds": "18.000000",
+        "text": " Me lamina de 18 milímetros con tapacantos de PVC, me son engrosado a 25."
+      },
+      {
+        "start_seconds": "18.000000",
+        "end_seconds": "24.000000",
+        "text": " Faldón a media altura y un cajón central con rieles telescópicos."
+      },
+      {
+        "start_seconds": "24.000000",
+        "end_seconds": "32.000000",
+        "text": " Jalador metálico y chapa lateral. Un color elección. Precio de 2000 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4803
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0031",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio recto de un metro de ancho, 80 centímetros de alto y 60 de profundidad. Me lamina de 18 milímetros con tapacantos de PVC, me son engrosado a 25. Faldón a media altura y un cajón central con rieles telescópicos. Jalador metálico y chapa lateral. Un color elección. Precio de 2000 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio recto",
+      "furniture_type_candidate": "escritorio recto",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "lateral",
+          "evidence_ids": [
+            "c12"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "1",
+          "unit": "m",
+          "original_text": "un metro de ancho",
+          "value_mm": "1000",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "60",
+          "unit": null,
+          "original_text": "60 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "tapacantos de PVC",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "rieles telescópicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": null,
+          "name": "chapa lateral",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "color elección",
+      "unresolved": [
+        "c10"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 19,
+        "text": "escritorio recto",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 23,
+        "end": 40,
+        "text": "un metro de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "1",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 42,
+        "end": 64,
+        "text": "80 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 67,
+        "end": 84,
+        "text": "60 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "60",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 99,
+        "end": 112,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 117,
+        "end": 134,
+        "text": "tapacantos de PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 204,
+        "end": 223,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 244,
+        "end": 257,
+        "text": "chapa lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "PRECIO_AMBIGUO",
+        "start": 288,
+        "end": 292,
+        "text": "2000",
+        "source": "RULE",
+        "normalized_value": "2000",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 136,
+        "end": 142,
+        "text": "me son",
+        "source": "RULE",
+        "normalized_value": "mesón",
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 250,
+        "end": 257,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '60 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 2000.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "UNKNOWN_TERM",
+        "path": "/item_proposal/components",
+        "severity": "INFO",
+        "message": "Se interpretó 'me son engrosado' como 'mesón'; confirme la pieza."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 18 milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_asr_ms": 2.7618149979389273,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0031-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio recto de un metro de ancho, ochenta centímetros de alto y sesenta de profundidad. Melamina de dieciocho milímetros con tapacantos de PVC, mesón engrosado a veinticinco, faldón a media altura y un cajón central con rieles telescópicos, jalador metálico y chapa lateral. Un color a elección. Precio de dos mil bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio recto",
+      "furniture_type_candidate": "escritorio recto",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c9"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "lateral",
+          "evidence_ids": [
+            "c10"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "1",
+          "unit": "m",
+          "original_text": "un metro de ancho",
+          "value_mm": "1000",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "name": "tapacantos de PVC",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "rieles telescópicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "chapa lateral",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "color a elección",
+      "unresolved": [
+        "c5"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 19,
+        "text": "escritorio recto",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 23,
+        "end": 40,
+        "text": "un metro de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "1",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 42,
+        "end": 69,
+        "text": "ochenta centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 108,
+        "end": 128,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 133,
+        "end": 150,
+        "text": "tapacantos de PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 228,
+        "end": 247,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 268,
+        "end": 281,
+        "text": "chapa lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 152,
+        "end": 157,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 274,
+        "end": 281,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 96,
+        "end": 104,
+        "text": "Melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.4418539978796616,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 7,
+      "deletions": 2,
+      "insertions": 2,
+      "reference_length": 53,
+      "rate": 0.20754716981132076
+    },
+    "cer": {
+      "errors": 46,
+      "substitutions": 13,
+      "deletions": 31,
+      "insertions": 2,
+      "reference_length": 325,
+      "rate": 0.14153846153846153
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.871355718001723,
+  "process_peak_rss_kib": 892484
+}

@@ -1,0 +1,125 @@
+...........FFFFFFFF.F                                                    [100%]
+=================================== FAILURES ===================================
+__ test_storage_furniture_nouns_retain_quantity_and_source_evidence[armario] ___
+
+product = 'armario'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos armario de melam...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+__ test_storage_furniture_nouns_retain_quantity_and_source_evidence[armarios] __
+
+product = 'armarios'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos armarios de mela...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+_ test_storage_furniture_nouns_retain_quantity_and_source_evidence[cl\xf3set] __
+
+product = 'clóset'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos clóset de melami...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+_ test_storage_furniture_nouns_retain_quantity_and_source_evidence[cl\xf3sets] _
+
+product = 'clósets'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos clósets de melam...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+_ test_storage_furniture_nouns_retain_quantity_and_source_evidence[casillero] __
+
+product = 'casillero'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos casillero de mel...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+_ test_storage_furniture_nouns_retain_quantity_and_source_evidence[casilleros] _
+
+product = 'casilleros'
+
+    @pytest.mark.parametrize('product', ['armario', 'armarios', 'clóset', 'clósets', 'casillero', 'casilleros'])
+    def test_storage_furniture_nouns_retain_quantity_and_source_evidence(product):
+        text = f'Dos {product} de melamina. Precio unitario de tres mil bolivianos.'
+        result = RulesEngine().extract(ExtractionRequest(request_id='storage', text=text, currency_context='BOB'))
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='storage', status='NO_PROPOSAL', text_original='Dos casilleros de me...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:70: AssertionError
+_ test_explicit_hdf_board_thickness_without_repeated_label[HDF de doce mil\xedmetros] _
+
+phrase = 'HDF de doce milímetros'
+
+    @pytest.mark.parametrize('phrase', ['HDF de doce milímetros', 'HDF de 9,5 mm'])
+    def test_explicit_hdf_board_thickness_without_repeated_label(phrase):
+        expected = '12' if 'doce' in phrase else '9.5'
+>       assert catalog('PISO_FLOTANTE', f'Piso de aglomerado {phrase}.').fields['espesor_mm'] == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'espesor_mm'
+
+tests/unit/test_real_voice_regressions.py:81: KeyError
+___ test_explicit_hdf_board_thickness_without_repeated_label[HDF de 9,5 mm] ____
+
+phrase = 'HDF de 9,5 mm'
+
+    @pytest.mark.parametrize('phrase', ['HDF de doce milímetros', 'HDF de 9,5 mm'])
+    def test_explicit_hdf_board_thickness_without_repeated_label(phrase):
+        expected = '12' if 'doce' in phrase else '9.5'
+>       assert catalog('PISO_FLOTANTE', f'Piso de aglomerado {phrase}.').fields['espesor_mm'] == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'espesor_mm'
+
+tests/unit/test_real_voice_regressions.py:81: KeyError
+_____ test_storage_product_negation_and_multiple_products_keep_abstention ______
+
+    def test_storage_product_negation_and_multiple_products_keep_abstention():
+        for text in ['No quiero dos armarios.', 'Dos armarios y una mesa.']:
+            result = RulesEngine().extract(ExtractionRequest(request_id='abstain', text=text, currency_context='BOB'))
+>           assert result.item_proposal is None
+E           AssertionError: assert ItemProposal(item_type='MUEBLE_MEDIDA', name='mesa', furniture_type_candidate='mesa', quantity=1, components=[], dimen...thicknesses=[], primary_color=None, secondary_color=None, accessories=[], price=None, observations=None, unresolved=[]) is None
+E            +  where ItemProposal(item_type='MUEBLE_MEDIDA', name='mesa', furniture_type_candidate='mesa', quantity=1, components=[], dimen...thicknesses=[], primary_color=None, secondary_color=None, accessories=[], price=None, observations=None, unresolved=[]) = ExtractionResult(schema_version='1.0', request_id='abstain', status='REQUIRES_REVIEW', text_original='Dos armarios y u...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_real_voice_regressions.py:92: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[armario]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[armarios]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[cl\xf3set]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[cl\xf3sets]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[casillero]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_furniture_nouns_retain_quantity_and_source_evidence[casilleros]
+FAILED tests/unit/test_real_voice_regressions.py::test_explicit_hdf_board_thickness_without_repeated_label[HDF de doce mil\xedmetros]
+FAILED tests/unit/test_real_voice_regressions.py::test_explicit_hdf_board_thickness_without_repeated_label[HDF de 9,5 mm]
+FAILED tests/unit/test_real_voice_regressions.py::test_storage_product_negation_and_multiple_products_keep_abstention
+9 failed, 12 passed in 0.24s

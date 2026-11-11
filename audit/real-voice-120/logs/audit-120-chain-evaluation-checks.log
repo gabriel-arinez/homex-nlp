@@ -1,0 +1,148 @@
+Preparing worktree (detached HEAD c02c6df)
+HEAD is now at c02c6df feat(evaluation): preserve auditable real voice baseline results
+=== Isolated evaluation slice source ===
+/tmp/homex-chain-evaluation.RjcS6Y/tree/src/homex_nlp/__init__.py
+........................................................................ [  9%]
+........................................................................ [ 18%]
+........................................................................ [ 28%]
+........................................................................ [ 37%]
+........................................................................ [ 46%]
+........................................................................ [ 56%]
+........................................................................ [ 65%]
+........................................................................ [ 74%]
+........................................................................ [ 84%]
+........................................................................ [ 93%]
+.................................................                        [100%]
+769 passed in 4.69s
+Esquemas v1: OK
+All checks passed!
+87 files already formatted
+{
+  "path": "data/corpus/muebles_pedido.jsonl",
+  "records": 380,
+  "entities": 8548,
+  "labels": {
+    "ACABADO": 793,
+    "ACCESORIO": 568,
+    "ALTO": 380,
+    "ANCHO": 362,
+    "CANTIDAD": 380,
+    "COLOR": 951,
+    "COMPONENTE": 999,
+    "DESCUENTO": 171,
+    "DIAMETRO": 18,
+    "ESPESOR": 975,
+    "MATERIAL": 999,
+    "OBSERVACION": 70,
+    "PRECIO_TOTAL": 380,
+    "PRECIO_UNITARIO": 380,
+    "PRODUCTO": 380,
+    "PROFUNDIDAD": 362,
+    "UNIDAD_MEDIDA": 380
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/sillas.jsonl",
+  "records": 101,
+  "entities": 1110,
+  "labels": {
+    "ACCESORIO": 213,
+    "APOYABRAZOS": 45,
+    "CABECERA": 7,
+    "CANTIDAD": 101,
+    "COLOR": 101,
+    "DESCUENTO": 50,
+    "ERGONOMIA": 61,
+    "MATERIAL": 101,
+    "PRECIO_TOTAL": 101,
+    "PRECIO_UNITARIO": 101,
+    "PRODUCTO": 101,
+    "SOPORTE_LUMBAR": 27,
+    "UNIDAD_MEDIDA": 101
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/pisos_flotantes.jsonl",
+  "records": 97,
+  "entities": 1066,
+  "labels": {
+    "ACCESORIO": 56,
+    "CANTIDAD": 97,
+    "CLASE_RESISTENCIA": 97,
+    "COLOR": 97,
+    "DESCUENTO": 40,
+    "ESPESOR": 97,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "SISTEMA": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/otros_productos.jsonl",
+  "records": 97,
+  "entities": 907,
+  "labels": {
+    "ACCESORIO": 134,
+    "ALTO": 30,
+    "CANTIDAD": 97,
+    "COLOR": 97,
+    "DESCUENTO": 34,
+    "LARGO": 30,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+usage: evaluate_real_voice.py [-h] --corpus CORPUS --output OUTPUT --model
+                              MODEL --values VALUES [--resume]
+
+Evaluate immutable real-voice inputs; never interpret paired NLP as gold
+labels. Run with ``python -m tools.evaluate_real_voice --help``. Each output
+directory is exclusive: completed cases are durable, and --resume verifies
+input identity.
+
+options:
+  -h, --help       show this help message and exit
+  --corpus CORPUS
+  --output OUTPUT
+  --model MODEL
+  --values VALUES  Controlled catalog fixture, not production records
+  --resume
+=== Worktree status after checks ===

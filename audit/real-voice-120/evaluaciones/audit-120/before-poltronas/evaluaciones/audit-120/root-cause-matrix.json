@@ -1,0 +1,180 @@
+[
+  {
+    "id": "C01",
+    "classification": "CORPUS_CLASSIFICATION",
+    "commercial_impact": "Wrong extractor and denominator",
+    "evidence": "MP-0005/0063/0068, SIL-0010/0019/0020/0029; reclassification.json",
+    "state": "CORRECTED_CONFIRMED",
+    "root_cause_or_limitation": "Seven user-confirmed sillones incorrectly assigned to furniture/chair; IDs/audio paths unchanged. Three existing otros labels canonicalized to OTRO."
+  },
+  {
+    "id": "C02",
+    "classification": "CORPUS_METADATA",
+    "commercial_impact": "Misleading corpus readiness",
+    "evidence": "before-reclassification/control/RESUMEN.json vs 240 verified files",
+    "state": "CORRECTED",
+    "root_cause_or_limitation": "Historical summary had zero audio/conversions. Current summary recomputed from actual inventory."
+  },
+  {
+    "id": "N01",
+    "classification": "NLP_RULE",
+    "commercial_impact": "Unit price omitted",
+    "evidence": "MP-0005/0063/0068; rules.py price_mentions; unit regressions",
+    "state": "CORRECTED",
+    "root_cause_or_limitation": "Explicit precio por juego/pieza/barra/metro cuadrado missing in declared-unit grammar; reuse exact monetary grammar/evidence."
+  },
+  {
+    "id": "N02",
+    "classification": "NLP_NORMALIZATION_BOUNDARY",
+    "commercial_impact": "Floor thickness omitted",
+    "evidence": "PIS-0001; catalog.py FloorExtractor; conjunction regressions",
+    "state": "CORRECTED",
+    "root_cause_or_limitation": "Shared numeric token grammar includes y; prefix conjunction consumed into invalid cardinal. Exclude leading y, preserve internal y."
+  },
+  {
+    "id": "N03",
+    "classification": "NLP_SEMANTIC_ASSOCIATION",
+    "commercial_impact": "Backrest material omitted",
+    "evidence": "SIL-0001 reference input; catalog.py feature_context",
+    "state": "CORRECTED",
+    "root_cause_or_limitation": "Previous seat context suppressed an explicit respaldo match. Explicit local component outranks prior component; bare-material association unchanged."
+  },
+  {
+    "id": "N04",
+    "classification": "NLP_RULE",
+    "commercial_impact": "HDF board thickness omitted",
+    "evidence": "PIS-0004/0005/0006 reference inputs; after-nlp-v3",
+    "state": "CORRECTED_REFERENCE_INPUT",
+    "root_cause_or_limitation": "Only labeled thickness syntax recognized. Add bounded HDF board-gauge grammar, not arbitrary unit guessing; negative/alternative/other-axis controls pass."
+  },
+  {
+    "id": "N05",
+    "classification": "NLP_LEXICON",
+    "commercial_impact": "Furniture has no proposal",
+    "evidence": "MP-0034/0035/0036/0040/0041; rules.py PRODUCTS",
+    "state": "CORRECTED_BOUNDED",
+    "root_cause_or_limitation": "Missing armario and accented clóset; storage vocabulary extended including casillero without assigning backend type IDs."
+  },
+  {
+    "id": "R01",
+    "classification": "INTRODUCED_REGRESSION",
+    "commercial_impact": "Existing furniture proposal rejected",
+    "evidence": "test_v16_safety.py::test_secondary_out_of_scope_words_do_not_reject_furniture; nlp-suite-v2.log",
+    "state": "CORRECTED_BEFORE_ACCEPTANCE",
+    "root_cause_or_limitation": "New casillero product detection saw integrated compartments as independent product. Existing con-cajonera exclusion reused for casillero; original regression test now passes."
+  },
+  {
+    "id": "A01",
+    "classification": "ASR_OR_NORMALIZATION_OR_REFERENCE",
+    "commercial_impact": "Lost structured thickness",
+    "evidence": "PIS-0006: reference HDF de ocho milímetros, ASR HDF8 milímetros",
+    "state": "PENDING_LISTENING",
+    "root_cause_or_limitation": "Reference input now gives8; ASR input abstains. Cannot prove whether the speaker omitted de or ASR did; no rewrite/hallucinated gauge applied."
+  },
+  {
+    "id": "N06",
+    "classification": "SEMANTIC_ASSOCIATION_OR_LEGITIMATE_MULTIPRODUCT",
+    "commercial_impact": "No furniture proposal",
+    "evidence": [
+      "MP-0003",
+      "MP-0007",
+      "MP-0008",
+      "MP-0022",
+      "MP-0023",
+      "MP-0026",
+      "MP-0037",
+      "MP-0043",
+      "MP-0050",
+      "MP-0051",
+      "MP-0054",
+      "MP-0055",
+      "MP-0056",
+      "MP-0057",
+      "MP-0061",
+      "MP-0066",
+      "MP-0070",
+      "MP-0072",
+      "MP-0074"
+    ],
+    "state": "PENDING_CASE_REVIEW",
+    "root_cause_or_limitation": "Repeated descriptions, integrated compartments and actual multi-product sets need separate attribution. Do not collapse all identical nouns or force several products into singular public proposal."
+  },
+  {
+    "id": "N07",
+    "classification": "UNSUPPORTED_VOCABULARY_OR_CORPUS_CLASSIFICATION",
+    "commercial_impact": "No furniture proposal",
+    "evidence": [
+      "MP-0004",
+      "MP-0046",
+      "MP-0047",
+      "MP-0062",
+      "MP-0067"
+    ],
+    "state": "PENDING_BUSINESS_REVIEW",
+    "root_cause_or_limitation": "Remaining poltronas, cubos móviles and estaciones require classification/domain treatment. Poltronas MP-0004/0062/0067 not automatically moved by synonym."
+  },
+  {
+    "id": "N08",
+    "classification": "NLP_NAME_BOUNDARY",
+    "commercial_impact": "Proposal name contains dimensions",
+    "evidence": "OTR-0001 reference; PIS-0001 ASR; original fields preserved",
+    "state": "PENDING",
+    "root_cause_or_limitation": "Heuristic initial noun phrase can swallow technical clause or trailing preposition. Literal observations preserve original text; no universal name gold annotation yet."
+  },
+  {
+    "id": "N09",
+    "classification": "UNSUPPORTED_SPOKEN_MODEL_OR_ASR",
+    "commercial_impact": "Incomplete catalog model",
+    "evidence": "SIL/PIS spelled model phrases; full fields/warnings per-case",
+    "state": "PENDING",
+    "root_cause_or_limitation": "Spoken letters and digit groupings not fully decoded by literal code recognizer. Do not replace unresolved model by source SKU unless actually spoken."
+  },
+  {
+    "id": "N10",
+    "classification": "NLP_UNSUPPORTED_ACCESSORY_VOCABULARY",
+    "commercial_impact": "USB/HDMI not structured",
+    "evidence": "MP-0001 reference contains two USB and two HDMI; accessory list only tomacorrientes",
+    "state": "PENDING",
+    "root_cause_or_limitation": "Current accessory vocabulary lacks explicit USB/HDMI/caja eléctrica labels. Full dictation remains available in backend technical original description."
+  },
+  {
+    "id": "B01",
+    "classification": "LEGITIMATE_PRICE_MODALITY_AMBIGUITY",
+    "commercial_impact": "Unit/total cannot be safely inferred",
+    "evidence": "34 script prices use precio de without explicit unit/total; partial-manual-oracle",
+    "state": "REVIEW_REQUIRED_NOT_AUTOMATIC_FAILURE",
+    "root_cause_or_limitation": "Do not turn an unqualified amount into authoritative unit/total, apply discounts or stock movements."
+  },
+  {
+    "id": "I01",
+    "classification": "CATALOG_DICTIONARY_CONTEXT",
+    "commercial_impact": "Foreign key suggestions unavailable",
+    "evidence": "Controlled fixture has no floor material values; backend static seed leaves floor dictionaries empty",
+    "state": "ENVIRONMENT_OR_UNSUPPORTED_CONTEXT",
+    "root_cause_or_limitation": "Do not invent active IDs for HDF/brands/colors. This is not a measured ASR or NLP defect by itself."
+  },
+  {
+    "id": "I02",
+    "classification": "BACKEND_PROJECTION_UNRESOLVED_TYPE",
+    "commercial_impact": "Manual furniture-type selection",
+    "evidence": "MP-0001 live-e2e-final; TIPO_NO_RESUELTO",
+    "state": "PENDING_MAPPING_REVIEW",
+    "root_cause_or_limitation": "Correct quantity/dimensions/price reach UI, but mesas is not assigned an active furniture type. Proportional abstention avoids false ID; compare consumer dictionary and supported synonyms before any change."
+  },
+  {
+    "id": "E01",
+    "classification": "EVALUATION_LIMITATION",
+    "commercial_impact": "No full semantic accuracy denominator",
+    "evidence": "120 cases PENDING full field annotation/listening; new probes not independent real audio",
+    "state": "OPEN",
+    "root_cause_or_limitation": "Partial financial/floor oracle only. No generalization demonstrated. All120 used for development; retain family grouping."
+  },
+  {
+    "id": "P01",
+    "classification": "UNPUBLISHED_CANDIDATE",
+    "commercial_impact": "Installed consumer remains old package",
+    "evidence": "Backend wheel homex-nlp0.1.21; tests explicitly used candidate PYTHONPATH",
+    "state": "OPEN",
+    "root_cause_or_limitation": "Need versioned distribution/integration and authorized publication destination+credential before remote use. No remote CI run or commits pushed."
+  }
+]

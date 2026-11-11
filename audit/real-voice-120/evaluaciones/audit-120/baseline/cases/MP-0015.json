@@ -1,0 +1,923 @@
+{
+  "id": "MP-0015",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0015.aac",
+    "original_sha256": "3c5b57945fb06afb31b8233a1cfb6cb7df711756982fd1a08ba6cc0b5780f7b5",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0015.wav",
+    "wav_sha256": "4b8446d4b209f671a708be06ecf48b435d7a64e42ae8dc590f1f6fd3a02e44e7"
+  },
+  "reference": "Un escritorio ejecutivo de un metro setenta de ancho y setenta centímetros de profundidad. Mesón y patas de melamina engrosados a treinta y seis milímetros. Cajonería lateral de melamina de dieciocho milímetros, dos cajones con rieles telescópicos, chapa de seguridad y jaladores metálicos. Faldón a media altura de melamina de dieciocho milímetros. Dos colores a elección. Precio de cuatro mil bolivianos.",
+  "source": {
+    "id": "MP-0015",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      15
+    ],
+    "titulo_fuente": "ESCRITORIO EJECUTIVO",
+    "grupo_familia": "PRO_015",
+    "guion": "Un escritorio ejecutivo de un metro setenta de ancho y setenta centímetros de profundidad. Mesón y patas de melamina engrosados a treinta y seis milímetros. Cajonería lateral de melamina de dieciocho milímetros, dos cajones con rieles telescópicos, chapa de seguridad y jaladores metálicos. Faldón a media altura de melamina de dieciocho milímetros. Dos colores a elección. Precio de cuatro mil bolivianos.",
+    "audio_esperado": "MP-0015.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0015.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: «80mts de alto» probablemente es un error de unidad; se omite altura."
+    ],
+    "sha256_fuente": "6cdd19e73ca9a6a79600e806e7bd13cd09a028bc8f034b264fd726f5a7857223",
+    "audio_compatible_asr": "MP-0015.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0015.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 41.2850625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un escritorio ejecutivo de 1 metro 70 de ancho y 70 centímetros de profundidad. Mesón y patas de melamina engrosados a 36 milímetros. Cajonería lateral de melamina de 18 milímetros. Dos cajones con rieles telescopicos. Chapa de seguridad y jaladores metálicos. Faldón a media altura de melamina de 18 milímetros. Dos colores a elección. Precio de 4000 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.000000",
+        "text": " Un escritorio ejecutivo de 1 metro 70 de ancho y 70 centímetros de profundidad."
+      },
+      {
+        "start_seconds": "11.000000",
+        "end_seconds": "16.000000",
+        "text": " Mesón y patas de melamina engrosados a 36 milímetros."
+      },
+      {
+        "start_seconds": "16.000000",
+        "end_seconds": "21.000000",
+        "text": " Cajonería lateral de melamina de 18 milímetros."
+      },
+      {
+        "start_seconds": "21.000000",
+        "end_seconds": "24.000000",
+        "text": " Dos cajones con rieles telescopicos."
+      },
+      {
+        "start_seconds": "24.000000",
+        "end_seconds": "28.000000",
+        "text": " Chapa de seguridad y jaladores metálicos."
+      },
+      {
+        "start_seconds": "28.000000",
+        "end_seconds": "33.000000",
+        "text": " Faldón a media altura de melamina de 18 milímetros."
+      },
+      {
+        "start_seconds": "33.000000",
+        "end_seconds": "36.000000",
+        "text": " Dos colores a elección."
+      },
+      {
+        "start_seconds": "36.000000",
+        "end_seconds": "40.000000",
+        "text": " Precio de 4000 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4986
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0015",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio ejecutivo de 1 metro 70 de ancho y 70 centímetros de profundidad. Mesón y patas de melamina engrosados a 36 milímetros. Cajonería lateral de melamina de 18 milímetros. Dos cajones con rieles telescopicos. Chapa de seguridad y jaladores metálicos. Faldón a media altura de melamina de 18 milímetros. Dos colores a elección. Precio de 4000 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio ejecutivo",
+      "furniture_type_candidate": "escritorio ejecutivo",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Mesón",
+          "evidence_ids": [
+            "c13"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "lateral",
+          "evidence_ids": [
+            "c16"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "cajones",
+          "evidence_ids": [
+            "c18"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "170",
+          "unit": "cm",
+          "original_text": "1 metro 70 de ancho",
+          "value_mm": "1700",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "70 centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-2",
+          "value": "36",
+          "unit": "mm",
+          "original_text": "36 milímetros",
+          "value_mm": "36"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-3",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-4",
+          "name": "rieles telescopicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": null,
+          "name": "Chapa de seguridad",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c11"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c12"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio ejecutivo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 27,
+        "end": 46,
+        "text": "1 metro 70 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "170",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "PROFUNDIDAD",
+        "start": 49,
+        "end": 78,
+        "text": "70 centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 119,
+        "end": 132,
+        "text": "36 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "36",
+          "mm"
+        ],
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 167,
+        "end": 180,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ESPESOR",
+        "start": 298,
+        "end": 311,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 186,
+        "end": 193,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 198,
+        "end": 217,
+        "text": "rieles telescopicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 219,
+        "end": 237,
+        "text": "Chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "ACCESORIO",
+        "start": 240,
+        "end": 259,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "PRECIO_AMBIGUO",
+        "start": 347,
+        "end": 351,
+        "text": "4000",
+        "source": "RULE",
+        "normalized_value": "4000",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 80,
+        "end": 85,
+        "text": "Mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 88,
+        "end": 93,
+        "text": "patas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "MATERIAL",
+        "start": 97,
+        "end": 105,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 144,
+        "end": 151,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 155,
+        "end": 163,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "COMPONENTE",
+        "start": 186,
+        "end": 193,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "CANTIDAD_INTERNA",
+        "start": 182,
+        "end": 185,
+        "text": "Dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c20",
+        "label": "MATERIAL",
+        "start": 286,
+        "end": 294,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 4000.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 18 milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 3
+  },
+  "nlp_asr_ms": 3.7886290010646917,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0015-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio ejecutivo de un metro setenta de ancho y setenta centímetros de profundidad. Mesón y patas de melamina engrosados a treinta y seis milímetros. Cajonería lateral de melamina de dieciocho milímetros, dos cajones con rieles telescópicos, chapa de seguridad y jaladores metálicos. Faldón a media altura de melamina de dieciocho milímetros. Dos colores a elección. Precio de cuatro mil bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio ejecutivo",
+      "furniture_type_candidate": "escritorio ejecutivo",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Mesón",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas",
+          "evidence_ids": [
+            "c13"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "lateral",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "cajones",
+          "evidence_ids": [
+            "c17"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "170",
+          "unit": "cm",
+          "original_text": "un metro setenta de ancho",
+          "value_mm": "1700",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "setenta centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-2",
+          "value": "36",
+          "unit": "mm",
+          "original_text": "treinta y seis milímetros",
+          "value_mm": "36"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-3",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-4",
+          "name": "rieles telescópicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c11"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c7"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio ejecutivo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 27,
+        "end": 52,
+        "text": "un metro setenta de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "170",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "PROFUNDIDAD",
+        "start": 55,
+        "end": 89,
+        "text": "setenta centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 130,
+        "end": 155,
+        "text": "treinta y seis milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "36",
+          "mm"
+        ],
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 190,
+        "end": 210,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ESPESOR",
+        "start": 328,
+        "end": 348,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 216,
+        "end": 223,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 228,
+        "end": 247,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 249,
+        "end": 267,
+        "text": "chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "ACCESORIO",
+        "start": 270,
+        "end": 289,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 91,
+        "end": 96,
+        "text": "Mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 99,
+        "end": 104,
+        "text": "patas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "MATERIAL",
+        "start": 108,
+        "end": 116,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 167,
+        "end": 174,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "MATERIAL",
+        "start": 178,
+        "end": 186,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "COMPONENTE",
+        "start": 216,
+        "end": 223,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "CANTIDAD_INTERNA",
+        "start": 212,
+        "end": 215,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "MATERIAL",
+        "start": 316,
+        "end": 324,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 3
+  },
+  "nlp_reference_ms": 3.348140002344735,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 8,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 61,
+      "rate": 0.18032786885245902
+    },
+    "cer": {
+      "errors": 59,
+      "substitutions": 16,
+      "deletions": 43,
+      "insertions": 0,
+      "reference_length": 398,
+      "rate": 0.14824120603015076
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.083943393001391,
+  "process_peak_rss_kib": 892320
+}

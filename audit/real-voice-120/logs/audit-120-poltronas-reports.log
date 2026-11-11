@@ -1,0 +1,56 @@
+{
+  "categories": {
+    "MUEBLE_MEDIDA": 73,
+    "OTRO": 13,
+    "PISO_FLOTANTE": 7,
+    "SILLA": 27
+  },
+  "latest": {
+    "classification": "user-confirmed10 commercial reclassifications;73 furniture,27 chairs,7 floors,13 other;120 total",
+    "baseline": "baseline-routing-v2",
+    "after_nlp": "after-nlp-v4",
+    "frozen_original_execution": "baseline",
+    "raw_asr_recomputed": false,
+    "baseline_source_commit": "c94e7a89995a7157bd113a03bb8304321d30b0b1",
+    "baseline_derivation": "derive_corrected_baseline.py; original source hashes/import verified; only three poltrona NLP results rerouted, no rule modifications",
+    "correction_log": "reclassification.json",
+    "earlier_snapshots": "Historical only, preserved unmodified; not current category denominators",
+    "full_semantic_accuracy": "NOT_ESTABLISHED",
+    "independent_generalization": "NOT_ESTABLISHED",
+    "publication": "PENDING"
+  },
+  "three_poltrona_fields": {
+    "MP-0004": {
+      "reference": {
+        "nombre": "Dos poltronas fijas",
+        "observaciones": "Dos poltronas fijas, con estructura y cuatro patas de madera de eucalipto. Tapiz de tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Color de las patas y tapiz a elección. Topes de goma en las patas. Precio unitario de cinco mil quinientos bolivianos.",
+        "precio_lista": "5500.00"
+      },
+      "asr": {
+        "precio_lista": "5500.00"
+      }
+    },
+    "MP-0062": {
+      "reference": {
+        "nombre": "Dos poltronas fijas",
+        "observaciones": "Dos poltronas fijas con estructura y cuatro patas de madera de eucalipto, tapiz repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Colores de las patas y del tapiz a elección. Topes de goma en las patas. Precio unitario de cinco mil quinientos bolivianos.",
+        "precio_lista": "5500.00"
+      },
+      "asr": {
+        "precio_lista": "5500.00"
+      }
+    },
+    "MP-0067": {
+      "reference": {
+        "nombre": "Dos poltronas fijas",
+        "observaciones": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+        "precio_lista": "5500.00"
+      },
+      "asr": {
+        "nombre": "Dos poltronas fijas de estructura y patas de madera de eucalipto",
+        "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+        "precio_lista": "5500.00"
+      }
+    }
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "id": "SIL-0022",
+  "category": "SILLA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0022.aac",
+    "original_sha256": "dae0ae90bb426b1f6fcce690446e55dcb65a3fec34cf055e69004e53582f118d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0022.wav",
+    "wav_sha256": "2d6b4d685dbd6c6626bb95c9caf4d52980f6f567c8d830a0d85f58b7bd5d61fd"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla operativa",
+      "observaciones": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+      "precio_lista": "650.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "esponja de alta densidad",
+        "suspension": " hidráulica",
+        "patas": "Cinco patas con ruedas"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-259-264",
+        "label": "unidad_stock",
+        "start": 259,
+        "end": 264,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-15",
+        "label": "nombre",
+        "start": 0,
+        "end": 15,
+        "text": "Silla operativa",
+        "source": "RULE",
+        "normalized_value": "Silla operativa",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-318",
+        "label": "observaciones",
+        "start": 0,
+        "end": 318,
+        "text": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-285-306",
+        "label": "precio_lista",
+        "start": 285,
+        "end": 306,
+        "text": "seiscientos cincuenta",
+        "source": "RULE",
+        "normalized_value": "650.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-24-32",
+        "label": "modelo",
+        "start": 24,
+        "end": 32,
+        "text": "hache ce",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-168-189",
+        "label": "especificaciones.tapiz",
+        "start": 168,
+        "end": 189,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-139-163",
+        "label": "especificaciones.asiento",
+        "start": 139,
+        "end": 163,
+        "text": "esponja de alta densidad",
+        "source": "RULE",
+        "normalized_value": "esponja de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-201-212",
+        "label": "especificaciones.suspension",
+        "start": 201,
+        "end": 212,
+        "text": " hidráulica",
+        "source": "RULE",
+        "normalized_value": " hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-55-77",
+        "label": "especificaciones.patas",
+        "start": 55,
+        "end": 77,
+        "text": "Cinco patas con ruedas",
+        "source": "RULE",
+        "normalized_value": "Cinco patas con ruedas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 10.0843799955328,
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla Operativa",
+      "observaciones": "Silla Operativa Modelo HC Guion 0275 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC, unidad pieza, precio de lista de 650 bolivianos.",
+      "precio_lista": "650.00",
+      "modelo": "HC-0275",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "esponja de alta densidad",
+        "suspension": " hidráulica"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-235-240",
+        "label": "unidad_stock",
+        "start": 235,
+        "end": 240,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-15",
+        "label": "nombre",
+        "start": 0,
+        "end": 15,
+        "text": "Silla Operativa",
+        "source": "RULE",
+        "normalized_value": "Silla Operativa",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-276",
+        "label": "observaciones",
+        "start": 0,
+        "end": 276,
+        "text": "Silla Operativa Modelo HC Guion 0275 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC, unidad pieza, precio de lista de 650 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Operativa Modelo HC Guion 0275 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC, unidad pieza, precio de lista de 650 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-261-264",
+        "label": "precio_lista",
+        "start": 261,
+        "end": 264,
+        "text": "650",
+        "source": "RULE",
+        "normalized_value": "650.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-23-36",
+        "label": "modelo",
+        "start": 23,
+        "end": 36,
+        "text": "HC Guion 0275",
+        "source": "RULE",
+        "normalized_value": "HC-0275",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-144-165",
+        "label": "especificaciones.tapiz",
+        "start": 144,
+        "end": 165,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-115-139",
+        "label": "especificaciones.asiento",
+        "start": 115,
+        "end": 139,
+        "text": "esponja de alta densidad",
+        "source": "RULE",
+        "normalized_value": "esponja de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-177-188",
+        "label": "especificaciones.suspension",
+        "start": 177,
+        "end": 188,
+        "text": " hidráulica",
+        "source": "RULE",
+        "normalized_value": " hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 8.586399999330752,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "hache",
+          "ce"
+        ],
+        "asr": [
+          "hc"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cero",
+          "dos",
+          "siete",
+          "cinco"
+        ],
+        "asr": [
+          "0275"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "seiscientos",
+          "cincuenta"
+        ],
+        "asr": [
+          "650"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "SIL-0022",
+    "category": "SILLA",
+    "stated_commercial_amount": "650",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

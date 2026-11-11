@@ -1,0 +1,1655 @@
+COMMAND: npm run test:unit -- --run
+npm notice run homex-frontend@0.1.0 test:unit
+npm notice run vitest --run
+
+ RUN  v4.1.12 /tmp/homex-audit-integration.WFXbW2/frontend
+
+stderr | src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > resuelve una familia pendiente con variante compatible y conserva su negociación
+[Vue warn]: injection "Symbol(pinia)" not found. 
+  at <DetalleForm detail= {
+  id: 88,
+  tipo_item: 10,
+  producto: null,
+  familia_producto: 6,
+  nombre: 'Silla negociada',
+  descripcion: 'Respaldo solicitado por el cliente',
+  cantidad: '2.0000',
+  unidad: 20,
+  modo_calculo: 'PRECIO_UNITARIO',
+  precio_unitario: '150.00',
+  importe_negociado: null,
+  descuento: '20.00'
+} tipos= [ { id: 10, codigo: 'SILLA', nombre: 'Silla' } ] categorias= [ { id: 1, codigo: 'SILLA', nombre: 'Sillas' } ]  ... > 
+  at <VTUROOT>
+
+stderr | src/tests/fe04/proformas.spec.ts
+Warning: Please use the `legacy` build in Node.js environments.
+
+ ❯ src/tests/fe04/proformas.spec.ts (0 test)
+stderr | src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > registra una empresa con contacto usando el contrato backend
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteLeave()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+
+ ❯ src/tests/ap3/proforma-editor.spec.ts (0 test)
+stderr | src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > actualiza la ficha al cambiar de identificador sin mostrar el cliente anterior
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteLeave()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteUpdate()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+
+stderr | src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > restaura los filtros al navegar a otra URL de clientes
+[VUE_ROUTER_R0004] No match found for location with path "/clientes/nuevo"
+├▶ fix: Add a route matching this path or check for typos in the location.
+╰▶ see: https://router.vuejs.org/guide/essentials/dynamic-matching.html#Catch-all-404-Not-found-Route
+
+stderr | src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > conserva campos locales ante 409 por otro editor
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteLeave()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteUpdate()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+
+ ❯ src/tests/ap4/clientes.spec.ts (9 tests | 7 failed) 393ms
+     × registra una empresa con contacto usando el contrato backend 114ms
+     × envía filtros de tipo, estado, búsqueda y paginación al servidor 2ms
+     × desactiva mediante DELETE lógico y permite reactivación explícita 2ms
+     × actualiza la ficha al cambiar de identificador sin mostrar el cliente anterior 38ms
+     × restaura los filtros al navegar a otra URL de clientes 83ms
+     × conserva campos locales ante 409 por otro editor 24ms
+     × solicita descartar cambios antes de cambiar el ID de cliente 37ms
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts (8 tests | 8 failed) 604ms
+     × resuelve una familia pendiente con variante compatible y conserva su negociación 146ms
+     × filtra en servidor por categoría y permite quitar el filtro activo 94ms
+     × consulta productos reales mediante API y no guarda proformas al seleccionar SKU 48ms
+     × redirige el SKU repetido a la línea existente sin incorporarlo otra vez 36ms
+     × selecciona desde la ficha previa y la cierra sin duplicar operaciones comerciales 33ms
+     × muestra Ir a línea cuando el producto ya está en la proforma 29ms
+     × alterna entre cuadrícula y tabla, muestra miniaturas y respeta la opción de ocultarlas 46ms
+     × permite crear productos al vendedor desde una categoría sin exigir administración 163ms
+ ❯ src/tests/ap5/catalogo-proformas.spec.ts (9 tests | 3 failed) 539ms
+     × envía producto y ficha en una sola operación sin incluir stock 11ms
+     × recarga la ficha al reutilizar el componente para otro producto 57ms
+     × impide abandonar una ficha con cambios pendientes y respeta el confirmacion 19ms
+stderr | src/tests/fe035/usabilidad-nielsen.spec.ts > FE03.5 baseline de usabilidad Nielsen > conserva los datos de ClienteDetailView ante 400 y sólo descarta tras confirmar
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteLeave()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteUpdate()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+
+stderr | src/tests/fe035/usabilidad-nielsen.spec.ts > FE03.5 baseline de usabilidad Nielsen > conserva los datos de ProductoDetailView ante 400 y restaura servidor al descartar
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteLeave()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+[VUE_ROUTER_R0020] No active route record was found when calling `onBeforeRouteUpdate()`. Maybe you called it inside of App.vue?
+├▶ fix: Call it from a component rendered inside <router-view> (a page component or one of its children), not from App.vue.
+╰▶ see: https://router.vuejs.org/guide/advanced/composition-api.html#Navigation-Guards
+
+ ❯ src/tests/fe035/usabilidad-nielsen.spec.ts (7 tests | 2 failed) 287ms
+     × conserva los datos de ClienteDetailView ante 400 y sólo descarta tras confirmar 51ms
+     × conserva los datos de ProductoDetailView ante 400 y restaura servidor al descartar 24ms
+ ❯ src/tests/fe06/capturas-hitl.spec.ts (12 tests | 7 failed) 382ms
+     × muestra el estado pendiente mientras continúa el polling 119ms
+     × envía audio multipart sin fijar Content-Type manualmente 7ms
+     × representa REQUIRES_REVIEW y conserva original separado del formulario 37ms
+     × representa NO_PROPOSAL sin inventar propuesta 24ms
+     × representa ERROR y no ofrece reintento inexistente 22ms
+     × confirma sólo corrección humana y total negociado exacto 43ms
+     × bloquea una captura ya confirmada 21ms
+ ❯ src/tests/fe05/operaciones.spec.ts (6 tests | 6 failed) 280ms
+     × envía el código semántico de estado y conserva autoridad backend 20ms
+     × muestra conflicto de cancelación por recibo emitido y recarga pedido 157ms
+     × ofrece nota únicamente cuando backend reporta LISTO_ENTREGA 48ms
+     × anula recibo sin DELETE y actualiza evidencia a ANULADO 30ms
+     × emite recibo con decimal como string y tipo publicado 2ms
+     × consume el historial read-only de stock y documentos publicados 8ms
+ ❯ src/tests/fe03/clientes-productos.spec.ts (5 tests | 4 failed) 285ms
+     × envía búsqueda, filtro y paginación de clientes al backend 145ms
+     × envía filtros contractuales de productos y consume envelope paginado 10ms
+     × edita datos comerciales sin enviar stock calculado por frontend 6ms
+     × conserva errores 403 y validaciones del servidor en edición de clientes 38ms
+ ❯ src/tests/fe07/resumen.spec.ts (6 tests | 6 failed) 277ms
+     × consulta conteos filtrados en servidor sin descargar colecciones 13ms
+     × muestra KPI y fallback textual accesible 164ms
+     × conserva métricas sanas cuando una consulta falla 16ms
+     × representa estado vacío real con conteos cero 29ms
+     × adapta accesos a capacidades sin métricas inventadas 27ms
+     × recupera un indicador fallido al actualizar y restaura el total completo 17ms
+stderr | src/tests/fe04/proformas-bandeja.spec.ts
+Warning: Please use the `legacy` build in Node.js environments.
+
+ ❯ src/tests/fe04/proformas-bandeja.spec.ts (0 test)
+stderr | src/modules/proformas/views/ProformaEditorLeave.test.ts
+Warning: Please use the `legacy` build in Node.js environments.
+
+ ❯ src/modules/proformas/views/ProformaEditorLeave.test.ts (0 test)
+ ❯ src/tests/auth/session.spec.ts (9 tests | 8 failed) 111ms
+     × carga identidad y capacidades desde /auth/me/ después del login 28ms
+     × restaura tokens y vuelve a consultar la identidad autoritativa 10ms
+     × un usuario autenticado sin capacidades no obtiene acceso comercial 3ms
+     × acepta administración sólo cuando backend publica esa capacidad 9ms
+     × normaliza un login 401 9ms
+     × limpia la sesión si /auth/me/ no autoriza la identidad 5ms
+     × renueva una vez después de 401 y repite la lectura autenticada 9ms
+     × conserva status y errores por campo en respuestas 403 4ms
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+ ❯ src/modules/proformas/components/DocumentViewerModal.test.ts (0 test)
+ ❯ src/tests/prf02/ficha-silla.spec.ts (2 tests | 2 failed) 305ms
+     × edita campos legibles y preserva las claves JSON complejas desconocidas 206ms
+     × rechaza una característica sin nombre sin borrar la ficha previa 88ms
+ ❯ src/tests/fe08/network-hardening.spec.ts (6 tests | 6 failed) 57ms
+     × conserva el estado 404 y el mensaje seguro 22ms
+     × conserva el estado 409 y el mensaje seguro 3ms
+     × conserva el estado 500 y el mensaje seguro 4ms
+     × conserva errores comerciales DRF publicados como texto por campo 3ms
+     × distingue timeout de caída de red 5ms
+     × rechaza JSON inválido aunque la respuesta sea 200 3ms
+ ❯ src/tests/auth/routing.spec.ts (4 tests | 2 failed) 188ms
+     × lleva al encargado al catálogo sin otorgar administración comercial 32ms
+   × envía a 403 cuando falta una capacidad requerida 4ms
+ ❯ src/tests/fe08/ap2-http-regression.spec.ts (5 tests | 4 failed) 58ms
+     × propaga 401 sin mostrar datos protegidos 24ms
+     × propaga 403 sin mostrar datos protegidos 4ms
+     × no reenvía automáticamente una mutación fallida (409) 3ms
+     × no reenvía automáticamente una mutación fallida (500) 3ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tests/ap3/proforma-editor.spec.ts [ src/tests/ap3/proforma-editor.spec.ts ]
+ FAIL  src/tests/fe04/proformas-bandeja.spec.ts [ src/tests/fe04/proformas-bandeja.spec.ts ]
+ FAIL  src/tests/fe04/proformas.spec.ts [ src/tests/fe04/proformas.spec.ts ]
+ FAIL  src/modules/proformas/components/DocumentViewerModal.test.ts [ src/modules/proformas/components/DocumentViewerModal.test.ts ]
+ FAIL  src/modules/proformas/views/ProformaEditorLeave.test.ts [ src/modules/proformas/views/ProformaEditorLeave.test.ts ]
+Error: Denied ID /home/gabriel/HOMEX/homex-frontend/node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url
+  File: /home/gabriel/HOMEX/homex-frontend/node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url
+ ❯ loadAndTransform ../../../home/gabriel/HOMEX/homex-frontend/node_modules/vite/dist/node/chunks/node.js:20128:31
+ ❯ doTransform ../../../home/gabriel/HOMEX/homex-frontend/node_modules/vite/dist/node/chunks/node.js:20105:17
+ ❯ fetchModule ../../../home/gabriel/HOMEX/homex-frontend/node_modules/vite/dist/node/chunks/node.js:36165:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/70]⎯
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 65 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > registra una empresa con contacto usando el contrato backend
+Error: Unable to get input[type="radio"][value="2"] within: <div data-v-7c9bdd6e="">
+  <header data-v-b50e7739="" data-v-7c9bdd6e="" class="page-header">
+    <div data-v-b50e7739="" class="page-header__identity"><button data-v-b50e7739="" class="menu" type="button" aria-label="Abrir navegación"><svg data-v-b50e7739="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+          <path d="M4 5h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 19h16"></path>
+        </svg></button>
+      <div data-v-b50e7739="">
+        <h1 data-v-b50e7739="">Nuevo cliente</h1>
+        <p data-v-b50e7739="">Registra la identidad y los datos de contacto del cliente.</p>
+      </div>
+    </div>
+    <!--v-if-->
+  </header>
+  <section data-v-37e03845="" data-v-7c9bdd6e="" class="state" role="alert"><strong data-v-37e03845="">No pudimos completar la operación</strong>
+    <p data-v-37e03845="">No se pudo conectar con el servidor.</p><button data-v-7c9bdd6e="" type="button">Reintentar</button>
+  </section>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>
+ ❯ VueWrapper.get ../../../home/gabriel/HOMEX/homex-frontend/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7333:15
+ ❯ src/tests/ap4/clientes.spec.ts:48:19
+     46|     const wrapper = mount(ClienteCreateView, { global: { plugins: [cre…
+     47|     await flushPromises()
+     48|     await wrapper.get('input[type="radio"][value="2"]').setValue(true)
+       |                   ^
+     49|     await wrapper.get('input[name="nuevo-cliente-nombres"]').setValue(…
+     50|     await wrapper.get('input[name="nuevo-cliente-apellidos"]').setValu…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > envía filtros de tipo, estado, búsqueda y paginación al servidor
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.list src/modules/clientes/services/clientesService.ts:23:5
+ ❯ src/tests/ap4/clientes.spec.ts:72:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > desactiva mediante DELETE lógico y permite reactivación explícita
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.deactivate src/modules/clientes/services/clientesService.ts:34:5
+ ❯ src/tests/ap4/clientes.spec.ts:111:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > actualiza la ficha al cambiar de identificador sin mostrar el cliente anterior
+AssertionError: expected 'ClienteIdentidad y datos comerciales …' to contain 'Nombre 1 HOMEX'
+
+Expected: "Nombre 1 HOMEX"
+Received: "ClienteIdentidad y datos comerciales del cliente.No pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/ap4/clientes.spec.ts:193:28
+    191|     })
+    192|     await flushPromises()
+    193|     expect(wrapper.text()).toContain('Nombre 1 HOMEX')
+       |                            ^
+    194|     await router.push('/clientes/2')
+    195|     await flushPromises()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > restaura los filtros al navegar a otra URL de clientes
+TypeError: Invalid URL
+ ❯ src/tests/ap4/clientes.spec.ts:219:19
+    217|     await router.push('/clientes?q=Flores&estado=inactivos&tipo=2&pagi…
+    218|     await flushPromises()
+    219|     const query = new URL(queries[queries.length - 1] ?? '').searchPar…
+       |                   ^
+    220|     expect(Object.fromEntries(query)).toMatchObject({
+    221|       search: 'Flores',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > conserva campos locales ante 409 por otro editor
+AssertionError: expected undefined to be defined
+ ❯ src/tests/ap4/clientes.spec.ts:257:20
+    255|     await flushPromises()
+    256|     const editar = wrapper.findAll('button').find((button) => button.t…
+    257|     expect(editar).toBeDefined()
+       |                    ^
+    258|     await editar!.trigger('click')
+    259|     await wrapper.get('input[name="nombres"]').setValue('Cambio no gua…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/70]⎯
+
+ FAIL  src/tests/ap4/clientes.spec.ts > AP4 clientes consolidados > solicita descartar cambios antes de cambiar el ID de cliente
+TypeError: Cannot read properties of undefined (reading 'trigger')
+ ❯ src/tests/ap4/clientes.spec.ts:292:19
+    290|     await flushPromises()
+    291|     const editar = wrapper.findAll('button').find((button) => button.t…
+    292|     await editar!.trigger('click')
+       |                   ^
+    293|     await wrapper.get('input[name="nombres"]').setValue('Cambio local')
+    294|     const navigation = router.push('/clientes/42')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/70]⎯
+
+ FAIL  src/tests/ap5/catalogo-proformas.spec.ts > AP5 contrato unificado de catálogo > envía producto y ficha en una sola operación sin incluir stock
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.create src/modules/productos/services/productosService.ts:32:5
+ ❯ src/tests/ap5/catalogo-proformas.spec.ts:109:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/70]⎯
+
+ FAIL  src/tests/ap5/catalogo-proformas.spec.ts > AP5 regresiones de interfaces reactivas y comerciales > recarga la ficha al reutilizar el componente para otro producto
+AssertionError: expected 'ProductoDetalle comercial y disponibi…' to contain 'Producto 10'
+
+Expected: "Producto 10"
+Received: "ProductoDetalle comercial y disponibilidad general.No pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/ap5/catalogo-proformas.spec.ts:221:28
+    219|     const wrapper = mount({ template: '<RouterView />' }, { global: { …
+    220|     await flushPromises()
+    221|     expect(wrapper.text()).toContain('Producto 10')
+       |                            ^
+    222|     await router.push('/productos/11')
+    223|     await flushPromises()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/70]⎯
+
+ FAIL  src/tests/ap5/catalogo-proformas.spec.ts > AP5 regresiones de interfaces reactivas y comerciales > impide abandonar una ficha con cambios pendientes y respeta el confirmacion
+AssertionError: expected undefined to be defined
+ ❯ src/tests/ap5/catalogo-proformas.spec.ts:294:20
+    292|     await flushPromises()
+    293|     const editar = wrapper.findAll('button').find((x) => x.text().star…
+    294|     expect(editar).toBeDefined()
+       |                    ^
+    295|     await editar!.trigger('click')
+    296|     await wrapper.get('input[name="nombre"]').setValue('Edición pendie…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/70]⎯
+
+ FAIL  src/tests/auth/routing.spec.ts > guards de rutas > lleva al encargado al catálogo sin otorgar administración comercial
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/routing.spec.ts:31:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/70]⎯
+
+ FAIL  src/tests/auth/routing.spec.ts > envía a 403 cuando falta una capacidad requerida
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/routing.spec.ts:46:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > carga identidad y capacidades desde /auth/me/ después del login
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/session.spec.ts:17:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > restaura tokens y vuelve a consultar la identidad autoritativa
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/tests/auth/session.spec.ts:43:37
+     41|     await session.initialize()
+     42|
+     43|     expect(session.isAuthenticated).toBe(true)
+       |                                     ^
+     44|     expect(session.identity?.display_name).toBe('María Vendedora')
+     45|     expect(session.capabilities).toEqual(['comercial.operar'])
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > un usuario autenticado sin capacidades no obtiene acceso comercial
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/session.spec.ts:61:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > acepta administración sólo cuando backend publica esa capacidad
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/session.spec.ts:82:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > normaliza un login 401
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 401, code: 'http' }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "status": 401,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/auth/session.spec.ts:90:58
+     88|   it('normaliza un login 401', async () => {
+     89|     const session = useSessionStore()
+     90|     await expect(session.login('vendedor', 'incorrecta')).rejects.toMa…
+       |                                                          ^
+     91|       status: 401,
+     92|       code: 'http',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > limpia la sesión si /auth/me/ no autoriza la identidad
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 401 }
+(3 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "status": 401,
++ ApiError {
++   "status": null,
+  }
+
+ ❯ src/tests/auth/session.spec.ts:104:56
+    102|     const session = useSessionStore()
+    103|
+    104|     await expect(session.login('vendedor', 'correcta')).rejects.toMatc…
+       |                                                        ^
+    105|     expect(session.isAuthenticated).toBe(false)
+    106|     expect(sessionStorage.getItem('homex.session.v1')).toBeNull()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > renueva una vez después de 401 y repite la lectura autenticada
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.login src/modules/auth/services/authService.ts:9:5
+ ❯ Proxy.login src/app/stores/useSessionStore.ts:100:40
+ ❯ Proxy.wrappedAction ../../../home/gabriel/HOMEX/homex-frontend/node_modules/pinia/dist/pinia.js:1124:14
+ ❯ src/tests/auth/session.spec.ts:111:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/70]⎯
+
+ FAIL  src/tests/auth/session.spec.ts > sesión, identidad y cliente HTTP > conserva status y errores por campo en respuestas 403
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 403, …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "fields": {
+-     "campo": [
+-       "No permitido",
+-     ],
+-   },
+-   "message": "Sin permiso",
+-   "status": 403,
++ ApiError {
++   "fields": {},
++   "status": null,
+  }
+
+ ❯ src/tests/auth/session.spec.ts:137:71
+    135|       ),
+    136|     )
+    137|     await expect(apiRequest('/restringido', { authenticated: false }))…
+       |                                                                       ^
+    138|       status: 403,
+    139|       message: 'Sin permiso',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/70]⎯
+
+ FAIL  src/tests/fe03/clientes-productos.spec.ts > FE03 clientes y productos > envía búsqueda, filtro y paginación de clientes al backend
+AssertionError: expected 'ClientesConsulta y administra los cli…' to contain '12 clientes'
+
+Expected: "12 clientes"
+Received: "ClientesConsulta y administra los clientes registrados.Nuevo clienteBuscar por nombre, empresa o celularEstadoTodosActivosInactivosTipo de clienteTodosNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe03/clientes-productos.spec.ts:67:28
+     65|     await flushPromises()
+     66|
+     67|     expect(wrapper.text()).toContain('12 clientes')
+       |                            ^
+     68|     expect(requests[requests.length - 1]?.searchParams.get('page_size'…
+     69|     expect(requests[requests.length - 1]?.searchParams.get('page')).to…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/70]⎯
+
+ FAIL  src/tests/fe03/clientes-productos.spec.ts > FE03 clientes y productos > envía filtros contractuales de productos y consume envelope paginado
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.list src/modules/productos/services/productosService.ts:29:5
+ ❯ src/tests/fe03/clientes-productos.spec.ts:110:45
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/70]⎯
+
+ FAIL  src/tests/fe03/clientes-productos.spec.ts > FE03 clientes y productos > edita datos comerciales sin enviar stock calculado por frontend
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.update src/modules/productos/services/productosService.ts:34:5
+ ❯ src/tests/fe03/clientes-productos.spec.ts:173:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/70]⎯
+
+ FAIL  src/tests/fe03/clientes-productos.spec.ts > FE03 clientes y productos > conserva errores 403 y validaciones del servidor en edición de clientes
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 403, message: 'Sin permiso' }
+(3 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "message": "Sin permiso",
+-   "status": 403,
++ ApiError {
++   "status": null,
+  }
+
+ ❯ src/tests/fe03/clientes-productos.spec.ts:191:6
+    189|     await expect(
+    190|       clientesService.update(3, { celular: '70000000' }, 'a'.repeat(64…
+    191|     ).rejects.toMatchObject({
+       |      ^
+    192|       status: 403,
+    193|       message: 'Sin permiso',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/70]⎯
+
+ FAIL  src/tests/fe035/usabilidad-nielsen.spec.ts > FE03.5 baseline de usabilidad Nielsen > conserva los datos de ClienteDetailView ante 400 y sólo descarta tras confirmar
+Error: No se encontró el botón "Editar".
+ ❯ buttonByText src/tests/fe035/usabilidad-nielsen.spec.ts:19:22
+     17| function buttonByText(wrapper: VueWrapper, label: string) {
+     18|   const button = wrapper.findAll('button').find((candidate) => candida…
+     19|   if (!button) throw new Error(`No se encontró el botón "${label}".`)
+       |                      ^
+     20|   return button
+     21| }
+ ❯ src/tests/fe035/usabilidad-nielsen.spec.ts:144:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/70]⎯
+
+ FAIL  src/tests/fe035/usabilidad-nielsen.spec.ts > FE03.5 baseline de usabilidad Nielsen > conserva los datos de ProductoDetailView ante 400 y restaura servidor al descartar
+Error: No se encontró el botón "Editar datos comerciales".
+ ❯ buttonByText src/tests/fe035/usabilidad-nielsen.spec.ts:19:22
+     17| function buttonByText(wrapper: VueWrapper, label: string) {
+     18|   const button = wrapper.findAll('button').find((candidate) => candida…
+     19|   if (!button) throw new Error(`No se encontró el botón "${label}".`)
+       |                      ^
+     20|   return button
+     21| }
+ ❯ src/tests/fe035/usabilidad-nielsen.spec.ts:211:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > envía el código semántico de estado y conserva autoridad backend
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.changeState src/modules/pedidos/services/pedidosService.ts:14:5
+ ❯ src/tests/fe05/operaciones.spec.ts:82:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > muestra conflicto de cancelación por recibo emitido y recarga pedido
+Error: Unable to get button.button--danger within: <div data-v-f6b1a782="">
+  <header data-v-b50e7739="" data-v-f6b1a782="" class="page-header">
+    <div data-v-b50e7739="" class="page-header__identity"><button data-v-b50e7739="" class="menu" type="button" aria-label="Abrir navegación"><svg data-v-b50e7739="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+          <path d="M4 5h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 19h16"></path>
+        </svg></button>
+      <div data-v-b50e7739="">
+        <h1 data-v-b50e7739="">Pedido #9</h1>
+        <p data-v-b50e7739="">Estado, cobros y entrega bajo autoridad del backend.</p>
+      </div>
+    </div>
+    <div data-v-b50e7739="" class="page-header__actions"><a data-v-f6b1a782="" href="/pedidos" class="">Volver</a></div>
+  </header>
+  <section data-v-37e03845="" data-v-f6b1a782="" class="state" role="alert"><strong data-v-37e03845="">No pudimos completar la operación</strong>
+    <p data-v-37e03845="">No se pudo conectar con el servidor.</p><button data-v-f6b1a782="">Reintentar</button>
+  </section>
+  <teleport-stub data-v-cb1de736="" data-v-f6b1a782="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+  <teleport-stub data-v-cb1de736="" data-v-21610cde="" data-v-f6b1a782="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+  <teleport-stub data-v-cb1de736="" data-v-21610cde="" data-v-f6b1a782="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+</div>
+ ❯ VueWrapper.get ../../../home/gabriel/HOMEX/homex-frontend/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7333:15
+ ❯ src/tests/fe05/operaciones.spec.ts:102:13
+    100|     const w = await mountAt(PedidoDetailView, '/pedidos/9')
+    101|     await flushPromises()
+    102|     await w.get('button.button--danger').trigger('click')
+       |             ^
+    103|     const cancelButtons = w.findAll('button').filter((x) => x.text() =…
+    104|     await cancelButtons[cancelButtons.length - 1]!.trigger('click')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > ofrece nota únicamente cuando backend reporta LISTO_ENTREGA
+AssertionError: expected 'Pedido #9Estado, cobros y entrega baj…' to contain 'Emitir nota de entrega'
+
+Expected: "Emitir nota de entrega"
+Received: "Pedido #9Estado, cobros y entrega bajo autoridad del backend.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe05/operaciones.spec.ts:116:22
+    114|     const w = await mountAt(PedidoDetailView, '/pedidos/9')
+    115|     await flushPromises()
+    116|     expect(w.text()).toContain('Emitir nota de entrega')
+       |                      ^
+    117|     expect(w.text()).not.toContain('Emitir recibo')
+    118|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > anula recibo sin DELETE y actualiza evidencia a ANULADO
+Error: Unable to get button.button--danger within: <div data-v-814eda5f="">
+  <header data-v-b50e7739="" data-v-814eda5f="" class="page-header">
+    <div data-v-b50e7739="" class="page-header__identity"><button data-v-b50e7739="" class="menu" type="button" aria-label="Abrir navegación"><svg data-v-b50e7739="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+          <path d="M4 5h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 19h16"></path>
+        </svg></button>
+      <div data-v-b50e7739="">
+        <h1 data-v-b50e7739="">Recibo #5</h1>
+        <p data-v-b50e7739="">Evidencia inmutable del cobro.</p>
+      </div>
+    </div>
+    <div data-v-b50e7739="" class="page-header__actions"><a data-v-814eda5f="" href="/recibos" class="">Volver</a>
+      <!--v-if-->
+    </div>
+  </header>
+  <section data-v-37e03845="" data-v-814eda5f="" class="state" role="alert"><strong data-v-37e03845="">No pudimos completar la operación</strong>
+    <p data-v-37e03845="">No se pudo conectar con el servidor.</p><button data-v-814eda5f="">Reintentar</button>
+  </section>
+  <teleport-stub data-v-cb1de736="" data-v-21610cde="" data-v-814eda5f="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+</div>
+ ❯ VueWrapper.get ../../../home/gabriel/HOMEX/homex-frontend/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7333:15
+ ❯ src/tests/fe05/operaciones.spec.ts:131:13
+    129|     const w = await mountAt(ReciboDetailView, '/recibos/5')
+    130|     await flushPromises()
+    131|     await w.get('button.button--danger').trigger('click')
+       |             ^
+    132|     await w
+    133|       .findAll('button')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > emite recibo con decimal como string y tipo publicado
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.emitReceipt src/modules/pedidos/services/pedidosService.ts:17:5
+ ❯ src/tests/fe05/operaciones.spec.ts:149:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/70]⎯
+
+ FAIL  src/tests/fe05/operaciones.spec.ts > FE05 operaciones > consume el historial read-only de stock y documentos publicados
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.list src/modules/movimientos-stock/services/movimientosStockService.ts:20:5
+ ❯ src/tests/fe05/operaciones.spec.ts:203:49
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > muestra el estado pendiente mientras continúa el polling
+AssertionError: expected 'Captura #1Procesamiento y revisión hu…' to contain 'Procesando captura'
+
+Expected: "Procesando captura"
+Received: "Captura #1Procesamiento y revisión humana de la propuesta.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:74:22
+     72|     const w = await view()
+     73|     await flushPromises()
+     74|     expect(w.text()).toContain('Procesando captura')
+       |                      ^
+     75|     expect(w.text()).toContain('consultando cambios automáticamente')
+     76|     w.unmount()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > envía audio multipart sin fijar Content-Type manualmente
+ApiError: No se pudo conectar con el servidor.
+ ❯ apiRequest src/shared/api/client.ts:51:11
+     49|       throw new ApiError('El servidor tardó demasiado en responder.', …
+     50|     if (error instanceof DOMException && error.name === 'AbortError') …
+     51|     throw new ApiError('No se pudo conectar con el servidor.', null, '…
+       |           ^
+     52|   }
+     53|   if (response.status === 401 && authenticated && retryAfterRefresh &&…
+ ❯ Object.createAudio src/modules/capturas/services/capturasService.ts:56:12
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:99:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > representa REQUIRES_REVIEW y conserva original separado del formulario
+AssertionError: expected 'Captura #1Procesamiento y revisión hu…' to contain 'Propuesta IA · requiere revisión'
+
+Expected: "Propuesta IA · requiere revisión"
+Received: "Captura #1Procesamiento y revisión humana de la propuesta.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:115:22
+    113|     const w = await view()
+    114|     await flushPromises()
+    115|     expect(w.text()).toContain('Propuesta IA · requiere revisión')
+       |                      ^
+    116|     expect(w.text()).toContain('tres escritorios por cien')
+    117|     expect(w.get('#nombre').element).toHaveProperty('value', 'Escritor…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > representa NO_PROPOSAL sin inventar propuesta
+AssertionError: expected 'Captura #1Procesamiento y revisión hu…' to contain 'Sin propuesta'
+
+Expected: "Sin propuesta"
+Received: "Captura #1Procesamiento y revisión humana de la propuesta.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:123:22
+    121|     const w = await view()
+    122|     await flushPromises()
+    123|     expect(w.text()).toContain('Sin propuesta')
+       |                      ^
+    124|     expect(w.find('form').exists()).toBe(false)
+    125|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > representa ERROR y no ofrece reintento inexistente
+AssertionError: expected 'Captura #1Procesamiento y revisión hu…' to contain 'No se pudo procesar'
+
+Expected: "No se pudo procesar"
+Received: "Captura #1Procesamiento y revisión humana de la propuesta.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:130:22
+    128|     const w = await view()
+    129|     await flushPromises()
+    130|     expect(w.text()).toContain('No se pudo procesar')
+       |                      ^
+    131|     expect(w.text()).toContain('contrato actual no publica una acción …
+    132|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[38/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > confirma sólo corrección humana y total negociado exacto
+Error: Unable to get #unitario within: <div data-v-ef8de235="">
+  <header data-v-b50e7739="" data-v-ef8de235="" class="page-header">
+    <div data-v-b50e7739="" class="page-header__identity"><button data-v-b50e7739="" class="menu" type="button" aria-label="Abrir navegación"><svg data-v-b50e7739="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+          <path d="M4 5h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 19h16"></path>
+        </svg></button>
+      <div data-v-b50e7739="">
+        <h1 data-v-b50e7739="">Captura #1</h1>
+        <p data-v-b50e7739="">Procesamiento y revisión humana de la propuesta.</p>
+      </div>
+    </div>
+    <div data-v-b50e7739="" class="page-header__actions"><a data-v-ef8de235="" href="/capturas" class="">Volver</a></div>
+  </header>
+  <section data-v-37e03845="" data-v-ef8de235="" class="state" role="alert"><strong data-v-37e03845="">No pudimos completar la operación</strong>
+    <p data-v-37e03845="">No se pudo conectar con el servidor.</p><button data-v-ef8de235="">Reintentar</button>
+  </section>
+</div>
+ ❯ VueWrapper.get ../../../home/gabriel/HOMEX/homex-frontend/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7333:15
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:153:13
+    151|     const w = await view()
+    152|     await flushPromises()
+    153|     await w.get('#unitario').setValue('33.34')
+       |             ^
+    154|     await w.get('form').trigger('submit')
+    155|     await w
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39/70]⎯
+
+ FAIL  src/tests/fe06/capturas-hitl.spec.ts > FE06 capturas y HITL > bloquea una captura ya confirmada
+AssertionError: expected 'Captura #1Procesamiento y revisión hu…' to contain 'ya fue confirmada'
+
+Expected: "ya fue confirmada"
+Received: "Captura #1Procesamiento y revisión humana de la propuesta.VolverNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe06/capturas-hitl.spec.ts:177:22
+    175|     const w = await view()
+    176|     await flushPromises()
+    177|     expect(w.text()).toContain('ya fue confirmada')
+       |                      ^
+    178|     expect(w.find('form').exists()).toBe(false)
+    179|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[40/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > consulta conteos filtrados en servidor sin descargar colecciones
+AssertionError: expected null to be 4 // Object.is equality
+
+- Expected:
+4
+
++ Received:
+null
+
+ ❯ src/tests/fe07/resumen.spec.ts:63:27
+     61|     )
+     62|     const result = await resumenService.contarEstado(states[1]!)
+     63|     expect(result.conteo).toBe(4)
+       |                           ^
+     64|     expect(urls[0]).toContain('estado=ENVIADA')
+     65|     expect(urls[0]).toContain('page_size=1')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[41/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > muestra KPI y fallback textual accesible
+AssertionError: expected 'ResumenVista operativa de HOMEX.Actua…' to contain 'Borradores2'
+
+Expected: "Borradores2"
+Received: "ResumenVista operativa de HOMEX.ActualizarNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe07/resumen.spec.ts:71:22
+     69|     const w = await render()
+     70|     await flushPromises()
+     71|     expect(w.text()).toContain('Borradores2')
+       |                      ^
+     72|     expect(w.text()).toContain('Enviadas3')
+     73|     expect(w.find('table').text()).toContain('Total consultado6')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[42/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > conserva métricas sanas cuando una consulta falla
+AssertionError: expected 'ResumenVista operativa de HOMEX.Actua…' to contain '1 indicador no pudo actualizarse'
+
+Expected: "1 indicador no pudo actualizarse"
+Received: "ResumenVista operativa de HOMEX.ActualizarNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe07/resumen.spec.ts:80:22
+     78|     const w = await render()
+     79|     await flushPromises()
+     80|     expect(w.text()).toContain('1 indicador no pudo actualizarse')
+       |                      ^
+     81|     expect(w.text()).toContain('No disponible')
+     82|     expect(w.text()).toContain('Borradores2')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[43/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > representa estado vacío real con conteos cero
+AssertionError: expected 'ResumenVista operativa de HOMEX.Actua…' to contain 'Total consultado0'
+
+Expected: "Total consultado0"
+Received: "ResumenVista operativa de HOMEX.ActualizarNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe07/resumen.spec.ts:90:22
+     88|     const w = await render()
+     89|     await flushPromises()
+     90|     expect(w.text()).toContain('Total consultado0')
+       |                      ^
+     91|     expect(w.text()).not.toContain('Sin métricas disponibles')
+     92|     expect(w.findAll('.bar-row i')).toHaveLength(3)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[44/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > adapta accesos a capacidades sin métricas inventadas
+AssertionError: expected [] to deeply equal [ 'Revisar proformas', …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "Revisar proformas",
+-   "Consultar pedidos",
+-   "Nueva captura asistida",
+- ]
++ []
+
+ ❯ src/tests/fe07/resumen.spec.ts:100:58
+     98|     const seller = await render()
+     99|     await flushPromises()
+    100|     expect(seller.findAll('nav a').map((x) => x.text())).toEqual([
+       |                                                          ^
+    101|       'Revisar proformas',
+    102|       'Consultar pedidos',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[45/70]⎯
+
+ FAIL  src/tests/fe07/resumen.spec.ts > FE07 resumen operativo > recupera un indicador fallido al actualizar y restaura el total completo
+AssertionError: expected 'ResumenVista operativa de HOMEX.Actua…' to contain '1 indicador no pudo actualizarse'
+
+Expected: "1 indicador no pudo actualizarse"
+Received: "ResumenVista operativa de HOMEX.ActualizarNo pudimos completar la operaciónNo se pudo conectar con el servidor.Reintentar"
+
+ ❯ src/tests/fe07/resumen.spec.ts:116:22
+    114|     const w = await render()
+    115|     await flushPromises()
+    116|     expect(w.text()).toContain('1 indicador no pudo actualizarse')
+       |                      ^
+    117|     expect(w.find('table').text()).toContain('Subtotal disponible3')
+    118|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[46/70]⎯
+
+ FAIL  src/tests/fe08/ap2-http-regression.spec.ts > AP2 · HTTP mutaciones y evidencia HITL > propaga 401 sin mostrar datos protegidos
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 401, code: 'http', …(1) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "message": "Acceso no autorizado",
+-   "status": 401,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/ap2-http-regression.spec.ts:16:6
+     14|     await expect(
+     15|       apiRequest('/api/v1/restringido/', { authenticated: false }),
+     16|     ).rejects.toMatchObject({ status, code: 'http', message: 'Acceso n…
+       |      ^
+     17|   })
+     18|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[47/70]⎯
+
+ FAIL  src/tests/fe08/ap2-http-regression.spec.ts > AP2 · HTTP mutaciones y evidencia HITL > propaga 403 sin mostrar datos protegidos
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 403, code: 'http', …(1) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "message": "Acceso no autorizado",
+-   "status": 403,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/ap2-http-regression.spec.ts:16:6
+     14|     await expect(
+     15|       apiRequest('/api/v1/restringido/', { authenticated: false }),
+     16|     ).rejects.toMatchObject({ status, code: 'http', message: 'Acceso n…
+       |      ^
+     17|   })
+     18|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[48/70]⎯
+
+ FAIL  src/tests/fe08/ap2-http-regression.spec.ts > AP2 · HTTP mutaciones y evidencia HITL > no reenvía automáticamente una mutación fallida (409)
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 409, …(1) }
+(3 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "message": "No confirmada",
+-   "status": 409,
++ ApiError {
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/ap2-http-regression.spec.ts:35:6
+     33|         authenticated: false,
+     34|       }),
+     35|     ).rejects.toMatchObject({ status, message: 'No confirmada' })
+       |      ^
+     36|     expect(requests).toBe(1)
+     37|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[49/70]⎯
+
+ FAIL  src/tests/fe08/ap2-http-regression.spec.ts > AP2 · HTTP mutaciones y evidencia HITL > no reenvía automáticamente una mutación fallida (500)
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 500, …(1) }
+(3 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "message": "No confirmada",
+-   "status": 500,
++ ApiError {
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/ap2-http-regression.spec.ts:35:6
+     33|         authenticated: false,
+     34|       }),
+     35|     ).rejects.toMatchObject({ status, message: 'No confirmada' })
+       |      ^
+     36|     expect(requests).toBe(1)
+     37|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[50/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > conserva el estado 404 y el mensaje seguro
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 404, …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "message": "Recurso inexistente",
+-   "status": 404,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:15:66
+     13|       http.get('http://localhost:8000/matriz', () => HttpResponse.json…
+     14|     )
+     15|     await expect(apiRequest('/matriz', { authenticated: false })).reje…
+       |                                                                  ^
+     16|       status,
+     17|       message: detail,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[51/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > conserva el estado 409 y el mensaje seguro
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 409, …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "message": "Conflicto comercial",
+-   "status": 409,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:15:66
+     13|       http.get('http://localhost:8000/matriz', () => HttpResponse.json…
+     14|     )
+     15|     await expect(apiRequest('/matriz', { authenticated: false })).reje…
+       |                                                                  ^
+     16|       status,
+     17|       message: detail,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[52/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > conserva el estado 500 y el mensaje seguro
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 500, …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "http",
+-   "message": "Error interno controlado",
+-   "status": 500,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:15:66
+     13|       http.get('http://localhost:8000/matriz', () => HttpResponse.json…
+     14|     )
+     15|     await expect(apiRequest('/matriz', { authenticated: false })).reje…
+       |                                                                  ^
+     16|       status,
+     17|       message: detail,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[53/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > conserva errores comerciales DRF publicados como texto por campo
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { status: 400, …(2) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "fields": {
+-     "cancelacion": [
+-       "No se puede cancelar un pedido con recibos emitidos",
+-     ],
+-   },
+-   "message": "No se puede cancelar un pedido con recibos emitidos",
+-   "status": 400,
++ ApiError {
++   "fields": {},
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:33:6
+     31|     await expect(
+     32|       apiRequest('/cancelar', { method: 'POST', authenticated: false }…
+     33|     ).rejects.toMatchObject({
+       |      ^
+     34|       status: 400,
+     35|       message: 'No se puede cancelar un pedido con recibos emitidos',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[54/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > distingue timeout de caída de red
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { code: 'timeout', status: null }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "timeout",
++ ApiError {
++   "code": "network",
+    "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:49:6
+     47|     await expect(
+     48|       apiRequest('/lento', { authenticated: false, timeoutMs: 5 }),
+     49|     ).rejects.toMatchObject({ code: 'timeout', status: null })
+       |      ^
+     50|   })
+     51|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[55/70]⎯
+
+ FAIL  src/tests/fe08/network-hardening.spec.ts > FE08 matriz transversal del cliente HTTP > rechaza JSON inválido aunque la respuesta sea 200
+AssertionError: expected ApiError: No se pudo conectar con el serv… { …(3) } to match object { code: 'invalid_response', …(1) }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "invalid_response",
+-   "status": 200,
++ ApiError {
++   "code": "network",
++   "status": null,
+  }
+
+ ❯ src/tests/fe08/network-hardening.spec.ts:59:68
+     57|       ),
+     58|     )
+     59|     await expect(apiRequest('/invalido', { authenticated: false })).re…
+       |                                                                    ^
+     60|       code: 'invalid_response',
+     61|       status: 200,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[56/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > resuelve una familia pendiente con variante compatible y conserva su negociación
+TypeError: Invalid URL
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:74:20
+     72|     })
+     73|     await flushPromises()
+     74|     const params = new URL(consulta).searchParams
+       |                    ^
+     75|     expect(params.get('familia')).toBe('6')
+     76|     expect(params.get('categoria')).toBe('1')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[57/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > filtra en servidor por categoría y permite quitar el filtro activo
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:114:80
+    112|     await categoria!.trigger('click')
+    113|     await flushPromises()
+    114|     expect(consultas.some((url) => url.searchParams.get('categoria') =…
+       |                                                                                ^
+    115|     const filtro = wrapper
+    116|       .findAll('button')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[58/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > consulta productos reales mediante API y no guarda proformas al seleccionar SKU
+AssertionError: expected 'Seleccionar producto del catálogo Bus…' to contain 'SILLA-41'
+
+Expected: "SILLA-41"
+Received: "Seleccionar producto del catálogo Busca un SKU existente y configura su cantidad y precio para cotizar. Consultar el catálogo no reserva stock.  Cerrar catálogo Todos  SillasBuscar SKU o nombreFamiliaTodas las familias0 productos encontrados Cuadrícula Lista No se pudo conectar con el servidor. Reintentar"
+
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:147:28
+    145|     })
+    146|     await flushPromises()
+    147|     expect(wrapper.text()).toContain('SILLA-41')
+       |                            ^
+    148|     const seleccionar = wrapper
+    149|       .findAll('button')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[59/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > redirige el SKU repetido a la línea existente sin incorporarlo otra vez
+AssertionError: expected undefined to be defined
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:173:25
+    171|       .findAll('button')
+    172|       .find((button) => button.text().includes('Ir a línea'))
+    173|     expect(seleccionar).toBeDefined()
+       |                         ^
+    174|     await seleccionar!.trigger('click')
+    175|     expect(wrapper.emitted('duplicate')?.[0]).toEqual([41])
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[60/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > selecciona desde la ficha previa y la cierra sin duplicar operaciones comerciales
+AssertionError: expected undefined to be defined
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:202:27
+    200|         .findAll('button')
+    201|         .find((button) => button.text().includes('Ver ficha'))
+    202|       expect(openPreview).toBeDefined()
+       |                           ^
+    203|       await openPreview!.trigger('click')
+    204|       await flushPromises()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[61/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > muestra Ir a línea cuando el producto ya está en la proforma
+TypeError: Cannot read properties of undefined (reading 'trigger')
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:242:61
+    240|     await wrapper
+    241|       .findAll('button')
+    242|       .find((button) => button.text().includes('Ver ficha'))!
+       |                                                             ^
+    243|       .trigger('click')
+    244|     await flushPromises()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[62/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > alterna entre cuadrícula y tabla, muestra miniaturas y respeta la opción de ocultarlas
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:266:44
+    264|     try {
+    265|       await flushPromises()
+    266|       expect(wrapper.findAll('.producto')).toHaveLength(1)
+       |                                            ^
+    267|       await wrapper
+    268|         .findAll('button')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[63/70]⎯
+
+ FAIL  src/tests/prf02/catalogo-contextual.spec.ts > PRF-02 catálogo contextual > permite crear productos al vendedor desde una categoría sin exigir administración
+Error: Unable to get .empty-results within: <div data-v-c760e601="" class="catalogo-contextual">
+  <!--teleport start-->
+  <!--teleport end-->
+  <!--teleport start-->
+  <!--teleport end-->
+  <div data-v-c760e601="" class="head">
+    <div data-v-c760e601="">
+      <h3 data-v-c760e601=""><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-open" aria-hidden="true">
+          <path d="M12 22v-9"></path>
+          <path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"></path>
+          <path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"></path>
+          <path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"></path>
+        </svg> Seleccionar producto del catálogo</h3>
+      <p data-v-c760e601=""> Busca un SKU existente y configura su cantidad y precio para cotizar. Consultar el catálogo no reserva stock. </p>
+    </div><button data-v-8dd33712="" data-v-c760e601="" class="button button--secondary" type="button">
+      <!--v-if--><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true">
+        <path d="m12 19-7-7 7-7"></path>
+        <path d="M19 12H5"></path>
+      </svg> Cerrar catálogo
+    </button>
+  </div>
+  <nav data-v-c760e601="" class="categorias" aria-label="Categorías de catálogo"><button data-v-c760e601="" type="button" aria-pressed="false"><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true">
+        <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+        <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+        <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+        <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+      </svg> Todos </button><button data-v-c760e601="" type="button" aria-pressed="true"><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sofa" aria-hidden="true">
+        <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path>
+        <path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"></path>
+        <path d="M4 18v2"></path>
+        <path d="M20 18v2"></path>
+        <path d="M12 4v9"></path>
+      </svg> Sillas</button></nav>
+  <div data-v-c760e601="" class="filters-primary">
+    <div data-v-3732e2d7="" data-v-c760e601="" class="search"><label data-v-3732e2d7="" class="sr-only" for="v-0">Buscar SKU o nombre</label><svg data-v-3732e2d7="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true">
+        <path d="m21 21-4.34-4.34"></path>
+        <circle cx="11" cy="11" r="8"></circle>
+      </svg><input data-v-3732e2d7="" id="v-0" type="search" placeholder="Buscar SKU o nombre" value="">
+      <!--v-if-->
+    </div><label data-v-a1a0138e="" data-v-c760e601="" class="select"><span data-v-a1a0138e="">Familia</span><select data-v-a1a0138e="" id="familia-catalogo" name="familia-catalogo" value="">
+        <option data-v-a1a0138e="" value="">Todas las familias</option>
+      </select></label>
+  </div>
+  <details data-v-c760e601="" class="filtros-panel">
+    <summary data-v-c760e601=""><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal" aria-hidden="true">
+        <path d="M10 5H3"></path>
+        <path d="M12 19H3"></path>
+        <path d="M14 3v4"></path>
+        <path d="M16 17v4"></path>
+        <path d="M21 12h-9"></path>
+        <path d="M21 19h-5"></path>
+        <path d="M21 5h-7"></path>
+        <path d="M8 10v4"></path>
+        <path d="M8 12H3"></path>
+      </svg> Más filtros <svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg></summary>
+    <div data-v-c760e601="" class="filtros"><label data-v-a1a0138e="" data-v-c760e601="" class="select"><span data-v-a1a0138e="">Marca</span><select data-v-a1a0138e="" id="filtro-marca" name="filtro-marca" value="">
+          <option data-v-a1a0138e="" value="">Todos</option>
+        </select></label><label data-v-c760e601="" class="filtro-texto"><span data-v-c760e601="">Modelo</span><input data-v-c760e601="" type="text"></label><label data-v-a1a0138e="" data-v-c760e601="" class="select"><span data-v-a1a0138e="">Color principal</span><select data-v-a1a0138e="" id="filtro-color_primario" name="filtro-color_primario" value="">
+          <option data-v-a1a0138e="" value="">Todos</option>
+        </select></label></div>
+  </details>
+  <div data-v-c760e601="" class="chips-filtros" aria-label="Filtros activos"><span data-v-c760e601="">Filtros activos:</span><button data-v-c760e601="" type="button" aria-label="Quitar Categoría: Sillas">Categoría: Sillas <span data-v-c760e601="" aria-hidden="true">×</span></button><button data-v-8dd33712="" data-v-c760e601="" class="button button--secondary" type="button">
+      <!--v-if-->Limpiar filtros
+    </button></div>
+  <div data-v-c760e601="" class="toolbar results-toolbar">
+    <p data-v-c760e601="" role="status">0 productos encontrados</p>
+    <div data-v-c760e601="" class="results-tools"><button data-v-8dd33712="" data-v-c760e601="" class="button button--secondary" type="button">
+        <!--v-if--><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg> Crear nuevo producto
+      </button>
+      <!--v-if--><button data-v-8dd33712="" data-v-c760e601="" class="button button--primary" type="button" aria-pressed="true">
+        <!--v-if--><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true">
+          <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+          <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+          <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+          <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+        </svg> Cuadrícula
+      </button><button data-v-8dd33712="" data-v-c760e601="" class="button button--secondary" type="button" aria-pressed="false">
+        <!--v-if--><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list" aria-hidden="true">
+          <path d="M3 5h.01"></path>
+          <path d="M3 12h.01"></path>
+          <path d="M3 19h.01"></path>
+          <path d="M8 5h13"></path>
+          <path d="M8 12h13"></path>
+          <path d="M8 19h13"></path>
+        </svg> Lista
+      </button>
+    </div>
+  </div>
+  <p data-v-c760e601="" role="alert" class="catalog-error"><svg data-v-c760e601="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert lucide-alert-circle" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" x2="12" y1="8" y2="12"></line>
+      <line x1="12" x2="12.01" y1="16" y2="16"></line>
+    </svg> No se pudo conectar con el servidor. <button data-v-c760e601="" type="button">Reintentar</button></p>
+  <!--v-if-->
+  <!--teleport start-->
+  <!--teleport end-->
+  <!--v-if-->
+</div>
+ ❯ VueWrapper.get ../../../home/gabriel/HOMEX/homex-frontend/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7333:15
+ ❯ src/tests/prf02/catalogo-contextual.spec.ts:308:22
+    306|         .trigger('click')
+    307|       expect(wrapper.emitted('create')?.[0]).toEqual(['SILLA'])
+    308|       expect(wrapper.get('.empty-results').text()).toContain('Sin coin…
+       |                      ^
+    309|     } finally {
+    310|       wrapper.unmount()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[64/70]⎯
+
+ FAIL  src/tests/prf02/ficha-silla.spec.ts > PRF-02 ficha maestra de silla > edita campos legibles y preserva las claves JSON complejas desconocidas
+AssertionError: expected 'Catálogo comercial · GeneralNo se pud…' to contain 'Características adicionales de la sil…'
+
+Expected: "Características adicionales de la silla"
+Received: "Catálogo comercial · GeneralNo se pudo conectar con el servidor.Información generalIdentificación del producto dentro del catálogo HOMEX.Nombre comercial *Categoría *Seleccionar categoríaCódigo SKU *Código único utilizado para identificar el producto.Familia del producto (opcional)Sin familiaUnidad comercial *Seleccionar unidadPrecio y promociones Establece el precio normal de venta y, opcionalmente, una campaña de descuento. Precio fijadoPrecio normal de venta (Bs) *Importe comercial de lista antes de descuentos o promociones.Precio de lista:Bs 200,00Configurar promociónOfrece un precio temporal de oferta sin alterar el precio de lista de referencia.Observaciones comercialesInformación complementaria, recomendaciones de uso y detalles de entrega.Notas frecuentes: + Garantía de 1 año + Uso en interiores + Requiere armado sencillo + Entrega inmediataNotas del producto (opcional) La gestión de imágenes requiere permiso comercial. Galería de imágenes   0/8Sin imágenes. Puedes guardar sin adjuntar fotografías.No se pudo conectar con el servidor.DisponibilidadProducto activoVisible para las operaciones comerciales.Control de existencias El stock inicial es cero. Las existencias se modifican únicamente mediante movimientos autorizados. Revisa la información antes de guardar el producto. Cancelar  Guardar cambios"
+
+ ❯ src/tests/prf02/ficha-silla.spec.ts:57:28
+     55|     const wrapper = mount(ProductoForm, { props: { initial: maestro } …
+     56|     await flushPromises()
+     57|     expect(wrapper.text()).toContain('Características adicionales de l…
+       |                            ^
+     58|     await wrapper.get('input[aria-label="Valor 1"]').setValue('cuero')
+     59|     await wrapper.get('form').trigger('submit')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[65/70]⎯
+
+ FAIL  src/tests/prf02/ficha-silla.spec.ts > PRF-02 ficha maestra de silla > rechaza una característica sin nombre sin borrar la ficha previa
+AssertionError: expected undefined to be defined
+ ❯ src/tests/prf02/ficha-silla.spec.ts:76:17
+     74|       .findAll('button')
+     75|       .find((button) => button.text().includes('Añadir característica'…
+     76|     expect(add).toBeDefined()
+       |                 ^
+     77|     await add!.trigger('click')
+     78|     await wrapper.get('form').trigger('submit')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[66/70]⎯
+
+
+ Test Files  18 failed | 38 passed (56)
+      Tests  65 failed | 208 passed (273)
+   Start at  09:10:39
+   Duration  29.33s (transform 13.44s, setup 16.73s, import 31.88s, tests 23.57s, environment 97.65s)
+
+COMMAND_EXIT_CODE=1
+COMMAND: npm run contract:check
+npm notice run homex-frontend@0.1.0 contract:check
+npm notice run node scripts/check-contract.mjs
+npm notice run homex-frontend@0.1.0 npx
+npm notice run 'openapi-ts' -i ./contracts/backend-openapi.yaml -o /tmp/homex-audit-integration.WFXbW2/tmp/homex-openapi-GxpzM5 -p @hey-api/typescript
+[90m@hey-api/openapi-ts v0.99.0[39m
+
+[90m[Job 1] [39m[90m~[39m [36mGenerating...[39m
+[90m[Job 1] [39m[36m  [1] [39m./contracts/backend-openapi.yaml
+[90m[Job 1] [39m[32m✓[39m [96m./../tmp/homex-openapi-GxpzM5[39m [90m· 2 files · 396ms[39m
+npm notice run homex-frontend@0.1.0 npx
+npm notice run 'prettier' --config .prettierrc.json --write /tmp/homex-audit-integration.WFXbW2/tmp/homex-openapi-GxpzM5
+../tmp/homex-openapi-GxpzM5/index.ts 128ms
+../tmp/homex-openapi-GxpzM5/types.gen.ts 322ms
+COMMAND_EXIT_CODE=0
+COMMAND: npm run type-check
+npm notice run homex-frontend@0.1.0 type-check
+npm notice run vue-tsc --build
+COMMAND_EXIT_CODE=0
+COMMAND: npm run build-only
+npm notice run homex-frontend@0.1.0 build-only
+npm notice run vite build
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 2145 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                0.98 kB │ gzip:   0.51 kB
+dist/assets/inter-vietnamese-wght-normal-CBcvBZtf.woff2       10.25 kB
+dist/assets/inter-greek-ext-wght-normal-DlzME5K_.woff2        11.23 kB
+dist/assets/inter-cyrillic-wght-normal-DqGufNeO.woff2         18.74 kB
+dist/assets/inter-greek-wght-normal-CkhJZR-_.woff2            18.99 kB
+dist/assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2     25.96 kB
+dist/assets/inter-latin-wght-normal-Dx4kXJAl.woff2            48.25 kB
+dist/assets/inter-latin-ext-wght-normal-DO1Apj_S.woff2        85.06 kB
+dist/assets/pdf.worker.min-CIqJB0yW.mjs                    1,271.91 kB
+dist/assets/GalleryPhoto-BaCrwdG0.css                          0.06 kB │ gzip:   0.08 kB
+dist/assets/NotasEntregaListView-C4ucaE_-.css                  0.07 kB │ gzip:   0.08 kB
+dist/assets/OrdenesTrabajoListView-DeesE2i5.css                0.07 kB │ gzip:   0.08 kB
+dist/assets/RecibosListView-Jx0S06FI.css                       0.07 kB │ gzip:   0.08 kB
+dist/assets/PedidosListView-DdY8tkT0.css                       0.12 kB │ gzip:   0.12 kB
+dist/assets/Card-RzURYiab.css                                  0.14 kB │ gzip:   0.13 kB
+dist/assets/ClienteCreateView-Dq8lX3KY.css                     0.20 kB │ gzip:   0.15 kB
+dist/assets/CapturasHomeView-D1LOsRPu.css                      0.22 kB │ gzip:   0.15 kB
+dist/assets/ForbiddenView-De6LMph6.css                         0.22 kB │ gzip:   0.16 kB
+dist/assets/NotaEntregaDetailView-Dx4GIWm7.css                 0.28 kB │ gzip:   0.18 kB
+dist/assets/EmptyState-Bffk9J2w.css                            0.29 kB │ gzip:   0.20 kB
+dist/assets/Select-gfrn2-s1.css                                0.35 kB │ gzip:   0.22 kB
+dist/assets/ProductImage-CgEQqLdM.css                          0.35 kB │ gzip:   0.23 kB
+dist/assets/MovimientosStockListView-fBrD6OX_.css              0.37 kB │ gzip:   0.18 kB
+dist/assets/Pagination-Cs-bpGiK.css                            0.37 kB │ gzip:   0.24 kB
+dist/assets/LoadingSkeleton-DSOyzZE0.css                       0.40 kB │ gzip:   0.24 kB
+dist/assets/FilterBar-C6ed_QVj.css                             0.50 kB │ gzip:   0.26 kB
+dist/assets/ReciboDetailView-Dor_v2l8.css                      0.50 kB │ gzip:   0.27 kB
+dist/assets/ActiveFilters-BLWc5oBV.css                         0.55 kB │ gzip:   0.29 kB
+dist/assets/ClientesListView-CNhQ50QI.css                      0.56 kB │ gzip:   0.28 kB
+dist/assets/TextField-ViQEUgNO.css                             0.59 kB │ gzip:   0.29 kB
+dist/assets/ClienteDetailView-D0fFPNFl.css                     0.60 kB │ gzip:   0.29 kB
+dist/assets/Badge-qO_hnx4r.css                                 0.61 kB │ gzip:   0.25 kB
+dist/assets/ErrorState-B2YHptQR.css                            0.62 kB │ gzip:   0.27 kB
+dist/assets/SearchField-Cr_0U0p0.css                           0.62 kB │ gzip:   0.31 kB
+dist/assets/CapturaCreateView-ZMN2T9W1.css                     0.65 kB │ gzip:   0.29 kB
+dist/assets/ProductoDetailView-B8QXw4qX.css                    0.68 kB │ gzip:   0.28 kB
+dist/assets/OrdenTrabajoDetailView-DWIIo-ag.css                0.84 kB │ gzip:   0.38 kB
+dist/assets/DataTable-DLqVxPwp.css                             0.91 kB │ gzip:   0.39 kB
+dist/assets/ConfirmDialog-3Q6qL46r.css                         0.92 kB │ gzip:   0.38 kB
+dist/assets/PedidoDetailView-DslM5dqI.css                      0.95 kB │ gzip:   0.39 kB
+dist/assets/LoginView-DkeVvvKM.css                             0.96 kB │ gzip:   0.40 kB
+dist/assets/PageHeader-DAjQCrpW.css                            0.96 kB │ gzip:   0.39 kB
+dist/assets/navegacionProformas-BNFPYLxw.css                   1.21 kB │ gzip:   0.46 kB
+dist/assets/ProductoCreateView-LCkyct1N.css                    1.51 kB │ gzip:   0.52 kB
+dist/assets/CapturaDetailView-B0dKGV1Y.css                     1.56 kB │ gzip:   0.52 kB
+dist/assets/AudioRecorder-D6HFXuhl.css                         1.62 kB │ gzip:   0.62 kB
+dist/assets/Button-h4nAkw_t.css                                1.71 kB │ gzip:   0.51 kB
+dist/assets/Modal-gmBjwyF5.css                                 1.77 kB │ gzip:   0.59 kB
+dist/assets/ResumenView-DnDjDRJ1.css                           2.17 kB │ gzip:   0.69 kB
+dist/assets/VoiceDrawer-BwSFeVzl.css                           2.87 kB │ gzip:   0.89 kB
+dist/assets/ClienteFormFields-Bq_Qu5er.css                     3.54 kB │ gzip:   0.94 kB
+dist/assets/ProformaDetailView-DySJC31L.css                    4.24 kB │ gzip:   1.02 kB
+dist/assets/useProformaPdf-BJcQsnfs.css                        5.62 kB │ gzip:   1.62 kB
+dist/assets/catalogImageVisibility-CqqS5ofn.css                8.79 kB │ gzip:   1.84 kB
+dist/assets/index-BUOhd-g0.css                                10.04 kB │ gzip:   2.77 kB
+dist/assets/ProformasListView-CnQTVvy7.css                    10.58 kB │ gzip:   2.03 kB
+dist/assets/ImageGallery-ft99YYnG.css                         11.75 kB │ gzip:   2.16 kB
+dist/assets/ProductosListView-cSU5BxC7.css                    11.80 kB │ gzip:   2.20 kB
+dist/assets/ProductoForm-JILf1lMg.css                         14.49 kB │ gzip:   2.78 kB
+dist/assets/ProformaEditorView-6aE7Nv1p.css                  124.56 kB │ gzip:  15.17 kB
+dist/assets/check-BYcgosxR.js                                  0.13 kB │ gzip:   0.14 kB
+dist/assets/plus-BvsAawlL.js                                   0.16 kB │ gzip:   0.15 kB
+dist/assets/downloadBlob-CayR76Qe.js                           0.18 kB │ gzip:   0.16 kB
+dist/assets/rotate-ccw-CPyRlR2i.js                             0.20 kB │ gzip:   0.18 kB
+dist/assets/rotate-cw-CrLQWgOA.js                              0.21 kB │ gzip:   0.19 kB
+dist/assets/notasEntregaService-Bm95aQa2.js                    0.21 kB │ gzip:   0.15 kB
+dist/assets/ordenesTrabajoService-BA-vl1xO.js                  0.21 kB │ gzip:   0.15 kB
+dist/assets/Card-CudM4BX0.js                                   0.25 kB │ gzip:   0.22 kB
+dist/assets/eye-Cm7oHkKL.js                                    0.26 kB │ gzip:   0.20 kB
+dist/assets/circle-alert-DX7YhRsy.js                           0.28 kB │ gzip:   0.20 kB
+dist/assets/send-DcXdDZEq.js                                   0.29 kB │ gzip:   0.23 kB
+dist/assets/user-plus-1I9Qml21.js                              0.31 kB │ gzip:   0.23 kB
+dist/assets/recibosService-CjqH6FiD.js                         0.32 kB │ gzip:   0.21 kB
+dist/assets/Badge-Dpj3Zc4B.js                                  0.32 kB │ gzip:   0.26 kB
+dist/assets/armchair-Chup2TuT.js                               0.37 kB │ gzip:   0.24 kB
+dist/assets/EmptyState-NSa9h30W.js                             0.37 kB │ gzip:   0.28 kB
+dist/assets/FilterBar-XjtByUTX.js                              0.41 kB │ gzip:   0.28 kB
+dist/assets/ErrorState-u7PT4MYc.js                             0.45 kB │ gzip:   0.34 kB
+dist/assets/LoadingSkeleton-CCBVDowO.js                        0.45 kB │ gzip:   0.34 kB
+dist/assets/NotFoundView-B9M00fZ_.js                           0.46 kB │ gzip:   0.33 kB
+dist/assets/pedidosService-B9_p_A6G.js                         0.49 kB │ gzip:   0.25 kB
+dist/assets/dateRange-BkPGwGQk.js                              0.50 kB │ gzip:   0.34 kB
+dist/assets/zoom-out-C-MZ35XH.js                               0.52 kB │ gzip:   0.23 kB
+dist/assets/ForbiddenView-CnqxHusW.js                          0.56 kB │ gzip:   0.38 kB
+dist/assets/productosService-Dm4a_E1j.js                       0.61 kB │ gzip:   0.36 kB
+dist/assets/Pagination-iQ8PMYf2.js                             0.64 kB │ gzip:   0.41 kB
+dist/assets/clientesService-C2_iyFkD.js                        0.64 kB │ gzip:   0.39 kB
+dist/assets/Select-5d0RnRco.js                                 0.68 kB │ gzip:   0.43 kB
+dist/assets/Button-UhXrRxrg.js                                 0.73 kB │ gzip:   0.44 kB
+dist/assets/DataTable-D5wRON2r.js                              0.76 kB │ gzip:   0.45 kB
+dist/assets/package-uOoSMyQZ.js                                0.79 kB │ gzip:   0.39 kB
+dist/assets/ActiveFilters-D2BGJEfw.js                          0.83 kB │ gzip:   0.52 kB
+dist/assets/useApi-BPuI6ZR9-msG13mbH.js                        0.86 kB │ gzip:   0.47 kB
+dist/assets/PageHeader-D9ydJPOT.js                             0.96 kB │ gzip:   0.57 kB
+dist/assets/SearchField-CGllpJE2.js                            1.03 kB │ gzip:   0.63 kB
+dist/assets/capturasService-DC_sOniH.js                        1.09 kB │ gzip:   0.55 kB
+dist/assets/GalleryPhoto-BSm_Y1jf.js                           1.55 kB │ gzip:   0.92 kB
+dist/assets/Modal-9yhNumo9.js                                  1.62 kB │ gzip:   0.83 kB
+dist/assets/ProductImage-CbsZGA-x.js                           1.80 kB │ gzip:   1.05 kB
+dist/assets/CapturasHomeView-WRC1usah.js                       1.81 kB │ gzip:   0.97 kB
+dist/assets/NotasEntregaListView-CSk5cxqN.js                   1.81 kB │ gzip:   0.97 kB
+dist/assets/LoginView-iQ6Y9t8m.js                              1.87 kB │ gzip:   1.04 kB
+dist/assets/OrdenesTrabajoListView-Bxbz2oWW.js                 1.98 kB │ gzip:   1.05 kB
+dist/assets/proformasService-DI7wIJvN.js                       2.07 kB │ gzip:   0.68 kB
+dist/assets/RecibosListView-tm9j33MS.js                        2.09 kB │ gzip:   1.08 kB
+dist/assets/NotaEntregaDetailView-BaQ-ZRSr.js                  2.21 kB │ gzip:   1.11 kB
+dist/assets/PedidosListView-q-h9MdCl.js                        2.48 kB │ gzip:   1.26 kB
+dist/assets/CapturaCreateView-DglxZXYB.js                      2.99 kB │ gzip:   1.53 kB
+dist/assets/ConfirmDialog-CIEPkvZy.js                          3.14 kB │ gzip:   1.28 kB
+dist/assets/navegacionProformas-D-XTFY5B.js                    3.60 kB │ gzip:   1.72 kB
+dist/assets/ReciboDetailView-CV_MdNPS.js                       3.68 kB │ gzip:   1.60 kB
+dist/assets/TextField-D8P1fiXG.js                              3.78 kB │ gzip:   1.76 kB
+dist/assets/ClienteCreateView-DUqMW5ZJ.js                      4.03 kB │ gzip:   1.96 kB
+dist/assets/OrdenTrabajoDetailView-CU7OMIow.js                 4.57 kB │ gzip:   1.94 kB
+dist/assets/ResumenView-TL1Ze8zE.js                            5.34 kB │ gzip:   2.43 kB
+dist/assets/ClientesListView-CUlhP0v1.js                       5.38 kB │ gzip:   2.30 kB
+dist/assets/VoiceDrawer-Hp7f83I-.js                            5.66 kB │ gzip:   2.49 kB
+dist/assets/ClienteFormFields-DuvTAeG5.js                      6.43 kB │ gzip:   2.47 kB
+dist/assets/MovimientosStockListView-Yzn2qu2Y.js               6.43 kB │ gzip:   2.63 kB
+dist/assets/ProductoCreateView-B-weBaWa.js                     6.58 kB │ gzip:   2.90 kB
+dist/assets/ProductoDetailView-DVSpGTIi.js                     6.61 kB │ gzip:   2.70 kB
+dist/assets/AudioRecorder-DcMPyJCN.js                          6.94 kB │ gzip:   3.07 kB
+dist/assets/PedidoDetailView-Bt582w2g.js                       7.25 kB │ gzip:   2.72 kB
+dist/assets/ClienteDetailView-Cc5fSOUi.js                      7.32 kB │ gzip:   2.88 kB
+dist/assets/CapturaDetailView-B3oePQjb.js                     11.03 kB │ gzip:   4.03 kB
+dist/assets/ProformaDetailView-Y7J2YBgT.js                    14.64 kB │ gzip:   5.51 kB
+dist/assets/ProformasListView-CRuFCRoo.js                     17.63 kB │ gzip:   6.68 kB
+dist/assets/catalogImageVisibility-C1EvfIPx.js                19.03 kB │ gzip:   6.55 kB
+dist/assets/ImageGallery-BhR8CDd5.js                          20.57 kB │ gzip:   6.97 kB
+dist/assets/ProductosListView-BBYKHe97.js                     20.87 kB │ gzip:   7.06 kB
+dist/assets/ProductoForm-CTJV5iJf.js                          33.67 kB │ gzip:  11.41 kB
+dist/assets/_plugin-vue_export-helper-JBopL-Ag.js             60.72 kB │ gzip:  23.87 kB
+dist/assets/index-ulXrzdnT.js                                 71.14 kB │ gzip:  27.19 kB
+dist/assets/ProformaEditorView-DMRdZhaB.js                   196.89 kB │ gzip:  56.68 kB
+dist/assets/useProformaPdf-DvRCQHrd.js                       456.98 kB │ gzip: 138.38 kB
+
+✓ built in 1.82s
+COMMAND_EXIT_CODE=0

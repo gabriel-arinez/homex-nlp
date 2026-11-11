@@ -1,0 +1,419 @@
+{
+  "id": "SIL-0027",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0027.aac",
+    "original_sha256": "72d0f131c58fdab4018f5967a4a9cc3ea7605b79b74458664a0bf97053e62ccb",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0027.wav",
+    "wav_sha256": "2c2c661c2087ab18703af4fb764df5b753813b5d260917491b146261f1d3f157"
+  },
+  "reference": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+  "source": {
+    "id": "SIL-0027",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      15
+    ],
+    "titulo_fuente": "SILLA SECRETARIAL NF-3385",
+    "grupo_familia": "INV_SILLA_SECRETARIAL_NF_3385",
+    "guion": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+    "audio_esperado": "SIL-0027.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0027.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "eb7a151eee8693d31e41c1fcc1b48bae542cac1ff90ce41a586be02e7f829199",
+    "audio_compatible_asr": "SIL-0027.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0027.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 47.809875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla secretarial, modelo NF Guion 3385, respaldo y asiento de espuma de alta densidad con tela de alto tráfico. Brazos fijos, cromados y de PVC, pistón de gas, clase 3, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de 360 grados, color negro, unidad pieza, precio de lista, 900 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "18.000000",
+        "text": " Silla secretarial, modelo NF Guion 3385, respaldo y asiento de espuma de alta densidad con tela de alto tráfico."
+      },
+      {
+        "start_seconds": "18.000000",
+        "end_seconds": "47.000000",
+        "text": " Brazos fijos, cromados y de PVC, pistón de gas, clase 3, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de 360 grados, color negro, unidad pieza, precio de lista, 900 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4250
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla secretarial",
+      "observaciones": "Silla secretarial, modelo NF Guion 3385, respaldo y asiento de espuma de alta densidad con tela de alto tráfico. Brazos fijos, cromados y de PVC, pistón de gas, clase 3, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de 360 grados, color negro, unidad pieza, precio de lista, 900 bolivianos.",
+      "precio_lista": "900.00",
+      "modelo": "NF-3385",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-279-284",
+        "label": "unidad_stock",
+        "start": 279,
+        "end": 284,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-265-270",
+        "label": "color_primario",
+        "start": 265,
+        "end": 270,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-17",
+        "label": "nombre",
+        "start": 0,
+        "end": 17,
+        "text": "Silla secretarial",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-318",
+        "label": "observaciones",
+        "start": 0,
+        "end": 318,
+        "text": "Silla secretarial, modelo NF Guion 3385, respaldo y asiento de espuma de alta densidad con tela de alto tráfico. Brazos fijos, cromados y de PVC, pistón de gas, clase 3, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de 360 grados, color negro, unidad pieza, precio de lista, 900 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial, modelo NF Guion 3385, respaldo y asiento de espuma de alta densidad con tela de alto tráfico. Brazos fijos, cromados y de PVC, pistón de gas, clase 3, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de 360 grados, color negro, unidad pieza, precio de lista, 900 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-303-306",
+        "label": "precio_lista",
+        "start": 303,
+        "end": 306,
+        "text": "900",
+        "source": "RULE",
+        "normalized_value": "900.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-26-39",
+        "label": "modelo",
+        "start": 26,
+        "end": 39,
+        "text": "NF Guion 3385",
+        "source": "RULE",
+        "normalized_value": "NF-3385",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-91-111",
+        "label": "especificaciones.tapiz",
+        "start": 91,
+        "end": 111,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-63-86",
+        "label": "especificaciones.asiento",
+        "start": 63,
+        "end": 86,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-182-193",
+        "label": "especificaciones.mecanismo",
+        "start": 182,
+        "end": 193,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-239-257",
+        "label": "especificaciones.giro",
+        "start": 239,
+        "end": 257,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-207-219",
+        "label": "especificaciones.base",
+        "start": 207,
+        "end": 219,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 12.606724994839169,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla secretarial",
+      "observaciones": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+      "precio_lista": "900.00",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-333-338",
+        "label": "unidad_stock",
+        "start": 333,
+        "end": 338,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-319-324",
+        "label": "color_primario",
+        "start": 319,
+        "end": 324,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-17",
+        "label": "nombre",
+        "start": 0,
+        "end": 17,
+        "text": "Silla secretarial",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-382",
+        "label": "observaciones",
+        "start": 0,
+        "end": 382,
+        "text": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-359-370",
+        "label": "precio_lista",
+        "start": 359,
+        "end": 370,
+        "text": "novecientos",
+        "source": "RULE",
+        "normalized_value": "900.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-26-33",
+        "label": "modelo",
+        "start": 26,
+        "end": 33,
+        "text": "ene efe",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-128-148",
+        "label": "especificaciones.tapiz",
+        "start": 128,
+        "end": 148,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-100-123",
+        "label": "especificaciones.asiento",
+        "start": 100,
+        "end": 123,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-220-231",
+        "label": "especificaciones.mecanismo",
+        "start": 220,
+        "end": 231,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-277-281",
+        "label": "especificaciones.giro",
+        "start": 277,
+        "end": 281,
+        "text": "giro",
+        "source": "RULE",
+        "normalized_value": "giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-285-311",
+        "label": "especificaciones.giro",
+        "start": 285,
+        "end": 311,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-245-257",
+        "label": "especificaciones.base",
+        "start": 245,
+        "end": 257,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 15.39501400111476,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 5,
+      "deletions": 8,
+      "insertions": 0,
+      "reference_length": 63,
+      "rate": 0.20634920634920634
+    },
+    "cer": {
+      "errors": 78,
+      "substitutions": 11,
+      "deletions": 67,
+      "insertions": 0,
+      "reference_length": 372,
+      "rate": 0.20967741935483872
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.361050038001849,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0027.json",
+    "original_case_sha256": "1e62fdd22d62b3e79bbbf091d25958a2b74702b6f450b04468a38867174b6e6b",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

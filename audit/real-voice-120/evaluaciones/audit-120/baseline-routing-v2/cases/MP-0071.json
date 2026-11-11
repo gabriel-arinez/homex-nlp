@@ -1,0 +1,393 @@
+{
+  "id": "MP-0071",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0071.aac",
+    "original_sha256": "ba85c0607bfe1eef98db7e583c5beef1800705ef1bd65a50bb66710223aaf1b4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0071.wav",
+    "wav_sha256": "72cc00577b08ba787f1eaed7020388608ea2c3836227b1a84ce4ae7fbc3d3f52"
+  },
+  "reference": "Cuatro credenzas de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Estructura de melamina de dieciocho milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio unitario de mil doscientos bolivianos.",
+  "source": {
+    "id": "MP-0071",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      72
+    ],
+    "titulo_fuente": "CREDENZA",
+    "grupo_familia": "CREDENZA_085",
+    "guion": "Cuatro credenzas de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Estructura de melamina de dieciocho milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio unitario de mil doscientos bolivianos.",
+    "audio_esperado": "MP-0071.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0071.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "6a519e69ba082ccff39fc58f03802972f3e87ff67515913ef6aafe6ee5e91247",
+    "audio_compatible_asr": "MP-0071.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0071.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 36.641125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "4 credencias de 85 centímetros de ancho, 40 de profundidad y 80 de alto, estructura de melamina de 18 milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1.200 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "12.880000",
+        "text": " 4 credencias de 85 centímetros de ancho, 40 de profundidad y 80 de alto, estructura de"
+      },
+      {
+        "start_seconds": "12.880000",
+        "end_seconds": "23.560000",
+        "text": " melamina de 18 milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles,"
+      },
+      {
+        "start_seconds": "23.560000",
+        "end_seconds": "35.000000",
+        "text": " chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1.200 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4194
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0071",
+    "status": "NO_PROPOSAL",
+    "text_original": "4 credencias de 85 centímetros de ancho, 40 de profundidad y 80 de alto, estructura de melamina de 18 milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1.200 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.1922270021168515,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0071-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Cuatro credenzas de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Estructura de melamina de dieciocho milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio unitario de mil doscientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "credenzas",
+      "furniture_type_candidate": "credenzas",
+      "quantity": 4,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "puertas abatibles",
+          "evidence_ids": [
+            "c12"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "85",
+          "unit": "cm",
+          "original_text": "ochenta y cinco centímetros de ancho",
+          "value_mm": "850",
+          "axis": "ancho"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "name": "bandeja divisoria",
+          "quantity": 1
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad frontal",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c9"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "1200.00",
+        "currency": "BOB",
+        "unit_price_input": "1200.00",
+        "line_total": "4800.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": "Color a elección",
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 7,
+        "end": 16,
+        "text": "credenzas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 6,
+        "text": "Cuatro",
+        "source": "RULE",
+        "normalized_value": 4,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 20,
+        "end": 56,
+        "text": "ochenta y cinco centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "85",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ESPESOR",
+        "start": 127,
+        "end": 147,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ACCESORIO",
+        "start": 149,
+        "end": 166,
+        "text": "puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 172,
+        "end": 189,
+        "text": "bandeja divisoria",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 215,
+        "end": 241,
+        "text": "chapa de seguridad frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 244,
+        "end": 263,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "PRECIO",
+        "start": 302,
+        "end": 316,
+        "text": "mil doscientos",
+        "source": "RULE",
+        "normalized_value": "1200",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 101,
+        "end": 111,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 115,
+        "end": 123,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 149,
+        "end": 166,
+        "text": "puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_reference_ms": 1.9690760018420406,
+  "metrics": {
+    "wer": {
+      "errors": 10,
+      "substitutions": 7,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.2127659574468085
+    },
+    "cer": {
+      "errors": 61,
+      "substitutions": 15,
+      "deletions": 45,
+      "insertions": 1,
+      "reference_length": 320,
+      "rate": 0.190625
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.253788724003243,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0071.json",
+    "original_case_sha256": "81a0d16b065de406ff58f6fd9e1693813f9903bc0899f31d875bea869e4e7a0b",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "MP-0004",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0004.aac",
+    "original_sha256": "2244aeb6b3eee92bde3594e3d63e24711eec67cb472f754ff215a4854be4f19b",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0004.wav",
+    "wav_sha256": "05efeb3513580424698ddd58053b796426f68f6b4b8403df5e0876e4db0590bf"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0004-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos poltronas fijas, con estructura y cuatro patas de madera de eucalipto. Tapiz de tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Color de las patas y tapiz a elección. Topes de goma en las patas. Precio unitario de cinco mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.1087260025087744,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0004-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.10357100109104067,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuatro"
+        ],
+        "asr": [
+          "4"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "a"
+        ],
+        "asr": [
+          "al"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "poliuretano"
+        ],
+        "asr": [
+          "poluretano"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuarenta"
+        ],
+        "asr": [
+          "40"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cinco",
+          "mil",
+          "quinientos"
+        ],
+        "asr": [
+          "5.500"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0004",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "5500",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

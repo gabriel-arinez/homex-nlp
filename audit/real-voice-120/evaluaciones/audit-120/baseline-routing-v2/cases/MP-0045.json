@@ -1,0 +1,507 @@
+{
+  "id": "MP-0045",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0045.aac",
+    "original_sha256": "195b4559f92ce502eba12c13a5b568422c7a129483817c0af6c9542ab06db696",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0045.wav",
+    "wav_sha256": "ce7b57e4d0b71e7ef7057a3ac2fa0b654b143187b70745f5d3766082622f485e"
+  },
+  "reference": "Cinco escritorios en ele, con lados de un metro cuarenta y un metro cincuenta. Profundidades de setenta y cinco y sesenta centímetros, y altura de ochenta centímetros. Melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacantos PVC, espacio lateral izquierdo para computadora, portateclado deslizable y faldón hasta el piso. Color cedro. Precio unitario de dos mil bolivianos.",
+  "source": {
+    "id": "MP-0045",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      45
+    ],
+    "titulo_fuente": "ESCRITORIO EN L",
+    "grupo_familia": "PRO_045",
+    "guion": "Cinco escritorios en ele, con lados de un metro cuarenta y un metro cincuenta. Profundidades de setenta y cinco y sesenta centímetros, y altura de ochenta centímetros. Melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacantos PVC, espacio lateral izquierdo para computadora, portateclado deslizable y faldón hasta el piso. Color cedro. Precio unitario de dos mil bolivianos.",
+    "audio_esperado": "MP-0045.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0045.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "bb6583901739202174339f6c40e90b7d6e317bde5730f5d7453a0cd857ee5f72",
+    "audio_compatible_asr": "MP-0045.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0045.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 40.7045625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "14.560000",
+        "text": " 5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura"
+      },
+      {
+        "start_seconds": "14.560000",
+        "end_seconds": "27.800000",
+        "text": " de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo"
+      },
+      {
+        "start_seconds": "27.800000",
+        "end_seconds": "37.320000",
+        "text": " para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario"
+      },
+      {
+        "start_seconds": "37.320000",
+        "end_seconds": "39.600000",
+        "text": " de 2,000 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4537
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0045",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios en L",
+      "furniture_type_candidate": "escritorios en l",
+      "quantity": 5,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c6"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "lateral",
+          "evidence_ids": [
+            "c7"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "altura de 80 cm",
+          "value_mm": "800",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 mm",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "name": "tapacantos PVC",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 18,
+        "text": "escritorios en L",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 1,
+        "text": "5",
+        "source": "RULE",
+        "normalized_value": 5,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 82,
+        "end": 97,
+        "text": "altura de 80 cm",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ESPESOR",
+        "start": 111,
+        "end": 116,
+        "text": "18 mm",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ACCESORIO",
+        "start": 140,
+        "end": 154,
+        "text": "tapacantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "COMPONENTE",
+        "start": 118,
+        "end": 123,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "COMPONENTE",
+        "start": 164,
+        "end": 171,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "MATERIAL",
+        "start": 99,
+        "end": 107,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 18 mm requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_asr_ms": 2.492391999112442,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0045-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Cinco escritorios en ele, con lados de un metro cuarenta y un metro cincuenta. Profundidades de setenta y cinco y sesenta centímetros, y altura de ochenta centímetros. Melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacantos PVC, espacio lateral izquierdo para computadora, portateclado deslizable y faldón hasta el piso. Color cedro. Precio unitario de dos mil bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios en ele",
+      "furniture_type_candidate": "escritorios en ele",
+      "quantity": 5,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c7"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "lateral",
+          "evidence_ids": [
+            "c8"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "altura de ochenta centímetros",
+          "value_mm": "800",
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "name": "tapacantos PVC",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c6"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "2000.00",
+        "currency": "BOB",
+        "unit_price_input": "2000.00",
+        "line_total": "10000.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": [
+        "c4"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 6,
+        "end": 24,
+        "text": "escritorios en ele",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 5,
+        "text": "Cinco",
+        "source": "RULE",
+        "normalized_value": 5,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 137,
+        "end": 166,
+        "text": "altura de ochenta centímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ESPESOR",
+        "start": 180,
+        "end": 200,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ACCESORIO",
+        "start": 233,
+        "end": 247,
+        "text": "tapacantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "PRECIO",
+        "start": 373,
+        "end": 380,
+        "text": "dos mil",
+        "source": "RULE",
+        "normalized_value": "2000",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "COMPONENTE",
+        "start": 202,
+        "end": 207,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "COMPONENTE",
+        "start": 257,
+        "end": 264,
+        "text": "lateral",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "MATERIAL",
+        "start": 168,
+        "end": 176,
+        "text": "Melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.7038979969802313,
+  "metrics": {
+    "wer": {
+      "errors": 26,
+      "substitutions": 19,
+      "deletions": 6,
+      "insertions": 1,
+      "reference_length": 57,
+      "rate": 0.45614035087719296
+    },
+    "cer": {
+      "errors": 126,
+      "substitutions": 28,
+      "deletions": 97,
+      "insertions": 1,
+      "reference_length": 381,
+      "rate": 0.33070866141732286
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.614240144997893,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0045.json",
+    "original_case_sha256": "587db9e3561cc22b11115b6a780d6b6bcf67fcee3efef6a27e9f721512503835",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

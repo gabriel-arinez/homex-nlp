@@ -1,0 +1,860 @@
+{
+  "id": "MP-0024",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0024.aac",
+    "original_sha256": "67e5d712b395e167d69a935589ceaf14a7f875a49e5727152f8d3e6da39362aa",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0024.wav",
+    "wav_sha256": "3b69ce4b70d9c3b56661e02b37189deed2e953448a7cc3013dc684b1bc0ffb1a"
+  },
+  "reference": "Un escritorio con estantería, de un metro veinte de ancho, setenta y cinco centímetros de altura y sesenta de profundidad. Estructura de melamina de dieciocho milímetros y mesón de veinticinco. Estantería superior de veinticinco centímetros de profundidad y noventa de alto, dividida en tres niveles de cuarenta, treinta y veinte centímetros, con una puerta de bisagra hidráulica. Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio de CPU. Color capri. Precio de tres mil quinientos bolivianos.",
+  "source": {
+    "id": "MP-0024",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      24
+    ],
+    "titulo_fuente": "ESCRITORIO CON ESTANTERIA",
+    "grupo_familia": "PRO_024",
+    "guion": "Un escritorio con estantería, de un metro veinte de ancho, setenta y cinco centímetros de altura y sesenta de profundidad. Estructura de melamina de dieciocho milímetros y mesón de veinticinco. Estantería superior de veinticinco centímetros de profundidad y noventa de alto, dividida en tres niveles de cuarenta, treinta y veinte centímetros, con una puerta de bisagra hidráulica. Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio de CPU. Color capri. Precio de tres mil quinientos bolivianos.",
+    "audio_esperado": "MP-0024.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0024.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "d16cebda11c3042ed48647006a20ee70181b447bf0cb2ec4febfce4454cd1175",
+    "audio_compatible_asr": "MP-0024.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0024.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 50.1783125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un escritorio con estantería de 1 metro 20 de ancho, 75 centímetros de altura y 60 de profundidad. Estructura de melamina de 18 milímetros y mesón de 25. Estantería superior de 25 centímetros de profundidad y 90 de alto. Dividir en tres niveles de 40 y 30 y 20 centímetros, con una puerta de bisagra hidráulica. Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio para CPU, color Capri, precio de 3500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "12.000000",
+        "text": " Un escritorio con estantería de 1 metro 20 de ancho, 75 centímetros de altura y 60 de profundidad."
+      },
+      {
+        "start_seconds": "12.000000",
+        "end_seconds": "18.000000",
+        "text": " Estructura de melamina de 18 milímetros y mesón de 25."
+      },
+      {
+        "start_seconds": "18.000000",
+        "end_seconds": "25.000000",
+        "text": " Estantería superior de 25 centímetros de profundidad y 90 de alto."
+      },
+      {
+        "start_seconds": "25.000000",
+        "end_seconds": "36.000000",
+        "text": " Dividir en tres niveles de 40 y 30 y 20 centímetros, con una puerta de bisagra hidráulica."
+      },
+      {
+        "start_seconds": "36.000000",
+        "end_seconds": "50.000000",
+        "text": " Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio para CPU, color Capri, precio de 3500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 5196
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0024",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio con estantería de 1 metro 20 de ancho, 75 centímetros de altura y 60 de profundidad. Estructura de melamina de 18 milímetros y mesón de 25. Estantería superior de 25 centímetros de profundidad y 90 de alto. Dividir en tres niveles de 40 y 30 y 20 centímetros, con una puerta de bisagra hidráulica. Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio para CPU, color Capri, precio de 3500 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio",
+      "furniture_type_candidate": "escritorio",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "mesón",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "puerta",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "cajones",
+          "evidence_ids": [
+            "c17"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "repisa",
+          "evidence_ids": [
+            "c19"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "1 metro 20 de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "75",
+          "unit": "cm",
+          "original_text": "75 centímetros de altura",
+          "value_mm": "750",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "90",
+          "unit": null,
+          "original_text": "90 de alto",
+          "value_mm": null,
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "value": "60",
+          "unit": null,
+          "original_text": "60 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "value": "25",
+          "unit": "cm",
+          "original_text": "25 centímetros de profundidad",
+          "value_mm": "250",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": "pieza-4",
+          "name": "rieles telescópicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c11"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 13,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 32,
+        "end": 51,
+        "text": "1 metro 20 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 53,
+        "end": 77,
+        "text": "75 centímetros de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "75",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ALTO",
+        "start": 209,
+        "end": 219,
+        "text": "90 de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "90",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "PROFUNDIDAD",
+        "start": 80,
+        "end": 97,
+        "text": "60 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "60",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "PROFUNDIDAD",
+        "start": 177,
+        "end": 206,
+        "text": "25 centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ESPESOR",
+        "start": 125,
+        "end": 138,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 329,
+        "end": 336,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 341,
+        "end": 360,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO_AMBIGUO",
+        "start": 428,
+        "end": 432,
+        "text": "3500",
+        "source": "RULE",
+        "normalized_value": "3500",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 99,
+        "end": 109,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 113,
+        "end": 121,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 141,
+        "end": 146,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 282,
+        "end": 288,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "CANTIDAD_INTERNA",
+        "start": 278,
+        "end": 281,
+        "text": "una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "COMPONENTE",
+        "start": 329,
+        "end": 336,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "CANTIDAD_INTERNA",
+        "start": 324,
+        "end": 328,
+        "text": "tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "COMPONENTE",
+        "start": 362,
+        "end": 368,
+        "text": "repisa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '90 de alto' no tiene unidad."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '60 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 3500.00 BOB; aclare si es total o precio unitario."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 5
+  },
+  "nlp_asr_ms": 5.56380300258752,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0024-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un escritorio con estantería, de un metro veinte de ancho, setenta y cinco centímetros de altura y sesenta de profundidad. Estructura de melamina de dieciocho milímetros y mesón de veinticinco. Estantería superior de veinticinco centímetros de profundidad y noventa de alto, dividida en tres niveles de cuarenta, treinta y veinte centímetros, con una puerta de bisagra hidráulica. Abajo tiene tres cajones con rieles telescópicos, repisa para accesorios y espacio de CPU. Color capri. Precio de tres mil quinientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorio",
+      "furniture_type_candidate": "escritorio",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c9"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "mesón",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "puerta",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "cajones",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "repisa",
+          "evidence_ids": [
+            "c16"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "120",
+          "unit": "cm",
+          "original_text": "un metro veinte de ancho",
+          "value_mm": "1200",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "75",
+          "unit": "cm",
+          "original_text": "setenta y cinco centímetros de altura",
+          "value_mm": "750",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "25",
+          "unit": "cm",
+          "original_text": "veinticinco centímetros de profundidad",
+          "value_mm": "250",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-4",
+          "name": "rieles telescópicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 13,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 33,
+        "end": 57,
+        "text": "un metro veinte de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "120",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 59,
+        "end": 96,
+        "text": "setenta y cinco centímetros de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "75",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 217,
+        "end": 255,
+        "text": "veinticinco centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 149,
+        "end": 169,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 398,
+        "end": 405,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 410,
+        "end": 429,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 123,
+        "end": 133,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 137,
+        "end": 145,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 172,
+        "end": 177,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 351,
+        "end": 357,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "CANTIDAD_INTERNA",
+        "start": 347,
+        "end": 350,
+        "text": "una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 398,
+        "end": 405,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "CANTIDAD_INTERNA",
+        "start": 393,
+        "end": 397,
+        "text": "tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 431,
+        "end": 437,
+        "text": "repisa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 5
+  },
+  "nlp_reference_ms": 5.794223005068488,
+  "metrics": {
+    "wer": {
+      "errors": 19,
+      "substitutions": 14,
+      "deletions": 4,
+      "insertions": 1,
+      "reference_length": 79,
+      "rate": 0.24050632911392406
+    },
+    "cer": {
+      "errors": 114,
+      "substitutions": 30,
+      "deletions": 82,
+      "insertions": 2,
+      "reference_length": 514,
+      "rate": 0.22178988326848248
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.384791263000807,
+  "process_peak_rss_kib": 892484,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0024.json",
+    "original_case_sha256": "53d2ce616e79744bbe7e9aa11290625293c4d26944044e759c19854a0cbd3c81",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

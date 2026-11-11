@@ -1,0 +1,165 @@
+{
+  "id": "MP-0046",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0046.aac",
+    "original_sha256": "aa50daae0c3560002b1c68b5f098674e6edfe661ad18532f28eacd11bc5bebd4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0046.wav",
+    "wav_sha256": "1648051b85e32cba44aa6874bc92f72f54a29677c754ad2d3f966c46795dd366"
+  },
+  "reference": "Cinco cubos móviles de cuarenta y cinco centímetros de ancho, cincuenta de profundidad y setenta y cinco de alto. Melamina de dieciocho milímetros, mesón engrosado a veintisiete y tapacantos PVC. Dos cajones papeleros y uno archivador con rieles telescópicos, chapa de seguridad y jaladores metálicos. Color cedro. Precio unitario de novecientos cincuenta bolivianos.",
+  "source": {
+    "id": "MP-0046",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      46
+    ],
+    "titulo_fuente": "CUBO MOVIL",
+    "grupo_familia": "PRO_046",
+    "guion": "Cinco cubos móviles de cuarenta y cinco centímetros de ancho, cincuenta de profundidad y setenta y cinco de alto. Melamina de dieciocho milímetros, mesón engrosado a veintisiete y tapacantos PVC. Dos cajones papeleros y uno archivador con rieles telescópicos, chapa de seguridad y jaladores metálicos. Color cedro. Precio unitario de novecientos cincuenta bolivianos.",
+    "audio_esperado": "MP-0046.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0046.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "04ec84679c9ad3802511dfaa38ac5e16d84ccda1beb32df00b098c2a434afc96",
+    "audio_compatible_asr": "MP-0046.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0046.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 33.2974375,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "5 cubos móviles de 45 centímetros de ancho, 50 de profundidad y 75 de alto, melamina de 18 milímetros, mesón engrosado a 27 y tapacantos PVC, dos cajones papeleros y uno archivador con reales telescopicos, chapa de seguridad y jaladores metálicos, color cedro, precio unitario de 950 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "10.060000",
+        "text": " 5 cubos móviles de 45 centímetros de ancho, 50 de profundidad y 75 de alto,"
+      },
+      {
+        "start_seconds": "10.060000",
+        "end_seconds": "20.180000",
+        "text": " melamina de 18 milímetros, mesón engrosado a 27 y tapacantos PVC, dos cajones papeleros y"
+      },
+      {
+        "start_seconds": "20.180000",
+        "end_seconds": "27.860000",
+        "text": " uno archivador con reales telescopicos, chapa de seguridad y jaladores metálicos, color cedro,"
+      },
+      {
+        "start_seconds": "27.860000",
+        "end_seconds": "31.880000",
+        "text": " precio unitario de 950 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4626
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0046",
+    "status": "NO_PROPOSAL",
+    "text_original": "5 cubos móviles de 45 centímetros de ancho, 50 de profundidad y 75 de alto, melamina de 18 milímetros, mesón engrosado a 27 y tapacantos PVC, dos cajones papeleros y uno archivador con reales telescopicos, chapa de seguridad y jaladores metálicos, color cedro, precio unitario de 950 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.33818800147855654,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0046-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Cinco cubos móviles de cuarenta y cinco centímetros de ancho, cincuenta de profundidad y setenta y cinco de alto. Melamina de dieciocho milímetros, mesón engrosado a veintisiete y tapacantos PVC. Dos cajones papeleros y uno archivador con rieles telescópicos, chapa de seguridad y jaladores metálicos. Color cedro. Precio unitario de novecientos cincuenta bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.19083199731539935,
+  "metrics": {
+    "wer": {
+      "errors": 14,
+      "substitutions": 9,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 53,
+      "rate": 0.2641509433962264
+    },
+    "cer": {
+      "errors": 89,
+      "substitutions": 17,
+      "deletions": 72,
+      "insertions": 0,
+      "reference_length": 359,
+      "rate": 0.2479108635097493
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.7378345639954205,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0046.json",
+    "original_case_sha256": "6767b606b2ab59c7d6a3cddac38da3d8c84466254e216edff48e946162ee239a",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

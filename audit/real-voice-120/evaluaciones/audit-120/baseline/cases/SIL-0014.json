@@ -1,0 +1,416 @@
+{
+  "id": "SIL-0014",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0014.aac",
+    "original_sha256": "482a9db947136dbc068dc90b24d2ee63f0eb6b2781c47b3646f3157cda7b1527",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0014.wav",
+    "wav_sha256": "0ed9cce17ae3669ad4a976f9d8af93d20341d172a8820668d2798b7a15453a03"
+  },
+  "reference": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+  "source": {
+    "id": "SIL-0014",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      2
+    ],
+    "titulo_fuente": "SILLA COD: B15b",
+    "grupo_familia": "SILLA_B15B",
+    "guion": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+    "audio_esperado": "SIL-0014.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0014.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "DIFERENCIA_ENTRE_FUENTES: B15b en inventario Bs 1500 frente a proforma Bs 1750; no consolidar automáticamente."
+    ],
+    "sha256_fuente": "8d238c1078d181163486a3b63d4816a6ac081d5f4423b9b5b18bc0a98d95880e",
+    "audio_compatible_asr": "SIL-0014.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0014.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 43.491,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla Semi Ejecutiva Ergonómica Modelo B15B Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad. Sona lumbar ajustable, asiento de espuma moldeada de alta densidad. Doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro, unidad pieza, precio de lista de 1500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "8.000000",
+        "text": " Silla Semi Ejecutiva Ergonómica Modelo B15B"
+      },
+      {
+        "start_seconds": "8.000000",
+        "end_seconds": "17.000000",
+        "text": " Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad."
+      },
+      {
+        "start_seconds": "17.000000",
+        "end_seconds": "24.000000",
+        "text": " Sona lumbar ajustable, asiento de espuma moldeada de alta densidad."
+      },
+      {
+        "start_seconds": "24.000000",
+        "end_seconds": "35.000000",
+        "text": " Doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas."
+      },
+      {
+        "start_seconds": "35.000000",
+        "end_seconds": "43.000000",
+        "text": " Color negro, unidad pieza, precio de lista de 1500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4856
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla Semi Ejecutiva Ergonómica",
+      "observaciones": "Silla Semi Ejecutiva Ergonómica Modelo B15B Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad. Sona lumbar ajustable, asiento de espuma moldeada de alta densidad. Doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro, unidad pieza, precio de lista de 1500 bolivianos.",
+      "precio_lista": "1500.00",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "Respaldo de malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "Doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-320-325",
+        "label": "unidad_stock",
+        "start": 320,
+        "end": 325,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-306-311",
+        "label": "color_primario",
+        "start": 306,
+        "end": 311,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-31",
+        "label": "nombre",
+        "start": 0,
+        "end": 31,
+        "text": "Silla Semi Ejecutiva Ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva Ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-362",
+        "label": "observaciones",
+        "start": 0,
+        "end": 362,
+        "text": "Silla Semi Ejecutiva Ergonómica Modelo B15B Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad. Sona lumbar ajustable, asiento de espuma moldeada de alta densidad. Doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro, unidad pieza, precio de lista de 1500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva Ergonómica Modelo B15B Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad. Sona lumbar ajustable, asiento de espuma moldeada de alta densidad. Doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro, unidad pieza, precio de lista de 1500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-346-350",
+        "label": "precio_lista",
+        "start": 346,
+        "end": 350,
+        "text": "1500",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-39-52",
+        "label": "modelo",
+        "start": 39,
+        "end": 52,
+        "text": "B15B Respaldo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-63-85",
+        "label": "especificaciones.brazos_regulables",
+        "start": 63,
+        "end": 85,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-44-61",
+        "label": "especificaciones.material_respaldo",
+        "start": 44,
+        "end": 61,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-245-266",
+        "label": "especificaciones.suspension",
+        "start": 245,
+        "end": 266,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-190-203",
+        "label": "especificaciones.mecanismo",
+        "start": 190,
+        "end": 203,
+        "text": "Doble palanca",
+        "source": "RULE",
+        "normalized_value": "Doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-269-281",
+        "label": "especificaciones.base",
+        "start": 269,
+        "end": 281,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 15.321182996558491,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semiejecutiva ergonómica",
+      "observaciones": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+      "precio_lista": "1500.00",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "Respaldo de malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-329-334",
+        "label": "unidad_stock",
+        "start": 329,
+        "end": 334,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-315-320",
+        "label": "color_primario",
+        "start": 315,
+        "end": 320,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-30",
+        "label": "nombre",
+        "start": 0,
+        "end": 30,
+        "text": "Silla semiejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-381",
+        "label": "observaciones",
+        "start": 0,
+        "end": 381,
+        "text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-355-369",
+        "label": "precio_lista",
+        "start": 355,
+        "end": 369,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-39-48",
+        "label": "modelo",
+        "start": 39,
+        "end": 48,
+        "text": "be quince",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-72-94",
+        "label": "especificaciones.brazos_regulables",
+        "start": 72,
+        "end": 94,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-53-70",
+        "label": "especificaciones.material_respaldo",
+        "start": 53,
+        "end": 70,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-254-275",
+        "label": "especificaciones.suspension",
+        "start": 254,
+        "end": 275,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-199-212",
+        "label": "especificaciones.mecanismo",
+        "start": 199,
+        "end": 212,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-278-290",
+        "label": "especificaciones.base",
+        "start": 278,
+        "end": 290,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 16.252221998001914,
+  "metrics": {
+    "wer": {
+      "errors": 8,
+      "substitutions": 4,
+      "deletions": 3,
+      "insertions": 1,
+      "reference_length": 53,
+      "rate": 0.1509433962264151
+    },
+    "cer": {
+      "errors": 26,
+      "substitutions": 7,
+      "deletions": 18,
+      "insertions": 1,
+      "reference_length": 368,
+      "rate": 0.07065217391304347
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.972129710004083,
+  "process_peak_rss_kib": 1282048
+}

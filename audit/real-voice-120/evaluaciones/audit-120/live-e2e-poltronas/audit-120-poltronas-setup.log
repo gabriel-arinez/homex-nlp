@@ -1,0 +1,50 @@
+Own loopback ports selected; synthetic credentials generated without disclosure.
+The files belonging to this database system will be owned by user "gabriel".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "C".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /tmp/homex-audit-reproduce.kgaYVA/pgdata-utf8 ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... America/La_Paz
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    /usr/lib/postgresql/16/bin/pg_ctl -D /tmp/homex-audit-reproduce.kgaYVA/pgdata-utf8 -l logfile start
+
+The files belonging to this database system will be owned by user "gabriel".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "C".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /tmp/homex-audit-reproduce.kgaYVA/pgdata-live ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... America/La_Paz
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    /usr/lib/postgresql/16/bin/pg_ctl -D /tmp/homex-audit-reproduce.kgaYVA/pgdata-live -l logfile start
+
+Disposable reproduction scratch: /tmp/homex-audit-reproduce.kgaYVA
+backend_exit=0 live_e2e_exit=0 evidence=/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/evaluaciones/audit-120/live-e2e-poltronas
+BOOTSTRAP_EXIT_CODE=0
