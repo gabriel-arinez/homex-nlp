@@ -21,6 +21,7 @@ from homex_nlp.rules import (
     money,
     price_mentions,
 )
+from homex_nlp.spoken_codes import _is_spoken_start, _spoken_code
 
 Category = Literal["SILLA", "PISO_FLOTANTE", "OTRO"]
 
@@ -164,8 +165,10 @@ class Extractor:
                 r"bolivianos?|BOB|Bs|USD|d[oó]lares?)\b)(?:[1-9]\d*\s+)?"
                 r"(?!no\b|sin\b|nombres?\b|modelos?\b|color\b|marca\b|precio\b|cantidad\b|stock\b|total\b|espesor\b)"
                 r"[a-záéíóúñ][\wáéíóúñ -]*?)"
-                r"(?=\s+(?:de\s+(?:malla|espuma)|con|modelo|c[oó]digo|color|marca|precio|espesor|largo|ancho)\b"
-                r"|\s+(?:de\s+)?\d|[.;,:\n]|$)",
+                r"(?=\s+(?:de\s+(?:malla|espuma|estructura|patas|madera|aglomerado|melamina|MDF|HDF|PVC|metal|acero)|con|modelo|c[oó]digo|color|marca|precio|espesor|largo|ancho)\b"
+                r"|\s+(?:de\s+)?(?:\d|"
+                + AMOUNT
+                + r"\s*(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\b)|[.;,:\n]|$)",
             )
             # Preserve the literal description, including heterogeneous specifications.
             if "nombre" in self.result.fields:
@@ -262,12 +265,45 @@ class Extractor:
 
     def model(self):
         matches = []
+        spoken_spans = {}
+        # Read the complete explicit clause, not merely a decodable prefix.
+        for cue in re.finditer(r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*", self.text, re.I):
+            start = cue.end()
+            clause = re.split(
+                r"[,.;\n]|\s+de(?=\s+(?:madera|metal|acero|malla|espuma|color|material)\b)|\s+\b(?:modelo|c[oó]digo|cod|con|marca|color|tipo|material|diseño|diseno|acabado|espesor|largo|ancho|precio|unidad|descripci[oó]n|observaciones|mejor|corrijo|perd[oó]n)\b|\s+o(?=\s+(?:modelo|c[oó]digo|cod)\b)",
+                self.text[start:],
+                maxsplit=1,
+                flags=re.I,
+            )[0].rstrip()
+            if not _is_spoken_start(clause) or len(clause.split()) < 2:
+                continue
+            end = start + len(clause)
+            value = None if re.search(r"\bo\b", clause, re.I) else _spoken_code(clause)
+            spoken_spans[start] = end
+            if value is not None:
+                matches.append((start, end, value))
+            else:
+                self.result.warnings.append("modelo: código ambiguo; revise la transcripción.")
+                self.result.evidence.append(
+                    Candidate(
+                        candidate_id=f"modelo-{start}-{end}",
+                        label="modelo",
+                        start=start,
+                        end=end,
+                        text=self.text[start:end],
+                        source="RULE",
+                        decision="UNRESOLVED",
+                        reason="Código incompleto o ambiguo",
+                    )
+                )
         for m in re.finditer(
             r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*"
             r"([A-Za-z0-9]+(?:\s*(?:-|gui[oó]n)\s*[A-Za-z0-9]+)*)",
             self.text,
             re.I,
         ):
+            if m.start(1) in spoken_spans:
+                continue
             raw = m.group(1)
             tail = self.text[m.end() :]
             continuation = re.match(
@@ -301,6 +337,13 @@ class Extractor:
             for m in re.finditer(r"(?<![\w-])(?:[A-Z]{1,4}-?\d{2,6}[A-Za-z]?)(?![\w-])", self.text):
                 matches.append((m.start(), m.end(), m.group()))
         self.add("modelo", matches)
+        for candidate in self.result.evidence:
+            if (
+                candidate.label == "modelo"
+                and candidate.start in spoken_spans
+                and candidate.reason is None
+            ):
+                candidate.reason = "Equivalencia de código alfanumérico deletreado"
 
     def specific(self):
         pass

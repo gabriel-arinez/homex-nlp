@@ -79,3 +79,25 @@ is retained literally as the name, just like a spelled-out count. It does not
 suggest inventory or a quantity field. The complete literal description remains
 available in observations. Isolated amounts, dimensions, zero counts, negations
 and administrative fragments do not become product names through this rule.
+
+## Explicit spoken models and commercial name boundaries
+
+An implicit initial name ends before an explicit material, structure or measure
+clause: `Poltrona de sala de espera de estructura y patas de madera` retains
+`Poltrona de sala de espera`. Names introduced by `nombre` retain their existing
+label rules. The full source description stays in `observaciones`; numeric-leading
+names remain names and never become inventory quantities.
+
+For chairs and floors, an explicit `modelo`, `código` or `cod` cue can introduce
+Spanish letter names, digit sequences, cardinal chunks and `guion`. For example,
+`modelo jota ka guion setecientos cuarenta y dos` proposes `JK-742`. The new
+spelling path requires both letters and digits, validates the whole clause and
+never consults a SKU dictionary. Incomplete or ambiguous spelling, including an
+ambiguous spoken `o`, remains unresolved. Existing literal models are unchanged.
+
+Evidence retains exact original text and offsets. A normalized spoken-code
+candidate records `Equivalencia de código alfanumérico deletreado`; negation,
+contradiction and explicit correction still use the shared evidence rules.
+`OTRO` continues to support only its existing common fields, never `modelo` or
+chair/floor-specific fields. ASR text, schemas and backend calculations do not
+change.
