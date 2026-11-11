@@ -126,3 +126,4 @@ def test_supported_denominator_does_not_require_furniture_fields_from_other_cata
     score = evaluator.score_supported(refs, [{"field": "price", "value": 900}], "OTRO")
     assert score["denominator"] == score["numerator"] == 1
     assert score["unsupported_verified_reference_indices"] == [0, 1]
+    assert score["field_results"][0]["reference_indices"] == [2]

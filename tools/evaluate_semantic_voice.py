@@ -357,7 +357,10 @@ def score_supported(references, actual, category):
             and AXES.get(fold(ref.get("axis") or "")) not in {"ancho", "largo"}
         )
 
-    result = score([r for r in references if supported_ref(r)], actual)
+    indices = [i for i, r in enumerate(references) if supported_ref(r)]
+    result = score([references[i] for i in indices], actual)
+    for field in result["field_results"]:
+        field["reference_indices"] = [indices[i] for i in field["reference_indices"]]
     result["unsupported_verified_reference_indices"] = [
         i
         for i, ref in enumerate(references)
