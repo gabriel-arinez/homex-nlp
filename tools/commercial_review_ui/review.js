@@ -45,6 +45,7 @@
       if (!/^[A-Za-z0-9_-]{1,160}$/.test(d.decision_id) || !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/.test(d.created_at)) throw Error('Identidad o fecha inválida');
       for (const key of ['unit', 'axis', 'component', 'modality']) if (d[key] !== null && d[key] !== undefined && typeof d[key] !== 'string') throw Error('Tipo inválido: ' + key);
       if ((typeof d.value === 'object' && d.value !== null) || (typeof d.value === 'number' && !Number.isFinite(d.value))) throw Error('Valor no escalar');
+      if (d.provenance === 'HUMAN_AUDIO' && d.listening_attested !== true) throw Error('Falta declaración explícita de escucha');
       if (d.provenance === 'HUMAN_AUDIO' && !(Number.isFinite(d.start_seconds) && Number.isFinite(d.end_seconds) && 0 <= d.start_seconds && d.start_seconds < d.end_seconds && d.end_seconds <= c.duration_seconds)) throw Error('Intervalo de escucha inválido');
       const encoded = JSON.stringify(d);
       if (identities.has(d.decision_id) && identities.get(d.decision_id) !== encoded) throw Error('Conflicto de identidad; conservar decisiones separadas');
@@ -123,7 +124,7 @@
       try {
         if (provenance.value === 'HUMAN_AUDIO' && !attest.checked) throw Error('Se requiere declaración explícita de escucha');
         const identity = 'd_' + Date.now() + '_' + Math.random().toString(36).slice(2);
-        const decision = {decision_id: identity, case_id: c.id, field_key: fieldKey.value === 'NUEVO' ? 'new:' + field.value + ':' + identity : fieldKey.value, field: field.value, source_sha256: c.source_sha256, status: status.value, provenance: provenance.value, reviewer: reviewer.value, start_seconds: start.value === '' ? null : Number(start.value), end_seconds: end.value === '' ? null : Number(end.value), note: note.value, reason: reason.value, uncertainty: uncertainty.value, value: JSON.parse(value.value), unit: unit.value || null, axis: axis.value || null, component: component.value || null, modality: modality.value || null, created_at: new Date().toISOString()};
+        const decision = {decision_id: identity, case_id: c.id, field_key: fieldKey.value === 'NUEVO' ? 'new:' + field.value + ':' + identity : fieldKey.value, field: field.value, source_sha256: c.source_sha256, status: status.value, provenance: provenance.value, listening_attested: provenance.value === 'HUMAN_AUDIO' && attest.checked, reviewer: reviewer.value, start_seconds: start.value === '' ? null : Number(start.value), end_seconds: end.value === '' ? null : Number(end.value), note: note.value, reason: reason.value, uncertainty: uncertainty.value, value: JSON.parse(value.value), unit: unit.value || null, axis: axis.value || null, component: component.value || null, modality: modality.value || null, created_at: new Date().toISOString()};
         validate({...envelope(), decisions: [...decisions, decision]});
         decisions.push(decision);
         dirty = true;

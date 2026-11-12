@@ -94,6 +94,8 @@ def validate_annotations(payload: dict, review: dict) -> None:
         if isinstance(decision.get("value"), (dict, list)):
             raise ValueError("Value must be a scalar or null")
         if decision["provenance"] == "HUMAN_AUDIO":
+            if decision.get("listening_attested") is not True:
+                raise ValueError("Human audio requires an explicit retained listening attestation")
             start, end = decision.get("start_seconds"), decision.get("end_seconds")
             if (
                 any(

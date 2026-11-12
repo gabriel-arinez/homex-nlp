@@ -132,6 +132,7 @@ def test_annotation_validation(fixture, tmp_path):
         "source_sha256": "a" * 64,
         "status": "CORREGIDO",
         "provenance": "HUMAN_AUDIO",
+        "listening_attested": True,
         "reviewer": "Synthetic reviewer",
         "start_seconds": 0,
         "end_seconds": 1,
@@ -148,6 +149,7 @@ def test_annotation_validation(fixture, tmp_path):
     export["decisions"] = [decision]
     validate_annotations(export, data)
     for key, bad in [
+        ("listening_attested", False),
         ("case_id", "BAD"),
         ("field", "other"),
         ("end_seconds", 3),
@@ -158,6 +160,10 @@ def test_annotation_validation(fixture, tmp_path):
         changed = dict(decision, **{key: bad})
         with pytest.raises(ValueError):
             validate_annotations(dict(export, decisions=[changed]), data)
+    without_attestation = dict(decision)
+    without_attestation.pop("listening_attested")
+    with pytest.raises(ValueError):
+        validate_annotations(dict(export, decisions=[without_attestation]), data)
     with pytest.raises(ValueError):
         validate_annotations(dict(export, corpus_fingerprint="wrong"), data)
 
