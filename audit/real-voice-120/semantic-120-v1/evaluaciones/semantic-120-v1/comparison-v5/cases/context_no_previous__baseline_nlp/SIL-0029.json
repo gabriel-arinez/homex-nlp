@@ -1,0 +1,489 @@
+{
+  "id": "SIL-0029",
+  "category": "OTRO",
+  "leakage_group": "DEV-SIL-0029",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "context_no_previous__baseline_nlp",
+  "asr_configuration": "context_no_previous",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "82b18d5f56e35c0cec5f5a5ba74f52df17a709e9c541eb961adbc4d4d479e5e9",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": "melamina, MDF, MDP, HDF, PVC, USB, HDMI, tapacantos, bolivianos"
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0029.aac",
+    "original_sha256": "4e59d30ff12be0b4ec00a2d6df47cb318810eb4c774960409203b0209e04d65e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0029.wav",
+    "wav_sha256": "103475f75b82e52648df28398ae346f449fa54d7da49b876278d0fbed53be8c6"
+  },
+  "text_original": "Sillon Gerencial, modelo NF7782, respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico, de alto tráfico, asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase 3, reclinación hasta 130 grados con bloqueo y base de yado reforzado para 150 kilos, con cinco ruedas, colores disponibles, negro y café, unidad pieza, Precio de lista de 1990 bolivianos.",
+  "script_text": "Sillón gerencial, modelo ene efe guion siete mil setecientos ochenta y dos. Respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico de alto tráfico. Asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase tres, reclinación hasta ciento treinta grados con bloqueo y base de hierro reforzado para ciento cincuenta kilos, con cinco ruedas. Colores disponibles negro y café. Unidad pieza. Precio de lista de mil novecientos noventa bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Gerencial",
+      "observaciones": "Sillon Gerencial, modelo NF7782, respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico, de alto tráfico, asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase 3, reclinación hasta 130 grados con bloqueo y base de yado reforzado para 150 kilos, con cinco ruedas, colores disponibles, negro y café, unidad pieza, Precio de lista de 1990 bolivianos.",
+      "precio_lista": "1990.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-379-384",
+        "label": "unidad_stock",
+        "start": 379,
+        "end": 384,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillon Gerencial",
+        "source": "RULE",
+        "normalized_value": "Sillon Gerencial",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-421",
+        "label": "observaciones",
+        "start": 0,
+        "end": 421,
+        "text": "Sillon Gerencial, modelo NF7782, respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico, de alto tráfico, asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase 3, reclinación hasta 130 grados con bloqueo y base de yado reforzado para 150 kilos, con cinco ruedas, colores disponibles, negro y café, unidad pieza, Precio de lista de 1990 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Gerencial, modelo NF7782, respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico, de alto tráfico, asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase 3, reclinación hasta 130 grados con bloqueo y base de yado reforzado para 150 kilos, con cinco ruedas, colores disponibles, negro y café, unidad pieza, Precio de lista de 1990 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-405-409",
+        "label": "precio_lista",
+        "start": 405,
+        "end": 409,
+        "text": "1990",
+        "source": "RULE",
+        "normalized_value": "1990.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Sillon Gerencial"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1990.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 10,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "cuero ecologico",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposacabezas",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "cafe",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 4,
+        "misses": 4,
+        "abstentions": 4,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon gerencial",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 2,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1990",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon gerencial",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 19,
+      "substitutions": 7,
+      "deletions": 12,
+      "insertions": 0,
+      "reference_length": 76,
+      "rate": 0.25
+    },
+    "strict_normalized": {
+      "errors": 16,
+      "substitutions": 6,
+      "deletions": 10,
+      "insertions": 0,
+      "reference_length": 74,
+      "rate": 0.21621621621621623
+    }
+  },
+  "normalization": {
+    "reference_text": "Sillón gerencial, modelo ene efe guion siete mil setecientos ochenta y dos. Respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico de alto tráfico. Asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase tres, reclinación hasta ciento treinta grados con bloqueo y base de hierro reforzado para ciento cincuenta kilos, con cinco ruedas. Colores disponibles negro y café. Unidad pieza. Precio de lista de 1990 BOB.",
+    "asr_text": "Sillon Gerencial, modelo NF7782, respaldo alto con reposacabezas, doble acolchado de espuma de alta densidad, tapiz de cuero ecológico, de alto tráfico, asiento de doble acolchado, apoyabrazos metálicos tapizados, pistón de gas clase 3, reclinación hasta 130 grados con bloqueo y base de yado reforzado para 150 kilos, con cinco ruedas, colores disponibles, negro y café, unidad pieza, Precio de lista de 1990 BOB.",
+    "reference_transforms": [
+      {
+        "start": 475,
+        "end": 498,
+        "raw": "mil novecientos noventa",
+        "replacement": "1990",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 499,
+        "end": 509,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 410,
+        "end": 420,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

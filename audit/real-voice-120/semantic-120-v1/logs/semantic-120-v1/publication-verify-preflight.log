@@ -1,0 +1,6 @@
+Publication verification preflight
+Result: BLOCKED; actual destination not created or inspected.
+Inventory: 7,565 files; 924 WAVs excluded by suffix; 18 PNG candidates; 2 trace archives, current archive member names contain no unsafe paths.
+Finding: exact candidate exporter allows zip-member path traversal for selected .trace/.network/.stacks entries. Synthetic fixture reproduced an outside-output write (exit 0); no user data used.
+Scope: static review plus source/archive metadata; no real export, no source writes, no remote operation, no actual bytes approved.
+Follow-up: patch exporter containment guard, then audit the final generated publication and manifest across all files before any push.

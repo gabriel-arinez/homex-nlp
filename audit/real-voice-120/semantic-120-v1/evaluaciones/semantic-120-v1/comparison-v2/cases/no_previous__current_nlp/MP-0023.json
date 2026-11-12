@@ -1,0 +1,970 @@
+{
+  "id": "MP-0023",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0022",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "no_previous__current_nlp",
+  "asr_configuration": "no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "67444f2033f9f91f2341ae8b71b7764483053e45c463e09fededa0c36e6526d2",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0023.aac",
+    "original_sha256": "03f0a315be17a00ecb663a8a42d5878e413826f7d50fa30c93cbb58d88ae6c65",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0023.wav",
+    "wav_sha256": "f0d9fe0cc1553a46289f333f789f86bffb5154d4f4010012c365a93b423a10cf"
+  },
+  "text_original": "dos escritorios rectos operativos con cajonera rodante, escritorio de un metro 40 x 70 centímetros y 73 de altura, tapa de mdp y 25 milímetros, panel frontal de 18, tapa cantos PVC, estructura metálica para cableado y sistema minifix, cajon era de 33 x 40 x 73 cm con un cajón, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18 mm, color holmo con blanco, precio unitario de 1600 bolivianos.",
+  "script_text": "Dos escritorios rectos operativos con cajonera rodante. Escritorio de un metro cuarenta por setenta centímetros y setenta y tres de altura, tapa de MDP de veinticinco milímetros, panel frontal de dieciocho, tapacantos PVC, estructura metálica para cableado y sistema minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con un cajón, un portafiles, cerradura simultánea, tapa de veinticinco y laterales de dieciocho milímetros. Color olmo con blanco. Precio unitario de mil seiscientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0023",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "dos escritorios rectos operativos con cajonera rodante, escritorio de un metro 40 x 70 centímetros y 73 de altura, tapa de mdp y 25 milímetros, panel frontal de 18, tapa cantos PVC, estructura metálica para cableado y sistema minifix, cajon era de 33 x 40 x 73 cm con un cajón, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18 mm, color holmo con blanco, precio unitario de 1600 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios rectos",
+      "furniture_type_candidate": "escritorios rectos",
+      "quantity": 2,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "cajonera",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "tapa",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "panel frontal",
+          "evidence_ids": [
+            "c13"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "tapa",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "estructura",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-6",
+          "name": "tapa",
+          "evidence_ids": [
+            "c17"
+          ]
+        },
+        {
+          "component_id": "pieza-7",
+          "name": "laterales",
+          "evidence_ids": [
+            "c18"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "73",
+          "unit": null,
+          "original_text": "73 de altura",
+          "value_mm": null,
+          "axis": "alto"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-2",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "25 milímetros",
+          "value_mm": "25"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-7",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 mm",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "cerradura simultánea",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c9"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "1600.00",
+        "currency": "BOB",
+        "unit_price_input": "1600.00",
+        "line_total": "3200.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": [
+        "c20",
+        "c21"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 56,
+        "end": 66,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "REJECTED",
+        "reason": "Referential/component mention, not an independent product"
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 22,
+        "text": "escritorios rectos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 101,
+        "end": 113,
+        "text": "73 de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "73",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 129,
+        "end": 142,
+        "text": "25 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 341,
+        "end": 346,
+        "text": "18 mm",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-7",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 165,
+        "end": 180,
+        "text": "tapa cantos PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 293,
+        "end": 313,
+        "text": "cerradura simultánea",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "PRECIO",
+        "start": 391,
+        "end": 395,
+        "text": "1600",
+        "source": "RULE",
+        "normalized_value": "1600",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 38,
+        "end": 46,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 115,
+        "end": 119,
+        "text": "tapa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "MATERIAL",
+        "start": 123,
+        "end": 126,
+        "text": "mdp",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 144,
+        "end": 157,
+        "text": "panel frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 165,
+        "end": 169,
+        "text": "tapa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 182,
+        "end": 192,
+        "text": "estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "MATERIAL",
+        "start": 193,
+        "end": 201,
+        "text": "metálica",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "COMPONENTE",
+        "start": 315,
+        "end": 319,
+        "text": "tapa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-6",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "COMPONENTE",
+        "start": 328,
+        "end": 337,
+        "text": "laterales",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-7",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "COLOR",
+        "start": 364,
+        "end": 370,
+        "text": "blanco",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c20",
+        "label": "DIMENSION",
+        "start": 79,
+        "end": 86,
+        "text": "40 x 70",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c21",
+        "label": "DIMENSION",
+        "start": 248,
+        "end": 255,
+        "text": "33 x 40",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '73 de altura' no tiene unidad."
+      },
+      {
+        "code": "MISSING_AXIS",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "Indique ejes y unidades de 40 x 70."
+      },
+      {
+        "code": "MISSING_AXIS",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "Indique ejes y unidades de 33 x 40."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 11
+  },
+  "predicted_fields": [
+    {
+      "field": "quantity",
+      "value": 2
+    },
+    {
+      "field": "name",
+      "value": "escritorios rectos"
+    },
+    {
+      "field": "dimensions",
+      "value": "73",
+      "unit": null,
+      "axis": "alto",
+      "component_ref": null
+    },
+    {
+      "field": "thicknesses",
+      "value": "25",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-2"
+    },
+    {
+      "field": "thicknesses",
+      "value": "18",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-7"
+    },
+    {
+      "field": "accessories",
+      "value": "cerradura simultánea",
+      "count": null,
+      "component_ref": null
+    },
+    {
+      "field": "price",
+      "value": "1600.00",
+      "currency": "BOB",
+      "modality": "UNIT"
+    },
+    {
+      "field": "materials",
+      "value": "mdp",
+      "evidence": {
+        "candidate_id": "c12",
+        "label": "MATERIAL",
+        "start": 123,
+        "end": 126,
+        "text": "mdp",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    },
+    {
+      "field": "materials",
+      "value": "metálica",
+      "evidence": {
+        "candidate_id": "c16",
+        "label": "MATERIAL",
+        "start": 193,
+        "end": 201,
+        "text": "metálica",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1600",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [
+          "BOB"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1600",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [
+          "UNIT"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 5,
+    "denominator": 11,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "2",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "mdp",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "tapacantos",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "minifix",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "cerradura",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "olmo",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "blanco",
+          null
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          19
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          21
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1600",
+          null
+        ],
+        "reference_indices": [
+          22
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "escritorios rectos",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "cerradura simultanea",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "metalica",
+          null
+        ],
+        "prediction_indices": [
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 29,
+      "substitutions": 22,
+      "deletions": 6,
+      "insertions": 1,
+      "reference_length": 77,
+      "rate": 0.37662337662337664
+    },
+    "strict_normalized": {
+      "errors": 20,
+      "substitutions": 16,
+      "deletions": 3,
+      "insertions": 1,
+      "reference_length": 74,
+      "rate": 0.2702702702702703
+    }
+  },
+  "normalization": {
+    "reference_text": "2 escritorios rectos operativos con cajonera rodante. Escritorio de 1 m cuarenta por 70 cm y setenta y tres de altura, tapa de MDP de 25 mm, panel frontal de dieciocho, tapacantos PVC, estructura metálica para cableado y sistema minifix. Cajonera de treinta y tres por cuarenta por 63 cm, con un cajón, un portafiles, cerradura simultánea, tapa de veinticinco y laterales de 18 mm. Color olmo con blanco. Precio unitario de 1600 BOB.",
+    "asr_text": "2 escritorios rectos operativos con cajonera rodante, escritorio de 1 m 40 x 70 cm y 73 de altura, tapa de mdp y 25 mm, panel frontal de 18, tapa cantos PVC, estructura metálica para cableado y sistema minifix, cajon era de 33 x 40 x 73 cm con un cajón, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18 mm, color holmo con blanco, precio unitario de 1600 BOB.",
+    "reference_transforms": [
+      {
+        "start": 0,
+        "end": 3,
+        "raw": "Dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 70,
+        "end": 72,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 73,
+        "end": 78,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 92,
+        "end": 99,
+        "raw": "setenta",
+        "replacement": "70",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 100,
+        "end": 111,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 155,
+        "end": 166,
+        "raw": "veinticinco",
+        "replacement": "25",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 167,
+        "end": 177,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 320,
+        "end": 334,
+        "raw": "sesenta y tres",
+        "replacement": "63",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 335,
+        "end": 346,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 434,
+        "end": 443,
+        "raw": "dieciocho",
+        "replacement": "18",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 444,
+        "end": 454,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 498,
+        "end": 513,
+        "raw": "mil seiscientos",
+        "replacement": "1600",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 514,
+        "end": 524,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 0,
+        "end": 3,
+        "raw": "dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 70,
+        "end": 72,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 73,
+        "end": 78,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 87,
+        "end": 98,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 132,
+        "end": 142,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 396,
+        "end": 406,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

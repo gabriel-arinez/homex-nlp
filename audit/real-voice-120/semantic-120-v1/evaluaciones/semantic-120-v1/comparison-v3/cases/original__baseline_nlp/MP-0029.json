@@ -1,0 +1,1303 @@
+{
+  "id": "MP-0029",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0029",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "original__baseline_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "07778ccee85f156abf2965c03cb8cd72cec1a28f7e3326cce4c8cd4ab472a55a",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0029.aac",
+    "original_sha256": "ccadf7f2da90281bf9d49898fd6385a0a7a65425487bea01df401250e3e80b4e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0029.wav",
+    "wav_sha256": "9fcc5cd204f5e5af82aedd744ded79c7cda7937e4cbd97aa886d7012c7f3f12c"
+  },
+  "text_original": "8 vitrinas tipo 6 de 3 metros 40 de ancho, 60 centímetros de profundidad y 2 metros 30 de alto. Estructura metálica con revestimiento de melamina de 18 milímetros, repisas y divisiones de 36 milímetros, soportes metálicos, vidrio templado transparente de 8 milímetros, puertas corredizas con chapa de seguridad frontal según diseño, precio unitario de 29.800 bolivianos.",
+  "script_text": "Ocho vitrinas tipo seis, de tres metros cuarenta de ancho, sesenta centímetros de profundidad y dos metros treinta de alto. Estructura metálica con revestimiento de melamina de dieciocho milímetros, repisas y divisiones de treinta y seis milímetros, soportes metálicos, vidrio templado transparente de ocho milímetros y puertas corredizas con chapa de seguridad frontal. Según diseño. Precio unitario de veintinueve mil ochocientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0029",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "8 vitrinas tipo 6 de 3 metros 40 de ancho, 60 centímetros de profundidad y 2 metros 30 de alto. Estructura metálica con revestimiento de melamina de 18 milímetros, repisas y divisiones de 36 milímetros, soportes metálicos, vidrio templado transparente de 8 milímetros, puertas corredizas con chapa de seguridad frontal según diseño, precio unitario de 29.800 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "vitrinas",
+      "furniture_type_candidate": "vitrinas",
+      "quantity": 8,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "repisas",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "divisiones",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "puertas",
+          "evidence_ids": [
+            "c16"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "340",
+          "unit": "cm",
+          "original_text": "3 metros 40 de ancho",
+          "value_mm": "3400",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "230",
+          "unit": "cm",
+          "original_text": "2 metros 30 de alto",
+          "value_mm": "2300",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "60",
+          "unit": "cm",
+          "original_text": "60 centímetros de profundidad",
+          "value_mm": "600",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-3",
+          "value": "36",
+          "unit": "mm",
+          "original_text": "36 milímetros",
+          "value_mm": "36"
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "value": "8",
+          "unit": "mm",
+          "original_text": "8 milímetros",
+          "value_mm": "8"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": "pieza-4",
+          "name": "chapa de seguridad frontal según diseño",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c11"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "29800.00",
+        "currency": "BOB",
+        "unit_price_input": "29800.00",
+        "line_total": "238400.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 10,
+        "text": "vitrinas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 1,
+        "text": "8",
+        "source": "RULE",
+        "normalized_value": 8,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 21,
+        "end": 41,
+        "text": "3 metros 40 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "340",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 75,
+        "end": 94,
+        "text": "2 metros 30 de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "230",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 43,
+        "end": 72,
+        "text": "60 centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "60",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 149,
+        "end": 162,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ESPESOR",
+        "start": 188,
+        "end": 201,
+        "text": "36 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "36",
+          "mm"
+        ],
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ESPESOR",
+        "start": 255,
+        "end": 267,
+        "text": "8 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "8",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 269,
+        "end": 287,
+        "text": "puertas corredizas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 292,
+        "end": 331,
+        "text": "chapa de seguridad frontal según diseño",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO",
+        "start": 352,
+        "end": 358,
+        "text": "29.800",
+        "source": "RULE",
+        "normalized_value": "29800",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 96,
+        "end": 106,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 137,
+        "end": 145,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 164,
+        "end": 171,
+        "text": "repisas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 174,
+        "end": 184,
+        "text": "divisiones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 269,
+        "end": 276,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 223,
+        "end": 238,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "COLOR",
+        "start": 239,
+        "end": 251,
+        "text": "transparente",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 8 milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 7
+  },
+  "predicted_fields": [
+    {
+      "field": "quantity",
+      "value": 8
+    },
+    {
+      "field": "name",
+      "value": "vitrinas"
+    },
+    {
+      "field": "dimensions",
+      "value": "340",
+      "unit": "cm",
+      "axis": "ancho",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "230",
+      "unit": "cm",
+      "axis": "alto",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "60",
+      "unit": "cm",
+      "axis": "profundidad",
+      "component_ref": null
+    },
+    {
+      "field": "thicknesses",
+      "value": "18",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-1"
+    },
+    {
+      "field": "thicknesses",
+      "value": "36",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-3"
+    },
+    {
+      "field": "thicknesses",
+      "value": "8",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": null
+    },
+    {
+      "field": "accessories",
+      "value": "chapa de seguridad frontal según diseño",
+      "count": null,
+      "component_ref": "pieza-4"
+    },
+    {
+      "field": "price",
+      "value": "29800.00",
+      "currency": "BOB",
+      "modality": "UNIT"
+    },
+    {
+      "field": "materials",
+      "value": "melamina",
+      "evidence": {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 137,
+        "end": 145,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    },
+    {
+      "field": "materials",
+      "value": "vidrio templado",
+      "evidence": {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 223,
+        "end": 238,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [
+          "BOB"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [
+          "UNIT"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 10,
+    "denominator": 12,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          10
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "vidrio templado",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          11
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "segun diseno",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "3400",
+          "ancho"
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "600",
+          "profundidad"
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "2300",
+          "alto"
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "36",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "reference_indices": [
+          17
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          9
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "thicknesses": {
+        "numerator": 3,
+        "denominator": 3,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "dimensions": {
+        "numerator": 3,
+        "denominator": 3,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "vitrinas",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad frontal segun diseno",
+          null
+        ],
+        "prediction_indices": [
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [
+          "BOB"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [
+          "UNIT"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 10,
+    "denominator": 12,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          10
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "vidrio templado",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          11
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "segun diseno",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "3400",
+          "ancho"
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "600",
+          "profundidad"
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "2300",
+          "alto"
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "36",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "29800",
+          null
+        ],
+        "reference_indices": [
+          17
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          9
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "thicknesses": {
+        "numerator": 3,
+        "denominator": 3,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "dimensions": {
+        "numerator": 3,
+        "denominator": 3,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "vitrinas",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad frontal segun diseno",
+          null
+        ],
+        "prediction_indices": [
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 16,
+      "substitutions": 11,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 62,
+      "rate": 0.25806451612903225
+    },
+    "strict_normalized": {
+      "errors": 4,
+      "substitutions": 3,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 58,
+      "rate": 0.06896551724137931
+    }
+  },
+  "normalization": {
+    "reference_text": "8 vitrinas tipo seis, de 3 m cuarenta de ancho, 60 cm de profundidad y 2 m treinta de alto. Estructura metálica con revestimiento de melamina de 18 mm, repisas y divisiones de 36 mm, soportes metálicos, vidrio templado transparente de 8 mm y puertas corredizas con chapa de seguridad frontal. Según diseño. Precio unitario de 29800 BOB.",
+    "asr_text": "8 vitrinas tipo 6 de 3 m 40 de ancho, 60 cm de profundidad y 2 m 30 de alto. Estructura metálica con revestimiento de melamina de 18 mm, repisas y divisiones de 36 mm, soportes metálicos, vidrio templado transparente de 8 mm, puertas corredizas con chapa de seguridad frontal según diseño, precio unitario de 29800 BOB.",
+    "reference_transforms": [
+      {
+        "start": 0,
+        "end": 4,
+        "raw": "Ocho",
+        "replacement": "8",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 28,
+        "end": 32,
+        "raw": "tres",
+        "replacement": "3",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 33,
+        "end": 39,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 59,
+        "end": 66,
+        "raw": "sesenta",
+        "replacement": "60",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 67,
+        "end": 78,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 96,
+        "end": 99,
+        "raw": "dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 100,
+        "end": 106,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 177,
+        "end": 186,
+        "raw": "dieciocho",
+        "replacement": "18",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 187,
+        "end": 197,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 223,
+        "end": 237,
+        "raw": "treinta y seis",
+        "replacement": "36",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 238,
+        "end": 248,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 302,
+        "end": 306,
+        "raw": "ocho",
+        "replacement": "8",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 307,
+        "end": 317,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 404,
+        "end": 431,
+        "raw": "veintinueve mil ochocientos",
+        "replacement": "29800",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 432,
+        "end": 442,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 23,
+        "end": 29,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 46,
+        "end": 57,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 77,
+        "end": 83,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 152,
+        "end": 162,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 191,
+        "end": 201,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 257,
+        "end": 267,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 352,
+        "end": 358,
+        "raw": "29.800",
+        "replacement": "29800",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 359,
+        "end": 369,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

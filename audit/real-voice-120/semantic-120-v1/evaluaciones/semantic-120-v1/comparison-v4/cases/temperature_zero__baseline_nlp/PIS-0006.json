@@ -1,0 +1,550 @@
+{
+  "id": "PIS-0006",
+  "category": "PISO_FLOTANTE",
+  "leakage_group": "DEV-PIS-0001",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "b0cdbe0a0c8e558dedd1a61803860c6537da1cb6c4a073d88e02aae9216f638f",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios/PIS-0006.aac",
+    "original_sha256": "a5a524ac7a6a8b9a621268c86311ec0ee362057eeb867de5ae6f9c9ca97785e1",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios_asr/PIS-0006.wav",
+    "wav_sha256": "76b54c04ccaacf6b48c2c688d85b0983bf33c4e9956dce67c1000d7390314d42"
+  },
+  "text_original": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+  "script_text": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de ocho milímetros, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+  "nlp_raw": {
+    "category": "PISO_FLOTANTE",
+    "fields": {
+      "unidad_stock": 56,
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+      "precio_lista": "135.00",
+      "modelo": "NA9174"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-245-259",
+        "label": "unidad_stock",
+        "start": 245,
+        "end": 259,
+        "text": "metro cuadrado",
+        "source": "RULE",
+        "normalized_value": 56,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Piso flotante Ganesha",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-295",
+        "label": "observaciones",
+        "start": 0,
+        "end": 295,
+        "text": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-280-283",
+        "label": "precio_lista",
+        "start": 280,
+        "end": 283,
+        "text": "135",
+        "source": "RULE",
+        "normalized_value": "135.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-30-36",
+        "label": "modelo",
+        "start": 30,
+        "end": 36,
+        "text": "NA9174",
+        "source": "RULE",
+        "normalized_value": "NA9174",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Piso flotante Ganesha"
+    },
+    {
+      "field": "model",
+      "value": "NA9174"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Metro cuadrado"
+    },
+    {
+      "field": "price",
+      "value": "135.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "hdf",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "membrana de proteccion",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "metro cuadrado",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "piso flotante ganesha",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "na9174",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 4,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "hdf",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "metro cuadrado",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "piso flotante ganesha",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "na9174",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      3,
+      4
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 19,
+      "substitutions": 4,
+      "deletions": 15,
+      "insertions": 0,
+      "reference_length": 51,
+      "rate": 0.37254901960784315
+    },
+    "strict_normalized": {
+      "errors": 15,
+      "substitutions": 3,
+      "deletions": 12,
+      "insertions": 0,
+      "reference_length": 48,
+      "rate": 0.3125
+    }
+  },
+  "normalization": {
+    "reference_text": "Piso flotante Ganesha, código ene a nueve uno siete cuatro. Aglomerado HDF de 8 mm, sistema doble clic, resistente a impactos, presión, rayos ultravioleta y limpiadores domésticos. Clase A C cuatro, color a elección, incluye membrana de protección. Procedencia India. Unidad m cuadrado. Precio unitario de 135 BOB.",
+    "asr_text": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 mm. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad m cuadrado, precio unitario de 135 BOB.",
+    "reference_transforms": [
+      {
+        "start": 78,
+        "end": 82,
+        "raw": "ocho",
+        "replacement": "8",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 83,
+        "end": 93,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 286,
+        "end": 291,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 321,
+        "end": 343,
+        "raw": "ciento treinta y cinco",
+        "replacement": "135",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 344,
+        "end": 354,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 54,
+        "end": 64,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 245,
+        "end": 250,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 284,
+        "end": 294,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

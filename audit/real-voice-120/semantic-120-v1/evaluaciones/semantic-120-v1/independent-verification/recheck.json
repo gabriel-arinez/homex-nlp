@@ -1,0 +1,90 @@
+{
+  "verdict": "pass for the sole corrected S3 blocker; broader acceptance remains partial",
+  "recheck": "implicit catalog-name reason, raw span, and normalized value",
+  "cases": [
+    {
+      "input": "Poltrona de sala de espera de estructura y patas de madera maciza",
+      "expected_name": "Poltrona de sala de espera",
+      "actual_name": "Poltrona de sala de espera",
+      "span": [
+        0,
+        26
+      ],
+      "source_text": "Poltrona de sala de espera",
+      "normalized_value": "Poltrona de sala de espera",
+      "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales",
+      "raw_span_exact": true,
+      "pass": true
+    },
+    {
+      "input": "Piso flotante de aglomerado HDF de ocho milímetros",
+      "expected_name": "Piso flotante",
+      "actual_name": "Piso flotante",
+      "span": [
+        0,
+        13
+      ],
+      "source_text": "Piso flotante",
+      "normalized_value": "Piso flotante",
+      "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales",
+      "raw_span_exact": true,
+      "pass": true
+    },
+    {
+      "input": "Mesa de reuniones de 120 centímetros",
+      "expected_name": "Mesa de reuniones",
+      "actual_name": "Mesa de reuniones",
+      "span": [
+        0,
+        17
+      ],
+      "source_text": "Mesa de reuniones",
+      "normalized_value": "Mesa de reuniones",
+      "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales",
+      "raw_span_exact": true,
+      "pass": true
+    },
+    {
+      "input": "Zócalo de ochenta milímetros de alto",
+      "expected_name": "Zócalo",
+      "actual_name": "Zócalo",
+      "span": [
+        0,
+        6
+      ],
+      "source_text": "Zócalo",
+      "normalized_value": "Zócalo",
+      "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales",
+      "raw_span_exact": true,
+      "pass": true
+    },
+    {
+      "input": "2 poltronas de estructura metálica",
+      "expected_name": "2 poltronas",
+      "actual_name": "2 poltronas",
+      "span": [
+        0,
+        11
+      ],
+      "source_text": "2 poltronas",
+      "normalized_value": "2 poltronas",
+      "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales",
+      "raw_span_exact": true,
+      "pass": true
+    }
+  ],
+  "old_frozen_candidate": "0/5 passed the required reason assertion (all had reason=null)",
+  "corrected_candidate": "5/5 passed",
+  "focused_pytest": "5 passed, 28 deselected",
+  "release_identity": {
+    "version": "0.1.22",
+    "wheel_sha256": "3dbb520c7e0f169b6e80ab6fceb992676c42ddbd5f5e0616ee9e3179a6d9c19f",
+    "manifest_matches_dist": true,
+    "backend_vendor_wheel_matches": true,
+    "backend_isolated_import": "0.1.22 from backend venv site-packages"
+  },
+  "environment_incident": "Earlier scratch .venv symlink combined with uv/make altered shared editable metadata; parent restored via offline locked uv sync and independently confirmed root import. This recheck used only PYTHONPATH with existing Python, no uv or installs.",
+  "scratch_retained": "/tmp/tmp.NCX8byUD4F",
+  "logs": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/logs/semantic-120-v1/independent-verify-name-*.log",
+  "risk": "Risk: item 3 (shared consumer-facing semantic evidence contract) and item 5 (distribution/release surface)"
+}

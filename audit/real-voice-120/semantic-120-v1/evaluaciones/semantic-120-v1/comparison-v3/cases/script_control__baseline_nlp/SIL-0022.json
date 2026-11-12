@@ -1,0 +1,605 @@
+{
+  "id": "SIL-0022",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0022",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__baseline_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "e373fcd49ae860b1379d50550cfbe7b5a3452d1621465767327b2be531b98dbe",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0022.aac",
+    "original_sha256": "dae0ae90bb426b1f6fcce690446e55dcb65a3fec34cf055e69004e53582f118d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0022.wav",
+    "wav_sha256": "2d6b4d685dbd6c6626bb95c9caf4d52980f6f567c8d830a0d85f58b7bd5d61fd"
+  },
+  "text_original": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+  "script_text": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla operativa",
+      "observaciones": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+      "precio_lista": "650.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "esponja de alta densidad",
+        "suspension": " hidráulica",
+        "patas": "Cinco patas con ruedas"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-259-264",
+        "label": "unidad_stock",
+        "start": 259,
+        "end": 264,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-15",
+        "label": "nombre",
+        "start": 0,
+        "end": 15,
+        "text": "Silla operativa",
+        "source": "RULE",
+        "normalized_value": "Silla operativa",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-318",
+        "label": "observaciones",
+        "start": 0,
+        "end": 318,
+        "text": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de seiscientos cincuenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-285-306",
+        "label": "precio_lista",
+        "start": 285,
+        "end": 306,
+        "text": "seiscientos cincuenta",
+        "source": "RULE",
+        "normalized_value": "650.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-24-32",
+        "label": "modelo",
+        "start": 24,
+        "end": 32,
+        "text": "hache ce",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-168-189",
+        "label": "especificaciones.tapiz",
+        "start": 168,
+        "end": 189,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-139-163",
+        "label": "especificaciones.asiento",
+        "start": 139,
+        "end": 163,
+        "text": "esponja de alta densidad",
+        "source": "RULE",
+        "normalized_value": "esponja de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-201-212",
+        "label": "especificaciones.suspension",
+        "start": 201,
+        "end": 212,
+        "text": " hidráulica",
+        "source": "RULE",
+        "normalized_value": " hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-55-77",
+        "label": "especificaciones.patas",
+        "start": 55,
+        "end": 77,
+        "text": "Cinco patas con ruedas",
+        "source": "RULE",
+        "normalized_value": "Cinco patas con ruedas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla operativa"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "650.00"
+    },
+    {
+      "field": "materials",
+      "value": "tapiz de alto tráfico"
+    },
+    {
+      "field": "materials",
+      "value": "esponja de alta densidad"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla operativa",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "tapiz de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          3
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "esponja de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "650",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla operativa",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "tapiz de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          3
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "esponja de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de 650 BOB.",
+    "asr_text": "Silla operativa, modelo hache ce guion cero dos siete. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados, esponja de alta densidad con tapiz de alto tráfico, regulación hidráulica de altura, apoyabrazos y patas de PVC. Unidad pieza. Precio de lista de 650 BOB.",
+    "reference_transforms": [
+      {
+        "start": 285,
+        "end": 306,
+        "raw": "seiscientos cincuenta",
+        "replacement": "650",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 307,
+        "end": 317,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 285,
+        "end": 306,
+        "raw": "seiscientos cincuenta",
+        "replacement": "650",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 307,
+        "end": 317,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

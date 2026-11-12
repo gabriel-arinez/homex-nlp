@@ -1,0 +1,229 @@
+{
+  "schema": "publication-final-security-audit/1",
+  "result": "PASS_LOCAL_ARTIFACT_PRIVACY_AUDIT",
+  "scope": "Frozen publication destination audited read-only; no public output, source, Git state, or remote changed by this audit.",
+  "destination": "audit/real-voice-120/semantic-120-v1",
+  "manifest": {
+    "file_count": 7672,
+    "status_counts": {
+      "IDENTICAL": 6716,
+      "PRIVATE_HISTORICAL_RUNTIME_HELPER_RETAINED_LOCAL": 16,
+      "FULL_TRACE_RETAINED_LOCAL_TEXT_EVENTS_EXPORTED": 2,
+      "LOCAL_AUDIO_ARTIFACT_OR_CACHE_NOT_PUBLISHED": 933,
+      "SANITIZED_COPY": 1,
+      "COMPLETED_POST_EXPORT_CONSOLE_OR_VERIFICATION": 3,
+      "GENERATED_PUBLIC_INDEX": 1
+    },
+    "file_size_bytes": 6612533,
+    "records_self_hashed": false
+  },
+  "integrity": {
+    "source_record_hashes_checked": 7672,
+    "source_record_hashes_passed": 7672,
+    "top_level_export_hashes_checked": 6721,
+    "top_level_export_hashes_passed": 6721,
+    "trace_source_member_hashes_checked": 10374,
+    "trace_source_member_hashes_passed": 10374,
+    "sanitized_trace_export_hashes_checked": 6,
+    "sanitized_trace_export_hashes_passed": 6,
+    "actual_files": 6728,
+    "expected_files_including_manifest": 6728,
+    "unrecorded_files": 0,
+    "missing_files": 0,
+    "symlinks": 0,
+    "total_bytes": 184329661,
+    "largest_file": "evaluaciones/semantic-120-v1/comparison-v5/root-cause-isolation.json",
+    "largest_file_bytes": 6630485,
+    "files_over_100mb": 0,
+    "extensions": {
+      ".md": 9,
+      ".json": 6577,
+      ".jsonl": 3,
+      ".py": 8,
+      ".png": 18,
+      ".txt": 4,
+      ".log": 97,
+      ".tsv": 1,
+      ".html": 2,
+      ".trace": 2,
+      ".stacks": 2,
+      ".network": 2,
+      ".sh": 2,
+      ".mjs": 1
+    }
+  },
+  "excluded_payloads": {
+    "audio_or_video_suffix_files": 0,
+    "env_files": 0,
+    "database_files": 0,
+    "model_weight_files": 0,
+    "wheel_or_intermediate_archive_files": 0,
+    "raw_trace_archives_copied": 0,
+    "raw_traces_retained_locally": 2,
+    "sanitized_trace_streams_published": 6,
+    "historical_runtime_helpers_omitted": 16,
+    "historical_helper_omissions_documented_in_public_readme": true,
+    "historical_helpers_note": "The public README documents the omission; full original local traces remain local."
+  },
+  "privacy": {
+    "known_sensitive_values_collected_from_runtime_artifacts_and_logs": 69,
+    "exact_known_value_matches_in_public_text": 0,
+    "jwt_or_github_token_patterns": 0,
+    "bearer_credential_patterns": 0,
+    "audio_data_uri_patterns": 0,
+    "sensitive_json_properties_outside_synthetic_test_fixture": 0,
+    "trace_records_parsed": 15097,
+    "malformed_trace_records": 0,
+    "trace_cookie_arrays": 3608,
+    "nonempty_trace_cookie_arrays": 0,
+    "audio_mime_metadata_objects": 14,
+    "audio_mime_objects_with_inline_buffer_or_base64": 0,
+    "audio_mime_objects_with_archive_reference": 0,
+    "inline_audio_payloads_found": 0,
+    "privacy_note": "Trace audio MIME records contained metadata only (mimeType/size); no payload bytes, buffer/base64 fields, or archive references. One credential-like property in the public synthetic exporter test is fixture-only, not a real credential."
+  },
+  "images": {
+    "count": 18,
+    "match_count": 18,
+    "all_match": true,
+    "hashes": [
+      {
+        "path": "integration-v1/MP-0001.png",
+        "source_sha256": "f581924b603969b75865bf43f2176e4abe1ac1c3ffe7bea5f49133b57fd04863",
+        "reviewed_sha256": "f581924b603969b75865bf43f2176e4abe1ac1c3ffe7bea5f49133b57fd04863",
+        "published_sha256": "f581924b603969b75865bf43f2176e4abe1ac1c3ffe7bea5f49133b57fd04863",
+        "match": true
+      },
+      {
+        "path": "integration-v1/MP-0005.png",
+        "source_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "reviewed_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "published_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "match": true
+      },
+      {
+        "path": "integration-v1/MP-0036.png",
+        "source_sha256": "f05f958a5a3431ed498bd093de7820d432ab91afd7ed78b88cc3fd7db1daa0b1",
+        "reviewed_sha256": "f05f958a5a3431ed498bd093de7820d432ab91afd7ed78b88cc3fd7db1daa0b1",
+        "published_sha256": "f05f958a5a3431ed498bd093de7820d432ab91afd7ed78b88cc3fd7db1daa0b1",
+        "match": true
+      },
+      {
+        "path": "integration-v1/MP-0045.png",
+        "source_sha256": "924f8d98f61a309dc44fc2dcbebfa344d253a2aad7da4cd769d389eb4bd7f53b",
+        "reviewed_sha256": "924f8d98f61a309dc44fc2dcbebfa344d253a2aad7da4cd769d389eb4bd7f53b",
+        "published_sha256": "924f8d98f61a309dc44fc2dcbebfa344d253a2aad7da4cd769d389eb4bd7f53b",
+        "match": true
+      },
+      {
+        "path": "integration-v1/MP-0067.png",
+        "source_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "reviewed_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "published_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "match": true
+      },
+      {
+        "path": "integration-v1/PIS-0001.png",
+        "source_sha256": "10ebee2e9c5023106d2b8a4d7cc7557f8d00523504b01751c8452f532332524f",
+        "reviewed_sha256": "10ebee2e9c5023106d2b8a4d7cc7557f8d00523504b01751c8452f532332524f",
+        "published_sha256": "10ebee2e9c5023106d2b8a4d7cc7557f8d00523504b01751c8452f532332524f",
+        "match": true
+      },
+      {
+        "path": "integration-v1/PIS-0006.png",
+        "source_sha256": "0bec647d04effd94b232393b5679133aa6fe8aa03a036e62f14ce3d748fcacb2",
+        "reviewed_sha256": "0bec647d04effd94b232393b5679133aa6fe8aa03a036e62f14ce3d748fcacb2",
+        "published_sha256": "0bec647d04effd94b232393b5679133aa6fe8aa03a036e62f14ce3d748fcacb2",
+        "match": true
+      },
+      {
+        "path": "integration-v1/SIL-0001.png",
+        "source_sha256": "f0b8a649ebfcf2917ac59a0771d0923a7cfd47e565a52eb9c83f322afdefe06b",
+        "reviewed_sha256": "f0b8a649ebfcf2917ac59a0771d0923a7cfd47e565a52eb9c83f322afdefe06b",
+        "published_sha256": "f0b8a649ebfcf2917ac59a0771d0923a7cfd47e565a52eb9c83f322afdefe06b",
+        "match": true
+      },
+      {
+        "path": "integration-v2/MP-0001.png",
+        "source_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "reviewed_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "published_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "match": true
+      },
+      {
+        "path": "integration-v2/SIL-0001.png",
+        "source_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "reviewed_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "published_sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da",
+        "match": true
+      },
+      {
+        "path": "integration-v3/MP-0001.png",
+        "source_sha256": "771c60e36c86e53a49aced565689e4e7031a7da39e3e9b128ff5b77bd02befc0",
+        "reviewed_sha256": "771c60e36c86e53a49aced565689e4e7031a7da39e3e9b128ff5b77bd02befc0",
+        "published_sha256": "771c60e36c86e53a49aced565689e4e7031a7da39e3e9b128ff5b77bd02befc0",
+        "match": true
+      },
+      {
+        "path": "integration-v3/MP-0005.png",
+        "source_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "reviewed_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "published_sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924",
+        "match": true
+      },
+      {
+        "path": "integration-v3/MP-0036.png",
+        "source_sha256": "eb06813515f584d2612be119f099ae11f9c69ca293b933c88c39e279e29c7245",
+        "reviewed_sha256": "eb06813515f584d2612be119f099ae11f9c69ca293b933c88c39e279e29c7245",
+        "published_sha256": "eb06813515f584d2612be119f099ae11f9c69ca293b933c88c39e279e29c7245",
+        "match": true
+      },
+      {
+        "path": "integration-v3/MP-0045.png",
+        "source_sha256": "ee19d77f53d3f1076853628ff90d2d4d0280b54ad7ef026030d06492cb3dffaa",
+        "reviewed_sha256": "ee19d77f53d3f1076853628ff90d2d4d0280b54ad7ef026030d06492cb3dffaa",
+        "published_sha256": "ee19d77f53d3f1076853628ff90d2d4d0280b54ad7ef026030d06492cb3dffaa",
+        "match": true
+      },
+      {
+        "path": "integration-v3/MP-0067.png",
+        "source_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "reviewed_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "published_sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1",
+        "match": true
+      },
+      {
+        "path": "integration-v3/PIS-0001.png",
+        "source_sha256": "74362d771af618c2be45ac904eb2e73157bad999733d1e0deb88c7f4f1fe0251",
+        "reviewed_sha256": "74362d771af618c2be45ac904eb2e73157bad999733d1e0deb88c7f4f1fe0251",
+        "published_sha256": "74362d771af618c2be45ac904eb2e73157bad999733d1e0deb88c7f4f1fe0251",
+        "match": true
+      },
+      {
+        "path": "integration-v3/PIS-0006.png",
+        "source_sha256": "6fa48b5f42f635c16fb23e009d67c004247857375893cbd8ff1c530ef81d96f1",
+        "reviewed_sha256": "6fa48b5f42f635c16fb23e009d67c004247857375893cbd8ff1c530ef81d96f1",
+        "published_sha256": "6fa48b5f42f635c16fb23e009d67c004247857375893cbd8ff1c530ef81d96f1",
+        "match": true
+      },
+      {
+        "path": "integration-v3/SIL-0001.png",
+        "source_sha256": "74bb743f997fae7ce845747db42a81ed54ab271dc518bed1c594b5dc29cbccf4",
+        "reviewed_sha256": "74bb743f997fae7ce845747db42a81ed54ab271dc518bed1c594b5dc29cbccf4",
+        "published_sha256": "74bb743f997fae7ce845747db42a81ed54ab271dc518bed1c594b5dc29cbccf4",
+        "match": true
+      }
+    ]
+  },
+  "historical_publication": {
+    "b851b5a_tracked_files_compared_to_HEAD_excluding_root_navigation_readme": 1294,
+    "changed_files": 0,
+    "root_readme_excluded_by_request": true,
+    "changed_path_examples": []
+  },
+  "limitations": [
+    "No remote Gitleaks/CI result is claimed; remote CI remains the authoritative check after any separately authorized push.",
+    "The manifest is not self-hashed; it is the audit index."
+  ],
+  "secret_values": "Never recorded or emitted; no exact matches were found."
+}

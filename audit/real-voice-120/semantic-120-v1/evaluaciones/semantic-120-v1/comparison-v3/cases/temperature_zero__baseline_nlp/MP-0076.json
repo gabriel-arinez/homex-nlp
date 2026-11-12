@@ -1,0 +1,816 @@
+{
+  "id": "MP-0076",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0076",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "60fe548f9ab0c99f40af45b3b4f5eeefa519da370722dd85c19071f566c78f9a",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0076.aac",
+    "original_sha256": "820ba9167324a0bf47e473c167f1e0a15acce73c03857a91c0e2abad115a3b24",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0076.wav",
+    "wav_sha256": "10ba44e9b3ca6c35e138df6b9518f49c4b4c3372d7c3bcaabd36b33d148bfecc"
+  },
+  "text_original": "Una mesa circular de un metro de diámetro y 78 centímetros de alto, mesón de melamina de 25 milímetros y patas de melamina de 18, color elección, precio de 1500 bolivianos.",
+  "script_text": "Una mesa circular de un metro de diámetro y setenta y ocho centímetros de alto. Mesón de melamina de veinticinco milímetros y patas de melamina de dieciocho. Color a elección. Precio de mil quinientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0076",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa circular de un metro de diámetro y 78 centímetros de alto, mesón de melamina de 25 milímetros y patas de melamina de 18, color elección, precio de 1500 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c7"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas",
+          "evidence_ids": [
+            "c9"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "78",
+          "unit": "cm",
+          "original_text": "78 centímetros de alto",
+          "value_mm": "780",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "1",
+          "unit": "m",
+          "original_text": "un metro de diámetro",
+          "value_mm": "1000",
+          "axis": "diametro"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "25 milímetros",
+          "value_mm": "25"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [],
+      "price": null,
+      "observations": "color elección",
+      "unresolved": [
+        "c6"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 44,
+        "end": 66,
+        "text": "78 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "78",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "DIAMETRO",
+        "start": 21,
+        "end": 41,
+        "text": "un metro de diámetro",
+        "source": "RULE",
+        "normalized_value": [
+          "1",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 89,
+        "end": 102,
+        "text": "25 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "PRECIO_AMBIGUO",
+        "start": 156,
+        "end": 160,
+        "text": "1500",
+        "source": "RULE",
+        "normalized_value": "1500",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "COMPONENTE",
+        "start": 68,
+        "end": 73,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "MATERIAL",
+        "start": 77,
+        "end": 85,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 105,
+        "end": 110,
+        "text": "patas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 114,
+        "end": 122,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 1500.00 BOB; aclare si es total o precio unitario."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "predicted_fields": [
+    {
+      "field": "quantity",
+      "value": 1
+    },
+    {
+      "field": "name",
+      "value": "mesa"
+    },
+    {
+      "field": "dimensions",
+      "value": "78",
+      "unit": "cm",
+      "axis": "alto",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "1",
+      "unit": "m",
+      "axis": "diametro",
+      "component_ref": null
+    },
+    {
+      "field": "thicknesses",
+      "value": "25",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-1"
+    },
+    {
+      "field": "materials",
+      "value": "melamina",
+      "evidence": {
+        "candidate_id": "c8",
+        "label": "MATERIAL",
+        "start": 77,
+        "end": 85,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    },
+    {
+      "field": "materials",
+      "value": "melamina",
+      "evidence": {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 114,
+        "end": 122,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 5,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3,
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5,
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1000",
+          "diametro"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "780",
+          "alto"
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "dimensions": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "mesa",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 5,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3,
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5,
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1000",
+          "diametro"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "780",
+          "alto"
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "dimensions": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "mesa",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 8,
+      "substitutions": 4,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 35,
+      "rate": 0.22857142857142856
+    },
+    "strict_normalized": {
+      "errors": 2,
+      "substitutions": 1,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 32,
+      "rate": 0.0625
+    }
+  },
+  "normalization": {
+    "reference_text": "Una mesa circular de 1 m de diámetro y 78 cm de alto. Mesón de melamina de 25 mm y patas de melamina de dieciocho. Color a elección. Precio de 1500 BOB.",
+    "asr_text": "Una mesa circular de 1 m de diámetro y 78 cm de alto, mesón de melamina de 25 mm y patas de melamina de 18, color elección, precio de 1500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 21,
+        "end": 23,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 24,
+        "end": 29,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 44,
+        "end": 58,
+        "raw": "setenta y ocho",
+        "replacement": "78",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 59,
+        "end": 70,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 101,
+        "end": 112,
+        "raw": "veinticinco",
+        "replacement": "25",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 113,
+        "end": 123,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 186,
+        "end": 200,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 201,
+        "end": 211,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 21,
+        "end": 23,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 24,
+        "end": 29,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 47,
+        "end": 58,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 92,
+        "end": 102,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 161,
+        "end": 171,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

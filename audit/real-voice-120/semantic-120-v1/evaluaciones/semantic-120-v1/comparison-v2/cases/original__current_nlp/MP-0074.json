@@ -1,0 +1,347 @@
+{
+  "id": "MP-0074",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0070",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "original__current_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "beaa8b6f5f18cd7644ff4cb4d3498003619563dac897ef0f8afef219c0f7cbde",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0074.aac",
+    "original_sha256": "d0c7c4b7a804d8d63cf91eba22e2ea442970ea8d3910c4f9c3e96c79ad1faf8e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0074.wav",
+    "wav_sha256": "3e77f8349c51daab0544170d91591364abbdd187c8380e1fa2ac0a226509ee4e"
+  },
+  "text_original": "Estante Librero de 1 metro 17 de ancho, 2 metros 30 de alto y 40 centímetros de profundidad, estructura de velamina de 18 milímetros, bandejas divisorias, puertas corredizas y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 bolivianos.",
+  "script_text": "Estante librero de un metro diecisiete de ancho, dos metros treinta de alto y cuarenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros, bandejas divisorias, puertas corredizas inferiores y puertas de vidrio en la parte superior, con bandeja de separación. Precio de cuatro mil seiscientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0074",
+    "status": "NO_PROPOSAL",
+    "text_original": "Estante Librero de 1 metro 17 de ancho, 2 metros 30 de alto y 40 centímetros de profundidad, estructura de velamina de 18 milímetros, bandejas divisorias, puertas corredizas y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 0,
+        "end": 7,
+        "text": "Estante",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 8,
+        "end": 15,
+        "text": "Librero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "predicted_fields": [],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "4600",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 0,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1170",
+          "ancho"
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "2300",
+          "alto"
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "400",
+          "profundidad"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "4600",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "dimensions": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 3,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": []
+  },
+  "no_proposal": true,
+  "asr_metrics": {
+    "original": {
+      "errors": 11,
+      "substitutions": 8,
+      "deletions": 2,
+      "insertions": 1,
+      "reference_length": 47,
+      "rate": 0.23404255319148937
+    },
+    "strict_normalized": {
+      "errors": 4,
+      "substitutions": 3,
+      "deletions": 0,
+      "insertions": 1,
+      "reference_length": 45,
+      "rate": 0.08888888888888889
+    }
+  },
+  "normalization": {
+    "reference_text": "Estante librero de 1 m diecisiete de ancho, 2 m treinta de alto y 40 cm de profundidad. Estructura de melamina de 18 mm, bandejas divisorias, puertas corredizas inferiores y puertas de vidrio en la parte superior, con bandeja de separación. Precio de 4600 BOB.",
+    "asr_text": "Estante Librero de 1 m 17 de ancho, 2 m 30 de alto y 40 cm de profundidad, estructura de velamina de 18 mm, bandejas divisorias, puertas corredizas y inferiores y puertas de vidrio en la parte superior, con bandeja de separación, precio de 4600 BOB.",
+    "reference_transforms": [
+      {
+        "start": 19,
+        "end": 21,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "raw": "dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 53,
+        "end": 59,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 78,
+        "end": 86,
+        "raw": "cuarenta",
+        "replacement": "40",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 87,
+        "end": 98,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 141,
+        "end": 150,
+        "raw": "dieciocho",
+        "replacement": "18",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 151,
+        "end": 161,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 293,
+        "end": 315,
+        "raw": "cuatro mil seiscientos",
+        "replacement": "4600",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 316,
+        "end": 326,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 21,
+        "end": 26,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 42,
+        "end": 48,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 65,
+        "end": 76,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 122,
+        "end": 132,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 271,
+        "end": 281,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

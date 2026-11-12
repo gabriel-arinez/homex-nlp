@@ -1,0 +1,751 @@
+{
+  "id": "SIL-0014",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0007",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__current_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "34615c34d5b6efaab17c0f1a6296783a49d3e38db165f4254eaa9f699f485688",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0014.aac",
+    "original_sha256": "482a9db947136dbc068dc90b24d2ee63f0eb6b2781c47b3646f3157cda7b1527",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0014.wav",
+    "wav_sha256": "0ed9cce17ae3669ad4a976f9d8af93d20341d172a8820668d2798b7a15453a03"
+  },
+  "text_original": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+  "script_text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semiejecutiva ergonómica",
+      "observaciones": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+      "precio_lista": "1500.00",
+      "modelo": "B15B",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "Respaldo de malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-329-334",
+        "label": "unidad_stock",
+        "start": 329,
+        "end": 334,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-315-320",
+        "label": "color_primario",
+        "start": 315,
+        "end": 320,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-30",
+        "label": "nombre",
+        "start": 0,
+        "end": 30,
+        "text": "Silla semiejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-381",
+        "label": "observaciones",
+        "start": 0,
+        "end": 381,
+        "text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-355-369",
+        "label": "precio_lista",
+        "start": 355,
+        "end": 369,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-39-51",
+        "label": "modelo",
+        "start": 39,
+        "end": 51,
+        "text": "be quince be",
+        "source": "RULE",
+        "normalized_value": "B15B",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Equivalencia de código alfanumérico deletreado"
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-72-94",
+        "label": "especificaciones.brazos_regulables",
+        "start": 72,
+        "end": 94,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-53-70",
+        "label": "especificaciones.material_respaldo",
+        "start": 53,
+        "end": 70,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-254-275",
+        "label": "especificaciones.suspension",
+        "start": 254,
+        "end": 275,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-199-212",
+        "label": "especificaciones.mecanismo",
+        "start": 199,
+        "end": 212,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-278-290",
+        "label": "especificaciones.base",
+        "start": 278,
+        "end": 290,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla semiejecutiva ergonómica"
+    },
+    {
+      "field": "model",
+      "value": "B15B"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1500.00"
+    },
+    {
+      "field": "accessories",
+      "value": "apoyabrazos regulables"
+    },
+    {
+      "field": "materials",
+      "value": "Respaldo de malla"
+    },
+    {
+      "field": "materials",
+      "value": "base cromada"
+    },
+    {
+      "field": "materials",
+      "value": "Respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-53-70",
+        "label": "especificaciones.material_respaldo",
+        "start": 53,
+        "end": 70,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semiejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "b15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          6,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semiejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "b15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          6,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 53,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 52,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de 1500 BOB.",
+    "asr_text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables en altura, dirección y profundidad, zona lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable de tres posiciones, suspensión hidráulica y base cromada con cinco ruedas. Color negro. Unidad pieza. Precio de lista de 1500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 355,
+        "end": 369,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 370,
+        "end": 380,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 355,
+        "end": 369,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 370,
+        "end": 380,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

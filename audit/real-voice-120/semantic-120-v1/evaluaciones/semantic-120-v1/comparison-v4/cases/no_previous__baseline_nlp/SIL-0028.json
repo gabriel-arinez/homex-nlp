@@ -1,0 +1,712 @@
+{
+  "id": "SIL-0028",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0028",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "no_previous__baseline_nlp",
+  "asr_configuration": "no_previous",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "69501b22219da2acf1df18d7ce05acc7d588e50fb858af6ef2f3e183fdf7d8d2",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0028.aac",
+    "original_sha256": "330b5410a29d7d9c3b58c14b18e3395a5ba73798d92e4d3c325d1a0cb9992e4f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0028.wav",
+    "wav_sha256": "cccac13c6d80727f2454f9d4690dfac8785b41a91028c4f85a3c6091b2f9f83b"
+  },
+  "text_original": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas color negro unidad pieza precio de lista de 950 bolivianos",
+  "script_text": "Silla semiejecutiva, modelo ene efe guion quinientos trece ele. Respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC con cinco ruedas. Color negro. Unidad pieza. Precio de lista de novecientos cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla semi-executiva",
+      "observaciones": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas color negro unidad pieza precio de lista de 950 bolivianos",
+      "precio_lista": "950.00",
+      "modelo": "NF-513L",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-274-279",
+        "label": "unidad_stock",
+        "start": 274,
+        "end": 279,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-261-266",
+        "label": "color_primario",
+        "start": 261,
+        "end": 266,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla semi-executiva",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-313",
+        "label": "observaciones",
+        "start": 0,
+        "end": 313,
+        "text": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas color negro unidad pieza precio de lista de 950 bolivianos",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas color negro unidad pieza precio de lista de 950 bolivianos",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-299-302",
+        "label": "precio_lista",
+        "start": 299,
+        "end": 302,
+        "text": "950",
+        "source": "RULE",
+        "normalized_value": "950.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-41",
+        "label": "modelo",
+        "start": 28,
+        "end": 41,
+        "text": "NF Guion 513L",
+        "source": "RULE",
+        "normalized_value": "NF-513L",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-110-130",
+        "label": "especificaciones.tapiz",
+        "start": 110,
+        "end": 130,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-71-94",
+        "label": "especificaciones.asiento",
+        "start": 71,
+        "end": 94,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-199-210",
+        "label": "especificaciones.mecanismo",
+        "start": 199,
+        "end": 210,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla semi-executiva"
+    },
+    {
+      "field": "model",
+      "value": "NF-513L"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "950.00"
+    },
+    {
+      "field": "materials",
+      "value": "tela de alto tráfico"
+    },
+    {
+      "field": "materials",
+      "value": "espuma de alta densidad"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4,
+          5
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi-executiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "nf-513l",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "tela de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4,
+          5
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "950",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi-executiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "nf-513l",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "tela de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 10,
+      "substitutions": 6,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 59,
+      "rate": 0.1694915254237288
+    },
+    "strict_normalized": {
+      "errors": 8,
+      "substitutions": 5,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 58,
+      "rate": 0.13793103448275862
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla semiejecutiva, modelo ene efe guion quinientos trece ele. Respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC con cinco ruedas. Color negro. Unidad pieza. Precio de lista de 950 BOB.",
+    "asr_text": "Silla semi-executiva modelo NF Guion 513L, respaldo ancho y asiento de espuma de alta densidad, tapizados con tela de alto tráfico, brazos fijos de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de UPVC con cinco ruedas color negro unidad pieza precio de lista de 950 BOB",
+    "reference_transforms": [
+      {
+        "start": 325,
+        "end": 346,
+        "raw": "novecientos cincuenta",
+        "replacement": "950",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 347,
+        "end": 357,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 303,
+        "end": 313,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

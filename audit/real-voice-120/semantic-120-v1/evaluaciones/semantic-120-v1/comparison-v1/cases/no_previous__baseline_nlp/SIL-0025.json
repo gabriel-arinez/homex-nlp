@@ -1,0 +1,498 @@
+{
+  "id": "SIL-0025",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0025",
+  "development_only": true,
+  "cell": "no_previous__baseline_nlp",
+  "asr_configuration": "no_previous",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "2a07075e05b644598ea5957b4ddc19a5ab30f30f16b262336557ed5118b43dca",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0025.aac",
+    "original_sha256": "68b65d6daa37020c79ca21eed9d64251199b2723cdbd635d21a78593abfa197c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0025.wav",
+    "wav_sha256": "e2f4a26787befd40a0d5daf13499a8b0a8c50e449abaad7dcc9459c763280adc"
+  },
+  "text_original": "Silla secretarial modelo NF Guion 521, respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de pvc de cinco ruedas, color disponible negro con amarillo, unidad pieza, precio de lista de 800 bolivianos.",
+  "script_text": "Silla secretarial, modelo ene efe guion quinientos veintiuno. Respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC de cinco ruedas. Color disponible negro con amarillo. Unidad pieza. Precio de lista de ochocientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "color_primario": 46,
+      "color_secundario": 52,
+      "unidad_stock": 27,
+      "nombre": "Silla secretarial",
+      "observaciones": "Silla secretarial modelo NF Guion 521, respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de pvc de cinco ruedas, color disponible negro con amarillo, unidad pieza, precio de lista de 800 bolivianos.",
+      "precio_lista": "800.00",
+      "modelo": "NF-521",
+      "especificaciones": {
+        "brazos_regulables": "brazos ajustables",
+        "material_respaldo": "respaldo de malla",
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "base": "base de pvc"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "color_primario-305-310",
+        "label": "color_primario",
+        "start": 305,
+        "end": 310,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_secundario-315-323",
+        "label": "color_secundario",
+        "start": 315,
+        "end": 323,
+        "text": "amarillo",
+        "source": "RULE",
+        "normalized_value": 52,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-332-337",
+        "label": "unidad_stock",
+        "start": 332,
+        "end": 337,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-17",
+        "label": "nombre",
+        "start": 0,
+        "end": 17,
+        "text": "Silla secretarial",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-373",
+        "label": "observaciones",
+        "start": 0,
+        "end": 373,
+        "text": "Silla secretarial modelo NF Guion 521, respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de pvc de cinco ruedas, color disponible negro con amarillo, unidad pieza, precio de lista de 800 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial modelo NF Guion 521, respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de pvc de cinco ruedas, color disponible negro con amarillo, unidad pieza, precio de lista de 800 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-358-361",
+        "label": "precio_lista",
+        "start": 358,
+        "end": 361,
+        "text": "800",
+        "source": "RULE",
+        "normalized_value": "800.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-25-37",
+        "label": "modelo",
+        "start": 25,
+        "end": 37,
+        "text": "NF Guion 521",
+        "source": "RULE",
+        "normalized_value": "NF-521",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-151-168",
+        "label": "especificaciones.brazos_regulables",
+        "start": 151,
+        "end": 168,
+        "text": "brazos ajustables",
+        "source": "RULE",
+        "normalized_value": "brazos ajustables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-39-56",
+        "label": "especificaciones.material_respaldo",
+        "start": 39,
+        "end": 56,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-128-149",
+        "label": "especificaciones.tapiz",
+        "start": 128,
+        "end": 149,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-100-123",
+        "label": "especificaciones.asiento",
+        "start": 100,
+        "end": 123,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-233-244",
+        "label": "especificaciones.mecanismo",
+        "start": 233,
+        "end": 244,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-259-270",
+        "label": "especificaciones.base",
+        "start": 259,
+        "end": 270,
+        "text": "base de pvc",
+        "source": "RULE",
+        "normalized_value": "base de pvc",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla secretarial"
+    },
+    {
+      "field": "model",
+      "value": "NF-521"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "colors",
+      "value": "Amarillo"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "800.00"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-39-56",
+        "label": "especificaciones.material_respaldo",
+        "start": 39,
+        "end": 56,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "numerator": 4,
+    "denominator": 9,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3,
+          5,
+          6
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "amarillo",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "800",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": true,
+        "prediction_indices": [
+          5
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3
+      },
+      "colors": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla secretarial",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "nf-521",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 6,
+      "substitutions": 4,
+      "deletions": 2,
+      "insertions": 0,
+      "reference_length": 66,
+      "rate": 0.09090909090909091
+    },
+    "strict_normalized": {
+      "errors": 5,
+      "substitutions": 3,
+      "deletions": 2,
+      "insertions": 0,
+      "reference_length": 66,
+      "rate": 0.07575757575757576
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla secretarial, modelo ene efe guion quinientos veintiuno. Respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase tres, sistema de balanceo de una palanca con bloqueo y base de PVC de cinco ruedas. Color disponible negro con amarillo. Unidad pieza. Precio de lista de 800 BOB.",
+    "asr_text": "Silla secretarial modelo NF Guion 521, respaldo de malla con refuerzo ergonómico de PVC, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos ajustables en altura de PVC, pistón de gas clase 3, sistema de balanceo de una palanca con bloqueo y base de pvc de cinco ruedas, color disponible negro con amarillo, unidad pieza, precio de lista de 800 BOB.",
+    "reference_transforms": [
+      {
+        "start": 384,
+        "end": 395,
+        "raw": "ochocientos",
+        "replacement": "800",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 396,
+        "end": 406,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 362,
+        "end": 372,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

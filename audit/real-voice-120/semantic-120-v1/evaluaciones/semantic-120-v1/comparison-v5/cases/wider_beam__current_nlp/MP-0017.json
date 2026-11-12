@@ -1,0 +1,875 @@
+{
+  "id": "MP-0017",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0017",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "wider_beam__current_nlp",
+  "asr_configuration": "wider_beam",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "0663192e02a01bf476b52c80ae2756aa7158ce68101dcdf87240036e69f238d8",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 8,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0017.aac",
+    "original_sha256": "01ec257e9cf9b2b68c0a606b0eab6ee6cd48d5ce1bd589665d9a0834b29d6c33",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0017.wav",
+    "wav_sha256": "25d65e9924a13f42e3e9873d585b5ad5af18fdb314c7eb06a38f1b0b01cc4b59"
+  },
+  "text_original": "Una mesa de reuniones para 6 personas de un metro 30 de largo, 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de selección, precio 2900 bolivianos.",
+  "script_text": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa de reuniones para 6 personas de un metro 30 de largo, 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de selección, precio 2900 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "mesón",
+          "evidence_ids": [
+            "c8"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas metálicas",
+          "evidence_ids": [
+            "c9"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 centímetros de ancho",
+          "value_mm": "800",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": null,
+          "original_text": "80 de altura",
+          "value_mm": null,
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "130",
+          "unit": "cm",
+          "original_text": "un metro 30 de largo",
+          "value_mm": "1300",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "25 milímetros",
+          "value_mm": "25"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c7"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 63,
+        "end": 86,
+        "text": "80 centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 89,
+        "end": 101,
+        "text": "80 de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "LARGO",
+        "start": 41,
+        "end": 61,
+        "text": "un metro 30 de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "130",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 122,
+        "end": 135,
+        "text": "25 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "PRECIO_AMBIGUO",
+        "start": 215,
+        "end": 219,
+        "text": "2900",
+        "source": "RULE",
+        "normalized_value": "2900",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "COMPONENTE",
+        "start": 103,
+        "end": 109,
+        "text": "Me son",
+        "source": "RULE",
+        "normalized_value": "mesón",
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 152,
+        "end": 167,
+        "text": "patas metálicas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 158,
+        "end": 167,
+        "text": "metálicas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '80 de altura' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 2900.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "UNKNOWN_TERM",
+        "path": "/item_proposal/components",
+        "severity": "INFO",
+        "message": "Se interpretó 'me son engrosado' como 'mesón'; confirme la pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 4
+  },
+  "predicted_fields": [
+    {
+      "field": "quantity",
+      "value": 1
+    },
+    {
+      "field": "name",
+      "value": "mesa"
+    },
+    {
+      "field": "dimensions",
+      "value": "80",
+      "unit": "cm",
+      "axis": "ancho",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "80",
+      "unit": null,
+      "axis": "alto",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "130",
+      "unit": "cm",
+      "axis": "largo",
+      "component_ref": null
+    },
+    {
+      "field": "thicknesses",
+      "value": "25",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-1"
+    },
+    {
+      "field": "materials",
+      "value": "metálicas",
+      "evidence": {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 158,
+        "end": 167,
+        "text": "metálicas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "2900",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "segun diseno",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1300",
+          "largo"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "800",
+          "ancho"
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "2900",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "dimensions": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "mesa",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "metalicas",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "2900",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "segun diseno",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1300",
+          "largo"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "800",
+          "ancho"
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "2900",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "dimensions": {
+        "numerator": 2,
+        "denominator": 2,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "mesa",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "metalicas",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 13,
+      "substitutions": 9,
+      "deletions": 3,
+      "insertions": 1,
+      "reference_length": 44,
+      "rate": 0.29545454545454547
+    },
+    "strict_normalized": {
+      "errors": 8,
+      "substitutions": 6,
+      "deletions": 1,
+      "insertions": 1,
+      "reference_length": 42,
+      "rate": 0.19047619047619047
+    }
+  },
+  "normalization": {
+    "reference_text": "Una mesa de reuniones para seis personas, de 1 m treinta de largo, 80 cm de ancho y ochenta de altura. Mesón engrosado a 25 mm, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de 2900 BOB.",
+    "asr_text": "Una mesa de reuniones para 6 personas de 1 m 30 de largo, 80 cm de ancho y 80 de altura. Me son engrosado a 25 mm bordes de PVC y patas metálicas según diseño. Dos colores de selección, precio 2900 BOB.",
+    "reference_transforms": [
+      {
+        "start": 45,
+        "end": 47,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 48,
+        "end": 53,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 72,
+        "end": 79,
+        "raw": "ochenta",
+        "replacement": "80",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 80,
+        "end": 91,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 140,
+        "end": 151,
+        "raw": "veinticinco",
+        "replacement": "25",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 152,
+        "end": 162,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 244,
+        "end": 263,
+        "raw": "dos mil novecientos",
+        "replacement": "2900",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 264,
+        "end": 274,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 41,
+        "end": 43,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 44,
+        "end": 49,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 66,
+        "end": 77,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 125,
+        "end": 135,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 220,
+        "end": 230,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

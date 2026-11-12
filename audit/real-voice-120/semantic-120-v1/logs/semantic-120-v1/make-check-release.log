@@ -1,0 +1,188 @@
+uv run --locked --extra dev ruff check src tests tools training
+All checks passed!
+uv run --locked --extra dev ruff format --check src tests tools training
+98 files already formatted
+uv run --locked --extra dev python tools/export_schemas.py --check
+Esquemas v1: OK
+{
+  "path": "data/corpus/muebles_pedido.jsonl",
+  "records": 380,
+  "entities": 8548,
+  "labels": {
+    "ACABADO": 793,
+    "ACCESORIO": 568,
+    "ALTO": 380,
+    "ANCHO": 362,
+    "CANTIDAD": 380,
+    "COLOR": 951,
+    "COMPONENTE": 999,
+    "DESCUENTO": 171,
+    "DIAMETRO": 18,
+    "ESPESOR": 975,
+    "MATERIAL": 999,
+    "OBSERVACION": 70,
+    "PRECIO_TOTAL": 380,
+    "PRECIO_UNITARIO": 380,
+    "PRODUCTO": 380,
+    "PROFUNDIDAD": 362,
+    "UNIDAD_MEDIDA": 380
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/sillas.jsonl",
+  "records": 101,
+  "entities": 1110,
+  "labels": {
+    "ACCESORIO": 213,
+    "APOYABRAZOS": 45,
+    "CABECERA": 7,
+    "CANTIDAD": 101,
+    "COLOR": 101,
+    "DESCUENTO": 50,
+    "ERGONOMIA": 61,
+    "MATERIAL": 101,
+    "PRECIO_TOTAL": 101,
+    "PRECIO_UNITARIO": 101,
+    "PRODUCTO": 101,
+    "SOPORTE_LUMBAR": 27,
+    "UNIDAD_MEDIDA": 101
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/pisos_flotantes.jsonl",
+  "records": 97,
+  "entities": 1066,
+  "labels": {
+    "ACCESORIO": 56,
+    "CANTIDAD": 97,
+    "CLASE_RESISTENCIA": 97,
+    "COLOR": 97,
+    "DESCUENTO": 40,
+    "ESPESOR": 97,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "SISTEMA": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+{
+  "path": "data/corpus/otros_productos.jsonl",
+  "records": 97,
+  "entities": 907,
+  "labels": {
+    "ACCESORIO": 134,
+    "ALTO": 30,
+    "CANTIDAD": 97,
+    "COLOR": 97,
+    "DESCUENTO": 34,
+    "LARGO": 30,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+uv run --locked --extra dev python -m training.audit_prf04 --output /tmp/homex-prf04-inventario.json
+uv run --locked --extra dev pytest
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/gabriel/HOMEX/homex-nlp
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 891 items
+
+tests/contract/test_ap6_adapter_evidence.py .                            [  0%]
+tests/contract/test_backend_consumer.py ..                               [  0%]
+tests/contract/test_examples.py ..............                           [  1%]
+tests/contract/test_f10_deployment_evidence.py .                         [  2%]
+tests/contract/test_import.py .                                          [  2%]
+tests/contract/test_schema_snapshots.py ...                              [  2%]
+tests/contract/test_system_integration_evidence.py ...                   [  2%]
+tests/evaluation/test_asr_experiments.py ..                              [  3%]
+tests/evaluation/test_real_voice.py ...                                  [  3%]
+tests/evaluation/test_reference_annotations.py ......................... [  6%]
+                                                                         [  6%]
+tests/evaluation/test_semantic_voice.py ..........                       [  7%]
+tests/operations/test_f10_runtime.py ..............                      [  8%]
+tests/training/test_corpus.py .....                                      [  9%]
+tests/training/test_docbin.py .                                          [  9%]
+tests/training/test_prf04_corpus.py .                                    [  9%]
+tests/training/test_prf04_evaluar_campo.py ..........                    [ 10%]
+tests/unit/test_ap2_asr_boundaries.py .......                            [ 11%]
+tests/unit/test_asr_service.py ....                                      [ 12%]
+tests/unit/test_catalog.py ............................................  [ 16%]
+tests/unit/test_catalog_semantic_v2.py ................................. [ 20%]
+.....                                                                    [ 21%]
+tests/unit/test_cli.py .                                                 [ 21%]
+tests/unit/test_contract_invariants.py ......                            [ 21%]
+tests/unit/test_field_comparison.py .                                    [ 22%]
+tests/unit/test_final_consolidation.py ..........................        [ 25%]
+tests/unit/test_furniture_semantic_v2.py .................               [ 26%]
+tests/unit/test_money_mixed.py ......................................... [ 31%]
+...............................................                          [ 36%]
+tests/unit/test_money_release.py ....................................... [ 41%]
+........................................................................ [ 49%]
+....................                                                     [ 51%]
+tests/unit/test_prf04_accesorios_210.py ...                              [ 51%]
+tests/unit/test_prf04_cantidad_accesorios_v13.py ....................... [ 54%]
+.........                                                                [ 55%]
+tests/unit/test_prf04_comercial_v5.py ....                               [ 55%]
+tests/unit/test_prf04_limpios_v11.py .........................           [ 58%]
+tests/unit/test_prf04_medidas_compuestas_v14.py ........................ [ 61%]
+..................................................                       [ 67%]
+tests/unit/test_prf04_negaciones_rectificaciones_v7.py ................. [ 68%]
+..                                                                       [ 69%]
+tests/unit/test_prf04_numeros_dimension_v12.py ......................... [ 71%]
+.........................                                                [ 74%]
+tests/unit/test_prf04_piloto_comercial_02_05.py .................        [ 76%]
+tests/unit/test_prf04_piloto_dimensiones_09.py ..                        [ 76%]
+tests/unit/test_prf04_piloto_real_regresiones_v13.py ................    [ 78%]
+tests/unit/test_prf04_precio_no_inventado_v10.py ..................      [ 80%]
+tests/unit/test_prf04_puntuacion_asr_v9.py ................              [ 82%]
+tests/unit/test_prf04_rectificaciones_internas_v8.py ...............     [ 84%]
+tests/unit/test_prf04_reiteracion_producto.py .....                      [ 84%]
+tests/unit/test_prf04_semantics.py ................                      [ 86%]
+tests/unit/test_real_voice_regressions.py .............................. [ 89%]
+                                                                         [ 89%]
+tests/unit/test_rules_engine.py .....                                    [ 90%]
+tests/unit/test_v16_safety.py .........................................  [ 95%]
+tests/unit/test_voice_next.py .......................................... [ 99%]
+..                                                                       [100%]
+
+============================= 891 passed in 8.48s ==============================

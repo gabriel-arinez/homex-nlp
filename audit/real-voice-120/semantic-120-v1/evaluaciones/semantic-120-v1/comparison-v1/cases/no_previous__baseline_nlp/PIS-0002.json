@@ -1,0 +1,358 @@
+{
+  "id": "PIS-0002",
+  "category": "PISO_FLOTANTE",
+  "leakage_group": "DEV-PIS-0001",
+  "development_only": true,
+  "cell": "no_previous__baseline_nlp",
+  "asr_configuration": "no_previous",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "5c57acc2f61d7d1e5f050bb4230a506bb8d40159c01f40d98fe726d7ab89ae5a",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios/PIS-0002.aac",
+    "original_sha256": "74b55726397bae2431e5cbdb74afe2704044d92c545bf500bfc147ce539455a0",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios_asr/PIS-0002.wav",
+    "wav_sha256": "3916803de0334de477db80c3101cc23815497e493a75319bc38edcf48a9048a2"
+  },
+  "text_original": "Piso flotante aglomerado HDF, modelo NA9118 de 8 milímetros de espesor, instalación doble clic, Resistencia a presión, impactos y rayos ultravioleta, clase AC4, color a elección, incluye membrana protectora y procede de India, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+  "script_text": "Piso flotante de aglomerado HDF, modelo ene a nueve uno uno ocho, de ocho milímetros de espesor. Instalación doble clic, resistencia a presión, impactos y rayos ultravioleta. Clase A C cuatro, color a elección, incluye membrana protectora y procede de India. Unidad metro cuadrado. Precio unitario de ciento treinta y cinco bolivianos.",
+  "nlp_raw": {
+    "category": "PISO_FLOTANTE",
+    "fields": {
+      "unidad_stock": 56,
+      "nombre": "Piso flotante aglomerado HDF",
+      "observaciones": "Piso flotante aglomerado HDF, modelo NA9118 de 8 milímetros de espesor, instalación doble clic, Resistencia a presión, impactos y rayos ultravioleta, clase AC4, color a elección, incluye membrana protectora y procede de India, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+      "precio_lista": "135.00",
+      "modelo": "NA9118",
+      "espesor_mm": "8"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-234-248",
+        "label": "unidad_stock",
+        "start": 234,
+        "end": 248,
+        "text": "metro cuadrado",
+        "source": "RULE",
+        "normalized_value": 56,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-28",
+        "label": "nombre",
+        "start": 0,
+        "end": 28,
+        "text": "Piso flotante aglomerado HDF",
+        "source": "RULE",
+        "normalized_value": "Piso flotante aglomerado HDF",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-284",
+        "label": "observaciones",
+        "start": 0,
+        "end": 284,
+        "text": "Piso flotante aglomerado HDF, modelo NA9118 de 8 milímetros de espesor, instalación doble clic, Resistencia a presión, impactos y rayos ultravioleta, clase AC4, color a elección, incluye membrana protectora y procede de India, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Piso flotante aglomerado HDF, modelo NA9118 de 8 milímetros de espesor, instalación doble clic, Resistencia a presión, impactos y rayos ultravioleta, clase AC4, color a elección, incluye membrana protectora y procede de India, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-269-272",
+        "label": "precio_lista",
+        "start": 269,
+        "end": 272,
+        "text": "135",
+        "source": "RULE",
+        "normalized_value": "135.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-37-43",
+        "label": "modelo",
+        "start": 37,
+        "end": 43,
+        "text": "NA9118",
+        "source": "RULE",
+        "normalized_value": "NA9118",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "espesor_mm-47-70",
+        "label": "espesor_mm",
+        "start": 47,
+        "end": 70,
+        "text": "8 milímetros de espesor",
+        "source": "RULE",
+        "normalized_value": "8",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Piso flotante aglomerado HDF"
+    },
+    {
+      "field": "model",
+      "value": "NA9118"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Metro cuadrado"
+    },
+    {
+      "field": "price",
+      "value": "135.00"
+    }
+  ],
+  "score": {
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "hdf",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "membrana protectora",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "metro cuadrado",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "135",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "piso flotante aglomerado hdf",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "na9118",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 15,
+      "substitutions": 4,
+      "deletions": 11,
+      "insertions": 0,
+      "reference_length": 52,
+      "rate": 0.28846153846153844
+    },
+    "strict_normalized": {
+      "errors": 11,
+      "substitutions": 3,
+      "deletions": 8,
+      "insertions": 0,
+      "reference_length": 49,
+      "rate": 0.22448979591836735
+    }
+  },
+  "normalization": {
+    "reference_text": "Piso flotante de aglomerado HDF, modelo ene a nueve uno uno ocho, de 8 mm de espesor. Instalación doble clic, resistencia a presión, impactos y rayos ultravioleta. Clase A C cuatro, color a elección, incluye membrana protectora y procede de India. Unidad m cuadrado. Precio unitario de 135 BOB.",
+    "asr_text": "Piso flotante aglomerado HDF, modelo NA9118 de 8 milímetros de espesor, instalación doble clic, Resistencia a presión, impactos y rayos ultravioleta, clase AC4, color a elección, incluye membrana protectora y procede de India, unidad m cuadrado, precio unitario de 135 BOB.",
+    "reference_transforms": [
+      {
+        "start": 69,
+        "end": 73,
+        "raw": "ocho",
+        "replacement": "8",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 74,
+        "end": 84,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 266,
+        "end": 271,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 301,
+        "end": 323,
+        "raw": "ciento treinta y cinco",
+        "replacement": "135",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 324,
+        "end": 334,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 234,
+        "end": 239,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 273,
+        "end": 283,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

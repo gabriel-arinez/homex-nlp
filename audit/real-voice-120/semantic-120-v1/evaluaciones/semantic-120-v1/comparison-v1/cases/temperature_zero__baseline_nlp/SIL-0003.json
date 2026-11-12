@@ -1,0 +1,287 @@
+{
+  "id": "SIL-0003",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0002",
+  "development_only": true,
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "c0710c969a023b2c707ec349b6783c18981d90749979a6431d8b89b3450adec4",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0003.aac",
+    "original_sha256": "00fad13370546709c29fb8c8d9577045ca8f498665af606399d1decc1f789339",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0003.wav",
+    "wav_sha256": "f59f41165027f284b3809a7d14609a4e3800cf6e0f266d0a65d923e929b5289c"
+  },
+  "text_original": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+  "script_text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de trescientos ochenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla estática de estructura metálica",
+      "observaciones": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-163-168",
+        "label": "unidad_stock",
+        "start": 163,
+        "end": 168,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-149-154",
+        "label": "color_primario",
+        "start": 149,
+        "end": 154,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-37",
+        "label": "nombre",
+        "start": 0,
+        "end": 37,
+        "text": "Silla estática de estructura metálica",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-204",
+        "label": "observaciones",
+        "start": 0,
+        "end": 204,
+        "text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-189-192",
+        "label": "precio_lista",
+        "start": 189,
+        "end": 192,
+        "text": "380",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-120-141",
+        "label": "especificaciones.tapiz",
+        "start": 120,
+        "end": 141,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla estática de estructura metálica"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "380.00"
+    }
+  ],
+  "score": {
+    "numerator": 3,
+    "denominator": 4,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": true,
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "380",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla estatica de estructura metalica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 3,
+      "substitutions": 2,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 33,
+      "rate": 0.09090909090909091
+    },
+    "strict_normalized": {
+      "errors": 1,
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 32,
+      "rate": 0.03125
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados con tapiz de alto tráfico. Color negro. Unidad pieza. Precio unitario de 380 BOB.",
+    "asr_text": "Silla estática de estructura metálica con acabado en polvo, asiento y respaldo de esponja de alta densidad, forrados en tapiz de alto tráfico, color negro, unidad pieza, precio unitario de 380 BOB.",
+    "reference_transforms": [
+      {
+        "start": 190,
+        "end": 209,
+        "raw": "trescientos ochenta",
+        "replacement": "380",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 210,
+        "end": 220,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 193,
+        "end": 203,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

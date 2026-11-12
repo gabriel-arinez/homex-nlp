@@ -1,0 +1,329 @@
+{
+  "id": "PIS-0004",
+  "category": "PISO_FLOTANTE",
+  "leakage_group": "DEV-PIS-0001",
+  "development_only": true,
+  "cell": "original__baseline_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "2dbedb0a38e5af4bde38f32b16024109518b31c381db139c2ee22c65530c3efd",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios/PIS-0004.aac",
+    "original_sha256": "994530cbe7561833609821d80be06ad31427e34fdc280e419d9a8e45e02d0e68",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/03_pisos/audios_asr/PIS-0004.wav",
+    "wav_sha256": "f5b49ebed63b764aae3f82257c5397fe1b5de8dd1814e616c2e1c638441779c5"
+  },
+  "text_original": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 milímetros, sistema de instalación doble click, resistente a presión, impactos, rayos UV, productos de limpieza domésticos. Clase AC4, color a elección, incluye membrana protectora, procedencia india, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+  "script_text": "Piso flotante Ganesha, fabricado en aglomerado HDF de ocho milímetros. Sistema de instalación doble clic, resistente a presión, impactos, rayos UV y productos de limpieza domésticos. Clase A C cuatro, color a elección, incluye membrana protectora. Procedencia India. Unidad metro cuadrado. Precio unitario de ciento veinticinco bolivianos.",
+  "nlp_raw": {
+    "category": "PISO_FLOTANTE",
+    "fields": {
+      "unidad_stock": 56,
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 milímetros, sistema de instalación doble click, resistente a presión, impactos, rayos UV, productos de limpieza domésticos. Clase AC4, color a elección, incluye membrana protectora, procedencia india, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+      "precio_lista": "125.00",
+      "espesor_mm": "8"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-264-278",
+        "label": "unidad_stock",
+        "start": 264,
+        "end": 278,
+        "text": "metro cuadrado",
+        "source": "RULE",
+        "normalized_value": 56,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Piso flotante Ganesha",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-314",
+        "label": "observaciones",
+        "start": 0,
+        "end": 314,
+        "text": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 milímetros, sistema de instalación doble click, resistente a presión, impactos, rayos UV, productos de limpieza domésticos. Clase AC4, color a elección, incluye membrana protectora, procedencia india, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 milímetros, sistema de instalación doble click, resistente a presión, impactos, rayos UV, productos de limpieza domésticos. Clase AC4, color a elección, incluye membrana protectora, procedencia india, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-299-302",
+        "label": "precio_lista",
+        "start": 299,
+        "end": 302,
+        "text": "125",
+        "source": "RULE",
+        "normalized_value": "125.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "espesor_mm-47-66",
+        "label": "espesor_mm",
+        "start": 47,
+        "end": 66,
+        "text": "HDF de 8 milímetros",
+        "source": "RULE",
+        "normalized_value": "8",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Piso flotante Ganesha"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Metro cuadrado"
+    },
+    {
+      "field": "price",
+      "value": "125.00"
+    }
+  ],
+  "score": {
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "hdf",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "membrana protectora",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "8",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "metro cuadrado",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": true,
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "125",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "piso flotante ganesha",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 8,
+      "substitutions": 4,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.1702127659574468
+    },
+    "strict_normalized": {
+      "errors": 5,
+      "substitutions": 2,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.10869565217391304
+    }
+  },
+  "normalization": {
+    "reference_text": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 mm. Sistema de instalación doble clic, resistente a presión, impactos, rayos UV y productos de limpieza domésticos. Clase A C cuatro, color a elección, incluye membrana protectora. Procedencia India. Unidad m cuadrado. Precio unitario de 125 BOB.",
+    "asr_text": "Piso flotante Ganesha, fabricado en aglomerado HDF de 8 mm, sistema de instalación doble click, resistente a presión, impactos, rayos UV, productos de limpieza domésticos. Clase AC4, color a elección, incluye membrana protectora, procedencia india, unidad m cuadrado, precio unitario de 125 BOB.",
+    "reference_transforms": [
+      {
+        "start": 54,
+        "end": 58,
+        "raw": "ocho",
+        "replacement": "8",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 59,
+        "end": 69,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 274,
+        "end": 279,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 309,
+        "end": 327,
+        "raw": "ciento veinticinco",
+        "replacement": "125",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 328,
+        "end": 338,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 56,
+        "end": 66,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 264,
+        "end": 269,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 303,
+        "end": 313,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

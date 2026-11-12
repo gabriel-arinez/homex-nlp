@@ -1,0 +1,1206 @@
+{
+  "id": "MP-0047",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0045",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "vad_no_previous__current_nlp",
+  "asr_configuration": "vad_no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "284049f897a0422a20e2f2accb0aaabd8ecc36c3e9a651ed9c1679104c428617",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": true,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "vad_parameters": {
+      "min_silence_duration_ms": 500
+    }
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0047.aac",
+    "original_sha256": "2ea3ad1e8e66c4722cc51987b60bb6c3e11c72490eeb862719ffc82efc04c6c4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0047.wav",
+    "wav_sha256": "b1e27873c3a8e3e37451d37f9730c10a82bbac3c7a9a747827a495fcc31c8690"
+  },
+  "text_original": "4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad, estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3.000 bolivianos.",
+  "script_text": "Cuatro estaciones de trabajo de un metro treinta por un metro treinta, ochenta centímetros de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de dieciocho milímetros, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de tres mil bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0047",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad, estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3.000 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "estaciones de trabajo",
+      "furniture_type_candidate": "estaciones de trabajo",
+      "quantity": 4,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "estructura",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "mesón",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "cajones",
+          "evidence_ids": [
+            "c15"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 centímetros de alto",
+          "value_mm": "800",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "55",
+          "unit": null,
+          "original_text": "55 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-2",
+          "name": "tapacanto PVC",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-3",
+          "name": "jaladores",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c11"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "3000.00",
+        "currency": "BOB",
+        "unit_price_input": "3000.00",
+        "line_total": "12000.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": "color elección",
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 23,
+        "text": "estaciones de trabajo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 1,
+        "text": "4",
+        "source": "RULE",
+        "normalized_value": 4,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 56,
+        "end": 78,
+        "text": "80 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "PROFUNDIDAD",
+        "start": 81,
+        "end": 98,
+        "text": "55 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "55",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 133,
+        "end": 146,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 164,
+        "end": 177,
+        "text": "tapacanto PVC",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 242,
+        "end": 249,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "CANTIDAD_ACCESORIO",
+        "start": 237,
+        "end": 241,
+        "text": "tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 250,
+        "end": 259,
+        "text": "jaladores",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 273,
+        "end": 291,
+        "text": "chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO",
+        "start": 328,
+        "end": 333,
+        "text": "3.000",
+        "source": "RULE",
+        "normalized_value": "3000",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 100,
+        "end": 110,
+        "text": "estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 121,
+        "end": 129,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 148,
+        "end": 153,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 242,
+        "end": 249,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "CANTIDAD_INTERNA",
+        "start": 237,
+        "end": 241,
+        "text": "tres",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 261,
+        "end": 270,
+        "text": "metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '55 de profundidad' no tiene unidad."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 7
+  },
+  "predicted_fields": [
+    {
+      "field": "quantity",
+      "value": 4
+    },
+    {
+      "field": "name",
+      "value": "estaciones de trabajo"
+    },
+    {
+      "field": "dimensions",
+      "value": "80",
+      "unit": "cm",
+      "axis": "alto",
+      "component_ref": null
+    },
+    {
+      "field": "dimensions",
+      "value": "55",
+      "unit": null,
+      "axis": "profundidad",
+      "component_ref": null
+    },
+    {
+      "field": "thicknesses",
+      "value": "18",
+      "unit": "mm",
+      "axis": null,
+      "component_ref": "pieza-1"
+    },
+    {
+      "field": "accessories",
+      "value": "tapacanto PVC",
+      "count": null,
+      "component_ref": "pieza-2"
+    },
+    {
+      "field": "accessories",
+      "value": "jaladores",
+      "count": null,
+      "component_ref": "pieza-3"
+    },
+    {
+      "field": "accessories",
+      "value": "chapa de seguridad",
+      "count": null,
+      "component_ref": null
+    },
+    {
+      "field": "price",
+      "value": "3000.00",
+      "currency": "BOB",
+      "modality": "UNIT"
+    },
+    {
+      "field": "materials",
+      "value": "melamina",
+      "evidence": {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 121,
+        "end": 129,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    },
+    {
+      "field": "materials",
+      "value": "metálicos",
+      "evidence": {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 261,
+        "end": 270,
+        "text": "metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [
+          "BOB"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [
+          "UNIT"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 6,
+    "denominator": 10,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "4",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          9
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "tapacanto",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "jaladores metalicos",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "800",
+          "alto"
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          17
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "reference_indices": [
+          18
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          8
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "dimensions": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "estaciones de trabajo",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "tapacanto pvc",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "jaladores",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "metalicos",
+          null
+        ],
+        "prediction_indices": [
+          10
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [
+          "BOB"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [
+          "UNIT"
+        ],
+        "outcome": "MATCH",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 6,
+    "denominator": 10,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "4",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          0
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          9
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "tapacanto",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "jaladores metalicos",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "800",
+          "alto"
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          17
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "3000",
+          null
+        ],
+        "reference_indices": [
+          18
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          8
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "quantity": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "dimensions": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "estaciones de trabajo",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "tapacanto pvc",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "jaladores",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "metalicos",
+          null
+        ],
+        "prediction_indices": [
+          10
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 12,
+      "substitutions": 8,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 63,
+      "rate": 0.19047619047619047
+    },
+    "strict_normalized": {
+      "errors": 7,
+      "substitutions": 4,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 62,
+      "rate": 0.11290322580645161
+    }
+  },
+  "normalization": {
+    "reference_text": "4 estaciones de trabajo de 1 m treinta por 1 m treinta, 80 cm de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de 18 mm, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de 3000 BOB.",
+    "asr_text": "4 estaciones de trabajo de 1 m 30 por 1 m 30, 80 cm de alto y 55 de profundidad, estructura y cubo de melamina de 18 mm, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3000 BOB.",
+    "reference_transforms": [
+      {
+        "start": 0,
+        "end": 6,
+        "raw": "Cuatro",
+        "replacement": "4",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 35,
+        "end": 40,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 53,
+        "end": 55,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 56,
+        "end": 61,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 71,
+        "end": 78,
+        "raw": "ochenta",
+        "replacement": "80",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 79,
+        "end": 90,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 168,
+        "end": 177,
+        "raw": "dieciocho",
+        "replacement": "18",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 178,
+        "end": 188,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 381,
+        "end": 389,
+        "raw": "tres mil",
+        "replacement": "3000",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 390,
+        "end": 400,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 27,
+        "end": 29,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 30,
+        "end": 35,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 43,
+        "end": 45,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 46,
+        "end": 51,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 59,
+        "end": 70,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 136,
+        "end": 146,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 328,
+        "end": 333,
+        "raw": "3.000",
+        "replacement": "3000",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 334,
+        "end": 344,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

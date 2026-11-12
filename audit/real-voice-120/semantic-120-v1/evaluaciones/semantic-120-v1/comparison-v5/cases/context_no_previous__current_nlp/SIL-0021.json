@@ -1,0 +1,657 @@
+{
+  "id": "SIL-0021",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0021",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "context_no_previous__current_nlp",
+  "asr_configuration": "context_no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "cd04c41c82d2d8d6fe3afe06668176c7471e576ce016dff85ad2e456d2686c97",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": "melamina, MDF, MDP, HDF, PVC, USB, HDMI, tapacantos, bolivianos"
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0021.aac",
+    "original_sha256": "bfcc374fb63156c6af6c8f012941785ae5a5ec786ae817d0a4d4d3cf5e601e2f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0021.wav",
+    "wav_sha256": "246c8336e72ac83aa785922dba3b489569d0191becd008d456be0319015b3e12"
+  },
+  "text_original": "Silla Semi-Ajecutiva modelo HC-Kion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de 5 ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+  "script_text": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla Semi-Ajecutiva",
+      "observaciones": "Silla Semi-Ajecutiva modelo HC-Kion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de 5 ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+      "precio_lista": "1300.00",
+      "especificaciones": {
+        "apoyo_lumbar": "apoyo lumbar",
+        "asiento": "espuma de alta densidad",
+        "base": "base de PVC"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-286-291",
+        "label": "unidad_stock",
+        "start": 286,
+        "end": 291,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla Semi-Ajecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla Semi-Ajecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-328",
+        "label": "observaciones",
+        "start": 0,
+        "end": 328,
+        "text": "Silla Semi-Ajecutiva modelo HC-Kion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de 5 ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Semi-Ajecutiva modelo HC-Kion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de 5 ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-312-316",
+        "label": "precio_lista",
+        "start": 312,
+        "end": 316,
+        "text": "1300",
+        "source": "RULE",
+        "normalized_value": "1300.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-41",
+        "label": "modelo",
+        "start": 28,
+        "end": 41,
+        "text": "HC-Kion 8901B",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.apoyo_lumbar-231-243",
+        "label": "especificaciones.apoyo_lumbar",
+        "start": 231,
+        "end": 243,
+        "text": "apoyo lumbar",
+        "source": "RULE",
+        "normalized_value": "apoyo lumbar",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-117-140",
+        "label": "especificaciones.asiento",
+        "start": 117,
+        "end": 140,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-196-207",
+        "label": "especificaciones.base",
+        "start": 196,
+        "end": 207,
+        "text": "base de PVC",
+        "source": "RULE",
+        "normalized_value": "base de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla Semi-Ajecutiva"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1300.00"
+    },
+    {
+      "field": "accessories",
+      "value": "apoyo lumbar"
+    },
+    {
+      "field": "materials",
+      "value": "espuma de alta densidad"
+    },
+    {
+      "field": "materials",
+      "value": "base de PVC"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyo lumbar",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi-ajecutiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base de pvc",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyo lumbar",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1300",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi-ajecutiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base de pvc",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 13,
+      "substitutions": 6,
+      "deletions": 7,
+      "insertions": 0,
+      "reference_length": 55,
+      "rate": 0.23636363636363636
+    },
+    "strict_normalized": {
+      "errors": 11,
+      "substitutions": 5,
+      "deletions": 6,
+      "insertions": 0,
+      "reference_length": 54,
+      "rate": 0.2037037037037037
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de 1300 BOB.",
+    "asr_text": "Silla Semi-Ajecutiva modelo HC-Kion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de 5 ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 BOB.",
+    "reference_transforms": [
+      {
+        "start": 340,
+        "end": 355,
+        "raw": "mil trescientos",
+        "replacement": "1300",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 356,
+        "end": 366,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 317,
+        "end": 327,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

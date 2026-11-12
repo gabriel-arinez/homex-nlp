@@ -1,0 +1,198 @@
+{
+  "original_categories": {
+    "MUEBLE_MEDIDA": {
+      "wer": {
+        "errors": 1042,
+        "denominator": 4174
+      },
+      "cer": {
+        "errors": 5568,
+        "denominator": 27101
+      }
+    },
+    "SILLA": {
+      "wer": {
+        "errors": 227,
+        "denominator": 1403
+      },
+      "cer": {
+        "errors": 1153,
+        "denominator": 8968
+      }
+    },
+    "OTRO": {
+      "wer": {
+        "errors": 133,
+        "denominator": 703
+      },
+      "cer": {
+        "errors": 655,
+        "denominator": 4395
+      }
+    },
+    "PISO_FLOTANTE": {
+      "wer": {
+        "errors": 93,
+        "denominator": 347
+      },
+      "cer": {
+        "errors": 382,
+        "denominator": 2313
+      }
+    }
+  },
+  "configurations": [
+    {
+      "configuration": "context_no_previous",
+      "supported_fields": 501,
+      "denominator": 1000,
+      "no_proposal": 15,
+      "raw_wer": {
+        "errors": 1717,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 980,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 34,
+      "lost_scalar_tuples": 20,
+      "recovery_cases": 19,
+      "regression_cases": 12,
+      "resources": {
+        "wall_seconds": 500.59286395402887,
+        "cpu_seconds": 2001.960559999994,
+        "median_seconds": 4.0644463040007395,
+        "max_seconds": 8.54981911300274,
+        "process_peak_rss_kib": 1074004,
+        "note": "Concurrent workload diagnostic; peak RSS belongs to entire process, not incremental per-case memory"
+      }
+    },
+    {
+      "configuration": "no_previous",
+      "supported_fields": 484,
+      "denominator": 1000,
+      "no_proposal": 17,
+      "raw_wer": {
+        "errors": 1470,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 846,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 11,
+      "lost_scalar_tuples": 14,
+      "recovery_cases": 3,
+      "regression_cases": 4,
+      "resources": {
+        "wall_seconds": 573.0194663530056,
+        "cpu_seconds": 2250.7462930000024,
+        "median_seconds": 4.738391453502118,
+        "max_seconds": 8.52341548500408,
+        "process_peak_rss_kib": 1074004,
+        "note": "Concurrent workload diagnostic; peak RSS belongs to entire process, not incremental per-case memory"
+      }
+    },
+    {
+      "configuration": "original",
+      "supported_fields": 487,
+      "denominator": 1000,
+      "no_proposal": 17,
+      "raw_wer": {
+        "errors": 1495,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 922,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 0,
+      "lost_scalar_tuples": 0,
+      "recovery_cases": 0,
+      "regression_cases": 0
+    },
+    {
+      "configuration": "temperature_zero",
+      "supported_fields": 481,
+      "denominator": 1000,
+      "no_proposal": 18,
+      "raw_wer": {
+        "errors": 1579,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 1007,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 0,
+      "lost_scalar_tuples": 6,
+      "recovery_cases": 0,
+      "regression_cases": 1,
+      "resources": {
+        "wall_seconds": 593.8202058270326,
+        "cpu_seconds": 2353.2707869999995,
+        "median_seconds": 4.947128438496293,
+        "max_seconds": 8.574694306997117,
+        "process_peak_rss_kib": 1074004,
+        "note": "Concurrent workload diagnostic; peak RSS belongs to entire process, not incremental per-case memory"
+      }
+    },
+    {
+      "configuration": "vad_no_previous",
+      "supported_fields": 497,
+      "denominator": 1000,
+      "no_proposal": 14,
+      "raw_wer": {
+        "errors": 1502,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 878,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 38,
+      "lost_scalar_tuples": 28,
+      "recovery_cases": 14,
+      "regression_cases": 12,
+      "resources": {
+        "wall_seconds": 724.7555974910865,
+        "cpu_seconds": 2796.227089999993,
+        "median_seconds": 6.404054980499495,
+        "max_seconds": 10.08817602700583,
+        "process_peak_rss_kib": 1074004,
+        "note": "Concurrent workload diagnostic; peak RSS belongs to entire process, not incremental per-case memory"
+      }
+    },
+    {
+      "configuration": "wider_beam",
+      "supported_fields": 489,
+      "denominator": 1000,
+      "no_proposal": 16,
+      "raw_wer": {
+        "errors": 1454,
+        "reference_length": 6627
+      },
+      "strict_wer": {
+        "errors": 843,
+        "reference_length": 6371
+      },
+      "recovered_scalar_tuples": 14,
+      "lost_scalar_tuples": 12,
+      "recovery_cases": 6,
+      "regression_cases": 5,
+      "resources": {
+        "wall_seconds": 1061.7662211269926,
+        "cpu_seconds": 3501.4221079999934,
+        "median_seconds": 6.825950930502586,
+        "max_seconds": 73.43144803099858,
+        "process_peak_rss_kib": 1074004,
+        "note": "Concurrent workload diagnostic; peak RSS belongs to entire process, not incremental per-case memory"
+      }
+    }
+  ],
+  "decision": "KEEP_ORIGINAL_PRODUCTION_ASR",
+  "rationale": "Context/VAD recover additional script-scalar tuples but also lose previous matches. Incomplete acoustic/association gold and unverified extra predictions do not justify a global production change. No per-case cherry-picking or complete reference prompts were used.",
+  "alternative_model": "Not promoted or downloaded; all experiments use the original hashed local Whisper Small CPU/int8 model",
+  "runtime_completion": "600 successful case artifacts and final240audio hash proof; original session handle expired across turn interruptions, so its shell exit code is not asserted"
+}

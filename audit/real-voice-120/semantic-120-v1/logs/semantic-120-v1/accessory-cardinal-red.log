@@ -1,0 +1,15 @@
+...............F                                                         [100%]
+=================================== FAILURES ===================================
+_________ test_compound_accessory_count_is_not_truncated_to_last_word __________
+
+    def test_compound_accessory_count_is_not_truncated_to_last_word():
+        result = extract("Una mesa con treinta y dos conectores HDMI.")
+>       assert next(a for a in result.item_proposal.accessories if "HDMI" in a.name).quantity == 32
+E       AssertionError: assert None == 32
+E        +  where None = Accessory(evidence_ids=['c5'], component_ref=None, name='HDMI', quantity=None).quantity
+E        +    where Accessory(evidence_ids=['c5'], component_ref=None, name='HDMI', quantity=None) = next(<generator object test_compound_accessory_count_is_not_truncated_to_last_word.<locals>.<genexpr> at 0x764723287d30>)
+
+tests/unit/test_furniture_semantic_v2.py:131: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_furniture_semantic_v2.py::test_compound_accessory_count_is_not_truncated_to_last_word
+1 failed, 15 passed in 0.75s

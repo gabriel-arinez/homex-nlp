@@ -1,0 +1,43 @@
+.................................FFF                                     [100%]
+=================================== FAILURES ===================================
+_ test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[de 43] _
+
+phrase = 'de 43'
+
+    @pytest.mark.parametrize("phrase", ["de 43", "de cuarenta y tres", "a nueve"])
+    def test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence(phrase):
+        result = extract(f"modelo {phrase}; color negro")
+>       assert "modelo" not in result.fields
+E       AssertionError: assert 'modelo' not in {'modelo': 'D43'}
+E        +  where {'modelo': 'D43'} = CatalogResult(category='SILLA', fields={'modelo': 'D43'}, evidence=[Candidate(candidate_id='modelo-7-12', label='model...manualmente: nombre, unidad_stock, precio_lista'], unrecognized=['modelo ', '; color negro'], version='catalog-0.1.22').fields
+
+tests/unit/test_catalog_semantic_v2.py:104: AssertionError
+_ test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[de cuarenta y tres] _
+
+phrase = 'de cuarenta y tres'
+
+    @pytest.mark.parametrize("phrase", ["de 43", "de cuarenta y tres", "a nueve"])
+    def test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence(phrase):
+        result = extract(f"modelo {phrase}; color negro")
+>       assert "modelo" not in result.fields
+E       AssertionError: assert 'modelo' not in {'modelo': 'D43'}
+E        +  where {'modelo': 'D43'} = CatalogResult(category='SILLA', fields={'modelo': 'D43'}, evidence=[Candidate(candidate_id='modelo-7-25', label='model...manualmente: nombre, unidad_stock, precio_lista'], unrecognized=['modelo ', '; color negro'], version='catalog-0.1.22').fields
+
+tests/unit/test_catalog_semantic_v2.py:104: AssertionError
+_ test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[a nueve] _
+
+phrase = 'a nueve'
+
+    @pytest.mark.parametrize("phrase", ["de 43", "de cuarenta y tres", "a nueve"])
+    def test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence(phrase):
+        result = extract(f"modelo {phrase}; color negro")
+>       assert "modelo" not in result.fields
+E       AssertionError: assert 'modelo' not in {'modelo': 'A9'}
+E        +  where {'modelo': 'A9'} = CatalogResult(category='SILLA', fields={'modelo': 'A9'}, evidence=[Candidate(candidate_id='modelo-7-14', label='modelo...manualmente: nombre, unidad_stock, precio_lista'], unrecognized=['modelo ', '; color negro'], version='catalog-0.1.22').fields
+
+tests/unit/test_catalog_semantic_v2.py:104: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_catalog_semantic_v2.py::test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[de 43]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[de cuarenta y tres]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_preposition_or_initial_letter_is_ambiguous_without_spelling_evidence[a nueve]
+3 failed, 33 passed in 0.84s

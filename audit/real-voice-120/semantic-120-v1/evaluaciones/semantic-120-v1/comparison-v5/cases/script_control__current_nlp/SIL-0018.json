@@ -1,0 +1,658 @@
+{
+  "id": "SIL-0018",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0018",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__current_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "eab7356f4b9f776cb3fa43c1d14660d2aa63bb128bb67ccdb2b72b1bf53146ed",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0018.aac",
+    "original_sha256": "943471578c24a9b3e80a0b52e8fa9df4d97b6fe23efefa33f65e7aa01706861c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0018.wav",
+    "wav_sha256": "761d8c69ff1f18cd90a8a804f6be52a81eed72bf652050101785132fb610d0a3"
+  },
+  "text_original": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+  "script_text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla de espera y conferencia",
+      "observaciones": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+      "precio_lista": "550.00",
+      "modelo": "S21",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos ajustables",
+        "material_respaldo": "malla",
+        "asiento": "espuma de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-252-257",
+        "label": "unidad_stock",
+        "start": 252,
+        "end": 257,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-29",
+        "label": "nombre",
+        "start": 0,
+        "end": 29,
+        "text": "Silla de espera y conferencia",
+        "source": "RULE",
+        "normalized_value": "Silla de espera y conferencia",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-310",
+        "label": "observaciones",
+        "start": 0,
+        "end": 310,
+        "text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-278-298",
+        "label": "precio_lista",
+        "start": 278,
+        "end": 298,
+        "text": "quinientos cincuenta",
+        "source": "RULE",
+        "normalized_value": "550.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-38-51",
+        "label": "modelo",
+        "start": 38,
+        "end": 51,
+        "text": "ese veintiuno",
+        "source": "RULE",
+        "normalized_value": "S21",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Equivalencia de código alfanumérico deletreado"
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-83-105",
+        "label": "especificaciones.brazos_regulables",
+        "start": 83,
+        "end": 105,
+        "text": "apoyabrazos ajustables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos ajustables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-76-81",
+        "label": "especificaciones.material_respaldo",
+        "start": 76,
+        "end": 81,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-130-153",
+        "label": "especificaciones.asiento",
+        "start": 130,
+        "end": 153,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla de espera y conferencia"
+    },
+    {
+      "field": "model",
+      "value": "S21"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "550.00"
+    },
+    {
+      "field": "accessories",
+      "value": "apoyabrazos ajustables"
+    },
+    {
+      "field": "materials",
+      "value": "malla"
+    },
+    {
+      "field": "materials",
+      "value": "espuma de alta densidad"
+    },
+    {
+      "field": "materials",
+      "value": "malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-76-81",
+        "label": "especificaciones.material_respaldo",
+        "start": 76,
+        "end": 81,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5,
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "acero cromado",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla de espera y conferencia",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "s21",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos ajustables",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          5,
+          7
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "acero cromado",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 3,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla de espera y conferencia",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "s21",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos ajustables",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 48,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos mm de espesor. Unidad pieza. Precio de lista de 550 BOB.",
+    "asr_text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos mm de espesor. Unidad pieza. Precio de lista de 550 BOB.",
+    "reference_transforms": [
+      {
+        "start": 222,
+        "end": 232,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 278,
+        "end": 298,
+        "raw": "quinientos cincuenta",
+        "replacement": "550",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 299,
+        "end": 309,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 222,
+        "end": 232,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 278,
+        "end": 298,
+        "raw": "quinientos cincuenta",
+        "replacement": "550",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 299,
+        "end": 309,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

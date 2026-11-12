@@ -1,0 +1,461 @@
+{
+  "id": "MP-0004",
+  "category": "OTRO",
+  "leakage_group": "DEV-MP-0004",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "8436bc79813f5f6d3dbd8fb22d47b7dcb3a1f7719500e2b0e1026bfd81845a87",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0004.aac",
+    "original_sha256": "2244aeb6b3eee92bde3594e3d63e24711eec67cb472f754ff215a4854be4f19b",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0004.wav",
+    "wav_sha256": "05efeb3513580424698ddd58053b796426f68f6b4b8403df5e0876e4db0590bf"
+  },
+  "text_original": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.",
+  "script_text": "Dos poltronas fijas, con estructura y cuatro patas de madera de eucalipto. Tapiz de tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Color de las patas y tapiz a elección. Topes de goma en las patas. Precio unitario de cinco mil quinientos bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "nombre": "2 poltronas fijas",
+      "observaciones": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.",
+      "precio_lista": "5500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "nombre-0-17",
+        "label": "nombre",
+        "start": 0,
+        "end": 17,
+        "text": "2 poltronas fijas",
+        "source": "RULE",
+        "normalized_value": "2 poltronas fijas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-258",
+        "label": "observaciones",
+        "start": 0,
+        "end": 258,
+        "text": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-241-246",
+        "label": "precio_lista",
+        "start": 241,
+        "end": 246,
+        "text": "5.500",
+        "source": "RULE",
+        "normalized_value": "5500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "Complete manualmente: unidad_stock"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "2 poltronas fijas"
+    },
+    {
+      "field": "price",
+      "value": "5500.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "2",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "madera de eucalipto",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de poliuretano",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "topes de goma",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "40",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 3,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "quantity": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "2 poltronas fijas",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 1,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "price",
+          "5500",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "2 poltronas fijas",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      2,
+      3,
+      4,
+      5,
+      10,
+      11,
+      12
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 8,
+      "substitutions": 6,
+      "deletions": 2,
+      "insertions": 0,
+      "reference_length": 48,
+      "rate": 0.16666666666666666
+    },
+    "strict_normalized": {
+      "errors": 3,
+      "substitutions": 3,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 46,
+      "rate": 0.06521739130434782
+    }
+  },
+  "normalization": {
+    "reference_text": "2 poltronas fijas, con estructura y cuatro patas de madera de eucalipto. Tapiz de tela repelente a líquidos y relleno de espuma de poliuretano de 40 mm. Color de las patas y tapiz a elección. Topes de goma en las patas. Precio unitario de 5500 BOB.",
+    "asr_text": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 mm color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 0,
+        "end": 3,
+        "raw": "Dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 148,
+        "end": 156,
+        "raw": "cuarenta",
+        "replacement": "40",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 157,
+        "end": 167,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 255,
+        "end": 275,
+        "raw": "cinco mil quinientos",
+        "replacement": "5500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 276,
+        "end": 286,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 144,
+        "end": 154,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 241,
+        "end": 246,
+        "raw": "5.500",
+        "replacement": "5500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 247,
+        "end": 257,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

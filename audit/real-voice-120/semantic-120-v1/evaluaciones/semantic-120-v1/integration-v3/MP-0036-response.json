@@ -1,0 +1,127 @@
+{
+  "id": 5,
+  "estado": "COMPLETADA",
+  "intento_id": 5,
+  "texto_transcrito_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+  "resultado": "REQUIRES_REVIEW",
+  "propuesta_configurador": {
+    "comercial": {
+      "nombre": "armario",
+      "cantidad": 1,
+      "unidad_codigo": null,
+      "precio_unitario": null,
+      "descuento": null
+    },
+    "especificacion": {
+      "tipo_mueble": null,
+      "datos_tecnicos": {
+        "conjuntos": [],
+        "accesorios": [
+          "cerradura"
+        ],
+        "componentes": [
+          {
+            "uid": "f6351a37-1558-5258-8b65-bc0c4676d87c",
+            "nombre": "tapa",
+            "espesor": "25 mm",
+            "material": "MDP"
+          },
+          {
+            "uid": "db88ea19-d9ba-51b6-baeb-6394b459812f",
+            "nombre": "puertas"
+          },
+          {
+            "uid": "757ba8c0-a2b9-5085-8e30-e38bff2be33b",
+            "nombre": "laterales",
+            "material": "melamina"
+          },
+          {
+            "uid": "a50ec67f-370f-57db-a0ee-8d1b17c49fb2",
+            "nombre": "tapa"
+          },
+          {
+            "uid": "16829cc0-aeeb-5750-a925-fce2c5672405",
+            "nombre": "repisas",
+            "cantidad_interna": 4
+          }
+        ],
+        "descripcion_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+        "caracteristicas_generales": {
+          "atributos": [
+            {
+              "valor": "acero",
+              "codigo": "MATERIAL",
+              "nombre": "Material",
+              "tipo_entrada": "texto"
+            }
+          ],
+          "dimensiones": {
+            "alto": {
+              "valor": "210",
+              "unidad": "cm"
+            },
+            "ancho": {
+              "valor": "80",
+              "unidad": "cm"
+            }
+          }
+        }
+      },
+      "observaciones": "color elección"
+    },
+    "pendientes": [
+      {
+        "resolucion": null,
+        "codigo": "REQUIRED_FIELD_MISSING",
+        "ruta": "/item_proposal/price",
+        "mensaje": "Se dictó el importe 3400.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "resolucion": {
+          "tipo": "DIMENSION",
+          "clave": "profundidad"
+        },
+        "codigo": "MISSING_UNIT",
+        "ruta": "dimensiones",
+        "mensaje": "Complete el ámbito/eje/unidad de 50 de profundidad."
+      },
+      {
+        "resolucion": null,
+        "codigo": "TIPO_NO_RESUELTO",
+        "ruta": "especificacion.tipo_mueble",
+        "mensaje": "Seleccione el tipo de mueble para armario."
+      }
+    ]
+  },
+  "pendientes": [
+    {
+      "resolucion": null,
+      "codigo": "REQUIRED_FIELD_MISSING",
+      "ruta": "/item_proposal/price",
+      "mensaje": "Se dictó el importe 3400.00 BOB; aclare si es total o precio unitario."
+    },
+    {
+      "resolucion": {
+        "tipo": "DIMENSION",
+        "clave": "profundidad"
+      },
+      "codigo": "MISSING_UNIT",
+      "ruta": "dimensiones",
+      "mensaje": "Complete el ámbito/eje/unidad de 50 de profundidad."
+    },
+    {
+      "resolucion": null,
+      "codigo": "TIPO_NO_RESUELTO",
+      "ruta": "especificacion.tipo_mueble",
+      "mensaje": "Seleccione el tipo de mueble para armario."
+    }
+  ],
+  "version_proyeccion": "PRF04_2",
+  "motor": {
+    "mode": "RULES_ONLY",
+    "rules_version": "prf04-rules-money-2",
+    "model_version": null,
+    "normalization_version": "1.0"
+  },
+  "error_codigo": null
+}

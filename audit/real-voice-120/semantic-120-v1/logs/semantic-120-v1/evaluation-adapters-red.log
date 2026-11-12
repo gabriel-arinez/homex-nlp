@@ -1,0 +1,26 @@
+........FF                                                               [100%]
+=================================== FAILURES ===================================
+_____ test_prediction_adapter_reads_color_value_and_floor_numeric_contract _____
+
+    def test_prediction_adapter_reads_color_value_and_floor_numeric_contract():
+        raw = {"item_proposal": {"primary_color": {"value": "blanco", "evidence_ids": ["c1"]}}}
+>       assert evaluator.predictions(raw, []) == [{"field": "colors", "value": "blanco"}]
+E       AssertionError: assert [{'field': 'c...ds': ['c1']}}] == [{'field': 'c...e': 'blanco'}]
+E         
+E         At index 0 diff: {'field': 'colors', 'value': {'value': 'blanco', 'evidence_ids': ['c1']}} != {'field': 'colors', 'value': 'blanco'}
+E         Use -v to get more diff
+
+tests/evaluation/test_semantic_voice.py:110: AssertionError
+_ test_supported_denominator_does_not_require_furniture_fields_from_other_catalog _
+
+    def test_supported_denominator_does_not_require_furniture_fields_from_other_catalog():
+        refs = [reference("quantity", 2), reference("materials", "melamina"), reference("price", 900)]
+>       score = evaluator.score_supported(refs, [{"field": "price", "value": 900}], "OTRO")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'semantic_voice' has no attribute 'score_supported'
+
+tests/evaluation/test_semantic_voice.py:119: AttributeError
+=========================== short test summary info ============================
+FAILED tests/evaluation/test_semantic_voice.py::test_prediction_adapter_reads_color_value_and_floor_numeric_contract
+FAILED tests/evaluation/test_semantic_voice.py::test_supported_denominator_does_not_require_furniture_fields_from_other_catalog
+2 failed, 8 passed in 0.14s

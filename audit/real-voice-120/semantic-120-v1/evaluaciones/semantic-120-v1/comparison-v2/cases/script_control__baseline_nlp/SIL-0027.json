@@ -1,0 +1,465 @@
+{
+  "id": "SIL-0027",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0027",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__baseline_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "ae6bf980e43fc046fc63ed85314517c37ed1aade454fe9bceac3f22ef20ef204",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0027.aac",
+    "original_sha256": "72d0f131c58fdab4018f5967a4a9cc3ea7605b79b74458664a0bf97053e62ccb",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0027.wav",
+    "wav_sha256": "2c2c661c2087ab18703af4fb764df5b753813b5d260917491b146261f1d3f157"
+  },
+  "text_original": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+  "script_text": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla secretarial",
+      "observaciones": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+      "precio_lista": "900.00",
+      "especificaciones": {
+        "tapiz": "tela de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-333-338",
+        "label": "unidad_stock",
+        "start": 333,
+        "end": 338,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-319-324",
+        "label": "color_primario",
+        "start": 319,
+        "end": 324,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-17",
+        "label": "nombre",
+        "start": 0,
+        "end": 17,
+        "text": "Silla secretarial",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-382",
+        "label": "observaciones",
+        "start": 0,
+        "end": 382,
+        "text": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de novecientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-359-370",
+        "label": "precio_lista",
+        "start": 359,
+        "end": 370,
+        "text": "novecientos",
+        "source": "RULE",
+        "normalized_value": "900.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-26-33",
+        "label": "modelo",
+        "start": 26,
+        "end": 33,
+        "text": "ene efe",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-128-148",
+        "label": "especificaciones.tapiz",
+        "start": 128,
+        "end": 148,
+        "text": "tela de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tela de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-100-123",
+        "label": "especificaciones.asiento",
+        "start": 100,
+        "end": 123,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-220-231",
+        "label": "especificaciones.mecanismo",
+        "start": 220,
+        "end": 231,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-277-281",
+        "label": "especificaciones.giro",
+        "start": 277,
+        "end": 281,
+        "text": "giro",
+        "source": "RULE",
+        "normalized_value": "giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-285-311",
+        "label": "especificaciones.giro",
+        "start": 285,
+        "end": 311,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-245-257",
+        "label": "especificaciones.base",
+        "start": 245,
+        "end": 257,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla secretarial"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "900.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "900",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "900",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "900",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 3,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla secretarial",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 63,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 63,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de 900 BOB.",
+    "asr_text": "Silla secretarial, modelo ene efe guion tres mil trescientos ochenta y cinco. Respaldo y asiento de espuma de alta densidad con tela de alto tráfico, brazos fijos cromados y de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo, base cromada con cinco ruedas y giro de trescientos sesenta grados. Color negro. Unidad pieza. Precio de lista de 900 BOB.",
+    "reference_transforms": [
+      {
+        "start": 359,
+        "end": 370,
+        "raw": "novecientos",
+        "replacement": "900",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 371,
+        "end": 381,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 359,
+        "end": 370,
+        "raw": "novecientos",
+        "replacement": "900",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 371,
+        "end": 381,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

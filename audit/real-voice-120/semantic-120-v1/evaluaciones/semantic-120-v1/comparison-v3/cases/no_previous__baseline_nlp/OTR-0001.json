@@ -1,0 +1,503 @@
+{
+  "id": "OTR-0001",
+  "category": "OTRO",
+  "leakage_group": "DEV-OTR-0001",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "no_previous__baseline_nlp",
+  "asr_configuration": "no_previous",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "6cdf0576e5e54dfb9a7b6a7ec3a7deb1391dd29599c4eeaadf7c755aa996394b",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/04_otros/audios/OTR-0001.aac",
+    "original_sha256": "eb861355fb186285ad412814c8e19451e7e7da3b9402d5e30c70073af289d940",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/04_otros/audios_asr/OTR-0001.wav",
+    "wav_sha256": "47fd2201f75d94db5c37739d71e1767157e3d17667a0ea7e234a80c9246d9847"
+  },
+  "text_original": "Zócalo de alto tráfico de 80 milímetros de alto y 15 milímetros de espesor. Cada barra mide 2 metros con 40 y 4 centímetros de largo. Unidad barra presionitario de 50 bolivianos.",
+  "script_text": "Zócalo de alto tráfico de ochenta milímetros de alto y quince milímetros de espesor. Cada barra mide dos metros con cuarenta y cuatro centímetros de largo. Unidad barra. Precio unitario de cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 58,
+      "nombre": "Zócalo de alto tráfico",
+      "observaciones": "Zócalo de alto tráfico de 80 milímetros de alto y 15 milímetros de espesor. Cada barra mide 2 metros con 40 y 4 centímetros de largo. Unidad barra presionitario de 50 bolivianos.",
+      "precio_lista": "50.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-81-86",
+        "label": "unidad_stock",
+        "start": 81,
+        "end": 86,
+        "text": "barra",
+        "source": "RULE",
+        "normalized_value": 58,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-141-146",
+        "label": "unidad_stock",
+        "start": 141,
+        "end": 146,
+        "text": "barra",
+        "source": "RULE",
+        "normalized_value": 58,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-22",
+        "label": "nombre",
+        "start": 0,
+        "end": 22,
+        "text": "Zócalo de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "Zócalo de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-178",
+        "label": "observaciones",
+        "start": 0,
+        "end": 178,
+        "text": "Zócalo de alto tráfico de 80 milímetros de alto y 15 milímetros de espesor. Cada barra mide 2 metros con 40 y 4 centímetros de largo. Unidad barra presionitario de 50 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Zócalo de alto tráfico de 80 milímetros de alto y 15 milímetros de espesor. Cada barra mide 2 metros con 40 y 4 centímetros de largo. Unidad barra presionitario de 50 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-164-166",
+        "label": "precio_lista",
+        "start": 164,
+        "end": 166,
+        "text": "50",
+        "source": "RULE",
+        "normalized_value": "50.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Zócalo de alto tráfico"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Barra"
+    },
+    {
+      "field": "price",
+      "value": "50.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 5,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "thicknesses",
+          "80",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "15",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "2440",
+          "largo"
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "barra",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "dimensions": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "zocalo de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 2,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "commercial_unit",
+          "barra",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "50",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "zocalo de alto trafico",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      2,
+      3,
+      4
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 8,
+      "substitutions": 7,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 33,
+      "rate": 0.24242424242424243
+    },
+    "strict_normalized": {
+      "errors": 5,
+      "substitutions": 2,
+      "deletions": 1,
+      "insertions": 2,
+      "reference_length": 31,
+      "rate": 0.16129032258064516
+    }
+  },
+  "normalization": {
+    "reference_text": "Zócalo de alto tráfico de 80 mm de alto y 15 mm de espesor. Cada barra mide 2 m con 44 cm de largo. Unidad barra. Precio unitario de 50 BOB.",
+    "asr_text": "Zócalo de alto tráfico de 80 mm de alto y 15 mm de espesor. Cada barra mide 2 m con 40 y 4 cm de largo. Unidad barra presionitario de 50 BOB.",
+    "reference_transforms": [
+      {
+        "start": 26,
+        "end": 33,
+        "raw": "ochenta",
+        "replacement": "80",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 34,
+        "end": 44,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 55,
+        "end": 61,
+        "raw": "quince",
+        "replacement": "15",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 62,
+        "end": 72,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 101,
+        "end": 104,
+        "raw": "dos",
+        "replacement": "2",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 105,
+        "end": 111,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 116,
+        "end": 133,
+        "raw": "cuarenta y cuatro",
+        "replacement": "44",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 134,
+        "end": 145,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 189,
+        "end": 198,
+        "raw": "cincuenta",
+        "replacement": "50",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 199,
+        "end": 209,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 29,
+        "end": 39,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 53,
+        "end": 63,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 94,
+        "end": 100,
+        "raw": "metros",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 112,
+        "end": 123,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 167,
+        "end": 177,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

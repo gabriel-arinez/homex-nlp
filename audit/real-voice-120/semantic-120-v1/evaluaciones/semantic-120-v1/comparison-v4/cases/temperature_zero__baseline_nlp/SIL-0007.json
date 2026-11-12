@@ -1,0 +1,783 @@
+{
+  "id": "SIL-0007",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0007",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "ed96eb67ba9be8ea669e44ae415d13d19d7c190694a60811387502fd74c0de03",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0007.aac",
+    "original_sha256": "e095f9d72c4c7daab144a3355380d064bb97c66b7e53450844fcf30c25c7ddae",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0007.wav",
+    "wav_sha256": "0c8bfb11dd1ddda2c111e533eb034c08421eedf8cb57e8b0aa037cadfba0a24d"
+  },
+  "text_original": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+  "script_text": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de mil setecientos cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla Semi Ejecutiva",
+      "observaciones": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+      "precio_lista": "1750.00",
+      "modelo": "B15B",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "malla",
+        "mecanismo": "doble palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-399-404",
+        "label": "unidad_stock",
+        "start": 399,
+        "end": 404,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-366-371",
+        "label": "color_primario",
+        "start": 366,
+        "end": 371,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla Semi Ejecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-442",
+        "label": "observaciones",
+        "start": 0,
+        "end": 442,
+        "text": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1.750 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-425-430",
+        "label": "precio_lista",
+        "start": 425,
+        "end": 430,
+        "text": "1.750",
+        "source": "RULE",
+        "normalized_value": "1750.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-29-33",
+        "label": "modelo",
+        "start": 29,
+        "end": 33,
+        "text": "B15B",
+        "source": "RULE",
+        "normalized_value": "B15B",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-78-100",
+        "label": "especificaciones.brazos_regulables",
+        "start": 78,
+        "end": 100,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-71-76",
+        "label": "especificaciones.material_respaldo",
+        "start": 71,
+        "end": 76,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-223-236",
+        "label": "especificaciones.mecanismo",
+        "start": 223,
+        "end": 236,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-310-328",
+        "label": "especificaciones.giro",
+        "start": 310,
+        "end": 328,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-280-292",
+        "label": "especificaciones.base",
+        "start": 280,
+        "end": 292,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla Semi Ejecutiva"
+    },
+    {
+      "field": "model",
+      "value": "B15B"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1750.00"
+    },
+    {
+      "field": "accessories",
+      "value": "apoyabrazos regulables"
+    },
+    {
+      "field": "materials",
+      "value": "malla"
+    },
+    {
+      "field": "materials",
+      "value": "base cromada"
+    },
+    {
+      "field": "materials",
+      "value": "malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-71-76",
+        "label": "especificaciones.material_respaldo",
+        "start": 71,
+        "end": 76,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6,
+          8
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "brand",
+          "homex",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "brand": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi ejecutiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "b15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6,
+          8
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "brand",
+          "homex",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1750",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      },
+      "brand": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi ejecutiva",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "b15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 16,
+      "substitutions": 7,
+      "deletions": 7,
+      "insertions": 2,
+      "reference_length": 70,
+      "rate": 0.22857142857142856
+    },
+    "strict_normalized": {
+      "errors": 13,
+      "substitutions": 6,
+      "deletions": 5,
+      "insertions": 2,
+      "reference_length": 68,
+      "rate": 0.19117647058823528
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla semiejecutiva, modelo be quince be, marca Homex. Respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad. Mecanismo de doble palanca, respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de trescientos sesenta grados y capacidad de ciento sesenta y cinco kilogramos. Color negro, procedencia China. Unidad pieza. Precio unitario de 1750 BOB.",
+    "asr_text": "Silla Semi Ejecutiva, modelo B15B, marca HOMEX, respaldo ergonómico de malla, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada y de alta densidad, mecanismo de doble palanca y respaldo con tres posiciones de bloqueo, base cromada de cinco ruedas, giro de 360 grados y capacidad de 165 kilogramos, color negro, procedencia china, unidad pieza, precio unitario de 1750 BOB.",
+    "reference_transforms": [
+      {
+        "start": 464,
+        "end": 489,
+        "raw": "mil setecientos cincuenta",
+        "replacement": "1750",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 490,
+        "end": 500,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 425,
+        "end": 430,
+        "raw": "1.750",
+        "replacement": "1750",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 431,
+        "end": 441,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

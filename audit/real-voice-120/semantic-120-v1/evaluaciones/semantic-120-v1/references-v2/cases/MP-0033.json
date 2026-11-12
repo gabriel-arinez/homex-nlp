@@ -1,0 +1,1729 @@
+{
+  "schema_version": "reference-proposals/1",
+  "id": "MP-0033",
+  "category": "MUEBLE_MEDIDA",
+  "development_only": true,
+  "leakage_group": "DEV-MP-0012",
+  "family": "ATRIL",
+  "source_file": "PROFORMAS(4).txt",
+  "source_records": [
+    33
+  ],
+  "source_sha256": "04f0ccf124069f10e252d5def3ddd4089303ac06bc6dc8b43b9f36a03dd4adef",
+  "source_text_sha256": "04f0ccf124069f10e252d5def3ddd4089303ac06bc6dc8b43b9f36a03dd4adef",
+  "script_text_sha256": "4715a78521d30a8df0376af1eb44a7248ad23fb183008b1268eeccc5b5e72777",
+  "document_text": "ATRIL \t\t\t\t\n1,00\tPza.\tTamaño: 0.45 mts. De ancho (Meson 0.50 Cm) x 1.20 mts. Alto x 0.50 mts.\tde profundidad ,todo en material  melamina de 18 mm. con tapacanto en PVC  Interior con puerta y repisa interna. Precio unitario. 3800,00 precio total 3800,00.",
+  "script_text": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de alto y cincuenta centímetros de profundidad. Fabricación en melamina de dieciocho milímetros con tapacantos de PVC. Interior con puerta y repisa. Precio de tres mil ochocientos bolivianos.",
+  "asr_text": "Un atril de 45 centímetros de ancho, un metro veinte de alto y 50 centímetros de profundidad. Fabricación en melamina de 18 milímetros con tapacantos de PVC. Interior con puerta y repisa. Precio de 3.800 bolivianos.",
+  "frozen_asr_artifact_sha256": "ccf39a062d1856fd1a4a6357e7ce670b1632d3f245d14ff37d769567605046a1",
+  "source_control_notes": [
+    "FUENTE_AMBIGUA: «Meson 0.50 Cm» no permite fijar medida confiable; se omite."
+  ],
+  "acoustic_status": "PENDING_HUMAN_LISTENING",
+  "script_fields": [
+    {
+      "field": "product",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "Un atril de cuarenta y cinco centímetros de ancho",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 0,
+          "end": 49,
+          "raw": "Un atril de cuarenta y cinco centímetros de ancho"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "OPENING_PHRASE_BOUNDARY_REQUIRES_REVIEW"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "name",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "Un atril de cuarenta y cinco centímetros de ancho",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 0,
+          "end": 49,
+          "raw": "Un atril de cuarenta y cinco centímetros de ancho"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "OPENING_PHRASE_BOUNDARY_REQUIRES_REVIEW"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "quantity",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 1,
+      "unit": "commercial_items",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 0,
+          "end": 2,
+          "raw": "Un"
+        }
+      ],
+      "document_presence": "EXACT_TEXT_PRESENT",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 0,
+        "end": 2,
+        "raw": "Un"
+      },
+      "association": {
+        "status": "EXPLICIT_OPENING",
+        "component": "main_order"
+      },
+      "ambiguity": [],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "materials",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "melamina",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 130,
+          "end": 138,
+          "raw": "melamina"
+        }
+      ],
+      "document_presence": "EXACT_TEXT_PRESENT",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 109,
+        "end": 117,
+        "raw": "melamina"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "materials",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "pvc",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 181,
+          "end": 184,
+          "raw": "PVC"
+        }
+      ],
+      "document_presence": "EXACT_TEXT_PRESENT",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 153,
+        "end": 156,
+        "raw": "PVC"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "components",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "puerta",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 199,
+          "end": 205,
+          "raw": "puerta"
+        }
+      ],
+      "document_presence": "EXACT_TEXT_PRESENT",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 171,
+        "end": 177,
+        "raw": "puerta"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "SEMANTIC_OR_RELATION_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "components",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "repisa",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 208,
+          "end": 214,
+          "raw": "repisa"
+        }
+      ],
+      "document_presence": "EXACT_TEXT_PRESENT",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 180,
+        "end": 186,
+        "raw": "repisa"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "SEMANTIC_OR_RELATION_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "accessories",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "tapacantos",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 167,
+          "end": 177,
+          "raw": "tapacantos"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 139,
+        "end": 149,
+        "raw": "tapacantos"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 45,
+      "unit": "cm",
+      "axis": "ancho",
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 12,
+          "end": 49,
+          "raw": "cuarenta y cinco centímetros de ancho"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_ASSOCIATION_PENDING"
+      ],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 120,
+      "unit": "cm",
+      "axis": "alto",
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 51,
+          "end": 74,
+          "raw": "un metro veinte de alto"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 37,
+        "end": 60,
+        "raw": "un metro veinte de alto"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_ASSOCIATION_PENDING"
+      ],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 50,
+      "unit": "cm",
+      "axis": "profundidad",
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 77,
+          "end": 113,
+          "raw": "cincuenta centímetros de profundidad"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_ASSOCIATION_PENDING"
+      ],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "thicknesses",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 18,
+      "unit": "mm",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 142,
+          "end": 162,
+          "raw": "dieciocho milímetros"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_ASSOCIATION_PENDING"
+      ],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "price",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 3800,
+      "unit": "money",
+      "axis": null,
+      "currency": "BOB",
+      "modality": "UNSPECIFIED",
+      "evidence": [
+        {
+          "source": "script",
+          "start": 216,
+          "end": 257,
+          "raw": "Precio de tres mil ochocientos bolivianos"
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "EXPLICIT_PRICE_CLAUSE",
+        "component": "main_order"
+      },
+      "ambiguity": [],
+      "verification_status": "SCRIPT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": true,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de alto y cincuenta centímetros de profundidad.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 0,
+          "end": 114,
+          "raw": "Un atril de cuarenta y cinco centímetros de ancho, un metro veinte de alto y cincuenta centímetros de profundidad."
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " Fabricación en melamina de dieciocho milímetros con tapacantos de PVC.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 114,
+          "end": 185,
+          "raw": " Fabricación en melamina de dieciocho milímetros con tapacantos de PVC."
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " Interior con puerta y repisa.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 185,
+          "end": 215,
+          "raw": " Interior con puerta y repisa."
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 157,
+        "end": 187,
+        "raw": " Interior con puerta y repisa."
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " Precio de tres mil ochocientos bolivianos.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "script",
+          "start": 215,
+          "end": 258,
+          "raw": " Precio de tres mil ochocientos bolivianos."
+        }
+      ],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "PRESENT",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "colors",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "NOT_DETECTED",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "model",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "NOT_DETECTED",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "brand",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "NOT_DETECTED",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "commercial_unit",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "script_presence": "NOT_DETECTED",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    }
+  ],
+  "document_fields": [
+    {
+      "field": "product",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "ATRIL \t\t\t\t",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 0,
+          "end": 10,
+          "raw": "ATRIL \t\t\t\t"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "OPENING_PHRASE_BOUNDARY_REQUIRES_REVIEW"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "name",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "ATRIL \t\t\t\t",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 0,
+          "end": 10,
+          "raw": "ATRIL \t\t\t\t"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "OPENING_PHRASE_BOUNDARY_REQUIRES_REVIEW"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "materials",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "melamina",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 127,
+          "end": 135,
+          "raw": "melamina"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "EXACT_TEXT_PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 109,
+        "end": 117,
+        "raw": "melamina"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "DOCUMENT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "materials",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "pvc",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 163,
+          "end": 166,
+          "raw": "PVC"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "EXACT_TEXT_PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 153,
+        "end": 156,
+        "raw": "PVC"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "DOCUMENT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "components",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "meson",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 49,
+          "end": 54,
+          "raw": "Meson"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "SEMANTIC_OR_RELATION_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "components",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "puerta",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 181,
+          "end": 187,
+          "raw": "puerta"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "EXACT_TEXT_PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 171,
+        "end": 177,
+        "raw": "puerta"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "SEMANTIC_OR_RELATION_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "components",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "repisa",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 190,
+          "end": 196,
+          "raw": "repisa"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "EXACT_TEXT_PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 180,
+        "end": 186,
+        "raw": "repisa"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "SEMANTIC_OR_RELATION_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "accessories",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "tapacanto",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 150,
+          "end": 159,
+          "raw": "tapacanto"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "EXACT_TEXT_PRESENT",
+      "asr_status": "EXACT_TEXT_CORROBORATION",
+      "asr_evidence": {
+        "source": "asr",
+        "start": 139,
+        "end": 148,
+        "raw": "tapacanto"
+      },
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [],
+      "verification_status": "DOCUMENT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false,
+      "count_proposal": null,
+      "count_unit": "units",
+      "count_status": "NOT_STATED_OR_UNRESOLVED"
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 0.45,
+      "unit": "m",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 29,
+          "end": 37,
+          "raw": "0.45 mts"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_AND_COMPOUND_MEASURE_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 0.5,
+      "unit": "cm",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 55,
+          "end": 62,
+          "raw": "0.50 Cm"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_AND_COMPOUND_MEASURE_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 1.2,
+      "unit": "m",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 66,
+          "end": 74,
+          "raw": "1.20 mts"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_AND_COMPOUND_MEASURE_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "dimensions",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 0.5,
+      "unit": "m",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 83,
+          "end": 91,
+          "raw": "0.50 mts"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_AND_COMPOUND_MEASURE_REVIEW_REQUIRED"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "thicknesses",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 18,
+      "unit": "mm",
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 139,
+          "end": 144,
+          "raw": "18 mm"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "COMPONENT_ASSOCIATION_PENDING"
+      ],
+      "verification_status": "DOCUMENT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "price",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": 3800.0,
+      "unit": "money",
+      "axis": null,
+      "currency": null,
+      "modality": "TOTAL",
+      "evidence": [
+        {
+          "source": "document",
+          "start": 231,
+          "end": 251,
+          "raw": "precio total 3800,00"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "EXPLICIT_PRICE_CLAUSE",
+        "component": "main_order"
+      },
+      "ambiguity": [],
+      "verification_status": "DOCUMENT_EVIDENCE_VERIFIED",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "ATRIL \t\t\t\t\n",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 0,
+          "end": 11,
+          "raw": "ATRIL \t\t\t\t\n"
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "1,00\tPza.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 11,
+          "end": 20,
+          "raw": "1,00\tPza."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "\tTamaño: 0.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 20,
+          "end": 31,
+          "raw": "\tTamaño: 0."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "45 mts.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 31,
+          "end": 38,
+          "raw": "45 mts."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " De ancho (Meson 0.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 38,
+          "end": 57,
+          "raw": " De ancho (Meson 0."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "50 Cm) x 1.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 57,
+          "end": 68,
+          "raw": "50 Cm) x 1."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "20 mts.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 68,
+          "end": 75,
+          "raw": "20 mts."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " Alto x 0.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 75,
+          "end": 85,
+          "raw": " Alto x 0."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "50 mts.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 85,
+          "end": 92,
+          "raw": "50 mts."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": "\tde profundidad ,todo en material  melamina de 18 mm.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 92,
+          "end": 145,
+          "raw": "\tde profundidad ,todo en material  melamina de 18 mm."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " con tapacanto en PVC  Interior con puerta y repisa interna.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 145,
+          "end": 205,
+          "raw": " con tapacanto en PVC  Interior con puerta y repisa interna."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " Precio unitario.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 205,
+          "end": 222,
+          "raw": " Precio unitario."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "technical_description",
+      "verification_scope": "LITERAL_OR_SCALAR_ONLY",
+      "value": " 3800,00 precio total 3800,00.",
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [
+        {
+          "source": "document",
+          "start": 222,
+          "end": 252,
+          "raw": " 3800,00 precio total 3800,00."
+        }
+      ],
+      "document_presence": "PRESENT",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "asr_status": "NO_EXACT_TEXT_CORROBORATION",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "FULL_CLAUSE_RESIDUAL_NOT_STRUCTURED_GOLD"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "quantity",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NOT_DETECTED",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "colors",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NOT_DETECTED",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "model",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NOT_DETECTED",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "brand",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NOT_DETECTED",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    },
+    {
+      "field": "commercial_unit",
+      "value": null,
+      "unit": null,
+      "axis": null,
+      "currency": null,
+      "modality": null,
+      "evidence": [],
+      "document_presence": "NOT_DETECTED",
+      "script_presence": "NO_EXACT_MATCH_SEMANTIC_REVIEW_PENDING",
+      "absence_status": "UNSUPPORTED_OR_UNPARSED_NOT_CONFIRMED_ABSENT",
+      "asr_status": "NOT_APPLICABLE",
+      "asr_evidence": null,
+      "association": {
+        "status": "UNRESOLVED",
+        "component": null
+      },
+      "ambiguity": [
+        "NO_RULE_MATCH_IS_NOT_PROOF_OF_ABSENCE"
+      ],
+      "verification_status": "PENDING_SEMANTIC_REVIEW",
+      "acoustic_status": "PENDING_HUMAN_LISTENING",
+      "eligible_script_denominator": false,
+      "eligible_acoustic_denominator": false
+    }
+  ],
+  "review_index_id": "MP-0033"
+}

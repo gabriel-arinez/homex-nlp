@@ -1,0 +1,744 @@
+{
+  "id": "SIL-0015",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0007",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "original__current_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "766688797e4dfc7702b7026092bb6f4745cbcf3057eecfe2781e63a637caa236",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0015.aac",
+    "original_sha256": "24755a3a429fd06ad3a2dc544eb59b0d774d156ab042e3e5f1b7bf61c12d672d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0015.wav",
+    "wav_sha256": "5343dd392955752b1e99f5ce73fb600559167a56de1f9f439878fe84bd58ccfe"
+  },
+  "text_original": "Silla Semi Ejecutiva Ergonómica, modelo P15B, respaldo de malla, apoyo y abrazos regulables, zona lumbar, ajustable, asientos de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas, color turquesa, unidad pieza, precio de lista de 1500 bolivianos.",
+  "script_text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables, zona lumbar ajustable, asiento de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas. Color turquesa. Unidad pieza. Precio de lista de mil quinientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 47,
+      "nombre": "Silla Semi Ejecutiva Ergonómica",
+      "observaciones": "Silla Semi Ejecutiva Ergonómica, modelo P15B, respaldo de malla, apoyo y abrazos regulables, zona lumbar, ajustable, asientos de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas, color turquesa, unidad pieza, precio de lista de 1500 bolivianos.",
+      "precio_lista": "1500.00",
+      "modelo": "P15B",
+      "especificaciones": {
+        "material_respaldo": "respaldo de malla",
+        "asiento": "espuma de alta densidad",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-287-292",
+        "label": "unidad_stock",
+        "start": 287,
+        "end": 292,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-270-278",
+        "label": "color_primario",
+        "start": 270,
+        "end": 278,
+        "text": "turquesa",
+        "source": "RULE",
+        "normalized_value": 47,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-31",
+        "label": "nombre",
+        "start": 0,
+        "end": 31,
+        "text": "Silla Semi Ejecutiva Ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva Ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-329",
+        "label": "observaciones",
+        "start": 0,
+        "end": 329,
+        "text": "Silla Semi Ejecutiva Ergonómica, modelo P15B, respaldo de malla, apoyo y abrazos regulables, zona lumbar, ajustable, asientos de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas, color turquesa, unidad pieza, precio de lista de 1500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla Semi Ejecutiva Ergonómica, modelo P15B, respaldo de malla, apoyo y abrazos regulables, zona lumbar, ajustable, asientos de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas, color turquesa, unidad pieza, precio de lista de 1500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-313-317",
+        "label": "precio_lista",
+        "start": 313,
+        "end": 317,
+        "text": "1500",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-40-44",
+        "label": "modelo",
+        "start": 40,
+        "end": 44,
+        "text": "P15B",
+        "source": "RULE",
+        "normalized_value": "P15B",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-46-63",
+        "label": "especificaciones.material_respaldo",
+        "start": 46,
+        "end": 63,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-129-152",
+        "label": "especificaciones.asiento",
+        "start": 129,
+        "end": 152,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-210-231",
+        "label": "especificaciones.suspension",
+        "start": 210,
+        "end": 231,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-154-167",
+        "label": "especificaciones.mecanismo",
+        "start": 154,
+        "end": 167,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-234-246",
+        "label": "especificaciones.base",
+        "start": 234,
+        "end": 246,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla Semi Ejecutiva Ergonómica"
+    },
+    {
+      "field": "model",
+      "value": "P15B"
+    },
+    {
+      "field": "colors",
+      "value": "Turquesa"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1500.00"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla"
+    },
+    {
+      "field": "materials",
+      "value": "espuma de alta densidad"
+    },
+    {
+      "field": "materials",
+      "value": "base cromada"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-46-63",
+        "label": "especificaciones.material_respaldo",
+        "start": 46,
+        "end": 63,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "turquesa",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi ejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "p15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          5,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "turquesa",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 0,
+        "mismatches": 2
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla semi ejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "p15b",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          5,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de alta densidad",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 11,
+      "substitutions": 5,
+      "deletions": 3,
+      "insertions": 3,
+      "reference_length": 48,
+      "rate": 0.22916666666666666
+    },
+    "strict_normalized": {
+      "errors": 9,
+      "substitutions": 4,
+      "deletions": 2,
+      "insertions": 3,
+      "reference_length": 47,
+      "rate": 0.19148936170212766
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla semiejecutiva ergonómica, modelo be quince be. Respaldo de malla, apoyabrazos regulables, zona lumbar ajustable, asiento de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas. Color turquesa. Unidad pieza. Precio de lista de 1500 BOB.",
+    "asr_text": "Silla Semi Ejecutiva Ergonómica, modelo P15B, respaldo de malla, apoyo y abrazos regulables, zona lumbar, ajustable, asientos de espuma de alta densidad, doble palanca, respaldo con tres posiciones de bloqueo, suspensión hidráulica y base cromada de cinco ruedas, color turquesa, unidad pieza, precio de lista de 1500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 314,
+        "end": 328,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 329,
+        "end": 339,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 318,
+        "end": 328,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

@@ -1,0 +1,782 @@
+{
+  "id": "SIL-0009",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0009",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "context_no_previous__current_nlp",
+  "asr_configuration": "context_no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "cfc759fc2a44d0e4490a07e809ca65f435b7eb7ec0be5fcc1464b80cc59fc116",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": "melamina, MDF, MDP, HDF, PVC, USB, HDMI, tapacantos, bolivianos"
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0009.aac",
+    "original_sha256": "c9dfe6ed46f1981aa8a706069b7ecdf7803c9dd2d4c41925b2776a4acbba2684",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0009.wav",
+    "wav_sha256": "e259f3fdbf1e462a6e2d071a71cf25f524f485c96150e17477ce08cf05142f52"
+  },
+  "text_original": "Silla ejecutiva ergonómica, modelo de 43, estilo racing, con respaldo de malla, reposa pies, acolchado, plegable y reposa cabezas, fijo, doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones, espaldar ajustable en altura, base cromada con cinco ruedas y giro de 360 grados, alto de un metro 10 y ancho de 63 centímetros, procedencia china, garantía de un año, unidad pieza pre-unitario de 1200 bolivianos.",
+  "script_text": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, estilo racing, con respaldo de malla, reposapiés acolchado plegable y reposacabezas fijo. Doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones. Espaldar ajustable en altura, base cromada con cinco ruedas y giro de trescientos sesenta grados. Alto de un metro diez y ancho de sesenta y tres centímetros. Procedencia China, garantía de un año. Unidad pieza. Precio unitario de mil doscientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla ejecutiva ergonómica",
+      "observaciones": "Silla ejecutiva ergonómica, modelo de 43, estilo racing, con respaldo de malla, reposa pies, acolchado, plegable y reposa cabezas, fijo, doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones, espaldar ajustable en altura, base cromada con cinco ruedas y giro de 360 grados, alto de un metro 10 y ancho de 63 centímetros, procedencia china, garantía de un año, unidad pieza pre-unitario de 1200 bolivianos.",
+      "especificaciones": {
+        "reposacabezas": "reposa cabezas",
+        "reposapies": "reposa pies",
+        "material_respaldo": "respaldo de malla",
+        "asiento": "acolchado",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-392-397",
+        "label": "unidad_stock",
+        "start": 392,
+        "end": 397,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-26",
+        "label": "nombre",
+        "start": 0,
+        "end": 26,
+        "text": "Silla ejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-430",
+        "label": "observaciones",
+        "start": 0,
+        "end": 430,
+        "text": "Silla ejecutiva ergonómica, modelo de 43, estilo racing, con respaldo de malla, reposa pies, acolchado, plegable y reposa cabezas, fijo, doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones, espaldar ajustable en altura, base cromada con cinco ruedas y giro de 360 grados, alto de un metro 10 y ancho de 63 centímetros, procedencia china, garantía de un año, unidad pieza pre-unitario de 1200 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica, modelo de 43, estilo racing, con respaldo de malla, reposa pies, acolchado, plegable y reposa cabezas, fijo, doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones, espaldar ajustable en altura, base cromada con cinco ruedas y giro de 360 grados, alto de un metro 10 y ancho de 63 centímetros, procedencia china, garantía de un año, unidad pieza pre-unitario de 1200 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-35-40",
+        "label": "modelo",
+        "start": 35,
+        "end": 40,
+        "text": "de 43",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.reposacabezas-115-129",
+        "label": "especificaciones.reposacabezas",
+        "start": 115,
+        "end": 129,
+        "text": "reposa cabezas",
+        "source": "RULE",
+        "normalized_value": "reposa cabezas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.reposapies-80-91",
+        "label": "especificaciones.reposapies",
+        "start": 80,
+        "end": 91,
+        "text": "reposa pies",
+        "source": "RULE",
+        "normalized_value": "reposa pies",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-61-78",
+        "label": "especificaciones.material_respaldo",
+        "start": 61,
+        "end": 78,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-93-102",
+        "label": "especificaciones.asiento",
+        "start": 93,
+        "end": 102,
+        "text": "acolchado",
+        "source": "RULE",
+        "normalized_value": "acolchado",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-152-173",
+        "label": "especificaciones.suspension",
+        "start": 152,
+        "end": 173,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-137-150",
+        "label": "especificaciones.mecanismo",
+        "start": 137,
+        "end": 150,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-279-297",
+        "label": "especificaciones.giro",
+        "start": 279,
+        "end": 297,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-247-259",
+        "label": "especificaciones.base",
+        "start": 247,
+        "end": 259,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "modelo: código ambiguo; revise la transcripción.",
+      "Complete manualmente: precio_lista"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla ejecutiva ergonómica"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "accessories",
+      "value": "reposa cabezas"
+    },
+    {
+      "field": "accessories",
+      "value": "reposa pies"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla"
+    },
+    {
+      "field": "materials",
+      "value": "acolchado"
+    },
+    {
+      "field": "materials",
+      "value": "base cromada"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-61-78",
+        "label": "especificaciones.material_respaldo",
+        "start": 61,
+        "end": 78,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposapies",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposacabezas",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla ejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposa cabezas",
+          null
+        ],
+        "prediction_indices": [
+          2
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposa pies",
+          null
+        ],
+        "prediction_indices": [
+          3
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          4,
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "acolchado",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposapies",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposacabezas",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "accessories": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      },
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla ejecutiva ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposa cabezas",
+          null
+        ],
+        "prediction_indices": [
+          2
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "reposa pies",
+          null
+        ],
+        "prediction_indices": [
+          3
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          4,
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "acolchado",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "base cromada",
+          null
+        ],
+        "prediction_indices": [
+          6
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 17,
+      "substitutions": 8,
+      "deletions": 7,
+      "insertions": 2,
+      "reference_length": 71,
+      "rate": 0.23943661971830985
+    },
+    "strict_normalized": {
+      "errors": 12,
+      "substitutions": 6,
+      "deletions": 4,
+      "insertions": 2,
+      "reference_length": 68,
+      "rate": 0.17647058823529413
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, estilo racing, con respaldo de malla, reposapiés acolchado plegable y reposacabezas fijo. Doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones. Espaldar ajustable en altura, base cromada con cinco ruedas y giro de trescientos sesenta grados. Alto de 1 m diez y ancho de 63 cm. Procedencia China, garantía de un año. Unidad pieza. Precio unitario de 1200 BOB.",
+    "asr_text": "Silla ejecutiva ergonómica, modelo de 43, estilo racing, con respaldo de malla, reposa pies, acolchado, plegable y reposa cabezas, fijo, doble palanca, suspensión hidráulica y respaldo reclinable con tres posiciones, espaldar ajustable en altura, base cromada con cinco ruedas y giro de 360 grados, alto de 1 m 10 y ancho de 63 cm, procedencia china, garantía de un año, unidad pieza pre-unitario de 1200 BOB.",
+    "reference_transforms": [
+      {
+        "start": 331,
+        "end": 333,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 334,
+        "end": 339,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 356,
+        "end": 370,
+        "raw": "sesenta y tres",
+        "replacement": "63",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 371,
+        "end": 382,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 456,
+        "end": 470,
+        "raw": "mil doscientos",
+        "replacement": "1200",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 471,
+        "end": 481,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 307,
+        "end": 309,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 310,
+        "end": 315,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 333,
+        "end": 344,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 419,
+        "end": 429,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

@@ -1,0 +1,555 @@
+{
+  "id": "MP-0068",
+  "category": "OTRO",
+  "leakage_group": "DEV-MP-0005",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "391dc1aea9afb29ab97c33e5f81bce154aa01f3c9b12babba30a873f348e9ce1",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0068.aac",
+    "original_sha256": "cd8dfc537b36a87c0abce7cfd69a82bc4c0a3aca535f2596af7bb21b2d31a9bb",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0068.wav",
+    "wav_sha256": "14b06082555f67af0009a4c6fc5b194c187e8b2731b6b746ec3453d14d8f6546"
+  },
+  "text_original": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+  "script_text": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 57,
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+      "precio_lista": "12000.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-3-8",
+        "label": "unidad_stock",
+        "start": 3,
+        "end": 8,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-416-421",
+        "label": "unidad_stock",
+        "start": 416,
+        "end": 421,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-50",
+        "label": "nombre",
+        "start": 0,
+        "end": 50,
+        "text": "Un juego de sillones modulares para sala de espera",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-443",
+        "label": "observaciones",
+        "start": 0,
+        "end": 443,
+        "text": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-425-431",
+        "label": "precio_lista",
+        "start": 425,
+        "end": 431,
+        "text": "12 mil",
+        "source": "RULE",
+        "normalized_value": "12000.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Un juego de sillones modulares para sala de espera"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Juego"
+    },
+    {
+      "field": "price",
+      "value": "12000.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "PER_SET",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 10,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "madera de eucalipto",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "acero",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma de poliuretano",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "almohadones",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "topes de goma",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          16
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "40",
+          null
+        ],
+        "reference_indices": [
+          17
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "reference_indices": [
+          19
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "quantity": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 4,
+        "misses": 4,
+        "abstentions": 4,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "un juego de sillones modulares para sala de espera",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "juego",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "PER_SET",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 1,
+    "denominator": 1,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "price",
+          "12000",
+          null
+        ],
+        "reference_indices": [
+          19
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "un juego de sillones modulares para sala de espera",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "juego",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      14,
+      15,
+      16,
+      17
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 11,
+      "substitutions": 6,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 80,
+      "rate": 0.1375
+    },
+    "strict_normalized": {
+      "errors": 8,
+      "substitutions": 4,
+      "deletions": 3,
+      "insertions": 1,
+      "reference_length": 77,
+      "rate": 0.1038961038961039
+    }
+  },
+  "normalization": {
+    "reference_text": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de 40 mm en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por 45 cm. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de 12000 BOB.",
+    "asr_text": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 mm en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 cm, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 1000 BOB.",
+    "reference_transforms": [
+      {
+        "start": 176,
+        "end": 184,
+        "raw": "cuarenta",
+        "replacement": "40",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 185,
+        "end": 195,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 351,
+        "end": 367,
+        "raw": "cuarenta y cinco",
+        "replacement": "45",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 368,
+        "end": 379,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 462,
+        "end": 470,
+        "raw": "doce mil",
+        "replacement": "12000",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 471,
+        "end": 481,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 178,
+        "end": 188,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 331,
+        "end": 342,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 428,
+        "end": 431,
+        "raw": "mil",
+        "replacement": "1000",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 432,
+        "end": 442,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

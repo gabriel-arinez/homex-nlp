@@ -1,0 +1,156 @@
+uv run --locked --extra dev ruff check src tests tools training
+I001 [*] Import block is un-sorted or un-formatted
+  --> tools/evaluate_semantic_voice.py:7:1
+   |
+ 5 |   unavailable; unmatched predictions are review candidates, not confirmed errors.
+ 6 |   """
+ 7 | / from __future__ import annotations
+ 8 | |
+ 9 | | import argparse
+10 | | from collections import Counter, defaultdict
+11 | | from decimal import Decimal, InvalidOperation
+12 | | import hashlib
+13 | | import json
+14 | | import os
+15 | | from pathlib import Path
+16 | | import re
+17 | | import shutil
+18 | | import subprocess
+19 | | import sys
+20 | | import tarfile
+21 | | import tempfile
+   | |_______________^
+22 |
+23 |   # Independent annotation grammar, never production normalization as metric truth.
+   |
+help: Organize imports
+   |
+9  | import argparse
+   - from collections import Counter, defaultdict
+   - from decimal import Decimal, InvalidOperation
+10 | import hashlib
+11 | import json
+12 | import os
+   - from pathlib import Path
+13 | import re
+--------------------------------------------------------------------------------
+18 | import tempfile
+19 + from collections import Counter, defaultdict
+20 + from decimal import Decimal, InvalidOperation
+21 + from pathlib import Path
+22 |
+   |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:242:67
+    |
+240 |     for asr in asr_names:
+241 |         for identifier in sorted({r['id'] for r in rows}):
+242 |             old = by_case.get((f'{asr}__baseline_nlp',identifier));new = by_case.get((f'{asr}__current_nlp',identifier))
+    |                                                                   ^
+243 |             if not old or not new:
+244 |                 continue
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:264:38
+    |
+262 |     lines=['# Four-cell development comparison','', '| ASR / NLP | Cases | Matched / expected scalar tuples | No proposal | Original …
+263 |     for name, c in sorted(cells.items()):
+264 |         original=c['wer']['original'];strict=c['wer']['strict_normalized']
+    |                                      ^
+265 |         lines.append(f"| {name} | {c['cases']} | {c['numerator']}/{c['denominator']} | {c['no_proposal']} | {original['errors']}/{ori…
+266 |     lines += ['', '**All120 are development cases; acoustic and association denominators are zero.**', '', 'Pending configurations: '…
+    |
+
+E701 Multiple statements on one line (colon)
+   --> tools/evaluate_semantic_voice.py:302:41
+    |
+300 |     pending={}
+301 |     for folder in sorted(args.candidate_asr.iterdir()):
+302 |         if not (folder/'cases').is_dir():continue
+    |                                         ^
+303 |         available={p.stem:p for p in (folder/'cases').glob('*.json')}
+304 |         if set(available)!=ids:
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:305:98
+    |
+303 |         available={p.stem:p for p in (folder/'cases').glob('*.json')}
+304 |         if set(available)!=ids:
+305 |             pending[folder.name]=dict(completed_cases=len(set(available)&ids),expected_cases=120);continue
+    |                                                                                                  ^
+306 |         candidate={k:json.loads(p.read_text()) for k,p in available.items()}
+307 |         errors=[k for k,v in candidate.items() if 'error' in v or not v.get('text','').strip()]
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:309:58
+    |
+307 |         errors=[k for k,v in candidate.items() if 'error' in v or not v.get('text','').strip()]
+308 |         if errors:
+309 |             pending[folder.name]=dict(error_cases=errors);continue
+    |                                                          ^
+310 |         for key,row in candidate.items():
+311 |             if row['audio']!=original[key]['audio'] or row['reference']!=original[key]['reference']:
+    |
+
+E701 Multiple statements on one line (colon)
+   --> tools/evaluate_semantic_voice.py:325:21
+    |
+323 |                     if old['asr_artifact_sha256']!=configuration[ref['id']]['artifact_sha256']:
+324 |                         raise ValueError('Resume candidate artifact identity mismatch')
+325 |                 else:missing.append(ref['id'])
+    |                     ^
+326 |             extracted=run_nlp(snapshot,[r for r in input_rows if r['id'] in missing],values) if missing else {}
+327 |             for ref in references:
+    |
+
+E701 Multiple statements on one line (colon)
+   --> tools/evaluate_semantic_voice.py:328:44
+    |
+326 |             extracted=run_nlp(snapshot,[r for r in input_rows if r['id'] in missing],values) if missing else {}
+327 |             for ref in references:
+328 |                 if ref['id'] not in missing:continue
+    |                                            ^
+329 |                 item=configuration[ref['id']];text=item['text'];raw=extracted[ref['id']]
+330 |                 expected,ref_changes=strict_normalize(ref['script_text']);actual,asr_changes=strict_normalize(text)
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:329:46
+    |
+327 |             for ref in references:
+328 |                 if ref['id'] not in missing:continue
+329 |                 item=configuration[ref['id']];text=item['text'];raw=extracted[ref['id']]
+    |                                              ^
+330 |                 expected,ref_changes=strict_normalize(ref['script_text']);actual,asr_changes=strict_normalize(text)
+331 |                 predicted=predictions(raw,values)
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:329:64
+    |
+327 |             for ref in references:
+328 |                 if ref['id'] not in missing:continue
+329 |                 item=configuration[ref['id']];text=item['text'];raw=extracted[ref['id']]
+    |                                                                ^
+330 |                 expected,ref_changes=strict_normalize(ref['script_text']);actual,asr_changes=strict_normalize(text)
+331 |                 predicted=predictions(raw,values)
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> tools/evaluate_semantic_voice.py:330:74
+    |
+328 |                 if ref['id'] not in missing:continue
+329 |                 item=configuration[ref['id']];text=item['text'];raw=extracted[ref['id']]
+330 |                 expected,ref_changes=strict_normalize(ref['script_text']);actual,asr_changes=strict_normalize(text)
+    |                                                                          ^
+331 |                 predicted=predictions(raw,values)
+332 |                 result=dict(id=ref['id'],category=ref['category'],leakage_group=ref['leakage_group'],development_only=True,
+    |
+
+Found 11 errors.
+[*] 1 fixable with the `--fix` option.
+make: *** [Makefile:6: lint] Error 1

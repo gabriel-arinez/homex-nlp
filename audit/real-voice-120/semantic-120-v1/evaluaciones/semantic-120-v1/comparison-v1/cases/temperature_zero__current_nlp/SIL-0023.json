@@ -1,0 +1,394 @@
+{
+  "id": "SIL-0023",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0023",
+  "development_only": true,
+  "cell": "temperature_zero__current_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "15d71620d8c4cdcc274c2bef35fcbbe48c5af1412fa0cee73e0c2047fdf08e5d",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0023.aac",
+    "original_sha256": "8781d7166d42c5fb5d520c2552671eddc60b854b07d6a5bf9bf0561d87dc506e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0023.wav",
+    "wav_sha256": "5d2e52e170af9f259ad7ddd7adced6dede06e385762aafba6ba91847e05181db"
+  },
+  "text_original": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+  "script_text": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla estática de espera de cuatro patas",
+      "observaciones": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "patas": "cuatro patas"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-256-261",
+        "label": "unidad_stock",
+        "start": 256,
+        "end": 261,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-216-221",
+        "label": "color_primario",
+        "start": 216,
+        "end": 221,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-223-227",
+        "label": "color_primario",
+        "start": 223,
+        "end": 227,
+        "text": "azul",
+        "source": "RULE",
+        "normalized_value": 53,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-240",
+        "label": "color_primario",
+        "start": 229,
+        "end": 240,
+        "text": "café oscuro",
+        "source": "RULE",
+        "normalized_value": 55,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-233",
+        "label": "color_primario",
+        "start": 229,
+        "end": 233,
+        "text": "café",
+        "source": "RULE",
+        "normalized_value": 54,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-243-247",
+        "label": "color_primario",
+        "start": 243,
+        "end": 247,
+        "text": "gris",
+        "source": "RULE",
+        "normalized_value": 49,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-40",
+        "label": "nombre",
+        "start": 0,
+        "end": 40,
+        "text": "Silla estática de espera de cuatro patas",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera de cuatro patas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-297",
+        "label": "observaciones",
+        "start": 0,
+        "end": 297,
+        "text": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-282-285",
+        "label": "precio_lista",
+        "start": 282,
+        "end": 285,
+        "text": "380",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-138-159",
+        "label": "especificaciones.tapiz",
+        "start": 138,
+        "end": 159,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-112-135",
+        "label": "especificaciones.asiento",
+        "start": 112,
+        "end": 135,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-28-40",
+        "label": "especificaciones.patas",
+        "start": 28,
+        "end": 40,
+        "text": "cuatro patas",
+        "source": "RULE",
+        "normalized_value": "cuatro patas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "color_primario: valores contradictorios; complete manualmente.",
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla estática de espera de cuatro patas"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "380.00"
+    }
+  ],
+  "score": {
+    "numerator": 2,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "azul",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "cafe oscuro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "gris",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "380",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 4,
+        "misses": 4
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla estatica de espera de cuatro patas",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 3,
+      "substitutions": 2,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 49,
+      "rate": 0.061224489795918366
+    },
+    "strict_normalized": {
+      "errors": 1,
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 48,
+      "rate": 0.020833333333333332
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de 380 BOB.",
+    "asr_text": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 BOB.",
+    "reference_transforms": [
+      {
+        "start": 282,
+        "end": 301,
+        "raw": "trescientos ochenta",
+        "replacement": "380",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 302,
+        "end": 312,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 286,
+        "end": 296,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

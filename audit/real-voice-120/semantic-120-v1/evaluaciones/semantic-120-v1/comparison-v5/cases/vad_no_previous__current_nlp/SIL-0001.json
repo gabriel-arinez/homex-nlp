@@ -1,0 +1,780 @@
+{
+  "id": "SIL-0001",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0001",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "vad_no_previous__current_nlp",
+  "asr_configuration": "vad_no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "b1bfa256135c0212cb4f34070a36169aa4d90a2f3a3bf08b6aa02fba8518aae8",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": true,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "vad_parameters": {
+      "min_silence_duration_ms": 500
+    }
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0001.aac",
+    "original_sha256": "a049e558ec098b3d3c7bc3d844463c9c58821b87b3d8243b9e7553585474067b",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0001.wav",
+    "wav_sha256": "158e7abe0e510d44d5a40399ca1fb6ccd51cdf0451f0ebc503f439d04fb3584d"
+  },
+  "text_original": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz elección unidad pieza presiunitario de 5200 bolivianos",
+  "script_text": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente a líquidos, asiento de espuma inyectada y respaldo de malla negra. Cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación. Color de patas y tapiz a elección. Unidad pieza. Precio unitario de cinco mil doscientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla ergonómica",
+      "observaciones": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz elección unidad pieza presiunitario de 5200 bolivianos",
+      "precio_lista": "5200.00",
+      "especificaciones": {
+        "apoyo_lumbar": "apoyo lumbar",
+        "brazos_regulables": "brazos regulables",
+        "material_respaldo": "respaldo de malla",
+        "asiento": "espuma inyectada",
+        "patas": "cinco patas con ruedas",
+        "base": "patas de nylon de alta resistencia"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-318-323",
+        "label": "unidad_stock",
+        "start": 318,
+        "end": 323,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Silla ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-356",
+        "label": "observaciones",
+        "start": 0,
+        "end": 356,
+        "text": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz elección unidad pieza presiunitario de 5200 bolivianos",
+        "source": "RULE",
+        "normalized_value": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz elección unidad pieza presiunitario de 5200 bolivianos",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-341-345",
+        "label": "precio_lista",
+        "start": 341,
+        "end": 345,
+        "text": "5200",
+        "source": "RULE",
+        "normalized_value": "5200.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.apoyo_lumbar-209-221",
+        "label": "especificaciones.apoyo_lumbar",
+        "start": 209,
+        "end": 221,
+        "text": "apoyo lumbar",
+        "source": "RULE",
+        "normalized_value": "apoyo lumbar",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-180-197",
+        "label": "especificaciones.brazos_regulables",
+        "start": 180,
+        "end": 197,
+        "text": "brazos regulables",
+        "source": "RULE",
+        "normalized_value": "brazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-131-148",
+        "label": "especificaciones.material_respaldo",
+        "start": 131,
+        "end": 148,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-112-128",
+        "label": "especificaciones.asiento",
+        "start": 112,
+        "end": 128,
+        "text": "espuma inyectada",
+        "source": "RULE",
+        "normalized_value": "espuma inyectada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-156-178",
+        "label": "especificaciones.patas",
+        "start": 156,
+        "end": 178,
+        "text": "cinco patas con ruedas",
+        "source": "RULE",
+        "normalized_value": "cinco patas con ruedas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-30-64",
+        "label": "especificaciones.base",
+        "start": 30,
+        "end": 64,
+        "text": "patas de nylon de alta resistencia",
+        "source": "RULE",
+        "normalized_value": "patas de nylon de alta resistencia",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla ergonómica"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "5200.00"
+    },
+    {
+      "field": "accessories",
+      "value": "apoyo lumbar"
+    },
+    {
+      "field": "accessories",
+      "value": "brazos regulables"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla"
+    },
+    {
+      "field": "materials",
+      "value": "espuma inyectada"
+    },
+    {
+      "field": "materials",
+      "value": "patas de nylon de alta resistencia"
+    },
+    {
+      "field": "materials",
+      "value": "respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-131-148",
+        "label": "especificaciones.material_respaldo",
+        "start": 131,
+        "end": 148,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 9,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "nylon",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma inyectada",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyo lumbar",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 4,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "brazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          5,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "patas de nylon de alta resistencia",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 4,
+    "denominator": 9,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "nylon",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "tela",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma inyectada",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          6
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyo lumbar",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "5200",
+          null
+        ],
+        "reference_indices": [
+          15
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 1,
+        "denominator": 4,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 1,
+        "denominator": 2,
+        "misses": 1,
+        "abstentions": 0,
+        "mismatches": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla ergonomica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "accessories",
+          "brazos regulables",
+          null
+        ],
+        "prediction_indices": [
+          4
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          5,
+          8
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "patas de nylon de alta resistencia",
+          null
+        ],
+        "prediction_indices": [
+          7
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 9,
+      "substitutions": 4,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 61,
+      "rate": 0.14754098360655737
+    },
+    "strict_normalized": {
+      "errors": 6,
+      "substitutions": 3,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 59,
+      "rate": 0.1016949152542373
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente a líquidos, asiento de espuma inyectada y respaldo de malla negra. Cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación. Color de patas y tapiz a elección. Unidad pieza. Precio unitario de 5200 BOB.",
+    "asr_text": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz elección unidad pieza presiunitario de 5200 BOB",
+    "reference_transforms": [
+      {
+        "start": 348,
+        "end": 368,
+        "raw": "cinco mil doscientos",
+        "replacement": "5200",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 369,
+        "end": 379,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 346,
+        "end": 356,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

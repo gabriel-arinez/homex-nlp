@@ -1,0 +1,146 @@
+FFFFF............................                                        [100%]
+=================================== FAILURES ===================================
+_ test_implicit_name_stops_before_technical_clause[Poltrona de sala de espera de estructura y patas de madera maciza-Poltrona de sala de espera] _
+
+text = 'Poltrona de sala de espera de estructura y patas de madera maciza'
+expected = 'Poltrona de sala de espera'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                "Poltrona de sala de espera de estructura y patas de madera maciza",
+                "Poltrona de sala de espera",
+            ),
+            ("Piso flotante de aglomerado HDF de ocho milímetros", "Piso flotante"),
+            ("Mesa de reuniones de 120 centímetros", "Mesa de reuniones"),
+            ("Zócalo de ochenta milímetros de alto", "Zócalo"),
+            ("2 poltronas de estructura metálica", "2 poltronas"),
+        ],
+    )
+    def test_implicit_name_stops_before_technical_clause(text, expected):
+        result = extract(text, "OTRO")
+        assert result.fields["nombre"] == expected
+        assert result.fields["observaciones"] == text
+>       assert next(c for c in result.evidence if c.label == "nombre").reason == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+E       AssertionError: assert None == 'Nombre delimitado antes de especificaciones técnicas o comerciales'
+E        +  where None = Candidate(candidate_id='nombre-0-26', label='nombre', start=0, end=26, text='Poltrona de sala de espera', source='RULE', normalized_value='Poltrona de sala de espera', component_ref=None, decision='ACCEPTED', reason=None).reason
+E        +    where Candidate(candidate_id='nombre-0-26', label='nombre', start=0, end=26, text='Poltrona de sala de espera', source='RULE', normalized_value='Poltrona de sala de espera', component_ref=None, decision='ACCEPTED', reason=None) = next(<generator object test_implicit_name_stops_before_technical_clause.<locals>.<genexpr> at 0x7eca0f0cec20>)
+
+tests/unit/test_catalog_semantic_v2.py:31: AssertionError
+_ test_implicit_name_stops_before_technical_clause[Piso flotante de aglomerado HDF de ocho mil\xedmetros-Piso flotante] _
+
+text = 'Piso flotante de aglomerado HDF de ocho milímetros'
+expected = 'Piso flotante'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                "Poltrona de sala de espera de estructura y patas de madera maciza",
+                "Poltrona de sala de espera",
+            ),
+            ("Piso flotante de aglomerado HDF de ocho milímetros", "Piso flotante"),
+            ("Mesa de reuniones de 120 centímetros", "Mesa de reuniones"),
+            ("Zócalo de ochenta milímetros de alto", "Zócalo"),
+            ("2 poltronas de estructura metálica", "2 poltronas"),
+        ],
+    )
+    def test_implicit_name_stops_before_technical_clause(text, expected):
+        result = extract(text, "OTRO")
+        assert result.fields["nombre"] == expected
+        assert result.fields["observaciones"] == text
+>       assert next(c for c in result.evidence if c.label == "nombre").reason == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+E       AssertionError: assert None == 'Nombre delimitado antes de especificaciones técnicas o comerciales'
+E        +  where None = Candidate(candidate_id='nombre-0-13', label='nombre', start=0, end=13, text='Piso flotante', source='RULE', normalized_value='Piso flotante', component_ref=None, decision='ACCEPTED', reason=None).reason
+E        +    where Candidate(candidate_id='nombre-0-13', label='nombre', start=0, end=13, text='Piso flotante', source='RULE', normalized_value='Piso flotante', component_ref=None, decision='ACCEPTED', reason=None) = next(<generator object test_implicit_name_stops_before_technical_clause.<locals>.<genexpr> at 0x7eca0e9a46c0>)
+
+tests/unit/test_catalog_semantic_v2.py:31: AssertionError
+_ test_implicit_name_stops_before_technical_clause[Mesa de reuniones de 120 cent\xedmetros-Mesa de reuniones] _
+
+text = 'Mesa de reuniones de 120 centímetros', expected = 'Mesa de reuniones'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                "Poltrona de sala de espera de estructura y patas de madera maciza",
+                "Poltrona de sala de espera",
+            ),
+            ("Piso flotante de aglomerado HDF de ocho milímetros", "Piso flotante"),
+            ("Mesa de reuniones de 120 centímetros", "Mesa de reuniones"),
+            ("Zócalo de ochenta milímetros de alto", "Zócalo"),
+            ("2 poltronas de estructura metálica", "2 poltronas"),
+        ],
+    )
+    def test_implicit_name_stops_before_technical_clause(text, expected):
+        result = extract(text, "OTRO")
+        assert result.fields["nombre"] == expected
+        assert result.fields["observaciones"] == text
+>       assert next(c for c in result.evidence if c.label == "nombre").reason == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+E       AssertionError: assert None == 'Nombre delimitado antes de especificaciones técnicas o comerciales'
+E        +  where None = Candidate(candidate_id='nombre-0-17', label='nombre', start=0, end=17, text='Mesa de reuniones', source='RULE', normalized_value='Mesa de reuniones', component_ref=None, decision='ACCEPTED', reason=None).reason
+E        +    where Candidate(candidate_id='nombre-0-17', label='nombre', start=0, end=17, text='Mesa de reuniones', source='RULE', normalized_value='Mesa de reuniones', component_ref=None, decision='ACCEPTED', reason=None) = next(<generator object test_implicit_name_stops_before_technical_clause.<locals>.<genexpr> at 0x7eca0e7f3100>)
+
+tests/unit/test_catalog_semantic_v2.py:31: AssertionError
+_ test_implicit_name_stops_before_technical_clause[Z\xf3calo de ochenta mil\xedmetros de alto-Z\xf3calo] _
+
+text = 'Zócalo de ochenta milímetros de alto', expected = 'Zócalo'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                "Poltrona de sala de espera de estructura y patas de madera maciza",
+                "Poltrona de sala de espera",
+            ),
+            ("Piso flotante de aglomerado HDF de ocho milímetros", "Piso flotante"),
+            ("Mesa de reuniones de 120 centímetros", "Mesa de reuniones"),
+            ("Zócalo de ochenta milímetros de alto", "Zócalo"),
+            ("2 poltronas de estructura metálica", "2 poltronas"),
+        ],
+    )
+    def test_implicit_name_stops_before_technical_clause(text, expected):
+        result = extract(text, "OTRO")
+        assert result.fields["nombre"] == expected
+        assert result.fields["observaciones"] == text
+>       assert next(c for c in result.evidence if c.label == "nombre").reason == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+E       AssertionError: assert None == 'Nombre delimitado antes de especificaciones técnicas o comerciales'
+E        +  where None = Candidate(candidate_id='nombre-0-6', label='nombre', start=0, end=6, text='Zócalo', source='RULE', normalized_value='Zócalo', component_ref=None, decision='ACCEPTED', reason=None).reason
+E        +    where Candidate(candidate_id='nombre-0-6', label='nombre', start=0, end=6, text='Zócalo', source='RULE', normalized_value='Zócalo', component_ref=None, decision='ACCEPTED', reason=None) = next(<generator object test_implicit_name_stops_before_technical_clause.<locals>.<genexpr> at 0x7eca0e0117d0>)
+
+tests/unit/test_catalog_semantic_v2.py:31: AssertionError
+_ test_implicit_name_stops_before_technical_clause[2 poltronas de estructura met\xe1lica-2 poltronas] _
+
+text = '2 poltronas de estructura metálica', expected = '2 poltronas'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                "Poltrona de sala de espera de estructura y patas de madera maciza",
+                "Poltrona de sala de espera",
+            ),
+            ("Piso flotante de aglomerado HDF de ocho milímetros", "Piso flotante"),
+            ("Mesa de reuniones de 120 centímetros", "Mesa de reuniones"),
+            ("Zócalo de ochenta milímetros de alto", "Zócalo"),
+            ("2 poltronas de estructura metálica", "2 poltronas"),
+        ],
+    )
+    def test_implicit_name_stops_before_technical_clause(text, expected):
+        result = extract(text, "OTRO")
+        assert result.fields["nombre"] == expected
+        assert result.fields["observaciones"] == text
+>       assert next(c for c in result.evidence if c.label == "nombre").reason == "Nombre delimitado antes de especificaciones técnicas o comerciales"
+E       AssertionError: assert None == 'Nombre delimitado antes de especificaciones técnicas o comerciales'
+E        +  where None = Candidate(candidate_id='nombre-0-11', label='nombre', start=0, end=11, text='2 poltronas', source='RULE', normalized_value='2 poltronas', component_ref=None, decision='ACCEPTED', reason=None).reason
+E        +    where Candidate(candidate_id='nombre-0-11', label='nombre', start=0, end=11, text='2 poltronas', source='RULE', normalized_value='2 poltronas', component_ref=None, decision='ACCEPTED', reason=None) = next(<generator object test_implicit_name_stops_before_technical_clause.<locals>.<genexpr> at 0x7eca0e012810>)
+
+tests/unit/test_catalog_semantic_v2.py:31: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_catalog_semantic_v2.py::test_implicit_name_stops_before_technical_clause[Poltrona de sala de espera de estructura y patas de madera maciza-Poltrona de sala de espera]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_implicit_name_stops_before_technical_clause[Piso flotante de aglomerado HDF de ocho mil\xedmetros-Piso flotante]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_implicit_name_stops_before_technical_clause[Mesa de reuniones de 120 cent\xedmetros-Mesa de reuniones]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_implicit_name_stops_before_technical_clause[Z\xf3calo de ochenta mil\xedmetros de alto-Z\xf3calo]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_implicit_name_stops_before_technical_clause[2 poltronas de estructura met\xe1lica-2 poltronas]
+5 failed, 28 passed in 0.59s

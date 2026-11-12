@@ -15,14 +15,14 @@ Artifacts: corpus evaluaciones/semantic-120-v1 and logs/semantic-120-v1. Runner:
 - S9: "Una vez aprobadas las verificaciones, crea y sube los commits correspondientes. No fusiones a main ni despliegues producción sin revisión final." Safe controlled branch, no other changes overwritten; sanitized publication only, no recordings/credentials/productive data/unneeded files.
 
 ## Tasks
-- T0 [S0] inline + bounded explorer only when mapping budget exceeded; active: refreshed state/contracts/CI and preservation ledger; commit pending.
-- T1 [S1,S6] delegated writer: independent reference-annotation unit in parallel with parent ASR tooling, disjoint files; proposals produced,25tests; acoustic/semantic association pending; commit pending.
-- T2 [S2,S5] inline ASR experiment tooling + delegated long execution when useful; pending.
-- T3 [S3,S4] inline furniture relation/dimension/price/accessory fixes;871tests green; independent verification pending; catalog writer only when independent parallel unit has disjoint surface.
-- T4 [S3,S4] catalog spoken-code/name normalization unit;107focused tests and18unchanged differential probes; independent verification pending; route determined after evidence.
-- T5 [S5,S6] four-cell120-case evaluation + independent bounded verifier(item3shared behavior); pending.
-- T6 [S7,S8] new version/offline distribution/real installed backend wheel + four-form integration; pending; own worktree for backend changes, no root checkout writes.
-- T7 [S8,S9] minimum Gitleaks fingerprints/CI fixes, current reports/sanitized evidence/commits/push; pending.
+- T0 [S0] inline bounded state audit; verified original inputs and effective consumer commits ee6c80f/feece0a; source CI584e90b all4jobs green; history retained.
+- T1 [S1,S6] delegated independent reference writer; c0135d7;120cases,1115 script literal/scalar proposals,1688 semantic proposals pending,5381exact spans,462private clips; acoustic adjudication remains pending.
+- T2 [S2,S5] inline controlled ASR tool a365639; five120-case settings completed:600successful decode artifacts,240unchanged audio hashes; original production ASR unchanged; original processhandleexpired acrossinterruptions, no invented shellexitcode.
+- T3 [S3,S4] inline furniture semantics81d59bb/e1a19a7/ccf79f8/02d4299; reference/component/dimension/material/accessory/count regressions RED→GREEN; independent installed-wheel probes passed; Risk3.
+- T4 [S3,S4] delegated independent catalog writer361625c, parent conservative followups02d4299; names/model provenance, preposition ambiguity, HDF gauge guards; independent source/wheel probes passed; Risk3.
+- T5 [S5,S6] delegated evaluator6a525ac with parent verified adapters4cf94b6; final comparison-v5 completed14cells/1680rawresults, exactevidence/normalization spans verified;487/1000vs438/1000supportedscript tuples,18recoverycases,0scalar-losscases; acoustic/association precision unavailable.
+- T6 [S7,S8] isolated backend worktree feat/real-voice-120-semantic commit7040564; finalwheelc1a085f8,891NLP/99backend/306frontend tests;8actualaudio browser scenarios/fourforms PASS,19authority snapshots and240audio hashes unchanged; no frontend source changes. Backend remote publication needs explicit destination/credential authorization.
+- T7 [S8,S9] inline new0.1.22release02d4299 + exact Gitleaks584e90b; NLPsource branch published, Actions43087301893 all4jobs SUCCESS; final sanitized result export, privacy verification and delivery CI pending; no merge/deploy.
 
 ## Log
 ### L1 User request (verbatim)
@@ -258,3 +258,13 @@ No independent audio listening capability is available to this tool session; dir
 
 ### L3 Semantic checkpoint
 Reference-v2 preserves all240audio hashes and5381exact spans;1115literal/scalar proposals are script-verified,1688semantic entries pending, acoustic denominator0. ASR five controlled all120configurations running. First full source regression871cases caught3new regressions; unsafe unit inheritance and ambiguous truncation were corrected without weakening historical tests. Final871passed. RDD remains off.
+
+### L4 Final source and integration evidence
+Published NLPsource through584e90b, release02d4299. Final0.1.22wheelSHA c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80.891tests +lint/format/schemas/corpus pass; two offline builds identical. Scoped Gitleaks exception preserves security checks; all4NLPremoteCIjobs SUCCESS43087301893.
+Independent verification found missing implicit-name reason;5RED→5GREEN recheck preserved spans/reason. Final installed-wheel probes also preserved ambiguity of initialde/a, explicitHDF8gauge/axis veto, compoundaccessory counts and alternative count abstention. Environmental verifier venv-symlink incident changed only shared editable metadata; restored root import, then reran correct source tests.
+Actual final integration-v3:8/8WAV→Whisper→backendproposal→browserform,26installedmodules byteidentical,19authoritative-model snapshots unchanged,240audio hashes unchanged.99backend tests/306frontend tests/type/lint/build PASS. Historical harness failures kept; freshpage login, CI API origin and externalprobe placement corrected without application source edits. Fullrawtraces/clips remain private; publish sanitized text events and final screenshots only, ledger omissions.
+All120remainDEVELOPMENT. Reference acoustic/association denominators0, precision/confirmedFP/generalization unavailable. Comparisonv1–v4 are historical intermediate runs; finalv5 source matches0.1.22. No model or ASRproduction config change without commercial evidence.
+
+### L5 Final audit and current workspace observation
+All600ASRdecodes and14NLPcells complete. OriginalASR currentNLP487/1000vs438baseline; context501with34recoveries20losses, VAD497with38recoveries28losses. No productionASRpromotion. Finalized exhaustivecase/rootcause matrices andscript-normalized/rawword/char/resource records. Privacy preflight found syntheticziptraversal defect in newexporter; guard rejectsunsafemembersbeforewrite; owncredential/inlineaudio/traversal probespassed. Actualcurrentzipscontainednounsafe paths. Final allbytes/screenshot audit andresultcommitCI pending.
+Later externalworkspace state: oldsystem/tmpworktree/locator disappeared afterrecordedproof;7040564branch+vendorblob preserved. Originalbackendnowhasuntrackedcelerybeat-schedule.db bornafterintegration; ownershipunknown,preserved, notpublished, noambientprocesstouched. Reproductionusesfreshpinnedarchives, notvanishedtemporarypaths.

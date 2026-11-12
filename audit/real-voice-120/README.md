@@ -1,4 +1,34 @@
-# HOMEX real-voice audit — source changes and complete evidence snapshot
+# HOMEX real-voice audit — current semantic continuation and preserved history
+
+## Current0.1.22 continuation
+
+- [Executive report and verified limits](semantic-120-v1/evaluaciones/semantic-120-v1/final-report.md)
+- [Current result/version index](semantic-120-v1/evaluaciones/semantic-120-v1/latest-evaluation.json)
+- [All120 cases and14 comparison cells](semantic-120-v1/evaluaciones/semantic-120-v1/case-matrix.jsonl)
+- [Complete four-cell comparisons for five candidate ASR settings](semantic-120-v1/evaluaciones/semantic-120-v1/comparison-v5/comparison.md)
+- [ASR promotion decision and tradeoffs](semantic-120-v1/evaluaciones/semantic-120-v1/asr-selection.json)
+- [Exact local reproduction commands](semantic-120-v1/evaluaciones/semantic-120-v1/reproduce/README.md)
+- [Console logs](semantic-120-v1/logs/semantic-120-v1/)
+- [Publication omission/redaction/hash ledger](semantic-120-v1/SEMANTIC-PUBLICATION-MANIFEST.json)
+
+On unchanged original ASR, supported script-scalar coverage improved438/1000→487/1000,
+with no previously matched scalar tuple lost; no-proposal cases23→17. This is NOT
+full commercial precision or verified speech accuracy: acoustic/association
+verification remains pending, and all120 recordings are development data.
+Five complete candidate ASR settings (600decodes) and1680NLP case results are kept.
+Context/VAD gain some fields but lose others, so production ASR remains unchanged.
+
+Version0.1.22 has a new reproducible wheel, real installed-backend consumption,
+891NLP/99relevant backend/306frontend passing tests, and8/8actual audio-to-form
+checks across four forms. Source commit584e90b passed all four GitHub Actions jobs;
+CI evidence always names its immutable commit, and delivery-commit status is
+checked separately. No main merge, deployment or public package-registry release
+is implied. Backend consumer7040564 is local pending explicit publication authority.
+The later untracked backend scheduler database is preserved and not published.
+
+The historical material below is frozen context, not the current version claim.
+
+## Historical snapshot atb851b5a (preserved)
 
 This branch publishes the implemented changes and the full evaluation results
 requested by the user. It does **not** claim the original comprehensive audit is
