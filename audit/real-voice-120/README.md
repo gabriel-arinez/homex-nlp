@@ -26,8 +26,24 @@ checked separately. Dataset commit `e72a822` passed package/freeze/dependency jo
 exposed one more verified tokenizer-content-hash false positive; its exact immutable
 fingerprint is scoped in `.gitleaksignore`, without disabling any rule. Canonical
 full CI console output remains available in Actions. No main merge, deployment or public package-registry release
-is implied. Backend consumer7040564 is local pending explicit publication authority.
+is implied. Backend consumer7040564 is now published, with the operational CI-gate correction
+in54c8b91 on `feat/real-voice-120-semantic`. See the delivery addendum below.
 The later untracked backend scheduler database is preserved and not published.
+
+### Backend publication and remaining cross-stack CI failure
+
+The user authorized publication; the [backend branch](https://github.com/gabriel-arinez/homex-backend/tree/feat/real-voice-120-semantic)
+now contains54c8b91. The wheel gate was corrected to check the actual0.1.22
+file/version/hash, with14 passing targeted/consumer tests and an independent check;
+historical wheel checks remain active. [Backend CI](https://github.com/gabriel-arinez/homex-backend/actions/runs/43138201672)
+passes12/13jobs, including real F08 worker integration. **F09 remains failed**:
+two frontend79510ed integration assertions disagree with the observed proforma URL
+and furniture-menu content. The same failures occur in that frontend's own CI
+against its older pinned backend69d9ec1. They were not skipped or hidden, and no
+frontend source was changed by this publication. Global CI acceptance is therefore
+not complete. [Machine-readable delivery status](semantic-120-v1/evaluaciones/semantic-120-v1/delivery-publication-addendum.json).
+Earlier statements that the backend is local/pending describe the immutable
+pre-publication snapshots, not this later delivery. No main merge or deployment.
 
 ### Post-snapshot independent reproduction
 

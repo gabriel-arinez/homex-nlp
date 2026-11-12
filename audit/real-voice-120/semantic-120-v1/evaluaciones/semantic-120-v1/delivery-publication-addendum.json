@@ -1,0 +1,64 @@
+{
+  "schema_version": "real-voice-publication-addendum/1",
+  "user_instruction": "si, publica",
+  "nlp": {
+    "branch": "feat/real-voice-120-results",
+    "verified_source_delivery": "499452b48782ab5c86204ea0f44d671943d8aaf3",
+    "ci": "https://github.com/gabriel-arinez/homex-nlp/actions/runs/43131546615",
+    "result": "success"
+  },
+  "backend": {
+    "branch": "feat/real-voice-120-semantic",
+    "url": "https://github.com/gabriel-arinez/homex-backend/tree/feat/real-voice-120-semantic",
+    "consumer_commit": "704056430b19d55b8687de788392cb0198ed23e9",
+    "delivery_head": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+    "ci": "https://github.com/gabriel-arinez/homex-backend/actions/runs/43138201672",
+    "result": "failure",
+    "jobs": {
+      "f08-real-integration": "success",
+      "secrets": "success",
+      "postgres-migrations": "success",
+      "openapi-drift": "success",
+      "f09-frontend-integration": "failure",
+      "lint": "success",
+      "tests-postgresql": "success",
+      "postgres-privileges": "success",
+      "concurrency-postgresql": "success",
+      "dependency-audit": "success",
+      "django-check": "success",
+      "f10-deploy-runtime": "success",
+      "worker-smoke": "success"
+    }
+  },
+  "operational_gate_fix": {
+    "commit": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+    "cause": "Consumer upgraded to0.1.22 but F08.4 runtime gate still asserted0.1.21 and checked its former operational wheel",
+    "corrected": "Pinned current0.1.22 distribution/version/checksum; historical F08 guard and all previous vendor files preserved",
+    "regressions": "3 failed/1 passed before correction;14 targeted/consumer tests passed after; independent14passed; parent4passed; real F08 CI passed",
+    "no_gate_disabled": true
+  },
+  "wheel": {
+    "version": "0.1.22",
+    "sha256": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80"
+  },
+  "frontend": {
+    "observed_revision": "79510edeb763d745c19f2b664b0eba7102ae54d9",
+    "observed_ci": "https://github.com/gabriel-arinez/homex-frontend/actions/runs/43132862880",
+    "result": "failure",
+    "peer_in_own_workflow": "69d9ec18d76f62bfc89506b4cf451d343a1e344b",
+    "source_modified_by_this_publication": false
+  },
+  "unresolved_f09": {
+    "classification": "CROSS_REPOSITORY_UI_TEST_CONTRACT_FAILURE_NOT_RESOLVED",
+    "cases": [
+      "src/tests/integration/fe08-real.spec.ts:61 expects proforma detail URL, observes editor URL",
+      "src/tests/integration/galerias-real.spec.ts:100 cannot locate furniture technical/configuration menu item"
+    ],
+    "evidence": "Same two failures observed in frontend79510ed against backend69d9ec1 and backend7040564 F09 against frontend79510ed; not evidence of a new wheel regression. Underlying UI/fixture contract requires separate verified correction, not skipped checks.",
+    "voice_scope": "Both PRF04 real voice integration tests passed in the recorded F09 run; broader workflow remains failed"
+  },
+  "global_acceptance": "NOT_COMPLETE: F09 integration failure, human acoustic/association review and independent recordings remain outstanding",
+  "main_merged": false,
+  "production_deployed": false,
+  "console": "Complete canonical job output is available in the linked GitHub Actions runs; full local logs remain under corpus logs/semantic-120-v1. Do not recursively republish finding-containing logs."
+}
