@@ -1,0 +1,50 @@
+{
+  "scope": "SCRIPT_RELATIVE_TEXT_ONLY_NOT_ACOUSTIC_OR_COMMERCIAL_ASSOCIATION_TRUTH",
+  "acoustic_denominator": 0,
+  "association_denominator": 0,
+  "confirmed_false_positives": null,
+  "candidate_asr_promotion": "NOT_RECOMMENDED_WITHOUT_INDEPENDENT_HUMAN_LISTENING_EVIDENCE",
+  "superficial_prediction_losses": [
+    {
+      "id": "MP-0058",
+      "configuration": "script_control",
+      "classification": "CORRECTION_OF_PREVIOUSLY_WRONG_QUANTITY_NOT_A_LOST_CORRECT_FIELD",
+      "literal_text": "Sesenta y un escritorios operativos",
+      "before": {
+        "quantity": 1,
+        "evidence_text": "un"
+      },
+      "after": {
+        "quantity": 61,
+        "evidence_text": "Sesenta y un"
+      },
+      "reference_quantity": 61,
+      "before_reference_outcome": "MISMATCH",
+      "after_reference_outcome": "MATCH",
+      "raw_before": "comparison-final-v2/cases/script_control__baseline_nlp/MP-0058.json",
+      "raw_after": "comparison-final-v2/cases/script_control__current_nlp/MP-0058.json"
+    }
+  ],
+  "matched_tuple_losses": 0,
+  "proposal_losses": 0,
+  "matched_price_qualifier_losses": 0,
+  "latency_limitation": "One serial pass per snapshot, API-reported integer NLP milliseconds on73 furniture cases per cell only. Not a fair performance benchmark, not an ASR or end-to-end latency measurement.",
+  "baseline_current_versions": {
+    "baseline_nlp": "0.1.22",
+    "current_nlp": "0.1.23"
+  },
+  "source_identity_path": "comparison-final-v2/identity.json",
+  "association_update_vs_v1": {
+    "changed_outputs": 5,
+    "case": "MP-0007",
+    "configurations": [
+      "original",
+      "context_no_previous",
+      "no_previous",
+      "temperature_zero",
+      "wider_beam"
+    ],
+    "scalar_metrics_unchanged": true,
+    "effect": "150cm width,65cm height and unit-missing45 depth now belong to literal credencia integrada instead of unscoped main product; malformed main width remains unresolved. Material groups retain their source evidence and meaning."
+  }
+}

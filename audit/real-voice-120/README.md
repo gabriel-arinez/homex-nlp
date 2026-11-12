@@ -1,6 +1,15 @@
 # HOMEX real-voice audit — current semantic continuation and preserved history
 
-## Latest frontend/CI closure — 2026-11-12
+## Current commercial review candidate — 2026-11-12
+
+The authoritative state is [CURRENT.json](CURRENT.json) and the
+[commercial-review-v1 report](commercial-review-v1/README.md). Candidate NLP0.1.23
+has verified source/distribution tests, installed consumers, targeted live-form
+checks and a120-case review workspace. Remote CI for the new heads is pending. Human
+acoustic/association review remains PENDIENTE. The previously published0.1.22
+closure below is historical, not approval of the new candidate.
+
+## Historical frontend/CI closure — 2026-11-12
 
 The follow-up is published on frontend `fix/real-voice-120-f09` at `7b83694`
 and backend `feat/real-voice-120-semantic` at `850c250`. Both final workflows
