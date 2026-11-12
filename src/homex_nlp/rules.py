@@ -162,20 +162,11 @@ def find_products(text: str) -> list[Match]:
             and re.search(r"\bpara\s+(?:(?:los?|las?)\s+)?$", text[: m.start()], re.I)
         )
     ]
-    # "Credencia" is also a furniture noun. Require a counted dimensional
-    # description and furniture material; never repair arbitrary ASR tokens.
+    # "Credencia" is a literal furniture noun, not an acoustic repair.
     especificos.extend(
         Match(m.start(), m.end(), m.group(), "PRODUCTO")
         for m in re.finditer(r"\bcredencias?\b", text, re.I)
-        if re.search(r"\b(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s+$", text[: m.start()], re.I)
-        and re.match(
-            r"\s+de\s+(?:\d+(?:[.,]\d+)?|"
-            + "|".join(NUMBER_WORDS)
-            + r")\s+(?:cm|mm|m|metros?|cent[ií]metros?|mil[ií]metros?)\b",
-            text[m.end() :],
-            re.I,
-        )
-        and re.search(r"\b(?:melamina|MDP|MDF|madera)\b", text[m.end() : m.end() + 500], re.I)
+        if _counted_furniture_context(text, m)
     )
     generales = [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")
@@ -196,6 +187,53 @@ def find_products(text: str) -> list[Match]:
     return extended
 
 
+def _counted_furniture_context(text: str, mention: re.Match[str]) -> bool:
+    count = re.search(r"(" + _commercial_count_pattern() + r")\s+$", text[: mention.start()], re.I)
+    if count is None or _commercial_count_match(text, count.start(1), count.end(1)) is None:
+        return False
+    dimension = re.match(
+        r"\s+de\s+("
+        + r"\d+(?:[.,]\d+)?|"
+        + _DIM_PALABRAS_PATRON
+        + r")\s*(?:cm|mm|m|metros?|cent[ií]metros?|mil[ií]metros?)\b",
+        text[mention.end() :],
+        re.I,
+    )
+    if dimension is None:
+        return False
+    raw = dimension.group(1)
+    value = (
+        decimal_from_text(raw)
+        if re.fullmatch(r"\d+(?:[.,]\d+)?", raw)
+        else _dimension_numero_palabras(raw)
+    )
+    return bool(
+        value
+        and value > 0
+        and re.search(
+            r"\b(?:melamina|MDP|MDF|madera)\b", text[mention.end() : mention.end() + 500], re.I
+        )
+    )
+
+
+def _commercial_count_pattern() -> str:
+    # Reuse the existing strict cardinal grammar, not the small legacy lexicon.
+    return r"(?:\d+|" + _DIM_PALABRAS_PATRON + r")"
+
+
+def _commercial_count_match(text: str, start: int, end: int) -> Match | None:
+    before = text[:start]
+    if re.search(r"[-−+]\s*$|\d[.,]\s*$|\b(?:menos|o)\s*$", before, re.I):
+        return None
+    if _fragmento_numerico_truncado(text, start):
+        return None
+    raw = text[start:end]
+    value = int(raw) if raw.isdecimal() else _dimension_numero_palabras(raw)
+    if value is None or value <= 0:
+        return None
+    return Match(start, end, raw, "CANTIDAD", int(value))
+
+
 def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     """Cantidad contigua al producto, sin consumir especificaciones de piezas.
 
@@ -205,16 +243,17 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     """
     tramo = text[principal.end : principal.end + 180]
     inicio = re.match(
-        r"\s*[,;:]?\s*(?P<numero>\d+|" + "|".join(NUMBER_WORDS) + r")"
+        r"\s*[,;:]?\s*(?P<numero>" + _commercial_count_pattern() + r")"
         r"\s+(?P<unidad>piezas?|pzas?\.?|unidades?|juegos?)\b",
         tramo,
         re.I,
     )
     if inicio is None:
         return None
-    token = inicio.group("numero").casefold()
-    valor = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-    if valor is None or valor <= 0:
+    count = _commercial_count_match(
+        text, principal.end + inicio.start("numero"), principal.end + inicio.end("numero")
+    )
+    if count is None:
         return None
     despues = tramo[inicio.end() :]
     # «una pieza de vidrio», «dos piezas para el tablero»: componentes, no
@@ -236,14 +275,13 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     # nunca conservar por defecto la primera cifra como comercial.
     if re.match(
         r"\s*[,;.]?\s*(?:no\s*,?\s*(?:mejor|\d+|"
-        + "|".join(NUMBER_WORDS)
+        + _commercial_count_pattern()
         + r")|perd[oó]n|corrijo|mejor)\b",
         despues,
         re.I,
     ):
         return None
-    offset = principal.end + inicio.start("numero")
-    return Match(offset, offset + len(token), text[offset : offset + len(token)], "CANTIDAD", valor)
+    return count
 
 
 def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
@@ -253,30 +291,25 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     main = products[0]
     prefix = text[: main.start]
     pattern = re.compile(
-        r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s+(?:(?:juegos?|unidades?)\s+(?:de\s+)?)?$", re.I
+        r"(?<![\w.,+\-−])("
+        + _commercial_count_pattern()
+        + r")\s+(?:(?:juegos?|unidades?)\s+(?:de\s+)?)?$",
+        re.I,
     )
     match = pattern.search(prefix)
     if match:
-        if re.search(r"[-−]\s*$", prefix[: match.start(1)]):
-            return None
-        token = match.group(1).lower()
-        value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-        if value:
-            return Match(match.start(1), match.end(1), match.group(1), "CANTIDAD", value)
+        return _commercial_count_match(text, match.start(1), match.end(1))
     # La cantidad comercial se reconoce sólo en construcciones inequívocas.
     # «para 10 personas» y «2 tomacorrientes» no son cantidad de muebles.
     explicit = re.search(
         r"\b(?:cantidad(?:\s+comercial)?\s*(?::|de)?\s*|se\s+cotizan\s+)"
-        r"(\d+|" + "|".join(NUMBER_WORDS) + r")\s*"
+        r"(" + _commercial_count_pattern() + r")\s*"
         r"(?:piezas?|pzas?\.?|unidades?|juegos?)\b",
         text,
         re.I,
     )
     if explicit:
-        token = explicit.group(1).lower()
-        value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-        if value and value > 0:
-            return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
+        return _commercial_count_match(text, explicit.start(1), explicit.end(1))
     # «se cotiza una sola mesa» declara una unidad, no un segundo producto.
     # Aceptar únicamente el mismo tipo principal, sin extrapolar cantidades.
     if main.text.casefold().startswith("mesa"):
@@ -338,7 +371,7 @@ def price_mentions(text: str):
         r"\b(?:precio\s+(?:por\s+(?:unidad|juego|pieza|barra|metro\s+cuadrado)|unitario|de\s+lista)|"
         r"precio\s+de\s+lista|"
         r"valor\s+unitario|"
-        r"presionitario|presiunitario|presunitario|prese\s+unitario)"
+        r"presionitario|presiunitario|preciunitario|presunitario|prese\s+unitario)"
         r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
@@ -657,6 +690,10 @@ def _fragmento_numerico_truncado(text: str, start: int) -> bool:
     """Impide que se tome sólo el sufijo de una expresión numérica inválida."""
     import unicodedata
 
+    # An explicit clause separator terminates the preceding numeric expression.
+    # Keep same-clause malformed compounds blocked rather than consuming a suffix.
+    if re.search(r"[,;:.!?]\s*$", text[:start]):
+        return False
     contexto = "".join(
         char
         for char in unicodedata.normalize("NFD", text[max(0, start - 40) : start].casefold())
