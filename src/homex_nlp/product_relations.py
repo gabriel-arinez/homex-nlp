@@ -10,7 +10,8 @@ def head(text):
     folded = "".join(
         c for c in unicodedata.normalize("NFD", text.casefold()) if unicodedata.category(c) != "Mn"
     )
-    return folded.split()[0].rstrip("s")
+    family = folded.split()[0].rstrip("s")
+    return "cajonera" if family == "cajoneria" else family
 
 
 def descriptive_reference(text, mention):
@@ -22,12 +23,22 @@ def descriptive_reference(text, mention):
         re.I,
     ):
         return False
-    boundary = re.search(r"(?:[.;,]\s*(?:el|la|los|las)?\s*|\b(?:del|de la)\s+)$", before, re.I)
+    boundary = re.search(
+        r"(?:[.;,]\s*(?:el|la|los|las)?\s*|\b(?:del|de la|incluye)\s+)$", before, re.I
+    )
     if not boundary:
         return False
     if re.search(r"\b(?:del|de la)\s+$", before, re.I):
         return True
-    return bool(re.match(r"\s+(?:de|tiene|mide|lleva|con)\b", text[mention.end :], re.I))
+    if re.search(r"\bincluye\s+$", before, re.I):
+        return True
+    return bool(
+        re.match(
+            r"\s+(?:(?:rodante|integrada)\s+)?(?:de|tiene|mide|lleva|con)\b",
+            text[mention.end :],
+            re.I,
+        )
+    )
 
 
 def resolve_product_references(text, products, mentions):
@@ -35,6 +46,12 @@ def resolve_product_references(text, products, mentions):
         return products, []
     principal = products[0]
     dependent = set()
+    # An introduced drawer assembly may use the literal collective noun.
+    for assembly in re.finditer(r"\bcajoner[ií]a\b", text, re.I):
+        if assembly.start() > principal.start and re.search(
+            r"\bcon\s+$", text[: assembly.start()], re.I
+        ):
+            dependent.add("cajonera")
     for mention in mentions:
         if mention.start <= principal.start or head(mention.text) not in {"cajonera", "casillero"}:
             continue
@@ -44,8 +61,18 @@ def resolve_product_references(text, products, mentions):
     references = []
     for mention in products[1:]:
         family = head(mention.text)
-        if (family == head(principal.text) or family in dependent) and descriptive_reference(
-            text, mention
+        integrated = (
+            head(principal.text) == "escritorio"
+            and family == "credenza"
+            and re.match(r"\s+integrada\b", text[mention.end :], re.I)
+            and re.search(r"(?:[.;,]\s*|\bcon\s+)$", text[: mention.start], re.I)
+        )
+        if integrated or (
+            (family == head(principal.text) or family in dependent)
+            and (
+                family in dependent or not re.search(r"\bincluye\s+$", text[: mention.start], re.I)
+            )
+            and descriptive_reference(text, mention)
         ):
             references.append(mention)
         else:
@@ -83,3 +110,44 @@ def merge_drawer_references(item, candidates, text):
             if value.component_ref == component.component_id:
                 value.component_ref = first.component_id
         item.components.remove(component)
+
+
+def associate_reference_dimensions(item, candidates, text):
+    """Bind a contiguous dimension list to an explicit drawer/integrated sideboard.
+
+    Only literal connectors and already extracted measures are consumed. A new
+    entity, sentence, material clause or unparsed text terminates the list.
+    """
+    dimensions = sorted(
+        (
+            (next(c for c in candidates if c.candidate_id in d.evidence_ids), d)
+            for d in item.dimensions
+        ),
+        key=lambda pair: pair[0].start,
+    )
+    for component in item.components:
+        if head(component.name) != "cajonera" and component.name.casefold() != "credenza integrada":
+            continue
+        for mention in candidates:
+            if mention.label != "COMPONENTE" or mention.candidate_id not in component.evidence_ids:
+                continue
+            end = mention.end
+            started = False
+            for evidence, dimension in dimensions:
+                if evidence.start < end:
+                    continue
+                connector = text[end : evidence.start]
+                pattern = (
+                    r"\s*(?:,|y|,\s*y)\s*"
+                    if started
+                    else r"\s+(?:rodante\s+)?(?:de|con)\s+"
+                    r"(?:(?:MDF|MDP|melamina)\s+de\s+)?"
+                )
+                if not re.fullmatch(pattern, connector, re.I):
+                    break
+                if dimension.component_ref not in {None, component.component_id}:
+                    break
+                dimension.component_ref = component.component_id
+                evidence.component_ref = component.component_id
+                started = True
+                end = evidence.end

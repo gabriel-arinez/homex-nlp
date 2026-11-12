@@ -9,7 +9,7 @@ from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negat
 COMPONENTES = (
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
-    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajones?(?: lateral(?:es)?)?|"
+    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajoner[ií]a|credenza integrada|cajones?(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (
@@ -642,9 +642,13 @@ def completar_relaciones(item, candidates, text, warnings):
                 item.thicknesses = [
                     m for m in item.thicknesses if c.candidate_id not in m.evidence_ids
                 ]
-    from homex_nlp.product_relations import merge_drawer_references
+    from homex_nlp.product_relations import (
+        associate_reference_dimensions,
+        merge_drawer_references,
+    )
 
     merge_drawer_references(item, candidates, text)
+    associate_reference_dimensions(item, candidates, text)
     resolver_atributos(item, candidates, text, warnings)
     # La nueva ruta oral no afirma un espesor GENERAL por carecer de pieza.
     # El valor literal permanece trazable y resoluble por PRF-03. La ruta

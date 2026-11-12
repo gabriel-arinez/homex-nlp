@@ -153,6 +153,7 @@ def find_products(text: str) -> list[Match]:
         for patron in (
             reunion,
             ejecutivo_asr,
+            re.compile(r"\bestante\s+librero\b|\bestantes\s+libreros\b", re.I),
             re.compile(r"\bcubos?\s+m[oó]viles?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I),
         )
         for m in patron.finditer(text)
@@ -161,6 +162,21 @@ def find_products(text: str) -> list[Match]:
             and re.search(r"\bpara\s+(?:(?:los?|las?)\s+)?$", text[: m.start()], re.I)
         )
     ]
+    # "Credencia" is also a furniture noun. Require a counted dimensional
+    # description and furniture material; never repair arbitrary ASR tokens.
+    especificos.extend(
+        Match(m.start(), m.end(), m.group(), "PRODUCTO")
+        for m in re.finditer(r"\bcredencias?\b", text, re.I)
+        if re.search(r"\b(?:\d+|" + "|".join(NUMBER_WORDS) + r")\s+$", text[: m.start()], re.I)
+        and re.match(
+            r"\s+de\s+(?:\d+(?:[.,]\d+)?|"
+            + "|".join(NUMBER_WORDS)
+            + r")\s+(?:cm|mm|m|metros?|cent[ií]metros?|mil[ií]metros?)\b",
+            text[m.end() :],
+            re.I,
+        )
+        and re.search(r"\b(?:melamina|MDP|MDF|madera)\b", text[m.end() : m.end() + 500], re.I)
+    )
     generales = [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")
         for m in pattern.finditer(text)
