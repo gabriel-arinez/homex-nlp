@@ -1,0 +1,42 @@
+{
+  "task": "Independent verification of backend F09 integration peer pin",
+  "backend_base": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+  "backend_candidate_source": "normalized worktree diff frozen in isolated scratch",
+  "frontend_peer": "4e813ff0cdd8e0a11b847c1d8ee3aff1a7c1bdc2",
+  "scratch_path": "<scratch>",
+  "checks": {
+    "scope": {
+      "changed_files": [
+        ".github/workflows/ci.yml",
+        "docs/catalogo-voz.md"
+      ],
+      "workflow_diff": "Only integration_peer_ref fallback changes from mutable main to the exact 40-character frontend SHA; all other workflow steps, permissions, services, and commands are unchanged.",
+      "override": "Optional integration_peer_ref input remains available.",
+      "frontend_match": "Pinned SHA equals local frontend HEAD and local fix/real-voice-120-f09 branch tip. No remote was queried.",
+      "diff_check": "git diff --check passed."
+    },
+    "runtime_artifact": {
+      "NLP_wheel_sha256_base": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+      "NLP_wheel_sha256_candidate": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+      "result": "Identical; no runtime or wheel file is changed by this diff."
+    },
+    "openapi_consumer_verifier": {
+      "initial_attempt": {
+        "command": "env -u PYTHONPATH python3.11 scripts/verificar_contrato_frontend_f09.py <frontend>",
+        "exit_code": 1,
+        "result": "This was the wrong interpreter; it lacked yaml. Preserve the original attempt log at logs/frontend-f09-v1/backend-peer-contract-verifier.log. This did not establish that the requested environment lacked dependencies."
+      },
+      "requested_environment_recheck": {
+        "command": "env -u PYTHONPATH <scratch> <workspace> <workspace>",
+        "exit_code": 0,
+        "result": "f09-contract-consumer-ok backend_ref=14164195a192cd1331081e48424d2790909f4600",
+        "log": "logs/frontend-f09-v1/backend-peer-contract-verifier-recheck.log"
+      },
+      "final_result": "Requested Python environment successfully verified OpenAPI parity and exact backend reference; no install or source mutation."
+    }
+  },
+  "verdicts": {
+    "S8": "PASS: exact consumer SHA, unchanged workflow surface and wheel, diff check, and OpenAPI consumer verifier all passed. The earlier failure used the wrong interpreter and is retained as an initial-attempt record only.",
+    "S9": "No publication or delivery operation performed by this verifier; verification only."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "task": "Frontend F09 corrections independent verification",
+  "base": "ef0a7f881dbf9e8f16d5eeb918a3e2e6205273a4",
+  "candidate_snapshot": "normalized working-tree diff frozen into an isolated scratch copy before verification",
+  "scratch_path": "<scratch>",
+  "checks": {
+    "test:e2e": {
+      "command": "VITE_API_BASE_URL=http://localhost:8000 npm run test:e2e",
+      "exit_code": 0,
+      "result": "109 passed; 1 pre-existing skipped test",
+      "scope": "Full Playwright E2E suite, including @a11y PRF04 actions test"
+    },
+    "contract:check": {
+      "command": "npm run contract:check",
+      "exit_code": 0,
+      "result": "OpenAPI-generated contract check passed"
+    },
+    "voice_controls_unit_differential": {
+      "command": "npm run test:unit -- --run src/modules/capturas/components/VoiceCaptureControls.spec.ts",
+      "baseline": "exit 0; 1 file, 3 tests passed",
+      "candidate": "exit 0; 1 file, 3 tests passed",
+      "result": "Same assertions and outcomes; timings intentionally not compared"
+    },
+    "diff_check": {
+      "command": "git diff --check <base>",
+      "result": "passed"
+    },
+    "integration_peer": {
+      "workflow_default_ref": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+      "backend_head": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+      "backend_dependency": "homex-nlp==0.1.22 via vendor wheel path",
+      "wheel_sha256": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+      "declared_sha256_matches": true,
+      "workflow_source_override": "No PYTHONPATH/source override found"
+    }
+  },
+  "review": {
+    "test_assertions": "Changed integration selectors correspond to current editor/menu labels; changed lines retain original business assertions. No assertions were removed beyond replacing stale route/control selectors.",
+    "css": "Only opacity changes from 0.9 to 1 for source-action small text; institutional color and disabled-state styling are untouched.",
+    "skip": "The suite's one skip is existing at the base commit: FE04 editable attachments in review; unchanged by candidate.",
+    "limits": "Backend-backed integration tests were not re-run here; no services were provisioned. Existing parent-observed live integration evidence is separate. Full external GitHub Actions was not run by this verifier."
+  },
+  "verdicts": {
+    "S4": "PASS for changed frontend selectors and accessibility control; regression tests preserve existing commercial/gallery assertions.",
+    "S7": "PARTIAL: full frontend E2E and previously observed parent integration evidence support it, but backend-backed integration was not independently re-run in this frozen-snapshot check.",
+    "S8": "PASS for corrected peer pin and installed-wheel identity metadata; complete GitHub Actions remains outside this local verification."
+  }
+}

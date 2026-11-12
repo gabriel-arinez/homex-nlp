@@ -1,0 +1,31 @@
+{
+  "scope": "Read-only audit of audit/real-voice-120/frontend-f09-v1, its manifest, selected source evidence, and the modified root audit README/task document.",
+  "export_bundle": {
+    "public_file_count": 33,
+    "manifest_selected_text_files": 31,
+    "selected_types": {"json": 9, "markdown": 1, "console_log": 21},
+    "source_hash_ledger_entries": 54,
+    "source_hash_and_size_mismatches": 0,
+    "published_hash_mismatches": 0,
+    "in_memory_prefix_redaction_byte_mismatches": 0,
+    "source_or_published_json_parse_failures": 0,
+    "all_bundle_files_utf8": true
+  },
+  "privacy_checks": {
+    "exact_private_secret_or_password_matches": 0,
+    "private_key_or_token_pattern_matches": 0,
+    "audio_or_image_data_uri_matches": 0,
+    "unredacted_local_or_tmp_path_matches_in_export_bundle": 0,
+    "binary_or_audio_or_trace_files_in_export_bundle": 0,
+    "textual_relative_test_artifact_references_in_selected_logs": "Present in failed-run console text; no trace, screenshot, audio, or other binary artifact was included.",
+    "modified_task_document_note": "The current task document contains one pre-existing local absolute path at line 289. It is not introduced by the current diff (zero added lines contain such a path), but should be redacted if the whole task document is to be included in a public release. The exported bundle itself has no unredacted local path."
+  },
+  "ci_claims_checked": {
+    "frontend": {"run": 43160479820, "head": "7b83694310239551e45d8a8a30ab96e2724c72c1", "conclusion": "success", "jobs": "13/13", "real_stack_cases": "14 passed", "e2e": "109 passed, 1 pre-existing skip"},
+    "backend": {"run": 43160776481, "head": "850c250d0e673a296f4f0d772800aae89dd395b1", "conclusion": "success", "jobs": "13/13", "real_stack_cases": "14 passed", "pytest": "552 passed, 5 skipped; all skip reasons identify Poppler proof requirements"},
+    "frontend_local_unit": "306 passed",
+    "historical_frontend_run": {"run": 43159506238, "head": "4e813ff0cdd8e0a11b847c1d8ee3aff1a7c1bdc2", "conclusion": "failure", "jobs": "12 success, 1 failure"},
+    "historical_wording": "The included independent-ci-status-clarification.json explicitly says the earlier report's wording was imprecise and identifies the run as overall failed; historical report is retained."
+  },
+  "verdict": "Exported evidence bundle passes hash, transformation, parse, and checked privacy-pattern audits. Scope caution: redact the unchanged pre-existing absolute path in the root task document before publishing that document. CI counts/statuses above match captured JSON and local full console summaries."
+}

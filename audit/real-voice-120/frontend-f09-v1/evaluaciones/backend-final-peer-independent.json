@@ -1,0 +1,36 @@
+{
+  "task": "Final backend consumer identity verification for F09",
+  "backend_base": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+  "backend_worktree_head_at_check": "fbee8521a71068431eb873cf3ab12d6a1713487d",
+  "backend_scratch": "<scratch>",
+  "frontend_peer": "7b83694310239551e45d8a8a30ab96e2724c72c1",
+  "checks": {
+    "backend_diff": {
+      "changed_paths": [".github/workflows/ci.yml", "docs/catalogo-voz.md"],
+      "result": "Only the default peer SHA and its documentation changed relative to backend base; optional integration_peer_ref input remains. No application/runtime source changed.",
+      "git_diff_check": "PASS"
+    },
+    "frontend_peer": {
+      "local_head_matches_sha": true,
+      "delta_from_previous_peer_4e813ff": ["docs/GALERIAS.md", "src/tests/integration/fe08-real.spec.ts"],
+      "delta_scope": "Docs and integration-test assertions only; no application/model source changes.",
+      "revised_assertion": "After reload, assert editor URL and visible line card, then navigate to Revisar and assert .review-state-pill data-status=BORRADOR and text Borrador.",
+      "source_contract": "Current editor renders .review-state-pill with data-status from persisted estado_info.codigo and the estado_info.nombre label."
+    },
+    "openapi_consumer_verifier": {
+      "command": "env -u PYTHONPATH <scratch> <workspace> <workspace>",
+      "exit_code": 0,
+      "stdout": "f09-contract-consumer-ok backend_ref=14164195a192cd1331081e48424d2790909f4600"
+    },
+    "runtime_artifact": {
+      "NLP_wheel_sha256_base": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+      "NLP_wheel_sha256_candidate": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+      "result": "Identical; peer pin does not modify the runtime wheel."
+    },
+    "ci_status": {
+      "prior_peer_workflow": "Parent reports frontend workflow 43159506238 passed the prior 4e813ff consumer pin.",
+      "final_peer_workflow": "Pending/not independently verified here; do not claim the later audio scenario passed."
+    }
+  },
+  "verdict": "PASS for final peer identity and contract consumer check. Final peer GitHub Actions status remains pending; no audio E2E success is claimed."
+}

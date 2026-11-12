@@ -1,0 +1,28 @@
+npm notice run homex-frontend@0.1.0 check:all
+npm notice run run-s check:fast "test:unit -- --run"
+npm notice run homex-frontend@0.1.0 check:fast
+npm notice run run-s type-check lint:check format:check
+npm notice run homex-frontend@0.1.0 type-check
+npm notice run vue-tsc --build
+npm notice run homex-frontend@0.1.0 lint:check
+npm notice run run-s lint:oxlint:check lint:eslint:check
+npm notice run homex-frontend@0.1.0 lint:oxlint:check
+npm notice run oxlint .
+npm notice run homex-frontend@0.1.0 lint:eslint:check
+npm notice run eslint . --cache
+npm notice run homex-frontend@0.1.0 format:check
+npm notice run prettier --check .
+Checking formatting...
+All matched files use Prettier code style!
+npm notice run homex-frontend@0.1.0 test:unit
+npm notice run vitest --run
+
+ RUN  v4.1.12 <workspace>
+
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+
+ Test Files  56 passed (56)
+      Tests  306 passed (306)
+   Start at  01:05:56
+   Duration  31.95s (transform 17.53s, setup 16.80s, import 44.42s, tests 35.75s, environment 96.68s)
+

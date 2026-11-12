@@ -1,5 +1,16 @@
 # HOMEX real-voice audit — current semantic continuation and preserved history
 
+## Latest frontend/CI closure — 2026-11-12
+
+The follow-up is published on frontend `fix/real-voice-120-f09` at `7b83694`
+and backend `feat/real-voice-120-semantic` at `850c250`. Both final workflows
+pass13/13jobs; both real-stack suites pass14/14cases, including ASR/worker and
+persistence/authority checks. The editor/gallery/audio tests now match the
+unified UI, and voice-instruction contrast is corrected without changing branding.
+[Closure, immutable CI links, console evidence, skips and reproduction](frontend-f09-v1/README.md).
+No main merge/deployment occurred. Acoustic/association adjudication of the120
+development recordings remains pending; the ASR/NLP metrics below are unchanged.
+
 ## Current0.1.22 continuation
 
 - [Executive report and verified limits](semantic-120-v1/evaluaciones/semantic-120-v1/final-report.md)
@@ -26,12 +37,15 @@ checked separately. Dataset commit `e72a822` passed package/freeze/dependency jo
 exposed one more verified tokenizer-content-hash false positive; its exact immutable
 fingerprint is scoped in `.gitleaksignore`, without disabling any rule. Canonical
 full CI console output remains available in Actions. No main merge, deployment or public package-registry release
-is implied. Backend consumer7040564 is now published, with the operational CI-gate correction
-in54c8b91 on `feat/real-voice-120-semantic`. See the delivery addendum below.
+is implied. Initial backend consumer7040564 was published with the operational CI-gate correction
+in54c8b91 on `feat/real-voice-120-semantic`. The subsequent CI-peer-only follow-up
+is850c250, as recorded in the latest closure above. The earlier delivery addendum
+below remains an immutable historical snapshot.
 The later untracked backend scheduler database is preserved and not published.
 
-### Backend publication and remaining cross-stack CI failure
+### Historical backend-publication snapshot — before frontend follow-up
 
+This historical snapshot is superseded by the latest closure above.
 The user authorized publication; the [backend branch](https://github.com/gabriel-arinez/homex-backend/tree/feat/real-voice-120-semantic)
 now contains54c8b91. The wheel gate was corrected to check the actual0.1.22
 file/version/hash, with14 passing targeted/consumer tests and an independent check;

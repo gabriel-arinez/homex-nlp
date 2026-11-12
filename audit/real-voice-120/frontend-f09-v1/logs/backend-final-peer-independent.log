@@ -1,0 +1,11 @@
+Fresh scratch snapshot: backend base 54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f plus current normalized diff.
+Backend diff files: .github/workflows/ci.yml; docs/catalogo-voz.md.
+Default frontend peer: 7b83694310239551e45d8a8a30ab96e2724c72c1; matches local frontend HEAD.
+Frontend delta from 4e813ff: docs/GALERIAS.md and src/tests/integration/fe08-real.spec.ts only.
+The current editor emits .review-state-pill with persisted estado_info code and label; revised test asserts BORRADOR/Borrador after navigating to Revisar.
+Workflow input override integration_peer_ref remains intact. Runtime/Wheel SHA base and candidate: c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80.
+git diff --check: PASS.
+Exact consumer verifier command:
+env -u PYTHONPATH <scratch> <workspace> <workspace>
+f09-contract-consumer-ok backend_ref=14164195a192cd1331081e48424d2790909f4600
+Parent reports earlier workflow 43159506238 passed with previous peer 4e813ff. Final-peer workflow pending; no audio E2E pass claimed.

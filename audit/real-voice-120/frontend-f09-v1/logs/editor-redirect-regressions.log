@@ -1,0 +1,26 @@
+npm notice run homex-frontend@0.1.0 test:e2e
+npm notice run playwright test src/tests/e2e/fe04-proformas.spec.ts --grep detalle redirige|crea con unitario
+[WebServer] npm notice run homex-frontend@0.1.0 build
+[WebServer] npm notice run run-p type-check "build-only {@}" --
+[WebServer] (node:938452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 type-check
+[WebServer] npm notice run vue-tsc --build
+[WebServer] npm notice run homex-frontend@0.1.0 build-only
+[WebServer] npm notice run vite build
+[WebServer] (node:938493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 4173 --strictPort
+[WebServer] (node:939213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:939290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 src/tests/e2e/fe04-proformas.spec.ts:603:1 › FE04 crea con unitario y descuento, revisa y aprueba (3.4s)
+  ✓  2 src/tests/e2e/fe04-proformas.spec.ts:884:1 › FE04 detalle redirige al editor y centraliza la edición comercial (656ms)
+  ✓  3 src/tests/e2e/fe04-proformas.spec.ts:893:1 › FE04 detalle redirige siempre al editor unificado (424ms)
+
+  3 passed (20.1s)

@@ -1,0 +1,58 @@
+npm notice run homex-frontend@0.1.0 test:e2e
+npm notice run playwright test src/tests/e2e/fe04-proformas.spec.ts --grep @a11y PRF04 acciones directas
+[WebServer] npm notice run homex-frontend@0.1.0 build
+[WebServer] npm notice run run-p type-check "build-only {@}" --
+[WebServer] (node:805230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 type-check
+[WebServer] npm notice run vue-tsc --build
+[WebServer] npm notice run homex-frontend@0.1.0 build-only
+[WebServer] npm notice run vite build
+[WebServer] (node:805266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 4173 --strictPort
+[WebServer] (node:806045) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:806140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro (30.1s)
+
+
+  1) src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Añadir ítem' })
+
+
+      1259 |   await mockBackend(page)
+      1260 |   await page.goto('/proformas/nueva')
+    > 1261 |   await page.getByRole('button', { name: 'Añadir ítem' }).click()
+           |                                                           ^
+      1262 |   await page.getByRole('button', { name: 'Mueble a pedido' }).click()
+      1263 |   await page.getByLabel('Nombre comercial del mueble').fill('Mueble previo')
+      1264 |   await page.getByRole('button', { name: 'Completar por voz' }).click()
+        at <workspace>:1261:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro 

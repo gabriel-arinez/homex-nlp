@@ -1,0 +1,108 @@
+npm notice run homex-frontend@0.1.0 test:integration
+npm notice run playwright test --config playwright.integration.config.ts src/tests/integration/fe08-real.spec.ts src/tests/integration/galerias-real.spec.ts --grep recorrido comercial completo|Galería real de mueble
+[WebServer] npm notice run homex-frontend@0.1.0 build
+[WebServer] npm notice run run-p type-check "build-only {@}" --
+[WebServer] (node:883232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 type-check
+[WebServer] npm notice run vue-tsc --build
+[WebServer] npm notice run homex-frontend@0.1.0 build-only
+[WebServer] npm notice run vite build
+[WebServer] (node:883307) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 4174 --strictPort
+[WebServer] (node:883990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:884028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación (3.6s)
+(node:884461) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral (18.7s)
+
+
+  1) src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('status').filter({ hasText: /Pedido #\d+/ })
+    Expected: visible
+    Error: strict mode violation: getByRole('status').filter({ hasText: /Pedido #\d+/ }) resolved to 2 elements:
+        1) <div role="status" data-v-489716d7="" class="order-created-banner">…</div> aka getByRole('status').filter({ hasText: 'Proforma aprobada. Pedido #1 confirmado.Consultar pedido #' })
+        2) <div role="status" data-v-a3d0fee7="" aria-live="polite" class="toast toast--success">…</div> aka getByRole('status').filter({ hasText: /^Proforma aprobada\. Pedido #1 confirmado\.$/ })
+
+    Call log:
+      - Expect "toBeVisible" getByRole('status').filter({ hasText: /Pedido #\d+/ }) with timeout 15000ms
+      - waiting for getByRole('status').filter({ hasText: /Pedido #\d+/ })
+
+
+      70 |   await approvalDialog.getByRole('button', { name: 'Aprobar y crear pedido' }).click()
+      71 |   const status = page.getByRole('status').filter({ hasText: /Pedido #\d+/ })
+    > 72 |   await expect(status).toBeVisible()
+         |                        ^
+      73 |   const text = (await status.textContent()) ?? ''
+      74 |   const id = Number(text.match(/Pedido #(\d+)/)?.[1])
+      75 |   expect(id).toBeGreaterThan(0)
+        at approveCurrentQuote (<workspace>:72:24)
+        at <workspace>:94:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  getByLabel('Nombre comercial del mueble')
+    Expected: visible
+    Received: hidden
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toBeVisible" getByLabel('Nombre comercial del mueble') with timeout 15000ms
+      - waiting for getByLabel('Nombre comercial del mueble')
+        32 × locator resolved to <input type="text" maxlength="200" data-v-b32534f8="" aria-invalid="false" id="mueble-nombre-comercial" name="mueble-nombre-comercial" value="Mueble con referencias E2E" placeholder="Ej. Mesa de reunión para 10 personas"/>
+           - unexpected value "hidden"
+
+
+      110 |   await page.getByRole('button', { name: /Acciones.*Mueble con referencias/ }).click()
+      111 |   await page.getByRole('menuitem', { name: 'Duplicar mueble', exact: true }).click()
+    > 112 |   await expect(page.getByLabel('Nombre comercial del mueble')).toBeVisible()
+          |                                                                ^
+      113 |   await page.getByLabel('Nombre comercial del mueble').fill('Copia con referencias E2E')
+      114 |   await step(page, 'Imágenes')
+      115 |   await expect(page.getByRole('heading', { name: 'Imágenes del mueble 2/8' })).toBeVisible()
+        at <workspace>:112:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación 
+    src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral 
