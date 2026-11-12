@@ -49,7 +49,7 @@ class CatalogResult(BaseModel):
     evidence: list[Candidate] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     unrecognized: list[str] = Field(default_factory=list)
-    version: str = "catalog-0.1.22"
+    version: str = "catalog-0.1.23"
 
 
 def fold(text):

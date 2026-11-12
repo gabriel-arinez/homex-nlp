@@ -14,7 +14,7 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON_VERSION = "3.11.15"
 SOURCE_DATE_EPOCH = "0"
-FORBIDDEN_SUFFIXES = {".wav", ".mp3", ".m4a", ".ogg", ".webm"}
+FORBIDDEN_SUFFIXES = {".wav", ".mp3", ".m4a", ".ogg", ".webm", ".aac"}
 FORBIDDEN_NAMES = {".env", "model.bin", "model.safetensors"}
 
 
