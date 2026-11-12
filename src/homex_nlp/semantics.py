@@ -9,7 +9,7 @@ from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negat
 COMPONENTES = (
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
-    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajoner[ií]a|credenza integrada|cajones?(?: lateral(?:es)?)?|"
+    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (

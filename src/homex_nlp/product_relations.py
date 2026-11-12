@@ -11,7 +11,7 @@ def head(text):
         c for c in unicodedata.normalize("NFD", text.casefold()) if unicodedata.category(c) != "Mn"
     )
     family = folded.split()[0].rstrip("s")
-    return "cajonera" if family == "cajoneria" else family
+    return {"cajoneria": "cajonera", "credencia": "credenza"}.get(family, family)
 
 
 def descriptive_reference(text, mention):
@@ -126,7 +126,9 @@ def associate_reference_dimensions(item, candidates, text):
         key=lambda pair: pair[0].start,
     )
     for component in item.components:
-        if head(component.name) != "cajonera" and component.name.casefold() != "credenza integrada":
+        if head(component.name) != "cajonera" and not re.fullmatch(
+            r"creden(?:z|ci)a\s+integrada", component.name, re.I
+        ):
             continue
         for mention in candidates:
             if mention.label != "COMPONENTE" or mention.candidate_id not in component.evidence_ids:

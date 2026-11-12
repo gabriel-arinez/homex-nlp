@@ -63,3 +63,17 @@ or false positives. Component association is checked with independent synthetic
 language probes; scalar matches alone do not establish commercial precision.
 All 120 cases remain development data. Human listening and acoustic truth stay
 `PENDIENTE` until an actual human decision supplies them.
+
+## Literal component variant and association proof
+
+`credencia integrada` uses the same literal furniture-family relation as
+`credenza integrada`; the original component name and offsets are retained.
+This is not a guessed audio correction. Its explicitly introduced width, height,
+depth and material belong to that component, not to the desktop. One RED and
+five passing probes preceded the correction; the six-probe suite also preserves
+non-furniture words, unqualified lateral descriptions and independent orders.
+
+The original-ASR case MP-0007 exposed this association defect even though the
+scalar-presence metric already found some numeric values. Its malformed desktop
+measurement remains unresolved; no script dimension is substituted for the ASR.
+No acoustic or full-corpus association accuracy is claimed.
