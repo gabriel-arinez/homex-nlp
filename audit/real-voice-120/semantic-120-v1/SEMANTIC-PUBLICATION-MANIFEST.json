@@ -128474,6 +128474,24 @@
       "source_bytes": 1149,
       "export_bytes": 1149,
       "status": "PASSIVE_FINAL_AUDIT_REPORT_ADDED_AFTER_FROZEN_AUDIT"
+    },
+    {
+      "source": "evaluaciones/semantic-120-v1/reproduction-runtime-independent.json",
+      "export": "evaluaciones/semantic-120-v1/reproduction-runtime-independent.json",
+      "source_sha256": "3dbe331e8b93242b4ebc389400ddb7ba8409774b2c1f80d3f4c4a2f21e962dff",
+      "export_sha256": "0dffdd737c33b15d3e36bb4da80379c6466d8973c5b4129b550dfda69e149b35",
+      "source_bytes": 2965,
+      "export_bytes": 2910,
+      "status": "SANITIZED_POST_SNAPSHOT_RUNTIME_PROOF_PATHS_ONLY"
+    },
+    {
+      "source": "logs/semantic-120-v1/reproduction-runtime-independent.log",
+      "export": "logs/semantic-120-v1/reproduction-runtime-independent.log",
+      "source_sha256": "74356c803cd32b3b739e79b3f833a1825d8c85f7ce06b24cd27ab6accdebda83",
+      "export_sha256": "e53980c434d1822d43b48c710475092111d8bd5be4bb82d5381b583999f14700",
+      "source_bytes": 64988,
+      "export_bytes": 64789,
+      "status": "SANITIZED_POST_SNAPSHOT_RUNTIME_PROOF_PATHS_ONLY"
     }
   ],
   "status_counts": {
@@ -128484,7 +128502,8 @@
     "SANITIZED_COPY": 1,
     "COMPLETED_POST_EXPORT_CONSOLE_OR_VERIFICATION": 3,
     "GENERATED_PUBLIC_INDEX": 1,
-    "PASSIVE_FINAL_AUDIT_REPORT_ADDED_AFTER_FROZEN_AUDIT": 2
+    "PASSIVE_FINAL_AUDIT_REPORT_ADDED_AFTER_FROZEN_AUDIT": 2,
+    "SANITIZED_POST_SNAPSHOT_RUNTIME_PROOF_PATHS_ONLY": 2
   },
   "redaction_counts": {
     "credential_token_pattern": 0,
@@ -128496,5 +128515,6 @@
   "historical_publication_unchanged": true,
   "post_export_note": "Completed exporter console and source-image guard report appended after the snapshot; original initial snapshot hash retained where replaced.",
   "audited_frozen_manifest_sha256": "a5d0b61dcab15eb8a1cda67bbc22ee0a97e508999618becc18f439071ff9f991",
-  "passive_audit_addition_note": "Independent report/log added after audited6728-file snapshot; read back and hashed by parent. All other exported files unchanged."
+  "passive_audit_addition_note": "Independent report/log added after audited6728-file snapshot; read back and hashed by parent. All other exported files unchanged.",
+  "runtime_reproduction_addendum": "Portable wrapper independently executed after original frozen publication audit:8/8scenarios,240audio hashes,19authority models unchanged. New two proof files privacy-checked against fresh private config, local paths replaced with explicit markers; parent re-scan/hash checked. Full raw source/log/25evidence files remain private; no additional trace/audio published."
 }

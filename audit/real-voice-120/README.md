@@ -22,9 +22,23 @@ Version0.1.22 has a new reproducible wheel, real installed-backend consumption,
 891NLP/99relevant backend/306frontend passing tests, and8/8actual audio-to-form
 checks across four forms. Source commit584e90b passed all four GitHub Actions jobs;
 CI evidence always names its immutable commit, and delivery-commit status is
-checked separately. No main merge, deployment or public package-registry release
+checked separately. Dataset commit `e72a822` passed package/freeze/dependency jobs and
+exposed one more verified tokenizer-content-hash false positive; its exact immutable
+fingerprint is scoped in `.gitleaksignore`, without disabling any rule. Canonical
+full CI console output remains available in Actions. No main merge, deployment or public package-registry release
 is implied. Backend consumer7040564 is local pending explicit publication authority.
 The later untracked backend scheduler database is preserved and not published.
+
+### Post-snapshot independent reproduction
+
+The portable fresh-credential bootstrap was subsequently executed successfully:
+8/8 actual audio scenarios,240 original audio hashes unchanged,19 authoritative
+models/275 records unchanged, and26 installed wheel modules byte-identical.
+[Result](semantic-120-v1/evaluaciones/semantic-120-v1/reproduction-runtime-independent.json)
+and [sanitized console](semantic-120-v1/logs/semantic-120-v1/reproduction-runtime-independent.log)
+are hashed addenda. Earlier “structurally checked, not rerun” statements describe
+the earlier immutable snapshot, not this later successful operational proof.
+This is still the same eight development recordings, not independent speech data.
 
 The historical material below is frozen context, not the current version claim.
 
