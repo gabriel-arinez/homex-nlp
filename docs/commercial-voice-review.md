@@ -24,7 +24,7 @@ Open the generated `review.html` directly as a local file in a browser. Select W
 3. Select the evidence provenance: `SCRIPT_TEXT`, `DOCUMENT_TEXT`, `AUTO_PROPOSAL`, or `HUMAN_AUDIO`. Audio decisions require a finite interval inside the recording and an explicit listening declaration, retained as `listening_attested: true` in exports. Imports missing that flag are rejected, not silently promoted to acoustic evidence. This is **self-reported human review**, not authenticated or machine-certified listening.
 4. Export the JSON history separately from audio and source files. Unsaved changes prompt before leaving. Verify the browser download exists; the utility cannot guarantee that a download was saved.
 
-Imports validate schema, fingerprint, source hash, case, field key/type, status, provenance, scalar value, and audio intervals. Duplicate identical identities deduplicate; a changed decision with an existing identity rejects the entire import. Independent conflicting decisions remain in the visible history, never silently replacing earlier evidence. The UI does not automatically resolve them or convert textual matches into acoustic confirmation.
+Imports validate schema, fingerprint, source hash, case, field key/type, status, provenance, scalar value, and audio intervals. Duplicate semantically identical identities deduplicate even after JSON object-key reordering; a changed decision with an existing identity rejects the entire import. Independent conflicting decisions remain in the visible history, never silently replacing earlier evidence. The UI does not automatically resolve them or convert textual matches into acoustic confirmation.
 
 For CLI validation/inclusion, add `--annotations /path/to/commercial-human-review.json` and choose a **new** output. No original file or imported export is modified. `review.json` contains all 14 reference field types, null/unsupported placeholders, original evidence, full NLP, category counts, input hashes, and the pending queue. No commercial precision metric is calculated.
 
@@ -41,3 +41,16 @@ Generated output includes absolute local audio links, scripts, documents and ful
 ```
 
 Synthetic test annotations are not corpus annotations. Real listening, component associations, catalogue truth, unresolved source ambiguities, and conflicting human decisions remain manual work.
+
+The optional browser regression accepts only a separately generated **one-case
+synthetic** workspace and a synthetic review export; it refuses the actual
+120-case workspace. It verifies key-order-independent identity deduplication,
+changed-identity rejection and unchanged history through the browser interface:
+
+```sh
+node tests/evaluation/commercial_review_browser_probe.cjs \
+  /path/to/synthetic-review/review.html /path/to/synthetic-export.json \
+  /path/to/installed/node_modules/@playwright/test
+```
+
+Node/Playwright are test tools only, not new Python or production dependencies.

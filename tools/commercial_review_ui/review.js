@@ -31,6 +31,12 @@
     }
     return element;
   }
+  function canonical(value) {
+    return JSON.stringify(value, (_key, entry) =>
+      entry && typeof entry === 'object' && !Array.isArray(entry)
+        ? Object.fromEntries(Object.keys(entry).sort().map(key => [key, entry[key]]))
+        : entry);
+  }
   function validate(payload) {
     if (payload.schema_version !== 'commercial-human-review/1' || payload.corpus_fingerprint !== review.corpus_fingerprint || !Array.isArray(payload.decisions)) throw Error('Esquema o corpus incompatible');
     const identities = new Map();
@@ -47,7 +53,7 @@
       if ((typeof d.value === 'object' && d.value !== null) || (typeof d.value === 'number' && !Number.isFinite(d.value))) throw Error('Valor no escalar');
       if (d.provenance === 'HUMAN_AUDIO' && d.listening_attested !== true) throw Error('Falta declaración explícita de escucha');
       if (d.provenance === 'HUMAN_AUDIO' && !(Number.isFinite(d.start_seconds) && Number.isFinite(d.end_seconds) && 0 <= d.start_seconds && d.start_seconds < d.end_seconds && d.end_seconds <= c.duration_seconds)) throw Error('Intervalo de escucha inválido');
-      const encoded = JSON.stringify(d);
+      const encoded = canonical(d);
       if (identities.has(d.decision_id) && identities.get(d.decision_id) !== encoded) throw Error('Conflicto de identidad; conservar decisiones separadas');
       identities.set(d.decision_id, encoded);
     }
