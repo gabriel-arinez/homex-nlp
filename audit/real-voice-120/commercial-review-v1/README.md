@@ -1,6 +1,6 @@
 # Commercial review: verified development improvements, human review pending
 
-The candidate NLP 0.1.23 recovers ten of the original seventeen missing proposals and improves script-relative supported scalar matches from **487/1000 to 549/1000** on the unchanged original ASR. This is **not commercial precision**: no human acoustic or component-association gold has been approved. Installed consumers and targeted live forms pass; CI for the new heads remains pending. Do not merge on this report alone.
+The candidate NLP 0.1.23 recovers ten of the original seventeen missing proposals and improves script-relative supported scalar matches from **487/1000 to 549/1000** on the unchanged original ASR. This is **not commercial precision**: no human acoustic or component-association gold has been approved. Installed consumers and targeted live forms pass; functional-head CI is green (4 NLP, 13 backend, 13 frontend jobs). Technical intervention is complete; integral commercial validation remains pending. Do not merge without human review.
 
 ## Evidence map
 
@@ -84,7 +84,7 @@ All seven retain human acoustic review pending. Detailed original/script/candida
 
 Final source suite: **976 passed**; source/test/tool Ruff scope passes. Repository-wide `ruff check .` reports 338 pre-existing errors in 28 unchanged historical/archive files; a fresh baseline snapshot reproduces the exact same locations, codes and messages. These are not silently treated as passed or rewritten. Scoped independent association/values/relations probes: **75 passed**.
 
-Independent isolated checks and installed distribution byte checks passed for the frozen release candidate. Installed consumer and live-form checks pass as recorded above. New remote workflows must still pass before technical closure.
+Independent isolated checks and installed distribution byte checks passed for the frozen release candidate. Installed consumer and live-form checks pass as recorded above. Functional-head remote workflows pass as recorded in `ci-verification.json`; prior failed runs and their stale-pin root cause remain recorded, not erased.
 
 ## Reproduce locally
 
@@ -120,6 +120,18 @@ No tracked file or historical artifact was deleted. `.atl` remains local and unt
 2. **Backend:** consume only the hash-pinned 0.1.23 wheel after installed-adapter/contract and application tests. Preserve historical artifacts, permissions, stock and authoritative commercial calculations. No source-path override counts as wheel proof.
 3. **Frontend:** retain the four-form mapping and explicit proposal application. Reverify current backend peer, component-local dimensions, unknown units and all categories; a successful HTTP response alone is insufficient.
 
-No PR, merge or deployment is created by these recommendations. Consumer compatibility is verified locally; technical completion still requires green current CI. Integral commercial validation remains blocked on human decisions even after technical completion.
+No PR, merge or deployment is created by these recommendations. Consumer compatibility and functional-head green CI are verified. The final passive NLP closure-document workflow is verified separately before delivery. Integral commercial validation remains blocked on human decisions even after technical completion.
 
 Risk: none (passive evidence report; no production logic or public contract changes).
+
+## Published branches and closure
+
+| Repository | Branch | Verified functional/consumer head | CI |
+|---|---|---|---|
+| NLP | `feat/real-voice-120-results` | `801a6a4` (runtime source unchanged from `d9f7c54`) | [4/4](https://github.com/gabriel-arinez/homex-nlp/actions/runs/43286032432) |
+| Backend | `feat/real-voice-120-semantic` | `9cc380f` (application source `7dae768`) | [13/13](https://github.com/gabriel-arinez/homex-backend/actions/runs/43288199954) |
+| Frontend | `fix/real-voice-120-f09` | `a8e1656` (application source `f00bce6`) | [13/13](https://github.com/gabriel-arinez/homex-frontend/actions/runs/43288195256) |
+
+The first backend/frontend publication each passed12/13 jobs. Their sole failures selected stale independent contract-checkout refs; the corrected immutable peer pins retain every job, command, permission, override and comparison. Full failed and successful console output is preserved locally in `ci-publication-v1/` and `ci-publication-v2/`. No failed result is counted as a pass.
+
+PR recommendation: ready for technical review of these controlled branches, not automatic merge. Maintain the historical-artifact retention decision and complete the human acoustic/association queue before claiming integral commercial validation. No PR, main merge, production deployment or historical deletion occurred.

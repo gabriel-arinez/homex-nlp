@@ -5,7 +5,7 @@
 The authoritative state is [CURRENT.json](CURRENT.json) and the
 [commercial-review-v1 report](commercial-review-v1/README.md). Candidate NLP0.1.23
 has verified source/distribution tests, installed consumers, targeted live-form
-checks and a120-case review workspace. Remote CI for the new heads is pending. Human
+checks and a120-case review workspace. Functional-head CI passes all30 jobs; see the exact head-bound evidence in the current report. Human
 acoustic/association review remains PENDIENTE. The previously published0.1.22
 closure below is historical, not approval of the new candidate.
 
@@ -20,7 +20,7 @@ unified UI, and voice-instruction contrast is corrected without changing brandin
 No main merge/deployment occurred. Acoustic/association adjudication of the120
 development recordings remains pending; the ASR/NLP metrics below are unchanged.
 
-## Current0.1.22 continuation
+## Historical0.1.22 continuation
 
 - [Executive report and verified limits](semantic-120-v1/evaluaciones/semantic-120-v1/final-report.md)
 - [Current result/version index](semantic-120-v1/evaluaciones/semantic-120-v1/latest-evaluation.json)
