@@ -67,11 +67,45 @@ Two epoch-zero builds are byte-identical. Ordinary isolated installation under `
 Observed local checks:
 
 - NLP: **1056 passed**, scoped Ruff passed. Independent semantic core:1053 passed;77 focused probes. Benchmark CLI help/rejection/default JSON:3 passed.
-- Backend: **569 passed**, offline lock and scoped lint/format passed. Installed wheel and public text boundaries verified independently.
+- Backend: **576 passed**, offline lock and scoped lint/format passed. Installed wheel and public text boundaries verified independently.
 - Frontend: **309 passed**, types/lint/format/build/generated-contract checks passed. Application/styles/tests remain byte-identical to frontend `ffa2495`; only four required contract/peer/documentation files changed. Its manual missing-quantity HITL test correction is preserved.
 - OpenAPI: no errors; one existing CategoryEnum naming warning. Repository-wide Ruff still reports338 pre-existing historical audit/docs errors; those immutable archived scripts were not modified to hide them.
 
 Final live E2E/a11y/Whisper/Celery/PostgreSQL and current CI results are head-bound in the original PR summaries and local final-delivery ledger, not inferred from these local counts or earlier green revisions. PostgreSQL16 local versus17 CI is recorded explicitly.
+
+## Final consumer correction and cross-stack proof
+
+Final live integration exposed a pre-existing backend loss: accessories carrying
+an explicit `component_ref` were removed from the global list but never routed
+to their component. Backend `55cc7486605abcb362ccfa33a96189d81db4d374`
+preserves them in the existing component `atributos` array, one ordered
+`Accesorios` value. It neither guesses scope nor fills an absent quantity.
+The global route remains unchanged; dangling references remain rejected.
+No schema, frontend application or NLP wheel change was needed.
+
+Seven public-API regressions reproduced three failures before the fix and all
+seven pass afterward. Independent isolated verification passed **576 tests**;
+parent source hashes and Ruff agree. Exact published backend/frontend live checks
+passed **576 backend, 15 real integration and 109 E2E/a11y** with **one existing
+attachment skip**. Component accessories survive public text, explicit simulated
+human confirmation, persisted BORRADOR and actual browser editor readback without
+manual insertion. Prior authority rows and all240 original AAC/WAV hashes are
+unchanged. This controlled synthetic exercise is not human acoustic adjudication.
+
+Both post-fix exact-peer CI dispatches passed13/13 jobs:
+[backend43519395154](https://github.com/gabriel-arinez/homex-backend/actions/runs/43519395154)
+and [frontend43519400634](https://github.com/gabriel-arinez/homex-frontend/actions/runs/43519400634).
+Backend push/PR and frontend current-head PR runs also passed13/13 each.
+The final passive NLP report commit is checked separately in PR43; its final
+31-file installed-wheel identity readback and complete final SHA triple are in
+the original PR summaries and local `final-delivery.json`. This avoids embedding
+a self-referential CI claim into the commit it would need to certify.
+
+Private full evidence: `final-head-live-v2/`, `final-ci-v2/` and
+`component-accessory-verifier-v1/` under the local evaluation/log roots.
+Initial stale scratch-source verifier failures and an incorrect UI action-menu
+selector remain preserved; corrected candidate-origin and UI checks passed.
+No test was disabled, no arbitrary wait added and no historical result deleted.
 
 ## Reproduce
 
