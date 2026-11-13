@@ -51,3 +51,57 @@ se distinguen por su contexto; el nylon del cuerpo no implica material de base.
 Los parsers monetarios, reglas de muebles y parámetros/cache ASR permanecen
 intactos. Las versiones publicadas 0.1.19 y 0.1.20 se conservan; la identidad del
 artefacto anterior figura en `catalog-release-0.1.20.json`.
+
+## Real-voice commercial phrasing
+
+Explicit `precio por juego`, `precio por pieza`, `precio por barra`, and
+`precio por metro cuadrado` are unit-price suggestions, not stock quantities or
+authoritative order totals. Existing unit-price/negotiated-total handling remains
+unchanged. Catalog category is supplied by the selected form; heterogeneous
+`OTRO` products retain their specifications in literal observations, not chair or
+custom-furniture fields.
+
+Floor measurements accept a clause conjunction before a cardinal (`HDF y ocho
+milímetros de espesor`) without consuming it as part of the number. An explicit
+`respaldo de malla` retains its component even after an `asiento` clause.
+
+For the safe corpus runner and metric caveats, see
+[Real-voice evaluation](real-voice-evaluation.md).
+
+The floor extractor also accepts an explicit HDF board gauge (`HDF de 9,5 mm`)
+as thickness, while retaining abstention for alternatives, negation, explicitly
+named width/length and size pairs. The custom-furniture vocabulary recognizes
+`armario`, `casillero` and accented `clóset`, including their plurals. This does
+not assign a backend catalog ID or silently resolve a furniture-type selection.
+
+An initial digit count in a natural catalog noun phrase (`3 paneles modulares`)
+is retained literally as the name, just like a spelled-out count. It does not
+suggest inventory or a quantity field. The complete literal description remains
+available in observations. Isolated amounts, dimensions, zero counts, negations
+and administrative fragments do not become product names through this rule.
+
+## Explicit spoken models and commercial name boundaries
+
+An implicit initial name ends before an explicit material, structure or measure
+clause: `Poltrona de sala de espera de estructura y patas de madera` retains
+`Poltrona de sala de espera`. Names introduced by `nombre` retain their existing
+label rules. The full source description stays in `observaciones`; numeric-leading
+names remain names and never become inventory quantities.
+
+For chairs and floors, an explicit `modelo`, `código` or `cod` cue can introduce
+Spanish letter names, digit sequences, cardinal chunks and `guion`. For example,
+`modelo jota ka guion setecientos cuarenta y dos` proposes `JK-742`. The new
+spelling path requires both letters and digits, validates the whole clause and
+never consults a SKU dictionary. Incomplete or ambiguous spelling, including an
+ambiguous spoken `o`, remains unresolved. Existing literal models are unchanged.
+
+Evidence retains exact original text and offsets. A normalized spoken-code
+candidate records `Equivalencia de código alfanumérico deletreado`; negation,
+contradiction and explicit correction still use the shared evidence rules.
+`OTRO` continues to support only its existing common fields, never `modelo` or
+chair/floor-specific fields. ASR text, schemas and backend calculations do not
+change.
+
+### Conservative context guards in0.1.22
+
+Initial `de`/`a` in a spoken model clause can be an ordinary preposition, so `modelo de43` and `modelo a nueve` remain unresolved. Internal spelled letters after an unambiguous letter (`be de...`) and literal `D43` remain supported. Explicit HDF gauges with millimetres do not require a transcribed `de`; even glued `HDF8 milímetros` is evidence of8mm unless the clause explicitly names another axis. The original source slice is retained.
