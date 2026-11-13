@@ -4,12 +4,19 @@ import re
 
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Color, Component
-from homex_nlp.rules import NUMBER_WORDS, decimal_from_text, is_explicitly_negated, money
+from homex_nlp.rules import (
+    NUMBER_WORDS,
+    _commercial_count_match,
+    _commercial_count_pattern,
+    decimal_from_text,
+    is_explicitly_negated,
+    money,
+)
 
 COMPONENTES = (
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
-    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|cajonera|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
+    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|casilleros?|cajoneras?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (
@@ -22,7 +29,7 @@ COLORES = (
     r"olmo|roble(?: claro| oscuro)?|nogal|no-gal|haya|transparente|madera clara"
 )
 NUMEROS = "|".join(NUMBER_WORDS)
-NUMERO = rf"(?:{NUMEROS}|\d+)"
+NUMERO = _commercial_count_pattern()
 # Rectificaciones internas inequívocas: exige una señal positiva ("mejor")
 # y una nueva cantidad explícita. No interpretamos un "no dos cajones"
 # como instrucción suficiente para alterar la ficha.
@@ -204,15 +211,23 @@ def completar_relaciones(item, candidates, text, warnings):
         )
 
     def cantidad_anterior(pieza):
-        comienzo = max(0, pieza.start() - 20)
+        comienzo = max(0, pieza.start() - 200)
         antes = text[comienzo : pieza.start()]
-        cantidad = re.search(r"\b(" + NUMEROS + r"|\d+)\s*$", antes, re.I)
+        cantidad = re.search(r"\b(" + NUMERO + r")\s*$", antes, re.I)
         if not cantidad:
             return None
         inicio = comienzo + cantidad.start(1)
         fin = comienzo + cantidad.end(1)
         token = text[inicio:fin]
-        valor = NUMBER_WORDS.get(token.casefold(), int(token) if token.isdigit() else None)
+        parsed = _commercial_count_match(text, inicio, fin)
+        if parsed is None and re.search(
+            r"\b(?:metros?|cent[ií]metros?|mil[ií]metros?|m|cm|mm)\s+y\s+$",
+            text[max(0, inicio - 40) : inicio],
+            re.I,
+        ):
+            # A coordinated piece count is not a truncated dimension suffix.
+            parsed = _commercial_count_match(token, 0, len(token))
+        valor = parsed.value if parsed else None
         if not valor:
             return None
         return re.compile(re.escape(token)).match(text, inicio), valor
@@ -337,6 +352,23 @@ def completar_relaciones(item, candidates, text, warnings):
         ):
             ambigua = rectificacion
             rectificacion = None
+        if rectificacion or ambigua:
+            # Do not retain superseded counts in the accessory evidence stream.
+            for accessory in item.accessories:
+                original = next(
+                    (
+                        c
+                        for c in candidates
+                        if c.candidate_id in accessory.evidence_ids and c.label == "ACCESORIO"
+                    ),
+                    None,
+                )
+                if original and original.start == pieza.start():
+                    for c in candidates:
+                        if c.candidate_id in accessory.evidence_ids:
+                            c.decision = "UNRESOLVED" if ambigua else "REJECTED"
+                            c.reason = "Internal count corrected or unresolved"
+                    accessory.quantity = None
         if cantidad:
             estado = "UNRESOLVED" if ambigua else "REJECTED" if rectificacion else "ACCEPTED"
             identifier = evidencia(
@@ -357,7 +389,8 @@ def completar_relaciones(item, candidates, text, warnings):
         if nueva_cantidad:
             comienzo = pieza.end() + nueva_cantidad.start("numero")
             token = nueva_cantidad.group("numero")
-            numero = NUMBER_WORDS.get(token.casefold(), int(token) if token.isdigit() else None)
+            parsed = _commercial_count_match(text, comienzo, comienzo + len(token))
+            numero = parsed.value if parsed else None
             if numero is not None and numero > 0:
                 nueva = re.compile(re.escape(token)).match(text, comienzo)
                 identifier = evidencia(

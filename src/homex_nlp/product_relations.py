@@ -24,7 +24,9 @@ def descriptive_reference(text, mention):
     ):
         return False
     boundary = re.search(
-        r"(?:[.;,]\s*(?:el|la|los|las)?\s*|\b(?:del|de la|incluye)\s+)$", before, re.I
+        r"(?:[.;]\s*(?:(?:el|la|los|las)\s+)?|,\s*(?:el|la|los|las)\s+|\b(?:del|de la|incluye)\s+)$",
+        before,
+        re.I,
     )
     if not boundary:
         return False

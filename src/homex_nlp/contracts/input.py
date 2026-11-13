@@ -45,7 +45,9 @@ class TranscriptionResult(Contract):
 class ExtractionRequest(Contract):
     schema_version: Literal["1.0"] = "1.0"
     request_id: NonBlank
-    text: str  # Incluso vacío: el motor futuro devuelve NO_PROPOSAL, no un mueble ficticio.
+    text: str = Field(
+        max_length=20_000
+    )  # Incluso vacío: el motor futuro devuelve NO_PROPOSAL, no un mueble ficticio.
     language: Literal["es"] = "es"
     expected_item_type: Literal["MUEBLE_MEDIDA"] = "MUEBLE_MEDIDA"
     currency_context: Currency  # Sin default silencioso de moneda.

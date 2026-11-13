@@ -797,27 +797,34 @@ def find_measurements(text: str, label: str) -> list[Match]:
         if label == "profundidad"
         else r"\s*(?:de\s+)?(?:total\s+)?"
     )
-    pattern = re.compile(
-        axis
-        + axis_prefix
-        + r"(\d+(?:[.,]\d+)*)\s*("
-        + unit
-        + r")?|"
-        + r"(\d+(?:[.,]\d+)*)\s*("
-        + unit
-        + r")?\s*(?:de\s+)?"
-        + axis
-        + r"(?:\s+("
-        + unit
-        + r"))?",
+    forward_pattern = re.compile(
+        axis + axis_prefix + r"(\d+(?:[.,]\d+)*)\s*(" + unit + r")?",
+        re.I,
+    )
+    inverse_pattern = re.compile(
+        r"(\d+(?:[.,]\d+)*)\s*(" + unit + r")?\s*(?:de\s+)?" + axis + r"(?:\s+(" + unit + r"))?",
         re.I,
     )
     compuestas, spans_compuestos = _medidas_orales_compuestas(text, axis, axis_prefix, unit)
     found = []
-    for match in pattern.finditer(text):
+    for match in [*forward_pattern.finditer(text), *inverse_pattern.finditer(text)]:
+        inverse = match.re is inverse_pattern
+        other_axis = (
+            r"(?:ancho|anchura|alto|altura|largo|longitud|profundidad|fondo|di[aá]metro|espesor)"
+        )
+        if (
+            inverse
+            and re.search(
+                other_axis + axis_prefix + r"$",
+                text[max(0, match.start() - 50) : match.start()],
+                re.I,
+            )
+            and not re.search(r"\bde\s+" + axis + r"\b", match.group(), re.I)
+        ):
+            continue
         if re.search(r"[-−]\s*$", text[max(0, match.start() - 3) : match.start()]):
             continue
-        raw_value = match.group(1) or match.group(3)
+        raw_value = match.group(1)
         value = (
             Decimal(raw_value.replace(",", "."))
             if re.fullmatch(r"\d+(?:[.,]\d+)?", raw_value)
@@ -825,7 +832,7 @@ def find_measurements(text: str, label: str) -> list[Match]:
         )
         if value is not None and value <= 0:
             value = None
-        raw_unit = match.group(2) or match.group(4) or match.group(5)
+        raw_unit = match.group(2) or (match.group(3) if inverse else None)
         if value is not None:
             normalized = None
             if raw_unit:
@@ -904,6 +911,11 @@ def find_measurements(text: str, label: str) -> list[Match]:
             re.match(axis + r"\b", measurement.text, re.I)
             and tail_axis
             and not re.fullmatch(axis, tail_axis.group(1), re.I)
+            and not re.match(
+                axis_prefix + r"(?:\d|" + _DIM_PALABRAS_PATRON + r")",
+                text[measurement.end + tail_axis.end() :],
+                re.I,
+            )
         ):
             continue
         filtered.append(measurement)
@@ -1002,18 +1014,23 @@ def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
     prefix_start = max(0, start - 200)
     prefix = re.search(r"(?<![\w.,−-])(" + number + r")\s*$", text[prefix_start:start], re.I)
     suffix = re.match(
-        r"\s*(?:\(\s*|:\s*)(" + number + r")(?:\s+unidades?)?\s*(?:\)|[,.;]|$)", text[end:], re.I
+        r"\s*(?:\(\s*|:\s*)(" + number + r")(?:\s+unidades?)?\s*(?:\)|[,.;]|$)"
+        r"|\s*,\s*(" + number + r")\s+unidades?\b",
+        text[end : end + 200],
+        re.I,
     )
     found = []
     for match, offset in [(prefix, prefix_start), (suffix, end)]:
         if match is None:
             continue
-        raw = match.group(1)
-        if re.search(r"\b(?:o|menos)\s*$", text[: offset + match.start(1)], re.I):
+        group = 1 if match.group(1) else 2
+        raw = match.group(group)
+        number_start = offset + match.start(group)
+        if re.search(r"\b(?:o|menos)\s*$", text[max(0, number_start - 200) : number_start], re.I):
             continue
         if (
             prefix_start
-            and offset + match.start(1) == prefix_start
+            and offset + match.start(group) == prefix_start
             and text[prefix_start - 1].isalnum()
         ):
             continue
@@ -1028,7 +1045,11 @@ def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
         if value and value > 0:
             found.append(
                 Match(
-                    offset + match.start(1), offset + match.end(1), raw, "CANTIDAD_ACCESORIO", value
+                    offset + match.start(group),
+                    offset + match.end(group),
+                    raw,
+                    "CANTIDAD_ACCESORIO",
+                    value,
                 )
             )
     if len(found) == 2 and found[0].value != found[1].value:
