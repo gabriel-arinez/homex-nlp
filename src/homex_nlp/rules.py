@@ -907,14 +907,26 @@ def find_measurements(text: str, label: str) -> list[Match]:
     filtered = []
     for measurement in found:
         tail_axis = re.match(r"\s+(?:de\s+)?(" + opposite + r")\b", text[measurement.end :], re.I)
+        forward_axis = re.match(axis + r"\b", measurement.text, re.I)
+        if forward_axis and re.search(
+            r"(?:\d+(?:[.,]\d+)*|" + _DIM_PALABRAS_PATRON + r")\s*(?:" + unit + r")?\s+de\s+$",
+            text[max(0, measurement.start - 200) : measurement.start],
+            re.I,
+        ):
+            # An explicit postfix axis belongs to the preceding value, even
+            # when another value follows it without ASR punctuation.
+            continue
         if (
-            re.match(axis + r"\b", measurement.text, re.I)
+            forward_axis
             and tail_axis
             and not re.fullmatch(axis, tail_axis.group(1), re.I)
-            and not re.match(
-                axis_prefix + r"(?:\d|" + _DIM_PALABRAS_PATRON + r")",
-                text[measurement.end + tail_axis.end() :],
-                re.I,
+            and (
+                re.match(r"\s+de\s+", tail_axis.group(), re.I)
+                or not re.match(
+                    axis_prefix + r"(?:\d|" + _DIM_PALABRAS_PATRON + r")",
+                    text[measurement.end + tail_axis.end() :],
+                    re.I,
+                )
             )
         ):
             continue

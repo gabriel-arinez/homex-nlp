@@ -145,3 +145,22 @@ def test_negated_article_product_and_coordinated_dimension_piece_keep_prior_beha
     result = extract("Un escritorio de ancho un metro y dos cajones.")
     assert [(d.axis, d.value_mm) for d in result.item_proposal.dimensions] == [("ancho", "1000")]
     assert [c.normalized_value for c in result.candidates if c.label == "CANTIDAD_INTERNA"] == [2]
+
+
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        (
+            "Armario alto de 80 centímetros de ancho 50 de profundidad",
+            [("ancho", "80", "cm", "800"), ("profundidad", "50", None, None)],
+        ),
+        (
+            "Mesa de 3 metros 20 de largo 1 metro 30 de ancho",
+            [("ancho", "130", "cm", "1300"), ("largo", "320", "cm", "3200")],
+        ),
+    ],
+)
+def test_postfix_axis_role_is_not_reused_as_the_next_dimension_prefix(text, expected):
+    item = extract(text).item_proposal
+    assert item is not None
+    assert [(d.axis, d.value, d.unit, d.value_mm) for d in item.dimensions] == expected

@@ -37,3 +37,11 @@ Run the controlled benchmark with `python tools/benchmark_accessory_context.py`.
 | 20,000 | 2,222 | 2.81× |
 
 Machine-local raw reports are stored outside the repository under the authorized `evaluaciones/sourcery-review-v1/furniture-fix-v1` and `logs/sourcery-review-v1/furniture-fix-v1` evidence directories. These results do not claim corpus-wide quality improvement, acoustic correctness, installed-wheel identity, backend/frontend compatibility, or final release readiness; those checks belong to the parent feature's remaining verification.
+
+## Follow-up: explicit postfix axis ownership
+
+The frozen-ASR comparison exposed two false additions not covered by the initial regression batch. In `Armario alto de 80 centímetros de ancho 50 de profundidad`, the initial fix incorrectly added height 80 cm and width 50 without a unit. In `Mesa de 3 metros 20 de largo 1 metro 30 de ancho`, it incorrectly added length 1 m.
+
+A postfix `value ... de axis` now owns the preceding value and cannot also serve as a prefix for the next value. An explicit different postfix axis overrides an adjective-like prefix even when further measurements follow. This preserves independently valued adjacent prefixes such as `Ancho 60 cm alto 75 cm` and leaves missing units unresolved.
+
+Both complete-output public probes first failed, then passed with the related dimension, cardinal, correction and negation checks: **248 tests passed**. This scoped correction does not claim the initial full-suite or frozen-ASR results remain final; the parent must rebuild the unpublished distribution and rerun the final verification against these source bytes.
