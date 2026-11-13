@@ -18,10 +18,12 @@ from homex_nlp.contracts import (
 )
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.result import EngineInfo
+from homex_nlp.product_relations import resolve_product_references
 from homex_nlp.rules import (
     NUMBER_WORDS,
     Match,
     find_accessories,
+    find_accessory_quantity,
     find_ambiguous_price,
     find_measurements,
     find_price,
@@ -131,7 +133,7 @@ class RulesEngine:
             p
             for p in find_products(text)
             if not (
-                p.text.lower().startswith("cajonera")
+                p.text.lower().startswith(("cajonera", "casillero"))
                 and text[: p.start].rstrip().lower().endswith("con")
             )
         ]
@@ -229,6 +231,11 @@ class RulesEngine:
                     severity="REVIEW",
                     message="Se excluyó una referencia de producto negada; revise el nombre.",
                 )
+            )
+        products, references = resolve_product_references(text, products, conocidos)
+        for reference in references:
+            candidate(
+                reference, "REJECTED", "Referential/component mention, not an independent product"
             )
         if len(products) > 1:
             # Una segunda mención de «mesas» dentro del total negociado no
@@ -454,12 +461,27 @@ class RulesEngine:
             if is_explicitly_negated(text, accessory.start):
                 candidate(accessory, "REJECTED", "Accesorio explícitamente excluido")
                 continue
-            accessories.append(
-                Accessory(
-                    name=accessory.text,
-                    quantity=accessory.value,
-                    evidence_ids=[candidate(accessory)],
+            evidence = [candidate(accessory)]
+            count = find_accessory_quantity(text, accessory.start, accessory.end)
+            if count is not None:
+                evidence.append(
+                    candidate(
+                        count,
+                        "ACCEPTED" if count.value else "UNRESOLVED",
+                        None if count.value else "Conflicting accessory counts",
+                    )
                 )
+                if count.value is None:
+                    warnings.append(
+                        Warning(
+                            code="CONFLICTING_VALUES",
+                            path="/item_proposal/accessories",
+                            severity="REVIEW",
+                            message="Accessory quantity requires review.",
+                        )
+                    )
+            accessories.append(
+                Accessory(name=accessory.text, quantity=accessory.value, evidence_ids=evidence)
             )
         monetary_mentions, _ = price_mentions(text)
         price_match, price_mode = find_price(

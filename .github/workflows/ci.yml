@@ -96,7 +96,7 @@ jobs:
       - run: uv sync --locked --extra dev
       - name: Verify deterministic invariants without NER or research imports
         run: uv run pytest tests/unit/test_final_consolidation.py tests/unit/test_v16_safety.py -q
-      - name: Verify catalog release wheel identity (0.1.19 manifest remains frozen)
+      - name: Verify current catalog release wheel identity (historical manifests retained)
         run: |
           SOURCE_DATE_EPOCH=0 uv build --wheel
           uv run python -c 'import hashlib,json,pathlib; r=json.loads(pathlib.Path("docs/catalog-release.json").read_text()); p=pathlib.Path("dist")/r["wheel"]; assert hashlib.sha256(p.read_bytes()).hexdigest()==r["wheel_sha256"]'

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "homex-nlp"
-version = "0.1.21"
+version = "0.1.23"
 description = "Componente ASR/NLP de HOMEX; refactorización incremental"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
@@ -33,11 +33,30 @@ include = [
     "/src",
     "/tests",
     "/tools/export_schemas.py",
+    "/tools/annotate_real_voice.py",
+    "/tools/evaluate_real_voice.py",
+    "/tools/experiment_real_voice_asr.py",
+    "/tools/evaluate_semantic_voice.py",
+    "/docs/real-voice-annotations.md",
+    "/docs/real-voice-asr-experiments.md",
+    "/docs/real-voice-semantic-evaluation.md",
+    "/docs/real-voice-furniture-semantics.md",
     "/tools/verify_nlp_freeze.py",
     "/docs/NLP_FINAL_CONGELADO.md",
     "/docs/NLP_CORRECCION_MONETARIA.md",
     "/docs/nlp-money-release.json",
     "/docs/nlp-final-release.json",
+    "/tools/review_commercial_voice.py",
+    "/tools/commercial_review_ui",
+    "/tools/verify_distribution.py",
+    "/docs/commercial-voice-review.md",
+    "/docs/real-voice-commercial-relations.md",
+    "/docs/real-voice-commercial-values.md",
+    "/docs/catalog-release.json",
+    "/docs/catalog-release-0.1.20.json",
+    "/docs/catalog-release-0.1.21.json",
+    "/docs/catalog-release-0.1.22.json",
+    "/docs/release-0.1.23.md",
     "/schemas",
     "/examples",
     "/docs/contract-v1.md",
