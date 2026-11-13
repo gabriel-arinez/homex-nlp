@@ -29,7 +29,13 @@ def _fold(text):
 
 def _is_spoken_start(raw):
     first = _fold(raw).split()[0] if raw.split() else ""
-    return first in _LETTERS or first == "doble" or first in LEXICON or first == "cero"
+    return (
+        first in _LETTERS
+        or bool(re.fullmatch(r"[a-xzñ]", first))
+        or first == "doble"
+        or first in LEXICON
+        or first.isdigit()
+    )
 
 
 def _spoken_code(raw):
@@ -39,6 +45,16 @@ def _spoken_code(raw):
     # letter after an unambiguous spelling token remains valid (be de...).
     if words and words[0] in {"de", "a"}:
         return None
+    # A written initial needs another spelled letter before numeric decoding;
+    # preserve abstention for mixed shorthand such as "B quince".
+    if (
+        words
+        and words[0] not in _LETTERS
+        and re.fullmatch(r"[a-xzñ]", words[0])
+        and (len(words) < 2 or not re.fullmatch(r"[a-xzñ]", words[1]))
+        and (len(words) < 2 or words[1] not in _LETTERS)
+    ):
+        return None
     output = []
     i = 0
     while i < len(words):
@@ -47,8 +63,11 @@ def _spoken_code(raw):
         if pair in _LETTERS:
             output.append(_LETTERS[pair])
             i += 2
-        elif word in _LETTERS and word != "y":
-            output.append(_LETTERS[word])
+        elif word in _LETTERS or re.fullmatch(r"[a-xzñ]", word):
+            # After a number, "o" may join alternative values, not spell O.
+            if word == "o" and any(re.search(r"[0-9]", token) for token in output):
+                return None
+            output.append(_LETTERS.get(word, word.upper()))
             i += 1
         elif word in {"guion", "-"}:
             if not output or output[-1] == "-":
@@ -77,3 +96,16 @@ def _spoken_code(raw):
     if not re.fullmatch(r"[A-ZÑ0-9]+(?:-[A-ZÑ0-9]+)*", code):
         return None
     return code if re.search(r"[A-ZÑ]", code) and re.search(r"[0-9]", code) else None
+
+
+def _spoken_code_status(raw):
+    """Separate ordinary prepositions from incomplete explicit spelling."""
+    words = _fold(raw).split()
+    if not words or not _is_spoken_start(raw):
+        return "NOT_CODE", None
+    if words[0] in {"a", "de"} and (
+        len(words) == 1 or (not _is_spoken_start(words[1]) and words[1] not in {"guion", "-"})
+    ):
+        return "NOT_CODE", None
+    value = _spoken_code(raw)
+    return ("CODE", value) if value is not None else ("AMBIGUOUS", None)

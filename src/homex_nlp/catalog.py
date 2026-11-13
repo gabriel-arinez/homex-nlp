@@ -21,7 +21,7 @@ from homex_nlp.rules import (
     money,
     price_mentions,
 )
-from homex_nlp.spoken_codes import _is_spoken_start, _spoken_code
+from homex_nlp.spoken_codes import _spoken_code_status
 
 Category = Literal["SILLA", "PISO_FLOTANTE", "OTRO"]
 
@@ -280,10 +280,15 @@ class Extractor:
                 maxsplit=1,
                 flags=re.I,
             )[0].rstrip()
-            if not _is_spoken_start(clause) or len(clause.split()) < 2:
+            status, value = _spoken_code_status(clause)
+            if status == "NOT_CODE":
+                # Ordinary model prose must not become fallback code warnings.
+                if re.match(r"(?:a|de)\b", clause, re.I):
+                    spoken_spans[start] = start + len(clause)
+                continue
+            if len(clause.split()) < 2:
                 continue
             end = start + len(clause)
-            value = None if re.search(r"\bo\b", clause, re.I) else _spoken_code(clause)
             spoken_spans[start] = end
             if value is not None:
                 matches.append((start, end, value))
