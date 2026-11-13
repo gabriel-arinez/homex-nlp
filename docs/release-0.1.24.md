@@ -13,7 +13,7 @@ See `sourcery-furniture-review.md` and `sourcery-catalog-review.md` for focused 
 
 ## Unpublished candidate replacement
 
-The first unpublished 0.1.24 candidate was not promoted: frozen-development evaluation exposed two dimension false positives. This corrected second candidate adds the explicit-axis guard and its regressions. The original candidate artifacts, hashes and reports remain preserved privately; the current wheel identity is different. The 0.1.23 release identity is never reused.
+The first unpublished 0.1.24 candidate was not promoted: frozen-development evaluation exposed two dimension false positives. The corrected second candidate added the explicit-axis guard and its regressions. The final packaging refresh adds explicit benchmark CLI help and unknown-argument rejection with public-command regressions; it leaves all 26 runtime modules and the second candidate wheel identity unchanged. The original candidate artifacts, hashes and reports remain preserved privately; the current wheel identity is different. The 0.1.23 release identity is never reused.
 
 ## Distribution identity and verification
 
@@ -21,7 +21,7 @@ The first unpublished 0.1.24 candidate was not promoted: frozen-development eval
 
 Two fresh builds use `SOURCE_DATE_EPOCH=0`; wheel and source archive bytes must match. Privacy checks reject audio (including AAC), model weights and secrets. The wheel contains only the runtime package; the source archive explicitly includes sanitized review documentation, benchmark tooling, tests and release history.
 
-Installed verification uses an isolated copied environment, an ordinary no-dependency wheel installation and `python -I` outside the repository. All installed runtime modules must match both wheel and source bytes. Detailed check results and artifact hashes are recorded in the private `sourcery-review-v1/release-v2` evidence, not as embedded source-archive hashes.
+Installed verification uses an isolated copied environment, an ordinary no-dependency wheel installation and `python -I` outside the repository. All installed runtime modules must match both wheel and source bytes. Detailed check results and artifact hashes are recorded in the private `sourcery-review-v1/release-v3` evidence, not as embedded source-archive hashes.
 
 Consumer integration and remote CI require separate final-HEAD evidence; packaging alone does not imply either passed. No publication, merge or deployment is performed by this release step.
 

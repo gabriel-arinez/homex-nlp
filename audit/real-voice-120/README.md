@@ -1,6 +1,16 @@
 # HOMEX real-voice audit — current semantic continuation and preserved history
 
-## Current commercial review candidate — 2026-11-12
+## Current focused Sourcery review — 0.1.24
+
+See [the current evidence index](CURRENT.json) and [ten-observation report](sourcery-review-v1/README.md).
+The new review reproduces the historical549/1000/7 baseline and explicitly reports
+520/1000/13 after conservative comma ambiguity handling. Confirmed parser defects
+and full frozen-case regressions are investigated rather than hidden by scalar
+scores. Final head-bound integration/CI lives on original PR43/60/68; human acoustic
+review remains pending. No merge/deploy/history deletion.
+
+
+## Historical commercial review candidate — 2026-11-12
 
 The authoritative state is [CURRENT.json](CURRENT.json) and the
 [commercial-review-v1 report](commercial-review-v1/README.md). Candidate NLP0.1.23
