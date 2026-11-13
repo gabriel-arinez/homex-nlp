@@ -27,7 +27,7 @@ The first public regression run produced **16 failures / 16 passes**, demonstrat
 
 A baseline differential over 46 public inputs preserves 45 outputs exactly, excluding only NLP latency. The remaining intentional difference rejects stale accessory-count evidence after an existing internal correction; its item projection is unchanged and a regression test pins the corrected evidence. No other output difference was observed.
 
-Run the controlled benchmark with `python tools/benchmark_accessory_context.py`. Each length has three repetitions and repeated explicit accessory counts. It is diagnostic, not a wall-clock CI threshold. The structural regression checks that count exclusion no longer searches the entire prefix.
+Run the controlled benchmark with `python tools/benchmark_accessory_context.py`. `--help` prints usage without running measurements; unsupported options are rejected. Each length has three repetitions and repeated explicit accessory counts. It is diagnostic, not a wall-clock CI threshold. The structural regression checks that count exclusion no longer searches the entire prefix.
 
 | Characters | Mentions | Baseline / candidate median-time ratio |
 | ---: | ---: | ---: |

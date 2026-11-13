@@ -4,6 +4,7 @@ Run with PYTHONPATH pointing to the desired package tree; output is JSON.
 This benchmark is diagnostic, not a wall-clock pass/fail gate.
 """
 
+import argparse
 import json
 import statistics
 from time import perf_counter
@@ -35,5 +36,10 @@ def benchmark():
     return rows
 
 
-if __name__ == "__main__":
+def main():
+    argparse.ArgumentParser(description=__doc__).parse_args()
     print(json.dumps(benchmark(), indent=2))
+
+
+if __name__ == "__main__":
+    main()
