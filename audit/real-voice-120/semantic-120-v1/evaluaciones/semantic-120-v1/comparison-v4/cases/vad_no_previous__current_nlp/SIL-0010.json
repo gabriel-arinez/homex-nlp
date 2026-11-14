@@ -1,0 +1,447 @@
+{
+  "id": "SIL-0010",
+  "category": "OTRO",
+  "leakage_group": "DEV-SIL-0010",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "vad_no_previous__current_nlp",
+  "asr_configuration": "vad_no_previous",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "a1a6078210158fc8de3f66d44e4fecdc9555739727fc142e4561439a6f750cf5",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": true,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "vad_parameters": {
+      "min_silence_duration_ms": 500
+    }
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0010.aac",
+    "original_sha256": "2d1bfc8fe20737f05e6f27fed646f63199847f2345325f46f8e190b1edccaf32",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0010.wav",
+    "wav_sha256": "231e3e75a2fe5cf236e4701af8378b789113d4353d68bf9fdde07f2db0aedd4a"
+  },
+  "text_original": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, negro, cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+  "script_text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Semi Ejecutivo",
+      "observaciones": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, negro, cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+      "precio_lista": "1500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-325-330",
+        "label": "unidad_stock",
+        "start": 325,
+        "end": 330,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-21",
+        "label": "nombre",
+        "start": 0,
+        "end": 21,
+        "text": "Sillon Semi Ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillon Semi Ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+      },
+      {
+        "candidate_id": "observaciones-0-367",
+        "label": "observaciones",
+        "start": 0,
+        "end": 367,
+        "text": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, negro, cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, negro, cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-351-355",
+        "label": "precio_lista",
+        "start": 351,
+        "end": 355,
+        "text": "1500",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Sillon Semi Ejecutivo"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1500.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "cuero ecologico",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon semi ejecutivo",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "supported_score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 2,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon semi ejecutivo",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ],
+    "unsupported_verified_reference_indices": [
+      2,
+      3,
+      8,
+      9,
+      10
+    ],
+    "scope": "CATEGORY_CONTRACT_FIELD_FAMILY_SCALAR_ONLY_NO_ASSOCIATION_PROOF"
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 12,
+      "substitutions": 8,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 56,
+      "rate": 0.21428571428571427
+    },
+    "strict_normalized": {
+      "errors": 10,
+      "substitutions": 7,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 55,
+      "rate": 0.18181818181818182
+    }
+  },
+  "normalization": {
+    "reference_text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de 1500 BOB.",
+    "asr_text": "Sillon Semi Ejecutivo, modelo NF Guion 810, estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, negro, cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de 360 grados, procedencia china, unidad pieza, precio unitario de 1500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 390,
+        "end": 404,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 405,
+        "end": 415,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 356,
+        "end": 366,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

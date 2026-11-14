@@ -1,0 +1,887 @@
+{
+  "id": "MP-0028",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0028.aac",
+    "original_sha256": "cde2d5028f8e9cf0fb3c3d418da7bb18eb46ddec000754a173a3443e8c3b5c3d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0028.wav",
+    "wav_sha256": "0f2c1eebeb7e1bd63e1dd8aaf80eea31b83f3dd431bda23184a6590161ca767b"
+  },
+  "reference": "Una vitrina tipo tres de tres metros treinta de ancho, setenta centímetros de profundidad y dos metros treinta de alto. Estructura metálica recubierta con melamina de dieciocho milímetros. Repisas y divisiones engrosadas a treinta y seis milímetros, soportes metálicos, vidrio templado transparente de ocho milímetros, puertas corredizas, paneles fijos y chapa frontal. Según diseño. Precio de veintinueve mil trescientos bolivianos.",
+  "source": {
+    "id": "MP-0028",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      28
+    ],
+    "titulo_fuente": "VITRINA TIPO 3",
+    "grupo_familia": "PRO_028",
+    "guion": "Una vitrina tipo tres de tres metros treinta de ancho, setenta centímetros de profundidad y dos metros treinta de alto. Estructura metálica recubierta con melamina de dieciocho milímetros. Repisas y divisiones engrosadas a treinta y seis milímetros, soportes metálicos, vidrio templado transparente de ocho milímetros, puertas corredizas, paneles fijos y chapa frontal. Según diseño. Precio de veintinueve mil trescientos bolivianos.",
+    "audio_esperado": "MP-0028.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0028.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "80953f24309564971f49d473f82910e3c130da889ffb4009cb637eb1f7a79c06",
+    "audio_compatible_asr": "MP-0028.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0028.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 38.9863125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Una vitrina tipo 3 de 3 metros 30 de ancho, 70 centímetros de profundidad y 2 metros 30 de alto. Estructura metálica recubierta con melamina de 18 milímetros, repisas y divisiones engrozadas a 36 milímetros, soportes metálicos, vidrio templado transparente de 8 milímetros, puertas corredizas, paneles fijos y chapa frontal, según diseño. Precio de 29 mil 300 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.080000",
+        "text": " Una vitrina tipo 3 de 3 metros 30 de ancho, 70 centímetros de profundidad y 2 metros 30 de alto."
+      },
+      {
+        "start_seconds": "11.080000",
+        "end_seconds": "19.320000",
+        "text": " Estructura metálica recubierta con melamina de 18 milímetros, repisas y divisiones engrozadas"
+      },
+      {
+        "start_seconds": "19.320000",
+        "end_seconds": "27.240000",
+        "text": " a 36 milímetros, soportes metálicos, vidrio templado transparente de 8 milímetros,"
+      },
+      {
+        "start_seconds": "27.240000",
+        "end_seconds": "37.640000",
+        "text": " puertas corredizas, paneles fijos y chapa frontal, según diseño. Precio de 29 mil 300 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4742
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0028",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una vitrina tipo 3 de 3 metros 30 de ancho, 70 centímetros de profundidad y 2 metros 30 de alto. Estructura metálica recubierta con melamina de 18 milímetros, repisas y divisiones engrozadas a 36 milímetros, soportes metálicos, vidrio templado transparente de 8 milímetros, puertas corredizas, paneles fijos y chapa frontal, según diseño. Precio de 29 mil 300 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "vitrina",
+      "furniture_type_candidate": "vitrina",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "repisas",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "divisiones",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "puertas",
+          "evidence_ids": [
+            "c16"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "paneles",
+          "evidence_ids": [
+            "c17"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "330",
+          "unit": "cm",
+          "original_text": "3 metros 30 de ancho",
+          "value_mm": "3300",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "230",
+          "unit": "cm",
+          "original_text": "2 metros 30 de alto",
+          "value_mm": "2300",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "70 centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-3",
+          "value": "36",
+          "unit": "mm",
+          "original_text": "36 milímetros",
+          "value_mm": "36"
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "value": "8",
+          "unit": "mm",
+          "original_text": "8 milímetros",
+          "value_mm": "8"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": "pieza-5",
+          "name": "chapa frontal",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c11"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 11,
+        "text": "vitrina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 22,
+        "end": 42,
+        "text": "3 metros 30 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "330",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 76,
+        "end": 95,
+        "text": "2 metros 30 de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "230",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 44,
+        "end": 73,
+        "text": "70 centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 144,
+        "end": 157,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ESPESOR",
+        "start": 193,
+        "end": 206,
+        "text": "36 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "36",
+          "mm"
+        ],
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ESPESOR",
+        "start": 260,
+        "end": 272,
+        "text": "8 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "8",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 274,
+        "end": 292,
+        "text": "puertas corredizas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 310,
+        "end": 323,
+        "text": "chapa frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO_AMBIGUO",
+        "start": 349,
+        "end": 351,
+        "text": "29",
+        "source": "RULE",
+        "normalized_value": "29",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 97,
+        "end": 107,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 132,
+        "end": 140,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 159,
+        "end": 166,
+        "text": "repisas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 169,
+        "end": 179,
+        "text": "divisiones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 274,
+        "end": 281,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "COMPONENTE",
+        "start": 294,
+        "end": 301,
+        "text": "paneles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "MATERIAL",
+        "start": 228,
+        "end": 243,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "COLOR",
+        "start": 244,
+        "end": 256,
+        "text": "transparente",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 29.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 8 milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 3
+  },
+  "nlp_asr_ms": 3.3696620012051426,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0028-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una vitrina tipo tres de tres metros treinta de ancho, setenta centímetros de profundidad y dos metros treinta de alto. Estructura metálica recubierta con melamina de dieciocho milímetros. Repisas y divisiones engrosadas a treinta y seis milímetros, soportes metálicos, vidrio templado transparente de ocho milímetros, puertas corredizas, paneles fijos y chapa frontal. Según diseño. Precio de veintinueve mil trescientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "vitrina",
+      "furniture_type_candidate": "vitrina",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Estructura",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "Repisas",
+          "evidence_ids": [
+            "c13"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "divisiones",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "puertas",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "paneles",
+          "evidence_ids": [
+            "c16"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "330",
+          "unit": "cm",
+          "original_text": "tres metros treinta de ancho",
+          "value_mm": "3300",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "230",
+          "unit": "cm",
+          "original_text": "dos metros treinta de alto",
+          "value_mm": "2300",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "setenta centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "dieciocho milímetros",
+          "value_mm": "18"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-3",
+          "value": "36",
+          "unit": "mm",
+          "original_text": "treinta y seis milímetros",
+          "value_mm": "36"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": "pieza-5",
+          "name": "chapa frontal",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": null,
+      "unresolved": [
+        "c8"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 11,
+        "text": "vitrina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 25,
+        "end": 53,
+        "text": "tres metros treinta de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "330",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 92,
+        "end": 118,
+        "text": "dos metros treinta de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "230",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 55,
+        "end": 89,
+        "text": "setenta centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 167,
+        "end": 187,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ESPESOR",
+        "start": 223,
+        "end": 248,
+        "text": "treinta y seis milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "36",
+          "mm"
+        ],
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ESPESOR",
+        "start": 302,
+        "end": 317,
+        "text": "ocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "8",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 319,
+        "end": 337,
+        "text": "puertas corredizas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 355,
+        "end": 368,
+        "text": "chapa frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 120,
+        "end": 130,
+        "text": "Estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "MATERIAL",
+        "start": 155,
+        "end": 163,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 189,
+        "end": 196,
+        "text": "Repisas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 199,
+        "end": 209,
+        "text": "divisiones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 319,
+        "end": 326,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 339,
+        "end": 346,
+        "text": "paneles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 270,
+        "end": 285,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "COLOR",
+        "start": 286,
+        "end": 298,
+        "text": "transparente",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor ocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 3
+  },
+  "nlp_reference_ms": 3.3915860039996915,
+  "metrics": {
+    "wer": {
+      "errors": 14,
+      "substitutions": 12,
+      "deletions": 2,
+      "insertions": 0,
+      "reference_length": 60,
+      "rate": 0.23333333333333334
+    },
+    "cer": {
+      "errors": 82,
+      "substitutions": 20,
+      "deletions": 62,
+      "insertions": 0,
+      "reference_length": 423,
+      "rate": 0.1938534278959811
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.845542884002498,
+  "process_peak_rss_kib": 892484
+}

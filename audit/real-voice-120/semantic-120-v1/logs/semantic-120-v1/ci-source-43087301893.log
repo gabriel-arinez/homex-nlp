@@ -1,0 +1,1630 @@
+secrets	Set up job	﻿2026-11-11T19:27:04.5032191Z Current runner version: '2.338.2'
+secrets	Set up job	2026-11-11T19:27:04.5053477Z ##[group]Runner Image Provisioner
+secrets	Set up job	2026-11-11T19:27:04.5054301Z Hosted Compute Agent
+secrets	Set up job	2026-11-11T19:27:04.5054782Z Version: 20261028.624
+secrets	Set up job	2026-11-11T19:27:04.5055320Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+secrets	Set up job	2026-11-11T19:27:04.5055915Z Build Date: 2026-10-28T21:51:42Z
+secrets	Set up job	2026-11-11T19:27:04.5056473Z Worker ID: {23c5850f-12cc-4787-8848-26a5516d30a5}
+secrets	Set up job	2026-11-11T19:27:04.5057138Z Region: centralus
+secrets	Set up job	2026-11-11T19:27:04.5057596Z Cloud: Azure
+secrets	Set up job	2026-11-11T19:27:04.5058066Z ##[endgroup]
+secrets	Set up job	2026-11-11T19:27:04.5059143Z ##[group]Operating System
+secrets	Set up job	2026-11-11T19:27:04.5059646Z Ubuntu
+secrets	Set up job	2026-11-11T19:27:04.5060159Z 26.04.1
+secrets	Set up job	2026-11-11T19:27:04.5060581Z LTS
+secrets	Set up job	2026-11-11T19:27:04.5060992Z ##[endgroup]
+secrets	Set up job	2026-11-11T19:27:04.5061508Z ##[group]Runner Image
+secrets	Set up job	2026-11-11T19:27:04.5062000Z Image: ubuntu-26.04
+secrets	Set up job	2026-11-11T19:27:04.5062560Z Version: 20261101.186.1
+secrets	Set up job	2026-11-11T19:27:04.5063548Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+secrets	Set up job	2026-11-11T19:27:04.5064941Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+secrets	Set up job	2026-11-11T19:27:04.5066429Z ##[endgroup]
+secrets	Set up job	2026-11-11T19:27:04.5067389Z ##[group]GITHUB_TOKEN Permissions
+secrets	Set up job	2026-11-11T19:27:04.5068943Z Contents: read
+secrets	Set up job	2026-11-11T19:27:04.5069530Z Metadata: read
+secrets	Set up job	2026-11-11T19:27:04.5069992Z ##[endgroup]
+secrets	Set up job	2026-11-11T19:27:04.5071617Z Secret source: Actions
+secrets	Set up job	2026-11-11T19:27:04.5072500Z Cache mode: write
+secrets	Set up job	2026-11-11T19:27:04.5073414Z Prepare workflow directory
+secrets	Set up job	2026-11-11T19:27:04.5371404Z Prepare all required actions
+secrets	Set up job	2026-11-11T19:27:04.5410004Z Getting action download info
+secrets	Set up job	2026-11-11T19:27:04.7423832Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+secrets	Set up job	2026-11-11T19:27:04.8303520Z Download action repository 'gitleaks/gitleaks-action@v2' (SHA:ff98106e4c7b2bc287b24eaf42907196329070c7)
+secrets	Set up job	2026-11-11T19:27:05.3088364Z Complete job name: secrets
+secrets	Run actions/checkout@v4	﻿2026-11-11T19:27:05.3789489Z ##[group]Run actions/checkout@v4
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3790191Z with:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3790538Z   fetch-depth: 0
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3790935Z   repository: gabriel-arinez/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3794129Z   token: ***
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3794488Z   ssh-strict: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3794854Z   ssh-user: git
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3795227Z   persist-credentials: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3795630Z   clean: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3795999Z   sparse-checkout-cone-mode: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3796436Z   fetch-tags: false
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3796800Z   show-progress: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3797166Z   lfs: false
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3797505Z   submodules: false
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3797872Z   set-safe-directory: true
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3798279Z   allow-unsafe-pr-checkout: false
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.3798848Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6154534Z Syncing repository: gabriel-arinez/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6156322Z ##[group]Getting Git version info
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6157176Z Working directory is '/home/runner/work/homex-nlp/homex-nlp'
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6158302Z [command]/usr/bin/git version
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6170249Z git version 2.56.0
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6184628Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6195528Z Temporarily overriding HOME='/home/runner/work/_temp/8e4ae653-d328-48bf-810c-6e1feb04961b' before making global git config changes
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6197370Z Adding repository directory to the temporary git global config as a safe directory
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6214341Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6253011Z Deleting the contents of '/home/runner/work/homex-nlp/homex-nlp'
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6255499Z ##[group]Initializing the repository
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6259012Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6363648Z hint: Using 'master' as the name for the initial branch. This default branch name
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6364899Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6366349Z hint: to use in all of your new repositories, which will suppress this warning,
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6367339Z hint: call:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6367814Z hint:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6368434Z hint: 	git config --global init.defaultBranch <name>
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6369160Z hint:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6369844Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6370974Z hint: 'development'. The just-created branch can be renamed via this command:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6371863Z hint:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6372354Z hint: 	git branch -m <name>
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6373025Z hint:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6373776Z hint: Disable this message with "git config set advice.defaultBranchName false"
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6375575Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/.git/
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6385154Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6429694Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6430506Z ##[group]Disabling automatic garbage collection
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6432783Z [command]/usr/bin/git config --local gc.auto 0
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6461868Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6462609Z ##[group]Setting up auth
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6468011Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6497036Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6921667Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.6952265Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7186505Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7218705Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7453888Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7487374Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7494856Z ##[group]Fetching the repository
+secrets	Run actions/checkout@v4	2026-11-11T19:27:05.7496180Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4153184Z From https://github.com/gabriel-arinez/homex-nlp
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4156020Z  * [new branch]      audit/corpus-v2-b1-b4-20261027 -> origin/audit/corpus-v2-b1-b4-20261027
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4158304Z  * [new branch]      chore/ap1-auditoria-vulnerabilidades-python -> origin/chore/ap1-auditoria-vulnerabilidades-python
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4160134Z  * [new branch]      chore/ap1-escaneo-secretos -> origin/chore/ap1-escaneo-secretos
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4161488Z  * [new branch]      chore/f06-backend-ready   -> origin/chore/f06-backend-ready
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4162861Z  * [new branch]      codex/catalog-corrections -> origin/codex/catalog-corrections
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4164655Z  * [new branch]      codex/catalog-voice       -> origin/codex/catalog-voice
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4166237Z  * [new branch]      codex/corpus-v2-final     -> origin/codex/corpus-v2-final
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4167637Z  * [new branch]      codex/corr-pln-01-money   -> origin/codex/corr-pln-01-money
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4169084Z  * [new branch]      codex/human-gold-wer-20261026 -> origin/codex/human-gold-wer-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4170579Z  * [new branch]      codex/nlp-corpus-v2-cierre -> origin/codex/nlp-corpus-v2-cierre
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4172126Z  * [new branch]      codex/nlp-final-freeze    -> origin/codex/nlp-final-freeze
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4174504Z  * [new branch]      codex/prf04-nlp-v14-medidas-orales -> origin/codex/prf04-nlp-v14-medidas-orales
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4176836Z  * [new branch]      codex/v14-real-voice-fixes -> origin/codex/v14-real-voice-fixes
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4178629Z  * [new branch]      codex/v16-rules-engine    -> origin/codex/v16-rules-engine
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4180458Z  * [new branch]      codex/voice-next-25       -> origin/codex/voice-next-25
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4182643Z  * [new branch]      data/piloto-audios-reales-v13-20261026 -> origin/data/piloto-audios-reales-v13-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4185117Z  * [new branch]      demo-presentacion         -> origin/demo-presentacion
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4186896Z  * [new branch]      docs/ap6-0-21-compatibilidad -> origin/docs/ap6-0-21-compatibilidad
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4188810Z  * [new branch]      docs/f10-deploy-privado   -> origin/docs/f10-deploy-privado
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4190527Z  * [new branch]      feat/ap6-contrato-v2      -> origin/feat/ap6-contrato-v2
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4192468Z  * [new branch]      feat/f09-integracion-sistema -> origin/feat/f09-integracion-sistema
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4195037Z  * [new branch]      feat/f10-deploy-recuperacion -> origin/feat/f10-deploy-recuperacion
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4197612Z  * [new branch]      feat/prf04-benchmark-campo-20261026 -> origin/feat/prf04-benchmark-campo-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4200627Z  * [new branch]      feat/prf04-corpus-v2-candidato-20261025 -> origin/feat/prf04-corpus-v2-candidato-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4204902Z  * [new branch]      feat/prf04-corpus-v2-rc2-correctivo-20261025 -> origin/feat/prf04-corpus-v2-rc2-correctivo-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4209236Z  * [new branch]      feat/prf04-evaluador-audios-asr-20261026 -> origin/feat/prf04-evaluador-audios-asr-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4212567Z  * [new branch]      feat/prf04-experimento-offline-rc2-v13-20261026 -> origin/feat/prf04-experimento-offline-rc2-v13-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4216258Z  * [new branch]      feat/prf04-piloto-asr-nlp-integration-20261026 -> origin/feat/prf04-piloto-asr-nlp-integration-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4219325Z  * [new branch]      feat/prf04-voz-configurador -> origin/feat/prf04-voz-configurador
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4221582Z  * [new branch]      feat/real-voice-120-results -> origin/feat/real-voice-120-results
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4224773Z  * [new branch]      fix/prf04-cantidad-comercial-accesorios-v13-0112-20261025 -> origin/fix/prf04-cantidad-comercial-accesorios-v13-0112-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4228778Z  * [new branch]      fix/prf04-limpios-componentes-dimensiones-v11-0110-20261025 -> origin/fix/prf04-limpios-componentes-dimensiones-v11-0110-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4233098Z  * [new branch]      fix/prf04-numeros-dimensiones-v12-0111-20261025 -> origin/fix/prf04-numeros-dimensiones-v12-0111-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4236534Z  * [new branch]      fix/prf04-p0-semantica-negaciones-20261024 -> origin/fix/prf04-p0-semantica-negaciones-20261024
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4240574Z  * [new branch]      fix/prf04-piloto-campos-comerciales-02-05-20261027 -> origin/fix/prf04-piloto-campos-comerciales-02-05-20261027
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4245398Z  * [new branch]      fix/prf04-piloto-real-v13-reconocimiento-precios-20261026 -> origin/fix/prf04-piloto-real-v13-reconocimiento-precios-20261026
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4248952Z  * [new branch]      fix/prf04-precios-explicitos-v10-019-20261025 -> origin/fix/prf04-precios-explicitos-v10-019-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4252165Z  * [new branch]      fix/prf04-puntuacion-asr-v9-018-20261025 -> origin/fix/prf04-puntuacion-asr-v9-018-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4255504Z  * [new branch]      fix/prf04-rectificaciones-internas-v8-017-20261025 -> origin/fix/prf04-rectificaciones-internas-v8-017-20261025
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4258994Z  * [new branch]      fix/rc2-gate-pythonpath-20261027 -> origin/fix/rc2-gate-pythonpath-20261027
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4261112Z  * [new branch]      main                      -> origin/main
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4262801Z  * [new branch]      pipeline                  -> origin/pipeline
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4264723Z  * [new branch]      refactor                  -> origin/refactor
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4267094Z  * [new branch]      test/ap2-regresiones-riesgo-20261012 -> origin/test/ap2-regresiones-riesgo-20261012
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4269360Z  * [new tag]         nlp-final-0.1.18-20261029 -> nlp-final-0.1.18-20261029
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4271137Z  * [new tag]         nlp-final-0.1.19-20261101 -> nlp-final-0.1.19-20261101
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4272761Z  * [new tag]         v0.1.20                   -> v0.1.20
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4274459Z  * [new tag]         v0.1.21                   -> v0.1.21
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4277559Z [command]/usr/bin/git branch --list --remote origin/feat/real-voice-120-results
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4279285Z   origin/feat/real-voice-120-results
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4281945Z [command]/usr/bin/git rev-parse refs/remotes/origin/feat/real-voice-120-results
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4283949Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4286955Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4288389Z ##[group]Determining the checkout info
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4290302Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4291367Z [command]/usr/bin/git sparse-checkout disable
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4294384Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4318720Z ##[group]Checking out the ref
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.4320955Z [command]/usr/bin/git checkout --progress --force -B feat/real-voice-120-results refs/remotes/origin/feat/real-voice-120-results
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.8203473Z Switched to a new branch 'feat/real-voice-120-results'
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.8208650Z branch 'feat/real-voice-120-results' set up to track 'origin/feat/real-voice-120-results'.
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.8323502Z ##[endgroup]
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.8326136Z [command]/usr/bin/git log -1 --format=%H
+secrets	Run actions/checkout@v4	2026-11-11T19:27:08.8348056Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+secrets	Run gitleaks/gitleaks-action@v2	﻿2026-11-11T19:27:08.8547211Z ##[group]Run gitleaks/gitleaks-action@v2
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:08.8547508Z env:
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:08.8549774Z   GITHUB_TOKEN: ***
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:08.8550009Z ##[endgroup]
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:08.9952793Z (node:2248) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:08.9953679Z (Use `node --trace-deprecation ...` to show where the warning was created)
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:09.0148095Z (node:2248) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:09.3079971Z [gabriel-arinez] is an individual user. No license key is required.
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:09.3080459Z gitleaks version: 8.24.3
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:09.3082012Z Version to install: 8.24.3 (target directory: /tmp/gitleaks-8.24.3)
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:09.4455331Z Cache hit for: gitleaks-cache-8.24.3-linux-x64
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0584488Z Received 5713644 of 5713644 (100.0%), 11.1 MBs/sec
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0585184Z Cache Size: ~5 MB (5713644 B)
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0609804Z [command]/usr/bin/tar -xf /home/runner/work/_temp/9dc7c1f7-5e26-4ff3-aab9-5010fc6d45e0/cache.tzst -P -C /home/runner/work/homex-nlp/homex-nlp --use-compress-program unzstd
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0894034Z Cache restored successfully
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0898542Z Gitleaks restored from cache
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0901023Z event type: push
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0903600Z gitleaks cmd: gitleaks detect --redact -v --exit-code=2 --report-format=sarif --report-path=results.sarif --log-level=debug --log-opts=--no-merges --first-parent c0135d718909be7c281a66b3f00f849323b6c065^..584e90bf3bc20331ce64826ee6b48c56954c0e69
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.0917167Z [command]/tmp/gitleaks-8.24.3/gitleaks detect --redact -v --exit-code=2 --report-format=sarif --report-path=results.sarif --log-level=debug --log-opts=--no-merges --first-parent c0135d718909be7c281a66b3f00f849323b6c065^..584e90bf3bc20331ce64826ee6b48c56954c0e69
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3126929Z 
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3127694Z     ○
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3127966Z     │╲
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3128154Z     │ ○
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3128874Z     ○ ░
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3129157Z     ░    gitleaks
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3129388Z 
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3131283Z [90m7:27PM[0m DBG using github.com/wasilibs/go-re2 regex engine
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.3132103Z [90m7:27PM[0m DBG no gitleaks config found in path .gitleaks.toml, using default gitleaks config
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4191947Z [90m7:27PM[0m DBG found .gitleaksignore file: .gitleaksignore
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4192732Z [90m7:27PM[0m DBG found .gitleaksignore file: .gitleaksignore
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4193911Z [90m7:27PM[0m DBG executing: /usr/bin/git -C . log -p -U0 --no-merges --first-parent c0135d718909be7c281a66b3f00f849323b6c065^..584e90bf3bc20331ce64826ee6b48c56954c0e69
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4231739Z [90m7:27PM[0m DBG SCM platform parsed from host [36mhost=[0mgithub.com [36mplatform=[0mgithub
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4608634Z [90m7:27PM[0m [32mINF[0m [1m10 commits scanned.[0m
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4609304Z [90m7:27PM[0m DBG Note: this number might be smaller than expected due to commits with no additions
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4609907Z [90m7:27PM[0m [32mINF[0m [1mscanned ~153795 bytes (153.79 KB) in 148ms[0m
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4610349Z [90m7:27PM[0m [32mINF[0m [1mno leaks found[0m
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4657160Z Artifact name is valid!
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.4657879Z Root directory input is valid!
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.7175536Z Beginning upload of artifact content to blob storage
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.8895523Z Uploaded bytes 6768
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.9344199Z Finished uploading artifact content to blob storage!
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.9345103Z SHA256 digest of uploaded artifact zip is 0eb40088c447d4d6dd9d6edebdaeb5bb9b8830d6bf4ec5c05f794fcb776cb29b
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:10.9346876Z Finalizing artifact upload
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:11.4062626Z Artifact gitleaks-results.sarif.zip successfully finalized. Artifact ID 13886493130
+secrets	Run gitleaks/gitleaks-action@v2	2026-11-11T19:27:11.4074934Z ✅ No leaks detected
+secrets	Post Run actions/checkout@v4	﻿2026-11-11T19:27:11.4297224Z Post job cleanup.
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.4960747Z [command]/usr/bin/git version
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.4998270Z git version 2.56.0
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5026384Z Temporarily overriding HOME='/home/runner/work/_temp/2209ebc8-4712-4bc5-985d-26d9460cebbf' before making global git config changes
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5027423Z Adding repository directory to the temporary git global config as a safe directory
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5030343Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5063218Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5093125Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5360353Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5375609Z http.https://github.com/.extraheader
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5385556Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5419926Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5682087Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets	Post Run actions/checkout@v4	2026-11-11T19:27:11.5715139Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets	Complete job	﻿2026-11-11T19:27:11.6074173Z Cleaning up orphan processes
+secrets	Complete job	2026-11-11T19:27:11.6418085Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, gitleaks/gitleaks-action@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+dependency-audit	Set up job	﻿2026-11-11T19:27:05.7222349Z Current runner version: '2.338.2'
+dependency-audit	Set up job	2026-11-11T19:27:05.7246829Z ##[group]Runner Image Provisioner
+dependency-audit	Set up job	2026-11-11T19:27:05.7247700Z Hosted Compute Agent
+dependency-audit	Set up job	2026-11-11T19:27:05.7248739Z Version: 20261028.624
+dependency-audit	Set up job	2026-11-11T19:27:05.7249411Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+dependency-audit	Set up job	2026-11-11T19:27:05.7250250Z Build Date: 2026-10-28T21:51:42Z
+dependency-audit	Set up job	2026-11-11T19:27:05.7251084Z Worker ID: {a494df13-793d-4a4a-a978-1a3b81a467bc}
+dependency-audit	Set up job	2026-11-11T19:27:05.7251882Z Region: westus
+dependency-audit	Set up job	2026-11-11T19:27:05.7252529Z Cloud: Azure
+dependency-audit	Set up job	2026-11-11T19:27:05.7253100Z ##[endgroup]
+dependency-audit	Set up job	2026-11-11T19:27:05.7254636Z ##[group]Operating System
+dependency-audit	Set up job	2026-11-11T19:27:05.7255385Z Ubuntu
+dependency-audit	Set up job	2026-11-11T19:27:05.7255945Z 26.04.1
+dependency-audit	Set up job	2026-11-11T19:27:05.7256547Z LTS
+dependency-audit	Set up job	2026-11-11T19:27:05.7257101Z ##[endgroup]
+dependency-audit	Set up job	2026-11-11T19:27:05.7257686Z ##[group]Runner Image
+dependency-audit	Set up job	2026-11-11T19:27:05.7258788Z Image: ubuntu-26.04
+dependency-audit	Set up job	2026-11-11T19:27:05.7259455Z Version: 20261101.186.1
+dependency-audit	Set up job	2026-11-11T19:27:05.7260672Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+dependency-audit	Set up job	2026-11-11T19:27:05.7262570Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+dependency-audit	Set up job	2026-11-11T19:27:05.7263719Z ##[endgroup]
+dependency-audit	Set up job	2026-11-11T19:27:05.7264848Z ##[group]GITHUB_TOKEN Permissions
+dependency-audit	Set up job	2026-11-11T19:27:05.7266780Z Contents: read
+dependency-audit	Set up job	2026-11-11T19:27:05.7267415Z Metadata: read
+dependency-audit	Set up job	2026-11-11T19:27:05.7268295Z ##[endgroup]
+dependency-audit	Set up job	2026-11-11T19:27:05.7270345Z Secret source: Actions
+dependency-audit	Set up job	2026-11-11T19:27:05.7271423Z Cache mode: write
+dependency-audit	Set up job	2026-11-11T19:27:05.7272161Z Prepare workflow directory
+dependency-audit	Set up job	2026-11-11T19:27:05.7619510Z Prepare all required actions
+dependency-audit	Set up job	2026-11-11T19:27:05.7690758Z Getting action download info
+dependency-audit	Set up job	2026-11-11T19:27:06.0906630Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+dependency-audit	Set up job	2026-11-11T19:27:06.2124533Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+dependency-audit	Set up job	2026-11-11T19:27:06.7148928Z Complete job name: dependency-audit
+dependency-audit	Run actions/checkout@v4	﻿2026-11-11T19:27:06.8036311Z ##[group]Run actions/checkout@v4
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8037228Z with:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8037699Z   repository: gabriel-arinez/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8042314Z   token: ***
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8042771Z   ssh-strict: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8043225Z   ssh-user: git
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8043683Z   persist-credentials: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8044202Z   clean: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8044661Z   sparse-checkout-cone-mode: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8045199Z   fetch-depth: 1
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8045641Z   fetch-tags: false
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8046092Z   show-progress: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8046544Z   lfs: false
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8046962Z   submodules: false
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8047418Z   set-safe-directory: true
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8048049Z   allow-unsafe-pr-checkout: false
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:06.8048844Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0706864Z Syncing repository: gabriel-arinez/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0708996Z ##[group]Getting Git version info
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0709766Z Working directory is '/home/runner/work/homex-nlp/homex-nlp'
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0710918Z [command]/usr/bin/git version
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0738156Z git version 2.56.0
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0762607Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0778519Z Temporarily overriding HOME='/home/runner/work/_temp/f0280437-3a27-4b97-9d9c-af3b830c1f47' before making global git config changes
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0781668Z Adding repository directory to the temporary git global config as a safe directory
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0784244Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0849405Z Deleting the contents of '/home/runner/work/homex-nlp/homex-nlp'
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0854115Z ##[group]Initializing the repository
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0859060Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0986610Z hint: Using 'master' as the name for the initial branch. This default branch name
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0988620Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0990737Z hint: to use in all of your new repositories, which will suppress this warning,
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0992137Z hint: call:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0993093Z hint:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0994062Z hint: 	git config --global init.defaultBranch <name>
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0995186Z hint:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0996228Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0997567Z hint: 'development'. The just-created branch can be renamed via this command:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.0999210Z hint:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1000128Z hint: 	git branch -m <name>
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1001005Z hint:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1001776Z hint: Disable this message with "git config set advice.defaultBranchName false"
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1003177Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/.git/
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1012697Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1061921Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1063442Z ##[group]Disabling automatic garbage collection
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1066575Z [command]/usr/bin/git config --local gc.auto 0
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1102939Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1104364Z ##[group]Setting up auth
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1110954Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1146368Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1659525Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1698020Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.1981199Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.2017456Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.2293512Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.2333461Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.2342278Z ##[group]Fetching the repository
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:07.2344615Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +584e90bf3bc20331ce64826ee6b48c56954c0e69:refs/remotes/origin/feat/real-voice-120-results
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6072035Z From https://github.com/gabriel-arinez/homex-nlp
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6074176Z  * [new ref]         584e90bf3bc20331ce64826ee6b48c56954c0e69 -> origin/feat/real-voice-120-results
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6078115Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6078922Z ##[group]Determining the checkout info
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6080501Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6086854Z [command]/usr/bin/git sparse-checkout disable
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6138482Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6169643Z ##[group]Checking out the ref
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:11.6175283Z [command]/usr/bin/git checkout --progress --force -B feat/real-voice-120-results refs/remotes/origin/feat/real-voice-120-results
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:12.0472555Z Switched to a new branch 'feat/real-voice-120-results'
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:12.0478435Z branch 'feat/real-voice-120-results' set up to track 'origin/feat/real-voice-120-results'.
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:12.0565641Z ##[endgroup]
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:12.0616703Z [command]/usr/bin/git log -1 --format=%H
+dependency-audit	Run actions/checkout@v4	2026-11-11T19:27:12.0645591Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+dependency-audit	Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:12.0961189Z ##[group]Run astral-sh/setup-uv@v6
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0961711Z with:
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0962118Z   version: 0.12.9
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0962501Z   activate-environment: false
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0962999Z   working-directory: /home/runner/work/homex-nlp/homex-nlp
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0963816Z   server-url: https://github.com
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0967252Z   github-token: ***
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0967687Z   enable-cache: auto
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0968626Z   cache-dependency-glob: **/*requirements*.txt
+dependency-audit	Run astral-sh/setup-uv@v6	**/*requirements*.in
+dependency-audit	Run astral-sh/setup-uv@v6	**/*constraints*.txt
+dependency-audit	Run astral-sh/setup-uv@v6	**/*constraints*.in
+dependency-audit	Run astral-sh/setup-uv@v6	**/pyproject.toml
+dependency-audit	Run astral-sh/setup-uv@v6	**/uv.lock
+dependency-audit	Run astral-sh/setup-uv@v6	**/*.py.lock
+dependency-audit	Run astral-sh/setup-uv@v6	
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0969422Z   restore-cache: true
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0969863Z   save-cache: true
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0970222Z   prune-cache: true
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0970623Z   ignore-nothing-to-cache: false
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0971123Z   ignore-empty-workdir: false
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0971512Z   add-problem-matchers: true
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0971966Z ##[endgroup]
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.2917591Z (node:2400) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.2919517Z (Use `node --trace-deprecation ...` to show where the warning was created)
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.3089360Z manifest-file not provided, reading from local file.
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.3129520Z manifest-file does not contain version 0.12.9, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.3149377Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.12.9/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.6869290Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/f162e0ef-2cdc-44e1-b34e-9da97709df76 -f /home/runner/work/_temp/81f62658-2dc0-4752-8cbd-99933fe24bd9
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.0121728Z Added /home/runner/.local/bin to the path
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.0122858Z Added /opt/hostedtoolcache/uv/0.12.9/x86_64 to the path
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.0144689Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.0145502Z Successfully installed uv version 0.12.9
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.0147627Z Searching files using cache dependency glob: /home/runner/work/homex-nlp/homex-nlp/**/*requirements*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*requirements*.in,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.in,/home/runner/work/homex-nlp/homex-nlp/**/pyproject.toml,/home/runner/work/homex-nlp/homex-nlp/**/uv.lock,/home/runner/work/homex-nlp/homex-nlp/**/*.py.lock
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.2279468Z /home/runner/work/homex-nlp/homex-nlp/backend/requirements.txt
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.2517538Z /home/runner/work/homex-nlp/homex-nlp/pyproject.toml
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.2708915Z /home/runner/work/homex-nlp/homex-nlp/uv.lock
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.2720008Z Found 3 files to hash.
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.4064920Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+dependency-audit	Run astral-sh/setup-uv@v6	2026-11-11T19:27:13.6386209Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+dependency-audit	Audit frozen dependency lock (all extras and groups)	﻿2026-11-11T19:27:13.6611035Z ##[group]Run uv audit --locked
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6611446Z [36;1muv audit --locked[0m
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6667057Z shell: /usr/bin/bash -e {0}
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6667395Z env:
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6667748Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6668292Z ##[endgroup]
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.6828505Z warning: `uv audit` is experimental and may change without warning. Pass `--preview-features audit-command` to disable this warning.
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:13.7936508Z Downloading cpython-3.11.15-linux-x86_64-gnu (download) (29.5MiB)
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:14.6293895Z  Downloaded cpython-3.11.15-linux-x86_64-gnu (download)
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:14.7572487Z Using CPython 3.11.15
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:14.7590755Z Resolved 71 packages in 0.71ms
+dependency-audit	Audit frozen dependency lock (all extras and groups)	2026-11-11T19:27:15.1148886Z Found no known vulnerabilities and no adverse project statuses in 70 packages
+dependency-audit	Post Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:15.1334606Z Post job cleanup.
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2676808Z Pruning cache...
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2683751Z (node:2492) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2685153Z (Use `node --trace-deprecation ...` to show where the warning was created)
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2749061Z [command]/opt/hostedtoolcache/uv/0.12.9/x86_64/uv cache prune --ci
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2868544Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2874503Z No unused entries found
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.2893047Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.3066143Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/homex-nlp/homex-nlp --files-from manifest.txt --use-compress-program zstdmt
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:15.6971224Z (node:2492) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:16.6307443Z Sent 7342697 of 7342697 (100.0%), 7.4 MBs/sec
+dependency-audit	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:16.7759063Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+dependency-audit	Post Run actions/checkout@v4	﻿2026-11-11T19:27:16.7906691Z Post job cleanup.
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8793655Z [command]/usr/bin/git version
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8839148Z git version 2.56.0
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8878840Z Temporarily overriding HOME='/home/runner/work/_temp/34cfc013-9c84-4d9b-a2c4-351beeac6be6' before making global git config changes
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8880257Z Adding repository directory to the temporary git global config as a safe directory
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8883585Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8924362Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.8968528Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9273093Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9300947Z http.https://github.com/.extraheader
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9313588Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9358636Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9672759Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+dependency-audit	Post Run actions/checkout@v4	2026-11-11T19:27:16.9709906Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+dependency-audit	Complete job	﻿2026-11-11T19:27:17.0183877Z Cleaning up orphan processes
+dependency-audit	Complete job	2026-11-11T19:27:17.0612678Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+rules-only-freeze	Set up job	﻿2026-11-11T19:27:05.2563091Z Current runner version: '2.338.2'
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2587857Z ##[group]Runner Image Provisioner
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2588707Z Hosted Compute Agent
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2589424Z Version: 20261028.624
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2590049Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2590803Z Build Date: 2026-10-28T21:51:42Z
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2591703Z Worker ID: {cfb7174a-2aba-42a0-8b99-16bbe31c40b3}
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2592430Z Region: westus2
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2593088Z Cloud: Azure
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2593613Z ##[endgroup]
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2595106Z ##[group]Operating System
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2595771Z Ubuntu
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2596284Z 26.04.1
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2596918Z LTS
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2597423Z ##[endgroup]
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2597955Z ##[group]Runner Image
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2598658Z Image: ubuntu-26.04
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2599215Z Version: 20261101.186.1
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2600358Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2602186Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2603269Z ##[endgroup]
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2604411Z ##[group]GITHUB_TOKEN Permissions
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2606306Z Contents: read
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2606921Z Metadata: read
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2607565Z ##[endgroup]
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2609540Z Secret source: Actions
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2610625Z Cache mode: write
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2611698Z Prepare workflow directory
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2943817Z Prepare all required actions
+rules-only-freeze	Set up job	2026-11-11T19:27:05.2993820Z Getting action download info
+rules-only-freeze	Set up job	2026-11-11T19:27:05.6227842Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+rules-only-freeze	Set up job	2026-11-11T19:27:05.7494112Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+rules-only-freeze	Set up job	2026-11-11T19:27:06.1568408Z Complete job name: rules-only-freeze
+rules-only-freeze	Run actions/checkout@v4	﻿2026-11-11T19:27:06.2520361Z ##[group]Run actions/checkout@v4
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2521932Z with:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2522496Z   repository: gabriel-arinez/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2526772Z   token: ***
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2527248Z   ssh-strict: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2527720Z   ssh-user: git
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2528216Z   persist-credentials: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2528755Z   clean: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2529315Z   sparse-checkout-cone-mode: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2530157Z   fetch-depth: 1
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2530636Z   fetch-tags: false
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2531331Z   show-progress: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2531846Z   lfs: false
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2532297Z   submodules: false
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2532807Z   set-safe-directory: true
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2533368Z   allow-unsafe-pr-checkout: false
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.2534309Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5138408Z Syncing repository: gabriel-arinez/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5142042Z ##[group]Getting Git version info
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5143595Z Working directory is '/home/runner/work/homex-nlp/homex-nlp'
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5146430Z [command]/usr/bin/git version
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5154642Z git version 2.56.0
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5179564Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5197102Z Temporarily overriding HOME='/home/runner/work/_temp/eeaa9ce8-8233-4d7e-b589-1270e69d5fbb' before making global git config changes
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5199967Z Adding repository directory to the temporary git global config as a safe directory
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5202487Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5269717Z Deleting the contents of '/home/runner/work/homex-nlp/homex-nlp'
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5274941Z ##[group]Initializing the repository
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5279372Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5417535Z hint: Using 'master' as the name for the initial branch. This default branch name
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5419750Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5422361Z hint: to use in all of your new repositories, which will suppress this warning,
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5424007Z hint: call:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5425105Z hint:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5425911Z hint: 	git config --global init.defaultBranch <name>
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5427044Z hint:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5427803Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5429669Z hint: 'development'. The just-created branch can be renamed via this command:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5431533Z hint:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5432636Z hint: 	git branch -m <name>
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5433715Z hint:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5435212Z hint: Disable this message with "git config set advice.defaultBranchName false"
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5437687Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/.git/
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5448638Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5500181Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5502108Z ##[group]Disabling automatic garbage collection
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5504706Z [command]/usr/bin/git config --local gc.auto 0
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5539919Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5541905Z ##[group]Setting up auth
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5547005Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.5583914Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6072410Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6108871Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6383803Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6420556Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6688493Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6727238Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6729604Z ##[group]Fetching the repository
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:06.6738729Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +584e90bf3bc20331ce64826ee6b48c56954c0e69:refs/remotes/origin/feat/real-voice-120-results
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9607475Z From https://github.com/gabriel-arinez/homex-nlp
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9609365Z  * [new ref]         584e90bf3bc20331ce64826ee6b48c56954c0e69 -> origin/feat/real-voice-120-results
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9613679Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9614779Z ##[group]Determining the checkout info
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9615807Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9622109Z [command]/usr/bin/git sparse-checkout disable
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9672339Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9702132Z ##[group]Checking out the ref
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:17.9706372Z [command]/usr/bin/git checkout --progress --force -B feat/real-voice-120-results refs/remotes/origin/feat/real-voice-120-results
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:18.4018645Z Switched to a new branch 'feat/real-voice-120-results'
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:18.4024231Z branch 'feat/real-voice-120-results' set up to track 'origin/feat/real-voice-120-results'.
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:18.4121619Z ##[endgroup]
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:18.4168266Z [command]/usr/bin/git log -1 --format=%H
+rules-only-freeze	Run actions/checkout@v4	2026-11-11T19:27:18.4194864Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+rules-only-freeze	Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:18.4507647Z ##[group]Run astral-sh/setup-uv@v6
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4508093Z with:
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4508368Z   version: 0.12.9
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4508770Z   activate-environment: false
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4509256Z   working-directory: /home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4509976Z   server-url: https://github.com
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4513170Z   github-token: ***
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4513500Z   enable-cache: auto
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4514299Z   cache-dependency-glob: **/*requirements*.txt
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/*requirements*.in
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/*constraints*.txt
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/*constraints*.in
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/pyproject.toml
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/uv.lock
+rules-only-freeze	Run astral-sh/setup-uv@v6	**/*.py.lock
+rules-only-freeze	Run astral-sh/setup-uv@v6	
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4515084Z   restore-cache: true
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4515443Z   save-cache: true
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4515753Z   prune-cache: true
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4516056Z   ignore-nothing-to-cache: false
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4516537Z   ignore-empty-workdir: false
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4516893Z   add-problem-matchers: true
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.4517278Z ##[endgroup]
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.6500175Z (node:2902) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.6501899Z (Use `node --trace-deprecation ...` to show where the warning was created)
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.6647619Z manifest-file not provided, reading from local file.
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.6687367Z manifest-file does not contain version 0.12.9, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:18.6692333Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.12.9/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.0036093Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/9e62dc81-ccc7-4a36-b050-7d5cafb1266b -f /home/runner/work/_temp/de3f54ee-321e-401a-ab34-557732dd835b
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.2610210Z Added /home/runner/.local/bin to the path
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.2615363Z Added /opt/hostedtoolcache/uv/0.12.9/x86_64 to the path
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.2637028Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.2637608Z Successfully installed uv version 0.12.9
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.2639792Z Searching files using cache dependency glob: /home/runner/work/homex-nlp/homex-nlp/**/*requirements*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*requirements*.in,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.in,/home/runner/work/homex-nlp/homex-nlp/**/pyproject.toml,/home/runner/work/homex-nlp/homex-nlp/**/uv.lock,/home/runner/work/homex-nlp/homex-nlp/**/*.py.lock
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.4601517Z /home/runner/work/homex-nlp/homex-nlp/backend/requirements.txt
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.4754740Z /home/runner/work/homex-nlp/homex-nlp/pyproject.toml
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.4901960Z /home/runner/work/homex-nlp/homex-nlp/uv.lock
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.4910922Z Found 3 files to hash.
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.5985618Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.8255499Z Cache hit for: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:19.8359988Z (node:2902) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:21.2027653Z Received 3148393 of 7342697 (42.9%), 3.0 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:22.2026536Z Received 3148393 of 7342697 (42.9%), 1.5 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:23.2028778Z Received 3148393 of 7342697 (42.9%), 1.0 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:24.2030955Z Received 3148393 of 7342697 (42.9%), 0.8 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:25.2033852Z Received 3148393 of 7342697 (42.9%), 0.6 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.2037705Z Received 3148393 of 7342697 (42.9%), 0.5 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.3161557Z Received 7342697 of 7342697 (100.0%), 1.1 MBs/sec
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.3162489Z Cache Size: ~7 MB (7342697 B)
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.3188012Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b276d1f7-c16a-4926-b31c-b8e64bcbd810/cache.tzst -P -C /home/runner/work/homex-nlp/homex-nlp --use-compress-program unzstd
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.3542400Z Cache restored successfully
+rules-only-freeze	Run astral-sh/setup-uv@v6	2026-11-11T19:27:26.3550739Z uv cache restored from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb
+rules-only-freeze	Run uv sync --locked --extra dev	﻿2026-11-11T19:27:26.3732369Z ##[group]Run uv sync --locked --extra dev
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.3732806Z [36;1muv sync --locked --extra dev[0m
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.3790977Z shell: /usr/bin/bash -e {0}
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.3791678Z env:
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.3792095Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.3792487Z ##[endgroup]
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:26.5083979Z Downloading cpython-3.11.15-linux-x86_64-gnu (download) (29.5MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.3367022Z  Downloaded cpython-3.11.15-linux-x86_64-gnu (download)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.4634559Z Using CPython 3.11.15
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.4635086Z Creating virtual environment at: .venv
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.4656317Z Resolved 71 packages in 0.54ms
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.4809176Z    Building homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5226950Z Downloading pydantic-core (2.0MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5244561Z Downloading pygments (1.2MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5271929Z Downloading ruff (9.9MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5272278Z Downloading srsly (1.1MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5272915Z Downloading numpy (16.1MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5308336Z Downloading blis (10.9MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5309770Z Downloading thinc (3.9MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.5361950Z Downloading spacy (30.8MiB)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.6642237Z  Downloaded srsly
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.6696970Z  Downloaded pydantic-core
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.6781688Z  Downloaded pygments
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.7342344Z  Downloaded thinc
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.8352234Z  Downloaded ruff
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.8582692Z  Downloaded blis
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:27.9209588Z  Downloaded numpy
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.0486352Z  Downloaded spacy
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.2770862Z       Built homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.2782691Z Prepared 54 packages in 811ms
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3193556Z Installed 54 packages in 40ms
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3194439Z  + annotated-doc==0.0.5
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3195088Z  + annotated-types==0.8.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3195712Z  + anyio==4.15.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3196258Z  + attrs==26.1.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3196941Z  + blis==1.3.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3197503Z  + catalogue==2.0.10
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3198087Z  + certifi==2026.10.19
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3198716Z  + charset-normalizer==3.5.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3199391Z  + click==8.5.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3200104Z  + cloudpathlib==0.25.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3200810Z  + confection==1.3.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3201554Z  + cymem==2.0.13
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3211350Z  + h11==0.16.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3212317Z  + homex-nlp==0.1.22 (from file:///home/runner/work/homex-nlp/homex-nlp)
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3213118Z  + httpcore==1.0.9
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3213511Z  + httpx==0.28.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3213882Z  + idna==3.19
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3214239Z  + iniconfig==2.3.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3214647Z  + jinja2==3.1.6
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3215184Z  + jsonschema==4.26.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3215621Z  + jsonschema-specifications==2025.9.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3216113Z  + markdown-it-py==4.2.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3216512Z  + markupsafe==3.0.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3217003Z  + mdurl==0.1.2
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3217356Z  + murmurhash==1.0.15
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3217725Z  + numpy==2.4.6
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3218062Z  + packaging==26.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3218390Z  + pluggy==1.6.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3218606Z  + preshed==3.0.13
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3218819Z  + pydantic==2.13.4
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3219042Z  + pydantic-core==2.46.4
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3219285Z  + pygments==2.21.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3219513Z  + pytest==9.1.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3219778Z  + referencing==0.37.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3220008Z  + requests==2.34.2
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3220222Z  + rich==15.0.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3220430Z  + rpds-py==2026.6.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3220645Z  + ruff==0.16.7
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3221304Z  + setuptools==84.2.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3221648Z  + shellingham==1.5.4
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3221883Z  + smart-open==8.0.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3222109Z  + spacy==3.8.13
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3222333Z  + spacy-legacy==3.0.12
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3222570Z  + spacy-loggers==1.0.5
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3223016Z  + srsly==2.5.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3223224Z  + thinc==8.3.13
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3223427Z  + tqdm==4.70.1
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3223644Z  + typer==0.27.2
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3223885Z  + typing-extensions==4.16.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3224155Z  + typing-inspection==0.4.4
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3224408Z  + urllib3==2.8.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3224621Z  + wasabi==1.1.3
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3224965Z  + weasel==1.0.0
+rules-only-freeze	Run uv sync --locked --extra dev	2026-11-11T19:27:28.3225185Z  + wrapt==2.4.1
+rules-only-freeze	Verify deterministic invariants without NER or research imports	﻿2026-11-11T19:27:28.3390076Z ##[group]Run uv run pytest tests/unit/test_final_consolidation.py tests/unit/test_v16_safety.py -q
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:28.3391005Z [36;1muv run pytest tests/unit/test_final_consolidation.py tests/unit/test_v16_safety.py -q[0m
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:28.3441604Z shell: /usr/bin/bash -e {0}
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:28.3442018Z env:
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:28.3442411Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:28.3442922Z ##[endgroup]
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:29.4880447Z ...................................................................      [100%]
+rules-only-freeze	Verify deterministic invariants without NER or research imports	2026-11-11T19:27:29.4881411Z 67 passed in 0.44s
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	﻿2026-11-11T19:27:29.5282132Z ##[group]Run SOURCE_DATE_EPOCH=0 uv build --wheel
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5282574Z [36;1mSOURCE_DATE_EPOCH=0 uv build --wheel[0m
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5283504Z [36;1muv run python -c 'import hashlib,json,pathlib; r=json.loads(pathlib.Path("docs/catalog-release.json").read_text()); p=pathlib.Path("dist")/r["wheel"]; assert hashlib.sha256(p.read_bytes()).hexdigest()==r["wheel_sha256"]'[0m
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5333466Z shell: /usr/bin/bash -e {0}
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5333734Z env:
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5334005Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5334346Z ##[endgroup]
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.5470982Z Building wheel...
+rules-only-freeze	Verify catalog release wheel identity (0.1.19 manifest remains frozen)	2026-11-11T19:27:29.7983972Z Successfully built dist/homex_nlp-0.1.22-py3-none-any.whl
+rules-only-freeze	Post Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:29.8510769Z Post job cleanup.
+rules-only-freeze	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:29.9790349Z Cache hit occurred on key setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-a7090eb7a656288ad804d9d97d632ff5e7384d628cec7b9432e2267a0b76c6eb, not saving cache.
+rules-only-freeze	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:29.9792721Z (node:3032) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+rules-only-freeze	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:29.9793907Z (Use `node --trace-deprecation ...` to show where the warning was created)
+rules-only-freeze	Post Run actions/checkout@v4	﻿2026-11-11T19:27:29.9978091Z Post job cleanup.
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0831262Z [command]/usr/bin/git version
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0878464Z git version 2.56.0
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0918002Z Temporarily overriding HOME='/home/runner/work/_temp/a76ea6b6-2f29-45f9-9b7c-84bfbe2d3bb4' before making global git config changes
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0919461Z Adding repository directory to the temporary git global config as a safe directory
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0924924Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.0965732Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1005106Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1324885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1352517Z http.https://github.com/.extraheader
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1364415Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1399361Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1803655Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+rules-only-freeze	Post Run actions/checkout@v4	2026-11-11T19:27:30.1848632Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+rules-only-freeze	Complete job	﻿2026-11-11T19:27:30.2332350Z Cleaning up orphan processes
+rules-only-freeze	Complete job	2026-11-11T19:27:30.2729870Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+package	Set up job	﻿2026-11-11T19:27:04.4109491Z Current runner version: '2.338.2'
+package	Set up job	2026-11-11T19:27:04.4133618Z ##[group]Runner Image Provisioner
+package	Set up job	2026-11-11T19:27:04.4134632Z Hosted Compute Agent
+package	Set up job	2026-11-11T19:27:04.4135104Z Version: 20261028.624
+package	Set up job	2026-11-11T19:27:04.4135717Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+package	Set up job	2026-11-11T19:27:04.4136316Z Build Date: 2026-10-28T21:51:42Z
+package	Set up job	2026-11-11T19:27:04.4136901Z Worker ID: {32dc9918-9ce0-4040-b5ba-2b0957c168ff}
+package	Set up job	2026-11-11T19:27:04.4137487Z Region: centralus
+package	Set up job	2026-11-11T19:27:04.4137959Z Cloud: Azure
+package	Set up job	2026-11-11T19:27:04.4138491Z ##[endgroup]
+package	Set up job	2026-11-11T19:27:04.4139599Z ##[group]Operating System
+package	Set up job	2026-11-11T19:27:04.4140153Z Ubuntu
+package	Set up job	2026-11-11T19:27:04.4140599Z 26.04.1
+package	Set up job	2026-11-11T19:27:04.4141015Z LTS
+package	Set up job	2026-11-11T19:27:04.4141502Z ##[endgroup]
+package	Set up job	2026-11-11T19:27:04.4141954Z ##[group]Runner Image
+package	Set up job	2026-11-11T19:27:04.4142437Z Image: ubuntu-26.04
+package	Set up job	2026-11-11T19:27:04.4142977Z Version: 20261101.186.1
+package	Set up job	2026-11-11T19:27:04.4143866Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+package	Set up job	2026-11-11T19:27:04.4145498Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+package	Set up job	2026-11-11T19:27:04.4146261Z ##[endgroup]
+package	Set up job	2026-11-11T19:27:04.4147219Z ##[group]GITHUB_TOKEN Permissions
+package	Set up job	2026-11-11T19:27:04.4148855Z Contents: read
+package	Set up job	2026-11-11T19:27:04.4149357Z Metadata: read
+package	Set up job	2026-11-11T19:27:04.4149813Z ##[endgroup]
+package	Set up job	2026-11-11T19:27:04.4151820Z Secret source: Actions
+package	Set up job	2026-11-11T19:27:04.4152640Z Cache mode: write
+package	Set up job	2026-11-11T19:27:04.4153284Z Prepare workflow directory
+package	Set up job	2026-11-11T19:27:04.4420716Z Prepare all required actions
+package	Set up job	2026-11-11T19:27:04.4460022Z Getting action download info
+package	Set up job	2026-11-11T19:27:04.7242777Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+package	Set up job	2026-11-11T19:27:04.8062822Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+package	Set up job	2026-11-11T19:27:05.2377454Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+package	Set up job	2026-11-11T19:27:05.4797688Z Complete job name: package
+package	Run actions/checkout@v4	﻿2026-11-11T19:27:05.5608394Z ##[group]Run actions/checkout@v4
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5609646Z with:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5610106Z   fetch-depth: 0
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5610719Z   repository: gabriel-arinez/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5614887Z   token: ***
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5615401Z   ssh-strict: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5615896Z   ssh-user: git
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5616379Z   persist-credentials: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5616946Z   clean: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5617493Z   sparse-checkout-cone-mode: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5618078Z   fetch-tags: false
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5618568Z   show-progress: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5619073Z   lfs: false
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5619578Z   submodules: false
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5620119Z   set-safe-directory: true
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5620646Z   allow-unsafe-pr-checkout: false
+package	Run actions/checkout@v4	2026-11-11T19:27:05.5621517Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7873172Z Syncing repository: gabriel-arinez/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7875250Z ##[group]Getting Git version info
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7875959Z Working directory is '/home/runner/work/homex-nlp/homex-nlp'
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7876990Z [command]/usr/bin/git version
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7894532Z git version 2.56.0
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7911126Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7924966Z Temporarily overriding HOME='/home/runner/work/_temp/f7493e72-2c7a-44c5-85fa-4cd6edee3d73' before making global git config changes
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7927321Z Adding repository directory to the temporary git global config as a safe directory
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7929746Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7982370Z Deleting the contents of '/home/runner/work/homex-nlp/homex-nlp'
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7985612Z ##[group]Initializing the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:05.7989458Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8138419Z hint: Using 'master' as the name for the initial branch. This default branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8140147Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8141090Z hint: to use in all of your new repositories, which will suppress this warning,
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8141797Z hint: call:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8142145Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8142638Z hint: 	git config --global init.defaultBranch <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8143209Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8143736Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8145000Z hint: 'development'. The just-created branch can be renamed via this command:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8145796Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8146218Z hint: 	git branch -m <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8146642Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8147326Z hint: Disable this message with "git config set advice.defaultBranchName false"
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8157164Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/.git/
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8168788Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8214218Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8215107Z ##[group]Disabling automatic garbage collection
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8217230Z [command]/usr/bin/git config --local gc.auto 0
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8248060Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8248976Z ##[group]Setting up auth
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8253857Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8282155Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8647813Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8678656Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8914348Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Run actions/checkout@v4	2026-11-11T19:27:05.8946457Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Run actions/checkout@v4	2026-11-11T19:27:05.9186089Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+package	Run actions/checkout@v4	2026-11-11T19:27:05.9221274Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:05.9222103Z ##[group]Fetching the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:05.9229040Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7078134Z From https://github.com/gabriel-arinez/homex-nlp
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7079918Z  * [new branch]      audit/corpus-v2-b1-b4-20261027 -> origin/audit/corpus-v2-b1-b4-20261027
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7080949Z  * [new branch]      chore/ap1-auditoria-vulnerabilidades-python -> origin/chore/ap1-auditoria-vulnerabilidades-python
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7081973Z  * [new branch]      chore/ap1-escaneo-secretos -> origin/chore/ap1-escaneo-secretos
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7082657Z  * [new branch]      chore/f06-backend-ready   -> origin/chore/f06-backend-ready
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7083313Z  * [new branch]      codex/catalog-corrections -> origin/codex/catalog-corrections
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7084218Z  * [new branch]      codex/catalog-voice       -> origin/codex/catalog-voice
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7084889Z  * [new branch]      codex/corpus-v2-final     -> origin/codex/corpus-v2-final
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7085628Z  * [new branch]      codex/corr-pln-01-money   -> origin/codex/corr-pln-01-money
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7086373Z  * [new branch]      codex/human-gold-wer-20261026 -> origin/codex/human-gold-wer-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7087230Z  * [new branch]      codex/nlp-corpus-v2-cierre -> origin/codex/nlp-corpus-v2-cierre
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7087957Z  * [new branch]      codex/nlp-final-freeze    -> origin/codex/nlp-final-freeze
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7089162Z  * [new branch]      codex/prf04-nlp-v14-medidas-orales -> origin/codex/prf04-nlp-v14-medidas-orales
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7089996Z  * [new branch]      codex/v14-real-voice-fixes -> origin/codex/v14-real-voice-fixes
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7090808Z  * [new branch]      codex/v16-rules-engine    -> origin/codex/v16-rules-engine
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7091644Z  * [new branch]      codex/voice-next-25       -> origin/codex/voice-next-25
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7092529Z  * [new branch]      data/piloto-audios-reales-v13-20261026 -> origin/data/piloto-audios-reales-v13-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7093498Z  * [new branch]      demo-presentacion         -> origin/demo-presentacion
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7094578Z  * [new branch]      docs/ap6-0-21-compatibilidad -> origin/docs/ap6-0-21-compatibilidad
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7095307Z  * [new branch]      docs/f10-deploy-privado   -> origin/docs/f10-deploy-privado
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7095955Z  * [new branch]      feat/ap6-contrato-v2      -> origin/feat/ap6-contrato-v2
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7096673Z  * [new branch]      feat/f09-integracion-sistema -> origin/feat/f09-integracion-sistema
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7097487Z  * [new branch]      feat/f10-deploy-recuperacion -> origin/feat/f10-deploy-recuperacion
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7098328Z  * [new branch]      feat/prf04-benchmark-campo-20261026 -> origin/feat/prf04-benchmark-campo-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7099257Z  * [new branch]      feat/prf04-corpus-v2-candidato-20261025 -> origin/feat/prf04-corpus-v2-candidato-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7100273Z  * [new branch]      feat/prf04-corpus-v2-rc2-correctivo-20261025 -> origin/feat/prf04-corpus-v2-rc2-correctivo-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7101454Z  * [new branch]      feat/prf04-evaluador-audios-asr-20261026 -> origin/feat/prf04-evaluador-audios-asr-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7102394Z  * [new branch]      feat/prf04-experimento-offline-rc2-v13-20261026 -> origin/feat/prf04-experimento-offline-rc2-v13-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7103158Z  * [new branch]      feat/prf04-piloto-asr-nlp-integration-20261026 -> origin/feat/prf04-piloto-asr-nlp-integration-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7104504Z  * [new branch]      feat/prf04-voz-configurador -> origin/feat/prf04-voz-configurador
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7106939Z  * [new branch]      feat/real-voice-120-results -> origin/feat/real-voice-120-results
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7108117Z  * [new branch]      fix/prf04-cantidad-comercial-accesorios-v13-0112-20261025 -> origin/fix/prf04-cantidad-comercial-accesorios-v13-0112-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7109297Z  * [new branch]      fix/prf04-limpios-componentes-dimensiones-v11-0110-20261025 -> origin/fix/prf04-limpios-componentes-dimensiones-v11-0110-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7110637Z  * [new branch]      fix/prf04-numeros-dimensiones-v12-0111-20261025 -> origin/fix/prf04-numeros-dimensiones-v12-0111-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7111491Z  * [new branch]      fix/prf04-p0-semantica-negaciones-20261024 -> origin/fix/prf04-p0-semantica-negaciones-20261024
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7112238Z  * [new branch]      fix/prf04-piloto-campos-comerciales-02-05-20261027 -> origin/fix/prf04-piloto-campos-comerciales-02-05-20261027
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7113080Z  * [new branch]      fix/prf04-piloto-real-v13-reconocimiento-precios-20261026 -> origin/fix/prf04-piloto-real-v13-reconocimiento-precios-20261026
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7113861Z  * [new branch]      fix/prf04-precios-explicitos-v10-019-20261025 -> origin/fix/prf04-precios-explicitos-v10-019-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7114788Z  * [new branch]      fix/prf04-puntuacion-asr-v9-018-20261025 -> origin/fix/prf04-puntuacion-asr-v9-018-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7115473Z  * [new branch]      fix/prf04-rectificaciones-internas-v8-017-20261025 -> origin/fix/prf04-rectificaciones-internas-v8-017-20261025
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7116135Z  * [new branch]      fix/rc2-gate-pythonpath-20261027 -> origin/fix/rc2-gate-pythonpath-20261027
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7116569Z  * [new branch]      main                      -> origin/main
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7117136Z  * [new branch]      pipeline                  -> origin/pipeline
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7117538Z  * [new branch]      refactor                  -> origin/refactor
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7118033Z  * [new branch]      test/ap2-regresiones-riesgo-20261012 -> origin/test/ap2-regresiones-riesgo-20261012
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7118541Z  * [new tag]         nlp-final-0.1.18-20261029 -> nlp-final-0.1.18-20261029
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7118966Z  * [new tag]         nlp-final-0.1.19-20261101 -> nlp-final-0.1.19-20261101
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7119346Z  * [new tag]         v0.1.20                   -> v0.1.20
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7119669Z  * [new tag]         v0.1.21                   -> v0.1.21
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7120894Z [command]/usr/bin/git branch --list --remote origin/feat/real-voice-120-results
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7124736Z   origin/feat/real-voice-120-results
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7133593Z [command]/usr/bin/git rev-parse refs/remotes/origin/feat/real-voice-120-results
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7155858Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7159176Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7159610Z ##[group]Determining the checkout info
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7160655Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7174805Z [command]/usr/bin/git sparse-checkout disable
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7216207Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7246224Z ##[group]Checking out the ref
+package	Run actions/checkout@v4	2026-11-11T19:27:08.7246856Z [command]/usr/bin/git checkout --progress --force -B feat/real-voice-120-results refs/remotes/origin/feat/real-voice-120-results
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1210848Z Switched to a new branch 'feat/real-voice-120-results'
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1215168Z branch 'feat/real-voice-120-results' set up to track 'origin/feat/real-voice-120-results'.
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1296577Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1344182Z [command]/usr/bin/git log -1 --format=%H
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1370756Z 584e90bf3bc20331ce64826ee6b48c56954c0e69
+package	Run actions/checkout@v4	﻿2026-11-11T19:27:09.1612276Z ##[group]Run actions/checkout@v4
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1612524Z with:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1612717Z   repository: gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1612974Z   ref: bc375894036d30cefbc8cdf7c512315aaf1ab971
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1613207Z   path: backend-f10
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1615372Z   token: ***
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1615545Z   ssh-strict: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1615715Z   ssh-user: git
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1615898Z   persist-credentials: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616091Z   clean: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616275Z   sparse-checkout-cone-mode: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616489Z   fetch-depth: 1
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616653Z   fetch-tags: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616823Z   show-progress: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1616998Z   lfs: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1617155Z   submodules: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1617329Z   set-safe-directory: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1617530Z   allow-unsafe-pr-checkout: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.1617759Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2330744Z Syncing repository: gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2334842Z ##[group]Getting Git version info
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2335441Z Working directory is '/home/runner/work/homex-nlp/homex-nlp/backend-f10'
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2366867Z [command]/usr/bin/git version
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2403429Z git version 2.56.0
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2418893Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2431066Z Temporarily overriding HOME='/home/runner/work/_temp/b81d89d1-3606-4b79-b5ad-801aef2de3a2' before making global git config changes
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2432150Z Adding repository directory to the temporary git global config as a safe directory
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2436745Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp/backend-f10
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2475608Z ##[group]Initializing the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2481225Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp/backend-f10
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2531145Z hint: Using 'master' as the name for the initial branch. This default branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2532339Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2533550Z hint: to use in all of your new repositories, which will suppress this warning,
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2535840Z hint: call:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2536246Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2536596Z hint: 	git config --global init.defaultBranch <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2536977Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2537342Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2537965Z hint: 'development'. The just-created branch can be renamed via this command:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2538428Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2538665Z hint: 	git branch -m <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2538941Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2539330Z hint: Disable this message with "git config set advice.defaultBranchName false"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2539931Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/backend-f10/.git/
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2541463Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2579329Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2584207Z ##[group]Disabling automatic garbage collection
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2584674Z [command]/usr/bin/git config --local gc.auto 0
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2616484Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2616946Z ##[group]Setting up auth
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2621854Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2651709Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2916365Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Run actions/checkout@v4	2026-11-11T19:27:09.2975970Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3214327Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3247577Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3488979Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3524817Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3525334Z ##[group]Fetching the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:09.3531819Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin bc375894036d30cefbc8cdf7c512315aaf1ab971
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7435210Z From https://github.com/gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7435819Z  * branch            bc375894036d30cefbc8cdf7c512315aaf1ab971 -> FETCH_HEAD
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7439599Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7440281Z ##[group]Determining the checkout info
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7442243Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7448379Z [command]/usr/bin/git sparse-checkout disable
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7488167Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7515483Z ##[group]Checking out the ref
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7554676Z [command]/usr/bin/git checkout --progress --force bc375894036d30cefbc8cdf7c512315aaf1ab971
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7698229Z Note: switching to 'bc375894036d30cefbc8cdf7c512315aaf1ab971'.
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7698620Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7698880Z You are in 'detached HEAD' state. You can look around, make experimental
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7699427Z changes and commit them, and you can discard any commits you make in this
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7699804Z state without impacting any branches by switching back to a branch.
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7700026Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7700171Z If you want to create a new branch to retain commits you create, you may
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7700511Z do so (now or later) by using -c with the switch command. Example:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7700944Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701034Z   git switch -c <new-branch-name>
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701177Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701258Z Or undo this operation with:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701495Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701602Z   git switch -
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701741Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7701995Z Turn off this advice by setting config variable advice.detachedHead to false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7702335Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7702908Z HEAD is now at bc37589 merge: integrar F10 despliegue y recuperación backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7705599Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7745384Z [command]/usr/bin/git log -1 --format=%H
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7767935Z bc375894036d30cefbc8cdf7c512315aaf1ab971
+package	Run actions/checkout@v4	﻿2026-11-11T19:27:09.7932985Z ##[group]Run actions/checkout@v4
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7933215Z with:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7933403Z   repository: gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7933658Z   ref: 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7934087Z   path: backend-prf04
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7935949Z   token: ***
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7936137Z   ssh-strict: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7936309Z   ssh-user: git
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7936489Z   persist-credentials: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7936682Z   clean: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7936865Z   sparse-checkout-cone-mode: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937075Z   fetch-depth: 1
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937253Z   fetch-tags: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937430Z   show-progress: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937609Z   lfs: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937773Z   submodules: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7937950Z   set-safe-directory: true
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7938158Z   allow-unsafe-pr-checkout: false
+package	Run actions/checkout@v4	2026-11-11T19:27:09.7938366Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8671453Z Syncing repository: gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8677807Z ##[group]Getting Git version info
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8678342Z Working directory is '/home/runner/work/homex-nlp/homex-nlp/backend-prf04'
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8708231Z [command]/usr/bin/git version
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8746467Z git version 2.56.0
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8761280Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8772656Z Temporarily overriding HOME='/home/runner/work/_temp/7d78c4ad-e5c4-4c5f-a978-586c5030c124' before making global git config changes
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8773714Z Adding repository directory to the temporary git global config as a safe directory
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8776704Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp/backend-prf04
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8808837Z ##[group]Initializing the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:09.8813131Z [command]/usr/bin/git init /home/runner/work/homex-nlp/homex-nlp/backend-prf04
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9315159Z hint: Using 'master' as the name for the initial branch. This default branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9315909Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9316526Z hint: to use in all of your new repositories, which will suppress this warning,
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9317009Z hint: call:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9317240Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9317565Z hint: 	git config --global init.defaultBranch <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9317937Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9318296Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9318934Z hint: 'development'. The just-created branch can be renamed via this command:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9319414Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9319658Z hint: 	git branch -m <name>
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9319956Z hint:
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9320343Z hint: Disable this message with "git config set advice.defaultBranchName false"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9321062Z Initialized empty Git repository in /home/runner/work/homex-nlp/homex-nlp/backend-prf04/.git/
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9326318Z [command]/usr/bin/git remote add origin https://github.com/gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9362991Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9363509Z ##[group]Disabling automatic garbage collection
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9366545Z [command]/usr/bin/git config --local gc.auto 0
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9398856Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9399676Z ##[group]Setting up auth
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9405035Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9438944Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9688734Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9718095Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Run actions/checkout@v4	2026-11-11T19:27:09.9968973Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Run actions/checkout@v4	2026-11-11T19:27:10.0000757Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Run actions/checkout@v4	2026-11-11T19:27:10.0244263Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+package	Run actions/checkout@v4	2026-11-11T19:27:10.0281198Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:10.0281672Z ##[group]Fetching the repository
+package	Run actions/checkout@v4	2026-11-11T19:27:10.0289043Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4834556Z From https://github.com/gabriel-arinez/homex-backend
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4835200Z  * branch            8f6fed352e8e49f819884e9db7ffb1d24f355ca7 -> FETCH_HEAD
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4838987Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4839510Z ##[group]Determining the checkout info
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4840578Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4845686Z [command]/usr/bin/git sparse-checkout disable
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4882947Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4909492Z ##[group]Checking out the ref
+package	Run actions/checkout@v4	2026-11-11T19:27:10.4912317Z [command]/usr/bin/git checkout --progress --force 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5101555Z Note: switching to '8f6fed352e8e49f819884e9db7ffb1d24f355ca7'.
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5101953Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5102200Z You are in 'detached HEAD' state. You can look around, make experimental
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5102790Z changes and commit them, and you can discard any commits you make in this
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5103383Z state without impacting any branches by switching back to a branch.
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5103707Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5104063Z If you want to create a new branch to retain commits you create, you may
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5104623Z do so (now or later) by using -c with the switch command. Example:
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5104939Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105068Z   git switch -c <new-branch-name>
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105276Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105391Z Or undo this operation with:
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105586Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105656Z   git switch -
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105772Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5105946Z Turn off this advice by setting config variable advice.detachedHead to false
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5106197Z 
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5106379Z HEAD is now at 8f6fed3 feat(prf04): integrar NLP 0.1.5 y proyectar precios dictados
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5108055Z ##[endgroup]
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5144200Z [command]/usr/bin/git log -1 --format=%H
+package	Run actions/checkout@v4	2026-11-11T19:27:10.5165901Z 8f6fed352e8e49f819884e9db7ffb1d24f355ca7
+package	Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:10.5315190Z ##[group]Run astral-sh/setup-uv@v6
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5315427Z with:
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5315590Z   version: 0.12.9
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5315780Z   activate-environment: false
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5316040Z   working-directory: /home/runner/work/homex-nlp/homex-nlp
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5316322Z   server-url: https://github.com
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5318187Z   github-token: ***
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5318364Z   enable-cache: auto
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5318802Z   cache-dependency-glob: **/*requirements*.txt
+package	Run astral-sh/setup-uv@v6	**/*requirements*.in
+package	Run astral-sh/setup-uv@v6	**/*constraints*.txt
+package	Run astral-sh/setup-uv@v6	**/*constraints*.in
+package	Run astral-sh/setup-uv@v6	**/pyproject.toml
+package	Run astral-sh/setup-uv@v6	**/uv.lock
+package	Run astral-sh/setup-uv@v6	**/*.py.lock
+package	Run astral-sh/setup-uv@v6	
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5319447Z   restore-cache: true
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5319630Z   save-cache: true
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5319802Z   prune-cache: true
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5319992Z   ignore-nothing-to-cache: false
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5320208Z   ignore-empty-workdir: false
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5320417Z   add-problem-matchers: true
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.5320616Z ##[endgroup]
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.7084937Z (node:2442) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.7085999Z (Use `node --trace-deprecation ...` to show where the warning was created)
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.7180439Z manifest-file not provided, reading from local file.
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.7211202Z manifest-file does not contain version 0.12.9, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:10.7212559Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.12.9/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.0974365Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/179ccce6-d6f2-4093-b695-ca0c92527750 -f /home/runner/work/_temp/e93cc70e-8e1b-4803-a41b-2a96e1d459ac
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.5505720Z Added /home/runner/.local/bin to the path
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.5508074Z Added /opt/hostedtoolcache/uv/0.12.9/x86_64 to the path
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.5526966Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.5527317Z Successfully installed uv version 0.12.9
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.5528545Z Searching files using cache dependency glob: /home/runner/work/homex-nlp/homex-nlp/**/*requirements*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*requirements*.in,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.txt,/home/runner/work/homex-nlp/homex-nlp/**/*constraints*.in,/home/runner/work/homex-nlp/homex-nlp/**/pyproject.toml,/home/runner/work/homex-nlp/homex-nlp/**/uv.lock,/home/runner/work/homex-nlp/homex-nlp/**/*.py.lock
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7011709Z /home/runner/work/homex-nlp/homex-nlp/backend/requirements.txt
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7259149Z /home/runner/work/homex-nlp/homex-nlp/backend-f10/pyproject.toml
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7314403Z /home/runner/work/homex-nlp/homex-nlp/backend-f10/uv.lock
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7556720Z /home/runner/work/homex-nlp/homex-nlp/backend-prf04/pyproject.toml
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7618150Z /home/runner/work/homex-nlp/homex-nlp/backend-prf04/uv.lock
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7721662Z /home/runner/work/homex-nlp/homex-nlp/pyproject.toml
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7805053Z /home/runner/work/homex-nlp/homex-nlp/uv.lock
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.7810163Z Found 7 files to hash.
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:11.8679469Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-1cd9a2e3256cf9fae9e00b3bc225b287d2b8e9a652c3259901cbbef7815e4014
+package	Run astral-sh/setup-uv@v6	2026-11-11T19:27:12.0016280Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-1cd9a2e3256cf9fae9e00b3bc225b287d2b8e9a652c3259901cbbef7815e4014
+package	Instalar entorno fijado	﻿2026-11-11T19:27:12.0156090Z ##[group]Run uv sync --locked --extra dev --extra asr --python 3.11.15
+package	Instalar entorno fijado	2026-11-11T19:27:12.0156536Z [36;1muv sync --locked --extra dev --extra asr --python 3.11.15[0m
+package	Instalar entorno fijado	2026-11-11T19:27:12.0207860Z shell: /usr/bin/bash -e {0}
+package	Instalar entorno fijado	2026-11-11T19:27:12.0208089Z env:
+package	Instalar entorno fijado	2026-11-11T19:27:12.0208303Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Instalar entorno fijado	2026-11-11T19:27:12.0208562Z ##[endgroup]
+package	Instalar entorno fijado	2026-11-11T19:27:12.1630911Z Downloading cpython-3.11.15-linux-x86_64-gnu (download) (29.5MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:12.8724668Z  Downloaded cpython-3.11.15-linux-x86_64-gnu (download)
+package	Instalar entorno fijado	2026-11-11T19:27:12.9871200Z Using CPython 3.11.15
+package	Instalar entorno fijado	2026-11-11T19:27:12.9871638Z Creating virtual environment at: .venv
+package	Instalar entorno fijado	2026-11-11T19:27:12.9889588Z Resolved 71 packages in 0.51ms
+package	Instalar entorno fijado	2026-11-11T19:27:12.9988901Z    Building homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp
+package	Instalar entorno fijado	2026-11-11T19:27:13.0351753Z Downloading faster-whisper (1.1MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0523299Z Downloading tokenizers (3.2MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0524650Z Downloading pydantic-core (2.0MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0527267Z Downloading av (34.1MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0529739Z Downloading thinc (3.9MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0531053Z Downloading blis (10.9MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0532804Z Downloading numpy (16.1MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0536592Z Downloading hf-xet (4.3MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0541009Z Downloading ruff (9.9MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0547089Z Downloading pygments (1.2MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0550997Z Downloading srsly (1.1MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0555389Z Downloading ctranslate2 (37.6MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0557020Z Downloading spacy (30.8MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.0558783Z Downloading onnxruntime (22.5MiB)
+package	Instalar entorno fijado	2026-11-11T19:27:13.2069164Z  Downloaded faster-whisper
+package	Instalar entorno fijado	2026-11-11T19:27:13.2077244Z  Downloaded srsly
+package	Instalar entorno fijado	2026-11-11T19:27:13.2130808Z  Downloaded pygments
+package	Instalar entorno fijado	2026-11-11T19:27:13.2350573Z  Downloaded pydantic-core
+package	Instalar entorno fijado	2026-11-11T19:27:13.2750027Z  Downloaded tokenizers
+package	Instalar entorno fijado	2026-11-11T19:27:13.3087300Z  Downloaded thinc
+package	Instalar entorno fijado	2026-11-11T19:27:13.3088200Z  Downloaded hf-xet
+package	Instalar entorno fijado	2026-11-11T19:27:13.4636001Z  Downloaded ruff
+package	Instalar entorno fijado	2026-11-11T19:27:13.4809427Z  Downloaded blis
+package	Instalar entorno fijado	2026-11-11T19:27:13.5512093Z  Downloaded numpy
+package	Instalar entorno fijado	2026-11-11T19:27:13.6686031Z  Downloaded onnxruntime
+package	Instalar entorno fijado	2026-11-11T19:27:13.7385049Z  Downloaded spacy
+package	Instalar entorno fijado	2026-11-11T19:27:13.7405049Z  Downloaded av
+package	Instalar entorno fijado	2026-11-11T19:27:13.7700816Z  Downloaded ctranslate2
+package	Instalar entorno fijado	2026-11-11T19:27:13.8870847Z       Built homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp
+package	Instalar entorno fijado	2026-11-11T19:27:13.8879513Z Prepared 66 packages in 898ms
+package	Instalar entorno fijado	2026-11-11T19:27:13.9347661Z Installed 66 packages in 46ms
+package	Instalar entorno fijado	2026-11-11T19:27:13.9349260Z  + annotated-doc==0.0.5
+package	Instalar entorno fijado	2026-11-11T19:27:13.9350718Z  + annotated-types==0.8.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9351099Z  + anyio==4.15.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9351360Z  + attrs==26.1.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9351631Z  + av==18.1.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9352447Z  + blis==1.3.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9352745Z  + catalogue==2.0.10
+package	Instalar entorno fijado	2026-11-11T19:27:13.9353007Z  + certifi==2026.10.19
+package	Instalar entorno fijado	2026-11-11T19:27:13.9353345Z  + charset-normalizer==3.5.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9354724Z  + click==8.5.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9355281Z  + cloudpathlib==0.25.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9355751Z  + confection==1.3.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9356105Z  + ctranslate2==4.8.2
+package	Instalar entorno fijado	2026-11-11T19:27:13.9356498Z  + cymem==2.0.13
+package	Instalar entorno fijado	2026-11-11T19:27:13.9356840Z  + faster-whisper==1.2.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9357143Z  + filelock==4.2.4
+package	Instalar entorno fijado	2026-11-11T19:27:13.9357409Z  + flatbuffers==25.12.19
+package	Instalar entorno fijado	2026-11-11T19:27:13.9357679Z  + fsspec==2026.7.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9357934Z  + h11==0.16.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9358180Z  + hf-xet==1.6.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9358569Z  + homex-nlp==0.1.22 (from file:///home/runner/work/homex-nlp/homex-nlp)
+package	Instalar entorno fijado	2026-11-11T19:27:13.9359033Z  + httpcore==1.0.9
+package	Instalar entorno fijado	2026-11-11T19:27:13.9359298Z  + httpx==0.28.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9359561Z  + huggingface-hub==1.31.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9359850Z  + idna==3.19
+package	Instalar entorno fijado	2026-11-11T19:27:13.9360093Z  + iniconfig==2.3.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9360356Z  + jinja2==3.1.6
+package	Instalar entorno fijado	2026-11-11T19:27:13.9360595Z  + jsonschema==4.26.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9360880Z  + jsonschema-specifications==2025.9.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9361537Z  + markdown-it-py==4.2.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9361812Z  + markupsafe==3.0.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9362067Z  + mdurl==0.1.2
+package	Instalar entorno fijado	2026-11-11T19:27:13.9362311Z  + murmurhash==1.0.15
+package	Instalar entorno fijado	2026-11-11T19:27:13.9362552Z  + numpy==2.4.6
+package	Instalar entorno fijado	2026-11-11T19:27:13.9362801Z  + onnxruntime==1.30.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9363061Z  + packaging==26.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9363307Z  + pluggy==1.6.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9363544Z  + preshed==3.0.13
+package	Instalar entorno fijado	2026-11-11T19:27:13.9363789Z  + protobuf==7.36.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9364193Z  + pydantic==2.13.4
+package	Instalar entorno fijado	2026-11-11T19:27:13.9364453Z  + pydantic-core==2.46.4
+package	Instalar entorno fijado	2026-11-11T19:27:13.9364713Z  + pygments==2.21.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9364958Z  + pytest==9.1.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9365199Z  + pyyaml==6.0.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9365445Z  + referencing==0.37.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9365718Z  + requests==2.34.2
+package	Instalar entorno fijado	2026-11-11T19:27:13.9365976Z  + rich==15.0.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9366213Z  + rpds-py==2026.6.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9366460Z  + ruff==0.16.7
+package	Instalar entorno fijado	2026-11-11T19:27:13.9366905Z  + setuptools==84.2.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9367171Z  + shellingham==1.5.4
+package	Instalar entorno fijado	2026-11-11T19:27:13.9367428Z  + smart-open==8.0.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9367685Z  + spacy==3.8.13
+package	Instalar entorno fijado	2026-11-11T19:27:13.9367933Z  + spacy-legacy==3.0.12
+package	Instalar entorno fijado	2026-11-11T19:27:13.9368305Z  + spacy-loggers==1.0.5
+package	Instalar entorno fijado	2026-11-11T19:27:13.9368675Z  + srsly==2.5.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9368941Z  + thinc==8.3.13
+package	Instalar entorno fijado	2026-11-11T19:27:13.9369193Z  + tokenizers==0.23.2
+package	Instalar entorno fijado	2026-11-11T19:27:13.9369443Z  + tqdm==4.70.1
+package	Instalar entorno fijado	2026-11-11T19:27:13.9369671Z  + typer==0.27.2
+package	Instalar entorno fijado	2026-11-11T19:27:13.9369930Z  + typing-extensions==4.16.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9370239Z  + typing-inspection==0.4.4
+package	Instalar entorno fijado	2026-11-11T19:27:13.9370524Z  + urllib3==2.8.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9370765Z  + wasabi==1.1.3
+package	Instalar entorno fijado	2026-11-11T19:27:13.9371117Z  + weasel==1.0.0
+package	Instalar entorno fijado	2026-11-11T19:27:13.9371411Z  + wrapt==2.4.1
+package	Calidad, esquemas, corpus y contratos	﻿2026-11-11T19:27:13.9538861Z ##[group]Run make check
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9539138Z [36;1mmake check[0m
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9615566Z shell: /usr/bin/bash -e {0}
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9616249Z env:
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9616780Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9617053Z ##[endgroup]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:13.9752713Z uv run --locked --extra dev ruff check src tests tools training
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:14.0462019Z All checks passed!
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:14.0475402Z uv run --locked --extra dev ruff format --check src tests tools training
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:14.0741749Z 98 files already formatted
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:14.0765010Z uv run --locked --extra dev python tools/export_schemas.py --check
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:14.3339638Z Esquemas v1: OK
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6696421Z {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6696836Z   "path": "data/corpus/muebles_pedido.jsonl",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6697200Z   "records": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6697431Z   "entities": 8548,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6697674Z   "labels": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6697903Z     "ACABADO": 793,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6698235Z     "ACCESORIO": 568,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6698464Z     "ALTO": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6698679Z     "ANCHO": 362,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6698912Z     "CANTIDAD": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6699130Z     "COLOR": 951,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6699355Z     "COMPONENTE": 999,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6699603Z     "DESCUENTO": 171,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6699823Z     "DIAMETRO": 18,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6700037Z     "ESPESOR": 975,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6700253Z     "MATERIAL": 999,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6700484Z     "OBSERVACION": 70,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6700728Z     "PRECIO_TOTAL": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6700985Z     "PRECIO_UNITARIO": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6701247Z     "PRODUCTO": 380,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6701497Z     "PROFUNDIDAD": 362,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6701742Z     "UNIDAD_MEDIDA": 380
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6701981Z   },
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6702189Z   "errors": [],
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6702408Z   "duplicate_texts": 0,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6702639Z   "valid": true,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6702847Z   "tokenizer": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6703066Z     "package": "spacy",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6703301Z     "version": "3.8.13",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6703539Z     "language": "es"
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6703757Z   }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:15.6704539Z }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2544381Z {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2544878Z   "path": "data/corpus/sillas.jsonl",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2545293Z   "records": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2545704Z   "entities": 1110,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2546011Z   "labels": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2546390Z     "ACCESORIO": 213,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2546738Z     "APOYABRAZOS": 45,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2547082Z     "CABECERA": 7,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2547467Z     "CANTIDAD": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2547847Z     "COLOR": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2548248Z     "DESCUENTO": 50,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2548580Z     "ERGONOMIA": 61,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2548899Z     "MATERIAL": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2549262Z     "PRECIO_TOTAL": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2563431Z     "PRECIO_UNITARIO": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2563765Z     "PRODUCTO": 101,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2564209Z     "SOPORTE_LUMBAR": 27,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2564472Z     "UNIDAD_MEDIDA": 101
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2564699Z   },
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2565312Z   "errors": [],
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2565560Z   "duplicate_texts": 0,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2565827Z   "valid": true,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2566052Z   "tokenizer": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2566271Z     "package": "spacy",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2566510Z     "version": "3.8.13",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2566751Z     "language": "es"
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2566974Z   }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.2567183Z }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8397995Z {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8398407Z   "path": "data/corpus/pisos_flotantes.jsonl",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8398765Z   "records": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8398994Z   "entities": 1066,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8399236Z   "labels": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8399454Z     "ACCESORIO": 56,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8399699Z     "CANTIDAD": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8399943Z     "CLASE_RESISTENCIA": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8400211Z     "COLOR": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8400905Z     "DESCUENTO": 40,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8401134Z     "ESPESOR": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8401356Z     "MATERIAL": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8401596Z     "PRECIO_TOTAL": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8401848Z     "PRECIO_UNITARIO": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8402097Z     "PRODUCTO": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8402332Z     "SISTEMA": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8402555Z     "UNIDAD_MEDIDA": 97
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8402797Z   },
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8402995Z   "errors": [],
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8403223Z   "duplicate_texts": 0,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8403467Z   "valid": true,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8403687Z   "tokenizer": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8404056Z     "package": "spacy",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8404304Z     "version": "3.8.13",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8404547Z     "language": "es"
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8404763Z   }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:16.8404950Z }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4348736Z {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4349070Z   "path": "data/corpus/otros_productos.jsonl",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4349339Z   "records": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4349516Z   "entities": 907,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4349726Z   "labels": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4349892Z     "ACCESORIO": 134,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350072Z     "ALTO": 30,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350249Z     "CANTIDAD": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350417Z     "COLOR": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350624Z     "DESCUENTO": 34,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350795Z     "LARGO": 30,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4350959Z     "MATERIAL": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4351131Z     "PRECIO_TOTAL": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4351327Z     "PRECIO_UNITARIO": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4351519Z     "PRODUCTO": 97,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4351687Z     "UNIDAD_MEDIDA": 97
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4351852Z   },
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352006Z   "errors": [],
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352175Z   "duplicate_texts": 0,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352352Z   "valid": true,
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352516Z   "tokenizer": {
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352685Z     "package": "spacy",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4352868Z     "version": "3.8.13",
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4353051Z     "language": "es"
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4353216Z   }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.4353368Z }
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.5269052Z uv run --locked --extra dev python -m training.audit_prf04 --output /tmp/homex-prf04-inventario.json
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:17.5807683Z uv run --locked --extra dev pytest
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0905201Z ============================= test session starts ==============================
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0905780Z platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0906105Z rootdir: /home/runner/work/homex-nlp/homex-nlp
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0906359Z configfile: pyproject.toml
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0906558Z testpaths: tests
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0906738Z plugins: anyio-4.15.1
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0906924Z collected 891 items
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0907032Z 
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.0914040Z tests/contract/test_ap6_adapter_evidence.py .                            [  0%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.1585800Z tests/contract/test_backend_consumer.py ..                               [  0%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.1668366Z tests/contract/test_examples.py ..............                           [  1%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.1673218Z tests/contract/test_f10_deployment_evidence.py .                         [  2%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.1970439Z tests/contract/test_import.py .                                          [  2%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6105365Z tests/contract/test_schema_snapshots.py ...                              [  2%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6118907Z tests/contract/test_system_integration_evidence.py ...                   [  2%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6148567Z tests/evaluation/test_asr_experiments.py ..                              [  3%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6162055Z tests/evaluation/test_real_voice.py ...                                  [  3%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6376150Z tests/evaluation/test_reference_annotations.py ......................... [  6%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6378220Z                                                                          [  6%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:19.6441098Z tests/evaluation/test_semantic_voice.py ..........                       [  7%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.0348478Z tests/operations/test_f10_runtime.py ..............                      [  8%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.2827455Z tests/training/test_corpus.py .....                                      [  9%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.4324901Z tests/training/test_docbin.py .                                          [  9%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.4614274Z tests/training/test_prf04_corpus.py .                                    [  9%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.4695649Z tests/training/test_prf04_evaluar_campo.py ..........                    [ 10%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.4747788Z tests/unit/test_ap2_asr_boundaries.py .......                            [ 11%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.4780936Z tests/unit/test_asr_service.py ....                                      [ 12%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5398061Z tests/unit/test_catalog.py ............................................  [ 16%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5602014Z tests/unit/test_catalog_semantic_v2.py ................................. [ 20%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5635731Z .....                                                                    [ 21%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5654245Z tests/unit/test_cli.py .                                                 [ 21%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5690797Z tests/unit/test_contract_invariants.py ......                            [ 21%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.5696780Z tests/unit/test_field_comparison.py .                                    [ 22%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.6113142Z tests/unit/test_final_consolidation.py ..........................        [ 25%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.6346512Z tests/unit/test_furniture_semantic_v2.py .................               [ 26%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.6571918Z tests/unit/test_money_mixed.py ......................................... [ 31%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.6874766Z ...............................................                          [ 36%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7213521Z tests/unit/test_money_release.py ....................................... [ 41%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7508637Z ........................................................................ [ 49%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7592829Z ....................                                                     [ 51%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7634060Z tests/unit/test_prf04_accesorios_210.py ...                              [ 51%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7847540Z tests/unit/test_prf04_cantidad_accesorios_v13.py ....................... [ 54%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7907471Z .........                                                                [ 55%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.7953789Z tests/unit/test_prf04_comercial_v5.py ....                               [ 55%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.8232177Z tests/unit/test_prf04_limpios_v11.py .........................           [ 58%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.8452321Z tests/unit/test_prf04_medidas_compuestas_v14.py ........................ [ 61%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.8937051Z ..................................................                       [ 67%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9087381Z tests/unit/test_prf04_negaciones_rectificaciones_v7.py ................. [ 68%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9101277Z ..                                                                       [ 69%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9370023Z tests/unit/test_prf04_numeros_dimension_v12.py ......................... [ 71%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9542541Z .........................                                                [ 74%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9725727Z tests/unit/test_prf04_piloto_comercial_02_05.py .................        [ 76%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9751549Z tests/unit/test_prf04_piloto_dimensiones_09.py ..                        [ 76%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:20.9913538Z tests/unit/test_prf04_piloto_real_regresiones_v13.py ................    [ 78%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0097810Z tests/unit/test_prf04_precio_no_inventado_v10.py ..................      [ 80%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0265014Z tests/unit/test_prf04_puntuacion_asr_v9.py ................              [ 82%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0427198Z tests/unit/test_prf04_rectificaciones_internas_v8.py ...............     [ 84%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0471118Z tests/unit/test_prf04_reiteracion_producto.py .....                      [ 84%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0701849Z tests/unit/test_prf04_semantics.py ................                      [ 86%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0900625Z tests/unit/test_real_voice_regressions.py .............................. [ 89%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0902930Z                                                                          [ 89%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.0957497Z tests/unit/test_rules_engine.py .....                                    [ 90%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.1362836Z tests/unit/test_v16_safety.py .........................................  [ 95%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.1776816Z tests/unit/test_voice_next.py .......................................... [ 99%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.2901998Z ..                                                                       [100%]
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.2902283Z 
+package	Calidad, esquemas, corpus y contratos	2026-11-11T19:27:21.2902439Z ============================= 891 passed in 3.15s ==============================
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	﻿2026-11-11T19:27:21.5295464Z ##[group]Run python3 tools/verificar_backend_prf04.py backend-prf04 \
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5295897Z [36;1mpython3 tools/verificar_backend_prf04.py backend-prf04 \[0m
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5296254Z [36;1m  --revision 8f6fed352e8e49f819884e9db7ffb1d24f355ca7[0m
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5341749Z shell: /usr/bin/bash -e {0}
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5341999Z env:
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5342215Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.5342488Z ##[endgroup]
+package	Verificar backend PRF-04 v6 congelado (sin confundirlo con v7)	2026-11-11T19:27:21.6186901Z prf04-backend-nlp-v6-ok backend=8f6fed352e8e49f819884e9db7ffb1d24f355ca7 source=449a5cf34db2202bdb27aed74c61923ea3176dde wheel_sha256=ccf0b0d87af865faa51ee23d6857565e26599d3b28a52c3a55193e8c5742965f
+package	Verificar distribución consumible	﻿2026-11-11T19:27:21.6294322Z ##[group]Run make distribution-check
+package	Verificar distribución consumible	2026-11-11T19:27:21.6294648Z [36;1mmake distribution-check[0m
+package	Verificar distribución consumible	2026-11-11T19:27:21.6338940Z shell: /usr/bin/bash -e {0}
+package	Verificar distribución consumible	2026-11-11T19:27:21.6339168Z env:
+package	Verificar distribución consumible	2026-11-11T19:27:21.6339382Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Verificar distribución consumible	2026-11-11T19:27:21.6339639Z ##[endgroup]
+package	Verificar distribución consumible	2026-11-11T19:27:21.6416324Z SOURCE_DATE_EPOCH=0 uv build
+package	Verificar distribución consumible	2026-11-11T19:27:21.6484549Z Building source distribution...
+package	Verificar distribución consumible	2026-11-11T19:27:21.9547638Z Building wheel from source distribution...
+package	Verificar distribución consumible	2026-11-11T19:27:22.1750840Z Successfully built dist/homex_nlp-0.1.22.tar.gz
+package	Verificar distribución consumible	2026-11-11T19:27:22.1751708Z Successfully built dist/homex_nlp-0.1.22-py3-none-any.whl
+package	Verificar distribución consumible	2026-11-11T19:27:22.1772921Z uv run --locked --extra dev python tools/verify_distribution.py
+package	Verificar distribución consumible	2026-11-11T19:27:22.2282045Z Using CPython 3.11.15
+package	Verificar distribución consumible	2026-11-11T19:27:22.2282714Z Creating virtual environment at: /tmp/homex-dist-9t2gtfnh/venv
+package	Verificar distribución consumible	2026-11-11T19:27:22.2287775Z Activate with: /tmp/homex-dist-9t2gtfnh/venv/bin/activate
+package	Verificar distribución consumible	2026-11-11T19:27:22.2656762Z Using Python 3.11.15 environment at: /tmp/homex-dist-9t2gtfnh/venv
+package	Verificar distribución consumible	2026-11-11T19:27:22.8687135Z Resolved 45 packages in 602ms
+package	Verificar distribución consumible	2026-11-11T19:27:22.9108026Z Downloading srsly (1.2MiB)
+package	Verificar distribución consumible	2026-11-11T19:27:22.9108500Z Downloading blis (13.7MiB)
+package	Verificar distribución consumible	2026-11-11T19:27:22.9110243Z Downloading thinc (4.3MiB)
+package	Verificar distribución consumible	2026-11-11T19:27:22.9826103Z  Downloaded srsly
+package	Verificar distribución consumible	2026-11-11T19:27:23.0150018Z  Downloaded thinc
+package	Verificar distribución consumible	2026-11-11T19:27:23.1092988Z  Downloaded blis
+package	Verificar distribución consumible	2026-11-11T19:27:23.1094580Z Prepared 22 packages in 239ms
+package	Verificar distribución consumible	2026-11-11T19:27:23.1405544Z Installed 45 packages in 30ms
+package	Verificar distribución consumible	2026-11-11T19:27:23.1405952Z  + annotated-doc==0.0.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.1406267Z  + annotated-types==0.8.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1406543Z  + anyio==4.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1406787Z  + blis==1.3.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1407027Z  + catalogue==2.0.10
+package	Verificar distribución consumible	2026-11-11T19:27:23.1407289Z  + certifi==2026.10.23
+package	Verificar distribución consumible	2026-11-11T19:27:23.1407574Z  + charset-normalizer==3.5.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.1407873Z  + click==8.5.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1408332Z  + cloudpathlib==0.26.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1408692Z  + confection==1.3.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1408966Z  + cymem==2.0.16
+package	Verificar distribución consumible	2026-11-11T19:27:23.1409240Z  + h11==0.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1410112Z  + homex-nlp==0.1.22 (from file:///home/runner/work/homex-nlp/homex-nlp/dist/homex_nlp-0.1.22-py3-none-any.whl)
+package	Verificar distribución consumible	2026-11-11T19:27:23.1410717Z  + httpcore==1.0.9
+package	Verificar distribución consumible	2026-11-11T19:27:23.1410960Z  + httpx==0.28.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1411197Z  + idna==3.20
+package	Verificar distribución consumible	2026-11-11T19:27:23.1411423Z  + jinja2==3.1.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.1411676Z  + markdown-it-py==4.3.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1411970Z  + markupsafe==3.0.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1412294Z  + mdurl==0.1.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.1412623Z  + murmurhash==1.0.16
+package	Verificar distribución consumible	2026-11-11T19:27:23.1413019Z  + numpy==2.4.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.1413278Z  + packaging==26.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.1413645Z  + preshed==3.0.15
+package	Verificar distribución consumible	2026-11-11T19:27:23.1414240Z  + pydantic==2.13.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1414529Z  + pydantic-core==2.46.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1414862Z  + pygments==2.21.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1415167Z  + requests==2.34.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.1415458Z  + rich==15.0.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1415729Z  + setuptools==84.2.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1416048Z  + shellingham==1.5.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.1416320Z  + smart-open==9.0.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.1416602Z  + spacy==3.8.13
+package	Verificar distribución consumible	2026-11-11T19:27:23.1416942Z  + spacy-legacy==3.0.12
+package	Verificar distribución consumible	2026-11-11T19:27:23.1417275Z  + spacy-loggers==1.0.5
+package	Verificar distribución consumible	2026-11-11T19:27:23.1417592Z  + srsly==2.5.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.1417929Z  + thinc==8.3.14
+package	Verificar distribución consumible	2026-11-11T19:27:23.1418210Z  + tqdm==4.70.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1418449Z  + typer==0.29.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1418797Z  + typing-extensions==4.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1419106Z  + typing-inspection==0.4.5
+package	Verificar distribución consumible	2026-11-11T19:27:23.1419411Z  + urllib3==2.8.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.1419682Z  + wasabi==1.1.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.1419954Z  + weasel==1.0.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.1420242Z  + wrapt==2.5.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.4079611Z backend-consumer-smoke: OK
+package	Verificar distribución consumible	2026-11-11T19:27:23.5054753Z Using CPython 3.11.15
+package	Verificar distribución consumible	2026-11-11T19:27:23.5055135Z Creating virtual environment at: /tmp/homex-dist-grhdjxqb/venv
+package	Verificar distribución consumible	2026-11-11T19:27:23.5059665Z Activate with: /tmp/homex-dist-grhdjxqb/venv/bin/activate
+package	Verificar distribución consumible	2026-11-11T19:27:23.5452430Z Using Python 3.11.15 environment at: /tmp/homex-dist-grhdjxqb/venv
+package	Verificar distribución consumible	2026-11-11T19:27:23.5644624Z Resolved 45 packages in 18ms
+package	Verificar distribución consumible	2026-11-11T19:27:23.5661979Z    Building homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp/dist/homex_nlp-0.1.22.tar.gz
+package	Verificar distribución consumible	2026-11-11T19:27:23.7717024Z       Built homex-nlp @ file:///home/runner/work/homex-nlp/homex-nlp/dist/homex_nlp-0.1.22.tar.gz
+package	Verificar distribución consumible	2026-11-11T19:27:23.7741420Z Prepared 1 package in 208ms
+package	Verificar distribución consumible	2026-11-11T19:27:23.8064790Z Installed 45 packages in 32ms
+package	Verificar distribución consumible	2026-11-11T19:27:23.8065224Z  + annotated-doc==0.0.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.8065523Z  + annotated-types==0.8.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8065793Z  + anyio==4.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8066029Z  + blis==1.3.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8066263Z  + catalogue==2.0.10
+package	Verificar distribución consumible	2026-11-11T19:27:23.8066520Z  + certifi==2026.10.23
+package	Verificar distribución consumible	2026-11-11T19:27:23.8066799Z  + charset-normalizer==3.5.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.8067217Z  + click==8.5.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8067646Z  + cloudpathlib==0.26.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8067949Z  + confection==1.3.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8068196Z  + cymem==2.0.16
+package	Verificar distribución consumible	2026-11-11T19:27:23.8068426Z  + h11==0.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8069160Z  + homex-nlp==0.1.22 (from file:///home/runner/work/homex-nlp/homex-nlp/dist/homex_nlp-0.1.22.tar.gz)
+package	Verificar distribución consumible	2026-11-11T19:27:23.8069725Z  + httpcore==1.0.9
+package	Verificar distribución consumible	2026-11-11T19:27:23.8069968Z  + httpx==0.28.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8070208Z  + idna==3.20
+package	Verificar distribución consumible	2026-11-11T19:27:23.8070432Z  + jinja2==3.1.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.8070679Z  + markdown-it-py==4.3.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8071270Z  + markupsafe==3.0.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8071520Z  + mdurl==0.1.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.8071758Z  + murmurhash==1.0.16
+package	Verificar distribución consumible	2026-11-11T19:27:23.8072009Z  + numpy==2.4.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.8072244Z  + packaging==26.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.8072552Z  + preshed==3.0.15
+package	Verificar distribución consumible	2026-11-11T19:27:23.8072856Z  + pydantic==2.13.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8073221Z  + pydantic-core==2.46.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8073509Z  + pygments==2.21.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8073840Z  + requests==2.34.2
+package	Verificar distribución consumible	2026-11-11T19:27:23.8074301Z  + rich==15.0.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8074596Z  + setuptools==84.2.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8074926Z  + shellingham==1.5.4
+package	Verificar distribución consumible	2026-11-11T19:27:23.8075312Z  + smart-open==9.0.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.8075625Z  + spacy==3.8.13
+package	Verificar distribución consumible	2026-11-11T19:27:23.8075940Z  + spacy-legacy==3.0.12
+package	Verificar distribución consumible	2026-11-11T19:27:23.8076343Z  + spacy-loggers==1.0.5
+package	Verificar distribución consumible	2026-11-11T19:27:23.8076604Z  + srsly==2.5.6
+package	Verificar distribución consumible	2026-11-11T19:27:23.8076893Z  + thinc==8.3.14
+package	Verificar distribución consumible	2026-11-11T19:27:23.8077222Z  + tqdm==4.70.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8077655Z  + typer==0.29.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8078023Z  + typing-extensions==4.16.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8078350Z  + typing-inspection==0.4.5
+package	Verificar distribución consumible	2026-11-11T19:27:23.8078676Z  + urllib3==2.8.0
+package	Verificar distribución consumible	2026-11-11T19:27:23.8078981Z  + wasabi==1.1.3
+package	Verificar distribución consumible	2026-11-11T19:27:23.8079320Z  + weasel==1.0.1
+package	Verificar distribución consumible	2026-11-11T19:27:23.8079642Z  + wrapt==2.5.2
+package	Verificar distribución consumible	2026-11-11T19:27:24.0788317Z backend-consumer-smoke: OK
+package	Verificar distribución consumible	2026-11-11T19:27:24.1639597Z Building source distribution...
+package	Verificar distribución consumible	2026-11-11T19:27:24.4637430Z Building wheel from source distribution...
+package	Verificar distribución consumible	2026-11-11T19:27:24.6693015Z Successfully built /tmp/homex-rebuild-6pheygen/homex_nlp-0.1.22.tar.gz
+package	Verificar distribución consumible	2026-11-11T19:27:24.6693579Z Successfully built /tmp/homex-rebuild-6pheygen/homex_nlp-0.1.22-py3-none-any.whl
+package	Verificar distribución consumible	2026-11-11T19:27:24.6716755Z Distribución HOMEX NLP 0.1.22: reproducible, privada y backend-ready {'homex_nlp-0.1.22-py3-none-any.whl': 'c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80', 'homex_nlp-0.1.22.tar.gz': '40f3511bbaf731a9522b0e48bc0d4454394169753a822abb3884282d855b0206'}.
+package	Verificar runtime y contrato F10	﻿2026-11-11T19:27:24.6833803Z ##[group]Run make f10-check
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6834302Z [36;1mmake f10-check[0m
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6878611Z shell: /usr/bin/bash -e {0}
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6878826Z env:
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6879037Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6879307Z   BACKEND_F10_PATH: backend-f10
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6879513Z ##[endgroup]
+package	Verificar runtime y contrato F10	2026-11-11T19:27:24.6949455Z uv run --locked --extra dev pytest tests/operations/test_f10_runtime.py -q
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.4464228Z ..............                                                           [100%]
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.4464736Z 14 passed in 0.58s
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.5035723Z uv run --locked --extra dev python tools/verify_backend_f10.py backend-f10 --revision bc375894036d30cefbc8cdf7c512315aaf1ab971
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.5816234Z f10-backend-contract-ok backend=bc375894036d30cefbc8cdf7c512315aaf1ab971 package=0.1.0 wheel_sha256=cfacc3a987f6158f43934cb64304fa50ea3e577cfa576f3db1e6d2a9576d19e6 source_revision=b5fe2921320c9031f6d44dc5c91a18411daa393e d07_pending=true
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.5886360Z uv run --locked --extra dev python tools/profile_f10_runtime.py --iterations 100 --output /tmp/homex-nlp-f10-profile.json
+package	Verificar runtime y contrato F10	2026-11-11T19:27:25.8272906Z {"asr_two_requests":{"cpu_ms":0.808,"wall_ms":0.625},"audio_files_remaining":0,"contains_transcript_or_audio_path":false,"extraction_batch":{"cpu_ms":116.388,"wall_ms":115.733},"extraction_latency_ms":{"max":86.915,"median":0.269},"initialization":{"cpu_ms":0.008,"wall_ms":0.003},"iterations":100,"mode":"RULES_ONLY","package_version":"0.1.22","profile_kind":"CONTROLLED_DOUBLE","real_model_profile_required_in_d07":true,"rss_after_kib":35132,"rss_before_kib":33188,"schema_version":"1.0","workers":2}
+package	Publicar perfil agregado F10	﻿2026-11-11T19:27:25.8590257Z ##[group]Run actions/upload-artifact@v4
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8590513Z with:
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8590774Z   name: homex-nlp-f10-profile-584e90bf3bc20331ce64826ee6b48c56954c0e69
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8591110Z   path: /tmp/homex-nlp-f10-profile.json
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8591355Z   if-no-files-found: error
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8591713Z   retention-days: 30
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8591896Z   compression-level: 6
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8592082Z   overwrite: false
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8592262Z   include-hidden-files: false
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8592457Z env:
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8592655Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.8592915Z ##[endgroup]
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.9978839Z (node:2823) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+package	Publicar perfil agregado F10	2026-11-11T19:27:25.9979588Z (Use `node --trace-deprecation ...` to show where the warning was created)
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.0021541Z With the provided path, there will be 1 file uploaded
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.0025988Z Artifact name is valid!
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.0026745Z Root directory input is valid!
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.3313856Z Beginning upload of artifact content to blob storage
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.3457176Z (node:2823) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.4884780Z Uploaded bytes 485
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.5336676Z Finished uploading artifact content to blob storage!
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.5337313Z SHA256 digest of uploaded artifact zip is 46b2563c57f7ee40a540f9a205b3a36f151c75ab165fc89fc4300b5d723b3081
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.5338077Z Finalizing artifact upload
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.9352188Z Artifact homex-nlp-f10-profile-584e90bf3bc20331ce64826ee6b48c56954c0e69.zip successfully finalized. Artifact ID 13887251158
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.9353255Z Artifact homex-nlp-f10-profile-584e90bf3bc20331ce64826ee6b48c56954c0e69 has been successfully uploaded! Final size is 485 bytes. Artifact ID is 13887251158
+package	Publicar perfil agregado F10	2026-11-11T19:27:26.9357921Z Artifact download URL: https://github.com/gabriel-arinez/homex-nlp/actions/runs/43087301893/artifacts/13887251158
+package	Publicar artefactos de integración	﻿2026-11-11T19:27:26.9507923Z ##[group]Run actions/upload-artifact@v4
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9508195Z with:
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9508456Z   name: homex-nlp-584e90bf3bc20331ce64826ee6b48c56954c0e69
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9508731Z   path: dist/*
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9508921Z   if-no-files-found: error
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9509120Z   retention-days: 30
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9509307Z   compression-level: 6
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9509496Z   overwrite: false
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9509683Z   include-hidden-files: false
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9509888Z env:
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9510087Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+package	Publicar artefactos de integración	2026-11-11T19:27:26.9510336Z ##[endgroup]
+package	Publicar artefactos de integración	2026-11-11T19:27:27.0951593Z (node:2835) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+package	Publicar artefactos de integración	2026-11-11T19:27:27.0952564Z (Use `node --trace-deprecation ...` to show where the warning was created)
+package	Publicar artefactos de integración	2026-11-11T19:27:27.1064811Z With the provided path, there will be 2 files uploaded
+package	Publicar artefactos de integración	2026-11-11T19:27:27.1065877Z Artifact name is valid!
+package	Publicar artefactos de integración	2026-11-11T19:27:27.1066534Z Root directory input is valid!
+package	Publicar artefactos de integración	2026-11-11T19:27:27.3613535Z Beginning upload of artifact content to blob storage
+package	Publicar artefactos de integración	2026-11-11T19:27:27.3842419Z (node:2835) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+package	Publicar artefactos de integración	2026-11-11T19:27:27.7017534Z Uploaded bytes 241398
+package	Publicar artefactos de integración	2026-11-11T19:27:27.7510515Z Finished uploading artifact content to blob storage!
+package	Publicar artefactos de integración	2026-11-11T19:27:27.7511607Z SHA256 digest of uploaded artifact zip is d006c13f32f50df0d58824340f9399f7429964758a71bd44e40e68f63441bda3
+package	Publicar artefactos de integración	2026-11-11T19:27:27.7512285Z Finalizing artifact upload
+package	Publicar artefactos de integración	2026-11-11T19:27:28.0982937Z Artifact homex-nlp-584e90bf3bc20331ce64826ee6b48c56954c0e69.zip successfully finalized. Artifact ID 13887271138
+package	Publicar artefactos de integración	2026-11-11T19:27:28.0984624Z Artifact homex-nlp-584e90bf3bc20331ce64826ee6b48c56954c0e69 has been successfully uploaded! Final size is 241398 bytes. Artifact ID is 13887271138
+package	Publicar artefactos de integración	2026-11-11T19:27:28.0989667Z Artifact download URL: https://github.com/gabriel-arinez/homex-nlp/actions/runs/43087301893/artifacts/13887271138
+package	Post Run astral-sh/setup-uv@v6	﻿2026-11-11T19:27:28.1183799Z Post job cleanup.
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.2300791Z Pruning cache...
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.2311354Z (node:2847) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.2312281Z (Use `node --trace-deprecation ...` to show where the warning was created)
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.2380039Z [command]/opt/hostedtoolcache/uv/0.12.9/x86_64/uv cache prune --ci
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.2480397Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.3955684Z Removed 7021 files (73.5MiB)
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.3978631Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.4093815Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/homex-nlp/homex-nlp --files-from manifest.txt --use-compress-program zstdmt
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:28.6119593Z (node:2847) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:29.1996155Z Sent 4701490 of 4701490 (100.0%), 7.5 MBs/sec
+package	Post Run astral-sh/setup-uv@v6	2026-11-11T19:27:29.2885121Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-unknown-pruned-1cd9a2e3256cf9fae9e00b3bc225b287d2b8e9a652c3259901cbbef7815e4014
+package	Post Run actions/checkout@v4	﻿2026-11-11T19:27:29.3010917Z Post job cleanup.
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3750739Z [command]/usr/bin/git version
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3792682Z git version 2.56.0
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3828677Z Temporarily overriding HOME='/home/runner/work/_temp/7c6b5876-af46-46da-b5b0-18e91e375a9e' before making global git config changes
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3829710Z Adding repository directory to the temporary git global config as a safe directory
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3834192Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp/backend-prf04
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3875357Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.3915015Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4179041Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4205899Z http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4216223Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4262284Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4546082Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.4577697Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Post Run actions/checkout@v4	﻿2026-11-11T19:27:29.4974736Z Post job cleanup.
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5711592Z [command]/usr/bin/git version
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5752526Z git version 2.56.0
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5785008Z Temporarily overriding HOME='/home/runner/work/_temp/dc1a5182-9ad8-485e-b512-c403bf6cbc14' before making global git config changes
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5786098Z Adding repository directory to the temporary git global config as a safe directory
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5789634Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp/backend-f10
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5830919Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.5865310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6135431Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6163006Z http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6175812Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6216210Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6488169Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.6517752Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Post Run actions/checkout@v4	﻿2026-11-11T19:27:29.6892296Z Post job cleanup.
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7610460Z [command]/usr/bin/git version
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7647233Z git version 2.56.0
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7677296Z Temporarily overriding HOME='/home/runner/work/_temp/894f5ee7-3fe6-4567-9bc1-553d8583a891' before making global git config changes
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7678623Z Adding repository directory to the temporary git global config as a safe directory
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7681708Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/homex-nlp/homex-nlp
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7719723Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.7755266Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8046660Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8067635Z http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8078085Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8120320Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8398547Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+package	Post Run actions/checkout@v4	2026-11-11T19:27:29.8437103Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+package	Complete job	﻿2026-11-11T19:27:29.8816622Z Cleaning up orphan processes
+package	Complete job	2026-11-11T19:27:29.9123284Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

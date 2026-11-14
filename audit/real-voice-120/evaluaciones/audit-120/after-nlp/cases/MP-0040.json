@@ -1,0 +1,163 @@
+{
+  "id": "MP-0040",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0040.aac",
+    "original_sha256": "00a651d8dbd1610bbe88037d5571b73476aade215fe44f0f0830cf35b1195a59",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0040.wav",
+    "wav_sha256": "1ed8b92db086ff092c1961ee4b1b9809d8b1c04a654b843f22e280cb500274eb"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0040-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset modular de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Melamina de dieciocho milímetros, tapacantos PVC, cajones con rieles telescópicos y barra colgadora de acero inoxidable. Acabado según diseño. Precio de seis mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.1154890051111579,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0040-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset modular de 1,70 metros de ancho, 2,55 metros de alto y 60 centímetros de profundidad. Melamina de 18 milímetros, tapacantos PVC, cajones con reales telescópicos y barra colgadora de acero inoxidable. Acabado, según diseño, precio de 6,500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.08705700020072982,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "un",
+          "metro",
+          "setenta"
+        ],
+        "asr": [
+          "1,70",
+          "metros"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2,55"
+        ]
+      },
+      {
+        "operation": "delete",
+        "reference": [
+          "cincuenta",
+          "y",
+          "cinco"
+        ],
+        "asr": []
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "sesenta"
+        ],
+        "asr": [
+          "60"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "rieles"
+        ],
+        "asr": [
+          "reales"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "seis",
+          "mil",
+          "quinientos"
+        ],
+        "asr": [
+          "6,500"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0040",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "6500",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

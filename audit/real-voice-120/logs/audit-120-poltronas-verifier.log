@@ -1,0 +1,102 @@
+REFERENCES rows_old/new 120 120 ids_same True
+REFERENCE category_changed ['MP-0004', 'MP-0062', 'MP-0067'] noncategory_changed []
+MANIFEST rows_old/new 120 120 ids_same True
+MANIFEST category_changed ['MP-0004', 'MP-0062', 'MP-0067'] other_fields_changed []
+REF_COUNTS {'muebles_pedido': 73, 'OTRO': 13, 'sillas': 27, 'pisos': 7}
+MANIFEST_COUNTS {'muebles_pedido': 73, 'OTRO': 13, 'sillas': 27, 'pisos': 7}
+ID_COUNT 120 unique True expected_three_only True
+SUMMARY_OLD_COUNTS {'muebles_pedido': 76, 'sillas': 27, 'pisos': 7, 'OTRO': 10} SUMMARY_NEW_COUNTS {'muebles_pedido': 73, 'OTRO': 13, 'sillas': 27, 'pisos': 7} total 120 unique_ids 120
+SUMMARY_CHANGED_KEYS ['confirmacion_poltronas', 'guiones_por_categoria']
+SUMMARY_CONFIRMATION si, tambien deben clasificarse como OTRO
+AUDIO_LEDGER_ENTRIES 120 baseline_cases 120 missing [] hash_mismatch [] hashes_verified 240
+REFERENCE_SOURCE_LINK_CHANGES []
+RECLASSIFICATION_ARTIFACT_COUNT 10 target_entries [('MP-0004', 'muebles_pedido', 'OTRO'), ('MP-0062', 'muebles_pedido', 'OTRO'), ('MP-0067', 'muebles_pedido', 'OTRO')]
+BASELINE_SOURCE_HASHES 24 git_base_mismatch []
+ROUTING_V2_SOURCE_HASHES 24 git_base_mismatch []
+AFTER_V5_SOURCE_HASHES 24 current_tree_mismatch []
+ORIGINAL_RAW_ASR_IDENTICAL 120 of 120 mismatches []
+POLTRONA_CASE MP-0004 baseline_code_cat OTRO before_asr_name None after_asr_name 2 poltronas fijas after_asr_price 5500.00 after_ref_name Dos poltronas fijas
+POLTRONA_CASE MP-0062 baseline_code_cat OTRO before_asr_name None after_asr_name 2 poltronas fijas after_asr_price 5500.00 after_ref_name Dos poltronas fijas
+POLTRONA_CASE MP-0067 baseline_code_cat OTRO before_asr_name Dos poltronas fijas de estructura y patas de madera de eucalipto after_asr_name Dos poltronas fijas de estructura y patas de madera de eucalipto after_asr_price 5500.00 after_ref_name Dos poltronas fijas
+V5_ADDITIONAL_SEMANTIC_CHANGE_ENTRIES_VS_V4 [('MP-0004', 'asr'), ('MP-0062', 'asr')]
+PRICE_ORACLE MUEBLE_MEDIDA 73 {'MATCH': 18, 'MISSING_OR_NO_PROPOSAL': 20, 'LEGITIMATE_MODALITY_REVIEW': 34, 'CORRECT_ABSTENTION': 1} {'MATCH': 18, 'MISSING_OR_NO_PROPOSAL': 20, 'LEGITIMATE_MODALITY_REVIEW': 34, 'CORRECT_ABSTENTION': 1} {'MATCH': 23, 'MISSING_OR_NO_PROPOSAL': 15, 'LEGITIMATE_MODALITY_REVIEW': 34, 'CORRECT_ABSTENTION': 1} {'MATCH': 23, 'MISSING_OR_NO_PROPOSAL': 15, 'LEGITIMATE_MODALITY_REVIEW': 34, 'CORRECT_ABSTENTION': 1}
+PRICE_ORACLE OTRO 13 {'MATCH': 10, 'MISSING_OR_NO_PROPOSAL': 3} {'MATCH': 13} {'MATCH': 10, 'MISSING_OR_NO_PROPOSAL': 3} {'MATCH': 13}
+PRICE_ORACLE PISO_FLOTANTE 7 {'MATCH': 7} {'MATCH': 7} {'MATCH': 7} {'MATCH': 7}
+PRICE_ORACLE SILLA 27 {'MATCH': 27} {'MATCH': 27} {'MATCH': 27} {'MATCH': 27}
+TRACE_FILE_BYTES_IDENTICAL 78209 78209 True sha256 ac6c677bd6e39a9c2e4af8b1b0495ef66beb1122a80d39d5b4a1002881b05da4
+REROUTE_V2_NON_POLTRONA_BASELINE_DIFFERENCES [] count 0
+
+SCRATCH=/tmp/audit120-poltrona-verifier.1xAxfl
+ACTUAL_ASR MP-0004 text= 2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.
+  base exit 0 fields {"precio_lista": "5500.00"} stderr ''
+  candidate exit 0 fields {"nombre": "2 poltronas fijas", "observaciones": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz de tela repelente al líquidos y relleno de espuma de poluretano, de 40 milímetros color de las patas y tapiz a elección, topes de goma en las patas, precio unitario de 5.500 bolivianos.", "precio_lista": "5500.00"} stderr ''
+  candidate_name_exact True observations_full True no_quantity_or_stock True only_expected_keys True
+ actual_semantic_equal False
+ACTUAL_ASR MP-0062 text= 2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz repelente a líquidos y relleno de espuma de poliuretano de 40 milímetros, colores de las patas y de tapiz a elección, topes de goma en las patas, precio unitario de 5500 bolivianos.
+  base exit 0 fields {"precio_lista": "5500.00"} stderr ''
+  candidate exit 0 fields {"nombre": "2 poltronas fijas", "observaciones": "2 poltronas fijas con estructura y 4 patas de madera de eucalipto, tapiz repelente a líquidos y relleno de espuma de poliuretano de 40 milímetros, colores de las patas y de tapiz a elección, topes de goma en las patas, precio unitario de 5500 bolivianos.", "precio_lista": "5500.00"} stderr ''
+  candidate_name_exact True observations_full True no_quantity_or_stock True only_expected_keys True
+ actual_semantic_equal False
+ACTUAL_ASR MP-0067 text= Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.
+  base exit 0 fields {"nombre": "Dos poltronas fijas de estructura y patas de madera de eucalipto", "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.", "precio_lista": "5500.00"} stderr ''
+  candidate exit 0 fields {"nombre": "Dos poltronas fijas de estructura y patas de madera de eucalipto", "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.", "precio_lista": "5500.00"} stderr ''
+  candidate_name_exact True observations_full True no_quantity_or_stock True only_expected_keys True
+ actual_semantic_equal True
+CAT numeric_natural_name name 2 poltronas fijas obs 2 poltronas fijas con estructura de madera. Precio unitario de cinco mil quinientos bolivianos. price 5500.00 keys ['nombre', 'observaciones', 'precio_lista'] stderr ''
+ CAT_EQUAL numeric_natural_name False
+CAT word_count_legacy name Dos poltronas fijas obs Dos poltronas fijas con estructura de madera. Precio unitario de cinco mil quinientos bolivianos. price 5500.00 keys ['nombre', 'observaciones', 'precio_lista'] stderr ''
+ CAT_EQUAL word_count_legacy True
+CAT label_legacy name 2 poltronas fijas obs None price 5500.00 keys ['nombre', 'precio_lista'] stderr ''
+ CAT_EQUAL label_legacy True
+CAT measure_mm name None obs None price None keys [] stderr ''
+ CAT_EQUAL measure_mm True
+CAT measure_decimal name None obs None price None keys [] stderr ''
+ CAT_EQUAL measure_decimal True
+CAT currency_bob name None obs None price None keys [] stderr ''
+ CAT_EQUAL currency_bob True
+CAT currency_code name None obs None price None keys [] stderr ''
+ CAT_EQUAL currency_code True
+CAT currency_usd name None obs None price None keys [] stderr ''
+ CAT_EQUAL currency_usd True
+CAT zero name None obs None price None keys [] stderr ''
+ CAT_EQUAL zero True
+CAT negative name None obs None price None keys [] stderr ''
+ CAT_EQUAL negative True
+CAT decimal_count name None obs None price None keys [] stderr ''
+ CAT_EQUAL decimal_count True
+CAT negated name None obs None price None keys [] stderr ''
+ CAT_EQUAL negated True
+CAT negated_sin name None obs None price None keys [] stderr ''
+ CAT_EQUAL negated_sin True
+CAT admin_modelo name None obs None price None keys [] stderr ''
+ CAT_EQUAL admin_modelo True
+CAT admin_precio name None obs None price 2.00 keys ['precio_lista'] stderr ''
+ CAT_EQUAL admin_precio True
+CAT admin_stock name None obs None price None keys [] stderr ''
+ CAT_EQUAL admin_stock True
+CAT admin_cantidad name None obs None price None keys [] stderr ''
+ CAT_EQUAL admin_cantidad True
+CLI mesa exit 0 0 stderr_equal True stderr '' normalized_equal True
+CLI mesa_usd exit 0 0 stderr_equal True stderr '' normalized_equal True
+CLI escritorio exit 0 0 stderr_equal True stderr '' normalized_equal True
+CLI plain_closet exit 0 0 stderr_equal True stderr '' normalized_equal True
+CLI legacy_casilleros exit 0 0 stderr_equal True stderr '' normalized_equal True
+SCRATCH=/tmp/audit120-poltrona-verifier.1xAxfl
+REROUTED_ORIGINAL_CODE MP-0004 old_category MUEBLE_MEDIDA new_category OTRO old_asr_price None rerouted_asr_fields {'precio_lista': '5500.00'} ref_asr_equal True
+REROUTED_ORIGINAL_CODE MP-0062 old_category MUEBLE_MEDIDA new_category OTRO old_asr_price None rerouted_asr_fields {'precio_lista': '5500.00'} ref_asr_equal True
+REROUTED_ORIGINAL_CODE MP-0067 old_category MUEBLE_MEDIDA new_category OTRO old_asr_price None rerouted_asr_fields {'nombre': 'Dos poltronas fijas de estructura y patas de madera de eucalipto', 'observaciones': 'Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.', 'precio_lista': '5500.00'} ref_asr_equal True
+AFTER_NLP_V5_CASE_COUNTS {'MUEBLE_MEDIDA': 73, 'OTRO': 13, 'PISO_FLOTANTE': 7, 'SILLA': 27} total 120
+EXPLICIT_MATCH_COUNT asr before 62 denominator 85
+EXPLICIT_MATCH_COUNT asr after 65 denominator 85
+EXPLICIT_MATCH_COUNT reference before 67 denominator 85
+EXPLICIT_MATCH_COUNT reference after 70 denominator 85
+SOFA_FIXES [('MP-0005', 'MISSING_OR_NO_PROPOSAL', 'MATCH', 'MISSING_OR_NO_PROPOSAL', 'MATCH'), ('MP-0063', 'MISSING_OR_NO_PROPOSAL', 'MATCH', 'MISSING_OR_NO_PROPOSAL', 'MATCH'), ('MP-0068', 'MISSING_OR_NO_PROPOSAL', 'MATCH', 'MISSING_OR_NO_PROPOSAL', 'MATCH')]
+Interpretation of price deltas
+- Before the additional poltrona reclassification, explicit-price baseline counts were ASR 59/85 and reference 64/85 (L7 checkpoint). Re-routing MP-0004, MP-0062, MP-0067 to OTRO with ORIGINAL git-base code makes their explicit 5,500 amounts visible in the baseline (all three were missing in old MUEBLE_MEDIDA ASR results). Thus the resulting baseline moves to 62/85 ASR and 67/85 reference: a corpus-routing effect, not an NLP improvement.
+- Against that correctly routed baseline, after-v5 improves to 65/85 ASR and 70/85 reference. The three before->after price-field gains are MP-0005/MP-0063/MP-0068 (the earlier price-per-game fix), not the newly added numeric-name rule.
+
+Independent new-rule probe outcomes
+- Fresh scratch baseline is `git archive c94e7a8`; candidate is current `src/`. Actual frozen ASR inputs for MP-0004/0062: baseline fields only price_lista=5500.00; candidate adds literal name `2 poltronas fijas` and observations exactly equal to complete ASR text, retains price 5500.00, adds neither cantidad nor unidad_stock, and emits no chair-only fields. MP-0067 already started with words “Dos poltronas”; baseline and candidate fields are identical (full name/observations and 5500.00).
+- Synthetic `2 poltronas fijas…` candidate: nombre exactly retains numeric literal; full observations exact; price 5500.00; keys only nombre/observaciones/precio_lista. Word-count natural name and `Producto: 2 poltronas fijas…` labeled equivalent are byte/semantic equal baseline vs candidate.
+- Dimensions/currency-only starts, zero, negative, decimal counts, negation, and admin starts create no new name; baseline and candidate outputs equal for these forms. One odd administrative phrase `Precio unitario de 2 poltronas fijas` still returns `precio_lista=2.00` without name in both baseline and candidate; pre-existing and unchanged.
+- Legacy CLI forms “Dos mesas. Precio unitario 250 bolivianos.” (BOB and USD), “Un escritorio de melamina con cajones.”, “Un closet de dos puertas.”, and “Un mueble con casilleros” all exit 0, empty stderr, and identical JSON after removing only timing.

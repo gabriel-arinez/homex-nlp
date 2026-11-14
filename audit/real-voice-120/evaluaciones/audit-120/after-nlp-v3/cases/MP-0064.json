@@ -1,0 +1,690 @@
+{
+  "id": "MP-0064",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0064.aac",
+    "original_sha256": "3ffa0cd806233eef1624a4f9b8547822d4e760bb83e8c959b54d5c0c45d2df6d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0064.wav",
+    "wav_sha256": "eeb789338ae4f62d48af416d4c0f5153a2624247d402c4ab825ed33fd6082a55"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0064-reference",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Dos mesas de sala de reuniones, de dos metros de diámetro y setenta y cinco centímetros de alto. Tablero de melamina de veinticinco milímetros y patas de perfil metálico de cincuenta por cincuenta por un milímetro. Color del tablero y pintura electrostática a elección. Caja eléctrica con dos conexiones USB, dos HDMI y dos tomacorrientes, con topes de goma. Precio unitario de siete mil trescientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesas",
+      "furniture_type_candidate": "mesas",
+      "quantity": 2,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Tablero",
+          "evidence_ids": [
+            "c9"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "tablero",
+          "evidence_ids": [
+            "c12"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "75",
+          "unit": "cm",
+          "original_text": "setenta y cinco centímetros de alto",
+          "value_mm": "750",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "2",
+          "unit": "m",
+          "original_text": "dos metros de diámetro",
+          "value_mm": "2000",
+          "axis": "diametro"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "veinticinco milímetros",
+          "value_mm": "25"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-2",
+          "value": "1",
+          "unit": "mm",
+          "original_text": "un milímetro",
+          "value_mm": "1"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "tomacorrientes",
+          "quantity": 2
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c8"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "7300.00",
+        "currency": "BOB",
+        "unit_price_input": "7300.00",
+        "line_total": "14600.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 9,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 60,
+        "end": 95,
+        "text": "setenta y cinco centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "75",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "DIAMETRO",
+        "start": 35,
+        "end": 57,
+        "text": "dos metros de diámetro",
+        "source": "RULE",
+        "normalized_value": [
+          "2",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 120,
+        "end": 142,
+        "text": "veinticinco milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 201,
+        "end": 213,
+        "text": "un milímetro",
+        "source": "RULE",
+        "normalized_value": [
+          "1",
+          "mm"
+        ],
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 324,
+        "end": 338,
+        "text": "tomacorrientes",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "PRECIO",
+        "start": 378,
+        "end": 399,
+        "text": "siete mil trescientos",
+        "source": "RULE",
+        "normalized_value": "7300",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 97,
+        "end": 104,
+        "text": "Tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 108,
+        "end": 116,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 145,
+        "end": 150,
+        "text": "patas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 225,
+        "end": 232,
+        "text": "tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.2602870012633502,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0064-asr",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "2 mesas de sala de reuniones, de 2 metros de diámetro y 75 centímetros de alto, tablero de melamina de 25 milímetros y patas de perfil metálico de 50 por 50 por un milímetro, color de tablero y pintura electrostática a elección, caja eléctrica con dos conexiones USB, 2 HDMI y 2 tomacorrientes con topes de goma, precio unitario de 7.300 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesas",
+      "furniture_type_candidate": "mesas",
+      "quantity": 2,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "tablero",
+          "evidence_ids": [
+            "c9"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas",
+          "evidence_ids": [
+            "c11"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "tablero",
+          "evidence_ids": [
+            "c12"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "75",
+          "unit": "cm",
+          "original_text": "75 centímetros de alto",
+          "value_mm": "750",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "2",
+          "unit": "m",
+          "original_text": "2 metros de diámetro",
+          "value_mm": "2000",
+          "axis": "diametro"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "25 milímetros",
+          "value_mm": "25"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-2",
+          "value": "1",
+          "unit": "mm",
+          "original_text": "un milímetro",
+          "value_mm": "1"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "tomacorrientes",
+          "quantity": 2
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c8"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "7300.00",
+        "currency": "BOB",
+        "unit_price_input": "7300.00",
+        "line_total": "14600.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 7,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 1,
+        "text": "2",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 56,
+        "end": 78,
+        "text": "75 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "75",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "DIAMETRO",
+        "start": 33,
+        "end": 53,
+        "text": "2 metros de diámetro",
+        "source": "RULE",
+        "normalized_value": [
+          "2",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 103,
+        "end": 116,
+        "text": "25 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 161,
+        "end": 173,
+        "text": "un milímetro",
+        "source": "RULE",
+        "normalized_value": [
+          "1",
+          "mm"
+        ],
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 279,
+        "end": 293,
+        "text": "tomacorrientes",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "PRECIO",
+        "start": 332,
+        "end": 337,
+        "text": "7.300",
+        "source": "RULE",
+        "normalized_value": "7300",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 80,
+        "end": 87,
+        "text": "tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 91,
+        "end": 99,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "COMPONENTE",
+        "start": 119,
+        "end": 124,
+        "text": "patas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 184,
+        "end": 191,
+        "text": "tablero",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 1
+  },
+  "nlp_asr_ms": 2.073778996418696,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta",
+          "y",
+          "cinco"
+        ],
+        "asr": [
+          "75"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco"
+        ],
+        "asr": [
+          "25"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta"
+        ],
+        "asr": [
+          "50"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta"
+        ],
+        "asr": [
+          "50"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "del"
+        ],
+        "asr": [
+          "de"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "siete",
+          "mil",
+          "trescientos"
+        ],
+        "asr": [
+          "7.300"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0064",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "7300",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

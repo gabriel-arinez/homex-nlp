@@ -1,0 +1,149 @@
+# HOMEX real-voice audit — current semantic continuation and preserved history
+
+## Current focused Sourcery review — 0.1.24
+
+See [the current evidence index](CURRENT.json) and [ten-observation report](sourcery-review-v1/README.md).
+The new review reproduces the historical549/1000/7 baseline and explicitly reports
+520/1000/13 after conservative comma ambiguity handling. Confirmed parser defects
+and full frozen-case regressions are investigated rather than hidden by scalar
+scores. Final head-bound integration/CI lives on original PR43/60/68; human acoustic
+review remains pending. No merge/deploy/history deletion.
+
+
+## Historical commercial review candidate — 2026-11-12
+
+The authoritative state is [CURRENT.json](CURRENT.json) and the
+[commercial-review-v1 report](commercial-review-v1/README.md). Candidate NLP0.1.23
+has verified source/distribution tests, installed consumers, targeted live-form
+checks and a120-case review workspace. Functional-head CI passes all30 jobs; see the exact head-bound evidence in the current report. Human
+acoustic/association review remains PENDIENTE. The previously published0.1.22
+closure below is historical, not approval of the new candidate.
+
+## Historical frontend/CI closure — 2026-11-12
+
+The follow-up is published on frontend `fix/real-voice-120-f09` at `7b83694`
+and backend `feat/real-voice-120-semantic` at `850c250`. Both final workflows
+pass13/13jobs; both real-stack suites pass14/14cases, including ASR/worker and
+persistence/authority checks. The editor/gallery/audio tests now match the
+unified UI, and voice-instruction contrast is corrected without changing branding.
+[Closure, immutable CI links, console evidence, skips and reproduction](frontend-f09-v1/README.md).
+No main merge/deployment occurred. Acoustic/association adjudication of the120
+development recordings remains pending; the ASR/NLP metrics below are unchanged.
+
+## Historical0.1.22 continuation
+
+- [Executive report and verified limits](semantic-120-v1/evaluaciones/semantic-120-v1/final-report.md)
+- [Current result/version index](semantic-120-v1/evaluaciones/semantic-120-v1/latest-evaluation.json)
+- [All120 cases and14 comparison cells](semantic-120-v1/evaluaciones/semantic-120-v1/case-matrix.jsonl)
+- [Complete four-cell comparisons for five candidate ASR settings](semantic-120-v1/evaluaciones/semantic-120-v1/comparison-v5/comparison.md)
+- [ASR promotion decision and tradeoffs](semantic-120-v1/evaluaciones/semantic-120-v1/asr-selection.json)
+- [Exact local reproduction commands](semantic-120-v1/evaluaciones/semantic-120-v1/reproduce/README.md)
+- [Console logs](semantic-120-v1/logs/semantic-120-v1/)
+- [Publication omission/redaction/hash ledger](semantic-120-v1/SEMANTIC-PUBLICATION-MANIFEST.json)
+
+On unchanged original ASR, supported script-scalar coverage improved438/1000→487/1000,
+with no previously matched scalar tuple lost; no-proposal cases23→17. This is NOT
+full commercial precision or verified speech accuracy: acoustic/association
+verification remains pending, and all120 recordings are development data.
+Five complete candidate ASR settings (600decodes) and1680NLP case results are kept.
+Context/VAD gain some fields but lose others, so production ASR remains unchanged.
+
+Version0.1.22 has a new reproducible wheel, real installed-backend consumption,
+891NLP/99relevant backend/306frontend passing tests, and8/8actual audio-to-form
+checks across four forms. Source commit584e90b passed all four GitHub Actions jobs;
+CI evidence always names its immutable commit, and delivery-commit status is
+checked separately. Dataset commit `e72a822` passed package/freeze/dependency jobs and
+exposed one more verified tokenizer-content-hash false positive; its exact immutable
+fingerprint is scoped in `.gitleaksignore`, without disabling any rule. Canonical
+full CI console output remains available in Actions. No main merge, deployment or public package-registry release
+is implied. Initial backend consumer7040564 was published with the operational CI-gate correction
+in54c8b91 on `feat/real-voice-120-semantic`. The subsequent CI-peer-only follow-up
+is850c250, as recorded in the latest closure above. The earlier delivery addendum
+below remains an immutable historical snapshot.
+The later untracked backend scheduler database is preserved and not published.
+
+### Historical backend-publication snapshot — before frontend follow-up
+
+This historical snapshot is superseded by the latest closure above.
+The user authorized publication; the [backend branch](https://github.com/gabriel-arinez/homex-backend/tree/feat/real-voice-120-semantic)
+now contains54c8b91. The wheel gate was corrected to check the actual0.1.22
+file/version/hash, with14 passing targeted/consumer tests and an independent check;
+historical wheel checks remain active. [Backend CI](https://github.com/gabriel-arinez/homex-backend/actions/runs/43138201672)
+passes12/13jobs, including real F08 worker integration. **F09 remains failed**:
+two frontend79510ed integration assertions disagree with the observed proforma URL
+and furniture-menu content. The same failures occur in that frontend's own CI
+against its older pinned backend69d9ec1. They were not skipped or hidden, and no
+frontend source was changed by this publication. Global CI acceptance is therefore
+not complete. [Machine-readable delivery status](semantic-120-v1/evaluaciones/semantic-120-v1/delivery-publication-addendum.json).
+Earlier statements that the backend is local/pending describe the immutable
+pre-publication snapshots, not this later delivery. No main merge or deployment.
+
+### Post-snapshot independent reproduction
+
+The portable fresh-credential bootstrap was subsequently executed successfully:
+8/8 actual audio scenarios,240 original audio hashes unchanged,19 authoritative
+models/275 records unchanged, and26 installed wheel modules byte-identical.
+[Result](semantic-120-v1/evaluaciones/semantic-120-v1/reproduction-runtime-independent.json)
+and [sanitized console](semantic-120-v1/logs/semantic-120-v1/reproduction-runtime-independent.log)
+are hashed addenda. Earlier “structurally checked, not rerun” statements describe
+the earlier immutable snapshot, not this later successful operational proof.
+This is still the same eight development recordings, not independent speech data.
+
+The historical material below is frozen context, not the current version claim.
+
+## Historical snapshot atb851b5a (preserved)
+
+This branch publishes the implemented changes and the full evaluation results
+requested by the user. It does **not** claim the original comprehensive audit is
+finished. No PR, main merge, production deployment or package release is included.
+
+## Start here
+
+- [Progress report and limitations](evaluaciones/audit-120/progress-report.md)
+- [Current snapshot index](evaluaciones/audit-120/latest-evaluation.json)
+- [All120 before/after case results](evaluaciones/audit-120/120-case-results.jsonl)
+- [Raw ASR transcriptions](evaluaciones/audit-120/transcriptions-baseline.jsonl)
+- [Per-case matrix](evaluaciones/audit-120/case-matrix.csv)
+- [Root causes and pending defects](evaluaciones/audit-120/root-cause-matrix.json)
+- [Full console logs](logs/)
+- [Independent publication check](evaluaciones/audit-120/publication-verification.json)
+- [Source/export hashes and redactions](PUBLICATION-MANIFEST.json)
+
+Current confirmed corpus:73 custom furniture,27chairs,7floating floors,13OTRO,
+exactly120 IDs. All240 AAC/WAV hashes preserved; original recordings remain local.
+Original Whisper Small CPU/int8 ASR baseline is unchanged. Script-relative WER
+22.56%,CER18.14% is NOT verified spoken-reference/commercial accuracy. The partial
+85-explicit-unit-price oracle improves62→65 matches on ASR input and67→70 on
+reference input. Floor thickness3/7→6/7(ASR),3/7→7/7(reference). Full semantic
+annotation, doubtful-audio adjudication and independent real-audio generalization
+remain open; all120 examples are development data after being used for tuning.
+
+Checks observed:799 NLP tests,99 backend tests,306 frontend tests; schemas/lint/
+format/contracts/typecheck/build passed at the documented stages. Real browser/
+Whisper/Django form application was verified for four forms and subsequently all
+three poltronas on the latest source. Exact scopes, hashes, failures and successful
+reruns are retained in the reports/logs, without claiming final commercial saving.
+
+## Publication safety and history
+
+All evaluaciones/ and logs/ artifacts plus current manifest, JSONL references and
+control metadata are copied here. Raw local originals remain authoritative and
+untouched. Only credentials/session tokens/password fill values in trace/config
+COPIES were redacted; trace event counts, screenshots, timing, ASR text and fields
+were preserved. Independent scanning found no uploaded audio payloads or surviving
+credential values. Generated caches are excluded and accounted for in the ledger.
+No original AAC/WAV corpus, model weights, host environment/keyring, database or
+temporary dependency cache is included. Earlier baseline/chain snapshots are
+intentionally retained as HISTORY; latest-evaluation.json identifies active views.
+
+`packaging-smoke-only/` artifacts retain0.1.21 metadata for offline install/rebuild
+checks and are **NOT releases**. Do not replace the previously published package
+or backend vendor wheel with them. A separately versioned integration is pending.
+
+## Reproduce
+
+See [the repository runner guide](../../docs/real-voice-evaluation.md), the progress
+report's exact commands, and each live-e2e reproduction folder. Supply the original
+local corpus/model/dependencies separately. Output directories are exclusive;
+keep new runs separate from immutable baseline and history. Public copies contain
+redacted authentication material, so generate fresh synthetic test credentials.

@@ -1,0 +1,100 @@
+npm notice run homex-frontend@0.1.0 test:integration
+npm notice run playwright test --config playwright.integration.config.ts src/tests/integration/fe08-real.spec.ts src/tests/integration/galerias-real.spec.ts --grep recorrido comercial completo|Galería real de mueble
+[WebServer] npm notice run homex-frontend@0.1.0 build
+[WebServer] npm notice run run-p type-check "build-only {@}" --
+[WebServer] (node:824946) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 build-only
+[WebServer] npm notice run homex-frontend@0.1.0 type-check
+[WebServer] npm notice run vue-tsc --build
+[WebServer] npm notice run vite build
+[WebServer] (node:824982) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 4174 --strictPort
+[WebServer] (node:825618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:825646) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación (17.9s)
+(node:826660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral (1.0m)
+
+
+  1) src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /\/proformas\/\d+(?:\?|$)/
+    Received string:  "http://127.0.0.1:4174/proformas/1/editar"
+    Timeout: 15000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 15000ms
+        34 × locator resolved to <html lang="es-BO" data-theme="light">…</html>
+           - unexpected value "http://127.0.0.1:4174/proformas/1/editar"
+
+
+      59 |   await expect(sendDialog).toBeVisible()
+      60 |   await sendDialog.getByRole('button', { name: 'Enviar a revisión' }).click()
+    > 61 |   await expect(page).toHaveURL(/\/proformas\/\d+(?:\?|$)/)
+         |                      ^
+      62 |   await expect(page.getByText('Proforma enviada correctamente a revisión.')).toBeVisible()
+      63 |   const segments = new URL(page.url()).pathname.split('/').filter(Boolean)
+      64 |   const proformaId = Number(segments[segments.length - 1])
+        at approveCurrentQuote (<workspace>:61:22)
+        at <workspace>:94:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright-integration/fe08-real-FE08-backend-rea-cd656-eos-anulación-y-cancelación/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('menuitem', { name: /ficha|configurar|técnica/i })
+
+
+       98 |   const menu = page.getByRole('button', { name: /Acciones.*Mueble con referencias/ })
+       99 |   await menu.click()
+    > 100 |   await page.getByRole('menuitem', { name: /ficha|configurar|técnica/i }).click()
+          |                                                                           ^
+      101 |   await step(page, 'Imágenes')
+      102 |   await expect(page.getByRole('heading', { name: 'Imágenes del mueble 2/8' })).toBeVisible()
+      103 |   await page.getByRole('button', { name: 'Ver green.png' }).click()
+        at <workspace>:100:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright-integration/galerias-real-Galería-real-24001-rado-y-vinculación-integral/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    src/tests/integration/fe08-real.spec.ts:86:3 › FE08 backend real › recorrido comercial completo, bloqueos, anulación y cancelación 
+    src/tests/integration/galerias-real.spec.ts:75:1 › Galería real de mueble: borrador restaurado y vinculación integral 

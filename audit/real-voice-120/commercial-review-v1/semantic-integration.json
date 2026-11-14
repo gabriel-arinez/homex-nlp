@@ -1,0 +1,38 @@
+{
+  "schema": "commercial-semantic-integration/1",
+  "scope": "frozen original transcripts through actual backend and editable frontend; not new ASR or acoustic truth",
+  "manual_fill_original_cases": false,
+  "confirmation_original_cases": false,
+  "before": {
+    "MP-0007": "component axes flattened, empty review components, explicit unit price blank",
+    "MP-0048": "explicit unit price blank"
+  },
+  "after": {
+    "MP-0007": {
+      "unit_price": "5200.00",
+      "component_width_cm": "150",
+      "component_height_cm": "65",
+      "main_height_cm": "80",
+      "main_width_unresolved": true,
+      "unknown_depth_units": "PENDING_NOT_INFERRED"
+    },
+    "MP-0048": {
+      "unit_price": "2800.00",
+      "unknown_units": "PENDING_NOT_INFERRED"
+    }
+  },
+  "synthetic_controlled_confirmation": {
+    "quantity": 2,
+    "unit_price": "1900.00",
+    "line_total": "3800.00",
+    "main_width_cm": "160",
+    "component_width_cm": "110",
+    "component_height_cm": "65",
+    "component_material": "MDF",
+    "unknown_depth45": "NOT_INVENTED",
+    "quote_state": "BORRADOR"
+  },
+  "authority_comparisons_passed": 6,
+  "authority_scope": "stock, approved prices, orders, movements and existing states unchanged; private originals stayed unconfirmed",
+  "unresolved": "Questionable material associations remain human-review pending; projection does not validate NLP truth."
+}

@@ -1,0 +1,234 @@
+{
+  "id": "MP-0063",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0063.aac",
+    "original_sha256": "7d4bde028961e2259c1863aa11a90be353fc07e0521d4abc959334ca70562415",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0063.wav",
+    "wav_sha256": "84c1c67ba76d9b0307e84423929308b292aae006be7f85ce9761db2e23c67e1d"
+  },
+  "reference": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano de cuarenta milímetros en el cuerpo. Asiento con sistema Pocket. Dos módulos laterales y dos centrales, seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros, con topes en las patas. Colores a elección. Precio por juego de doce mil bolivianos.",
+  "source": {
+    "id": "MP-0063",
+    "categoria": "OTRO",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      63
+    ],
+    "titulo_fuente": "SILLONES SALA DE ESPERA MODULAR",
+    "grupo_familia": "SILLONES_MODULARES",
+    "guion": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano de cuarenta milímetros en el cuerpo. Asiento con sistema Pocket. Dos módulos laterales y dos centrales, seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros, con topes en las patas. Colores a elección. Precio por juego de doce mil bolivianos.",
+    "audio_esperado": "MP-0063.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0063.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "a97f19033b28ecd05acef384e83cc7a4a90787695c133d970d9f454543de9f12",
+    "audio_compatible_asr": "MP-0063.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0063.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 43.4213125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano, de 40 milímetros en el cuerpo, asiento con sistema pocket, dos módulos laterales y dos centrales, seis almohadones de 45 por 45 centímetros con topes en las patas, colores a elección, precio por juego de 12 mil bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "9.000000",
+        "text": " Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto,"
+      },
+      {
+        "start_seconds": "9.000000",
+        "end_seconds": "19.360000",
+        "text": " patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano, de 40"
+      },
+      {
+        "start_seconds": "19.360000",
+        "end_seconds": "28.200000",
+        "text": " milímetros en el cuerpo, asiento con sistema pocket, dos módulos laterales y dos centrales,"
+      },
+      {
+        "start_seconds": "28.200000",
+        "end_seconds": "38.280000",
+        "text": " seis almohadones de 45 por 45 centímetros con topes en las patas, colores a elección,"
+      },
+      {
+        "start_seconds": "38.280000",
+        "end_seconds": "42.200000",
+        "text": " precio por juego de 12 mil bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 5210
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 57,
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano, de 40 milímetros en el cuerpo, asiento con sistema pocket, dos módulos laterales y dos centrales, seis almohadones de 45 por 45 centímetros con topes en las patas, colores a elección, precio por juego de 12 mil bolivianos."
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-3-8",
+        "label": "unidad_stock",
+        "start": 3,
+        "end": 8,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-362-367",
+        "label": "unidad_stock",
+        "start": 362,
+        "end": 367,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-50",
+        "label": "nombre",
+        "start": 0,
+        "end": 50,
+        "text": "Un juego de sillones modulares para sala de espera",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-389",
+        "label": "observaciones",
+        "start": 0,
+        "end": 389,
+        "text": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano, de 40 milímetros en el cuerpo, asiento con sistema pocket, dos módulos laterales y dos centrales, seis almohadones de 45 por 45 centímetros con topes en las patas, colores a elección, precio por juego de 12 mil bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano, de 40 milímetros en el cuerpo, asiento con sistema pocket, dos módulos laterales y dos centrales, seis almohadones de 45 por 45 centímetros con topes en las patas, colores a elección, precio por juego de 12 mil bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Complete manualmente: precio_lista"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 6.262994000280742,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 57,
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano de cuarenta milímetros en el cuerpo. Asiento con sistema Pocket. Dos módulos laterales y dos centrales, seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros, con topes en las patas. Colores a elección. Precio por juego de doce mil bolivianos."
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-3-8",
+        "label": "unidad_stock",
+        "start": 3,
+        "end": 8,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-396-401",
+        "label": "unidad_stock",
+        "start": 396,
+        "end": 401,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-50",
+        "label": "nombre",
+        "start": 0,
+        "end": 50,
+        "text": "Un juego de sillones modulares para sala de espera",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-425",
+        "label": "observaciones",
+        "start": 0,
+        "end": 425,
+        "text": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano de cuarenta milímetros en el cuerpo. Asiento con sistema Pocket. Dos módulos laterales y dos centrales, seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros, con topes en las patas. Colores a elección. Precio por juego de doce mil bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz repelente a líquidos y espuma de poliuretano de cuarenta milímetros en el cuerpo. Asiento con sistema Pocket. Dos módulos laterales y dos centrales, seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros, con topes en las patas. Colores a elección. Precio por juego de doce mil bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Complete manualmente: precio_lista"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 6.615035999857355,
+  "metrics": {
+    "wer": {
+      "errors": 8,
+      "substitutions": 4,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 69,
+      "rate": 0.11594202898550725
+    },
+    "cer": {
+      "errors": 44,
+      "substitutions": 8,
+      "deletions": 36,
+      "insertions": 0,
+      "reference_length": 415,
+      "rate": 0.10602409638554217
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.321611257000768,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0063.json",
+    "original_case_sha256": "ddf233d244e90138c44b52683fdc4f2da5540c054b6924aed7f58785d8de6d4a",
+    "original_category": "OTRO",
+    "effective_category": "OTRO",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

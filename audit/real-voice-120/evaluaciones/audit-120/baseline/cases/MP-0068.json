@@ -1,0 +1,230 @@
+{
+  "id": "MP-0068",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0068.aac",
+    "original_sha256": "cd8dfc537b36a87c0abce7cfd69a82bc4c0a3aca535f2596af7bb21b2d31a9bb",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0068.wav",
+    "wav_sha256": "14b06082555f67af0009a4c6fc5b194c187e8b2731b6b746ec3453d14d8f6546"
+  },
+  "reference": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos.",
+  "source": {
+    "id": "MP-0068",
+    "categoria": "OTRO",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      68,
+      69
+    ],
+    "titulo_fuente": "SILLONES SALA DE ESPERA MODULAR",
+    "grupo_familia": "SILLONES_MODULARES",
+    "guion": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos.",
+    "audio_esperado": "MP-0068.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0068.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "BLOQUE_FRAGMENTADO: bloques 68 y 69 corresponden a un único renglón; se unen para un audio.",
+      "FUENTE_AMBIGUA: varillas «0.05mm» improbables; se omite diámetro."
+    ],
+    "sha256_fuente": "aebadea7de998949bdc3f8877b70253c8ddb8e89368d369a1d323024e5eed0b0",
+    "audio_compatible_asr": "MP-0068.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0068.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 48.413625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "8.100000",
+        "text": " Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto,"
+      },
+      {
+        "start_seconds": "8.100000",
+        "end_seconds": "16.660000",
+        "text": " patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano"
+      },
+      {
+        "start_seconds": "16.660000",
+        "end_seconds": "26.500000",
+        "text": " de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y"
+      },
+      {
+        "start_seconds": "26.500000",
+        "end_seconds": "37.620000",
+        "text": " derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y"
+      },
+      {
+        "start_seconds": "37.620000",
+        "end_seconds": "47.100000",
+        "text": " pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 5017
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 57,
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos."
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-3-8",
+        "label": "unidad_stock",
+        "start": 3,
+        "end": 8,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-416-421",
+        "label": "unidad_stock",
+        "start": 416,
+        "end": 421,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-50",
+        "label": "nombre",
+        "start": 0,
+        "end": 50,
+        "text": "Un juego de sillones modulares para sala de espera",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-443",
+        "label": "observaciones",
+        "start": 0,
+        "end": 443,
+        "text": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente alígidos, espuma de poliorretano de 40 milímetros en el cuerpo y sistema pocket en el asiento, dos módulos laterales izquierdo y derecho, dos módulos centrales y seis almohadones de 45 por 45 centímetros, color de tapiz y pintura de patas a elección, topes de goma, precio por juego de 12 mil bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Complete manualmente: precio_lista"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 5.373129999497905,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 57,
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos."
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-3-8",
+        "label": "unidad_stock",
+        "start": 3,
+        "end": 8,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-453-458",
+        "label": "unidad_stock",
+        "start": 453,
+        "end": 458,
+        "text": "juego",
+        "source": "RULE",
+        "normalized_value": 57,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-50",
+        "label": "nombre",
+        "start": 0,
+        "end": 50,
+        "text": "Un juego de sillones modulares para sala de espera",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-482",
+        "label": "observaciones",
+        "start": 0,
+        "end": 482,
+        "text": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Un juego de sillones modulares para sala de espera. Estructura de madera de eucalipto, patas de varillas de acero, tapiz de tela repelente a líquidos, espuma de poliuretano de cuarenta milímetros en el cuerpo y sistema Pocket en el asiento. Dos módulos laterales, izquierdo y derecho, dos módulos centrales, y seis almohadones de cuarenta y cinco por cuarenta y cinco centímetros. Color de tapiz y pintura de patas a elección, topes de goma. Precio por juego de doce mil bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Complete manualmente: precio_lista"
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 5.468992996611632,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 6,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 80,
+      "rate": 0.1375
+    },
+    "cer": {
+      "errors": 49,
+      "substitutions": 10,
+      "deletions": 38,
+      "insertions": 1,
+      "reference_length": 470,
+      "rate": 0.10425531914893617
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.155123031996482,
+  "process_peak_rss_kib": 1282048
+}

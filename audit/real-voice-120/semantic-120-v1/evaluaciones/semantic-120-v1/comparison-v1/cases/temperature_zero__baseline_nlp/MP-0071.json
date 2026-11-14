@@ -1,0 +1,314 @@
+{
+  "id": "MP-0071",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0002",
+  "development_only": true,
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "a7c211723f547d127589419d916462f588d3509153eb882768c7f4a3aaaf5d5c",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0071.aac",
+    "original_sha256": "ba85c0607bfe1eef98db7e583c5beef1800705ef1bd65a50bb66710223aaf1b4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0071.wav",
+    "wav_sha256": "72cc00577b08ba787f1eaed7020388608ea2c3836227b1a84ce4ae7fbc3d3f52"
+  },
+  "text_original": "4 credencias de 85 centímetros de ancho, 40 de profundidad y 80 de alto, estructura de melamina de 18 milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1.200 bolivianos.",
+  "script_text": "Cuatro credenzas de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Estructura de melamina de dieciocho milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio unitario de mil doscientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0071",
+    "status": "NO_PROPOSAL",
+    "text_original": "4 credencias de 85 centímetros de ancho, 40 de profundidad y 80 de alto, estructura de melamina de 18 milímetros, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1.200 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "predicted_fields": [],
+  "score": {
+    "numerator": 0,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "4",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "melamina",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "chapa de seguridad",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "jaladores metalicos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "850",
+          "ancho"
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "18",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1200",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "dimensions": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "quantity": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      }
+    },
+    "false_positive_candidates": []
+  },
+  "no_proposal": true,
+  "asr_metrics": {
+    "original": {
+      "errors": 10,
+      "substitutions": 7,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.2127659574468085
+    },
+    "strict_normalized": {
+      "errors": 3,
+      "substitutions": 3,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 44,
+      "rate": 0.06818181818181818
+    }
+  },
+  "normalization": {
+    "reference_text": "4 credenzas de 85 cm de ancho, cuarenta de profundidad y ochenta de alto. Estructura de melamina de 18 mm, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio unitario de 1200 BOB.",
+    "asr_text": "4 credencias de 85 cm de ancho, 40 de profundidad y 80 de alto, estructura de melamina de 18 mm, puertas abatibles, una bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color a elección, precio unitario de 1200 BOB.",
+    "reference_transforms": [
+      {
+        "start": 0,
+        "end": 6,
+        "raw": "Cuatro",
+        "replacement": "4",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 20,
+        "end": 35,
+        "raw": "ochenta y cinco",
+        "replacement": "85",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 36,
+        "end": 47,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 127,
+        "end": 136,
+        "raw": "dieciocho",
+        "replacement": "18",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 137,
+        "end": 147,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 302,
+        "end": 316,
+        "raw": "mil doscientos",
+        "replacement": "1200",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 317,
+        "end": 327,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 19,
+        "end": 30,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 102,
+        "end": 112,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 267,
+        "end": 272,
+        "raw": "1.200",
+        "replacement": "1200",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 273,
+        "end": 283,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

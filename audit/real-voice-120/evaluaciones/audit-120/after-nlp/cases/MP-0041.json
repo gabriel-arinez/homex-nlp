@@ -1,0 +1,106 @@
+{
+  "id": "MP-0041",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0041.aac",
+    "original_sha256": "0f27d70ebb2a0989ddcf419a2ed3468a5eacd8b74273b5dbc718b63601b2f2f2",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0041.wav",
+    "wav_sha256": "82c40c9f0a3d6ac2bb7694e4544ab52d0b88ff40c92f618c652e97a3ef41ba42"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0041-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con rieles telescópicos y barra colgadora de acero inoxidable. Según diseño. Precio de siete mil doscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.09072099783224985,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0041-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con reales telescopicos y barra colgadora de acero inoxidable. Según diseño, precio de siete mil doscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.07465200178558007,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "rieles",
+          "telescópicos"
+        ],
+        "asr": [
+          "reales",
+          "telescopicos"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0041",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "7200",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

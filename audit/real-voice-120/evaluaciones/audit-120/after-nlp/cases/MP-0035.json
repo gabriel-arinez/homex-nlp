@@ -1,0 +1,153 @@
+{
+  "id": "MP-0035",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0035.aac",
+    "original_sha256": "49a58ca2a8f1efb73f033f3d162d712b07751ba6da5424a1fb2392ad4fe8fa5c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0035.wav",
+    "wav_sha256": "4c1c54a1e6212fd3081b164a383bdd43c9c67ad65fe1358ee99aaf9dd352aa69"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0035-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario medio de dos puertas, de ochenta centímetros de ancho, cincuenta de profundidad y un metro de alto. Tapa de MDP de veinticinco milímetros, puertas y laterales de melamina de dieciocho, tapacantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo. Color a elección. Precio de dos mil quinientos cincuenta bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.10669499897630885,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0035-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un armario medio de dos puertas de 80 centímetros de ancho, 50 de profundidad y un metro de alto. Tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18. Tapa cantos PVC, dos repisas internas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio de 2.550 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.08673199772601947,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta"
+        ],
+        "asr": [
+          "50"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco"
+        ],
+        "asr": [
+          "25"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho",
+          "tapacantos"
+        ],
+        "asr": [
+          "18",
+          "tapa",
+          "cantos"
+        ]
+      },
+      {
+        "operation": "delete",
+        "reference": [
+          "a"
+        ],
+        "asr": []
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos",
+          "mil",
+          "quinientos",
+          "cincuenta"
+        ],
+        "asr": [
+          "2.550"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0035",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "2550",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

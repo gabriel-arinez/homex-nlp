@@ -1,0 +1,13 @@
+Backend base: 54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f
+Candidate tracked diff paths: .github/workflows/ci.yml; docs/catalogo-voz.md
+Workflow default ref: 4e813ff0cdd8e0a11b847c1d8ee3aff1a7c1bdc2
+Optional integration_peer_ref input remains intact.
+Frontend local HEAD and local branch fix/real-voice-120-f09 both resolve to 4e813ff0cdd8e0a11b847c1d8ee3aff1a7c1bdc2.
+No remote query was run.
+Base/candidate NLP wheel SHA-256: c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80 (identical).
+git diff --check: PASS
+OpenAPI verifier command: env -u PYTHONPATH python3.11 scripts/verificar_contrato_frontend_f09.py <workspace>
+OpenAPI verifier exit 1: ModuleNotFoundError: No module named 'yaml'. No install attempted.
+Requested-environment verifier recheck: env -u PYTHONPATH <scratch> <workspace> <workspace>
+Exit 0: f09-contract-consumer-ok backend_ref=14164195a192cd1331081e48424d2790909f4600
+The prior bare-python3.11 failure was due to using the wrong interpreter; it is retained as an attempt log, not a result about the requested environment.

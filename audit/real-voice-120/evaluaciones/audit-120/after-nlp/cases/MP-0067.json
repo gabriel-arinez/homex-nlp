@@ -1,0 +1,132 @@
+{
+  "id": "MP-0067",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0067.aac",
+    "original_sha256": "a13e478244d574bc45b1f01df0ac5f0d573f966e7e83a7cc6574332b437d085a",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0067.wav",
+    "wav_sha256": "fb3f835a99fe8d894e827625542cd2285cc971e98e44d859c724b9ebb653e97d"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0067-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos poltronas fijas, de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poliuretano de cuarenta milímetros. Cuatro patas con topes de goma, color de patas y tapiz a elección. Precio unitario de cinco mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.10180700337514281,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0067-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.08507300663040951,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "poliuretano"
+        ],
+        "asr": [
+          "poleorretano"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuarenta"
+        ],
+        "asr": [
+          "40"
+        ]
+      },
+      {
+        "operation": "delete",
+        "reference": [
+          "a"
+        ],
+        "asr": []
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cinco",
+          "mil",
+          "quinientos"
+        ],
+        "asr": [
+          "5.500"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0067",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "5500",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

@@ -1,0 +1,233 @@
+{
+  "id": "SIL-0020",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0020.aac",
+    "original_sha256": "410315a153d90c69628b23f5646ccd8569e1b9249deeeb8b16b4d6694b3fbcf7",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0020.wav",
+    "wav_sha256": "6d6643da8a7b60f2f1808776fac36450337f0a19db2371c8f5cc95a0cb5dc160"
+  },
+  "reference": "Sillón ejecutivo, modelo ene efe guion ochocientos diez. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas. Unidad pieza. Precio de lista de mil cuatrocientos bolivianos.",
+  "source": {
+    "id": "SIL-0020",
+    "categoria": "OTRO",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      8
+    ],
+    "titulo_fuente": "EJECUTIVA COD : NF-810",
+    "grupo_familia": "SILLA_NF810",
+    "guion": "Sillón ejecutivo, modelo ene efe guion ochocientos diez. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas. Unidad pieza. Precio de lista de mil cuatrocientos bolivianos.",
+    "audio_esperado": "SIL-0020.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0020.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "DIFERENCIA_ENTRE_FUENTES: NF-810 en inventario Bs 1400 frente a proforma Bs 1500."
+    ],
+    "sha256_fuente": "4e6809ceeca9a2b6a20f3f4b3c05f4f290bc2ce22a3851c88df0cf4c6a1a1609",
+    "audio_compatible_asr": "SIL-0020.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0020.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 39.61325,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Sillon Ejecutivo, modelo NF Guión 810, 5 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico, negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas, unidad pieza, precio de lista de 1400 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "15.040000",
+        "text": " Sillon Ejecutivo, modelo NF Guión 810, 5 patas con ruedas, estructura interna metálica,"
+      },
+      {
+        "start_seconds": "15.040000",
+        "end_seconds": "24.840000",
+        "text": " respaldo y asiento acolchados de esponja, tapiz de cuero ecológico, negro de alto tráfico,"
+      },
+      {
+        "start_seconds": "24.840000",
+        "end_seconds": "33.640000",
+        "text": " ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas, unidad pieza,"
+      },
+      {
+        "start_seconds": "33.640000",
+        "end_seconds": "37.760000",
+        "text": " precio de lista de 1400 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4253
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Ejecutivo",
+      "observaciones": "Sillon Ejecutivo, modelo NF Guión 810, 5 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico, negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas, unidad pieza, precio de lista de 1400 bolivianos.",
+      "precio_lista": "1400.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-256-261",
+        "label": "unidad_stock",
+        "start": 256,
+        "end": 261,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillon Ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-298",
+        "label": "observaciones",
+        "start": 0,
+        "end": 298,
+        "text": "Sillon Ejecutivo, modelo NF Guión 810, 5 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico, negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas, unidad pieza, precio de lista de 1400 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo, modelo NF Guión 810, 5 patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico, negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas, unidad pieza, precio de lista de 1400 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-282-286",
+        "label": "precio_lista",
+        "start": 282,
+        "end": 286,
+        "text": "1400",
+        "source": "RULE",
+        "normalized_value": "1400.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 4.0233590043499134,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillón ejecutivo",
+      "observaciones": "Sillón ejecutivo, modelo ene efe guion ochocientos diez. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas. Unidad pieza. Precio de lista de mil cuatrocientos bolivianos.",
+      "precio_lista": "1400.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-277-282",
+        "label": "unidad_stock",
+        "start": 277,
+        "end": 282,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillón ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillón ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-332",
+        "label": "observaciones",
+        "start": 0,
+        "end": 332,
+        "text": "Sillón ejecutivo, modelo ene efe guion ochocientos diez. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas. Unidad pieza. Precio de lista de mil cuatrocientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillón ejecutivo, modelo ene efe guion ochocientos diez. Cinco patas con ruedas, estructura interna metálica, respaldo y asiento acolchados de esponja, tapiz de cuero ecológico negro de alto tráfico, ajuste hidráulico de altura, apoyabrazos acolchados y patas cromadas. Unidad pieza. Precio de lista de mil cuatrocientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-303-320",
+        "label": "precio_lista",
+        "start": 303,
+        "end": 320,
+        "text": "mil cuatrocientos",
+        "source": "RULE",
+        "normalized_value": "1400.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 3.7607199992635287,
+  "metrics": {
+    "wer": {
+      "errors": 9,
+      "substitutions": 6,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.19148936170212766
+    },
+    "cer": {
+      "errors": 45,
+      "substitutions": 10,
+      "deletions": 35,
+      "insertions": 0,
+      "reference_length": 322,
+      "rate": 0.13975155279503104
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.324269883996749,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0020.json",
+    "original_case_sha256": "61230f152a220c6b587e7dbbdc5b8071ba2cefb69f8496e120a328ae061ec49a",
+    "original_category": "OTRO",
+    "effective_category": "OTRO",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "status": "passed",
+  "bundle": {
+    "manifest_records": 1287,
+    "statuses": {
+      "IDENTICAL": 1280,
+      "OMITTED_GENERATED_CACHE": 1,
+      "SANITIZED_COPY": 6
+    },
+    "source_export_digest_mismatches": [],
+    "missing_sources": 0,
+    "missing_exports": [],
+    "required_evaluation_and_log_files": 1277,
+    "missing_required_evaluation_or_log_files": [],
+    "expected_omitted_generated_cache": "evaluaciones/audit-120/__pycache__/export_publication.cpython-312.pyc"
+  },
+  "privacy": {
+    "raw_secret_candidates_count": 48,
+    "raw_secret_key_names": [
+      "password"
+    ],
+    "raw_sensitive_value_field_counts": {
+      "password": 14,
+      "authorization": 262
+    },
+    "raw_password_value_fields": {
+      "value": 16,
+      "playwrightvalue": 16
+    },
+    "raw_token_patterns": {
+      "jwt": 290,
+      "github": 0,
+      "slack": 0,
+      "aws": 0
+    },
+    "unredacted_sensitive_export_fields": [],
+    "unredacted_secret_assignments": [],
+    "literal_secret_assignments_in_python": [],
+    "raw_exact_secret_values_found_in_export": [],
+    "password_dom_value_leaks": [],
+    "export_token_patterns": {
+      "jwt": 0,
+      "github": 0,
+      "slack": 0,
+      "aws": 0
+    },
+    "trace_redaction_manifest": [
+      {
+        "path": "evaluaciones/audit-120/live-e2e/trace-custom.zip",
+        "entry_count": 7,
+        "statuses": {
+          "AUTH_REDACTED_OR_AUDIO_REFERENCE_REMOVED": 7
+        },
+        "entry_names": [
+          "trace.trace",
+          "trace.network",
+          "resources/158d99dddf35490136377c8642486bcb715dce0c.json",
+          "resources/a56a3fce33d28fbd8cbd19e10f52557f42f8d682.json",
+          "resources/e634492262311d594e4356e2a7c190c61fe90a2f.json",
+          "resources/226efc935a5ecac6961d939ff7626f0f31e32b6f.json",
+          "resources/04afa97bdf397ccbb799622d0230d0e58e92730a.json"
+        ]
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e/trace.zip",
+        "entry_count": 10,
+        "statuses": {
+          "AUTH_REDACTED_OR_AUDIO_REFERENCE_REMOVED": 10
+        },
+        "entry_names": [
+          "trace.trace",
+          "trace.network",
+          "resources/158d99dddf35490136377c8642486bcb715dce0c.json",
+          "resources/7449fbec20892183a7ef6de958effc438dc461d4.json",
+          "resources/2689be005a2d738ab30cdc7566f3561af36eabed.json",
+          "resources/1f805991d7a65875cd52e2ea57b312d7532d619c.json",
+          "resources/a9904b952d624addd7c66ba12b7978e3c6e8ca3c.json",
+          "resources/302b36ffc32fc6c4deb6a8bdb27634e15e1eeafe.json",
+          "resources/a26d367a460e0262a7d82dbeec70f30aa6849df7.json",
+          "resources/d6f7dac7872443d61899809a2199faa5a550b523.json"
+        ]
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e-final/trace.zip",
+        "entry_count": 10,
+        "statuses": {
+          "AUTH_REDACTED_OR_AUDIO_REFERENCE_REMOVED": 10
+        },
+        "entry_names": [
+          "trace.trace",
+          "trace.network",
+          "resources/7f8a5259db73ffedeb993d63b25158862ac31eff.json",
+          "resources/a5627d0f53648118b09ae00cfd5502cbdf7e7e44.json",
+          "resources/90fc1eff25a974fd2e1b7170da6c8871ec294dba.json",
+          "resources/92231c22c8cb5699b4f8995d1c119fb11d487010.json",
+          "resources/998816a56abd2772127dc58b7a1c05541325d306.json",
+          "resources/8627fd624e949272bae11afd6685f7a6c402bc2a.json",
+          "resources/f1751e25fdc070453c21ddc2c9654bf23f93fdbe.json",
+          "resources/cbe40cc525f2119d086ad749af82b2402229aab1.json"
+        ]
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e-poltronas/trace.zip",
+        "entry_count": 9,
+        "statuses": {
+          "AUTH_REDACTED_OR_AUDIO_REFERENCE_REMOVED": 9
+        },
+        "entry_names": [
+          "trace.trace",
+          "trace.network",
+          "resources/1aa7479248ab877008ef23f4b2d0709b4182dbad.json",
+          "resources/42f999a0707514a382028e221b36da41c55a6966.json",
+          "resources/bdbc160708b37c7d4640ed6e981154aa5e812d6f.json",
+          "resources/52016c4a13c27d7eccc5717a521640068aff3810.json",
+          "resources/feecb678ac539e97cdc600a30a4db916b046a413.json",
+          "resources/aa2e92c0b76e55dfe5d7fe91dfdcbd8044ac8b9b.json",
+          "resources/c2ba5e621feba0f083e4d99be9637b3d604e4fd9.json"
+        ]
+      }
+    ],
+    "forbidden_export_artifact_paths": []
+  },
+  "media": {
+    "explicit_audio_extension_count": 0,
+    "exact_source_audio_hash_matches": [],
+    "audio_magic_hits_in_binary_assets": [],
+    "base64_decoded_audio_hits": [],
+    "audio_mime_reference_paths": [
+      "evaluaciones/audit-120/live-e2e-final/trace.zip::trace.network",
+      "evaluaciones/audit-120/live-e2e-poltronas/trace.zip::trace.network",
+      "evaluaciones/audit-120/live-e2e/trace-custom.zip::trace.network",
+      "evaluaciones/audit-120/live-e2e/trace.zip::trace.network"
+    ],
+    "screenshots_visual_check": "four login-screen password states inspected; values masked, test account marker is synthetic"
+  },
+  "fidelity": {
+    "baseline_source_hashes": 24,
+    "baseline_source_hash_mismatches_vs_git_c94e7a8": [],
+    "after_v5_source_hashes": 24,
+    "after_v5_hash_mismatches_vs_current_tree": [],
+    "baseline_case_count": 120,
+    "latest_after_v5_case_count": 120,
+    "baseline_raw_asr_differences": [],
+    "baseline_routing_case_export_byte_differences": [],
+    "after_v5_case_export_byte_differences": [],
+    "critical_artifact_differences": [],
+    "corpus_metadata_differences": [],
+    "current_category_counts": {
+      "muebles_pedido": 73,
+      "OTRO": 13,
+      "sillas": 27,
+      "pisos": 7
+    },
+    "current_audio_ledger_hash_count": 240,
+    "trace_zip_reports": [
+      {
+        "path": "evaluaciones/audit-120/live-e2e/trace-custom.zip",
+        "raw_members": 422,
+        "export_members": 423,
+        "added_member": [
+          "PUBLICATION-REDACTIONS.json"
+        ],
+        "missing_members": [],
+        "image_count": 372,
+        "image_bytes_differ": 0,
+        "jsonl": {
+          "trace.trace": {
+            "raw_jsonl_rows": 617,
+            "export_jsonl_rows": 617,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          },
+          "trace.network": {
+            "raw_jsonl_rows": 160,
+            "export_jsonl_rows": 160,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          }
+        },
+        "export_password_values_nonredacted": 0,
+        "export_password_nonempty_observations": 4
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e/trace.zip",
+        "raw_members": 1193,
+        "export_members": 1194,
+        "added_member": [
+          "PUBLICATION-REDACTIONS.json"
+        ],
+        "missing_members": [],
+        "image_count": 1131,
+        "image_bytes_differ": 0,
+        "jsonl": {
+          "trace.trace": {
+            "raw_jsonl_rows": 1551,
+            "export_jsonl_rows": 1551,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          },
+          "trace.network": {
+            "raw_jsonl_rows": 339,
+            "export_jsonl_rows": 339,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          }
+        },
+        "export_password_values_nonredacted": 0,
+        "export_password_nonempty_observations": 4
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e-final/trace.zip",
+        "raw_members": 1391,
+        "export_members": 1392,
+        "added_member": [
+          "PUBLICATION-REDACTIONS.json"
+        ],
+        "missing_members": [],
+        "image_count": 1325,
+        "image_bytes_differ": 0,
+        "jsonl": {
+          "trace.trace": {
+            "raw_jsonl_rows": 1894,
+            "export_jsonl_rows": 1894,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          },
+          "trace.network": {
+            "raw_jsonl_rows": 350,
+            "export_jsonl_rows": 350,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          }
+        },
+        "export_password_values_nonredacted": 0,
+        "export_password_nonempty_observations": 4
+      },
+      {
+        "path": "evaluaciones/audit-120/live-e2e-poltronas/trace.zip",
+        "raw_members": 830,
+        "export_members": 831,
+        "added_member": [
+          "PUBLICATION-REDACTIONS.json"
+        ],
+        "missing_members": [],
+        "image_count": 778,
+        "image_bytes_differ": 0,
+        "jsonl": {
+          "trace.trace": {
+            "raw_jsonl_rows": 1146,
+            "export_jsonl_rows": 1146,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          },
+          "trace.network": {
+            "raw_jsonl_rows": 257,
+            "export_jsonl_rows": 257,
+            "raw_parse_errors": 0,
+            "export_parse_errors": 0
+          }
+        },
+        "export_password_values_nonredacted": 0,
+        "export_password_nonempty_observations": 4
+      }
+    ],
+    "trace_structure_problems": [],
+    "screenshot_byte_differences": [],
+    "trace_event_count_problems": []
+  },
+  "scope_notes": {
+    "excluded_publication_process_log": "logs/audit-120-publication-export.log is a post-export packaging log, not an audit result; verifier log is also created after export and intentionally not present in frozen bundle. Parent separately copies sanitized verification summary.",
+    "not_run": [
+      "No network/auth access",
+      "No repository/raw-data writes",
+      "No full product semantic rerun",
+      "No Git mutation"
+    ]
+  }
+}

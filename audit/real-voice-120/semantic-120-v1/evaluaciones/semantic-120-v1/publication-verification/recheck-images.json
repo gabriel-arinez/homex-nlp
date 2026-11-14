@@ -1,0 +1,109 @@
+{
+  "schema": "publication-image-and-path-guard-recheck/1",
+  "scope": "Partial verification only: refreshed synthetic zip-path guard checks and visual review of every current PNG source eligible for exact-byte copy. Full publication manifest/output audit remains pending.",
+  "risk": "item 2 (credential/security guard); public file transfer is irreversible after publication.",
+  "guard": {
+    "exporter": "reproduce/export-publication.py",
+    "synthetic_export_regression": "PASS: unsafe traversal zip rejected before output creation; synthetic credential field and inline audio removed",
+    "additional_forms": "safe_member rejected absolute, parent traversal, backslash traversal, drive-prefixed and NUL-containing paths (5/5)",
+    "actual_archive_member_paths": "Preflight recorded both extant raw trace archives as having zero unsafe paths; not rerun in this image/path-guard-only pass."
+  },
+  "visual_review": {
+    "images_reviewed": 18,
+    "result": "No obvious customer identity, populated credential, auth token, or productive database content observed. Screens show commercial furniture/product workflows, test values and blank login fields; commercial specs/prices are within the authorized scope. These are direct source PNGs and the exporter preserves their bytes.",
+    "limitations": "Visual inspection is not a complete semantic/privacy proof for tiny text; final byte audit and parent review remain required. No actual credential/customer/productive data values included here."
+  },
+  "source_pngs": [
+    {
+      "path": "integration-v1/MP-0001.png",
+      "bytes": 119073,
+      "sha256": "f581924b603969b75865bf43f2176e4abe1ac1c3ffe7bea5f49133b57fd04863"
+    },
+    {
+      "path": "integration-v1/MP-0005.png",
+      "bytes": 193044,
+      "sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924"
+    },
+    {
+      "path": "integration-v1/MP-0036.png",
+      "bytes": 148741,
+      "sha256": "f05f958a5a3431ed498bd093de7820d432ab91afd7ed78b88cc3fd7db1daa0b1"
+    },
+    {
+      "path": "integration-v1/MP-0045.png",
+      "bytes": 148738,
+      "sha256": "924f8d98f61a309dc44fc2dcbebfa344d253a2aad7da4cd769d389eb4bd7f53b"
+    },
+    {
+      "path": "integration-v1/MP-0067.png",
+      "bytes": 191908,
+      "sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1"
+    },
+    {
+      "path": "integration-v1/PIS-0001.png",
+      "bytes": 241959,
+      "sha256": "10ebee2e9c5023106d2b8a4d7cc7557f8d00523504b01751c8452f532332524f"
+    },
+    {
+      "path": "integration-v1/PIS-0006.png",
+      "bytes": 244251,
+      "sha256": "0bec647d04effd94b232393b5679133aa6fe8aa03a036e62f14ce3d748fcacb2"
+    },
+    {
+      "path": "integration-v1/SIL-0001.png",
+      "bytes": 280841,
+      "sha256": "f0b8a649ebfcf2917ac59a0771d0923a7cfd47e565a52eb9c83f322afdefe06b"
+    },
+    {
+      "path": "integration-v2/MP-0001.png",
+      "bytes": 18000,
+      "sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da"
+    },
+    {
+      "path": "integration-v2/SIL-0001.png",
+      "bytes": 18000,
+      "sha256": "2a29ce63abbca048773e993572b8b936efb24163c5a67ebbaccc3b16ee1775da"
+    },
+    {
+      "path": "integration-v3/MP-0001.png",
+      "bytes": 133605,
+      "sha256": "771c60e36c86e53a49aced565689e4e7031a7da39e3e9b128ff5b77bd02befc0"
+    },
+    {
+      "path": "integration-v3/MP-0005.png",
+      "bytes": 193044,
+      "sha256": "e6e1652f35bc888c8adbb81ef794a6a7c68242f7f27c5dd872b6df6bce037924"
+    },
+    {
+      "path": "integration-v3/MP-0036.png",
+      "bytes": 115269,
+      "sha256": "eb06813515f584d2612be119f099ae11f9c69ca293b933c88c39e279e29c7245"
+    },
+    {
+      "path": "integration-v3/MP-0045.png",
+      "bytes": 104044,
+      "sha256": "ee19d77f53d3f1076853628ff90d2d4d0280b54ad7ef026030d06492cb3dffaa"
+    },
+    {
+      "path": "integration-v3/MP-0067.png",
+      "bytes": 191908,
+      "sha256": "5e5286c7e640caf67944329f936a3212aa37051f982cf793cf893fd8b70d39d1"
+    },
+    {
+      "path": "integration-v3/PIS-0001.png",
+      "bytes": 230105,
+      "sha256": "74362d771af618c2be45ac904eb2e73157bad999733d1e0deb88c7f4f1fe0251"
+    },
+    {
+      "path": "integration-v3/PIS-0006.png",
+      "bytes": 231729,
+      "sha256": "6fa48b5f42f635c16fb23e009d67c004247857375893cbd8ff1c530ef81d96f1"
+    },
+    {
+      "path": "integration-v3/SIL-0001.png",
+      "bytes": 283532,
+      "sha256": "74bb743f997fae7ce845747db42a81ed54ab271dc518bed1c594b5dc29cbccf4"
+    }
+  ],
+  "nonapproval": "This recheck does not approve the pending publication. Actual exporter is still writing; final manifest, all output bytes, event/log redactions, filenames, symlinks, size limits, and omitted traces remain unaudited."
+}

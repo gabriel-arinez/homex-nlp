@@ -1,0 +1,81 @@
+{
+  "status": "VERIFIED_ENGINEERING_IMPROVEMENT_NOT_COMPLETE_ACOUSTIC_OR_COMMERCIAL_PRECISION_VALIDATION",
+  "cases": 120,
+  "categories": {
+    "MUEBLE_MEDIDA": 73,
+    "OTRO": 13,
+    "SILLA": 27,
+    "PISO_FLOTANTE": 7
+  },
+  "baseline_commit": "b851b5aa15a04e5ab1046271f124cc05c3135da8",
+  "source_release_commit": "02d4299",
+  "nlp_delivery_branch": "feat/real-voice-120-results",
+  "backend_local_branch": "feat/real-voice-120-semantic",
+  "backend_local_commit": "7040564",
+  "backend_publication": "PENDING_EXPLICIT_DESTINATION_AND_CREDENTIAL_AUTHORIZATION",
+  "frontend_commit": "feece0a99689c9a73c601f249ea1af3bf11e1b6e",
+  "wheel": {
+    "package": "homex-nlp",
+    "version": "0.1.22",
+    "wheel": "homex_nlp-0.1.22-py3-none-any.whl",
+    "wheel_sha256": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+    "previous_version": "0.1.21",
+    "asr": "Whisper Small CPU/int8 unchanged in production; five controlled experiments retained separately",
+    "scope": "Conservative real-voice commercial semantics; development corpus, acoustic verification pending"
+  },
+  "original_asr_supported_scalar_fields": {
+    "before": 438,
+    "after": 487,
+    "denominator": 1000
+  },
+  "recovery_cases": 18,
+  "regression_cases": 0,
+  "no_proposal": {
+    "before": 23,
+    "after": 17,
+    "ids": [
+      "MP-0003",
+      "MP-0008",
+      "MP-0012",
+      "MP-0017",
+      "MP-0022",
+      "MP-0026",
+      "MP-0037",
+      "MP-0051",
+      "MP-0057",
+      "MP-0060",
+      "MP-0061",
+      "MP-0065",
+      "MP-0066",
+      "MP-0070",
+      "MP-0071",
+      "MP-0072",
+      "MP-0074"
+    ]
+  },
+  "all_asr_runs": 600,
+  "nlp_comparison_rows": 1680,
+  "invariants": {
+    "exact_candidate_spans": 17538,
+    "exact_normalization_spans": 19408
+  },
+  "acoustic_denominator": 0,
+  "association_denominator": 0,
+  "confirmed_false_positives": null,
+  "independent_audio_generalization": null,
+  "integration": "integration-v3;8/8 actual browser/audio scenarios,19 authority snapshots unchanged,240 audio hashes unchanged",
+  "checks": {
+    "nlp_tests": 891,
+    "backend_relevant_tests": 99,
+    "frontend_tests": 306,
+    "independent_installed_guards": 9
+  },
+  "source_ci": "ci-source-584e90b.json; all4jobs successful; evidence-only delivery commit checked separately on GitHub",
+  "superseded_runs": {
+    "references": "Superseded by references-v2; coordinated-measure proposals were corrected without changing original sources",
+    "comparison-v1": "Intermediate source and incomplete diagnostic",
+    "comparison-v2": "Intermediate source; adapters superseded",
+    "comparison-v3": "Corrected adapters; pre-final semantic source",
+    "comparison-v4": "Pre-final conservative code/gauge/count guards"
+  }
+}

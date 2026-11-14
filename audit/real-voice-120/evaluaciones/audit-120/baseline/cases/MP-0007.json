@@ -1,0 +1,814 @@
+{
+  "id": "MP-0007",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0007.aac",
+    "original_sha256": "69909fca9351f7ac6d5504a41160e3ffcbe9fde497556f260a9049543669f20c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0007.wav",
+    "wav_sha256": "b00c861037e7ffcd52ad1cdde702df4ff679d48941cc9917c6c18c97d5a4b01f"
+  },
+  "reference": "Cuatro escritorios ejecutivos, opción uno, de un metro sesenta de ancho, ochenta centímetros de altura y setenta de profundidad. Estructura de melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacanto PVC y faldón hasta el piso. Tres cajones laterales, dos papeleros y uno archivador, con rieles telescópicos, jaladores metálicos y chapa de seguridad. Credenza integrada de un metro cincuenta de ancho, sesenta y cinco centímetros de alto y cuarenta y cinco de profundidad, con dos puertas, una división, dos cajones papeleros y espacio posterior con puerta. Color a elección. Precio unitario de cinco mil doscientos bolivianos.",
+  "source": {
+    "id": "MP-0007",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      7
+    ],
+    "titulo_fuente": "ESCRITORIO EJECUTIVO (OPCION 1)",
+    "grupo_familia": "PRO_007",
+    "guion": "Cuatro escritorios ejecutivos, opción uno, de un metro sesenta de ancho, ochenta centímetros de altura y setenta de profundidad. Estructura de melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacanto PVC y faldón hasta el piso. Tres cajones laterales, dos papeleros y uno archivador, con rieles telescópicos, jaladores metálicos y chapa de seguridad. Credenza integrada de un metro cincuenta de ancho, sesenta y cinco centímetros de alto y cuarenta y cinco de profundidad, con dos puertas, una división, dos cajones papeleros y espacio posterior con puerta. Color a elección. Precio unitario de cinco mil doscientos bolivianos.",
+    "audio_esperado": "MP-0007.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0007.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "34eb61dc71dc0421fae36e5cac2f8a8bef9372e4bf7626c569ef3c6c01c67c3b",
+    "audio_compatible_asr": "MP-0007.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0007.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 66.943125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "4 escritorios ejecutivos Opción 1, de 1 metros 60 de ancho, 80 centímetros de altura y 70 de profundidad, estructura de melamina de 18 milímetros, mesón engrosado a 27 tapacanto PVC y faldón hasta el piso. 3 cajones laterales, 2 papeleros y 1 archivador, con rieles telescopicos, jaladores metálicos y chapa de seguridad, credencia integrada de 1 metro 50 de ancho, 65 centímetros de alto y 45 de profundidad, con 2 puertas, 1 división, 2 cajones papeleros y espacio posterior con puerta, color a elección, presionitario de 5200 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "7.000000",
+        "text": " 4 escritorios ejecutivos"
+      },
+      {
+        "start_seconds": "7.000000",
+        "end_seconds": "17.440000",
+        "text": " Opción 1, de 1 metros 60 de ancho, 80 centímetros de altura y 70 de profundidad, estructura"
+      },
+      {
+        "start_seconds": "17.440000",
+        "end_seconds": "29.880000",
+        "text": " de melamina de 18 milímetros, mesón engrosado a 27 tapacanto PVC y faldón hasta el piso."
+      },
+      {
+        "start_seconds": "29.880000",
+        "end_seconds": "39.000000",
+        "text": " 3 cajones laterales, 2 papeleros y 1 archivador, con rieles telescopicos, jaladores metálicos"
+      },
+      {
+        "start_seconds": "39.000000",
+        "end_seconds": "49.140000",
+        "text": " y chapa de seguridad, credencia integrada de 1 metro 50 de ancho, 65 centímetros de alto"
+      },
+      {
+        "start_seconds": "49.140000",
+        "end_seconds": "58.600000",
+        "text": " y 45 de profundidad, con 2 puertas, 1 división, 2 cajones papeleros y espacio posterior con"
+      },
+      {
+        "start_seconds": "58.600000",
+        "end_seconds": "65.200000",
+        "text": " puerta, color a elección, presionitario de 5200 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 7434
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0007",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "4 escritorios ejecutivos Opción 1, de 1 metros 60 de ancho, 80 centímetros de altura y 70 de profundidad, estructura de melamina de 18 milímetros, mesón engrosado a 27 tapacanto PVC y faldón hasta el piso. 3 cajones laterales, 2 papeleros y 1 archivador, con rieles telescopicos, jaladores metálicos y chapa de seguridad, credencia integrada de 1 metro 50 de ancho, 65 centímetros de alto y 45 de profundidad, con 2 puertas, 1 división, 2 cajones papeleros y espacio posterior con puerta, color a elección, presionitario de 5200 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "escritorios ejecutivos",
+      "furniture_type_candidate": "escritorios ejecutivos",
+      "quantity": 4,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "estructura",
+          "evidence_ids": [
+            "c17"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "mesón",
+          "evidence_ids": [
+            "c19"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "cajones laterales",
+          "evidence_ids": [
+            "c20"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "papeleros",
+          "evidence_ids": [
+            "c22"
+          ]
+        },
+        {
+          "component_id": "pieza-5",
+          "name": "archivador",
+          "evidence_ids": [
+            "c24"
+          ]
+        },
+        {
+          "component_id": "pieza-6",
+          "name": "puertas",
+          "evidence_ids": [
+            "c26"
+          ]
+        },
+        {
+          "component_id": "pieza-7",
+          "name": "división",
+          "evidence_ids": [
+            "c28"
+          ]
+        },
+        {
+          "component_id": "pieza-8",
+          "name": "cajones",
+          "evidence_ids": [
+            "c30"
+          ]
+        },
+        {
+          "component_id": "pieza-9",
+          "name": "papeleros",
+          "evidence_ids": [
+            "c32"
+          ]
+        },
+        {
+          "component_id": "pieza-10",
+          "name": "puerta",
+          "evidence_ids": [
+            "c33"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "150",
+          "unit": "cm",
+          "original_text": "1 metro 50 de ancho",
+          "value_mm": "1500",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "80 centímetros de altura",
+          "value_mm": "800",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "65",
+          "unit": "cm",
+          "original_text": "65 centímetros de alto",
+          "value_mm": "650",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": null,
+          "original_text": "70 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "value": "45",
+          "unit": null,
+          "original_text": "45 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-1",
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 milímetros",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-2",
+          "name": "tapacanto PVC",
+          "quantity": 27
+        },
+        {
+          "evidence_ids": [
+            "c11"
+          ],
+          "component_ref": null,
+          "name": "rieles telescopicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c12"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c13"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad",
+          "quantity": null
+        }
+      ],
+      "price": {
+        "evidence_ids": [
+          "c16"
+        ],
+        "component_ref": null,
+        "mode": "PRECIO_UNITARIO",
+        "stated_amount": "5200.00",
+        "currency": "BOB",
+        "unit_price_input": "5200.00",
+        "line_total": "20800.00",
+        "origin": "EXPLICIT_UNIT"
+      },
+      "observations": "color a elección",
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 24,
+        "text": "escritorios ejecutivos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 1,
+        "text": "4",
+        "source": "RULE",
+        "normalized_value": 4,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 345,
+        "end": 364,
+        "text": "1 metro 50 de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "150",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 60,
+        "end": 84,
+        "text": "80 centímetros de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ALTO",
+        "start": 366,
+        "end": 388,
+        "text": "65 centímetros de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "65",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "PROFUNDIDAD",
+        "start": 87,
+        "end": 104,
+        "text": "70 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "PROFUNDIDAD",
+        "start": 391,
+        "end": 408,
+        "text": "45 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "45",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ESPESOR",
+        "start": 132,
+        "end": 145,
+        "text": "18 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 168,
+        "end": 181,
+        "text": "tapacanto PVC",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 208,
+        "end": 225,
+        "text": "cajones laterales",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "ACCESORIO",
+        "start": 259,
+        "end": 278,
+        "text": "rieles telescopicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "ACCESORIO",
+        "start": 280,
+        "end": 299,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "ACCESORIO",
+        "start": 302,
+        "end": 320,
+        "text": "chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "ACCESORIO",
+        "start": 416,
+        "end": 423,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "ACCESORIO",
+        "start": 439,
+        "end": 456,
+        "text": "cajones papeleros",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "PRECIO",
+        "start": 524,
+        "end": 528,
+        "text": "5200",
+        "source": "RULE",
+        "normalized_value": "5200",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "COMPONENTE",
+        "start": 106,
+        "end": 116,
+        "text": "estructura",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "MATERIAL",
+        "start": 120,
+        "end": 128,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c19",
+        "label": "COMPONENTE",
+        "start": 147,
+        "end": 152,
+        "text": "mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c20",
+        "label": "COMPONENTE",
+        "start": 208,
+        "end": 225,
+        "text": "cajones laterales",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c21",
+        "label": "CANTIDAD_INTERNA",
+        "start": 206,
+        "end": 207,
+        "text": "3",
+        "source": "RULE",
+        "normalized_value": 3,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c22",
+        "label": "COMPONENTE",
+        "start": 229,
+        "end": 238,
+        "text": "papeleros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c23",
+        "label": "CANTIDAD_INTERNA",
+        "start": 227,
+        "end": 228,
+        "text": "2",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c24",
+        "label": "COMPONENTE",
+        "start": 243,
+        "end": 253,
+        "text": "archivador",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c25",
+        "label": "CANTIDAD_INTERNA",
+        "start": 241,
+        "end": 242,
+        "text": "1",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-5",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c26",
+        "label": "COMPONENTE",
+        "start": 416,
+        "end": 423,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-6",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c27",
+        "label": "CANTIDAD_INTERNA",
+        "start": 414,
+        "end": 415,
+        "text": "2",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-6",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c28",
+        "label": "COMPONENTE",
+        "start": 427,
+        "end": 435,
+        "text": "división",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-7",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c29",
+        "label": "CANTIDAD_INTERNA",
+        "start": 425,
+        "end": 426,
+        "text": "1",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": "pieza-7",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c30",
+        "label": "COMPONENTE",
+        "start": 439,
+        "end": 446,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-8",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c31",
+        "label": "CANTIDAD_INTERNA",
+        "start": 437,
+        "end": 438,
+        "text": "2",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-8",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c32",
+        "label": "COMPONENTE",
+        "start": 447,
+        "end": 456,
+        "text": "papeleros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-9",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c33",
+        "label": "COMPONENTE",
+        "start": 481,
+        "end": 487,
+        "text": "puerta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-10",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '70 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '45 de profundidad' no tiene unidad."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 7
+  },
+  "nlp_asr_ms": 7.950105995405465,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0007-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Cuatro escritorios ejecutivos, opción uno, de un metro sesenta de ancho, ochenta centímetros de altura y setenta de profundidad. Estructura de melamina de dieciocho milímetros, mesón engrosado a veintisiete, tapacanto PVC y faldón hasta el piso. Tres cajones laterales, dos papeleros y uno archivador, con rieles telescópicos, jaladores metálicos y chapa de seguridad. Credenza integrada de un metro cincuenta de ancho, sesenta y cinco centímetros de alto y cuarenta y cinco de profundidad, con dos puertas, una división, dos cajones papeleros y espacio posterior con puerta. Color a elección. Precio unitario de cinco mil doscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 7,
+        "end": 29,
+        "text": "escritorios ejecutivos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 369,
+        "end": 377,
+        "text": "Credenza",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.5086849996587262,
+  "metrics": {
+    "wer": {
+      "errors": 30,
+      "substitutions": 23,
+      "deletions": 7,
+      "insertions": 0,
+      "reference_length": 96,
+      "rate": 0.3125
+    },
+    "cer": {
+      "errors": 139,
+      "substitutions": 34,
+      "deletions": 104,
+      "insertions": 1,
+      "reference_length": 627,
+      "rate": 0.22169059011164274
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 7.700037906994112,
+  "process_peak_rss_kib": 891488
+}

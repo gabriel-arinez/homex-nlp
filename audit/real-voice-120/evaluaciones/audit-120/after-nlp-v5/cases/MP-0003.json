@@ -1,0 +1,234 @@
+{
+  "id": "MP-0003",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0003.aac",
+    "original_sha256": "65dda54e3f842de8910a5bcd6756f3e26edccc52adba39f77afc33e70fecd3e9",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0003.wav",
+    "wav_sha256": "cab90dfcafadcb61a794f762439f88db3adbbb6b399516cb1e084b54f2fa5edb"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0003-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños, con tableros de melamina de veinticinco milímetros y patas de varillas de acero. La mesa grande tiene ochenta centímetros de diámetro. La pequeña tiene sesenta centímetros de diámetro y treinta centímetros de altura. Pintura electrostática de soporte y patas y color del tablero a elección, con topes en las patas. Precio por juego de diez mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 56,
+        "end": 61,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 169,
+        "end": 173,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.7109380021574907,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0003-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un juego de mesas para área común y sala de espera. Dos mesas de diferentes tamaños con tableros de melamina de 25 mm y patas de varillas de acero. La mesa grande tiene 80 cm de diámetro. La pequeña tiene 60 cm de diámetro y 30 cm de altura. Pintura electrostática de soporte y patas y color de tablero a elección. Con topes en las patas, precio por juego de 10 pins bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 12,
+        "end": 17,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 56,
+        "end": 61,
+        "text": "mesas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 151,
+        "end": 155,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.2249469980597496,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco",
+          "milímetros"
+        ],
+        "asr": [
+          "25",
+          "mm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta",
+          "centímetros"
+        ],
+        "asr": [
+          "80",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "sesenta",
+          "centímetros"
+        ],
+        "asr": [
+          "60",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta",
+          "centímetros"
+        ],
+        "asr": [
+          "30",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "del"
+        ],
+        "asr": [
+          "de"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "diez",
+          "mil"
+        ],
+        "asr": [
+          "10",
+          "pins"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0003",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "10000",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

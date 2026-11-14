@@ -1,0 +1,207 @@
+{
+  "id": "MP-0037",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0037.aac",
+    "original_sha256": "2a620e2f6cbe8120de1559063faacd2ce2f27c87319d920b6a3e60320a8da7db",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0037.wav",
+    "wav_sha256": "85932c43490016fb574d826ba8041539f41e259a6ecd15814d7cf4d34cb372c7"
+  },
+  "reference": "Un escritorio operativo con cajonera rodante, de un metro cuarenta por setenta centímetros y setenta y tres de altura. Tapa MDP de veinticinco milímetros, panel frontal de dieciocho, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxi, zapatas regulables y fijación minifix. Colores maderable y blanco. Incluye cajonera rodante. Precio de tres mil cuatrocientos bolivianos.",
+  "source": {
+    "id": "MP-0037",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      37
+    ],
+    "titulo_fuente": "ESCRITORIO OPERATIVO CON CAJONERA RODANTE",
+    "grupo_familia": "PRO_037",
+    "guion": "Un escritorio operativo con cajonera rodante, de un metro cuarenta por setenta centímetros y setenta y tres de altura. Tapa MDP de veinticinco milímetros, panel frontal de dieciocho, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxi, zapatas regulables y fijación minifix. Colores maderable y blanco. Incluye cajonera rodante. Precio de tres mil cuatrocientos bolivianos.",
+    "audio_esperado": "MP-0037.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0037.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "552ce7dc30bebac00c12ecd070f016a25c32b5e5f4477539e3b85e4fa8b6938a",
+    "audio_compatible_asr": "MP-0037.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0037.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 39.0095625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un escritorio operativo con cajonera rodante de 1,40 m x 70 cm y 73 cm de altura. Tapa MDP de 25 mm, panel frontal de 18 mm, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxy, zapatas regulables y fijación minifix, colores maderable y blanco. Incluye cajonera rodante, precio 3,400 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.800000",
+        "text": " Un escritorio operativo con cajonera rodante de 1,40 m x 70 cm y 73 cm de altura. Tapa"
+      },
+      {
+        "start_seconds": "11.800000",
+        "end_seconds": "21.200000",
+        "text": " MDP de 25 mm, panel frontal de 18 mm, bordes de PVC, estructura de acero tipo shaft con"
+      },
+      {
+        "start_seconds": "21.200000",
+        "end_seconds": "30.480000",
+        "text": " pasacables, pintura epoxy, zapatas regulables y fijación minifix, colores maderable y blanco."
+      },
+      {
+        "start_seconds": "30.480000",
+        "end_seconds": "37.720000",
+        "text": " Incluye cajonera rodante, precio 3,400 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4186
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0037",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio operativo con cajonera rodante de 1,40 m x 70 cm y 73 cm de altura. Tapa MDP de 25 mm, panel frontal de 18 mm, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxy, zapatas regulables y fijación minifix, colores maderable y blanco. Incluye cajonera rodante, precio 3,400 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio operativo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 277,
+        "end": 285,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.30484599847113714,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0037-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio operativo con cajonera rodante, de un metro cuarenta por setenta centímetros y setenta y tres de altura. Tapa MDP de veinticinco milímetros, panel frontal de dieciocho, bordes de PVC, estructura de acero tipo shaft con pasacables, pintura epoxi, zapatas regulables y fijación minifix. Colores maderable y blanco. Incluye cajonera rodante. Precio de tres mil cuatrocientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio operativo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 335,
+        "end": 343,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.20482699619606137,
+  "metrics": {
+    "wer": {
+      "errors": 18,
+      "substitutions": 12,
+      "deletions": 5,
+      "insertions": 1,
+      "reference_length": 58,
+      "rate": 0.3103448275862069
+    },
+    "cer": {
+      "errors": 102,
+      "substitutions": 25,
+      "deletions": 77,
+      "insertions": 0,
+      "reference_length": 386,
+      "rate": 0.26424870466321243
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.267859842999314,
+  "process_peak_rss_kib": 892484
+}

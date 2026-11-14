@@ -1,0 +1,341 @@
+{
+  "id": "SIL-0018",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0018",
+  "development_only": true,
+  "cell": "original__current_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "6b50977dbf0c85da529df6a96dbe9d800655dc7d89b1ab5af5d785334bcc2ac5",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0018.aac",
+    "original_sha256": "943471578c24a9b3e80a0b52e8fa9df4d97b6fe23efefa33f65e7aa01706861c",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0018.wav",
+    "wav_sha256": "761d8c69ff1f18cd90a8a804f6be52a81eed72bf652050101785132fb610d0a3"
+  },
+  "text_original": "Silla de espera y conferencia, modelo S21, respaldo ergonómico de maya, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre 1,8 y 2 milímetros de espesor, unidad pieza, precio de lista de 550 bolivianos.",
+  "script_text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos milímetros de espesor. Unidad pieza. Precio de lista de quinientos cincuenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla de espera y conferencia",
+      "observaciones": "Silla de espera y conferencia, modelo S21, respaldo ergonómico de maya, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre 1,8 y 2 milímetros de espesor, unidad pieza, precio de lista de 550 bolivianos.",
+      "precio_lista": "550.00",
+      "modelo": "S21",
+      "especificaciones": {
+        "brazos_regulables": "apoyabrazos ajustables",
+        "asiento": "espuma de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-229-234",
+        "label": "unidad_stock",
+        "start": 229,
+        "end": 234,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-29",
+        "label": "nombre",
+        "start": 0,
+        "end": 29,
+        "text": "Silla de espera y conferencia",
+        "source": "RULE",
+        "normalized_value": "Silla de espera y conferencia",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-270",
+        "label": "observaciones",
+        "start": 0,
+        "end": 270,
+        "text": "Silla de espera y conferencia, modelo S21, respaldo ergonómico de maya, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre 1,8 y 2 milímetros de espesor, unidad pieza, precio de lista de 550 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla de espera y conferencia, modelo S21, respaldo ergonómico de maya, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre 1,8 y 2 milímetros de espesor, unidad pieza, precio de lista de 550 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-255-258",
+        "label": "precio_lista",
+        "start": 255,
+        "end": 258,
+        "text": "550",
+        "source": "RULE",
+        "normalized_value": "550.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-38-41",
+        "label": "modelo",
+        "start": 38,
+        "end": 41,
+        "text": "S21",
+        "source": "RULE",
+        "normalized_value": "S21",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-72-94",
+        "label": "especificaciones.brazos_regulables",
+        "start": 72,
+        "end": 94,
+        "text": "apoyabrazos ajustables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos ajustables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-119-142",
+        "label": "especificaciones.asiento",
+        "start": 119,
+        "end": 142,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla de espera y conferencia"
+    },
+    {
+      "field": "model",
+      "value": "S21"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "550.00"
+    }
+  ],
+  "score": {
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "acero cromado",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "550",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla de espera y conferencia",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "s21",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 9,
+      "substitutions": 5,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 48,
+      "rate": 0.1875
+    },
+    "strict_normalized": {
+      "errors": 7,
+      "substitutions": 4,
+      "deletions": 3,
+      "insertions": 0,
+      "reference_length": 47,
+      "rate": 0.14893617021276595
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla de espera y conferencia, modelo ese veintiuno. Respaldo ergonómico de malla, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre uno coma ocho y dos mm de espesor. Unidad pieza. Precio de lista de 550 BOB.",
+    "asr_text": "Silla de espera y conferencia, modelo S21, respaldo ergonómico de maya, apoyabrazos ajustables en longitud, asiento de espuma de alta densidad, patas de acero cromado y tubo cromado de entre 1,8 y 2 mm de espesor, unidad pieza, precio de lista de 550 BOB.",
+    "reference_transforms": [
+      {
+        "start": 222,
+        "end": 232,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 278,
+        "end": 298,
+        "raw": "quinientos cincuenta",
+        "replacement": "550",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 299,
+        "end": 309,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 199,
+        "end": 209,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 259,
+        "end": 269,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

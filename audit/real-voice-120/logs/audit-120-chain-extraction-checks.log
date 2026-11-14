@@ -1,0 +1,165 @@
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -c import\ homex_nlp\;print\(\"candidate_import=\"+homex_nlp.__file__\)
+candidate_import=/tmp/homex-chain-extraction.XChxQd/tree/src/homex_nlp/__init__.py
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m pytest -q -p no:cacheprovider --basetemp=/tmp/homex-chain-extraction.XChxQd/tmp/pytest
+........................................................................ [  9%]
+........................................................................ [ 18%]
+........................................................................ [ 27%]
+........................................................................ [ 36%]
+........................................................................ [ 45%]
+........................................................................ [ 54%]
+........................................................................ [ 63%]
+........................................................................ [ 72%]
+........................................................................ [ 81%]
+........................................................................ [ 90%]
+........................................................................ [ 99%]
+.......                                                                  [100%]
+799 passed in 5.81s
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python tools/export_schemas.py --check
+Esquemas v1: OK
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/ruff check src tests tools training
+All checks passed!
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/ruff format --check src tests tools training
+88 files already formatted
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m training.validate_corpus data/corpus/muebles_pedido.jsonl --labels data/manifests/prf04_labels.json --curated
+{
+  "path": "data/corpus/muebles_pedido.jsonl",
+  "records": 380,
+  "entities": 8548,
+  "labels": {
+    "ACABADO": 793,
+    "ACCESORIO": 568,
+    "ALTO": 380,
+    "ANCHO": 362,
+    "CANTIDAD": 380,
+    "COLOR": 951,
+    "COMPONENTE": 999,
+    "DESCUENTO": 171,
+    "DIAMETRO": 18,
+    "ESPESOR": 975,
+    "MATERIAL": 999,
+    "OBSERVACION": 70,
+    "PRECIO_TOTAL": 380,
+    "PRECIO_UNITARIO": 380,
+    "PRODUCTO": 380,
+    "PROFUNDIDAD": 362,
+    "UNIDAD_MEDIDA": 380
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m training.validate_corpus data/corpus/sillas.jsonl --labels data/manifests/prf04_labels.json --curated
+{
+  "path": "data/corpus/sillas.jsonl",
+  "records": 101,
+  "entities": 1110,
+  "labels": {
+    "ACCESORIO": 213,
+    "APOYABRAZOS": 45,
+    "CABECERA": 7,
+    "CANTIDAD": 101,
+    "COLOR": 101,
+    "DESCUENTO": 50,
+    "ERGONOMIA": 61,
+    "MATERIAL": 101,
+    "PRECIO_TOTAL": 101,
+    "PRECIO_UNITARIO": 101,
+    "PRODUCTO": 101,
+    "SOPORTE_LUMBAR": 27,
+    "UNIDAD_MEDIDA": 101
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m training.validate_corpus data/corpus/pisos_flotantes.jsonl --labels data/manifests/prf04_labels.json --curated
+{
+  "path": "data/corpus/pisos_flotantes.jsonl",
+  "records": 97,
+  "entities": 1066,
+  "labels": {
+    "ACCESORIO": 56,
+    "CANTIDAD": 97,
+    "CLASE_RESISTENCIA": 97,
+    "COLOR": 97,
+    "DESCUENTO": 40,
+    "ESPESOR": 97,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "SISTEMA": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m training.validate_corpus data/corpus/otros_productos.jsonl --labels data/manifests/prf04_labels.json --curated
+{
+  "path": "data/corpus/otros_productos.jsonl",
+  "records": 97,
+  "entities": 907,
+  "labels": {
+    "ACCESORIO": 134,
+    "ALTO": 30,
+    "CANTIDAD": 97,
+    "COLOR": 97,
+    "DESCUENTO": 34,
+    "LARGO": 30,
+    "MATERIAL": 97,
+    "PRECIO_TOTAL": 97,
+    "PRECIO_UNITARIO": 97,
+    "PRODUCTO": 97,
+    "UNIDAD_MEDIDA": 97
+  },
+  "errors": [],
+  "duplicate_texts": 0,
+  "valid": true,
+  "tokenizer": {
+    "package": "spacy",
+    "version": "3.8.13",
+    "language": "es"
+  }
+}
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -m training.audit_prf04 --output /tmp/homex-chain-extraction.XChxQd/tmp/inventory.json
+EXIT_CODE=0
+
+COMMAND: /home/gabriel/HOMEX/homex-nlp/.venv/bin/python -
+source_hashes_match_after_nlp_v5=True modules=24
+EXIT_CODE=0
+CHECKS_RUNNER_EXIT=0

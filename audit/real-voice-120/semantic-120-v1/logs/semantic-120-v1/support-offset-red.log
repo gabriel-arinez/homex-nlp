@@ -1,0 +1,19 @@
+.........F                                                               [100%]
+=================================== FAILURES ===================================
+_ test_supported_denominator_does_not_require_furniture_fields_from_other_catalog _
+
+    def test_supported_denominator_does_not_require_furniture_fields_from_other_catalog():
+        refs = [reference("quantity", 2), reference("materials", "melamina"), reference("price", 900)]
+        score = evaluator.score_supported(refs, [{"field": "price", "value": 900}], "OTRO")
+        assert score["denominator"] == score["numerator"] == 1
+        assert score["unsupported_verified_reference_indices"] == [0, 1]
+>       assert score["field_results"][0]["reference_indices"] == [2]
+E       assert [0] == [2]
+E         
+E         At index 0 diff: 0 != 2
+E         Use -v to get more diff
+
+tests/evaluation/test_semantic_voice.py:129: AssertionError
+=========================== short test summary info ============================
+FAILED tests/evaluation/test_semantic_voice.py::test_supported_denominator_does_not_require_furniture_fields_from_other_catalog
+1 failed, 9 passed in 0.08s

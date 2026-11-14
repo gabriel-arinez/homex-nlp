@@ -1,0 +1,41 @@
+................F....................................FF                  [100%]
+=================================== FAILURES ===================================
+____ test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer _____
+
+    def test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer():
+        result = extract("Una mesa con tablero de 18 mm y dos USB.")
+>       assert next(a for a in result.item_proposal.accessories if "USB" in a.name).quantity == 2
+E       AssertionError: assert None == 2
+E        +  where None = Accessory(evidence_ids=['c4'], component_ref=None, name='USB', quantity=None).quantity
+E        +    where Accessory(evidence_ids=['c4'], component_ref=None, name='USB', quantity=None) = next(<generator object test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer.<locals>.<genexpr> at 0x7b6560ad79f0>)
+
+tests/unit/test_furniture_semantic_v2.py:136: AssertionError
+_ test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model[HDF8 mil\xedmetros] _
+
+gauge = 'HDF8 milímetros'
+
+    @pytest.mark.parametrize("gauge", ["HDF8 milímetros", "HDF ocho mm"])
+    def test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model(gauge):
+        result = extract(f"Piso flotante de aglomerado {gauge}", "PISO_FLOTANTE")
+>       assert result.fields["espesor_mm"] == "8"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'espesor_mm'
+
+tests/unit/test_catalog_semantic_v2.py:113: KeyError
+_ test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model[HDF ocho mm] _
+
+gauge = 'HDF ocho mm'
+
+    @pytest.mark.parametrize("gauge", ["HDF8 milímetros", "HDF ocho mm"])
+    def test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model(gauge):
+        result = extract(f"Piso flotante de aglomerado {gauge}", "PISO_FLOTANTE")
+>       assert result.fields["espesor_mm"] == "8"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'espesor_mm'
+
+tests/unit/test_catalog_semantic_v2.py:113: KeyError
+=========================== short test summary info ============================
+FAILED tests/unit/test_furniture_semantic_v2.py::test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer
+FAILED tests/unit/test_catalog_semantic_v2.py::test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model[HDF8 mil\xedmetros]
+FAILED tests/unit/test_catalog_semantic_v2.py::test_explicit_hdf_gauge_without_preposition_is_thickness_not_a_model[HDF ocho mm]
+3 failed, 52 passed in 1.05s

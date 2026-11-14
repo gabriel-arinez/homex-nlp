@@ -1,0 +1,609 @@
+{
+  "id": "MP-0019",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0019.aac",
+    "original_sha256": "612054a51bfba13e1baa5a91f69dde67fa265b4419c49b517c1fef3eb5cb67f7",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0019.wav",
+    "wav_sha256": "f9e41d7d8d4652fc8e3a23357005c3ae10067fefa1092bd9165a44e8ba1cc779"
+  },
+  "reference": "Una credenza de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Melamina de dieciocho milímetros, puertas abatibles, bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio de mil doscientos bolivianos.",
+  "source": {
+    "id": "MP-0019",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      19
+    ],
+    "titulo_fuente": "CREDENZA",
+    "grupo_familia": "CREDENZA_085",
+    "guion": "Una credenza de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Melamina de dieciocho milímetros, puertas abatibles, bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio de mil doscientos bolivianos.",
+    "audio_esperado": "MP-0019.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0019.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "dce3d454364945ca5fb6c949eb7d8394dd2d3724ab60861d6520ae5bdb1cba22",
+    "audio_compatible_asr": "MP-0019.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0019.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 32.4150625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Una credenza de 85 cm de ancho, 40 de profundidad y 80 de alto. Me lamina de 18 mm. Puertas abatibles, bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color elección, precio de 1200 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "17.520000",
+        "text": " Una credenza de 85 cm de ancho, 40 de profundidad y 80 de alto. Me lamina de 18 mm. Puertas abatibles,"
+      },
+      {
+        "start_seconds": "17.520000",
+        "end_seconds": "24.360000",
+        "text": " bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos,"
+      },
+      {
+        "start_seconds": "24.360000",
+        "end_seconds": "29.080000",
+        "text": " color elección, precio de 1200 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 3404
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0019",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una credenza de 85 cm de ancho, 40 de profundidad y 80 de alto. Me lamina de 18 mm. Puertas abatibles, bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos, color elección, precio de 1200 bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "credenza",
+      "furniture_type_candidate": "credenza",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Puertas abatibles",
+          "evidence_ids": [
+            "c12"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "85",
+          "unit": "cm",
+          "original_text": "85 cm de ancho",
+          "value_mm": "850",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": null,
+          "original_text": "80 de alto",
+          "value_mm": null,
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "40",
+          "unit": null,
+          "original_text": "40 de profundidad",
+          "value_mm": null,
+          "axis": "profundidad"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "value": "18",
+          "unit": "mm",
+          "original_text": "18 mm",
+          "value_mm": "18"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "bandeja divisoria",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad frontal",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c10"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "color elección",
+      "unresolved": [
+        "c11"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 12,
+        "text": "credenza",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 16,
+        "end": 30,
+        "text": "85 cm de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "85",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ALTO",
+        "start": 52,
+        "end": 62,
+        "text": "80 de alto",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "PROFUNDIDAD",
+        "start": 32,
+        "end": 49,
+        "text": "40 de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "40",
+          null
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 77,
+        "end": 82,
+        "text": "18 mm",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 84,
+        "end": 101,
+        "text": "Puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 103,
+        "end": 120,
+        "text": "bandeja divisoria",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 146,
+        "end": 172,
+        "text": "chapa de seguridad frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 175,
+        "end": 194,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO_AMBIGUO",
+        "start": 222,
+        "end": 226,
+        "text": "1200",
+        "source": "RULE",
+        "normalized_value": "1200",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 84,
+        "end": 101,
+        "text": "Puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '80 de alto' no tiene unidad."
+      },
+      {
+        "code": "MISSING_UNIT",
+        "path": "/item_proposal/dimensions",
+        "severity": "REVIEW",
+        "message": "La medida '40 de profundidad' no tiene unidad."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 1200.00 BOB; aclare si es total o precio unitario."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor 18 mm requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_asr_ms": 2.3630240029888228,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0019-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una credenza de ochenta y cinco centímetros de ancho, cuarenta de profundidad y ochenta de alto. Melamina de dieciocho milímetros, puertas abatibles, bandeja divisoria con dos espacios útiles, chapa de seguridad frontal y jaladores metálicos. Color a elección. Precio de mil doscientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "credenza",
+      "furniture_type_candidate": "credenza",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "puertas abatibles",
+          "evidence_ids": [
+            "c9"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "85",
+          "unit": "cm",
+          "original_text": "ochenta y cinco centímetros de ancho",
+          "value_mm": "850",
+          "axis": "ancho"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": null,
+          "name": "bandeja divisoria",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": null,
+          "name": "chapa de seguridad frontal",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": null,
+          "name": "jaladores metálicos",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "Color a elección",
+      "unresolved": [
+        "c4"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 12,
+        "text": "credenza",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 16,
+        "end": 52,
+        "text": "ochenta y cinco centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "85",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "ESPESOR",
+        "start": 109,
+        "end": 129,
+        "text": "dieciocho milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "18",
+          "mm"
+        ],
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Espesor oral sin pieza identificada"
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ACCESORIO",
+        "start": 131,
+        "end": 148,
+        "text": "puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 150,
+        "end": 167,
+        "text": "bandeja divisoria",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 193,
+        "end": 219,
+        "text": "chapa de seguridad frontal",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 222,
+        "end": 241,
+        "text": "jaladores metálicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "COMPONENTE",
+        "start": 131,
+        "end": 148,
+        "text": "puertas abatibles",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "MATERIAL",
+        "start": 97,
+        "end": 105,
+        "text": "Melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/thicknesses",
+        "severity": "REVIEW",
+        "message": "El espesor dieciocho milímetros requiere identificar su pieza."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.26362599642016,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 8,
+      "deletions": 4,
+      "insertions": 1,
+      "reference_length": 43,
+      "rate": 0.3023255813953488
+    },
+    "cer": {
+      "errors": 73,
+      "substitutions": 12,
+      "deletions": 60,
+      "insertions": 1,
+      "reference_length": 289,
+      "rate": 0.25259515570934254
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 3.4582577729961486,
+  "process_peak_rss_kib": 892324
+}

@@ -1,0 +1,71 @@
+SCRATCH=/tmp/audit120-finalverify.tpCR6k
+CLI legacy_casilleros exit 0 0 stderr '' '' equal True
+  base type= MUEBLE_MEDIDA name= mueble qty= 1 status= REQUIRES_REVIEW unresolved= []
+  candidate type= MUEBLE_MEDIDA name= mueble qty= 1 status= REQUIRES_REVIEW unresolved= []
+CLI mesa exit 0 0 stderr '' '' equal True
+  base type= MUEBLE_MEDIDA name= mesas qty= 2 status= REQUIRES_REVIEW unresolved= []
+  candidate type= MUEBLE_MEDIDA name= mesas qty= 2 status= REQUIRES_REVIEW unresolved= []
+CLI escritorio exit 0 0 stderr '' '' equal True
+  base type= MUEBLE_MEDIDA name= escritorio qty= 1 status= REQUIRES_REVIEW unresolved= []
+  candidate type= MUEBLE_MEDIDA name= escritorio qty= 1 status= REQUIRES_REVIEW unresolved= []
+CLI closet exit 0 0 stderr '' '' equal True
+  base type= MUEBLE_MEDIDA name= closet qty= 1 status= REQUIRES_REVIEW unresolved= []
+  candidate type= MUEBLE_MEDIDA name= closet qty= 1 status= REQUIRES_REVIEW unresolved= []
+CLI negated_closet exit 0 0 stderr '' '' equal False
+  base type= None name= None qty= None status= NO_PROPOSAL unresolved= None
+  candidate type= None name= None qty= None status= NO_PROPOSAL unresolved= None
+CLI independent_products exit 0 0 stderr '' '' equal False
+  base type= MUEBLE_MEDIDA name= mesa qty= 1 status= REQUIRES_REVIEW unresolved= []
+  candidate type= None name= None qty= None status= NO_PROPOSAL unresolved= None
+CLI singular_casillero exit 0 0 stderr '' '' equal False
+  base type= None name= None qty= None status= NO_PROPOSAL unresolved= None
+  candidate type= MUEBLE_MEDIDA name= casillero qty= 1 status= REQUIRES_REVIEW unresolved= []
+CLI plural_casilleros exit 0 0 stderr '' '' equal False
+  base type= None name= None qty= None status= NO_PROPOSAL unresolved= None
+  candidate type= MUEBLE_MEDIDA name= casilleros qty= 2 status= REQUIRES_REVIEW unresolved= []
+FLOOR base
+hdf_number_words {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_digit {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_explicit_other_axis {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_alternative {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_negated {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_size_pair {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+measurement_legacy {"espesor_mm": "8", "largo_mm": null, "unrecognized": []}
+FLOOR candidate
+hdf_number_words {"espesor_mm": "8", "largo_mm": null, "unrecognized": []}
+hdf_digit {"espesor_mm": "8", "largo_mm": null, "unrecognized": []}
+hdf_explicit_other_axis {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_alternative {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_negated {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+hdf_size_pair {"espesor_mm": null, "largo_mm": null, "unrecognized": []}
+measurement_legacy {"espesor_mm": "8", "largo_mm": null, "unrecognized": []}
+SCRATCH=/tmp/audit120-finalverify.tpCR6k
+CLI2 armario1 base exit 0 status NO_PROPOSAL type None name None quantity None stderr ''
+CLI2 armario1 candidate exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name armario quantity 1 stderr ''
+CLI2 armario1 semantic_equal False
+CLI2 armarios2 base exit 0 status NO_PROPOSAL type None name None quantity None stderr ''
+CLI2 armarios2 candidate exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name armarios quantity 2 stderr ''
+CLI2 armarios2 semantic_equal False
+CLI2 closetaccent1 base exit 0 status NO_PROPOSAL type None name None quantity None stderr ''
+CLI2 closetaccent1 candidate exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name clóset quantity 1 stderr ''
+CLI2 closetaccent1 semantic_equal False
+CLI2 closetlegacy1 base exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name closet quantity 1 stderr ''
+CLI2 closetlegacy1 candidate exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name closet quantity 1 stderr ''
+CLI2 closetlegacy1 semantic_equal True
+CLI2 multiple_independent base exit 0 status REQUIRES_REVIEW type MUEBLE_MEDIDA name mesa quantity 1 stderr ''
+CLI2 multiple_independent candidate exit 0 status NO_PROPOSAL type None name None quantity None stderr ''
+CLI2 multiple_independent semantic_equal False
+Latest artifact cross-check (after-nlp-v3)
+- 24 source hashes match the actual current candidate tree.
+- Floor thickness: reference 7/7, ASR 6/7 after; baseline 3/7 reference and ASR. PIS-0006 reference says “HDF de ocho milímetros”; ASR transcript says “aglomerado HDF8 milímetros,” with no intervening “de”; ASR-input result has no espesor_mm. Treat as ASR/normalization discrepancy pending audio hearing, not cured NLP rule.
+- Cabinet-related changed cases in summary: MP-0034, MP-0035, MP-0036, MP-0040, MP-0041. MP-0057 remains NO_PROPOSAL on reference and ASR; its text describes a six-door/six-compartment unit, and review classification retains product-review ambiguity.
+
+Independent CLI outcomes (all exit 0; stderr empty)
+- “Un armario de dos puertas.” -> candidate MUEBLE_MEDIDA name armario, quantity 1 (base NO_PROPOSAL).
+- “Dos armarios de dos puertas.” -> candidate MUEBLE_MEDIDA name armarios, quantity 2 (base NO_PROPOSAL).
+- “Un clóset de tres puertas.” -> candidate MUEBLE_MEDIDA name clóset, quantity 1 (base NO_PROPOSAL).
+- Plain “Un closet de dos puertas.” preserved exactly; old mesa, escritorio, and closet CLI examples have equal normalized semantic outputs before/after (only latency removed).
+- “Un mueble con casilleros” preserved exactly; singular/plural casillero now returns quantity 1/2.
+- Negated armario remains NO_PROPOSAL. “Un armario y una mesa” abstains as NO_PROPOSAL with new recognition rather than choosing one product. This is intentional ambiguity handling; it differs from the baseline's mesa-only proposal.
+- HDF thickness probes: `HDF de ocho milímetros` and `HDF de 8 mm` now yield espesor_mm=8; legacy explicit `8 milímetros de espesor` remains 8. Explicit other axis, number alternative, negation, and size pair all abstain (no espesor_mm). Base omitted the HDF shorthand in every probe.
+- No independent full-suite rerun. Parent-reported final suite result: 790 passed; own independent bounded probes are listed above. No implementation edits made.

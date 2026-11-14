@@ -1,0 +1,394 @@
+{
+  "id": "MP-0017",
+  "category": "MUEBLE_MEDIDA",
+  "leakage_group": "DEV-MP-0017",
+  "development_only": true,
+  "cell": "original__baseline_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "dc135bc3c7baec95cf6858d94046d067459b1cf1fbda1a48473e77c43ba17b5b",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0017.aac",
+    "original_sha256": "01ec257e9cf9b2b68c0a606b0eab6ee6cd48d5ce1bd589665d9a0834b29d6c33",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0017.wav",
+    "wav_sha256": "25d65e9924a13f42e3e9873d585b5ad5af18fdb314c7eb06a38f1b0b01cc4b59"
+  },
+  "text_original": "Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 bolivianos. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura.",
+  "script_text": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+  "nlp_raw": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017",
+    "status": "NO_PROPOSAL",
+    "text_original": "Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 bolivianos. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 237,
+        "end": 241,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 349,
+        "end": 353,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "predicted_fields": [],
+  "score": {
+    "numerator": 0,
+    "denominator": 8,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "quantity",
+          "1",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "segun diseno",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "1300",
+          "largo"
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "dimensions",
+          "800",
+          "ancho"
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "thicknesses",
+          "25",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "2900",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2
+      },
+      "thicknesses": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "quantity": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1
+      },
+      "dimensions": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2
+      }
+    },
+    "false_positive_candidates": []
+  },
+  "no_proposal": true,
+  "asr_metrics": {
+    "original": {
+      "errors": 52,
+      "substitutions": 10,
+      "deletions": 0,
+      "insertions": 42,
+      "reference_length": 44,
+      "rate": 1.1818181818181819
+    },
+    "strict_normalized": {
+      "errors": 50,
+      "substitutions": 6,
+      "deletions": 0,
+      "insertions": 44,
+      "reference_length": 42,
+      "rate": 1.1904761904761905
+    }
+  },
+  "normalization": {
+    "reference_text": "Una mesa de reuniones para seis personas, de 1 m treinta de largo, 80 cm de ancho y ochenta de altura. Mesón engrosado a 25 mm, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de 2900 BOB.",
+    "asr_text": "Una mesa de reuniones para seis personas de 1 m 30 de largo 80 cm de ancho y 80 de altura. Me son engrosado a 25 mm bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 BOB. Una mesa de reuniones para seis personas de 1 m 30 de largo 80 cm bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de 1 m 30 de largo 80 cm bordes de ancho y 80 de altura.",
+    "reference_transforms": [
+      {
+        "start": 45,
+        "end": 47,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 48,
+        "end": 53,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 72,
+        "end": 79,
+        "raw": "ochenta",
+        "replacement": "80",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 80,
+        "end": 91,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 140,
+        "end": 151,
+        "raw": "veinticinco",
+        "replacement": "25",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 152,
+        "end": 162,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 244,
+        "end": 263,
+        "raw": "dos mil novecientos",
+        "replacement": "2900",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 264,
+        "end": 274,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 44,
+        "end": 46,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 47,
+        "end": 52,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 68,
+        "end": 79,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 127,
+        "end": 137,
+        "raw": "milímetros",
+        "replacement": "mm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 221,
+        "end": 231,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 277,
+        "end": 279,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 280,
+        "end": 285,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 301,
+        "end": 312,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 389,
+        "end": 391,
+        "raw": "un",
+        "replacement": "1",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 392,
+        "end": 397,
+        "raw": "metro",
+        "replacement": "m",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      },
+      {
+        "start": 413,
+        "end": 424,
+        "raw": "centímetros",
+        "replacement": "cm",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

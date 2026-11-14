@@ -1,0 +1,59 @@
+{
+  "references_sha256": "5d1f8415bc5a7c62389c8fa4dfb5d5b338cb352190491ae7df7d1e4938e14305",
+  "values_sha256": "b5733893588561053a95bd7e14adf1ca46eff5dcfa6bb90d4c18eebba85161db",
+  "model_files": {
+    ".gitattributes": "db7c0371f46f0840b8f25794c1e3321c9b5820a8cb6ba9694a46fc64b8fae5a6",
+    "README.md": "329373481008c7c38654aff8ecdcf0163c211557cc7ba8e2ef6f2f84b4f75ec8",
+    "config.json": "b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828",
+    "model.bin": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671",
+    "tokenizer.json": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+    "vocabulary.txt": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "source_hashes": {
+    "src/homex_nlp/__init__.py": "8363e7e1845751808f3faadfd78d2d3c86ac03f5a878ab60ba3e5609676a337f",
+    "src/homex_nlp/asr/__init__.py": "e832ef1aafd4c448720ad1e0ddbbdfb0591b1efd62df99c19d98016afb54e534",
+    "src/homex_nlp/asr/audio_validation.py": "f52592bf420e3f53310415a1f77f1f79f4f3c0b72d2fbedb33f02fe91e92f19a",
+    "src/homex_nlp/asr/faster_whisper_adapter.py": "477519909a9acaf29aa91b6e072c827bee6396ba11ab957001c5d0a2281d84aa",
+    "src/homex_nlp/asr/service.py": "ab059c1e3ad4e4a95f03d70934d83b8302ec5b1f67121f9f677f5ad85c2c40c0",
+    "src/homex_nlp/asr_cli.py": "e83216881ff1d60ecdc3dbff76e1c95f66bb12e5421436aa0ef1db17ed34db76",
+    "src/homex_nlp/catalog.py": "6cd958c0223c8cc3a0b5408238a79124a258e38aac785a5d68de904cea8b5a9d",
+    "src/homex_nlp/cli.py": "99625035471e49985cc5a90d8f3b4ebcaf5cf0c7dd1e25e82f865209924cea0c",
+    "src/homex_nlp/contracts/__init__.py": "0e462634834a7b37225cd6513a0e11f2e6c924bd31cd62e1c9b3f03b02b6a3a5",
+    "src/homex_nlp/contracts/base.py": "cca461acae0fd08a2eba1b67cc5a591d5e9e5898a677f52c98818276b67d817f",
+    "src/homex_nlp/contracts/error.py": "4ca00db37dec160d3ca707c105704f8863e96e452df61d146c00846be368c8f2",
+    "src/homex_nlp/contracts/evidence.py": "baf548e02f46010a4c6a0fc1293cd173837e16f31f682722fc23136af1dac6f3",
+    "src/homex_nlp/contracts/input.py": "bb3605a06a38d19ff7a1d0c652785069a64fa01f911d7e8e50458c0f17b62330",
+    "src/homex_nlp/contracts/item.py": "768c2bdfefb28260d3a65440014ec5a4ca70873119139f2fe2570239ddf68772",
+    "src/homex_nlp/contracts/result.py": "4ed71a622e8e03d69b785b2f6f3cbd2b736961e581db0ef724e3acbce0e328cd",
+    "src/homex_nlp/contracts/review.py": "4999b35fae511ed9ddc3194a0dbba67b2b3f2f80e98c2c9cc978c3439bdd8b83",
+    "src/homex_nlp/engine.py": "edfca278bd8183eb12ae16da0c29e4fca579b3c56bb1955dac9965ee7117e3d1",
+    "src/homex_nlp/errors.py": "07137a31e734f65f404a65d3c00f8147fc4df5694b5e6838c28665afb1772ec5",
+    "src/homex_nlp/field_comparison.py": "37f9428bea4d9a4fe8efc297132d7afad9625a2993f037bd440e6751187bf3b6",
+    "src/homex_nlp/monetary.py": "50041a2a652d476895fe6ad980d38e44e1e7f1520ff6e4504f78d76a4d52bd07",
+    "src/homex_nlp/resources/__init__.py": "8e42c3d37f7384a09d8f90180215d8cf6a69dc24817d4a45971e92fce3f29697",
+    "src/homex_nlp/rules.py": "60864c493a50bde0980fab807e7e6f7e11664712bfee18ee0f75c6a86e79bf21",
+    "src/homex_nlp/semantics.py": "83f0d780959785f0ccf25c918bdb6f84a6cbc69e2886fb04d8b2bce07fc882e2",
+    "src/homex_nlp/settings.py": "24e44cc521401021e699851c09106d4194417478ab395077420dfe0be5aeae09"
+  },
+  "device": "cpu",
+  "compute_type": "int8",
+  "original_references_sha256": "42ce2f12794fe2cb5ef9026b1402989dd883b6455a2dc0f88831d0be1d5a9927",
+  "derivation": {
+    "parent": "baseline",
+    "source_commit": "c94e7a89995a7157bd113a03bb8304321d30b0b1",
+    "source_import_verified": true,
+    "rerouted_cases": [
+      "MP-0004",
+      "MP-0062",
+      "MP-0067"
+    ],
+    "asr_recomputed": false
+  }
+}

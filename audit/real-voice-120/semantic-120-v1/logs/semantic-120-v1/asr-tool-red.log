@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+__________ ERROR collecting tests/evaluation/test_asr_experiments.py ___________
+ImportError while importing test module '/home/gabriel/HOMEX/homex-nlp/tests/evaluation/test_asr_experiments.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/evaluation/test_asr_experiments.py:1: in <module>
+    from tools.experiment_real_voice_asr import configurations, signal_profile
+E   ModuleNotFoundError: No module named 'tools.experiment_real_voice_asr'
+=========================== short test summary info ============================
+ERROR tests/evaluation/test_asr_experiments.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.09s

@@ -1,0 +1,55 @@
+{
+  "cases": 120,
+  "categories": {
+    "MUEBLE_MEDIDA": 73,
+    "OTRO": 13,
+    "SILLA": 27,
+    "PISO_FLOTANTE": 7
+  },
+  "audio_hashes_preserved": 240,
+  "script_proposals": 2803,
+  "script_verified_denominator": 1115,
+  "acoustic_verified_denominator": 0,
+  "human_listening_pending_cases": 120,
+  "semantic_pending_proposals": 1688,
+  "denominator_by_field": {
+    "quantity": 74,
+    "materials": 259,
+    "accessories": 240,
+    "colors": 135,
+    "dimensions": 142,
+    "thicknesses": 104,
+    "price": 119,
+    "commercial_unit": 41,
+    "brand": 1
+  },
+  "proposal_count_by_field": {
+    "product": 120,
+    "name": 120,
+    "quantity": 120,
+    "materials": 262,
+    "components": 369,
+    "accessories": 257,
+    "colors": 151,
+    "dimensions": 221,
+    "thicknesses": 141,
+    "price": 120,
+    "technical_description": 562,
+    "model": 120,
+    "brand": 120,
+    "commercial_unit": 120
+  },
+  "leakage_groups": 69,
+  "input_hashes": {
+    "referencias/guiones_referencia_pregrabacion.jsonl": "5d1f8415bc5a7c62389c8fa4dfb5d5b338cb352190491ae7df7d1e4938e14305",
+    "referencias/trazabilidad_fuentes.jsonl": "ac6c677bd6e39a9c2e4af8b1b0495ef66beb1122a80d39d5b4a1002881b05da4",
+    "manifiesto.csv": "ee32888f9094e30a1b6b5af4af498957a7f722a69ed0e98aa4d6b94998c80908"
+  },
+  "limitations": [
+    "Not complete commercial gold: semantic relations and residual clauses require review.",
+    "All acoustic labels pending human listening; ASR is corroboration only.",
+    "No-rule-match is unsupported/unparsed, not established absence.",
+    "Script denominator is textual scalar verification only, never acoustic gold.",
+    "Family/source groups are minimum leakage exclusions, not independent holdouts."
+  ]
+}

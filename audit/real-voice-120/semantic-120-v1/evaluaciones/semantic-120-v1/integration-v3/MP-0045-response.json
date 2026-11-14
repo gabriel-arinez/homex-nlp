@@ -1,0 +1,83 @@
+{
+  "id": 6,
+  "estado": "COMPLETADA",
+  "intento_id": 6,
+  "texto_transcrito_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+  "resultado": "REQUIRES_REVIEW",
+  "propuesta_configurador": {
+    "comercial": {
+      "nombre": "escritorios en L",
+      "cantidad": 5,
+      "unidad_codigo": null,
+      "precio_unitario": "2000.00",
+      "descuento": null
+    },
+    "especificacion": {
+      "tipo_mueble": 40,
+      "datos_tecnicos": {
+        "conjuntos": [],
+        "accesorios": [
+          "tapacantos PVC"
+        ],
+        "componentes": [
+          {
+            "uid": "5163aa6e-9041-5a19-b95f-ea499a6043be",
+            "nombre": "mesón"
+          },
+          {
+            "uid": "6432dd0f-284a-5936-a2b7-beb7b849f41e",
+            "nombre": "lateral"
+          }
+        ],
+        "descripcion_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+        "caracteristicas_generales": {
+          "atributos": [
+            {
+              "valor": "melamina",
+              "codigo": "MATERIAL",
+              "nombre": "Material",
+              "tipo_entrada": "texto"
+            }
+          ],
+          "dimensiones": {
+            "alto": {
+              "valor": "80",
+              "unidad": "cm"
+            }
+          }
+        }
+      },
+      "observaciones": null
+    },
+    "pendientes": [
+      {
+        "resolucion": {
+          "tipo": "ESPESOR_SIN_COMPONENTE",
+          "valor": "18 mm"
+        },
+        "codigo": "ESPESOR_SIN_COMPONENTE",
+        "ruta": "especificacion.datos_tecnicos.componentes",
+        "mensaje": "El espesor 18 mm no tiene una pieza identificada de forma confiable. Revise su asociación antes de confirmar el mueble."
+      }
+    ]
+  },
+  "pendientes": [
+    {
+      "resolucion": {
+        "tipo": "ESPESOR_SIN_COMPONENTE",
+        "valor": "18 mm"
+      },
+      "codigo": "ESPESOR_SIN_COMPONENTE",
+      "ruta": "especificacion.datos_tecnicos.componentes",
+      "mensaje": "El espesor 18 mm no tiene una pieza identificada de forma confiable. Revise su asociación antes de confirmar el mueble."
+    }
+  ],
+  "version_proyeccion": "PRF04_2",
+  "motor": {
+    "mode": "RULES_ONLY",
+    "rules_version": "prf04-rules-money-2",
+    "model_version": null,
+    "normalization_version": "1.0"
+  },
+  "error_codigo": null
+}

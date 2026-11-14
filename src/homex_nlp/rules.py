@@ -32,6 +32,9 @@ PRODUCTS = (
     "velador",
     "ropero",
     "closet",
+    "clóset",
+    "armario",
+    "casillero",
     "cajonera",
     "gavetero",
     "gabetero",
@@ -41,6 +44,7 @@ PRODUCTS = (
     "sillones",
 )
 ACCESSORIES = (
+    r"puertos?\s+(?:USB|HDMI)|conectores?(?:\s+(?:USB|HDMI))?|USB|HDMI|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
     "pasacable",
     "bisagras",
     "cajones",
@@ -146,9 +150,24 @@ def find_products(text: str) -> list[Match]:
     ejecutivo_asr = re.compile(r"\bescritor(?:es)?\s+ejecutivos?\b", re.I)
     especificos = [
         Match(m.start(), m.end(), m.group(), "PRODUCTO")
-        for patron in (reunion, ejecutivo_asr)
+        for patron in (
+            reunion,
+            ejecutivo_asr,
+            re.compile(r"\bestante\s+librero\b|\bestantes\s+libreros\b", re.I),
+            re.compile(r"\bcubos?\s+m[oó]viles?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I),
+        )
         for m in patron.finditer(text)
+        if not (
+            re.match(r"(?:estaci|cubo)", m.group(), re.I)
+            and re.search(r"\bpara\s+(?:(?:los?|las?)\s+)?$", text[: m.start()], re.I)
+        )
     ]
+    # "Credencia" is a literal furniture noun, not an acoustic repair.
+    especificos.extend(
+        Match(m.start(), m.end(), m.group(), "PRODUCTO")
+        for m in re.finditer(r"\bcredencias?\b", text, re.I)
+        if _counted_furniture_context(text, m)
+    )
     generales = [
         Match(m.start(), m.end(), m.group().strip(), "PRODUCTO")
         for m in pattern.finditer(text)
@@ -168,6 +187,53 @@ def find_products(text: str) -> list[Match]:
     return extended
 
 
+def _counted_furniture_context(text: str, mention: re.Match[str]) -> bool:
+    count = re.search(r"(" + _commercial_count_pattern() + r")\s+$", text[: mention.start()], re.I)
+    if count is None or _commercial_count_match(text, count.start(1), count.end(1)) is None:
+        return False
+    dimension = re.match(
+        r"\s+de\s+("
+        + r"\d+(?:[.,]\d+)?|"
+        + _DIM_PALABRAS_PATRON
+        + r")\s*(?:cm|mm|m|metros?|cent[ií]metros?|mil[ií]metros?)\b",
+        text[mention.end() :],
+        re.I,
+    )
+    if dimension is None:
+        return False
+    raw = dimension.group(1)
+    value = (
+        decimal_from_text(raw)
+        if re.fullmatch(r"\d+(?:[.,]\d+)?", raw)
+        else _dimension_numero_palabras(raw)
+    )
+    return bool(
+        value
+        and value > 0
+        and re.search(
+            r"\b(?:melamina|MDP|MDF|madera)\b", text[mention.end() : mention.end() + 500], re.I
+        )
+    )
+
+
+def _commercial_count_pattern() -> str:
+    # Reuse the existing strict cardinal grammar, not the small legacy lexicon.
+    return r"(?:\d+|" + _DIM_PALABRAS_PATRON + r")"
+
+
+def _commercial_count_match(text: str, start: int, end: int) -> Match | None:
+    before = text[:start]
+    if re.search(r"[-−+]\s*$|\d[.,]\s*$|\b(?:menos|o)\s*$", before, re.I):
+        return None
+    if _fragmento_numerico_truncado(text, start):
+        return None
+    raw = text[start:end]
+    value = int(raw) if raw.isdecimal() else _dimension_numero_palabras(raw)
+    if value is None or value <= 0:
+        return None
+    return Match(start, end, raw, "CANTIDAD", int(value))
+
+
 def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     """Cantidad contigua al producto, sin consumir especificaciones de piezas.
 
@@ -177,16 +243,17 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     """
     tramo = text[principal.end : principal.end + 180]
     inicio = re.match(
-        r"\s*[,;:]?\s*(?P<numero>\d+|" + "|".join(NUMBER_WORDS) + r")"
+        r"\s*[,;:]?\s*(?P<numero>" + _commercial_count_pattern() + r")"
         r"\s+(?P<unidad>piezas?|pzas?\.?|unidades?|juegos?)\b",
         tramo,
         re.I,
     )
     if inicio is None:
         return None
-    token = inicio.group("numero").casefold()
-    valor = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-    if valor is None or valor <= 0:
+    count = _commercial_count_match(
+        text, principal.end + inicio.start("numero"), principal.end + inicio.end("numero")
+    )
+    if count is None:
         return None
     despues = tramo[inicio.end() :]
     # «una pieza de vidrio», «dos piezas para el tablero»: componentes, no
@@ -208,14 +275,13 @@ def _cantidad_comercial_pospuesta(text: str, principal: Match) -> Match | None:
     # nunca conservar por defecto la primera cifra como comercial.
     if re.match(
         r"\s*[,;.]?\s*(?:no\s*,?\s*(?:mejor|\d+|"
-        + "|".join(NUMBER_WORDS)
+        + _commercial_count_pattern()
         + r")|perd[oó]n|corrijo|mejor)\b",
         despues,
         re.I,
     ):
         return None
-    offset = principal.end + inicio.start("numero")
-    return Match(offset, offset + len(token), text[offset : offset + len(token)], "CANTIDAD", valor)
+    return count
 
 
 def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
@@ -225,30 +291,25 @@ def find_quantity(text: str, main_product: Match | None = None) -> Match | None:
     main = products[0]
     prefix = text[: main.start]
     pattern = re.compile(
-        r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s+(?:(?:juegos?|unidades?)\s+(?:de\s+)?)?$", re.I
+        r"(?<![\w.,+\-−])("
+        + _commercial_count_pattern()
+        + r")\s+(?:(?:juegos?|unidades?)\s+(?:de\s+)?)?$",
+        re.I,
     )
     match = pattern.search(prefix)
     if match:
-        if re.search(r"[-−]\s*$", prefix[: match.start(1)]):
-            return None
-        token = match.group(1).lower()
-        value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-        if value:
-            return Match(match.start(1), match.end(1), match.group(1), "CANTIDAD", value)
+        return _commercial_count_match(text, match.start(1), match.end(1))
     # La cantidad comercial se reconoce sólo en construcciones inequívocas.
     # «para 10 personas» y «2 tomacorrientes» no son cantidad de muebles.
     explicit = re.search(
         r"\b(?:cantidad(?:\s+comercial)?\s*(?::|de)?\s*|se\s+cotizan\s+)"
-        r"(\d+|" + "|".join(NUMBER_WORDS) + r")\s*"
+        r"(" + _commercial_count_pattern() + r")\s*"
         r"(?:piezas?|pzas?\.?|unidades?|juegos?)\b",
         text,
         re.I,
     )
     if explicit:
-        token = explicit.group(1).lower()
-        value = NUMBER_WORDS.get(token, int(token) if token.isdigit() else None)
-        if value and value > 0:
-            return Match(explicit.start(1), explicit.end(1), explicit.group(1), "CANTIDAD", value)
+        return _commercial_count_match(text, explicit.start(1), explicit.end(1))
     # «se cotiza una sola mesa» declara una unidad, no un segundo producto.
     # Aceptar únicamente el mismo tipo principal, sin extrapolar cantidades.
     if main.text.casefold().startswith("mesa"):
@@ -307,10 +368,10 @@ def price_mentions(text: str):
         r"(?:cada\s+un[ao]|c/u|por\s+unidad)\b"
     )
     declared_unit = primero_aplicable(
-        r"\b(?:precio\s+(?:por\s+unidad|unitario|de\s+lista)|"
+        r"\b(?:precio\s+(?:por\s+(?:unidad|juego|pieza|barra|metro\s+cuadrado)|unitario|de\s+lista)|"
         r"precio\s+de\s+lista|"
         r"valor\s+unitario|"
-        r"presionitario|presunitario|prese\s+unitario)"
+        r"presionitario|presiunitario|preciunitario|presunitario|prese\s+unitario)"
         r"\s*[,;:]?\s*(?:(?:es\s+de|es|de)\s+)?(?:" + moneda + r"\s*)?(" + AMOUNT + r")\b"
     )
     cantidad = r"(?:\d+|" + "|".join(NUMBER_WORDS) + r")"
@@ -629,6 +690,10 @@ def _fragmento_numerico_truncado(text: str, start: int) -> bool:
     """Impide que se tome sólo el sufijo de una expresión numérica inválida."""
     import unicodedata
 
+    # An explicit clause separator terminates the preceding numeric expression.
+    # Keep same-clause malformed compounds blocked rather than consuming a suffix.
+    if re.search(r"[,;:.!?]\s*$", text[:start]):
+        return False
     contexto = "".join(
         char
         for char in unicodedata.normalize("NFD", text[max(0, start - 40) : start].casefold())
@@ -732,27 +797,34 @@ def find_measurements(text: str, label: str) -> list[Match]:
         if label == "profundidad"
         else r"\s*(?:de\s+)?(?:total\s+)?"
     )
-    pattern = re.compile(
-        axis
-        + axis_prefix
-        + r"(\d+(?:[.,]\d+)*)\s*("
-        + unit
-        + r")?|"
-        + r"(\d+(?:[.,]\d+)*)\s*("
-        + unit
-        + r")?\s*(?:de\s+)?"
-        + axis
-        + r"(?:\s+("
-        + unit
-        + r"))?",
+    forward_pattern = re.compile(
+        axis + axis_prefix + r"(\d+(?:[.,]\d+)*)\s*(" + unit + r")?",
+        re.I,
+    )
+    inverse_pattern = re.compile(
+        r"(\d+(?:[.,]\d+)*)\s*(" + unit + r")?\s*(?:de\s+)?" + axis + r"(?:\s+(" + unit + r"))?",
         re.I,
     )
     compuestas, spans_compuestos = _medidas_orales_compuestas(text, axis, axis_prefix, unit)
     found = []
-    for match in pattern.finditer(text):
+    for match in [*forward_pattern.finditer(text), *inverse_pattern.finditer(text)]:
+        inverse = match.re is inverse_pattern
+        other_axis = (
+            r"(?:ancho|anchura|alto|altura|largo|longitud|profundidad|fondo|di[aá]metro|espesor)"
+        )
+        if (
+            inverse
+            and re.search(
+                other_axis + axis_prefix + r"$",
+                text[max(0, match.start() - 50) : match.start()],
+                re.I,
+            )
+            and not re.search(r"\bde\s+" + axis + r"\b", match.group(), re.I)
+        ):
+            continue
         if re.search(r"[-−]\s*$", text[max(0, match.start() - 3) : match.start()]):
             continue
-        raw_value = match.group(1) or match.group(3)
+        raw_value = match.group(1)
         value = (
             Decimal(raw_value.replace(",", "."))
             if re.fullmatch(r"\d+(?:[.,]\d+)?", raw_value)
@@ -760,7 +832,7 @@ def find_measurements(text: str, label: str) -> list[Match]:
         )
         if value is not None and value <= 0:
             value = None
-        raw_unit = match.group(2) or match.group(4) or match.group(5)
+        raw_unit = match.group(2) or (match.group(3) if inverse else None)
         if value is not None:
             normalized = None
             if raw_unit:
@@ -812,6 +884,54 @@ def find_measurements(text: str, label: str) -> list[Match]:
                     (valor, normalizada),
                 )
             )
+    # Preserve unitless spoken values, but never fabricate their unit here.
+    for pattern_words in (
+        re.compile(r"(" + _DIM_PALABRAS_PATRON + r")\s+(?:de\s+)?" + axis + r"\b", re.I),
+    ):
+        for match in pattern_words.finditer(text):
+            value = _dimension_numero_palabras(match.group(1))
+            if (
+                value
+                and not _fragmento_numerico_truncado(text, match.start(1))
+                and not re.search(
+                    r"\b(?:metros?|cm|mm|cent[ií]metros?)\s+$", text[: match.start(1)], re.I
+                )
+                and not any(m.start <= match.start() and match.end() <= m.end for m in found)
+            ):
+                found.append(
+                    Match(match.start(), match.end(), match.group(), label.upper(), (value, None))
+                )
+    # A preceding product adjective cannot override the axis explicitly following
+    # the same value (armario alto de80cm de ancho).
+    opposite = r"(?:ancho|anchura|alto|altura|largo|longitud|profundidad|fondo|di[aá]metro|espesor)"
+    filtered = []
+    for measurement in found:
+        tail_axis = re.match(r"\s+(?:de\s+)?(" + opposite + r")\b", text[measurement.end :], re.I)
+        forward_axis = re.match(axis + r"\b", measurement.text, re.I)
+        if forward_axis and re.search(
+            r"(?:\d+(?:[.,]\d+)*|" + _DIM_PALABRAS_PATRON + r")\s*(?:" + unit + r")?\s+de\s+$",
+            text[max(0, measurement.start - 200) : measurement.start],
+            re.I,
+        ):
+            # An explicit postfix axis belongs to the preceding value, even
+            # when another value follows it without ASR punctuation.
+            continue
+        if (
+            forward_axis
+            and tail_axis
+            and not re.fullmatch(axis, tail_axis.group(1), re.I)
+            and (
+                re.match(r"\s+de\s+", tail_axis.group(), re.I)
+                or not re.match(
+                    axis_prefix + r"(?:\d|" + _DIM_PALABRAS_PATRON + r")",
+                    text[measurement.end + tail_axis.end() :],
+                    re.I,
+                )
+            )
+        ):
+            continue
+        filtered.append(measurement)
+    found = filtered
     found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
     found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
     return sorted(found, key=lambda encontrada: encontrada.start)
@@ -850,23 +970,13 @@ def find_accessories(text: str) -> list[Match]:
         + "|".join(ACCESSORIES)
         + r")\b(?:\s+(?!(?:y|con|pero|sin|color|precio)\b)(?!(?:"
         + "|".join(ACCESSORIES)
+        + r")\b)(?!(?:"
+        + "|".join(NUMBER_WORDS)
         + r")\b)[a-záéíóúñ]+){0,3}",
         re.I,
     )
     encontrados = []
     for match in pattern.finditer(text):
-        prefijo = text[max(0, match.start() - 25) : match.start()]
-        cantidad = re.search(
-            r"\b(" + "|".join(NUMBER_WORDS) + r"|\d+)\s*$",
-            prefijo,
-            re.I,
-        )
-        valor = None
-        if cantidad:
-            token = cantidad.group(1).lower()
-            valor = NUMBER_WORDS.get(token)
-            if valor is None and token.isdigit():
-                valor = int(token)
         texto_accesorio = match.group().strip()
         # El ASR a menudo omite la coma antes de otra cláusula:
         # «dos tomacorrientes al centro estructura en tablero».
@@ -898,7 +1008,63 @@ def find_accessories(text: str) -> list[Match]:
                 match.start() + len(texto_accesorio),
                 texto_accesorio,
                 "ACCESORIO",
-                valor,
+                quantity.value
+                if (
+                    quantity := find_accessory_quantity(
+                        text, match.start(), match.start() + len(texto_accesorio)
+                    )
+                )
+                else None,
             )
         )
     return encontrados
+
+
+def find_accessory_quantity(text: str, start: int, end: int) -> Match | None:
+    """Only explicit adjacent integer counts; protocol numbers are not quantities."""
+    number = r"(?!y\b)" + AMOUNT
+    prefix_start = max(0, start - 200)
+    prefix = re.search(r"(?<![\w.,−-])(" + number + r")\s*$", text[prefix_start:start], re.I)
+    suffix = re.match(
+        r"\s*(?:\(\s*|:\s*)(" + number + r")(?:\s+unidades?)?\s*(?:\)|[,.;]|$)"
+        r"|\s*,\s*(" + number + r")\s+unidades?\b",
+        text[end : end + 200],
+        re.I,
+    )
+    found = []
+    for match, offset in [(prefix, prefix_start), (suffix, end)]:
+        if match is None:
+            continue
+        group = 1 if match.group(1) else 2
+        raw = match.group(group)
+        number_start = offset + match.start(group)
+        if re.search(r"\b(?:o|menos)\s*$", text[max(0, number_start - 200) : number_start], re.I):
+            continue
+        if (
+            prefix_start
+            and offset + match.start(group) == prefix_start
+            and text[prefix_start - 1].isalnum()
+        ):
+            continue
+        parsed = Decimal(raw) if raw.isdigit() else _dimension_numero_palabras(raw)
+        value = (
+            int(parsed)
+            if parsed is not None
+            and parsed == parsed.to_integral_value()
+            and not re.search(r"[.,]", raw)
+            else None
+        )
+        if value and value > 0:
+            found.append(
+                Match(
+                    offset + match.start(group),
+                    offset + match.end(group),
+                    raw,
+                    "CANTIDAD_ACCESORIO",
+                    value,
+                )
+            )
+    if len(found) == 2 and found[0].value != found[1].value:
+        a, b = found
+        return Match(a.start, b.end, text[a.start : b.end], "CANTIDAD_ACCESORIO", None)
+    return found[0] if found else None

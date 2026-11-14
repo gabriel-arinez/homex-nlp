@@ -1,0 +1,7 @@
+Final publication artifact security audit
+Result: PASS for local frozen artifact privacy/integrity scope; no public bytes or Git/remote state mutated.
+Files: 6,728 including manifest; 7,672 manifest records. All 7,672 source hashes, 6,721 top-level export hashes, 10,374 trace member hashes, and six sanitized trace output hashes passed. No missing/unrecorded files, symlinks, files over 100 MB, audio/video, environment, database, model, wheel, or archive payload files.
+Credentials/audio: 69 sensitive-value candidates from runtime artifacts/logs; zero exact matches in exported text. No JWT/GitHub/Bearer patterns or audio data URIs. 15,097 trace records parsed, zero malformed; all 3,608 cookie arrays empty; 14 audio MIME metadata objects had no inline payload or archive reference.
+Images: all 18 published PNG hashes exactly match the previously reviewed source hashes. Historical audit data: 1,294 b851b5a tracked files equal HEAD, excluding the intentionally updated root README.
+Limitations: no remote Gitleaks/CI result claimed; manifest itself is not self-hashed.
+Report: evaluaciones/semantic-120-v1/publication-verification/final.json

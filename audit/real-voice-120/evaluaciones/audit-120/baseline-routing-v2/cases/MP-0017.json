@@ -1,0 +1,358 @@
+{
+  "id": "MP-0017",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0017.aac",
+    "original_sha256": "01ec257e9cf9b2b68c0a606b0eab6ee6cd48d5ce1bd589665d9a0834b29d6c33",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0017.wav",
+    "wav_sha256": "25d65e9924a13f42e3e9873d585b5ad5af18fdb314c7eb06a38f1b0b01cc4b59"
+  },
+  "reference": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+  "source": {
+    "id": "MP-0017",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      17
+    ],
+    "titulo_fuente": "MESA DE REUNION 6 PERSONAS",
+    "grupo_familia": "PRO_017",
+    "guion": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+    "audio_esperado": "MP-0017.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0017.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "176a942b268b091759e8de80857aeda4e0c765de2e5233f728f58aeeb9f54a99",
+    "audio_compatible_asr": "MP-0017.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0017.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 31.997125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 bolivianos. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "13.000000",
+        "text": " Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura."
+      },
+      {
+        "start_seconds": "13.000000",
+        "end_seconds": "21.000000",
+        "text": " Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño."
+      },
+      {
+        "start_seconds": "21.000000",
+        "end_seconds": "27.000000",
+        "text": " Dos colores de elección, precio 2900 bolivianos."
+      },
+      {
+        "start_seconds": "31.000000",
+        "end_seconds": "40.000000",
+        "text": " Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura."
+      },
+      {
+        "start_seconds": "40.000000",
+        "end_seconds": "50.000000",
+        "text": " Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4913
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017",
+    "status": "NO_PROPOSAL",
+    "text_original": "Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros de ancho y 80 de altura. Me son engrosado a 25 milímetros bordes de PVC y patas metálicas según diseño. Dos colores de elección, precio 2900 bolivianos. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura. Una mesa de reuniones para seis personas de un metro 30 de largo 80 centímetros bordes de ancho y 80 de altura.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 237,
+        "end": 241,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 349,
+        "end": 353,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.43625100079225376,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0017-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Una mesa de reuniones para seis personas, de un metro treinta de largo, ochenta centímetros de ancho y ochenta de altura. Mesón engrosado a veinticinco milímetros, bordes de PVC y patas metálicas según diseño. Dos colores a elección. Precio de dos mil novecientos bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mesa",
+      "furniture_type_candidate": "mesa",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "Mesón",
+          "evidence_ids": [
+            "c6"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "patas metálicas",
+          "evidence_ids": [
+            "c7"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "80",
+          "unit": "cm",
+          "original_text": "ochenta centímetros de ancho",
+          "value_mm": "800",
+          "axis": "ancho"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "130",
+          "unit": "cm",
+          "original_text": "un metro treinta de largo",
+          "value_mm": "1300",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "veinticinco milímetros",
+          "value_mm": "25"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [],
+      "price": null,
+      "observations": null,
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 8,
+        "text": "mesa",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 3,
+        "text": "Una",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ANCHO",
+        "start": 72,
+        "end": 100,
+        "text": "ochenta centímetros de ancho",
+        "source": "RULE",
+        "normalized_value": [
+          "80",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "LARGO",
+        "start": 45,
+        "end": 70,
+        "text": "un metro treinta de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "130",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "ESPESOR",
+        "start": 140,
+        "end": 162,
+        "text": "veinticinco milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "COMPONENTE",
+        "start": 122,
+        "end": 127,
+        "text": "Mesón",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "COMPONENTE",
+        "start": 180,
+        "end": 195,
+        "text": "patas metálicas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 2.2802110033808276,
+  "metrics": {
+    "wer": {
+      "errors": 52,
+      "substitutions": 10,
+      "deletions": 0,
+      "insertions": 42,
+      "reference_length": 44,
+      "rate": 1.1818181818181819
+    },
+    "cer": {
+      "errors": 247,
+      "substitutions": 17,
+      "deletions": 24,
+      "insertions": 206,
+      "reference_length": 268,
+      "rate": 0.9216417910447762
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.995525202000863,
+  "process_peak_rss_kib": 892320,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0017.json",
+    "original_case_sha256": "609a4a267916d745d1e214ad3a0f66b3db260befb25c217746e281cd2b1004de",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

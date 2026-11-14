@@ -1,0 +1,14 @@
+..............F                                                          [100%]
+=================================== FAILURES ===================================
+_____ test_new_family_mentions_as_usage_do_not_create_an_independent_order _____
+
+    def test_new_family_mentions_as_usage_do_not_create_an_independent_order():
+        result = extract("Dos casilleros para estaciones de trabajo. Precio unitario 900 bolivianos.")
+>       assert result.item_proposal is not None and result.item_proposal.quantity == 2
+E       AssertionError: assert (None is not None)
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='semantic-probe', status='NO_PROPOSAL', text_original='Dos casillero...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_furniture_semantic_v2.py:126: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_furniture_semantic_v2.py::test_new_family_mentions_as_usage_do_not_create_an_independent_order
+1 failed, 14 passed in 0.56s

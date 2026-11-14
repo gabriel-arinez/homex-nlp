@@ -1,0 +1,126 @@
+COMMAND: cp -a --reflink=auto /home/gabriel/.cache/uv /tmp/homex-chain-extraction.XChxQd/uv-cache
+CACHE_COPY_EXIT_CODE=0
+COMMAND: UV_OFFLINE=true UV_LINK_MODE=copy SOURCE_DATE_EPOCH=0 uv build
+Building source distribution...
+Building wheel from source distribution...
+Successfully built dist/homex_nlp-0.1.21.tar.gz
+Successfully built dist/homex_nlp-0.1.21-py3-none-any.whl
+BUILD_EXIT_CODE=0
+COMMAND: UV_OFFLINE=true UV_LINK_MODE=copy SOURCE_DATE_EPOCH=0 existing-python tools/verify_distribution.py
+Using CPython 3.11.15
+Creating virtual environment at: /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-ak201jjq/venv
+Activate with: source /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-ak201jjq/venv/bin/activate
+Using Python 3.11.15 environment at: /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-ak201jjq/venv
+Resolved 45 packages in 16ms
+Prepared 1 package in 5ms
+Installed 45 packages in 3.63s
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.16.0
+ + blis==1.3.4
+ + catalogue==2.0.10
+ + certifi==2026.10.23
+ + charset-normalizer==3.5.2
+ + click==8.5.0
+ + cloudpathlib==0.26.0
+ + confection==1.3.4
+ + cymem==2.0.16
+ + h11==0.16.0
+ + homex-nlp==0.1.21 (from file:///tmp/homex-chain-extraction.XChxQd/tree/dist/homex_nlp-0.1.21-py3-none-any.whl)
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + idna==3.20
+ + jinja2==3.1.6
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.4
+ + mdurl==0.1.2
+ + murmurhash==1.0.16
+ + numpy==2.4.6
+ + packaging==26.3
+ + preshed==3.0.15
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pygments==2.21.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + setuptools==84.2.1
+ + shellingham==1.5.4
+ + smart-open==9.0.1
+ + spacy==3.8.13
+ + spacy-legacy==3.0.12
+ + spacy-loggers==1.0.5
+ + srsly==2.5.5
+ + thinc==8.3.14
+ + tqdm==4.70.1
+ + typer==0.27.3
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + urllib3==2.8.0
+ + wasabi==1.1.3
+ + weasel==1.0.1
+ + wrapt==2.5.2
+backend-consumer-smoke: OK
+Using CPython 3.11.15
+Creating virtual environment at: /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-nyayx0mp/venv
+Activate with: source /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-nyayx0mp/venv/bin/activate
+Using Python 3.11.15 environment at: /tmp/homex-chain-extraction.XChxQd/tmp/homex-dist-nyayx0mp/venv
+Resolved 45 packages in 31ms
+   Building homex-nlp @ file:///tmp/homex-chain-extraction.XChxQd/tree/dist/homex_nlp-0.1.21.tar.gz
+      Built homex-nlp @ file:///tmp/homex-chain-extraction.XChxQd/tree/dist/homex_nlp-0.1.21.tar.gz
+Prepared 1 package in 250ms
+Installed 45 packages in 398ms
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.16.0
+ + blis==1.3.4
+ + catalogue==2.0.10
+ + certifi==2026.10.23
+ + charset-normalizer==3.5.2
+ + click==8.5.0
+ + cloudpathlib==0.26.0
+ + confection==1.3.4
+ + cymem==2.0.16
+ + h11==0.16.0
+ + homex-nlp==0.1.21 (from file:///tmp/homex-chain-extraction.XChxQd/tree/dist/homex_nlp-0.1.21.tar.gz)
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + idna==3.20
+ + jinja2==3.1.6
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.4
+ + mdurl==0.1.2
+ + murmurhash==1.0.16
+ + numpy==2.4.6
+ + packaging==26.3
+ + preshed==3.0.15
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pygments==2.21.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + setuptools==84.2.1
+ + shellingham==1.5.4
+ + smart-open==9.0.1
+ + spacy==3.8.13
+ + spacy-legacy==3.0.12
+ + spacy-loggers==1.0.5
+ + srsly==2.5.5
+ + thinc==8.3.14
+ + tqdm==4.70.1
+ + typer==0.27.3
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + urllib3==2.8.0
+ + wasabi==1.1.3
+ + weasel==1.0.1
+ + wrapt==2.5.2
+backend-consumer-smoke: OK
+Building source distribution...
+Building wheel from source distribution...
+Successfully built /tmp/homex-chain-extraction.XChxQd/tmp/homex-rebuild-xxgrzopg/homex_nlp-0.1.21.tar.gz
+Successfully built /tmp/homex-chain-extraction.XChxQd/tmp/homex-rebuild-xxgrzopg/homex_nlp-0.1.21-py3-none-any.whl
+Distribución HOMEX NLP 0.1.21: reproducible, privada y backend-ready {'homex_nlp-0.1.21-py3-none-any.whl': 'ca1ecbbefaa74794e07f0d8e76b9c5b8f27ffdb71add6c38754b6d302dc55b38', 'homex_nlp-0.1.21.tar.gz': '4e5999427d6acbe322903d45528af5d1bd7332f08dc241334fa18fc4d92e370b'}.
+DISTRIBUTION_EXIT_CODE=0
+ca1ecbbefaa74794e07f0d8e76b9c5b8f27ffdb71add6c38754b6d302dc55b38  dist/homex_nlp-0.1.21-py3-none-any.whl
+4e5999427d6acbe322903d45528af5d1bd7332f08dc241334fa18fc4d92e370b  dist/homex_nlp-0.1.21.tar.gz
+DISTRIBUTION_RUNNER_EXIT=0

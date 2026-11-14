@@ -1,0 +1,232 @@
+{
+  "id": "MP-0070",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0070.aac",
+    "original_sha256": "63d4a1189e0673996e80e551aa9147ebddaae163f2938a8735ba17f985a8e52d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0070.wav",
+    "wav_sha256": "c68d4abce37d5d2b4ad6737f56473fcdea0a01ee6a40999430264a32d2ad1e79"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0070-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Cuatro estantes libreros de un metro veinte de altura, noventa centímetros de ancho y treinta y tres de profundidad. Melamina de dieciocho milímetros con tapacantos PVC, dos divisiones interiores para tres espacios útiles. Color a elección. Precio unitario de novecientos cincuenta bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 7,
+        "end": 15,
+        "text": "estantes",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 16,
+        "end": 24,
+        "text": "libreros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.19717599934665486,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0070-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "4 estantes libreros de 1 metro 20 de altura, 90 centímetros de ancho y 33 de profundidad, melamina de 18 milímetros con tapacantos VVC, 2 divisiones interiores para 3 espacios útiles, color a elección, precio unitario de 950 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 10,
+        "text": "estantes",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 11,
+        "end": 19,
+        "text": "libreros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.1724419998936355,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "cuatro"
+        ],
+        "asr": [
+          "4"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "un"
+        ],
+        "asr": [
+          "1"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinte"
+        ],
+        "asr": [
+          "20"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "noventa"
+        ],
+        "asr": [
+          "90"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta",
+          "y",
+          "tres"
+        ],
+        "asr": [
+          "33"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "pvc",
+          "dos"
+        ],
+        "asr": [
+          "vvc",
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "tres"
+        ],
+        "asr": [
+          "3"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "novecientos",
+          "cincuenta"
+        ],
+        "asr": [
+          "950"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0070",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "950",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

@@ -1,0 +1,327 @@
+{
+  "id": "SIL-0019",
+  "category": "OTRO",
+  "leakage_group": "DEV-SIL-0019",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "93ad5979155513aabbd65535fbe0f862b52d3b15faca53f5a0b8fb59d0acf0b5",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0019.aac",
+    "original_sha256": "3435be8f0dd8d910d54e2b637650b85cc64147e586d7fabd1ce9d25d95882db4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0019.wav",
+    "wav_sha256": "e5d287a6fe1172d57f30c0187bfde546dccac3f4ab6b90f836e26f0454060c06"
+  },
+  "text_original": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+  "script_text": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Ejecutivo",
+      "observaciones": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+      "precio_lista": "1390.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-291-296",
+        "label": "unidad_stock",
+        "start": 291,
+        "end": 296,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillon Ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-333",
+        "label": "observaciones",
+        "start": 0,
+        "end": 333,
+        "text": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-317-321",
+        "label": "precio_lista",
+        "start": 317,
+        "end": 321,
+        "text": "1390",
+        "source": "RULE",
+        "normalized_value": "1390.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Sillon Ejecutivo"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1390.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1390",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1390",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1390",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon ejecutivo",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 13,
+      "substitutions": 5,
+      "deletions": 6,
+      "insertions": 2,
+      "reference_length": 54,
+      "rate": 0.24074074074074073
+    },
+    "strict_normalized": {
+      "errors": 10,
+      "substitutions": 4,
+      "deletions": 4,
+      "insertions": 2,
+      "reference_length": 52,
+      "rate": 0.19230769230769232
+    }
+  },
+  "normalization": {
+    "reference_text": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de 1390 BOB.",
+    "asr_text": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 BOB.",
+    "reference_transforms": [
+      {
+        "start": 335,
+        "end": 358,
+        "raw": "mil trescientos noventa",
+        "replacement": "1390",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 359,
+        "end": 369,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 322,
+        "end": 332,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

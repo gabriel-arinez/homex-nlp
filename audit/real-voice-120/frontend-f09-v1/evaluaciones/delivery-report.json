@@ -1,0 +1,167 @@
+{
+  "status": "FRONTEND_AND_CROSS_STACK_CI_CLOSED",
+  "frontend_repository": "gabriel-arinez/homex-frontend",
+  "branch": "fix/real-voice-120-f09",
+  "base": "ef0a7f881dbf9e8f16d5eeb918a3e2e6205273a4",
+  "commits": [
+    "11a09f9",
+    "4e813ff0cdd8e0a11b847c1d8ee3aff1a7c1bdc2",
+    "7b83694310239551e45d8a8a30ab96e2724c72c1"
+  ],
+  "backend_application_peer": "54c8b91a994c996e595ce0246d4ef8ed5b4f4e9f",
+  "base_ci_run": 43146522113,
+  "risk": "item5: exact CI consumer pin; independently checked",
+  "root_causes": [
+    {
+      "class": "test_contract",
+      "cause": "The detail route was intentionally replaced by the unified editor in18ffcea, but FE08 still expected the old route and old approval action.",
+      "fix": "Assert editor URL, extract numeric penultimate segment, click exact Aprobar and retain explicit Aprobar y crear pedido dialog."
+    },
+    {
+      "class": "test_contract",
+      "cause": "Gallery flow still used removed menu/save selectors and assumed duplicate opened the General section.",
+      "fix": "Exact Revisar menu, Guardar mueble for editing, explicit General before renaming duplicate; all image assertions retained."
+    },
+    {
+      "class": "test_locator",
+      "cause": "Persistent order banner and temporary toast both announce the created order.",
+      "fix": "Identify status through Consultar pedido link, not arbitrary first match."
+    },
+    {
+      "class": "frontend_accessibility",
+      "cause": "0.9 opacity blended white instruction text against institutional red, axe contrast4.38 below4.5 threshold.",
+      "fix": "Instruction opacity1, unchanged theme color and unchanged Axe assertion."
+    },
+    {
+      "class": "ci_integration_reference",
+      "cause": "Frontend integration peer still selected old69d9ec1 rather than operational backend0.1.22; backend selected mutablefrontendmain which excludes unmergedfixes.",
+      "fix": "Frontend pinned backend54c8b91; backend final850c250 pins frontend7b83694. Backend54→850 changes only workflow/docs; package/runtime identical."
+    },
+    {
+      "class": "test_contract",
+      "cause": "The now-unblocked FE08 audio case expected Borrador and a product heading in removed detail view; actual error context showed correctly persisted mesas on the editor Products step.",
+      "fix": "After reload assert editor URL and visible product line, then navigate Revisar and assert persisted BORRADOR code plus visible Borrador label.",
+      "red_ci": 43159506238,
+      "green_ci": [
+        43160479820,
+        43160776481
+      ]
+    }
+  ],
+  "checks": {
+    "baseline_live_targeted": {
+      "failed": 2,
+      "exit_code": 1,
+      "log": "targeted-red-playwright.log"
+    },
+    "final_live_targeted": {
+      "passed": 2,
+      "exit_code": 0,
+      "duration_seconds": 29.5,
+      "log": "integration-green-attempt3.log"
+    },
+    "contrast_red": {
+      "failed": 1,
+      "log": "voice-contrast-red-v2.log"
+    },
+    "contrast_green": {
+      "passed": 1,
+      "log": "voice-contrast-green.log"
+    },
+    "check_all": {
+      "passed": 306,
+      "files": 56,
+      "exit_code": 0,
+      "log": "check-all-v2.log"
+    },
+    "independent_e2e": {
+      "passed": 109,
+      "skipped": 1,
+      "exit_code": 0,
+      "log": "test-e2e.log",
+      "skip": "Existing baseline FE04 editable-attachments test; unchanged."
+    },
+    "independent_contract": {
+      "exit_code": 0,
+      "log": "contract-check.log"
+    },
+    "voice_unit_differential": {
+      "baseline_passed": 3,
+      "candidate_passed": 3
+    },
+    "backend_identity_and_contract_unit": {
+      "passed": 14,
+      "exit_code": 0,
+      "log": "backend-peer-unit.log"
+    },
+    "cross_repository_openapi": {
+      "exit_code": 0,
+      "log": "backend-peer-contract.log"
+    },
+    "backend_complete_ci_suite": {
+      "passed": 552,
+      "skipped": 5,
+      "skip_reason": "Existing PDF geometry/token checks need Poppler pdftotext in that job; not disabled/changed by this intervention."
+    },
+    "backend_concurrency_ci_suite": {
+      "passed": 16,
+      "deselected": 541,
+      "note": "Separate marked suite; do not add counts to the full suite as unique tests."
+    },
+    "final_editor_regressions": {
+      "passed": 3,
+      "exit_code": 0,
+      "log": "editor-redirect-regressions.log"
+    }
+  },
+  "limitations": [
+    "Independent verifier did not provision a second real backend; parent actual isolated PostgreSQL/API targeted2/2 is separate evidence.",
+    "Original120 remain development data; no new acoustic or independent-generalization assertions.",
+    "Initial local attempts missing CI API-origin settings failed setup and remain retained, not counted as semantic RED.",
+    "Raw traces and disposable settings/credentials are not publication artifacts.",
+    "One existing FE04 attachments E2E skip and five missing-Poppler PDF skips are disclosed, not silently counted as passed.",
+    "Independent reports are scoped frozen-check evidence; current CI JSON and complete console logs are authoritative for later final heads."
+  ],
+  "application_source_scope": [
+    "VoiceCaptureControls.vue instruction opacity only; no ASR/NLP/business/permission/stock logic changes"
+  ],
+  "source_file_sha256": {
+    ".github/workflows/ci.yml": "8720f459492d9b30d200ae347c609921654c35aaab0dc5db4a3893afb32e54c2",
+    "docs/GALERIAS.md": "560aeae6f39a4fadd291f14eb8427dee1801ae616f267a3166fe902f5bdb0752",
+    "docs/PRF04_CIERRE_FRONTEND.md": "099258fc6715cc5326783598f7715980d731a84e0677f3a35d1243570af57805",
+    "src/modules/capturas/components/VoiceCaptureControls.vue": "e284510f3edd562a95e6d1d7f8d3bb1879dd423fdaa012ef7269d07ea729c7ea",
+    "src/tests/integration/fe08-real.spec.ts": "fc92a9960362af8074513010e17bb25ad547816a6b28265db15f096c2d2ba7ef",
+    "src/tests/integration/galerias-real.spec.ts": "1453b21737320dfe7d76f1bf38ae3dc1826643d4fb3388c1dee33897546f7707"
+  },
+  "services": "Only owned disposable PG/API/preview started; stopped after targetedruns. No production/main merge/deploy.",
+  "global_audit_status": "HUMAN_ACOUSTIC_AND_ASSOCIATION_ADJUDICATION_PENDING",
+  "frontend_head": "7b83694310239551e45d8a8a30ab96e2724c72c1",
+  "backend_head": "850c250d0e673a296f4f0d772800aae89dd395b1",
+  "backend_commits": [
+    "fbee8521a71068431eb873cf3ab12d6a1713487d",
+    "850c250d0e673a296f4f0d772800aae89dd395b1"
+  ],
+  "historical_frontend_ci_run": 43159506238,
+  "ci": {
+    "frontend": {
+      "run": 43160479820,
+      "head": "7b83694310239551e45d8a8a30ab96e2724c72c1",
+      "conclusion": "success",
+      "passed_jobs": 13,
+      "total_jobs": 13,
+      "url": "https://github.com/gabriel-arinez/homex-frontend/actions/runs/43160479820",
+      "actual_stack_integration_passed": 14,
+      "full_console_log": "frontend-final-ci-full.log"
+    },
+    "backend": {
+      "run": 43160776481,
+      "head": "850c250d0e673a296f4f0d772800aae89dd395b1",
+      "conclusion": "success",
+      "passed_jobs": 13,
+      "total_jobs": 13,
+      "url": "https://github.com/gabriel-arinez/homex-backend/actions/runs/43160776481",
+      "actual_stack_integration_passed": 14,
+      "full_console_log": "backend-final-ci-full.log"
+    }
+  }
+}

@@ -18,10 +18,14 @@ from homex_nlp.contracts import (
 )
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.result import EngineInfo
+from homex_nlp.product_relations import resolve_product_references
 from homex_nlp.rules import (
     NUMBER_WORDS,
     Match,
+    _commercial_count_match,
+    _commercial_count_pattern,
     find_accessories,
+    find_accessory_quantity,
     find_ambiguous_price,
     find_measurements,
     find_price,
@@ -131,8 +135,12 @@ class RulesEngine:
             p
             for p in find_products(text)
             if not (
-                p.text.lower().startswith("cajonera")
-                and text[: p.start].rstrip().lower().endswith("con")
+                p.text.lower().startswith(("cajonera", "casillero"))
+                and re.search(
+                    r"\bcon\s+(?:" + _commercial_count_pattern() + r"\s+)?$",
+                    text[max(0, p.start - 200) : p.start],
+                    re.I,
+                )
             )
         ]
         # En una única línea comercial, «cada escritorio» reitera el mueble
@@ -197,7 +205,11 @@ class RulesEngine:
         # «un escritorio, no mesa» no aclara si «mesa» es una corrección
         # sin pausa o una exclusión. Sin señal inequívoca, abstenerse.
         if any(
-            re.search(r"[,;]\s*no\s+$", text[a.end : b.start], re.I)
+            re.search(
+                r"[,;]\s*no\s+(?!(?:un|una|uno)\s+$)(?:" + _commercial_count_pattern() + r"\s+)?$",
+                text[a.end : b.start],
+                re.I,
+            )
             for a, b in zip(products, products[1:])
         ):
             for ambiguous in products:
@@ -229,6 +241,11 @@ class RulesEngine:
                     severity="REVIEW",
                     message="Se excluyó una referencia de producto negada; revise el nombre.",
                 )
+            )
+        products, references = resolve_product_references(text, products, conocidos)
+        for reference in references:
+            candidate(
+                reference, "REJECTED", "Referential/component mention, not an independent product"
             )
         if len(products) > 1:
             # Una segunda mención de «mesas» dentro del total negociado no
@@ -325,6 +342,22 @@ class RulesEngine:
                 ],
                 started,
             )
+        variants = re.search(
+            r",\s*(una?)\s+de\b[^.;]*\by\s+(otra?)\b", text[products[0].end :], re.I
+        )
+        if variants:
+            for group in (1, 2):
+                start = products[0].end + variants.start(group)
+                end = products[0].end + variants.end(group)
+                candidate(Match(start, end, text[start:end], "PRODUCTO"), "UNRESOLVED")
+            warnings.append(
+                Warning(
+                    code="MULTIPLE_MAIN_PRODUCTS",
+                    path="/item_proposal/name",
+                    severity="REVIEW",
+                    message="Separate product descriptions require review.",
+                )
+            )
         candidate(products[0])
         quantity = find_quantity(text, main_product=products[0])
         if quantity:
@@ -334,15 +367,16 @@ class RulesEngine:
             original_quantity = quantity
             corrected = []
             pattern = re.compile(
-                r"\s*[,;.]?\s*(?:no\s*,?\s*mejor|corrijo|perd[oó]n)\s*[,;]?\s*"
-                r"(?P<number>cero|\d+|" + "|".join(NUMBER_WORDS) + r")\b"
+                r"\s*[,;.]?\s*(?:no\s*,?\s*mejor|(?:corrijo|perd[oó]n)(?:\s*,?\s*mejor)?)\s*[,;]?\s*"
+                r"(?P<number>cero|" + _commercial_count_pattern() + r")\b"
                 r"(?:\s+(?:unidades?|muebles?))?",
                 re.I,
             )
             while correction := pattern.match(text[offset:]):
                 token = correction.group("number")
-                value = NUMBER_WORDS.get(token.casefold(), int(token) if token.isdigit() else None)
                 start = offset + correction.start("number")
+                parsed = _commercial_count_match(text, start, start + len(token))
+                value = parsed.value if parsed else None
                 corrected.append(Match(start, start + len(token), token, "CANTIDAD", value))
                 offset += correction.end()
             if corrected:
@@ -454,12 +488,27 @@ class RulesEngine:
             if is_explicitly_negated(text, accessory.start):
                 candidate(accessory, "REJECTED", "Accesorio explícitamente excluido")
                 continue
-            accessories.append(
-                Accessory(
-                    name=accessory.text,
-                    quantity=accessory.value,
-                    evidence_ids=[candidate(accessory)],
+            evidence = [candidate(accessory)]
+            count = find_accessory_quantity(text, accessory.start, accessory.end)
+            if count is not None:
+                evidence.append(
+                    candidate(
+                        count,
+                        "ACCEPTED" if count.value else "UNRESOLVED",
+                        None if count.value else "Conflicting accessory counts",
+                    )
                 )
+                if count.value is None:
+                    warnings.append(
+                        Warning(
+                            code="CONFLICTING_VALUES",
+                            path="/item_proposal/accessories",
+                            severity="REVIEW",
+                            message="Accessory quantity requires review.",
+                        )
+                    )
+            accessories.append(
+                Accessory(name=accessory.text, quantity=accessory.value, evidence_ids=evidence)
             )
         monetary_mentions, _ = price_mentions(text)
         price_match, price_mode = find_price(

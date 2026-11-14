@@ -1,0 +1,1570 @@
+[
+  {
+    "id": "MP-0001",
+    "category": "MUEBLE",
+    "status": "PASS",
+    "response": {
+      "id": 1,
+      "estado": "COMPLETADA",
+      "intento_id": 1,
+      "texto_transcrito_original": "2 mesas de sala de reuniones, de 2 metros de diámetro y 75 centímetros de altura, tablero de melamina de 25 milímetros, con patas y estructura de perfil metálico de 50 por 50 por un milímetro, color de melamina y pintura electrostática a elección, caja eléctrica con dos puertos USB, 2 HDMI y 2 tomacorrientes, además de topes de goma en las patas, presionitario de 7,300 bolivianos.",
+      "resultado": "REQUIRES_REVIEW",
+      "propuesta_configurador": {
+        "comercial": {
+          "nombre": "mesas",
+          "cantidad": 2,
+          "unidad_codigo": null,
+          "precio_unitario": "7300.00",
+          "descuento": null
+        },
+        "especificacion": {
+          "tipo_mueble": null,
+          "datos_tecnicos": {
+            "conjuntos": [],
+            "accesorios": [
+              "caja eléctrica",
+              "2 puertos USB",
+              "2 HDMI",
+              "2 tomacorrientes",
+              "topes de goma en las patas"
+            ],
+            "componentes": [
+              {
+                "uid": "42340891-95ca-57fa-9a43-823fb2a5c259",
+                "nombre": "tablero",
+                "espesor": "25 mm",
+                "material": "melamina"
+              },
+              {
+                "uid": "bfb59dcc-405a-524f-8d0a-0215a4f84ade",
+                "nombre": "patas"
+              },
+              {
+                "uid": "8059026d-19b6-5d77-a236-8444c648bc9d",
+                "nombre": "estructura",
+                "espesor": "1 mm",
+                "material": "metálico"
+              },
+              {
+                "uid": "5866bf83-dc21-5779-973f-c06232fe859a",
+                "nombre": "patas"
+              }
+            ],
+            "descripcion_original": "2 mesas de sala de reuniones, de 2 metros de diámetro y 75 centímetros de altura, tablero de melamina de 25 milímetros, con patas y estructura de perfil metálico de 50 por 50 por un milímetro, color de melamina y pintura electrostática a elección, caja eléctrica con dos puertos USB, 2 HDMI y 2 tomacorrientes, además de topes de goma en las patas, presionitario de 7,300 bolivianos.",
+            "caracteristicas_generales": {
+              "atributos": [
+                {
+                  "valor": "melamina",
+                  "codigo": "MATERIAL",
+                  "nombre": "Material",
+                  "tipo_entrada": "texto"
+                }
+              ],
+              "dimensiones": {
+                "alto": {
+                  "valor": "75",
+                  "unidad": "cm"
+                },
+                "diametro": {
+                  "valor": "2",
+                  "unidad": "m"
+                }
+              }
+            }
+          },
+          "observaciones": null
+        },
+        "pendientes": [
+          {
+            "resolucion": null,
+            "codigo": "TIPO_NO_RESUELTO",
+            "ruta": "especificacion.tipo_mueble",
+            "mensaje": "Seleccione el tipo de mueble para mesas."
+          }
+        ]
+      },
+      "pendientes": [
+        {
+          "resolucion": null,
+          "codigo": "TIPO_NO_RESUELTO",
+          "ruta": "especificacion.tipo_mueble",
+          "mensaje": "Seleccione el tipo de mueble para mesas."
+        }
+      ],
+      "version_proyeccion": "PRF04_2",
+      "motor": {
+        "mode": "RULES_ONLY",
+        "rules_version": "prf04-rules-money-2",
+        "model_version": null,
+        "normalization_version": "1.0"
+      },
+      "error_codigo": null
+    },
+    "generalInputs": [
+      {
+        "name": "mueble-nombre-comercial",
+        "value": "mesas"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "ancho",
+        "value": ""
+      },
+      {
+        "name": "alto",
+        "value": "75"
+      },
+      {
+        "name": "profundidad",
+        "value": ""
+      },
+      {
+        "name": "diametro",
+        "value": "2"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "general-0",
+        "value": "melamina"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-0",
+        "value": "tablero"
+      },
+      {
+        "name": "componente-0-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-0",
+        "value": "melamina"
+      },
+      {
+        "name": "componente-espesor-0",
+        "value": "25 mm"
+      },
+      {
+        "name": "componente-color-0",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-0",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-1",
+        "value": "patas"
+      },
+      {
+        "name": "componente-1-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-1",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-1",
+        "value": ""
+      },
+      {
+        "name": "componente-color-1",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-1",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-2",
+        "value": "estructura"
+      },
+      {
+        "name": "componente-2-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-2",
+        "value": "metálico"
+      },
+      {
+        "name": "componente-espesor-2",
+        "value": "1 mm"
+      },
+      {
+        "name": "componente-color-2",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-2",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-3",
+        "value": "patas"
+      },
+      {
+        "name": "componente-3-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-3",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-3",
+        "value": ""
+      },
+      {
+        "name": "componente-color-3",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-3",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "mueble-cantidad",
+        "value": "2"
+      },
+      {
+        "name": "mueble-precio",
+        "value": "7300.00"
+      },
+      {
+        "name": "mueble-descuento",
+        "value": "0.00"
+      },
+      {
+        "name": "mueble-descripcion",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      }
+    ],
+    "proposal": {
+      "comercial": {
+        "nombre": "mesas",
+        "cantidad": 2,
+        "unidad_codigo": null,
+        "precio_unitario": "7300.00",
+        "descuento": null
+      },
+      "especificacion": {
+        "tipo_mueble": null,
+        "datos_tecnicos": {
+          "conjuntos": [],
+          "accesorios": [
+            "caja eléctrica",
+            "2 puertos USB",
+            "2 HDMI",
+            "2 tomacorrientes",
+            "topes de goma en las patas"
+          ],
+          "componentes": [
+            {
+              "uid": "42340891-95ca-57fa-9a43-823fb2a5c259",
+              "nombre": "tablero",
+              "espesor": "25 mm",
+              "material": "melamina"
+            },
+            {
+              "uid": "bfb59dcc-405a-524f-8d0a-0215a4f84ade",
+              "nombre": "patas"
+            },
+            {
+              "uid": "8059026d-19b6-5d77-a236-8444c648bc9d",
+              "nombre": "estructura",
+              "espesor": "1 mm",
+              "material": "metálico"
+            },
+            {
+              "uid": "5866bf83-dc21-5779-973f-c06232fe859a",
+              "nombre": "patas"
+            }
+          ],
+          "descripcion_original": "2 mesas de sala de reuniones, de 2 metros de diámetro y 75 centímetros de altura, tablero de melamina de 25 milímetros, con patas y estructura de perfil metálico de 50 por 50 por un milímetro, color de melamina y pintura electrostática a elección, caja eléctrica con dos puertos USB, 2 HDMI y 2 tomacorrientes, además de topes de goma en las patas, presionitario de 7,300 bolivianos.",
+          "caracteristicas_generales": {
+            "atributos": [
+              {
+                "valor": "melamina",
+                "codigo": "MATERIAL",
+                "nombre": "Material",
+                "tipo_entrada": "texto"
+              }
+            ],
+            "dimensiones": {
+              "alto": {
+                "valor": "75",
+                "unidad": "cm"
+              },
+              "diametro": {
+                "valor": "2",
+                "unidad": "m"
+              }
+            }
+          }
+        },
+        "observaciones": null
+      },
+      "pendientes": [
+        {
+          "resolucion": null,
+          "codigo": "TIPO_NO_RESUELTO",
+          "ruta": "especificacion.tipo_mueble",
+          "mensaje": "Seleccione el tipo de mueble para mesas."
+        }
+      ]
+    },
+    "mappedDimensions": {
+      "alto": {
+        "valor": "75",
+        "unidad": "cm"
+      },
+      "diametro": {
+        "valor": "2",
+        "unidad": "m"
+      }
+    },
+    "inventoryUnchanged": true,
+    "elapsedMs": 43743,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "SIL-0001",
+    "category": "SILLA",
+    "status": "PASS",
+    "response": {
+      "id": 2,
+      "estado": "COMPLETADA",
+      "categoria": "SILLA",
+      "texto_transcrito_original": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz a elección, unidad pieza, precio unitario de 5200 bolivianos.",
+      "propuesta": {
+        "category": "SILLA",
+        "fields": {
+          "nombre": "Silla ergonómica",
+          "observaciones": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz a elección, unidad pieza, precio unitario de 5200 bolivianos.",
+          "precio_lista": "5200.00",
+          "unidad_stock": 27,
+          "especificaciones": {
+            "base": "patas de nylon de alta resistencia",
+            "patas": "cinco patas con ruedas",
+            "asiento": "espuma inyectada",
+            "apoyo_lumbar": "apoyo lumbar",
+            "brazos_regulables": "brazos regulables",
+            "material_respaldo": "respaldo de malla"
+          }
+        },
+        "evidence": [
+          {
+            "candidate_id": "unidad_stock-321-326",
+            "label": "unidad_stock",
+            "start": 321,
+            "end": 326,
+            "text": "pieza",
+            "decision": "ACCEPTED",
+            "normalized_value": 27,
+            "reason": null
+          },
+          {
+            "candidate_id": "nombre-0-16",
+            "label": "nombre",
+            "start": 0,
+            "end": 16,
+            "text": "Silla ergonómica",
+            "decision": "ACCEPTED",
+            "normalized_value": "Silla ergonómica",
+            "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+          },
+          {
+            "candidate_id": "observaciones-0-363",
+            "label": "observaciones",
+            "start": 0,
+            "end": 363,
+            "text": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz a elección, unidad pieza, precio unitario de 5200 bolivianos.",
+            "decision": "ACCEPTED",
+            "normalized_value": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz a elección, unidad pieza, precio unitario de 5200 bolivianos.",
+            "reason": null
+          },
+          {
+            "candidate_id": "precio_lista-347-351",
+            "label": "precio_lista",
+            "start": 347,
+            "end": 351,
+            "text": "5200",
+            "decision": "ACCEPTED",
+            "normalized_value": "5200.00",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.apoyo_lumbar-209-221",
+            "label": "especificaciones.apoyo_lumbar",
+            "start": 209,
+            "end": 221,
+            "text": "apoyo lumbar",
+            "decision": "ACCEPTED",
+            "normalized_value": "apoyo lumbar",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.brazos_regulables-180-197",
+            "label": "especificaciones.brazos_regulables",
+            "start": 180,
+            "end": 197,
+            "text": "brazos regulables",
+            "decision": "ACCEPTED",
+            "normalized_value": "brazos regulables",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.material_respaldo-131-148",
+            "label": "especificaciones.material_respaldo",
+            "start": 131,
+            "end": 148,
+            "text": "respaldo de malla",
+            "decision": "ACCEPTED",
+            "normalized_value": "respaldo de malla",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.asiento-112-128",
+            "label": "especificaciones.asiento",
+            "start": 112,
+            "end": 128,
+            "text": "espuma inyectada",
+            "decision": "ACCEPTED",
+            "normalized_value": "espuma inyectada",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.patas-156-178",
+            "label": "especificaciones.patas",
+            "start": 156,
+            "end": 178,
+            "text": "cinco patas con ruedas",
+            "decision": "ACCEPTED",
+            "normalized_value": "cinco patas con ruedas",
+            "reason": null
+          },
+          {
+            "candidate_id": "especificaciones.base-30-64",
+            "label": "especificaciones.base",
+            "start": 30,
+            "end": 64,
+            "text": "patas de nylon de alta resistencia",
+            "decision": "ACCEPTED",
+            "normalized_value": "patas de nylon de alta resistencia",
+            "reason": null
+          }
+        ],
+        "warnings": [
+          "Precio dictado: sugerencia pendiente de revisión comercial."
+        ],
+        "unrecognized": [],
+        "version": "catalog-0.1.22"
+      },
+      "error_codigo": null
+    },
+    "fields": {
+      "nombre": "Silla ergonómica",
+      "observaciones": "Silla ergonómica con cuerpo y patas de nylon de alta resistencia, tapiz de tela repelente alígidos, asientos de espuma inyectada y respaldo de malla negra, cinco patas con ruedas, brazos regulables en altura, apoyo lumbar regulable y mecanismo de ajuste de altura e inclinación, color de patas y tapiz a elección, unidad pieza, precio unitario de 5200 bolivianos.",
+      "precio_lista": "5200.00",
+      "unidad_stock": 27,
+      "especificaciones": {
+        "base": "patas de nylon de alta resistencia",
+        "patas": "cinco patas con ruedas",
+        "asiento": "espuma inyectada",
+        "apoyo_lumbar": "apoyo lumbar",
+        "brazos_regulables": "brazos regulables",
+        "material_respaldo": "respaldo de malla"
+      }
+    },
+    "evidenceRetained": true,
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "inventoryUnchanged": true,
+    "elapsedMs": 77235,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "PIS-0001",
+    "category": "PISO_FLOTANTE",
+    "status": "PASS",
+    "response": {
+      "id": 3,
+      "estado": "COMPLETADA",
+      "categoria": "PISO_FLOTANTE",
+      "texto_transcrito_original": "Piso flotante Ganesha de aglomerado HDF y 8 milímetros de espesor, instalación mediante sistema doble clic, resistente a presión, impactos, radiación ultravioleta y limpiadores domésticos, clase de abración AC4, color a elección e incluye membrana protectora, procedencia India, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+      "propuesta": {
+        "category": "PISO_FLOTANTE",
+        "fields": {
+          "nombre": "Piso flotante Ganesha",
+          "observaciones": "Piso flotante Ganesha de aglomerado HDF y 8 milímetros de espesor, instalación mediante sistema doble clic, resistente a presión, impactos, radiación ultravioleta y limpiadores domésticos, clase de abración AC4, color a elección e incluye membrana protectora, procedencia India, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+          "precio_lista": "125.00",
+          "unidad_stock": 56,
+          "espesor_mm": "8.00"
+        },
+        "evidence": [
+          {
+            "candidate_id": "unidad_stock-286-300",
+            "label": "unidad_stock",
+            "start": 286,
+            "end": 300,
+            "text": "metro cuadrado",
+            "decision": "ACCEPTED",
+            "normalized_value": 56,
+            "reason": null
+          },
+          {
+            "candidate_id": "nombre-0-21",
+            "label": "nombre",
+            "start": 0,
+            "end": 21,
+            "text": "Piso flotante Ganesha",
+            "decision": "ACCEPTED",
+            "normalized_value": "Piso flotante Ganesha",
+            "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+          },
+          {
+            "candidate_id": "observaciones-0-336",
+            "label": "observaciones",
+            "start": 0,
+            "end": 336,
+            "text": "Piso flotante Ganesha de aglomerado HDF y 8 milímetros de espesor, instalación mediante sistema doble clic, resistente a presión, impactos, radiación ultravioleta y limpiadores domésticos, clase de abración AC4, color a elección e incluye membrana protectora, procedencia India, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+            "decision": "ACCEPTED",
+            "normalized_value": "Piso flotante Ganesha de aglomerado HDF y 8 milímetros de espesor, instalación mediante sistema doble clic, resistente a presión, impactos, radiación ultravioleta y limpiadores domésticos, clase de abración AC4, color a elección e incluye membrana protectora, procedencia India, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+            "reason": null
+          },
+          {
+            "candidate_id": "precio_lista-321-324",
+            "label": "precio_lista",
+            "start": 321,
+            "end": 324,
+            "text": "125",
+            "decision": "ACCEPTED",
+            "normalized_value": "125.00",
+            "reason": null
+          },
+          {
+            "candidate_id": "espesor_mm-42-65",
+            "label": "espesor_mm",
+            "start": 42,
+            "end": 65,
+            "text": "8 milímetros de espesor",
+            "decision": "ACCEPTED",
+            "normalized_value": "8",
+            "reason": null
+          }
+        ],
+        "warnings": [
+          "Precio dictado: sugerencia pendiente de revisión comercial."
+        ],
+        "unrecognized": [],
+        "version": "catalog-0.1.22"
+      },
+      "error_codigo": null
+    },
+    "fields": {
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha de aglomerado HDF y 8 milímetros de espesor, instalación mediante sistema doble clic, resistente a presión, impactos, radiación ultravioleta y limpiadores domésticos, clase de abración AC4, color a elección e incluye membrana protectora, procedencia India, unidad metro cuadrado, precio unitario de 125 bolivianos.",
+      "precio_lista": "125.00",
+      "unidad_stock": 56,
+      "espesor_mm": "8.00"
+    },
+    "evidenceRetained": true,
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "inventoryUnchanged": true,
+    "elapsedMs": 18693,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "MP-0005",
+    "category": "OTRO",
+    "status": "PASS",
+    "response": {
+      "id": 4,
+      "estado": "COMPLETADA",
+      "categoria": "OTRO",
+      "texto_transcrito_original": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero y tapiz de tela repelente a líquidos, relleno del cuerpo con espuma de poliouroetano a 40 milímetros y asiento con sistema pocket, incluye dos módulos laterales, uno izquierdo y uno derecho y dos módulos centrales, además de seis almohadones de 45 por 45 centímetros, color del tapiz y pintura de las patas a elección, precio por juego de 12 mil bolivianos.",
+      "propuesta": {
+        "category": "OTRO",
+        "fields": {
+          "nombre": "Un juego de sillones modulares para sala de espera",
+          "observaciones": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero y tapiz de tela repelente a líquidos, relleno del cuerpo con espuma de poliouroetano a 40 milímetros y asiento con sistema pocket, incluye dos módulos laterales, uno izquierdo y uno derecho y dos módulos centrales, además de seis almohadones de 45 por 45 centímetros, color del tapiz y pintura de las patas a elección, precio por juego de 12 mil bolivianos.",
+          "precio_lista": "12000.00",
+          "unidad_stock": 58
+        },
+        "evidence": [
+          {
+            "candidate_id": "unidad_stock-3-8",
+            "label": "unidad_stock",
+            "start": 3,
+            "end": 8,
+            "text": "juego",
+            "decision": "ACCEPTED",
+            "normalized_value": 58,
+            "reason": null
+          },
+          {
+            "candidate_id": "unidad_stock-444-449",
+            "label": "unidad_stock",
+            "start": 444,
+            "end": 449,
+            "text": "juego",
+            "decision": "ACCEPTED",
+            "normalized_value": 58,
+            "reason": null
+          },
+          {
+            "candidate_id": "nombre-0-50",
+            "label": "nombre",
+            "start": 0,
+            "end": 50,
+            "text": "Un juego de sillones modulares para sala de espera",
+            "decision": "ACCEPTED",
+            "normalized_value": "Un juego de sillones modulares para sala de espera",
+            "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+          },
+          {
+            "candidate_id": "observaciones-0-471",
+            "label": "observaciones",
+            "start": 0,
+            "end": 471,
+            "text": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero y tapiz de tela repelente a líquidos, relleno del cuerpo con espuma de poliouroetano a 40 milímetros y asiento con sistema pocket, incluye dos módulos laterales, uno izquierdo y uno derecho y dos módulos centrales, además de seis almohadones de 45 por 45 centímetros, color del tapiz y pintura de las patas a elección, precio por juego de 12 mil bolivianos.",
+            "decision": "ACCEPTED",
+            "normalized_value": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero y tapiz de tela repelente a líquidos, relleno del cuerpo con espuma de poliouroetano a 40 milímetros y asiento con sistema pocket, incluye dos módulos laterales, uno izquierdo y uno derecho y dos módulos centrales, además de seis almohadones de 45 por 45 centímetros, color del tapiz y pintura de las patas a elección, precio por juego de 12 mil bolivianos.",
+            "reason": null
+          },
+          {
+            "candidate_id": "precio_lista-453-459",
+            "label": "precio_lista",
+            "start": 453,
+            "end": 459,
+            "text": "12 mil",
+            "decision": "ACCEPTED",
+            "normalized_value": "12000.00",
+            "reason": null
+          }
+        ],
+        "warnings": [
+          "Precio dictado: sugerencia pendiente de revisión comercial."
+        ],
+        "unrecognized": [],
+        "version": "catalog-0.1.22"
+      },
+      "error_codigo": null
+    },
+    "fields": {
+      "nombre": "Un juego de sillones modulares para sala de espera",
+      "observaciones": "Un juego de sillones modulares para sala de espera, estructura de madera de eucalipto, patas de varillas de acero y tapiz de tela repelente a líquidos, relleno del cuerpo con espuma de poliouroetano a 40 milímetros y asiento con sistema pocket, incluye dos módulos laterales, uno izquierdo y uno derecho y dos módulos centrales, además de seis almohadones de 45 por 45 centímetros, color del tapiz y pintura de las patas a elección, precio por juego de 12 mil bolivianos.",
+      "precio_lista": "12000.00",
+      "unidad_stock": 58
+    },
+    "evidenceRetained": true,
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "inventoryUnchanged": true,
+    "elapsedMs": 18815,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "MP-0036",
+    "category": "MUEBLE",
+    "status": "PASS",
+    "response": {
+      "id": 5,
+      "estado": "COMPLETADA",
+      "intento_id": 5,
+      "texto_transcrito_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+      "resultado": "REQUIRES_REVIEW",
+      "propuesta_configurador": {
+        "comercial": {
+          "nombre": "armario",
+          "cantidad": 1,
+          "unidad_codigo": null,
+          "precio_unitario": null,
+          "descuento": null
+        },
+        "especificacion": {
+          "tipo_mueble": null,
+          "datos_tecnicos": {
+            "conjuntos": [],
+            "accesorios": [
+              "cerradura"
+            ],
+            "componentes": [
+              {
+                "uid": "f6351a37-1558-5258-8b65-bc0c4676d87c",
+                "nombre": "tapa",
+                "espesor": "25 mm",
+                "material": "MDP"
+              },
+              {
+                "uid": "db88ea19-d9ba-51b6-baeb-6394b459812f",
+                "nombre": "puertas"
+              },
+              {
+                "uid": "757ba8c0-a2b9-5085-8e30-e38bff2be33b",
+                "nombre": "laterales",
+                "material": "melamina"
+              },
+              {
+                "uid": "a50ec67f-370f-57db-a0ee-8d1b17c49fb2",
+                "nombre": "tapa"
+              },
+              {
+                "uid": "16829cc0-aeeb-5750-a925-fce2c5672405",
+                "nombre": "repisas",
+                "cantidad_interna": 4
+              }
+            ],
+            "descripcion_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+            "caracteristicas_generales": {
+              "atributos": [
+                {
+                  "valor": "acero",
+                  "codigo": "MATERIAL",
+                  "nombre": "Material",
+                  "tipo_entrada": "texto"
+                }
+              ],
+              "dimensiones": {
+                "alto": {
+                  "valor": "210",
+                  "unidad": "cm"
+                },
+                "ancho": {
+                  "valor": "80",
+                  "unidad": "cm"
+                }
+              }
+            }
+          },
+          "observaciones": "color elección"
+        },
+        "pendientes": [
+          {
+            "resolucion": null,
+            "codigo": "REQUIRED_FIELD_MISSING",
+            "ruta": "/item_proposal/price",
+            "mensaje": "Se dictó el importe 3400.00 BOB; aclare si es total o precio unitario."
+          },
+          {
+            "resolucion": {
+              "tipo": "DIMENSION",
+              "clave": "profundidad"
+            },
+            "codigo": "MISSING_UNIT",
+            "ruta": "dimensiones",
+            "mensaje": "Complete el ámbito/eje/unidad de 50 de profundidad."
+          },
+          {
+            "resolucion": null,
+            "codigo": "TIPO_NO_RESUELTO",
+            "ruta": "especificacion.tipo_mueble",
+            "mensaje": "Seleccione el tipo de mueble para armario."
+          }
+        ]
+      },
+      "pendientes": [
+        {
+          "resolucion": null,
+          "codigo": "REQUIRED_FIELD_MISSING",
+          "ruta": "/item_proposal/price",
+          "mensaje": "Se dictó el importe 3400.00 BOB; aclare si es total o precio unitario."
+        },
+        {
+          "resolucion": {
+            "tipo": "DIMENSION",
+            "clave": "profundidad"
+          },
+          "codigo": "MISSING_UNIT",
+          "ruta": "dimensiones",
+          "mensaje": "Complete el ámbito/eje/unidad de 50 de profundidad."
+        },
+        {
+          "resolucion": null,
+          "codigo": "TIPO_NO_RESUELTO",
+          "ruta": "especificacion.tipo_mueble",
+          "mensaje": "Seleccione el tipo de mueble para armario."
+        }
+      ],
+      "version_proyeccion": "PRF04_2",
+      "motor": {
+        "mode": "RULES_ONLY",
+        "rules_version": "prf04-rules-money-2",
+        "model_version": null,
+        "normalization_version": "1.0"
+      },
+      "error_codigo": null
+    },
+    "generalInputs": [
+      {
+        "name": "mueble-nombre-comercial",
+        "value": "armario"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "ancho",
+        "value": "80"
+      },
+      {
+        "name": "alto",
+        "value": "210"
+      },
+      {
+        "name": "profundidad",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "general-0",
+        "value": "acero"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-0",
+        "value": "tapa"
+      },
+      {
+        "name": "componente-0-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-0",
+        "value": "MDP"
+      },
+      {
+        "name": "componente-espesor-0",
+        "value": "25 mm"
+      },
+      {
+        "name": "componente-color-0",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-0",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-1",
+        "value": "puertas"
+      },
+      {
+        "name": "componente-1-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-1",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-1",
+        "value": ""
+      },
+      {
+        "name": "componente-color-1",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-1",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-2",
+        "value": "laterales"
+      },
+      {
+        "name": "componente-2-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-2",
+        "value": "melamina"
+      },
+      {
+        "name": "componente-espesor-2",
+        "value": ""
+      },
+      {
+        "name": "componente-color-2",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-2",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-3",
+        "value": "tapa"
+      },
+      {
+        "name": "componente-3-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-3",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-3",
+        "value": ""
+      },
+      {
+        "name": "componente-color-3",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-3",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-4",
+        "value": "repisas"
+      },
+      {
+        "name": "componente-4-cantidad",
+        "value": "4"
+      },
+      {
+        "name": "componente-material-4",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-4",
+        "value": ""
+      },
+      {
+        "name": "componente-color-4",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-4",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "mueble-cantidad",
+        "value": "1"
+      },
+      {
+        "name": "mueble-precio",
+        "value": ""
+      },
+      {
+        "name": "mueble-descuento",
+        "value": "0.00"
+      },
+      {
+        "name": "mueble-descripcion",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      }
+    ],
+    "proposal": {
+      "comercial": {
+        "nombre": "armario",
+        "cantidad": 1,
+        "unidad_codigo": null,
+        "precio_unitario": null,
+        "descuento": null
+      },
+      "especificacion": {
+        "tipo_mueble": null,
+        "datos_tecnicos": {
+          "conjuntos": [],
+          "accesorios": [
+            "cerradura"
+          ],
+          "componentes": [
+            {
+              "uid": "f6351a37-1558-5258-8b65-bc0c4676d87c",
+              "nombre": "tapa",
+              "espesor": "25 mm",
+              "material": "MDP"
+            },
+            {
+              "uid": "db88ea19-d9ba-51b6-baeb-6394b459812f",
+              "nombre": "puertas"
+            },
+            {
+              "uid": "757ba8c0-a2b9-5085-8e30-e38bff2be33b",
+              "nombre": "laterales",
+              "material": "melamina"
+            },
+            {
+              "uid": "a50ec67f-370f-57db-a0ee-8d1b17c49fb2",
+              "nombre": "tapa"
+            },
+            {
+              "uid": "16829cc0-aeeb-5750-a925-fce2c5672405",
+              "nombre": "repisas",
+              "cantidad_interna": 4
+            }
+          ],
+          "descripcion_original": "Un armario alto de 80 centímetros de ancho, 50 de profundidad y 2 metros 10 de alto, tapa de MDP de 25 milímetros, puertas y laterales de melamina de 18, tapa cantos PVC, cuatro repisas graduables, cerradura y zócalo de acero con tratamiento anticorrosivo, color elección, precio 3.400 bolivianos.",
+          "caracteristicas_generales": {
+            "atributos": [
+              {
+                "valor": "acero",
+                "codigo": "MATERIAL",
+                "nombre": "Material",
+                "tipo_entrada": "texto"
+              }
+            ],
+            "dimensiones": {
+              "alto": {
+                "valor": "210",
+                "unidad": "cm"
+              },
+              "ancho": {
+                "valor": "80",
+                "unidad": "cm"
+              }
+            }
+          }
+        },
+        "observaciones": "color elección"
+      },
+      "pendientes": [
+        {
+          "resolucion": null,
+          "codigo": "REQUIRED_FIELD_MISSING",
+          "ruta": "/item_proposal/price",
+          "mensaje": "Se dictó el importe 3400.00 BOB; aclare si es total o precio unitario."
+        },
+        {
+          "resolucion": {
+            "tipo": "DIMENSION",
+            "clave": "profundidad"
+          },
+          "codigo": "MISSING_UNIT",
+          "ruta": "dimensiones",
+          "mensaje": "Complete el ámbito/eje/unidad de 50 de profundidad."
+        },
+        {
+          "resolucion": null,
+          "codigo": "TIPO_NO_RESUELTO",
+          "ruta": "especificacion.tipo_mueble",
+          "mensaje": "Seleccione el tipo de mueble para armario."
+        }
+      ]
+    },
+    "mappedDimensions": {
+      "alto": {
+        "valor": "210",
+        "unidad": "cm"
+      },
+      "ancho": {
+        "valor": "80",
+        "unidad": "cm"
+      }
+    },
+    "inventoryUnchanged": true,
+    "elapsedMs": 13826,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "MP-0045",
+    "category": "MUEBLE",
+    "status": "PASS",
+    "response": {
+      "id": 6,
+      "estado": "COMPLETADA",
+      "intento_id": 6,
+      "texto_transcrito_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+      "resultado": "REQUIRES_REVIEW",
+      "propuesta_configurador": {
+        "comercial": {
+          "nombre": "escritorios en L",
+          "cantidad": 5,
+          "unidad_codigo": null,
+          "precio_unitario": "2000.00",
+          "descuento": null
+        },
+        "especificacion": {
+          "tipo_mueble": 40,
+          "datos_tecnicos": {
+            "conjuntos": [],
+            "accesorios": [
+              "tapacantos PVC"
+            ],
+            "componentes": [
+              {
+                "uid": "5163aa6e-9041-5a19-b95f-ea499a6043be",
+                "nombre": "mesón"
+              },
+              {
+                "uid": "6432dd0f-284a-5936-a2b7-beb7b849f41e",
+                "nombre": "lateral"
+              }
+            ],
+            "descripcion_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+            "caracteristicas_generales": {
+              "atributos": [
+                {
+                  "valor": "melamina",
+                  "codigo": "MATERIAL",
+                  "nombre": "Material",
+                  "tipo_entrada": "texto"
+                }
+              ],
+              "dimensiones": {
+                "alto": {
+                  "valor": "80",
+                  "unidad": "cm"
+                }
+              }
+            }
+          },
+          "observaciones": null
+        },
+        "pendientes": [
+          {
+            "resolucion": {
+              "tipo": "ESPESOR_SIN_COMPONENTE",
+              "valor": "18 mm"
+            },
+            "codigo": "ESPESOR_SIN_COMPONENTE",
+            "ruta": "especificacion.datos_tecnicos.componentes",
+            "mensaje": "El espesor 18 mm no tiene una pieza identificada de forma confiable. Revise su asociación antes de confirmar el mueble."
+          }
+        ]
+      },
+      "pendientes": [
+        {
+          "resolucion": {
+            "tipo": "ESPESOR_SIN_COMPONENTE",
+            "valor": "18 mm"
+          },
+          "codigo": "ESPESOR_SIN_COMPONENTE",
+          "ruta": "especificacion.datos_tecnicos.componentes",
+          "mensaje": "El espesor 18 mm no tiene una pieza identificada de forma confiable. Revise su asociación antes de confirmar el mueble."
+        }
+      ],
+      "version_proyeccion": "PRF04_2",
+      "motor": {
+        "mode": "RULES_ONLY",
+        "rules_version": "prf04-rules-money-2",
+        "model_version": null,
+        "normalization_version": "1.0"
+      },
+      "error_codigo": null
+    },
+    "generalInputs": [
+      {
+        "name": "mueble-nombre-comercial",
+        "value": "escritorios en L"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "ancho",
+        "value": ""
+      },
+      {
+        "name": "alto",
+        "value": "80"
+      },
+      {
+        "name": "profundidad",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "general-0",
+        "value": "melamina"
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-0",
+        "value": "mesón"
+      },
+      {
+        "name": "componente-0-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-0",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-0",
+        "value": ""
+      },
+      {
+        "name": "componente-color-0",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-0",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "componente-nombre-1",
+        "value": "lateral"
+      },
+      {
+        "name": "componente-1-cantidad",
+        "value": ""
+      },
+      {
+        "name": "componente-material-1",
+        "value": ""
+      },
+      {
+        "name": "componente-espesor-1",
+        "value": ""
+      },
+      {
+        "name": "componente-color-1",
+        "value": ""
+      },
+      {
+        "name": "componente-dimensiones-1",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      },
+      {
+        "name": "mueble-cantidad",
+        "value": "5"
+      },
+      {
+        "name": "mueble-precio",
+        "value": "2000.00"
+      },
+      {
+        "name": "mueble-descuento",
+        "value": "0.00"
+      },
+      {
+        "name": "mueble-descripcion",
+        "value": ""
+      },
+      {
+        "name": "",
+        "value": ""
+      }
+    ],
+    "proposal": {
+      "comercial": {
+        "nombre": "escritorios en L",
+        "cantidad": 5,
+        "unidad_codigo": null,
+        "precio_unitario": "2000.00",
+        "descuento": null
+      },
+      "especificacion": {
+        "tipo_mueble": 40,
+        "datos_tecnicos": {
+          "conjuntos": [],
+          "accesorios": [
+            "tapacantos PVC"
+          ],
+          "componentes": [
+            {
+              "uid": "5163aa6e-9041-5a19-b95f-ea499a6043be",
+              "nombre": "mesón"
+            },
+            {
+              "uid": "6432dd0f-284a-5936-a2b7-beb7b849f41e",
+              "nombre": "lateral"
+            }
+          ],
+          "descripcion_original": "5 escritorios en L, con lados de 1,40 m y 1,50 m, profundidad desde 75 y 60 cm, y altura de 80 cm, melamina de 18 mm, mesón engrosado a 27, tapacantos PVC, espacio lateral izquierdo para computadora, porta teclado deslizable y faldón hasta el piso, color cedro presiunitario de 2,000 bolivianos.",
+          "caracteristicas_generales": {
+            "atributos": [
+              {
+                "valor": "melamina",
+                "codigo": "MATERIAL",
+                "nombre": "Material",
+                "tipo_entrada": "texto"
+              }
+            ],
+            "dimensiones": {
+              "alto": {
+                "valor": "80",
+                "unidad": "cm"
+              }
+            }
+          }
+        },
+        "observaciones": null
+      },
+      "pendientes": [
+        {
+          "resolucion": {
+            "tipo": "ESPESOR_SIN_COMPONENTE",
+            "valor": "18 mm"
+          },
+          "codigo": "ESPESOR_SIN_COMPONENTE",
+          "ruta": "especificacion.datos_tecnicos.componentes",
+          "mensaje": "El espesor 18 mm no tiene una pieza identificada de forma confiable. Revise su asociación antes de confirmar el mueble."
+        }
+      ]
+    },
+    "mappedDimensions": {
+      "alto": {
+        "valor": "80",
+        "unidad": "cm"
+      }
+    },
+    "inventoryUnchanged": true,
+    "elapsedMs": 17742,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "MP-0067",
+    "category": "OTRO",
+    "status": "PASS",
+    "response": {
+      "id": 7,
+      "estado": "COMPLETADA",
+      "categoria": "OTRO",
+      "texto_transcrito_original": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+      "propuesta": {
+        "category": "OTRO",
+        "fields": {
+          "nombre": "Dos poltronas fijas",
+          "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+          "precio_lista": "5500.00"
+        },
+        "evidence": [
+          {
+            "candidate_id": "nombre-0-19",
+            "label": "nombre",
+            "start": 0,
+            "end": 19,
+            "text": "Dos poltronas fijas",
+            "decision": "ACCEPTED",
+            "normalized_value": "Dos poltronas fijas",
+            "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+          },
+          {
+            "candidate_id": "observaciones-0-261",
+            "label": "observaciones",
+            "start": 0,
+            "end": 261,
+            "text": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+            "decision": "ACCEPTED",
+            "normalized_value": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+            "reason": null
+          },
+          {
+            "candidate_id": "precio_lista-244-249",
+            "label": "precio_lista",
+            "start": 244,
+            "end": 249,
+            "text": "5.500",
+            "decision": "ACCEPTED",
+            "normalized_value": "5500.00",
+            "reason": null
+          }
+        ],
+        "warnings": [
+          "Precio dictado: sugerencia pendiente de revisión comercial.",
+          "Complete manualmente: unidad_stock"
+        ],
+        "unrecognized": [],
+        "version": "catalog-0.1.22"
+      },
+      "error_codigo": null
+    },
+    "fields": {
+      "nombre": "Dos poltronas fijas",
+      "observaciones": "Dos poltronas fijas de estructura y patas de madera de eucalipto, tapizadas con tela repelente a líquidos y relleno de espuma de poleorretano de 40 milímetros, cuatro patas con topes de goma, color de patas y tapiz elección, precio unitario de 5.500 bolivianos.",
+      "precio_lista": "5500.00"
+    },
+    "evidenceRetained": true,
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "Complete manualmente: unidad_stock"
+    ],
+    "inventoryUnchanged": true,
+    "elapsedMs": 14577,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  },
+  {
+    "id": "PIS-0006",
+    "category": "PISO_FLOTANTE",
+    "status": "PASS",
+    "response": {
+      "id": 8,
+      "estado": "COMPLETADA",
+      "categoria": "PISO_FLOTANTE",
+      "texto_transcrito_original": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+      "propuesta": {
+        "category": "PISO_FLOTANTE",
+        "fields": {
+          "nombre": "Piso flotante Ganesha",
+          "observaciones": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+          "precio_lista": "135.00",
+          "unidad_stock": 56,
+          "modelo": "NA9174",
+          "espesor_mm": "8.00"
+        },
+        "evidence": [
+          {
+            "candidate_id": "unidad_stock-245-259",
+            "label": "unidad_stock",
+            "start": 245,
+            "end": 259,
+            "text": "metro cuadrado",
+            "decision": "ACCEPTED",
+            "normalized_value": 56,
+            "reason": null
+          },
+          {
+            "candidate_id": "nombre-0-21",
+            "label": "nombre",
+            "start": 0,
+            "end": 21,
+            "text": "Piso flotante Ganesha",
+            "decision": "ACCEPTED",
+            "normalized_value": "Piso flotante Ganesha",
+            "reason": "Nombre delimitado antes de especificaciones técnicas o comerciales"
+          },
+          {
+            "candidate_id": "observaciones-0-295",
+            "label": "observaciones",
+            "start": 0,
+            "end": 295,
+            "text": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+            "decision": "ACCEPTED",
+            "normalized_value": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+            "reason": null
+          },
+          {
+            "candidate_id": "precio_lista-280-283",
+            "label": "precio_lista",
+            "start": 280,
+            "end": 283,
+            "text": "135",
+            "decision": "ACCEPTED",
+            "normalized_value": "135.00",
+            "reason": null
+          },
+          {
+            "candidate_id": "modelo-30-36",
+            "label": "modelo",
+            "start": 30,
+            "end": 36,
+            "text": "NA9174",
+            "decision": "ACCEPTED",
+            "normalized_value": "NA9174",
+            "reason": null
+          },
+          {
+            "candidate_id": "espesor_mm-49-64",
+            "label": "espesor_mm",
+            "start": 49,
+            "end": 64,
+            "text": "HDF8 milímetros",
+            "decision": "ACCEPTED",
+            "normalized_value": "8",
+            "reason": null
+          }
+        ],
+        "warnings": [
+          "Precio dictado: sugerencia pendiente de revisión comercial."
+        ],
+        "unrecognized": [],
+        "version": "catalog-0.1.22"
+      },
+      "error_codigo": null
+    },
+    "fields": {
+      "nombre": "Piso flotante Ganesha",
+      "observaciones": "Piso flotante Ganesha, código NA9174, aglomerado HDF8 milímetros. Sistema doble clic, resistente impactos, presión, rayos ultravioleta, limpiadores domésticos, clase AC4, color elección, incluye membrana de protección, procedencia india, unidad metro cuadrado, precio unitario de 135 bolivianos.",
+      "precio_lista": "135.00",
+      "unidad_stock": 56,
+      "modelo": "NA9174",
+      "espesor_mm": "8.00"
+    },
+    "evidenceRetained": true,
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "inventoryUnchanged": true,
+    "elapsedMs": 18670,
+    "latencyInterpretation": "Diagnostic under concurrent CPU ASR workload; not a benchmark"
+  }
+]

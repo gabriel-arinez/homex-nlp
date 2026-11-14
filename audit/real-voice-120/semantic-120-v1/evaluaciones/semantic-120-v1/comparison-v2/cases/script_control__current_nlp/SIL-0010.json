@@ -1,0 +1,340 @@
+{
+  "id": "SIL-0010",
+  "category": "OTRO",
+  "leakage_group": "DEV-SIL-0010",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__current_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "34627aa701132c1dc5de5e991411016e4920711a62f478af6f3c07e7fd272efa",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0010.aac",
+    "original_sha256": "2d1bfc8fe20737f05e6f27fed646f63199847f2345325f46f8e190b1edccaf32",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0010.wav",
+    "wav_sha256": "231e3e75a2fe5cf236e4701af8378b789113d4353d68bf9fdde07f2db0aedd4a"
+  },
+  "text_original": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+  "script_text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+  "nlp_raw": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillón semiejecutivo",
+      "observaciones": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+      "precio_lista": "1500.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-364-369",
+        "label": "unidad_stock",
+        "start": 364,
+        "end": 369,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Sillón semiejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillón semiejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-416",
+        "label": "observaciones",
+        "start": 0,
+        "end": 416,
+        "text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de mil quinientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-390-404",
+        "label": "precio_lista",
+        "start": 390,
+        "end": 404,
+        "text": "mil quinientos",
+        "source": "RULE",
+        "normalized_value": "1500.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Sillón semiejecutivo"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "1500.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 7,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "cuero ecologico",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "apoyabrazos",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          12
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "1500",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "sillon semiejecutivo",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 56,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 55,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de 1500 BOB.",
+    "asr_text": "Sillón semiejecutivo, modelo ene efe guion ochocientos diez. Estructura interna metálica, asiento y espaldar acolchados con esponja de densidad controlada, tapiz de cuero ecológico de alto tráfico, color negro. Cinco patas cromadas con ruedas, apoyabrazos acolchados, regulación hidráulica de altura y giro de trescientos sesenta grados. Procedencia China. Unidad pieza. Precio unitario de 1500 BOB.",
+    "reference_transforms": [
+      {
+        "start": 390,
+        "end": 404,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 405,
+        "end": 415,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 390,
+        "end": 404,
+        "raw": "mil quinientos",
+        "replacement": "1500",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 405,
+        "end": 415,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

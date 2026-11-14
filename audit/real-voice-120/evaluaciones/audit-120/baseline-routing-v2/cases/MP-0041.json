@@ -1,0 +1,165 @@
+{
+  "id": "MP-0041",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0041.aac",
+    "original_sha256": "0f27d70ebb2a0989ddcf419a2ed3468a5eacd8b74273b5dbc718b63601b2f2f2",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0041.wav",
+    "wav_sha256": "82c40c9f0a3d6ac2bb7694e4544ab52d0b88ff40c92f618c652e97a3ef41ba42"
+  },
+  "reference": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con rieles telescópicos y barra colgadora de acero inoxidable. Según diseño. Precio de siete mil doscientos bolivianos.",
+  "source": {
+    "id": "MP-0041",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      41
+    ],
+    "titulo_fuente": "CLOSET DE TOPE A TOPE",
+    "grupo_familia": "CLOSET_170",
+    "guion": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con rieles telescópicos y barra colgadora de acero inoxidable. Según diseño. Precio de siete mil doscientos bolivianos.",
+    "audio_esperado": "MP-0041.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0041.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "fdf82b52ecd20d7f09ce190a96b057e7ef51355cf363d695b6b844b8ed8f09e0",
+    "audio_compatible_asr": "MP-0041.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0041.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 33.43675,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con reales telescopicos y barra colgadora de acero inoxidable. Según diseño, precio de siete mil doscientos bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "10.560000",
+        "text": " Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y"
+      },
+      {
+        "start_seconds": "10.560000",
+        "end_seconds": "19.620000",
+        "text": " sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos"
+      },
+      {
+        "start_seconds": "19.620000",
+        "end_seconds": "28.240000",
+        "text": " PVC, cajonería con reales telescopicos y barra colgadora de acero inoxidable. Según diseño,"
+      },
+      {
+        "start_seconds": "28.240000",
+        "end_seconds": "31.880000",
+        "text": " precio de siete mil doscientos bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4648
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0041",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con reales telescopicos y barra colgadora de acero inoxidable. Según diseño, precio de siete mil doscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.2660609970916994,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0041-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un clóset de tope a tope de un metro setenta de ancho, dos metros cincuenta y cinco de alto y sesenta centímetros de profundidad. Estructura de melamina de dieciocho milímetros con tapacantos PVC, cajonería con rieles telescópicos y barra colgadora de acero inoxidable. Según diseño. Precio de siete mil doscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.12760099343722686,
+  "metrics": {
+    "wer": {
+      "errors": 2,
+      "substitutions": 2,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 51,
+      "rate": 0.0392156862745098
+    },
+    "cer": {
+      "errors": 3,
+      "substitutions": 3,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 320,
+      "rate": 0.009375
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.726997126999777,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/MP-0041.json",
+    "original_case_sha256": "ac4dc95d35da7d4f6a29fb323e1bac469e6c1a08eb9b9cea84682b989d8f17d7",
+    "original_category": "MUEBLE_MEDIDA",
+    "effective_category": "MUEBLE_MEDIDA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

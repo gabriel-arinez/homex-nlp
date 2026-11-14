@@ -1,0 +1,248 @@
+{
+  "id": "MP-0072",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0072.aac",
+    "original_sha256": "79570744db5617c37464ac5c573ff60116a41969785e1cf1ab1404f39cb6899f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0072.wav",
+    "wav_sha256": "ec2554eca586c40056d8dab2fd4017a37fb4868d4f703f07d01697e105b4c5e0"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0072-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio ejecutivo en ele de un metro cincuenta de ancho, setenta centímetros de profundidad y ochenta de alto. Estructura de melamina de dieciocho milímetros, mesón engrosado a veintisiete y tapacanto PVC de dos milímetros. Pasacables metálico, faldón hasta el piso con detalles dorados, dos cajones papeleros y un archivador con rieles telescópicos y cerradura. Credenza lateral derecha de un metro cincuenta de largo y sesenta y cinco centímetros de alto, con dos puertas y espacio para computadora. Color a elección. Precio de tres mil ochocientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio ejecutivo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 369,
+        "end": 377,
+        "text": "Credenza",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.22173599427333102,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0072-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Un escritorio ejecutivo en L de un metro 50 de ancho, 70 centímetros de profundidad y 80 de alto. Estructura de melamina de 18 milímetros, mesón engrosado a 27 y tapacanto PVC de 2 milímetros. Pasacable metálico, faldón hasta el piso con detalles dorados. Dos cajones papeleros y un archivador con rieles telescópicos y cerradura. Credenza lateral derecha de un metro 50 de largo y 65 centímetros de alto, con dos puertas y espacio para computadora, color a elección, precio de 3.800 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 23,
+        "text": "escritorio ejecutivo",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 331,
+        "end": 339,
+        "text": "Credenza",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.1844790022005327,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "ele"
+        ],
+        "asr": [
+          "l"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta"
+        ],
+        "asr": [
+          "50"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta"
+        ],
+        "asr": [
+          "70"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "ochenta"
+        ],
+        "asr": [
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veintisiete"
+        ],
+        "asr": [
+          "27"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos"
+        ],
+        "asr": [
+          "2"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "pasacables"
+        ],
+        "asr": [
+          "pasacable"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta"
+        ],
+        "asr": [
+          "50"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "sesenta",
+          "y",
+          "cinco"
+        ],
+        "asr": [
+          "65"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "tres",
+          "mil",
+          "ochocientos"
+        ],
+        "asr": [
+          "3.800"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0072",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "3800",
+    "mode": "UNQUALIFIED_PRICE_REQUIRES_REVIEW",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

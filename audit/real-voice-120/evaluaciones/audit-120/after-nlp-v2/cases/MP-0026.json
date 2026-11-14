@@ -1,0 +1,312 @@
+{
+  "id": "MP-0026",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0026.aac",
+    "original_sha256": "81ebeecf5dc57d41ff47895e2d1fe2d92c0d12b31363f92c760cfcb114add89d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0026.wav",
+    "wav_sha256": "65bb339e6ffce914d5eccf922e2d2d838728b53043b74e6226b4c63af8481bab"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0026-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos escritorios en ele con cajonera rodante. Escritorio de un metro cuarenta por un metro cuarenta, con una altura de setenta y tres centímetros. Tablero superior MDP de veinticinco milímetros, paneles frontales de dieciocho y tapacantos de PVC. Estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con cuatro cajones, tapa de veinticinco milímetros, laterales de dieciocho y cerradura de seguridad. Color olmo con blanco. Precio unitario de dos mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 22,
+        "text": "escritorios en ele",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 45,
+        "end": 55,
+        "text": "Escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 350,
+        "end": 358,
+        "text": "Cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.25560499489074573,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0026-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos escritorios en L con cajonería rodante, escritorio de 1,40 m x 1,40 m con una altura de 73 cm, tablero superior mdp de 25 mm, paneles frontales de 18 y tapacantos de PVC, estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix, cajonera de 33 x 40 x 63 cm con 4 cajones, tapa de 25 mm, laterales de 18 y cerradura de seguridad, color holmo con blanco, precio unitario de 2,500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 20,
+        "text": "escritorios en L",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 44,
+        "end": 54,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 279,
+        "end": 287,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.2008380033657886,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "ele"
+        ],
+        "asr": [
+          "l"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cajonera"
+        ],
+        "asr": [
+          "cajonería"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "un",
+          "metro",
+          "cuarenta",
+          "por",
+          "un",
+          "metro",
+          "cuarenta"
+        ],
+        "asr": [
+          "1,40",
+          "m",
+          "x",
+          "1,40",
+          "m"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "setenta",
+          "y",
+          "tres",
+          "centímetros"
+        ],
+        "asr": [
+          "73",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco",
+          "milímetros"
+        ],
+        "asr": [
+          "25",
+          "mm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta",
+          "y",
+          "tres",
+          "por",
+          "cuarenta",
+          "por",
+          "sesenta",
+          "y",
+          "tres",
+          "centímetros"
+        ],
+        "asr": [
+          "33",
+          "x",
+          "40",
+          "x",
+          "63",
+          "cm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cuatro"
+        ],
+        "asr": [
+          "4"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco",
+          "milímetros"
+        ],
+        "asr": [
+          "25",
+          "mm"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "olmo"
+        ],
+        "asr": [
+          "holmo"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dos",
+          "mil",
+          "quinientos"
+        ],
+        "asr": [
+          "2,500"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0026",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "2500",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

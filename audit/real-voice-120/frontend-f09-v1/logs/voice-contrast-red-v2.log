@@ -1,0 +1,116 @@
+npm notice run homex-frontend@0.1.0 test:e2e
+npm notice run playwright test src/tests/e2e/fe04-proformas.spec.ts --grep @a11y PRF04 acciones directas
+[WebServer] npm notice run homex-frontend@0.1.0 build
+[WebServer] npm notice run run-p type-check "build-only {@}" --
+[WebServer] (node:809100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 type-check
+[WebServer] npm notice run vue-tsc --build
+[WebServer] npm notice run homex-frontend@0.1.0 build-only
+[WebServer] npm notice run vite build
+[WebServer] (node:809136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice run homex-frontend@0.1.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 4173 --strictPort
+[WebServer] (node:810002) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:810061) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro (1.4s)
+
+
+  1) src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#d32727",
+    +               "contrastRatio": 4.38,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#fbe9e9",
+    +               "fontSize": "9.1pt (12.16px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.38 (foreground color: #fbe9e9, background color: #d32727, font size: 9.1pt (12.16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<button data-v-85d8761b=\"\" data-v-0bc11416=\"\" class=\"button button--primary source-action source-record voice-record\" type=\"button\">",
+    +                 "target": Array [
+    +                   ".source-record",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.38 (foreground color: #fbe9e9, background color: #d32727, font size: 9.1pt (12.16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<small data-v-0bc11416=\"\">Máximo 3 minutos</small>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".source-record > small[data-v-0bc11416=\"\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      1266 |   await expect(page.getByRole('button', { name: 'Seleccionar archivo' })).toBeVisible()
+      1267 |   const results = await new AxeBuilder({ page }).include('.voice-workflow').analyze()
+    > 1268 |   expect(results.violations).toEqual([])
+           |                              ^
+      1269 |   await expect(page.getByLabel('Nombre comercial del mueble')).toHaveValue('Mueble previo')
+      1270 | })
+      1271 |
+        at <workspace>:1268:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playwright/fe04-proformas--a11y-PRF04-4d79e-s-y-sin-reemplazo-prematuro/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    src/tests/e2e/fe04-proformas.spec.ts:1256:1 › @a11y PRF04 acciones directas de voz accesibles y sin reemplazo prematuro 

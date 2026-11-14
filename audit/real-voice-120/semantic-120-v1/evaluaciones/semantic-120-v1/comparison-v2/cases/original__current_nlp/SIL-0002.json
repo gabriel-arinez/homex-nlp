@@ -1,0 +1,312 @@
+{
+  "id": "SIL-0002",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0002",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "original__current_nlp",
+  "asr_configuration": "original",
+  "nlp_configuration": "current_nlp",
+  "asr_artifact_sha256": "47fbe2727896648387c67c3f3ab97c24a7b876db388a2cdb8a4cf96582412c02",
+  "asr_settings": "faster-whisper-small",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0002.aac",
+    "original_sha256": "044d097340acb92b23d725a9a95070bea4314be67860b75f393218c7ee34edc9",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0002.wav",
+    "wav_sha256": "6e28a44534274d62edbb5e5e23858dc7732d23d18144415031ac340b429252a7"
+  },
+  "text_original": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico, color elección, unidad pieza, precio unitario de 400 bolivianos.",
+  "script_text": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico. Color a elección. Unidad pieza. Precio unitario de cuatrocientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla estática",
+      "observaciones": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico, color elección, unidad pieza, precio unitario de 400 bolivianos.",
+      "precio_lista": "400.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "esponja de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-160-165",
+        "label": "unidad_stock",
+        "start": 160,
+        "end": 165,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-14",
+        "label": "nombre",
+        "start": 0,
+        "end": 14,
+        "text": "Silla estática",
+        "source": "RULE",
+        "normalized_value": "Silla estática",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-201",
+        "label": "observaciones",
+        "start": 0,
+        "end": 201,
+        "text": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico, color elección, unidad pieza, precio unitario de 400 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico, color elección, unidad pieza, precio unitario de 400 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-186-189",
+        "label": "precio_lista",
+        "start": 186,
+        "end": 189,
+        "text": "400",
+        "source": "RULE",
+        "normalized_value": "400.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-114-135",
+        "label": "especificaciones.tapiz",
+        "start": 114,
+        "end": 135,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-88-112",
+        "label": "especificaciones.asiento",
+        "start": 88,
+        "end": 112,
+        "text": "esponja de alta densidad",
+        "source": "RULE",
+        "normalized_value": "esponja de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.22"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla estática"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "400.00"
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "400",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "400",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "UNIT",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 4,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "esponja",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "a eleccion",
+          null
+        ],
+        "reference_indices": [
+          6
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "400",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 1,
+        "misses": 1,
+        "abstentions": 1,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla estatica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 2,
+      "substitutions": 1,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 31,
+      "rate": 0.06451612903225806
+    },
+    "strict_normalized": {
+      "errors": 1,
+      "substitutions": 0,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 31,
+      "rate": 0.03225806451612903
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico. Color a elección. Unidad pieza. Precio unitario de 400 BOB.",
+    "asr_text": "Silla estática de estructura metálica con recubrimiento en polvo, respaldo y asiento de esponja de alta densidad, tapiz de alto tráfico, color elección, unidad pieza, precio unitario de 400 BOB.",
+    "reference_transforms": [
+      {
+        "start": 188,
+        "end": 201,
+        "raw": "cuatrocientos",
+        "replacement": "400",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 202,
+        "end": 212,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 190,
+        "end": 200,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

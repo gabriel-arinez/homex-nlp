@@ -1,0 +1,105 @@
+........................................................................ [  8%]
+........................................................................ [ 16%]
+........................................................................ [ 24%]
+........................................................................ [ 33%]
+........................................................................ [ 41%]
+........................................................................ [ 49%]
+........................................................................ [ 57%]
+....................................F................................... [ 66%]
+..........................................F............................. [ 74%]
+................F....................................................... [ 82%]
+........................................................................ [ 90%]
+........................................................................ [ 99%]
+.......                                                                  [100%]
+=================================== FAILURES ===================================
+___ test_no_normalizar_resto_unidad_o_gramatica_ambiguos[cero metros veinte] ___
+
+fragmento = 'cero metros veinte'
+
+    @pytest.mark.parametrize(
+        "fragmento",
+        [
+            "un metro y veinte",
+            "un metro cinco",
+            "un metro 5",
+            "un metro 100",
+            "un metro 020",
+            "un metro ciento veinte centímetros",
+            "un metro 20 milímetros",
+            "un metro 20 metros",
+            "un metro 20 pulgadas",
+            "un metro 0 centímetros",
+            "cero metros veinte",
+            "diez metros veinte",
+            "dos metro veinte",
+            "un metros veinte",
+            "1.5 metros veinte",
+            "un metro veinte y treinta centímetros",
+            "dos y tres metros veinte",
+        ],
+    )
+    def test_no_normalizar_resto_unidad_o_gramatica_ambiguos(fragmento):
+        # También se bloquea el fallback que truncaría el prefijo o el sufijo.
+        for texto in [f"{fragmento} de ancho", f"ancho de {fragmento}"]:
+>           assert find_measurements(texto, "ancho") == []
+E           AssertionError: assert [Match(start=...'20'), None))] == []
+E             
+E             Left contains one more item: Match(start=12, end=27, text='veinte de ancho', label='ANCHO', value=(Decimal('20'), None))
+E             Use -v to get more diff
+
+tests/unit/test_prf04_medidas_compuestas_v14.py:125: AssertionError
+_ test_abstencion_para_expresiones_incompletas_o_ambiguas[Un ropero de alto dos] _
+
+texto = 'Un ropero de alto dos'
+
+    @pytest.mark.parametrize(
+        "texto",
+        [
+            "Una mesa de dos puertas",  # no es una dimensión
+            "Un ropero de alto dos",  # sin unidad: abstenerse
+            "Un ropero de alto veinti centímetros",  # token desconocido
+            "Un ropero de alto ciento y veinte centímetros",  # gramática inválida
+            "Un ropero de dos y tres metros de alto",  # valores contradictorios
+            "Un ropero de ciento cinco y dos metros de alto",  # secuencia inválida
+            "Un ropero de dos coma cinco metros de alto",  # decimal oral no soportado
+            "Un ropero de dos punto cinco metros de alto",  # decimal oral no soportado
+            "Un ropero de dos centímetros y veinte milímetros de alto",  # múltiples unidades
+            "Un ropero de alto diez mil metros",  # fuera de rango
+            "Un ropero de cero metros de alto",  # cero inválido
+            "Una mesa de dos metros",  # sin eje explícito
+        ],
+    )
+    def test_abstencion_para_expresiones_incompletas_o_ambiguas(texto):
+        r = RulesEngine().extract(
+            ExtractionRequest(request_id="v12-negativo", text=texto, currency_context="BOB")
+        )
+        assert r.item_proposal is not None
+>       assert r.item_proposal.dimensions == []
+E       AssertionError: assert [Dimension(ev... axis='alto')] == []
+E         
+E         Left contains one more item: Dimension(evidence_ids=['c3'], component_ref=None, value='2', unit=None, original_text='alto dos', value_mm=None, axis='alto')
+E         Use -v to get more diff
+
+tests/unit/test_prf04_numeros_dimension_v12.py:93: AssertionError
+__________________ test_profundidad_sin_unidad_no_se_infiere ___________________
+
+    def test_profundidad_sin_unidad_no_se_infiere():
+        resultado = RulesEngine().extract(
+            ExtractionRequest(
+                request_id="p10",
+                text="Un atril, 0.48 metros de ancho, 0.50 de profundidad y 1.18 metros de alto",
+                currency_context="BOB",
+            )
+        )
+        profundidad = [m for m in resultado.item_proposal.dimensions if m.axis == "profundidad"]
+        assert len(profundidad) == 1
+>       assert profundidad[0].value_mm is None
+E       AssertionError: assert '500.00' is None
+E        +  where '500.00' = Dimension(evidence_ids=['c5', 'c3'], component_ref=None, value='0.50', unit='m', original_text='0.50 de profundidad', value_mm='500.00', axis='profundidad').value_mm
+
+tests/unit/test_prf04_piloto_dimensiones_09.py:29: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_prf04_medidas_compuestas_v14.py::test_no_normalizar_resto_unidad_o_gramatica_ambiguos[cero metros veinte]
+FAILED tests/unit/test_prf04_numeros_dimension_v12.py::test_abstencion_para_expresiones_incompletas_o_ambiguas[Un ropero de alto dos]
+FAILED tests/unit/test_prf04_piloto_dimensiones_09.py::test_profundidad_sin_unidad_no_se_infiere
+3 failed, 868 passed in 6.74s

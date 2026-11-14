@@ -1,0 +1,104 @@
+{
+  "verdict": "PASS for the bounded operational reproduction; not independent-audio generalization",
+  "exit_codes": {
+    "live": 0,
+    "postflight": 0,
+    "bootstrap": 0
+  },
+  "archive_targets": {
+    "backend": "704056430b19d55b8687de788392cb0198ed23e9",
+    "frontend": "feece0a99689c9a73c601f249ea1af3bf11e1b6e"
+  },
+  "eight_audio_scenarios": [
+    {
+      "id": "MP-0001",
+      "category": "MUEBLE",
+      "status": "PASS"
+    },
+    {
+      "id": "SIL-0001",
+      "category": "SILLA",
+      "status": "PASS"
+    },
+    {
+      "id": "PIS-0001",
+      "category": "PISO_FLOTANTE",
+      "status": "PASS"
+    },
+    {
+      "id": "MP-0005",
+      "category": "OTRO",
+      "status": "PASS"
+    },
+    {
+      "id": "MP-0036",
+      "category": "MUEBLE",
+      "status": "PASS"
+    },
+    {
+      "id": "MP-0045",
+      "category": "MUEBLE",
+      "status": "PASS"
+    },
+    {
+      "id": "MP-0067",
+      "category": "OTRO",
+      "status": "PASS"
+    },
+    {
+      "id": "PIS-0006",
+      "category": "PISO_FLOTANTE",
+      "status": "PASS"
+    }
+  ],
+  "scenario_counts": {
+    "pass": 8,
+    "fail": 0,
+    "total": 8
+  },
+  "audio_integrity": {
+    "manifest_audio_hashes_checked_before": 240,
+    "manifest_audio_hashes_checked_after": 240,
+    "all_unchanged": true
+  },
+  "installed_wheel": {
+    "version": "0.1.22",
+    "sha256": "c1a085f899a9f2f0797f332304fcf8eeea91f4837d5d06a9a2ca5a6c07815a80",
+    "source": "scratch venv site-packages",
+    "import_path": "<REPRO_SCRATCH>/venv/lib/python3.11/site-packages/homex_nlp/__init__.py",
+    "python_modules_byte_equal_to_wheel": 26
+  },
+  "authority": {
+    "model_snapshots": 19,
+    "records": 275,
+    "before_equals_after": true,
+    "stock_permission_approved_price_or_state_mutation_observed": false
+  },
+  "owned_services_stop_proof": {
+    "runner_cleanup_completed": true,
+    "postgresql": "pg_ctl reports no server running",
+    "postgres_loopback": "closed",
+    "api_loopback": "closed",
+    "frontend_loopback": "closed"
+  },
+  "repository_checkout_status": {
+    "NLP": {
+      "HEAD": "e72a8228d7a2198b58e1f9363c8c1a1b9169ddb1",
+      "before": "?? .atl/",
+      "after": "?? .atl/",
+      "unchanged": true
+    },
+    "backend_checkout_after": {
+      "HEAD": "ee6c80f13ff76e23c4c572c81042a0b9760db033",
+      "status": "?? celerybeat-schedule.db (preserved; pre-existing ownership noted by parent)"
+    },
+    "frontend_checkout_after": {
+      "HEAD": "3b309a53333b47fa2c058493fe456aeee9eebefc",
+      "status": "clean"
+    }
+  },
+  "scratch": "<REPRO_SCRATCH>",
+  "private_full_log": "<HOME>/Descargas/HOMEX_Guiones_Evaluacion_Voz/logs/semantic-120-v1/reproduction-runtime-independent.log",
+  "failure_or_pending": "None for this bounded operational reproduction; audio adjudication and generalization remain outside this proof.",
+  "risk": "Risk: item 5 (consumer package distribution and operational integration)"
+}

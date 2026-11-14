@@ -1,0 +1,365 @@
+{
+  "id": "SIL-0031",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0031.aac",
+    "original_sha256": "528e796524adea3882207927c62bd4bca985a85aa065a52f3eb473f750b48a4e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0031.wav",
+    "wav_sha256": "c008ce3ac4c74441e7be34b9197dddbda33a260273d099cc73c5ef10389de01c"
+  },
+  "reference": "Taburete, modelo ene efe guion siete mil setecientos setenta y cinco. Respaldo y asiento de espuma de alta densidad tapizados con cuero ecológico de alto tráfico, pistón de gas clase tres, estructura de acero cromado reforzado y plataforma circular de acero cromado de cuarenta y cinco centímetros de diámetro. Color negro con café. Unidad pieza. Precio de lista de novecientos ochenta bolivianos.",
+  "source": {
+    "id": "SIL-0031",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      19
+    ],
+    "titulo_fuente": "TABURETE NF-7775",
+    "grupo_familia": "INV_TABURETE_NF_7775",
+    "guion": "Taburete, modelo ene efe guion siete mil setecientos setenta y cinco. Respaldo y asiento de espuma de alta densidad tapizados con cuero ecológico de alto tráfico, pistón de gas clase tres, estructura de acero cromado reforzado y plataforma circular de acero cromado de cuarenta y cinco centímetros de diámetro. Color negro con café. Unidad pieza. Precio de lista de novecientos ochenta bolivianos.",
+    "audio_esperado": "SIL-0031.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0031.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "83ac09ccf6f2bad4fe951fcecf0b67ddd71a0a4f344dbfa8d88d1d520ae2643d",
+    "audio_compatible_asr": "SIL-0031.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0031.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 42.4693125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Taburete, modelo NF Guion 7.775, respaldo y asiento de espuma de alta densidad, tapizados con cuero ecológico de alto tráfico. Pistón de gas clase 3, estructura de acero cromado, reforzado y plataforma circular de acero cromado de 45 centímetros de diámetro, color negro con café, unidad pieza, precio de lista de 980 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "15.780000",
+        "text": " Taburete, modelo NF Guion 7.775, respaldo y asiento de espuma de alta densidad, tapizados con cuero"
+      },
+      {
+        "start_seconds": "15.780000",
+        "end_seconds": "25.440000",
+        "text": " ecológico de alto tráfico. Pistón de gas clase 3, estructura de acero cromado, reforzado y"
+      },
+      {
+        "start_seconds": "25.440000",
+        "end_seconds": "34.600000",
+        "text": " plataforma circular de acero cromado de 45 centímetros de diámetro, color negro con café,"
+      },
+      {
+        "start_seconds": "34.600000",
+        "end_seconds": "41.160000",
+        "text": " unidad pieza, precio de lista de 980 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 5082
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "color_primario": 46,
+      "color_secundario": 54,
+      "unidad_stock": 27,
+      "nombre": "Taburete",
+      "observaciones": "Taburete, modelo NF Guion 7.775, respaldo y asiento de espuma de alta densidad, tapizados con cuero ecológico de alto tráfico. Pistón de gas clase 3, estructura de acero cromado, reforzado y plataforma circular de acero cromado de 45 centímetros de diámetro, color negro con café, unidad pieza, precio de lista de 980 bolivianos.",
+      "precio_lista": "980.00",
+      "modelo": "NF-7",
+      "especificaciones": {
+        "tapiz": "cuero ecológico",
+        "asiento": "espuma de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "color_primario-265-270",
+        "label": "color_primario",
+        "start": 265,
+        "end": 270,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_secundario-275-279",
+        "label": "color_secundario",
+        "start": 275,
+        "end": 279,
+        "text": "café",
+        "source": "RULE",
+        "normalized_value": 54,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-288-293",
+        "label": "unidad_stock",
+        "start": 288,
+        "end": 293,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-8",
+        "label": "nombre",
+        "start": 0,
+        "end": 8,
+        "text": "Taburete",
+        "source": "RULE",
+        "normalized_value": "Taburete",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-329",
+        "label": "observaciones",
+        "start": 0,
+        "end": 329,
+        "text": "Taburete, modelo NF Guion 7.775, respaldo y asiento de espuma de alta densidad, tapizados con cuero ecológico de alto tráfico. Pistón de gas clase 3, estructura de acero cromado, reforzado y plataforma circular de acero cromado de 45 centímetros de diámetro, color negro con café, unidad pieza, precio de lista de 980 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Taburete, modelo NF Guion 7.775, respaldo y asiento de espuma de alta densidad, tapizados con cuero ecológico de alto tráfico. Pistón de gas clase 3, estructura de acero cromado, reforzado y plataforma circular de acero cromado de 45 centímetros de diámetro, color negro con café, unidad pieza, precio de lista de 980 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-314-317",
+        "label": "precio_lista",
+        "start": 314,
+        "end": 317,
+        "text": "980",
+        "source": "RULE",
+        "normalized_value": "980.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-17-27",
+        "label": "modelo",
+        "start": 17,
+        "end": 27,
+        "text": "NF Guion 7",
+        "source": "RULE",
+        "normalized_value": "NF-7",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-94-109",
+        "label": "especificaciones.tapiz",
+        "start": 94,
+        "end": 109,
+        "text": "cuero ecológico",
+        "source": "RULE",
+        "normalized_value": "cuero ecológico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-55-78",
+        "label": "especificaciones.asiento",
+        "start": 55,
+        "end": 78,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 8.769450003455859,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "color_primario": 46,
+      "color_secundario": 54,
+      "unidad_stock": 27,
+      "nombre": "Taburete",
+      "observaciones": "Taburete, modelo ene efe guion siete mil setecientos setenta y cinco. Respaldo y asiento de espuma de alta densidad tapizados con cuero ecológico de alto tráfico, pistón de gas clase tres, estructura de acero cromado reforzado y plataforma circular de acero cromado de cuarenta y cinco centímetros de diámetro. Color negro con café. Unidad pieza. Precio de lista de novecientos ochenta bolivianos.",
+      "precio_lista": "980.00",
+      "especificaciones": {
+        "tapiz": "cuero ecológico",
+        "asiento": "espuma de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "color_primario-317-322",
+        "label": "color_primario",
+        "start": 317,
+        "end": 322,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_secundario-327-331",
+        "label": "color_secundario",
+        "start": 327,
+        "end": 331,
+        "text": "café",
+        "source": "RULE",
+        "normalized_value": 54,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "unidad_stock-340-345",
+        "label": "unidad_stock",
+        "start": 340,
+        "end": 345,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-8",
+        "label": "nombre",
+        "start": 0,
+        "end": 8,
+        "text": "Taburete",
+        "source": "RULE",
+        "normalized_value": "Taburete",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-397",
+        "label": "observaciones",
+        "start": 0,
+        "end": 397,
+        "text": "Taburete, modelo ene efe guion siete mil setecientos setenta y cinco. Respaldo y asiento de espuma de alta densidad tapizados con cuero ecológico de alto tráfico, pistón de gas clase tres, estructura de acero cromado reforzado y plataforma circular de acero cromado de cuarenta y cinco centímetros de diámetro. Color negro con café. Unidad pieza. Precio de lista de novecientos ochenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Taburete, modelo ene efe guion siete mil setecientos setenta y cinco. Respaldo y asiento de espuma de alta densidad tapizados con cuero ecológico de alto tráfico, pistón de gas clase tres, estructura de acero cromado reforzado y plataforma circular de acero cromado de cuarenta y cinco centímetros de diámetro. Color negro con café. Unidad pieza. Precio de lista de novecientos ochenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-366-385",
+        "label": "precio_lista",
+        "start": 366,
+        "end": 385,
+        "text": "novecientos ochenta",
+        "source": "RULE",
+        "normalized_value": "980.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-17-24",
+        "label": "modelo",
+        "start": 17,
+        "end": 24,
+        "text": "ene efe",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-130-145",
+        "label": "especificaciones.tapiz",
+        "start": 130,
+        "end": 145,
+        "text": "cuero ecológico",
+        "source": "RULE",
+        "normalized_value": "cuero ecológico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-92-115",
+        "label": "especificaciones.asiento",
+        "start": 92,
+        "end": 115,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 9.575595999194775,
+  "metrics": {
+    "wer": {
+      "errors": 14,
+      "substitutions": 5,
+      "deletions": 9,
+      "insertions": 0,
+      "reference_length": 62,
+      "rate": 0.22580645161290322
+    },
+    "cer": {
+      "errors": 81,
+      "substitutions": 11,
+      "deletions": 70,
+      "insertions": 0,
+      "reference_length": 389,
+      "rate": 0.20822622107969152
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.1799009349997505,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0031.json",
+    "original_case_sha256": "6393b5c2f7b1ee59e64991811c15ed34bd02614ee8dd1f40f05c0b5217fc5d34",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

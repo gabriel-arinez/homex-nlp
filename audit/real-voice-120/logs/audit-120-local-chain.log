@@ -1,0 +1,82 @@
+=== Create local tracker; preserve original branch and every unstaged file ===
+Switched to a new branch 'feat/real-voice-120'
+ odd/tasks/real-voice-120.md | 397 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 397 insertions(+)
+[feat/real-voice-120 ff4df92] docs(audit): record real voice evaluation scope and evidence
+ 1 file changed, 397 insertions(+)
+ create mode 100644 odd/tasks/real-voice-120.md
+=== Tracker commit and source revision ===
+ff4df9220665d026bce42ba48bfc8c3954576c42 docs(audit): record real voice evaluation scope and evidence
+## feat/real-voice-120
+ M docs/catalog-voice.md
+ M src/homex_nlp/catalog.py
+ M src/homex_nlp/engine.py
+ M src/homex_nlp/rules.py
+?? .atl/
+?? docs/real-voice-evaluation.md
+?? tests/evaluation/
+?? tests/unit/test_real_voice_regressions.py
+?? tools/evaluate_real_voice.py
+397	0	odd/tasks/real-voice-120.md
+Switched to a new branch 'chore/real-voice-120-01-evaluation'
+ docs/real-voice-evaluation.md       |  39 ++++++
+ odd/tasks/real-voice-120.md         |   5 +-
+ tests/evaluation/test_real_voice.py |  23 +++
+ tools/evaluate_real_voice.py        | 272 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 338 insertions(+), 1 deletion(-)
+[chore/real-voice-120-01-evaluation c02c6df] feat(evaluation): preserve auditable real voice baseline results
+ 4 files changed, 338 insertions(+), 1 deletion(-)
+ create mode 100644 docs/real-voice-evaluation.md
+ create mode 100644 tests/evaluation/test_real_voice.py
+ create mode 100644 tools/evaluate_real_voice.py
+c02c6dfe117003c7ee0ee82efe76b58fe41a89f1 feat(evaluation): preserve auditable real voice baseline results
+39	0	docs/real-voice-evaluation.md
+4	1	odd/tasks/real-voice-120.md
+23	0	tests/evaluation/test_real_voice.py
+272	0	tools/evaluate_real_voice.py
+## chore/real-voice-120-01-evaluation
+ M docs/catalog-voice.md
+ M src/homex_nlp/catalog.py
+ M src/homex_nlp/engine.py
+ M src/homex_nlp/rules.py
+?? .atl/
+?? tests/unit/test_real_voice_regressions.py
+Switched to a new branch 'fix/real-voice-120-02-extraction'
+24 source hashes identical to independently verified and real-browser-tested candidate
+ docs/catalog-voice.md                     |  28 +++++++
+ odd/tasks/real-voice-120.md               |   6 +-
+ src/homex_nlp/catalog.py                  |  23 +++++-
+ src/homex_nlp/engine.py                   |   2 +-
+ src/homex_nlp/rules.py                    |   5 +-
+ tests/unit/test_real_voice_regressions.py | 132 ++++++++++++++++++++++++++++++
+ 6 files changed, 191 insertions(+), 5 deletions(-)
+[fix/real-voice-120-02-extraction f139bd2] fix(nlp): preserve commercial fields in natural dictation
+ 6 files changed, 191 insertions(+), 5 deletions(-)
+ create mode 100644 tests/unit/test_real_voice_regressions.py
+f139bd224f54f0c643b023c121c2ccba79e68054 fix(nlp): preserve commercial fields in natural dictation
+28	0	docs/catalog-voice.md
+5	1	odd/tasks/real-voice-120.md
+21	2	src/homex_nlp/catalog.py
+1	1	src/homex_nlp/engine.py
+4	1	src/homex_nlp/rules.py
+132	0	tests/unit/test_real_voice_regressions.py
+## fix/real-voice-120-02-extraction
+?? .atl/
+[fix/real-voice-120-02-extraction 40e4665] docs(audit): record isolated feature chain verification
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+40e4665 docs(audit): record isolated feature chain verification
+f139bd2 fix(nlp): preserve commercial fields in natural dictation
+c02c6df feat(evaluation): preserve auditable real voice baseline results
+ff4df92 docs(audit): record real voice evaluation scope and evidence
+=== Per-PR authored line budgets ===
+ 1 file changed, 397 insertions(+)
+ 4 files changed, 338 insertions(+), 1 deletion(-)
+ 6 files changed, 198 insertions(+), 7 deletions(-)
+=== No AI attribution trailers ===
+=== Parent readback/check ===
+Esquemas v1: OK
+........................................................................ [ 93%]
+.....                                                                    [100%]
+77 passed in 0.28s
+## fix/real-voice-120-02-extraction
+?? .atl/

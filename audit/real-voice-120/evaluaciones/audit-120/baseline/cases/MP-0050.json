@@ -1,0 +1,226 @@
+{
+  "id": "MP-0050",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0050.aac",
+    "original_sha256": "b594211fb187b2171ba00e88ce233b6fadc3d0b1f80eabadf914ed42923b79f0",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0050.wav",
+    "wav_sha256": "d28d2496feebf6777edd0a14b52e39c101cb9e2dae2e313ad080c1a228f83351"
+  },
+  "reference": "Seis escritorios rectos operativos con cajonera rodante. Escritorio de un metro cuarenta por setenta centímetros y setenta y tres de alto, con tapa MDP de veinticinco milímetros, panel frontal de dieciocho, tapacantos PVC, estructura de acero tipo shaft con pasacables y fijación minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con un cajón, un portafiles, cerradura simultánea, tapa de veinticinco y laterales de dieciocho. Colores olmo y blanco. Precio unitario de mil seiscientos bolivianos.",
+  "source": {
+    "id": "MP-0050",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      50
+    ],
+    "titulo_fuente": "ESCRITORIO RECTO OPERATIVO CON CAJONERA RODANTE",
+    "grupo_familia": "ESCRITORIO_RECTO_CON_CAJONERA",
+    "guion": "Seis escritorios rectos operativos con cajonera rodante. Escritorio de un metro cuarenta por setenta centímetros y setenta y tres de alto, con tapa MDP de veinticinco milímetros, panel frontal de dieciocho, tapacantos PVC, estructura de acero tipo shaft con pasacables y fijación minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con un cajón, un portafiles, cerradura simultánea, tapa de veinticinco y laterales de dieciocho. Colores olmo y blanco. Precio unitario de mil seiscientos bolivianos.",
+    "audio_esperado": "MP-0050.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0050.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "8d791e84d3443aa599b8c213e4c394a9a69b12dc36fac628e39815456cfe9e4c",
+    "audio_compatible_asr": "MP-0050.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0050.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 59.8610625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "6 escritorios rectos operativos con cajonera rodante, escritorio de un metro 40 x 70 centímetros y 73 de alto. Con tapa mdp de 25 milímetros, panel frontal de 18, tapa cantos PVC, estructura de acerotipo shaft, compas a cables y fijación minifix, cajonera de 33 x 40 x 60 y 3 centímetros. Con un cajon, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18, colores holmo y blanco, precio unitario de 1600 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "15.000000",
+        "text": " 6 escritorios rectos operativos con cajonera rodante, escritorio de un metro 40 x 70 centímetros y 73 de alto."
+      },
+      {
+        "start_seconds": "15.000000",
+        "end_seconds": "38.000000",
+        "text": " Con tapa mdp de 25 milímetros, panel frontal de 18, tapa cantos PVC, estructura de acerotipo shaft, compas a cables y fijación minifix, cajonera de 33 x 40 x 60 y 3 centímetros."
+      },
+      {
+        "start_seconds": "38.000000",
+        "end_seconds": "58.000000",
+        "text": " Con un cajon, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18, colores holmo y blanco, precio unitario de 1600 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 6815
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0050",
+    "status": "NO_PROPOSAL",
+    "text_original": "6 escritorios rectos operativos con cajonera rodante, escritorio de un metro 40 x 70 centímetros y 73 de alto. Con tapa mdp de 25 milímetros, panel frontal de 18, tapa cantos PVC, estructura de acerotipo shaft, compas a cables y fijación minifix, cajonera de 33 x 40 x 60 y 3 centímetros. Con un cajon, un portafiles, cerradura simultánea, tapa de 25 y laterales de 18, colores holmo y blanco, precio unitario de 1600 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 2,
+        "end": 20,
+        "text": "escritorios rectos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 54,
+        "end": 64,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 247,
+        "end": 255,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.7046019964036532,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0050-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Seis escritorios rectos operativos con cajonera rodante. Escritorio de un metro cuarenta por setenta centímetros y setenta y tres de alto, con tapa MDP de veinticinco milímetros, panel frontal de dieciocho, tapacantos PVC, estructura de acero tipo shaft con pasacables y fijación minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con un cajón, un portafiles, cerradura simultánea, tapa de veinticinco y laterales de dieciocho. Colores olmo y blanco. Precio unitario de mil seiscientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 5,
+        "end": 23,
+        "text": "escritorios rectos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 57,
+        "end": 67,
+        "text": "Escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 289,
+        "end": 297,
+        "text": "Cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.6436290059355088,
+  "metrics": {
+    "wer": {
+      "errors": 30,
+      "substitutions": 24,
+      "deletions": 5,
+      "insertions": 1,
+      "reference_length": 79,
+      "rate": 0.379746835443038
+    },
+    "cer": {
+      "errors": 138,
+      "substitutions": 31,
+      "deletions": 103,
+      "insertions": 4,
+      "reference_length": 514,
+      "rate": 0.26848249027237353
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 6.976006211996719,
+  "process_peak_rss_kib": 1282048
+}

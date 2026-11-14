@@ -1,0 +1,39 @@
+reference 120 unique matching IDs PASS
+manifest 120 unique matching IDs PASS
+traceability 120 unique matching IDs PASS
+reference MP-0005 {'categoria': ('muebles_pedido', 'OTRO')}
+reference MP-0063 {'categoria': ('muebles_pedido', 'OTRO')}
+reference MP-0068 {'categoria': ('muebles_pedido', 'OTRO')}
+reference OTR-0001 {'categoria': ('otros', 'OTRO')}
+reference OTR-0002 {'categoria': ('otros', 'OTRO')}
+reference OTR-0003 {'categoria': ('otros', 'OTRO')}
+reference SIL-0010 {'categoria': ('sillas', 'OTRO')}
+reference SIL-0019 {'categoria': ('sillas', 'OTRO')}
+reference SIL-0020 {'categoria': ('sillas', 'OTRO')}
+reference SIL-0029 {'categoria': ('sillas', 'OTRO')}
+reference category counts and only 7 commercial + 3 canonical changes PASS; all other content unchanged
+manifest MP-0005 {'categoria': ('muebles_pedido', 'OTRO')}
+manifest MP-0063 {'categoria': ('muebles_pedido', 'OTRO')}
+manifest MP-0068 {'categoria': ('muebles_pedido', 'OTRO')}
+manifest OTR-0001 {'categoria': ('otros', 'OTRO')}
+manifest OTR-0002 {'categoria': ('otros', 'OTRO')}
+manifest OTR-0003 {'categoria': ('otros', 'OTRO')}
+manifest SIL-0010 {'categoria': ('sillas', 'OTRO')}
+manifest SIL-0019 {'categoria': ('sillas', 'OTRO')}
+manifest SIL-0020 {'categoria': ('sillas', 'OTRO')}
+manifest SIL-0029 {'categoria': ('sillas', 'OTRO')}
+manifest category counts and only 7 commercial + 3 canonical changes PASS; all other content unchanged
+120 traceability source hashes and source linkage PASS
+240 original/WAV paths, sizes and SHA256 unchanged PASS
+Runner safety inspected: copies each WAV into tempfile before deleting ASR service; local model; pure in-process RulesEngine/catalog fixture; exclusive case writes; no network/install/production DB operations. PASS
+ALL PRE-EVALUATION INVARIANTS PASS
+POST-RUN: all 240 audio hashes and sizes unchanged PASS
+POST-RUN: source implementation and reference identity unchanged PASS
+POST-RUN: 120/120 COMPLETE, paired reference/ASR NLP preserved PASS
+GLOBAL wer errors 1495 reference_length 6627 micro_rate 0.22559227403048138
+GLOBAL cer errors 7758 reference_length 42777 micro_rate 0.18135914159478225
+AUDIO_SECONDS 4677.4059375
+CASE_WALL_SECONDS 560.356463706994
+PEAK_RSS_KIB 1282048
+TemporaryDirectory audio copies automatically cleaned by runner; no retained scratch paths.
+Exceptions: no evaluation errors. Metrics remain script-relative; human spoken-reference and field annotation pending.

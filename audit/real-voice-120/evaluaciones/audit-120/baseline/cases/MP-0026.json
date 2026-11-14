@@ -1,0 +1,239 @@
+{
+  "id": "MP-0026",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0026.aac",
+    "original_sha256": "81ebeecf5dc57d41ff47895e2d1fe2d92c0d12b31363f92c760cfcb114add89d",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0026.wav",
+    "wav_sha256": "65bb339e6ffce914d5eccf922e2d2d838728b53043b74e6226b4c63af8481bab"
+  },
+  "reference": "Dos escritorios en ele con cajonera rodante. Escritorio de un metro cuarenta por un metro cuarenta, con una altura de setenta y tres centímetros. Tablero superior MDP de veinticinco milímetros, paneles frontales de dieciocho y tapacantos de PVC. Estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con cuatro cajones, tapa de veinticinco milímetros, laterales de dieciocho y cerradura de seguridad. Color olmo con blanco. Precio unitario de dos mil quinientos bolivianos.",
+  "source": {
+    "id": "MP-0026",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      26
+    ],
+    "titulo_fuente": "ESCRITORIO EN \"L\" CON CAJONERA RODANTE",
+    "grupo_familia": "PRO_026",
+    "guion": "Dos escritorios en ele con cajonera rodante. Escritorio de un metro cuarenta por un metro cuarenta, con una altura de setenta y tres centímetros. Tablero superior MDP de veinticinco milímetros, paneles frontales de dieciocho y tapacantos de PVC. Estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con cuatro cajones, tapa de veinticinco milímetros, laterales de dieciocho y cerradura de seguridad. Color olmo con blanco. Precio unitario de dos mil quinientos bolivianos.",
+    "audio_esperado": "MP-0026.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0026.aac",
+    "estado": "REQUIERE_REVISION_FUENTE",
+    "observaciones_control": [
+      "FUENTE_AMBIGUA: profundidad de mesada «60,50» sin unidad o separación interpretable; se omite esa medida.",
+      "FUENTE_CON_ALTERNATIVAS: mecanismo de cerradura ofrece opciones; se conserva «cerradura de seguridad» sin seleccionar mecanismo."
+    ],
+    "sha256_fuente": "9e1063640724398bcbeaf689918e3eefd07a629d6faf0c17d4263ec93792c4c2",
+    "audio_compatible_asr": "MP-0026.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0026.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 57.4461875,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Dos escritorios en L con cajonería rodante, escritorio de 1,40 m x 1,40 m con una altura de 73 cm, tablero superior mdp de 25 mm, paneles frontales de 18 y tapacantos de PVC, estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix, cajonera de 33 x 40 x 63 cm con 4 cajones, tapa de 25 mm, laterales de 18 y cerradura de seguridad, color holmo con blanco, precio unitario de 2,500 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.600000",
+        "text": " Dos escritorios en L con cajonería rodante, escritorio de 1,40 m x 1,40 m con una altura"
+      },
+      {
+        "start_seconds": "11.600000",
+        "end_seconds": "24.280000",
+        "text": " de 73 cm, tablero superior mdp de 25 mm, paneles frontales de 18 y tapacantos de PVC, estructura"
+      },
+      {
+        "start_seconds": "24.280000",
+        "end_seconds": "35.640000",
+        "text": " de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix, cajonera"
+      },
+      {
+        "start_seconds": "35.640000",
+        "end_seconds": "51.080000",
+        "text": " de 33 x 40 x 63 cm con 4 cajones, tapa de 25 mm, laterales de 18 y cerradura de seguridad,"
+      },
+      {
+        "start_seconds": "51.080000",
+        "end_seconds": "56.160000",
+        "text": " color holmo con blanco, precio unitario de 2,500 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 6739
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0026",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos escritorios en L con cajonería rodante, escritorio de 1,40 m x 1,40 m con una altura de 73 cm, tablero superior mdp de 25 mm, paneles frontales de 18 y tapacantos de PVC, estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix, cajonera de 33 x 40 x 63 cm con 4 cajones, tapa de 25 mm, laterales de 18 y cerradura de seguridad, color holmo con blanco, precio unitario de 2,500 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 20,
+        "text": "escritorios en L",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 44,
+        "end": 54,
+        "text": "escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 279,
+        "end": 287,
+        "text": "cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.3375489977770485,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0026-ref",
+    "status": "NO_PROPOSAL",
+    "text_original": "Dos escritorios en ele con cajonera rodante. Escritorio de un metro cuarenta por un metro cuarenta, con una altura de setenta y tres centímetros. Tablero superior MDP de veinticinco milímetros, paneles frontales de dieciocho y tapacantos de PVC. Estructura de acero con tratamiento anticorrosivo, pasacables, zapatas regulables y fijaciones minifix. Cajonera de treinta y tres por cuarenta por sesenta y tres centímetros, con cuatro cajones, tapa de veinticinco milímetros, laterales de dieciocho y cerradura de seguridad. Color olmo con blanco. Precio unitario de dos mil quinientos bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 4,
+        "end": 22,
+        "text": "escritorios en ele",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "PRODUCTO",
+        "start": 45,
+        "end": 55,
+        "text": "Escritorio",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "PRODUCTO",
+        "start": 350,
+        "end": 358,
+        "text": "Cajonera",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "MULTIPLE_MAIN_PRODUCTS",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "Se detectaron varios productos principales."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.2544770031818189,
+  "metrics": {
+    "wer": {
+      "errors": 34,
+      "substitutions": 24,
+      "deletions": 10,
+      "insertions": 0,
+      "reference_length": 87,
+      "rate": 0.39080459770114945
+    },
+    "cer": {
+      "errors": 193,
+      "substitutions": 35,
+      "deletions": 156,
+      "insertions": 2,
+      "reference_length": 581,
+      "rate": 0.33218588640275387
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 6.88925926599768,
+  "process_peak_rss_kib": 892484
+}

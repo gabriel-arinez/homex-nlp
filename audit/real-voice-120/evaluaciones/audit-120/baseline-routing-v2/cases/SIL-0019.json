@@ -1,0 +1,231 @@
+{
+  "id": "SIL-0019",
+  "category": "OTRO",
+  "corpus_category": "OTRO",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0019.aac",
+    "original_sha256": "3435be8f0dd8d910d54e2b637650b85cc64147e586d7fabd1ce9d25d95882db4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0019.wav",
+    "wav_sha256": "e5d287a6fe1172d57f30c0187bfde546dccac3f4ab6b90f836e26f0454060c06"
+  },
+  "reference": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+  "source": {
+    "id": "SIL-0019",
+    "categoria": "OTRO",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      7
+    ],
+    "titulo_fuente": "SILLÓN COD: NF-5012 H",
+    "grupo_familia": "INV_SILL_N_COD__NF_5012_H",
+    "guion": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+    "audio_esperado": "SIL-0019.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0019.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "ebd97080d77fa03e61930947f434652066d10bae91c8f370a59815447e1bb064",
+    "audio_compatible_asr": "SIL-0019.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0019.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 41.656625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "15.720000",
+        "text": " Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados"
+      },
+      {
+        "start_seconds": "15.720000",
+        "end_seconds": "25.440000",
+        "text": " de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable,"
+      },
+      {
+        "start_seconds": "25.440000",
+        "end_seconds": "33.840000",
+        "text": " reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas,"
+      },
+      {
+        "start_seconds": "33.840000",
+        "end_seconds": "40.160000",
+        "text": " unidad pieza, precio de lista de 1390 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4325
+  },
+  "nlp_asr": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillon Ejecutivo",
+      "observaciones": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+      "precio_lista": "1390.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-291-296",
+        "label": "unidad_stock",
+        "start": 291,
+        "end": 296,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillon Ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-333",
+        "label": "observaciones",
+        "start": 0,
+        "end": 333,
+        "text": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillon Ejecutivo, modelo NF Guion 512H, estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyo a brazos de goma regulables y cinco patas cromadas con ruedas, unidad pieza, precio de lista de 1390 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-317-321",
+        "label": "precio_lista",
+        "start": 317,
+        "end": 321,
+        "text": "1390",
+        "source": "RULE",
+        "normalized_value": "1390.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 5.5507009965367615,
+  "nlp_reference": {
+    "category": "OTRO",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Sillón ejecutivo",
+      "observaciones": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+      "precio_lista": "1390.00"
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-309-314",
+        "label": "unidad_stock",
+        "start": 309,
+        "end": 314,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-16",
+        "label": "nombre",
+        "start": 0,
+        "end": 16,
+        "text": "Sillón ejecutivo",
+        "source": "RULE",
+        "normalized_value": "Sillón ejecutivo",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-370",
+        "label": "observaciones",
+        "start": 0,
+        "end": 370,
+        "text": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Sillón ejecutivo, modelo ene efe guion cinco mil doce hache. Estructura interna metálica, respaldo y asiento acolchados de esponja de alta densidad, tapiz de alto tráfico negro, doble palanca, altura regulable, reclinación con palanca, apoyabrazos de goma regulables y cinco patas cromadas con ruedas. Unidad pieza. Precio de lista de mil trescientos noventa bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-335-358",
+        "label": "precio_lista",
+        "start": 335,
+        "end": 358,
+        "text": "mil trescientos noventa",
+        "source": "RULE",
+        "normalized_value": "1390.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 5.909002997213975,
+  "metrics": {
+    "wer": {
+      "errors": 13,
+      "substitutions": 5,
+      "deletions": 6,
+      "insertions": 2,
+      "reference_length": 54,
+      "rate": 0.24074074074074073
+    },
+    "cer": {
+      "errors": 51,
+      "substitutions": 8,
+      "deletions": 40,
+      "insertions": 3,
+      "reference_length": 359,
+      "rate": 0.14206128133704735
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.411749211001734,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0019.json",
+    "original_case_sha256": "73c74fd12b384dc62ef766da76c08e4d593419fbfd8d7a6417272728e655636f",
+    "original_category": "OTRO",
+    "effective_category": "OTRO",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

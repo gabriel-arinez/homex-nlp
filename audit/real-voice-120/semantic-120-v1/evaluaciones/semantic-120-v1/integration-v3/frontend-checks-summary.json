@@ -1,0 +1,27 @@
+{
+  "frontend_commit": "feece0a99689c9a73c601f249ea1af3bf11e1b6e",
+  "unit": {
+    "command": "VITE_API_BASE_URL=http://localhost:8000 npm run test:unit -- --run",
+    "result": "306 passed; 56 files; 63.45s",
+    "ci_env_source": ".github/workflows/ci.yml:21",
+    "initial_without_required_env": "74 failed,232 passed; preserved log; no source edits"
+  },
+  "typecheck": {
+    "command": "npm run type-check",
+    "exit": 0
+  },
+  "lint": {
+    "command": "npm run lint:check",
+    "exit": 0,
+    "initial_failure": "Harness .mjs in scratch frontend triggered unused var; moved outside archive; preserved log"
+  },
+  "build": {
+    "command": "VITE_API_BASE_URL=<own loopback API> npm run build-only",
+    "exit": 0,
+    "time_s": 8.0
+  },
+  "warnings": [
+    "jsdom canvas getContext not implemented; unit exit0"
+  ],
+  "scope": "No frontend source edits; real source Git archive, installed deps copied"
+}

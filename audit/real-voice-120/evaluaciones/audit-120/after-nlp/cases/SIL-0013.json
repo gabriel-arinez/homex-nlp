@@ -1,0 +1,450 @@
+{
+  "id": "SIL-0013",
+  "category": "SILLA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0013.aac",
+    "original_sha256": "38ce865299bf8741bdc5a2b1e598bdc905e74e77e21324b53f8f6dc05c2acc36",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0013.wav",
+    "wav_sha256": "88d223f408debfa9fac80572eacc5fdca1e78765d633ecf56d89cb91562998fa"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla ejecutiva ergonómica",
+      "observaciones": "Silla ejecutiva ergonómica, modelo be quince. Respaldo de malla con reposacabezas ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas. Giro de trescientos sesenta grados, color negro. Unidad pieza. Precio de lista de mil setecientos bolivianos.",
+      "precio_lista": "1700.00",
+      "especificaciones": {
+        "reposacabezas": "reposacabezas",
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "Respaldo de malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-408-413",
+        "label": "unidad_stock",
+        "start": 408,
+        "end": 413,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-394-399",
+        "label": "color_primario",
+        "start": 394,
+        "end": 399,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-26",
+        "label": "nombre",
+        "start": 0,
+        "end": 26,
+        "text": "Silla ejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-461",
+        "label": "observaciones",
+        "start": 0,
+        "end": 461,
+        "text": "Silla ejecutiva ergonómica, modelo be quince. Respaldo de malla con reposacabezas ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas. Giro de trescientos sesenta grados, color negro. Unidad pieza. Precio de lista de mil setecientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica, modelo be quince. Respaldo de malla con reposacabezas ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas. Giro de trescientos sesenta grados, color negro. Unidad pieza. Precio de lista de mil setecientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-434-449",
+        "label": "precio_lista",
+        "start": 434,
+        "end": 449,
+        "text": "mil setecientos",
+        "source": "RULE",
+        "normalized_value": "1700.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-35-44",
+        "label": "modelo",
+        "start": 35,
+        "end": 44,
+        "text": "be quince",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.reposacabezas-68-81",
+        "label": "especificaciones.reposacabezas",
+        "start": 68,
+        "end": 81,
+        "text": "reposacabezas",
+        "source": "RULE",
+        "normalized_value": "reposacabezas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-112-134",
+        "label": "especificaciones.brazos_regulables",
+        "start": 112,
+        "end": 134,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-46-63",
+        "label": "especificaciones.material_respaldo",
+        "start": 46,
+        "end": 63,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-298-319",
+        "label": "especificaciones.suspension",
+        "start": 298,
+        "end": 319,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-242-255",
+        "label": "especificaciones.mecanismo",
+        "start": 242,
+        "end": 255,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-352-356",
+        "label": "especificaciones.giro",
+        "start": 352,
+        "end": 356,
+        "text": "Giro",
+        "source": "RULE",
+        "normalized_value": "Giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-360-386",
+        "label": "especificaciones.giro",
+        "start": 360,
+        "end": 386,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-322-334",
+        "label": "especificaciones.base",
+        "start": 322,
+        "end": 334,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 14.241718003177084,
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla ejecutiva ergonómica",
+      "observaciones": "Silla ejecutiva ergonómica modelo B15, respaldo de malla con reposa cabezas, ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas, giro de 360 grados, color negro, unidad pieza, precio de lista de 1.700 bolivianos.",
+      "precio_lista": "1700.00",
+      "modelo": "B15",
+      "especificaciones": {
+        "reposacabezas": "reposa cabezas",
+        "brazos_regulables": "apoyabrazos regulables",
+        "material_respaldo": "respaldo de malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-387-392",
+        "label": "unidad_stock",
+        "start": 387,
+        "end": 392,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-373-378",
+        "label": "color_primario",
+        "start": 373,
+        "end": 378,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-26",
+        "label": "nombre",
+        "start": 0,
+        "end": 26,
+        "text": "Silla ejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-430",
+        "label": "observaciones",
+        "start": 0,
+        "end": 430,
+        "text": "Silla ejecutiva ergonómica modelo B15, respaldo de malla con reposa cabezas, ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas, giro de 360 grados, color negro, unidad pieza, precio de lista de 1.700 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica modelo B15, respaldo de malla con reposa cabezas, ajustable en altura y ángulo, apoyabrazos regulables en altura, dirección y profundidad, soporte lumbar ajustable, asiento de espuma moldeada de alta densidad, doble palanca, respaldo reclinable con tres posiciones, suspensión hidráulica y base cromada de cinco ruedas, giro de 360 grados, color negro, unidad pieza, precio de lista de 1.700 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-413-418",
+        "label": "precio_lista",
+        "start": 413,
+        "end": 418,
+        "text": "1.700",
+        "source": "RULE",
+        "normalized_value": "1700.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-34-37",
+        "label": "modelo",
+        "start": 34,
+        "end": 37,
+        "text": "B15",
+        "source": "RULE",
+        "normalized_value": "B15",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.reposacabezas-61-75",
+        "label": "especificaciones.reposacabezas",
+        "start": 61,
+        "end": 75,
+        "text": "reposa cabezas",
+        "source": "RULE",
+        "normalized_value": "reposa cabezas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.brazos_regulables-107-129",
+        "label": "especificaciones.brazos_regulables",
+        "start": 107,
+        "end": 129,
+        "text": "apoyabrazos regulables",
+        "source": "RULE",
+        "normalized_value": "apoyabrazos regulables",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-39-56",
+        "label": "especificaciones.material_respaldo",
+        "start": 39,
+        "end": 56,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-293-314",
+        "label": "especificaciones.suspension",
+        "start": 293,
+        "end": 314,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-237-250",
+        "label": "especificaciones.mecanismo",
+        "start": 237,
+        "end": 250,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-347-365",
+        "label": "especificaciones.giro",
+        "start": 347,
+        "end": 365,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-317-329",
+        "label": "especificaciones.base",
+        "start": 317,
+        "end": 329,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 14.256168004067149,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "be",
+          "quince"
+        ],
+        "asr": [
+          "b15"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "reposacabezas"
+        ],
+        "asr": [
+          "reposa",
+          "cabezas"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "trescientos",
+          "sesenta"
+        ],
+        "asr": [
+          "360"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "mil",
+          "setecientos"
+        ],
+        "asr": [
+          "1.700"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "SIL-0013",
+    "category": "SILLA",
+    "stated_commercial_amount": "1700",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}

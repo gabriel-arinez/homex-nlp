@@ -1,0 +1,86 @@
+F....FFF.FFF                                                             [100%]
+=================================== FAILURES ===================================
+__ test_referential_primary_and_introduced_drawer_are_one_commercial_product ___
+
+    def test_referential_primary_and_introduced_drawer_are_one_commercial_product():
+        result=extract('Tres escritorios con cajonera rodante. Escritorio de 120 cm de ancho. Cajonera de 40 cm de ancho. Precio unitario 1700 bolivianos.')
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='semantic-probe', status='NO_PROPOSAL', text_original='Tres escritor...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=5).item_proposal
+
+tests/unit/test_furniture_semantic_v2.py:17: AssertionError
+_ test_explicit_furniture_families_are_recognized_without_ids[cubos m\xf3viles] _
+
+product = 'cubos móviles'
+
+    @pytest.mark.parametrize('product',['cubos móviles','estaciones de trabajo'])
+    def test_explicit_furniture_families_are_recognized_without_ids(product):
+        result=extract(f'Dos {product} de 90 centímetros de ancho. Precio unitario 1800 bolivianos.')
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='semantic-probe', status='NO_PROPOSAL', text_original='Dos cubos móv...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_furniture_semantic_v2.py:39: AssertionError
+_ test_explicit_furniture_families_are_recognized_without_ids[estaciones de trabajo] _
+
+product = 'estaciones de trabajo'
+
+    @pytest.mark.parametrize('product',['cubos móviles','estaciones de trabajo'])
+    def test_explicit_furniture_families_are_recognized_without_ids(product):
+        result=extract(f'Dos {product} de 90 centímetros de ancho. Precio unitario 1800 bolivianos.')
+>       assert result.item_proposal is not None
+E       AssertionError: assert None is not None
+E        +  where None = ExtractionResult(schema_version='1.0', request_id='semantic-probe', status='NO_PROPOSAL', text_original='Dos estacione...', model_version=None, rules_version='prf04-rules-money-2', normalization_version='1.0'), error=None, latency_nlp_ms=0).item_proposal
+
+tests/unit/test_furniture_semantic_v2.py:39: AssertionError
+__ test_adjectival_height_does_not_steal_following_width_and_compound_height ___
+
+    def test_adjectival_height_does_not_steal_following_width_and_compound_height():
+        result=extract('Un armario alto de ochenta centímetros de ancho, cincuenta de profundidad y dos metros veinte de alto.')
+        dims=result.item_proposal.dimensions
+>       assert [(d.axis,d.value_mm) for d in dims if d.axis=='alto']==[('alto','2200')]
+E       AssertionError: assert [('alto', '80...lto', '2200')] == [('alto', '2200')]
+E         
+E         At index 0 diff: ('alto', '800') != ('alto', '2200')
+E         Left contains one more item: ('alto', '2200')
+E         Use -v to get more diff
+
+tests/unit/test_furniture_semantic_v2.py:46: AssertionError
+________ test_electrical_accessories_keep_explicit_counts_and_evidence _________
+
+    def test_electrical_accessories_keep_explicit_counts_and_evidence():
+        result=extract('Una mesa con tablero y dos puertos USB, tres HDMI y cuatro tomacorrientes. Precio unitario 600 bolivianos.')
+        accessories=result.item_proposal.accessories
+>       assert next(a for a in accessories if 'USB' in a.name).quantity==2
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/unit/test_furniture_semantic_v2.py:63: StopIteration
+_______ test_accessory_negation_and_protocol_number_do_not_invent_counts _______
+
+    def test_accessory_negation_and_protocol_number_do_not_invent_counts():
+        result=extract('Una mesa sin HDMI, con USB 3.0 y tomacorrientes.')
+        assert not any('HDMI' in a.name for a in result.item_proposal.accessories)
+>       assert next(a for a in result.item_proposal.accessories if 'USB' in a.name).quantity is None
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/unit/test_furniture_semantic_v2.py:73: StopIteration
+_____ test_explicit_recognition_variant_is_unit_price_not_negotiated_total _____
+
+    def test_explicit_recognition_variant_is_unit_price_not_negotiated_total():
+        result=extract('Dos escritorios en L. Presiunitario de 2,300 bolivianos.')
+>       assert result.item_proposal.price.mode=='PRECIO_UNITARIO'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'mode'
+
+tests/unit/test_furniture_semantic_v2.py:78: AttributeError
+=========================== short test summary info ============================
+FAILED tests/unit/test_furniture_semantic_v2.py::test_referential_primary_and_introduced_drawer_are_one_commercial_product
+FAILED tests/unit/test_furniture_semantic_v2.py::test_explicit_furniture_families_are_recognized_without_ids[cubos m\xf3viles]
+FAILED tests/unit/test_furniture_semantic_v2.py::test_explicit_furniture_families_are_recognized_without_ids[estaciones de trabajo]
+FAILED tests/unit/test_furniture_semantic_v2.py::test_adjectival_height_does_not_steal_following_width_and_compound_height
+FAILED tests/unit/test_furniture_semantic_v2.py::test_electrical_accessories_keep_explicit_counts_and_evidence
+FAILED tests/unit/test_furniture_semantic_v2.py::test_accessory_negation_and_protocol_number_do_not_invent_counts
+FAILED tests/unit/test_furniture_semantic_v2.py::test_explicit_recognition_variant_is_unit_price_not_negotiated_total
+7 failed, 5 passed in 0.46s

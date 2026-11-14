@@ -1,0 +1,437 @@
+{
+  "id": "SIL-0030",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0030",
+  "development_only": true,
+  "input_role": "ASR_TRANSCRIPT",
+  "cell": "temperature_zero__baseline_nlp",
+  "asr_configuration": "temperature_zero",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "e7838b0c0b551a958ea44c17a2b3f75581408364900e36c3f21e27e002d20cbe",
+  "asr_settings": {
+    "language": "es",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0030.aac",
+    "original_sha256": "526e56bd406a6b4adabd28d173961bc47002df523a6dfb64942b0a8403379b52",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0030.wav",
+    "wav_sha256": "9f1d500ec87a04e0019cf3135b8995d13dd3fbc241f71357da7b6f2d737fa490"
+  },
+  "text_original": "Silla Estática Modelo NF Guión 139 Guión II Respaldo de PVC con espuma y tapiz de alto tráfico Asiento de espuma de alta densidad Estructura de acero cromado Reforzado y tapones de PVC antideslizantes en las patas Color negro, unidad pieza, precio de lista de 560 bolivianos",
+  "script_text": "Silla estática, modelo ene efe guion ciento treinta y nueve guion dos. Respaldo de PVC con espuma y tapiz de alto tráfico, asiento de espuma de alta densidad, estructura de acero cromado reforzado y tapones de PVC antideslizantes en las patas. Color negro. Unidad pieza. Precio de lista de quinientos sesenta bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "color_primario": 46,
+      "nombre": "Silla Estática",
+      "observaciones": "Silla Estática Modelo NF Guión 139 Guión II Respaldo de PVC con espuma y tapiz de alto tráfico Asiento de espuma de alta densidad Estructura de acero cromado Reforzado y tapones de PVC antideslizantes en las patas Color negro, unidad pieza, precio de lista de 560 bolivianos",
+      "precio_lista": "560.00",
+      "modelo": "NF-139-II",
+      "especificaciones": {
+        "material_respaldo": "Respaldo de PVC",
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-234-239",
+        "label": "unidad_stock",
+        "start": 234,
+        "end": 239,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-220-225",
+        "label": "color_primario",
+        "start": 220,
+        "end": 225,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-14",
+        "label": "nombre",
+        "start": 0,
+        "end": 14,
+        "text": "Silla Estática",
+        "source": "RULE",
+        "normalized_value": "Silla Estática",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-274",
+        "label": "observaciones",
+        "start": 0,
+        "end": 274,
+        "text": "Silla Estática Modelo NF Guión 139 Guión II Respaldo de PVC con espuma y tapiz de alto tráfico Asiento de espuma de alta densidad Estructura de acero cromado Reforzado y tapones de PVC antideslizantes en las patas Color negro, unidad pieza, precio de lista de 560 bolivianos",
+        "source": "RULE",
+        "normalized_value": "Silla Estática Modelo NF Guión 139 Guión II Respaldo de PVC con espuma y tapiz de alto tráfico Asiento de espuma de alta densidad Estructura de acero cromado Reforzado y tapones de PVC antideslizantes en las patas Color negro, unidad pieza, precio de lista de 560 bolivianos",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-260-263",
+        "label": "precio_lista",
+        "start": 260,
+        "end": 263,
+        "text": "560",
+        "source": "RULE",
+        "normalized_value": "560.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-22-43",
+        "label": "modelo",
+        "start": 22,
+        "end": 43,
+        "text": "NF Guión 139 Guión II",
+        "source": "RULE",
+        "normalized_value": "NF-139-II",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-44-59",
+        "label": "especificaciones.material_respaldo",
+        "start": 44,
+        "end": 59,
+        "text": "Respaldo de PVC",
+        "source": "RULE",
+        "normalized_value": "Respaldo de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-73-94",
+        "label": "especificaciones.tapiz",
+        "start": 73,
+        "end": 94,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-106-129",
+        "label": "especificaciones.asiento",
+        "start": 106,
+        "end": 129,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla Estática"
+    },
+    {
+      "field": "model",
+      "value": "NF-139-II"
+    },
+    {
+      "field": "colors",
+      "value": "Negro"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "560.00"
+    },
+    {
+      "field": "materials",
+      "value": "Respaldo de PVC",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-44-59",
+        "label": "especificaciones.material_respaldo",
+        "start": 44,
+        "end": 59,
+        "text": "Respaldo de PVC",
+        "source": "RULE",
+        "normalized_value": "Respaldo de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "560",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "560",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 3,
+    "denominator": 6,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          2,
+          6
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3,
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "acero cromado",
+          null
+        ],
+        "reference_indices": [
+          5
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          3
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "560",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          4
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "colors": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla estatica",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "model",
+          "nf-139-ii",
+          null
+        ],
+        "prediction_indices": [
+          1
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de pvc",
+          null
+        ],
+        "prediction_indices": [
+          5
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 11,
+      "substitutions": 6,
+      "deletions": 5,
+      "insertions": 0,
+      "reference_length": 52,
+      "rate": 0.21153846153846154
+    },
+    "strict_normalized": {
+      "errors": 9,
+      "substitutions": 5,
+      "deletions": 4,
+      "insertions": 0,
+      "reference_length": 51,
+      "rate": 0.17647058823529413
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla estática, modelo ene efe guion ciento treinta y nueve guion dos. Respaldo de PVC con espuma y tapiz de alto tráfico, asiento de espuma de alta densidad, estructura de acero cromado reforzado y tapones de PVC antideslizantes en las patas. Color negro. Unidad pieza. Precio de lista de 560 BOB.",
+    "asr_text": "Silla Estática Modelo NF Guión 139 Guión II Respaldo de PVC con espuma y tapiz de alto tráfico Asiento de espuma de alta densidad Estructura de acero cromado Reforzado y tapones de PVC antideslizantes en las patas Color negro, unidad pieza, precio de lista de 560 BOB",
+    "reference_transforms": [
+      {
+        "start": 290,
+        "end": 308,
+        "raw": "quinientos sesenta",
+        "replacement": "560",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 309,
+        "end": 319,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 264,
+        "end": 274,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

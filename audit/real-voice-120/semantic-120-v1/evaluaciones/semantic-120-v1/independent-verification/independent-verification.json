@@ -1,0 +1,19 @@
+{
+  "candidate": "b851b5aa15a04e5ab1046271f124cc05c3135da8 plus uncommitted semantic candidate",
+  "verdict": "partial",
+  "specs": {
+    "S3": {"verdict": "blocker", "evidence": "Implicit catalog name shortening has source span and normalized value but reason=null; e.g. Poltrona de sala de espera de estructura y patas de madera maciza -> Poltrona de sala de espera."},
+    "S4": {"verdict": "pass for focused probes; full 120-case evidence pending", "evidence": "Furniture/catalog focused tests pass; no case-ID exceptions found in inspected code/tests."},
+    "S8": {"verdict": "partial", "evidence": "0.1.22 wheel reproducible; wheel SHA matches docs/catalog-release.json and backend vendor wheel; backend isolated interpreter reports package 0.1.22 from site-packages, catalog.py bytes equal src. CI green evidence pending."}
+  },
+  "checks": {
+    "focused": "48 passed",
+    "make_check": "ruff, format, schema export, corpus audits and 882 tests passed",
+    "distribution": "uv offline build and verify_distribution passed; wheel SHA256 2c46f710a97ef2c4f8ff280d1793696d43ac88cd0ab58b47cd5b50051270bb95",
+    "backend": "installed homex-nlp 0.1.22, imported from backend venv site-packages; vendor wheel hash equal; src catalog.py byte hash equal",
+    "historical_release_manifest": "docs/catalog-release-0.1.21.json SHA equals baseline docs/catalog-release.json",
+    "CI": "not verified"
+  },
+  "scratch": "/tmp/tmp.NCX8byUD4F",
+  "risk": "Risk: item 3 (consumer-facing shared semantic evidence contract) and item 5 (distribution/release surface)"
+}

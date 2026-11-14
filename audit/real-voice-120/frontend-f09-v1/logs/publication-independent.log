@@ -1,0 +1,23 @@
+Read-only publication audit — audit/real-voice-120/frontend-f09-v1
+
+Inventory and integrity
+- 33 bundle files total: 31 selected text files plus README.md and PUBLICATION-MANIFEST.json.
+- Selected files: 9 JSON, 1 Markdown, 21 console logs. Manifest source ledger: 54 source files.
+- Recomputed every source-file digest/size and every output digest; no mismatch.
+- Reapplied exporter path-prefix redactions in memory in the same order and compared every resulting byte string; all 31 matched the published bytes and manifest redaction counts.
+- Parsed all source/output JSON; no parse failure. All bundle files decoded as UTF-8.
+
+Privacy screening (matched values were never printed)
+- Compared public contents against only the exact ephemeral secret/password values from private.json: zero matches.
+- Checked private-key, GitHub/OpenAI/AWS token, bearer-token, media-data-URI, and unredacted local/temp path patterns: zero matches in the exported bundle.
+- Export tree contains no binary, recording, screenshot, or trace artifact. Selected failed-run console text contains relative references to test-runner artifacts; the referenced artifacts themselves are absent.
+- Root audit README has no private absolute path. The root task document has one pre-existing local absolute path at line 289; it is not introduced by current diff (zero added path-bearing lines). This remains a caution if the whole task document is included in the public release.
+
+Captured CI/verification claims
+- Frontend workflow 43160479820: JSON says success, 13/13 jobs; full console has 14 passing real-stack cases and 109 passed/1 skipped E2E. The E2E skip is unchanged at base.
+- Backend workflow 43160776481: JSON says success, 13/13 jobs; full console has 14 passing real-stack cases and 552 passed/5 skipped. Pytest lists four Poppler-related skip groups, one with count two, totaling five.
+- Local check-all-v2 console: 306 unit tests passed.
+- Historical frontend run 43159506238 / head 4e813ff: captured JSON records overall failure, 12 successes and 1 failed job. The included independent-ci-status-clarification.json explicitly corrects imprecise earlier wording; historical evidence remains preserved.
+- The final captured reports/logs distinguish earlier independent frozen checks from later final CI. No CI result was inferred from a stale independent report.
+
+Audit was read-only. No remote operation, source edit, or functional test was run.

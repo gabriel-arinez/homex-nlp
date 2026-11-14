@@ -1,0 +1,58 @@
+{
+  "schema": "publication-preflight/1",
+  "scope": "read-only preflight of current candidate exporter and private source inventory; actual publication destination was not created or examined",
+  "risk": "item 2 (credential/security guard); public-file-transfer failure is irreversible once pushed",
+  "actual_inventory": {
+    "files": 7565,
+    "bytes": 982473341,
+    "symlinks": 0,
+    "wav_files": 924,
+    "png_files": 18,
+    "zip_archives": 2,
+    "allowed_candidate_files": 6629,
+    "trace_zip_entries": [
+      {
+        "source": "integration-v1/trace.zip",
+        "entries": 4408,
+        "unsafe_paths": 0
+      },
+      {
+        "source": "integration-v3/trace.zip",
+        "entries": 5966,
+        "unsafe_paths": 0
+      }
+    ]
+  },
+  "blockers": [
+    {
+      "id": "zip_member_path_traversal",
+      "evidence": "export-publication.py writes selected archive entry names as target.with_suffix(\".events\") / entry.filename without validating containment; exact exporter synthetic fixture wrote a synthetic .trace outside output tree (exit 0).",
+      "reproduction": "Synthetic corpus with one trace.zip member named ../../../../outside-probe.trace; exporter wrote it to output parent. No real user data used.",
+      "actual_source_status": "Both current trace archives were inspected by member metadata; neither contains absolute or parent-traversal paths. This is a latent exporter safety defect, not evidence of current archive escape.",
+      "required_before_publication": "Reject unsafe archive names and verify resolved output path remains beneath destination before any write; rerun synthetic regression and final all-bytes audit."
+    }
+  ],
+  "advisories": [
+    {
+      "id": "not_final_bytes",
+      "evidence": "Actual destination does not exist yet; final ASR configuration/output is pending.",
+      "required": "Do not approve or publish until final exporter is available and every output byte, manifest hash, inline audio representation, trace event field, logs, filenames, symlinks, size limits and omitted traces are audited."
+    },
+    {
+      "id": "screenshot_semantics",
+      "evidence": "18 source PNG files are eligible for copy and are not transformed by the sanitizer.",
+      "required": "Final audit must inspect screenshot content for customer/PII/credentials/productive data; byte-level scanning alone cannot establish visual privacy."
+    },
+    {
+      "id": "sensitive_field_sanitization",
+      "evidence": "Existing helper redacts sensitive JSON field names and selected token patterns; output log only emits aggregate status/counts.",
+      "required": "Final audit should still scan full output for known private secret hashes/values and inline audio signatures."
+    }
+  ],
+  "synthetic_probe": {
+    "credential_field_and_audio_buffer": "not run in this pass",
+    "zip_traversal": "reproduced",
+    "scratch_root": "/tmp/semantic-publication-probe-kj915c0j"
+  },
+  "conclusion": "BLOCKED; no exporter run against the real source corpus and no approval of actual bytes."
+}

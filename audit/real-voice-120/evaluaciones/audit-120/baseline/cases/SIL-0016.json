@@ -1,0 +1,454 @@
+{
+  "id": "SIL-0016",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0016.aac",
+    "original_sha256": "63b32c989957828e74929f111a996391070d25bbf76b62dc86edce09ff1b9eef",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0016.wav",
+    "wav_sha256": "e191501a732b0c16176d2663e1842f0ae12179b911a095cebb6a05f37bbe488d"
+  },
+  "reference": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, de malla estilo racing. Reposapiés plegable, reposacabezas fijo, doble palanca para inclinación y tercera palanca para altura del respaldo, suspensión hidráulica, base cromada de cinco ruedas y giro de trescientos sesenta grados. Unidad pieza. Precio de lista de mil noventa bolivianos.",
+  "source": {
+    "id": "SIL-0016",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      4
+    ],
+    "titulo_fuente": "SILLA COD : D43",
+    "grupo_familia": "SILLA_D43",
+    "guion": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, de malla estilo racing. Reposapiés plegable, reposacabezas fijo, doble palanca para inclinación y tercera palanca para altura del respaldo, suspensión hidráulica, base cromada de cinco ruedas y giro de trescientos sesenta grados. Unidad pieza. Precio de lista de mil noventa bolivianos.",
+    "audio_esperado": "SIL-0016.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0016.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "DIFERENCIA_ENTRE_FUENTES: D43 en inventario Bs 1090 frente a proforma Bs 1200."
+    ],
+    "sha256_fuente": "ca86cb39bea42e347ce90706bbb4f2e7cf6d622a6a23ce200474061b031d9a45",
+    "audio_compatible_asr": "SIL-0016.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0016.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 38.336125,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla ejecutiva ergonómica modelo de 43 de malla estilo racing reposa pies plegable reposa cabezas fijo doble palanca para inclinación y tercera palanca para altura del respaldo suspensión hidráulica base cromada de cinco ruedas y giro de 360 grados unidad pieza precio de lista de 1,090 bolivianos",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "11.480000",
+        "text": " Silla ejecutiva ergonómica modelo de 43 de malla estilo racing reposa pies plegable"
+      },
+      {
+        "start_seconds": "11.480000",
+        "end_seconds": "19.720000",
+        "text": " reposa cabezas fijo doble palanca para inclinación y tercera palanca para"
+      },
+      {
+        "start_seconds": "19.720000",
+        "end_seconds": "26.080000",
+        "text": " altura del respaldo suspensión hidráulica base"
+      },
+      {
+        "start_seconds": "26.080000",
+        "end_seconds": "35.200000",
+        "text": " cromada de cinco ruedas y giro de 360 grados unidad pieza precio de lista de"
+      },
+      {
+        "start_seconds": "35.200000",
+        "end_seconds": "39.040000",
+        "text": " 1,090 bolivianos"
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4239
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla ejecutiva ergonómica",
+      "observaciones": "Silla ejecutiva ergonómica modelo de 43 de malla estilo racing reposa pies plegable reposa cabezas fijo doble palanca para inclinación y tercera palanca para altura del respaldo suspensión hidráulica base cromada de cinco ruedas y giro de 360 grados unidad pieza precio de lista de 1,090 bolivianos",
+      "precio_lista": "1090.00",
+      "especificaciones": {
+        "reposacabezas": "reposa cabezas",
+        "reposapies": "reposa pies",
+        "material_respaldo": "malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "giro": "giro de 360 grados",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-257-262",
+        "label": "unidad_stock",
+        "start": 257,
+        "end": 262,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-26",
+        "label": "nombre",
+        "start": 0,
+        "end": 26,
+        "text": "Silla ejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-298",
+        "label": "observaciones",
+        "start": 0,
+        "end": 298,
+        "text": "Silla ejecutiva ergonómica modelo de 43 de malla estilo racing reposa pies plegable reposa cabezas fijo doble palanca para inclinación y tercera palanca para altura del respaldo suspensión hidráulica base cromada de cinco ruedas y giro de 360 grados unidad pieza precio de lista de 1,090 bolivianos",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica modelo de 43 de malla estilo racing reposa pies plegable reposa cabezas fijo doble palanca para inclinación y tercera palanca para altura del respaldo suspensión hidráulica base cromada de cinco ruedas y giro de 360 grados unidad pieza precio de lista de 1,090 bolivianos",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-282-287",
+        "label": "precio_lista",
+        "start": 282,
+        "end": 287,
+        "text": "1,090",
+        "source": "RULE",
+        "normalized_value": "1090.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-34-39",
+        "label": "modelo",
+        "start": 34,
+        "end": 39,
+        "text": "de 43",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.reposacabezas-84-98",
+        "label": "especificaciones.reposacabezas",
+        "start": 84,
+        "end": 98,
+        "text": "reposa cabezas",
+        "source": "RULE",
+        "normalized_value": "reposa cabezas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.reposapies-63-74",
+        "label": "especificaciones.reposapies",
+        "start": 63,
+        "end": 74,
+        "text": "reposa pies",
+        "source": "RULE",
+        "normalized_value": "reposa pies",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-43-48",
+        "label": "especificaciones.material_respaldo",
+        "start": 43,
+        "end": 48,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-178-199",
+        "label": "especificaciones.suspension",
+        "start": 178,
+        "end": 199,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-104-117",
+        "label": "especificaciones.mecanismo",
+        "start": 104,
+        "end": 117,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-231-249",
+        "label": "especificaciones.giro",
+        "start": 231,
+        "end": 249,
+        "text": "giro de 360 grados",
+        "source": "RULE",
+        "normalized_value": "giro de 360 grados",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-200-212",
+        "label": "especificaciones.base",
+        "start": 200,
+        "end": 212,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 11.143403004098218,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla ejecutiva ergonómica",
+      "observaciones": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, de malla estilo racing. Reposapiés plegable, reposacabezas fijo, doble palanca para inclinación y tercera palanca para altura del respaldo, suspensión hidráulica, base cromada de cinco ruedas y giro de trescientos sesenta grados. Unidad pieza. Precio de lista de mil noventa bolivianos.",
+      "precio_lista": "1090.00",
+      "especificaciones": {
+        "reposacabezas": "reposacabezas",
+        "reposapies": "Reposapiés",
+        "material_respaldo": "malla",
+        "suspension": "suspensión hidráulica",
+        "mecanismo": "doble palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-292-297",
+        "label": "unidad_stock",
+        "start": 292,
+        "end": 297,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-26",
+        "label": "nombre",
+        "start": 0,
+        "end": 26,
+        "text": "Silla ejecutiva ergonómica",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-341",
+        "label": "observaciones",
+        "start": 0,
+        "end": 341,
+        "text": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, de malla estilo racing. Reposapiés plegable, reposacabezas fijo, doble palanca para inclinación y tercera palanca para altura del respaldo, suspensión hidráulica, base cromada de cinco ruedas y giro de trescientos sesenta grados. Unidad pieza. Precio de lista de mil noventa bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla ejecutiva ergonómica, modelo de cuarenta y tres, de malla estilo racing. Reposapiés plegable, reposacabezas fijo, doble palanca para inclinación y tercera palanca para altura del respaldo, suspensión hidráulica, base cromada de cinco ruedas y giro de trescientos sesenta grados. Unidad pieza. Precio de lista de mil noventa bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-318-329",
+        "label": "precio_lista",
+        "start": 318,
+        "end": 329,
+        "text": "mil noventa",
+        "source": "RULE",
+        "normalized_value": "1090.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-35-46",
+        "label": "modelo",
+        "start": 35,
+        "end": 46,
+        "text": "de cuarenta",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.reposacabezas-100-113",
+        "label": "especificaciones.reposacabezas",
+        "start": 100,
+        "end": 113,
+        "text": "reposacabezas",
+        "source": "RULE",
+        "normalized_value": "reposacabezas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.reposapies-79-89",
+        "label": "especificaciones.reposapies",
+        "start": 79,
+        "end": 89,
+        "text": "Reposapiés",
+        "source": "RULE",
+        "normalized_value": "Reposapiés",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-58-63",
+        "label": "especificaciones.material_respaldo",
+        "start": 58,
+        "end": 63,
+        "text": "malla",
+        "source": "RULE",
+        "normalized_value": "malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.suspension-195-216",
+        "label": "especificaciones.suspension",
+        "start": 195,
+        "end": 216,
+        "text": "suspensión hidráulica",
+        "source": "RULE",
+        "normalized_value": "suspensión hidráulica",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-120-133",
+        "label": "especificaciones.mecanismo",
+        "start": 120,
+        "end": 133,
+        "text": "doble palanca",
+        "source": "RULE",
+        "normalized_value": "doble palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-249-253",
+        "label": "especificaciones.giro",
+        "start": 249,
+        "end": 253,
+        "text": "giro",
+        "source": "RULE",
+        "normalized_value": "giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-257-283",
+        "label": "especificaciones.giro",
+        "start": 257,
+        "end": 283,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-218-230",
+        "label": "especificaciones.base",
+        "start": 218,
+        "end": 230,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 12.626228999579325,
+  "metrics": {
+    "wer": {
+      "errors": 11,
+      "substitutions": 5,
+      "deletions": 4,
+      "insertions": 2,
+      "reference_length": 49,
+      "rate": 0.22448979591836735
+    },
+    "cer": {
+      "errors": 48,
+      "substitutions": 11,
+      "deletions": 35,
+      "insertions": 2,
+      "reference_length": 331,
+      "rate": 0.14501510574018128
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.3254290300028515,
+  "process_peak_rss_kib": 1282048
+}

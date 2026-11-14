@@ -1,0 +1,783 @@
+{
+  "id": "MP-0010",
+  "category": "MUEBLE_MEDIDA",
+  "corpus_category": "muebles_pedido",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0010.aac",
+    "original_sha256": "02d65077524c73f2ca7224fdb98f8c7c8eec7c6efc0816d6d1c8b5b880eb2ac6",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0010.wav",
+    "wav_sha256": "09c1653f794653a6078661263399cc83341d088e077b1b3cb1c5ee867b4e7b9b"
+  },
+  "reference": "Un mueble de recepción de nueve metros de largo, setenta centímetros de profundidad y un metro diez de altura. Fabricado con tableros de melamina de dieciocho y veinticinco milímetros. Incluye pasacables, repisas interiores, cajones con rieles telescópicos y chapa de seguridad, además de dos puertas de vidrio templado. Color a elección. Fabricación boliviana. Precio de quince mil bolivianos.",
+  "source": {
+    "id": "MP-0010",
+    "categoria": "muebles_pedido",
+    "archivo_origen": "PROFORMAS(4).txt",
+    "registros_fuente": [
+      10
+    ],
+    "titulo_fuente": "MUEBLE RECEPCION",
+    "grupo_familia": "PRO_010",
+    "guion": "Un mueble de recepción de nueve metros de largo, setenta centímetros de profundidad y un metro diez de altura. Fabricado con tableros de melamina de dieciocho y veinticinco milímetros. Incluye pasacables, repisas interiores, cajones con rieles telescópicos y chapa de seguridad, además de dos puertas de vidrio templado. Color a elección. Fabricación boliviana. Precio de quince mil bolivianos.",
+    "audio_esperado": "MP-0010.aac",
+    "ruta_audio_esperada": "01_muebles_pedido/audios/MP-0010.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "5f1ff2a3843295cc0844d1610d59baf0419c0b1de69d46e6f09dfa1d88d33cbb",
+    "audio_compatible_asr": "MP-0010.wav",
+    "ruta_audio_compatible_asr": "01_muebles_pedido/audios_asr/MP-0010.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 43.560625,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Un mueble de recepción de 9 metros de largo, 70 centímetros de profundidad y un metro 10 de altura. Fabricado con tableros de melamina de 18 y 25 milímetros. Incluye pasacables, repisas interiores, cajones con rieles telescópicos y chapa de seguridad. Además de dos puertas de vidrio templado, color a elección, fabricación boliviana, precio de 15 mil bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "14.460000",
+        "text": " Un mueble de recepción de 9 metros de largo, 70 centímetros de profundidad y un metro 10 de"
+      },
+      {
+        "start_seconds": "14.460000",
+        "end_seconds": "24.380000",
+        "text": " altura. Fabricado con tableros de melamina de 18 y 25 milímetros. Incluye pasacables,"
+      },
+      {
+        "start_seconds": "24.380000",
+        "end_seconds": "33.380000",
+        "text": " repisas interiores, cajones con rieles telescópicos y chapa de seguridad. Además de dos puertas de"
+      },
+      {
+        "start_seconds": "33.380000",
+        "end_seconds": "40.620000",
+        "text": " vidrio templado, color a elección, fabricación boliviana, precio de 15 mil bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4989
+  },
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0010",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un mueble de recepción de 9 metros de largo, 70 centímetros de profundidad y un metro 10 de altura. Fabricado con tableros de melamina de 18 y 25 milímetros. Incluye pasacables, repisas interiores, cajones con rieles telescópicos y chapa de seguridad. Además de dos puertas de vidrio templado, color a elección, fabricación boliviana, precio de 15 mil bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mueble de recepción",
+      "furniture_type_candidate": "mueble de recepción",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "tableros",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "repisas interiores",
+          "evidence_ids": [
+            "c14"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "cajones",
+          "evidence_ids": [
+            "c15"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "puertas",
+          "evidence_ids": [
+            "c16"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "110",
+          "unit": "cm",
+          "original_text": "un metro 10 de altura",
+          "value_mm": "1100",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "70 centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "9",
+          "unit": "m",
+          "original_text": "9 metros de largo",
+          "value_mm": "9000",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [
+        {
+          "evidence_ids": [
+            "c6"
+          ],
+          "component_ref": "pieza-1",
+          "value": "25",
+          "unit": "mm",
+          "original_text": "25 milímetros",
+          "value_mm": "25"
+        }
+      ],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-3",
+          "name": "rieles telescópicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c9"
+          ],
+          "component_ref": "pieza-3",
+          "name": "chapa de seguridad",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "color a elección",
+      "unresolved": [
+        "c11"
+      ]
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 22,
+        "text": "mueble de recepción",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 77,
+        "end": 98,
+        "text": "un metro 10 de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "110",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "PROFUNDIDAD",
+        "start": 45,
+        "end": 74,
+        "text": "70 centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "LARGO",
+        "start": 26,
+        "end": 43,
+        "text": "9 metros de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "9",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ESPESOR",
+        "start": 143,
+        "end": 156,
+        "text": "25 milímetros",
+        "source": "RULE",
+        "normalized_value": [
+          "25",
+          "mm"
+        ],
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 198,
+        "end": 205,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 210,
+        "end": 229,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 232,
+        "end": 250,
+        "text": "chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "ACCESORIO",
+        "start": 266,
+        "end": 292,
+        "text": "puertas de vidrio templado",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "PRECIO_AMBIGUO",
+        "start": 345,
+        "end": 347,
+        "text": "15",
+        "source": "RULE",
+        "normalized_value": "15",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 114,
+        "end": 122,
+        "text": "tableros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "MATERIAL",
+        "start": 126,
+        "end": 134,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 178,
+        "end": 196,
+        "text": "repisas interiores",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "COMPONENTE",
+        "start": 198,
+        "end": 205,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "COMPONENTE",
+        "start": 266,
+        "end": 273,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c17",
+        "label": "MATERIAL",
+        "start": 277,
+        "end": 292,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c18",
+        "label": "CANTIDAD_INTERNA",
+        "start": 262,
+        "end": 265,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "REQUIRED_FIELD_MISSING",
+        "path": "/item_proposal/price",
+        "severity": "REVIEW",
+        "message": "Se dictó el importe 15.00 BOB; aclare si es total o precio unitario."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 3
+  },
+  "nlp_asr_ms": 3.5485319967847317,
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0010-ref",
+    "status": "REQUIRES_REVIEW",
+    "text_original": "Un mueble de recepción de nueve metros de largo, setenta centímetros de profundidad y un metro diez de altura. Fabricado con tableros de melamina de dieciocho y veinticinco milímetros. Incluye pasacables, repisas interiores, cajones con rieles telescópicos y chapa de seguridad, además de dos puertas de vidrio templado. Color a elección. Fabricación boliviana. Precio de quince mil bolivianos.",
+    "item_proposal": {
+      "item_type": "MUEBLE_MEDIDA",
+      "name": "mueble de recepción",
+      "furniture_type_candidate": "mueble de recepción",
+      "quantity": 1,
+      "components": [
+        {
+          "component_id": "pieza-1",
+          "name": "tableros",
+          "evidence_ids": [
+            "c10"
+          ]
+        },
+        {
+          "component_id": "pieza-2",
+          "name": "repisas interiores",
+          "evidence_ids": [
+            "c12"
+          ]
+        },
+        {
+          "component_id": "pieza-3",
+          "name": "cajones",
+          "evidence_ids": [
+            "c13"
+          ]
+        },
+        {
+          "component_id": "pieza-4",
+          "name": "puertas",
+          "evidence_ids": [
+            "c14"
+          ]
+        }
+      ],
+      "dimensions": [
+        {
+          "evidence_ids": [
+            "c3"
+          ],
+          "component_ref": null,
+          "value": "110",
+          "unit": "cm",
+          "original_text": "un metro diez de altura",
+          "value_mm": "1100",
+          "axis": "alto"
+        },
+        {
+          "evidence_ids": [
+            "c4"
+          ],
+          "component_ref": null,
+          "value": "70",
+          "unit": "cm",
+          "original_text": "setenta centímetros de profundidad",
+          "value_mm": "700",
+          "axis": "profundidad"
+        },
+        {
+          "evidence_ids": [
+            "c5"
+          ],
+          "component_ref": null,
+          "value": "9",
+          "unit": "m",
+          "original_text": "nueve metros de largo",
+          "value_mm": "9000",
+          "axis": "largo"
+        }
+      ],
+      "thicknesses": [],
+      "primary_color": null,
+      "secondary_color": null,
+      "accessories": [
+        {
+          "evidence_ids": [
+            "c7"
+          ],
+          "component_ref": "pieza-3",
+          "name": "rieles telescópicos",
+          "quantity": null
+        },
+        {
+          "evidence_ids": [
+            "c8"
+          ],
+          "component_ref": "pieza-3",
+          "name": "chapa de seguridad",
+          "quantity": null
+        }
+      ],
+      "price": null,
+      "observations": "Color a elección",
+      "unresolved": []
+    },
+    "proposed_item_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "label": "PRODUCTO",
+        "start": 3,
+        "end": 22,
+        "text": "mueble de recepción",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c2",
+        "label": "CANTIDAD",
+        "start": 0,
+        "end": 2,
+        "text": "Un",
+        "source": "RULE",
+        "normalized_value": 1,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c3",
+        "label": "ALTO",
+        "start": 86,
+        "end": 109,
+        "text": "un metro diez de altura",
+        "source": "RULE",
+        "normalized_value": [
+          "110",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c4",
+        "label": "PROFUNDIDAD",
+        "start": 49,
+        "end": 83,
+        "text": "setenta centímetros de profundidad",
+        "source": "RULE",
+        "normalized_value": [
+          "70",
+          "cm"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c5",
+        "label": "LARGO",
+        "start": 26,
+        "end": 47,
+        "text": "nueve metros de largo",
+        "source": "RULE",
+        "normalized_value": [
+          "9",
+          "m"
+        ],
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c6",
+        "label": "ACCESORIO",
+        "start": 225,
+        "end": 232,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c7",
+        "label": "ACCESORIO",
+        "start": 237,
+        "end": 256,
+        "text": "rieles telescópicos",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c8",
+        "label": "ACCESORIO",
+        "start": 259,
+        "end": 277,
+        "text": "chapa de seguridad",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c9",
+        "label": "ACCESORIO",
+        "start": 293,
+        "end": 319,
+        "text": "puertas de vidrio templado",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c10",
+        "label": "COMPONENTE",
+        "start": 125,
+        "end": 133,
+        "text": "tableros",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c11",
+        "label": "MATERIAL",
+        "start": 137,
+        "end": 145,
+        "text": "melamina",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-1",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c12",
+        "label": "COMPONENTE",
+        "start": 205,
+        "end": 223,
+        "text": "repisas interiores",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-2",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c13",
+        "label": "COMPONENTE",
+        "start": 225,
+        "end": 232,
+        "text": "cajones",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-3",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c14",
+        "label": "COMPONENTE",
+        "start": 293,
+        "end": 300,
+        "text": "puertas",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c15",
+        "label": "MATERIAL",
+        "start": 304,
+        "end": 319,
+        "text": "vidrio templado",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "c16",
+        "label": "CANTIDAD_INTERNA",
+        "start": 289,
+        "end": 292,
+        "text": "dos",
+        "source": "RULE",
+        "normalized_value": 2,
+        "component_ref": "pieza-4",
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 2
+  },
+  "nlp_reference_ms": 3.086568998696748,
+  "metrics": {
+    "wer": {
+      "errors": 6,
+      "substitutions": 6,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 58,
+      "rate": 0.10344827586206896
+    },
+    "cer": {
+      "errors": 42,
+      "substitutions": 11,
+      "deletions": 31,
+      "insertions": 0,
+      "reference_length": 384,
+      "rate": 0.109375
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 5.083815226993465,
+  "process_peak_rss_kib": 892152
+}

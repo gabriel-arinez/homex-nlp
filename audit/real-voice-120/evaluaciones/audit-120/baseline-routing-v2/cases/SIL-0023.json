@@ -1,0 +1,437 @@
+{
+  "id": "SIL-0023",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0023.aac",
+    "original_sha256": "8781d7166d42c5fb5d520c2552671eddc60b854b07d6a5bf9bf0561d87dc506e",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0023.wav",
+    "wav_sha256": "5d2e52e170af9f259ad7ddd7adced6dede06e385762aafba6ba91847e05181db"
+  },
+  "reference": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+  "source": {
+    "id": "SIL-0023",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      11
+    ],
+    "titulo_fuente": "SILLAS DE ESPERA",
+    "grupo_familia": "INV_SILLAS_DE_ESPERA",
+    "guion": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+    "audio_esperado": "SIL-0023.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0023.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [
+      "FUENTE_CON_ALTERNATIVAS: cuatro colores disponibles, no variante individual."
+    ],
+    "sha256_fuente": "c83fe30a3ef61865d4abeb175fac03e1769c5d1efed4e1a9d842ddc3988e2205",
+    "audio_compatible_asr": "SIL-0023.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0023.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 34.9925,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "10.420000",
+        "text": " Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo,"
+      },
+      {
+        "start_seconds": "10.420000",
+        "end_seconds": "19.180000",
+        "text": " respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma"
+      },
+      {
+        "start_seconds": "19.180000",
+        "end_seconds": "30.860000",
+        "text": " en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de"
+      },
+      {
+        "start_seconds": "30.860000",
+        "end_seconds": "33.740000",
+        "text": " 380 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4516
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla estática de espera de cuatro patas",
+      "observaciones": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "patas": "cuatro patas"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-256-261",
+        "label": "unidad_stock",
+        "start": 256,
+        "end": 261,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-216-221",
+        "label": "color_primario",
+        "start": 216,
+        "end": 221,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-223-227",
+        "label": "color_primario",
+        "start": 223,
+        "end": 227,
+        "text": "azul",
+        "source": "RULE",
+        "normalized_value": 53,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-240",
+        "label": "color_primario",
+        "start": 229,
+        "end": 240,
+        "text": "café oscuro",
+        "source": "RULE",
+        "normalized_value": 55,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-233",
+        "label": "color_primario",
+        "start": 229,
+        "end": 233,
+        "text": "café",
+        "source": "RULE",
+        "normalized_value": 54,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-243-247",
+        "label": "color_primario",
+        "start": 243,
+        "end": 247,
+        "text": "gris",
+        "source": "RULE",
+        "normalized_value": 49,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-40",
+        "label": "nombre",
+        "start": 0,
+        "end": 40,
+        "text": "Silla estática de espera de cuatro patas",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera de cuatro patas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-297",
+        "label": "observaciones",
+        "start": 0,
+        "end": 297,
+        "text": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera de cuatro patas, estructura metálica con recurrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico, protectores de goma en las patas, colores disponibles, negro, azul, café oscuro y gris, unidad pieza, precio de lista de 380 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-282-285",
+        "label": "precio_lista",
+        "start": 282,
+        "end": 285,
+        "text": "380",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-138-159",
+        "label": "especificaciones.tapiz",
+        "start": 138,
+        "end": 159,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-112-135",
+        "label": "especificaciones.asiento",
+        "start": 112,
+        "end": 135,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-28-40",
+        "label": "especificaciones.patas",
+        "start": 28,
+        "end": 40,
+        "text": "cuatro patas",
+        "source": "RULE",
+        "normalized_value": "cuatro patas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "color_primario: valores contradictorios; complete manualmente.",
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 14.420666004298255,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla estática de espera",
+      "observaciones": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+      "precio_lista": "380.00",
+      "especificaciones": {
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "patas": "cuatro patas"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-256-261",
+        "label": "unidad_stock",
+        "start": 256,
+        "end": 261,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-216-221",
+        "label": "color_primario",
+        "start": 216,
+        "end": 221,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-223-227",
+        "label": "color_primario",
+        "start": 223,
+        "end": 227,
+        "text": "azul",
+        "source": "RULE",
+        "normalized_value": 53,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-240",
+        "label": "color_primario",
+        "start": 229,
+        "end": 240,
+        "text": "café oscuro",
+        "source": "RULE",
+        "normalized_value": 55,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-229-233",
+        "label": "color_primario",
+        "start": 229,
+        "end": 233,
+        "text": "café",
+        "source": "RULE",
+        "normalized_value": 54,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-243-247",
+        "label": "color_primario",
+        "start": 243,
+        "end": 247,
+        "text": "gris",
+        "source": "RULE",
+        "normalized_value": 49,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-24",
+        "label": "nombre",
+        "start": 0,
+        "end": 24,
+        "text": "Silla estática de espera",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-313",
+        "label": "observaciones",
+        "start": 0,
+        "end": 313,
+        "text": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla estática de espera, de cuatro patas, estructura metálica con recubrimiento en polvo, respaldo y asiento de espuma de alta densidad y tapiz de alto tráfico. Protectores de goma en las patas. Colores disponibles negro, azul, café oscuro y gris. Unidad pieza. Precio de lista de trescientos ochenta bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-282-301",
+        "label": "precio_lista",
+        "start": 282,
+        "end": 301,
+        "text": "trescientos ochenta",
+        "source": "RULE",
+        "normalized_value": "380.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-139-160",
+        "label": "especificaciones.tapiz",
+        "start": 139,
+        "end": 160,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-113-136",
+        "label": "especificaciones.asiento",
+        "start": 113,
+        "end": 136,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.patas-29-41",
+        "label": "especificaciones.patas",
+        "start": 29,
+        "end": 41,
+        "text": "cuatro patas",
+        "source": "RULE",
+        "normalized_value": "cuatro patas",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "color_primario: valores contradictorios; complete manualmente.",
+      "Precio dictado: sugerencia pendiente de revisión comercial."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 11.274966003838927,
+  "metrics": {
+    "wer": {
+      "errors": 3,
+      "substitutions": 2,
+      "deletions": 1,
+      "insertions": 0,
+      "reference_length": 49,
+      "rate": 0.061224489795918366
+    },
+    "cer": {
+      "errors": 20,
+      "substitutions": 4,
+      "deletions": 16,
+      "insertions": 0,
+      "reference_length": 303,
+      "rate": 0.066006600660066
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.599861410999438,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0023.json",
+    "original_case_sha256": "251d6eef93eabd0f0883223330f7c30db5647c5c24b0346c66770d97c83c55de",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

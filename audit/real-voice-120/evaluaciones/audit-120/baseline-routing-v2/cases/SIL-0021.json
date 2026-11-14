@@ -1,0 +1,352 @@
+{
+  "id": "SIL-0021",
+  "category": "SILLA",
+  "corpus_category": "sillas",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0021.aac",
+    "original_sha256": "bfcc374fb63156c6af6c8f012941785ae5a5ec786ae817d0a4d4d3cf5e601e2f",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0021.wav",
+    "wav_sha256": "246c8336e72ac83aa785922dba3b489569d0191becd008d456be0319015b3e12"
+  },
+  "reference": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+  "source": {
+    "id": "SIL-0021",
+    "categoria": "sillas",
+    "archivo_origen": "inventario de sillas(1).txt",
+    "registros_fuente": [
+      9
+    ],
+    "titulo_fuente": "SILLA SEMIEJECUTIVA COD : HC- 8901B",
+    "grupo_familia": "INV_SILLA_SEMIEJECUTIVA_COD___HC__8901B",
+    "guion": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+    "audio_esperado": "SIL-0021.aac",
+    "ruta_audio_esperada": "02_sillas/audios/SIL-0021.aac",
+    "estado": "LISTO_PARA_GRABAR",
+    "observaciones_control": [],
+    "sha256_fuente": "8638f8b607ba4de10d509f166c892a17f9637d424ec25968c733155b44c84421",
+    "audio_compatible_asr": "SIL-0021.wav",
+    "ruta_audio_compatible_asr": "02_sillas/audios_asr/SIL-0021.wav",
+    "formato_original": "AAC",
+    "formato_asr": "WAV_PCM_S16LE_16000_MONO"
+  },
+  "versions": {
+    "homex-nlp": "0.1.21",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "pydantic": "2.13.4",
+    "spacy": "3.8.13"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "evaluation_state": "PENDING_FIELD_ANNOTATION",
+  "duration_seconds": 43.6535,
+  "asr": {
+    "schema_version": "1.0",
+    "text_original": "Silla semi-executiva modelo HC Qion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyo a brazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+    "language": "es",
+    "model_version": "faster-whisper-small",
+    "segments": [
+      {
+        "start_seconds": "0.000000",
+        "end_seconds": "14.280000",
+        "text": " Silla semi-executiva modelo HC Qion 8901B, estructura interna metálica, respaldo de"
+      },
+      {
+        "start_seconds": "14.280000",
+        "end_seconds": "21.920000",
+        "text": " maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable,"
+      },
+      {
+        "start_seconds": "21.920000",
+        "end_seconds": "29.880000",
+        "text": " apoyo a brazos de goma ajustables, base de PVC reforzado de cinco ruedas,"
+      },
+      {
+        "start_seconds": "29.880000",
+        "end_seconds": "42.360000",
+        "text": " apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos."
+      }
+    ],
+    "duration_seconds": null,
+    "latency_ms": 4785
+  },
+  "nlp_asr": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla semi-executiva",
+      "observaciones": "Silla semi-executiva modelo HC Qion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyo a brazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+      "precio_lista": "1300.00",
+      "especificaciones": {
+        "apoyo_lumbar": "apoyo lumbar",
+        "asiento": "espuma de alta densidad",
+        "base": "base de PVC"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-293-298",
+        "label": "unidad_stock",
+        "start": 293,
+        "end": 298,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-20",
+        "label": "nombre",
+        "start": 0,
+        "end": 20,
+        "text": "Silla semi-executiva",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-335",
+        "label": "observaciones",
+        "start": 0,
+        "end": 335,
+        "text": "Silla semi-executiva modelo HC Qion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyo a brazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semi-executiva modelo HC Qion 8901B, estructura interna metálica, respaldo de maya de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyo a brazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar, regulable y mecanismo de rodilla, unidad pieza, precio de lista de 1300 bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-319-323",
+        "label": "precio_lista",
+        "start": 319,
+        "end": 323,
+        "text": "1300",
+        "source": "RULE",
+        "normalized_value": "1300.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-35",
+        "label": "modelo",
+        "start": 28,
+        "end": 35,
+        "text": "HC Qion",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.apoyo_lumbar-238-250",
+        "label": "especificaciones.apoyo_lumbar",
+        "start": 238,
+        "end": 250,
+        "text": "apoyo lumbar",
+        "source": "RULE",
+        "normalized_value": "apoyo lumbar",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-117-140",
+        "label": "especificaciones.asiento",
+        "start": 117,
+        "end": 140,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-199-210",
+        "label": "especificaciones.base",
+        "start": 199,
+        "end": 210,
+        "text": "base de PVC",
+        "source": "RULE",
+        "normalized_value": "base de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_asr_ms": 16.242187994066626,
+  "nlp_reference": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla semiejecutiva",
+      "observaciones": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+      "precio_lista": "1300.00",
+      "especificaciones": {
+        "apoyo_lumbar": "apoyo lumbar",
+        "material_respaldo": "respaldo de malla",
+        "asiento": "espuma de alta densidad",
+        "base": "base de PVC"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-314-319",
+        "label": "unidad_stock",
+        "start": 314,
+        "end": 319,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-19",
+        "label": "nombre",
+        "start": 0,
+        "end": 19,
+        "text": "Silla semiejecutiva",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-367",
+        "label": "observaciones",
+        "start": 0,
+        "end": 367,
+        "text": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla semiejecutiva, modelo hache ce guion ocho nueve cero uno be. Estructura interna metálica, respaldo de malla de alto tráfico, asiento de espuma de alta densidad, suspensión regulable, apoyabrazos de goma ajustables, base de PVC reforzado de cinco ruedas, apoyo lumbar regulable y mecanismo de rodilla. Unidad pieza. Precio de lista de mil trescientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-340-355",
+        "label": "precio_lista",
+        "start": 340,
+        "end": 355,
+        "text": "mil trescientos",
+        "source": "RULE",
+        "normalized_value": "1300.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-28-36",
+        "label": "modelo",
+        "start": 28,
+        "end": 36,
+        "text": "hache ce",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.apoyo_lumbar-260-272",
+        "label": "especificaciones.apoyo_lumbar",
+        "start": 260,
+        "end": 272,
+        "text": "apoyo lumbar",
+        "source": "RULE",
+        "normalized_value": "apoyo lumbar",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-96-113",
+        "label": "especificaciones.material_respaldo",
+        "start": 96,
+        "end": 113,
+        "text": "respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-142-165",
+        "label": "especificaciones.asiento",
+        "start": 142,
+        "end": 165,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-221-232",
+        "label": "especificaciones.base",
+        "start": 221,
+        "end": 232,
+        "text": "base de PVC",
+        "source": "RULE",
+        "normalized_value": "base de PVC",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "nlp_reference_ms": 13.496419000148308,
+  "metrics": {
+    "wer": {
+      "errors": 15,
+      "substitutions": 7,
+      "deletions": 6,
+      "insertions": 2,
+      "reference_length": 55,
+      "rate": 0.2727272727272727
+    },
+    "cer": {
+      "errors": 51,
+      "substitutions": 11,
+      "deletions": 36,
+      "insertions": 4,
+      "reference_length": 356,
+      "rate": 0.14325842696629212
+    }
+  },
+  "execution_state": "COMPLETE",
+  "elapsed_seconds": 4.890764217001561,
+  "process_peak_rss_kib": 1282048,
+  "routing_provenance": {
+    "original_case": "baseline/cases/SIL-0021.json",
+    "original_case_sha256": "4f6dd6c525bd87e583f8bf8bd3b7347a02a725f16fd26c72a145f4084cb0dd23",
+    "original_category": "SILLA",
+    "effective_category": "SILLA",
+    "asr_recomputed": false,
+    "initial_wall_time_semantics": "Original execution including previous NLP routing; new NLP timings recorded separately"
+  }
+}

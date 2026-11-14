@@ -1,0 +1,551 @@
+{
+  "id": "SIL-0024",
+  "category": "SILLA",
+  "leakage_group": "DEV-SIL-0024",
+  "development_only": true,
+  "input_role": "SCRIPT_DIAGNOSTIC_NOT_ASR_OR_GOLD",
+  "cell": "script_control__baseline_nlp",
+  "asr_configuration": "script_control",
+  "nlp_configuration": "baseline_nlp",
+  "asr_artifact_sha256": "587935df7a4332276d2413ef8d354dc184b360d59c855a8adf8cdd61bbb3c61b",
+  "asr_settings": "CONTROLLED_SCRIPT_INPUT_NOT_ASR_OR_GOLD",
+  "audio": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios/SIL-0024.aac",
+    "original_sha256": "f6ee2941568571c20b09cb976315287e32d0c08cbb33e5c239cc0ccf50a41e4a",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/02_sillas/audios_asr/SIL-0024.wav",
+    "wav_sha256": "d9e570e69101e7e6d2ff19ee767f8d3c54abc75a3078047a447199fd8c9d4b89"
+  },
+  "text_original": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de setecientos bolivianos.",
+  "script_text": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de setecientos bolivianos.",
+  "nlp_raw": {
+    "category": "SILLA",
+    "fields": {
+      "unidad_stock": 27,
+      "nombre": "Silla operativa",
+      "observaciones": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de setecientos bolivianos.",
+      "precio_lista": "700.00",
+      "especificaciones": {
+        "material_respaldo": "Respaldo de malla",
+        "tapiz": "tapiz de alto tráfico",
+        "asiento": "espuma de alta densidad",
+        "mecanismo": "una palanca",
+        "base": "base cromada"
+      }
+    },
+    "evidence": [
+      {
+        "candidate_id": "unidad_stock-378-383",
+        "label": "unidad_stock",
+        "start": 378,
+        "end": 383,
+        "text": "pieza",
+        "source": "RULE",
+        "normalized_value": 27,
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-348-353",
+        "label": "color_primario",
+        "start": 348,
+        "end": 353,
+        "text": "negro",
+        "source": "RULE",
+        "normalized_value": 46,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-355-361",
+        "label": "color_primario",
+        "start": 355,
+        "end": 361,
+        "text": "guindo",
+        "source": "RULE",
+        "normalized_value": 50,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "color_primario-364-369",
+        "label": "color_primario",
+        "start": 364,
+        "end": 369,
+        "text": "plomo",
+        "source": "RULE",
+        "normalized_value": 51,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "nombre-0-15",
+        "label": "nombre",
+        "start": 0,
+        "end": 15,
+        "text": "Silla operativa",
+        "source": "RULE",
+        "normalized_value": "Silla operativa",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "observaciones-0-427",
+        "label": "observaciones",
+        "start": 0,
+        "end": 427,
+        "text": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de setecientos bolivianos.",
+        "source": "RULE",
+        "normalized_value": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de setecientos bolivianos.",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "precio_lista-404-415",
+        "label": "precio_lista",
+        "start": 404,
+        "end": 415,
+        "text": "setecientos",
+        "source": "RULE",
+        "normalized_value": "700.00",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "modelo-24-31",
+        "label": "modelo",
+        "start": 24,
+        "end": 31,
+        "text": "ene efe",
+        "source": "RULE",
+        "normalized_value": null,
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": "Código incompleto o ambiguo"
+      },
+      {
+        "candidate_id": "especificaciones.material_respaldo-67-84",
+        "label": "especificaciones.material_respaldo",
+        "start": 67,
+        "end": 84,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.tapiz-145-166",
+        "label": "especificaciones.tapiz",
+        "start": 145,
+        "end": 166,
+        "text": "tapiz de alto tráfico",
+        "source": "RULE",
+        "normalized_value": "tapiz de alto tráfico",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.asiento-117-140",
+        "label": "especificaciones.asiento",
+        "start": 117,
+        "end": 140,
+        "text": "espuma de alta densidad",
+        "source": "RULE",
+        "normalized_value": "espuma de alta densidad",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.mecanismo-233-244",
+        "label": "especificaciones.mecanismo",
+        "start": 233,
+        "end": 244,
+        "text": "una palanca",
+        "source": "RULE",
+        "normalized_value": "una palanca",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-292-296",
+        "label": "especificaciones.giro",
+        "start": 292,
+        "end": 296,
+        "text": "giro",
+        "source": "RULE",
+        "normalized_value": "giro",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.giro-300-326",
+        "label": "especificaciones.giro",
+        "start": 300,
+        "end": 326,
+        "text": "trescientos sesenta grados",
+        "source": "RULE",
+        "normalized_value": "trescientos sesenta grados",
+        "component_ref": null,
+        "decision": "UNRESOLVED",
+        "reason": null
+      },
+      {
+        "candidate_id": "especificaciones.base-259-271",
+        "label": "especificaciones.base",
+        "start": 259,
+        "end": 271,
+        "text": "base cromada",
+        "source": "RULE",
+        "normalized_value": "base cromada",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    ],
+    "warnings": [
+      "color_primario: valores contradictorios; complete manualmente.",
+      "Precio dictado: sugerencia pendiente de revisión comercial.",
+      "modelo: código ambiguo; revise la transcripción.",
+      "especificaciones.giro: valores contradictorios; complete manualmente."
+    ],
+    "unrecognized": [],
+    "version": "catalog-0.1.21"
+  },
+  "predicted_fields": [
+    {
+      "field": "name",
+      "value": "Silla operativa"
+    },
+    {
+      "field": "commercial_unit",
+      "value": "Pieza"
+    },
+    {
+      "field": "price",
+      "value": "700.00"
+    },
+    {
+      "field": "materials",
+      "value": "Respaldo de malla",
+      "evidence": {
+        "candidate_id": "especificaciones.material_respaldo-67-84",
+        "label": "especificaciones.material_respaldo",
+        "start": 67,
+        "end": 84,
+        "text": "Respaldo de malla",
+        "source": "RULE",
+        "normalized_value": "Respaldo de malla",
+        "component_ref": null,
+        "decision": "ACCEPTED",
+        "reason": null
+      }
+    }
+  ],
+  "score": {
+    "qualifier_results": [
+      {
+        "key": [
+          "price",
+          "700",
+          null
+        ],
+        "qualifier": "currency",
+        "expected": "BOB",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      },
+      {
+        "key": [
+          "price",
+          "700",
+          null
+        ],
+        "qualifier": "modality",
+        "expected": "LIST",
+        "proposed": [],
+        "outcome": "NOT_REPRESENTED_OR_ABSTAINED",
+        "scope": "EXPLICIT_SCRIPT_PRICE_QUALIFIER_NOT_ACOUSTIC_GOLD"
+      }
+    ],
+    "numerator": 2,
+    "denominator": 10,
+    "association_denominator": 0,
+    "confirmed_false_positives": null,
+    "field_results": [
+      {
+        "key": [
+          "materials",
+          "malla",
+          null
+        ],
+        "reference_indices": [
+          2
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "espuma",
+          null
+        ],
+        "reference_indices": [
+          3
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "materials",
+          "pvc",
+          null
+        ],
+        "reference_indices": [
+          4
+        ],
+        "matched": false,
+        "outcome": "MISMATCH",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "piston de gas",
+          null
+        ],
+        "reference_indices": [
+          7
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "accessories",
+          "ruedas",
+          null
+        ],
+        "reference_indices": [
+          8
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "negro",
+          null
+        ],
+        "reference_indices": [
+          9
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "guindo",
+          null
+        ],
+        "reference_indices": [
+          10
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "colors",
+          "plomo",
+          null
+        ],
+        "reference_indices": [
+          11
+        ],
+        "matched": false,
+        "outcome": "ABSTENTION",
+        "prediction_indices": [],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "commercial_unit",
+          "pieza",
+          null
+        ],
+        "reference_indices": [
+          13
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          1
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      },
+      {
+        "key": [
+          "price",
+          "700",
+          null
+        ],
+        "reference_indices": [
+          14
+        ],
+        "matched": true,
+        "outcome": "MATCH",
+        "prediction_indices": [
+          2
+        ],
+        "scope": "SCALAR_OR_LITERAL_PRESENCE_ONLY_ASSOCIATION_NOT_SCORED"
+      }
+    ],
+    "by_field": {
+      "price": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "colors": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 3,
+        "mismatches": 0
+      },
+      "accessories": {
+        "numerator": 0,
+        "denominator": 2,
+        "misses": 2,
+        "abstentions": 2,
+        "mismatches": 0
+      },
+      "commercial_unit": {
+        "numerator": 1,
+        "denominator": 1,
+        "misses": 0,
+        "abstentions": 0,
+        "mismatches": 0
+      },
+      "materials": {
+        "numerator": 0,
+        "denominator": 3,
+        "misses": 3,
+        "abstentions": 0,
+        "mismatches": 3
+      }
+    },
+    "false_positive_candidates": [
+      {
+        "key": [
+          "name",
+          "silla operativa",
+          null
+        ],
+        "prediction_indices": [
+          0
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      },
+      {
+        "key": [
+          "materials",
+          "respaldo de malla",
+          null
+        ],
+        "prediction_indices": [
+          3
+        ],
+        "status": "UNVERIFIED_EXTRA_CANDIDATE_REFERENCE_INCOMPLETE"
+      }
+    ]
+  },
+  "no_proposal": false,
+  "asr_metrics": {
+    "original": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 69,
+      "rate": 0.0
+    },
+    "strict_normalized": {
+      "errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "reference_length": 69,
+      "rate": 0.0
+    }
+  },
+  "normalization": {
+    "reference_text": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de 700 BOB.",
+    "asr_text": "Silla operativa, modelo ene efe guion trescientos noventa y cinco. Respaldo de malla de alta resistencia, asiento de espuma de alta densidad con tapiz de alto tráfico, brazos fijos altos de PVC, pistón de gas clase tres, balanceo de una palanca con bloqueo y base cromada de cinco ruedas con giro de trescientos sesenta grados. Colores disponibles negro, guindo y plomo. Unidad pieza. Precio de lista de 700 BOB.",
+    "reference_transforms": [
+      {
+        "start": 404,
+        "end": 415,
+        "raw": "setecientos",
+        "replacement": "700",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 416,
+        "end": 426,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ],
+    "asr_transforms": [
+      {
+        "start": 404,
+        "end": 415,
+        "raw": "setecientos",
+        "replacement": "700",
+        "reason": "STRICT_CARDINAL_OR_NUMERIC_FORMAT_WITH_EXPLICIT_CONTEXT"
+      },
+      {
+        "start": 416,
+        "end": 426,
+        "raw": "bolivianos",
+        "replacement": "BOB",
+        "reason": "VERIFIED_LITERAL_UNIT_OR_CURRENCY_EQUIVALENCE"
+      }
+    ]
+  },
+  "acoustic_status": "PENDING_HUMAN_LISTENING"
+}

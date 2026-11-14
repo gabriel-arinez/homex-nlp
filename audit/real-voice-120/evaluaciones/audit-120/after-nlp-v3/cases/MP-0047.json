@@ -1,0 +1,171 @@
+{
+  "id": "MP-0047",
+  "category": "MUEBLE_MEDIDA",
+  "input_identity": {
+    "original_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios/MP-0047.aac",
+    "original_sha256": "2ea3ad1e8e66c4722cc51987b60bb6c3e11c72490eeb862719ffc82efc04c6c4",
+    "wav_path": "/home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/01_muebles_pedido/audios_asr/MP-0047.wav",
+    "wav_sha256": "b1e27873c3a8e3e37451d37f9730c10a82bbac3c7a9a747827a495fcc31c8690"
+  },
+  "reference_review": "PENDING_HUMAN_LISTENING",
+  "nlp_reference": {
+    "schema_version": "1.0",
+    "request_id": "MP-0047-reference",
+    "status": "NO_PROPOSAL",
+    "text_original": "Cuatro estaciones de trabajo de un metro treinta por un metro treinta, ochenta centímetros de alto y cincuenta y cinco de profundidad. Estructura y cubo de melamina de dieciocho milímetros, mesón de veinticinco con tapacanto PVC, faldón a media altura y mampara divisoria. Cubo móvil con tres cajones, jaladores metálicos y chapa de seguridad. Color a elección. Precio unitario de tres mil bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_reference_ms": 0.1112850004574284,
+  "nlp_asr": {
+    "schema_version": "1.0",
+    "request_id": "MP-0047-asr",
+    "status": "NO_PROPOSAL",
+    "text_original": "4 estaciones de trabajo de un metro 30 por un metro 30, 80 centímetros de alto y 55 de profundidad, estructura y cubo de melamina de 18 milímetros, mesón de 25 con tapacanto PVC, faldón a media altura y mampara divisoria, cubo móvil con tres cajones jaladores, metálicos y chapa de seguridad, color elección, precio unitario de 3000 bolivianos.",
+    "item_proposal": null,
+    "proposed_item_count": 0,
+    "candidates": [],
+    "warnings": [
+      {
+        "code": "RULES_ONLY_MODE",
+        "path": "",
+        "severity": "INFO",
+        "message": "Extracción determinística sin modelo NER."
+      },
+      {
+        "code": "NO_PRODUCT",
+        "path": "",
+        "severity": "REVIEW",
+        "message": "No se detectó un producto principal."
+      }
+    ],
+    "engine": {
+      "mode": "RULES_ONLY",
+      "model_version": null,
+      "rules_version": "prf04-rules-money-2",
+      "normalization_version": "1.0"
+    },
+    "error": null,
+    "latency_nlp_ms": 0
+  },
+  "nlp_asr_ms": 0.08763499499764293,
+  "word_diff": {
+    "algorithm": "SequenceMatcher opcodes for inspection; metrics use Levenshtein",
+    "operations": [
+      {
+        "operation": "replace",
+        "reference": [
+          "cuatro"
+        ],
+        "asr": [
+          "4"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta"
+        ],
+        "asr": [
+          "30"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "treinta",
+          "ochenta"
+        ],
+        "asr": [
+          "30",
+          "80"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "cincuenta",
+          "y",
+          "cinco"
+        ],
+        "asr": [
+          "55"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "dieciocho"
+        ],
+        "asr": [
+          "18"
+        ]
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "veinticinco"
+        ],
+        "asr": [
+          "25"
+        ]
+      },
+      {
+        "operation": "delete",
+        "reference": [
+          "a"
+        ],
+        "asr": []
+      },
+      {
+        "operation": "replace",
+        "reference": [
+          "tres",
+          "mil"
+        ],
+        "asr": [
+          "3000"
+        ]
+      }
+    ]
+  },
+  "partial_oracle": {
+    "id": "MP-0047",
+    "category": "MUEBLE_MEDIDA",
+    "stated_commercial_amount": "3000",
+    "mode": "EXPLICIT_UNIT",
+    "currency": "BOB",
+    "basis": "Manual reading of original script number words; audio not independently reviewed",
+    "other_fields_annotation": "PENDING",
+    "espesor_mm": null
+  },
+  "error_candidates": [
+    "ASR_OR_REFERENCE_DISCREPANCY_PENDING_LISTENING",
+    "REFERENCE_INPUT_PRICE_FAILURE_OR_PROPOSAL_ABSTENTION",
+    "NO_PROPOSAL_ROOT_CAUSE_REQUIRES_PRODUCT_REVIEW"
+  ],
+  "manual_full_semantic_review": "PENDING"
+}
