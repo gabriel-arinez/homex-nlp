@@ -68,7 +68,7 @@ Observed local checks:
 
 - NLP: **1056 passed**, scoped Ruff passed. Independent semantic core:1053 passed;77 focused probes. Benchmark CLI help/rejection/default JSON:3 passed.
 - Backend: **576 passed**, offline lock and scoped lint/format passed. Installed wheel and public text boundaries verified independently.
-- Frontend: **309 passed**, types/lint/format/build/generated-contract checks passed. Application/styles/tests remain byte-identical to frontend `ffa2495`; only four required contract/peer/documentation files changed. Its manual missing-quantity HITL test correction is preserved.
+- Frontend: **319 passed**, types/lint/format/build/generated-contract checks passed. The earlier `c0578c0` checkpoint changed only four metadata files from `ffa2495`; `a9cff89` and final `4dc21e4` add the focal review fixes below. Branding/styles and the prior manual missing-quantity HITL test correction are preserved.
 - OpenAPI: no errors; one existing CategoryEnum naming warning. Repository-wide Ruff still reports338 pre-existing historical audit/docs errors; those immutable archived scripts were not modified to hide them.
 
 Final live E2E/a11y/Whisper/Celery/PostgreSQL and current CI results are head-bound in the original PR summaries and local final-delivery ledger, not inferred from these local counts or earlier green revisions. PostgreSQL16 local versus17 CI is recorded explicitly.
@@ -106,6 +106,56 @@ Private full evidence: `final-head-live-v2/`, `final-ci-v2/` and
 Initial stale scratch-source verifier failures and an incorrect UI action-menu
 selector remain preserved; corrected candidate-origin and UI checks passed.
 No test was disabled, no arbitrary wait added and no historical result deleted.
+
+## Follow-up review after making the original PRs ready
+
+Sourcery added seven frontend comments after ready-state review. All were
+classified against the actual producer/consumer before source edits; exact
+IDs and outcomes are in [`post-ready-review.json`](post-ready-review.json).
+Backend review added no comments; NLP's automatic review was skipped.
+
+Frontend `a9cff898d338ed5db3ff24b005022e0cc205abba`, followed by the contract-boundary guard in `4dc21e4a5e3ae5f97174cbf9290d4504c98feb95`, addresses the confirmed CI
+pin and discount gap plus the demonstrated defensive dimension-loss behavior:
+
+- Both CI consumer jobs share an explicit peer override or default to final
+  backend `55cc748`. The contract snapshot itself is unchanged.
+- Existing simple dimensions keep their representation. Finite numeric values
+  with explicit textual units normalize safely; rich metadata and incomplete
+  shapes remain intact and identical in correction and technical JSON. No unit
+  is invented and the backend contradiction guard remains unchanged.
+- A non-null projected discount is displayed and blocks confirmation, including
+  the submit handler. The legacy confirmation API does not support discount;
+  no unsupported payload/pricing change is introduced.
+
+Actual public confirmation subsequently proved that the legacy correction DTO
+accepts only V1 axes with string values: identical rich objects returned400 with
+no commercial/ItemHumano mutation. Preservation alone was insufficient. Final
+`4dc21e4` retains the evidence visibly but checks both editable representations,
+blocks the button and submit handler, and requires explicit operator resolution
+before confirmation. It neither weakens the DTO nor automatically relocates
+metadata or supplies a unit. Two boundary regressions observed RED before this
+guard; all25 focused and319 independent aggregate tests now pass. This is a
+manual-review limitation for unsupported shapes, not support for submitting them.
+
+The unknown-unit producer policy remains conservative: missing measures are
+review warnings, not automatically complete dimensions. Current observations
+share one producer source, and current serializers emit projection fields even
+for historical records: those two alleged source-loss/schema defects were not
+confirmed. Compatibility with arbitrary older servers is not asserted.
+
+Focused RED: seven failures and sixteen passes; GREEN: all23. Independent
+verification: all319 unit tests, types, build, contracts and formatting passed;
+two prior-valid differential cases are unchanged. A new untyped mock triggered
+an actual lint failure, was minimally typed, and passed independent bounded
+lint/focused/format rechecks; the failure evidence remains preserved.
+Final new-head live and CI proof is linked from the original PRs and local
+`final-head-live-v3/`, `final-ci-v5/` and final-delivery ledger.
+
+The final timing-token Gitleaks false positive has only an exact historical
+fingerprint exception; a repeat at another line/commit still triggers the rule.
+Current candidate/diff scans pass, not a universal history clearance. A broader
+auxiliary scan retains4115 untriaged historical findings; its classification and
+privacy cleanup remain deferred, not silently marked safe.
 
 ## Reproduce
 
