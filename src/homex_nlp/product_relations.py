@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 import unicodedata
 
+from homex_nlp.rules import _DIM_PALABRAS_PATRON
+
 
 def head(text):
     folded = "".join(
@@ -14,7 +16,7 @@ def head(text):
     return {"cajoneria": "cajonera", "credencia": "credenza"}.get(family, family)
 
 
-def descriptive_reference(text, mention):
+def descriptive_reference(text, mention, *, bare_comma=False):
     """A bare new descriptive clause has no separate commercial determiner."""
     before = text[: mention.start]
     if re.search(
@@ -29,7 +31,18 @@ def descriptive_reference(text, mention):
         re.I,
     )
     if not boundary:
-        return False
+        # A comma alone does not make "cajonera de madera" a reference.
+        # Require positive dimensional evidence, not just a shared noun or
+        # material, before treating an ASR comma as a descriptive boundary.
+        measured = re.match(
+            r"\s+(?:rodante\s+)?(?:de|tiene|mide)\s+"
+            r"(?:\d+(?:[.,]\d+)?|" + _DIM_PALABRAS_PATRON + r")\s*"
+            r"(?:mil[ií]metros?\b|cent[ií]metros?\b|metros?\b|mm\b|cm\b|m\b|[x×]\s*\d)",
+            text[mention.end :],
+            re.I,
+        )
+        if not (bare_comma and re.search(r",\s*$", before) and measured):
+            return False
     if re.search(r"\b(?:del|de la)\s+$", before, re.I):
         return True
     if re.search(r"\bincluye\s+$", before, re.I):
@@ -74,7 +87,9 @@ def resolve_product_references(text, products, mentions):
             and (
                 family in dependent or not re.search(r"\bincluye\s+$", text[: mention.start], re.I)
             )
-            and descriptive_reference(text, mention)
+            and descriptive_reference(
+                text, mention, bare_comma=head(principal.text) == "escritorio"
+            )
         ):
             references.append(mention)
         else:
@@ -102,7 +117,7 @@ def merge_drawer_references(item, candidates, text):
             if re.search(r"\bcon\s+(?:(?:un[ao]?|\d+)\s+)?$", text[: evidence.start], re.I):
                 first = component
             continue
-        if not descriptive_reference(text, evidence):
+        if not descriptive_reference(text, evidence, bare_comma=head(item.name) == "escritorio"):
             continue
         first.evidence_ids.extend(e for e in component.evidence_ids if e not in first.evidence_ids)
         for candidate in candidates:

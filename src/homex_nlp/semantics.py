@@ -636,28 +636,8 @@ def completar_relaciones(item, candidates, text, warnings):
             "UNIDAD_MEDIDA",
             "JUEGO" if unidad.group().lower().startswith("juego") else "PIEZA",
         )
-    for match in re.finditer(r"\b\d+(?:[,.]\d+)?\s*[x×]\s*\d+(?:[,.]\d+)?\b", text):
-        identifier = f"c{len(candidates) + 1}"
-        candidates.append(
-            Candidate(
-                candidate_id=identifier,
-                label="DIMENSION",
-                start=match.start(),
-                end=match.end(),
-                text=match.group(),
-                source="RULE",
-                decision="UNRESOLVED",
-            )
-        )
-        item.unresolved.append(identifier)
-        warnings.append(
-            Warning(
-                code="MISSING_AXIS",
-                path="/item_proposal/dimensions",
-                severity="REVIEW",
-                message=f"Indique ejes y unidades de {match.group()}.",
-            )
-        )
+    from homex_nlp.dimension_chains import complete_dimension_chains
+
     for excluded in negadas:
         boundary = next(
             (p.start() for p in piezas_originales if p.start() > excluded.start()), len(text)
@@ -682,6 +662,9 @@ def completar_relaciones(item, candidates, text, warnings):
 
     merge_drawer_references(item, candidates, text)
     associate_reference_dimensions(item, candidates, text)
+    # Literal chain preservation must not expand the pre-existing association
+    # walk and silently re-parent explicit measurements after a chain.
+    complete_dimension_chains(item, candidates, text, warnings)
     resolver_atributos(item, candidates, text, warnings)
     # La nueva ruta oral no afirma un espesor GENERAL por carecer de pieza.
     # El valor literal permanece trazable y resoluble por PRF-03. La ruta
