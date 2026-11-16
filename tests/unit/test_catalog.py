@@ -61,7 +61,18 @@ def test_unknown_catalog_no_invention():
 
 
 @pytest.mark.parametrize(
-    "text", ["hola buenas", "probando", "uno dos tres", "hola 123", "probando 123", "1 2 3"]
+    "text",
+    [
+        "hola buenas",
+        "probando",
+        "uno dos tres",
+        "hola 123",
+        "probando 123",
+        "1 2 3",
+        "hola precio",
+        "probando color",
+        "hola marca",
+    ],
 )
 def test_noncommercial_short_transcripts_abstain(text):
     result = extract("OTRO", text)

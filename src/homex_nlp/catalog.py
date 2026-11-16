@@ -522,15 +522,8 @@ class OtherExtractor(Extractor):
 
 
 _PRODUCT_CUE = re.compile(
-    r"\b(?:sillas?|sill[oó]nes?|mesas?|escritorios?|estantes?|repisas?|cajoneras?|poltronas?|"
+    r"\b(?:sillas?|sill[oó]ns?|mesas?|escritorios?|estantes?|repisas?|cajoneras?|poltronas?|"
     r"sof[aá]|banco|mueble|piso|zócalo|zocalo|producto|art[ií]culo)\b",
-    re.I,
-)
-_COMMERCIAL_DETAIL = re.compile(
-    r"\b(?:modelo|c[oó]digo|marca|color|precio|unidad|stock|existencias|"
-    r"medidas?|dimensiones?|espesor|largo|ancho|alto|de madera|de metal|"
-    r"de acero|melamina|aglomerado|malla|estructura|plegable|"
-    r"bolivianos?|bolivios?|bs\.?|bob|usd)\b",
     re.I,
 )
 _EXPLICIT_PRODUCT_NAME = re.compile(
@@ -539,32 +532,32 @@ _EXPLICIT_PRODUCT_NAME = re.compile(
 )
 
 
-def _has_commercial_signal(text: str) -> bool:
-    """Accept explicit names or product/detail evidence, never digits alone."""
-    return bool(
-        _EXPLICIT_PRODUCT_NAME.search(text)
-        or _PRODUCT_CUE.search(text)
-        or _COMMERCIAL_DETAIL.search(text)
-    )
-
-
 def extract_catalog(request: CatalogRequest) -> CatalogResult:
     # Category is supplied exclusively by the selected form, never inferred.
     result = {"SILLA": ChairExtractor, "PISO_FLOTANTE": FloorExtractor, "OTRO": OtherExtractor}[
         request.category
     ](request).extract()
-    if not _has_commercial_signal(request.text):
-        # A bare fallback noun phrase is not enough to turn greetings, tests, or
-        # ASR number recitations into a proposed catalog product.
+    explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text))
+    has_product_noun = bool(_PRODUCT_CUE.search(request.text))
+    has_structured_fields = any(key not in {"nombre", "observaciones"} for key in result.fields)
+    inferred_name = str(result.fields.get("nombre", ""))
+    has_counted_name = bool(re.match(r"^\s*\d+\s+\w+", inferred_name, re.UNICODE))
+    if (
+        not explicitly_named
+        and not has_product_noun
+        and not (has_counted_name and has_structured_fields)
+    ):
+        # Fallback names and observations are not evidence by themselves. Keep
+        # actual structured extractions as partial results, never arbitrary text.
         for field in ("nombre", "observaciones"):
             result.fields.pop(field, None)
         for candidate in result.evidence:
             if candidate.label in {"nombre", "observaciones"} and candidate.decision == "ACCEPTED":
                 candidate.decision = "UNRESOLVED"
                 candidate.reason = "Sin evidencia comercial suficiente; revise o complete el texto."
-        if not result.fields:
+        if not has_structured_fields:
             result.warnings.append(
                 "Sin evidencia comercial suficiente; complete el formulario manualmente."
             )
-        result.unrecognized = [request.text] if request.text.strip() else []
+            result.unrecognized = [request.text] if request.text.strip() else []
     return result
