@@ -889,6 +889,12 @@ def find_measurements(text: str, label: str) -> list[Match]:
         re.compile(r"(" + _DIM_PALABRAS_PATRON + r")\s+(?:de\s+)?" + axis + r"\b", re.I),
     ):
         for match in pattern_words.finditer(text):
+            # In "una altura de 73 cm", una is an article introducing the
+            # following measurement, not a second unitless height of one.
+            if re.fullmatch(r"un[ao]?", match.group(1), re.I) and re.match(
+                r"\s+de\s+", text[match.end() :], re.I
+            ):
+                continue
             value = _dimension_numero_palabras(match.group(1))
             if (
                 value
