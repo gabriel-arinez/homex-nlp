@@ -40,10 +40,9 @@ from homex_nlp.rules import (
 )
 
 _GENERIC_FURNITURE_DETAIL = re.compile(
-    r"\b(?:de\s+(?:madera|metal|acero|melamina|aglomerado)|modelo|c[oó]digo|"
-    r"marca|color|precio|medidas?|dimensiones?|ancho|alto|largo|profundidad|"
-    r"espesor|cajones?|casilleros?|puertas?|repisas?|divisiones?|estantes?|estructura|"
-    r"patas|plegable|tapiz|malla|espuma)\b|\d",
+    r"\b(?:de\s+(?:madera|metal|acero|melamina|aglomerado)|"
+    r"cajones?|casilleros?|puertas?|repisas?|divisiones?|estantes?|estructura|"
+    r"patas|plegable|tapiz|malla|espuma)\b",
     re.I,
 )
 
@@ -366,10 +365,14 @@ class RulesEngine:
                     message="Separate product descriptions require review.",
                 )
             )
-        if re.fullmatch(
-            r"muebles?", products[0].text, re.I
-        ) and not _GENERIC_FURNITURE_DETAIL.search(
-            text[: products[0].start] + text[products[0].end :]
+        if re.fullmatch(r"muebles?", products[0].text, re.I) and not (
+            _GENERIC_FURNITURE_DETAIL.search(text[: products[0].start] + text[products[0].end :])
+            or any(
+                find_measurements(text, axis)
+                for axis in ("ancho", "alto", "largo", "profundidad", "diametro")
+            )
+            or find_thicknesses(text)
+            or find_price(text)[0]
         ):
             candidate(
                 products[0],

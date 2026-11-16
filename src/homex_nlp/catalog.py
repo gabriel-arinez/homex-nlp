@@ -523,7 +523,7 @@ class OtherExtractor(Extractor):
 
 _PRODUCT_CUE = re.compile(
     r"\b(?:sillas?|sill[oó]ns?|mesas?|escritorios?|estantes?|repisas?|cajoneras?|poltronas?|"
-    r"sof[aá]|banco|mueble|piso|zócalo|zocalo|producto|art[ií]culo)\b",
+    r"sof[aá]|banco|piso|zócalo|zocalo)\b",
     re.I,
 )
 _EXPLICIT_PRODUCT_NAME = re.compile(
@@ -538,13 +538,14 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
         request.category
     ](request).extract()
     explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text))
-    has_product_noun = bool(_PRODUCT_CUE.search(request.text))
+    has_product_noun = bool(_PRODUCT_CUE.search(str(result.fields.get("nombre", ""))))
     has_structured_fields = any(key not in {"nombre", "observaciones"} for key in result.fields)
     inferred_name = str(result.fields.get("nombre", ""))
     has_counted_name = bool(re.match(r"^\s*\d+\s+\w+", inferred_name, re.UNICODE))
     if (
         not explicitly_named
         and not has_product_noun
+        and not (re.search(r"\bmuebles?\b", inferred_name, re.I) and has_structured_fields)
         and not (has_counted_name and has_structured_fields)
     ):
         # Fallback names and observations are not evidence by themselves. Keep

@@ -151,3 +151,32 @@ def test_accessory_count_after_a_dimension_keeps_its_own_unitless_integer():
     result = extract("Una mesa con tablero de 18 mm y dos USB.")
     assert next(a for a in result.item_proposal.accessories if "USB" in a.name).quantity == 2
     assert extract("Una mesa con dos o tres USB.").item_proposal.accessories[0].quantity is None
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "hola buenas",
+        "un mueble precio",
+        "mueble color",
+        "probando marca",
+        "hola producto",
+        "uno dos tres",
+    ],
+)
+def test_markers_without_extracted_values_abstain(text):
+    assert extract(text).item_proposal is None
+
+
+def test_brief_description_does_not_invent_quantity_or_price():
+    result = extract("mesa plegable")
+    assert result.item_proposal is not None
+    assert result.item_proposal.quantity is None
+    assert result.item_proposal.price is None
+
+
+def test_explicit_article_is_real_quantity_evidence():
+    result = extract("una mesa plegable")
+    assert result.item_proposal is not None
+    assert result.item_proposal.quantity == 1
+    assert result.item_proposal.price is None

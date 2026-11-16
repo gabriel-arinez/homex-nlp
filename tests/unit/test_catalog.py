@@ -288,3 +288,33 @@ def test_spoken_chair_full_dictation():
     assert specs["base"] == "patas cromadas"
     assert specs["patas"] == "cinco patas"
     assert specs["giro"] == "giro de 370 grados"
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "hola buenas",
+        "un mueble precio",
+        "mueble color",
+        "probando marca",
+        "hola producto",
+        "uno dos tres",
+    ],
+)
+@pytest.mark.parametrize("category", ["SILLA", "PISO_FLOTANTE", "OTRO"])
+def test_marker_words_without_values_do_not_establish_product_identity(text, category):
+    result = extract(category, text)
+    assert not result.fields
+
+
+@pytest.mark.parametrize(
+    "text", ["silla plegable", "nombre: Credenza Nórdica", "producto: Nebulosa Aurora"]
+)
+def test_brief_or_explicit_product_identity_remains_eligible(text):
+    assert extract("OTRO", text).fields["nombre"]
+
+
+def test_brief_catalog_product_does_not_invent_attributes():
+    result = extract("OTRO", "silla plegable")
+    assert result.fields["nombre"] == "silla plegable"
+    assert set(result.fields) <= {"nombre", "observaciones"}
