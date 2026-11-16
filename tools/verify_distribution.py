@@ -88,6 +88,7 @@ def check_required_sdist(artifact: Path) -> None:
     required_suffixes = (
         "docs/F10_DESPLIEGUE_RECUPERACION.md",
         "docs/deployment-f10-v0.1.0.json",
+        "docs/catalog-release-0.1.24.json",
     )
     missing = [
         suffix for suffix in required_suffixes if not any(name.endswith(suffix) for name in names)

@@ -150,3 +150,31 @@ def test_recognized_quantities_and_drawer_values_are_never_replaced_from_a_scrip
         "400",
         str(drawer_height * 10),
     ]
+
+
+@pytest.mark.parametrize("measure", ["0 x 40 x 63 cm", "33 x 0 x 63 cm", "33 cm x -40 cm"])
+def test_invalid_measurements_do_not_license_a_comma_reference(measure):
+    result = extract(f"Un escritorio con cajonera, cajonera de {measure}.")
+    assert result.status == "NO_PROPOSAL" and result.item_proposal is None
+
+
+def test_eleven_independent_drawers_are_not_a_descriptive_reference():
+    result = extract("Un escritorio con cajonera, once cajoneras de 33 cm.")
+    assert result.status == "NO_PROPOSAL" and result.item_proposal is None
+
+
+@pytest.mark.parametrize("unit", ["mt", "mts"])
+def test_chain_accepts_existing_metre_unit_aliases(unit):
+    result = extract(f"Una mesa de 1,40 {unit} x 70 cm.")
+    assert [(d.value_mm, d.unit, d.axis) for d in result.item_proposal.dimensions] == [
+        ("1400.00", "m", None),
+        ("700", "cm", None),
+    ]
+
+
+def test_chain_cannot_assert_the_same_evidence_as_both_thickness_and_dimension():
+    result = extract("Una mesa de 1400 mm x 700 mm.")
+    assert result.item_proposal.dimensions == []
+    assert any(
+        c.text == "1400 mm x 700 mm" and c.decision == "UNRESOLVED" for c in result.candidates
+    )

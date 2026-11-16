@@ -5,7 +5,6 @@ from decimal import Decimal
 
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Dimension
-from homex_nlp.product_relations import head
 from homex_nlp.rules import (
     _DIM_PALABRAS_PATRON,
     _dimension_numero_palabras,
@@ -13,7 +12,7 @@ from homex_nlp.rules import (
 )
 
 NUMBER = r"(?:\d+(?:[.,]\d+)?|" + _DIM_PALABRAS_PATRON + r")"
-UNIT = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|m)\b"
+UNIT = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
 ORAL = NUMBER + r"\s+metros?\s+(?:y\s+)?" + NUMBER + r"(?:\s*" + UNIT + r")?"
 OPERAND = r"(?:" + ORAL + r"|" + NUMBER + r"\s*(?:" + UNIT + r")?)"
 CHAIN = re.compile(r"(?<![\w.,+−-])" + OPERAND + r"(?:\s*[x×]\s*" + OPERAND + r")+(?!\w)", re.I)
@@ -62,7 +61,9 @@ def operand(raw):
 
 def explicit_owner(item, candidates, text, start):
     """A directly introduced product/component is positive ownership evidence."""
-    for evidence in sorted(candidates, key=lambda c: c.end, reverse=True):
+    from homex_nlp.product_relations import head
+
+    for evidence in candidates:
         if evidence.end > start or evidence.label not in {"PRODUCTO", "COMPONENTE"}:
             continue
         if not re.fullmatch(r"\s+(?:rodante\s+)?de\s+", text[evidence.end : start], re.I):
@@ -82,7 +83,42 @@ def explicit_owner(item, candidates, text, start):
     return False, None
 
 
+def positive_dimension_prefix(text):
+    """Validate all operands before a comma can introduce a reference."""
+    prefix = re.match(r"\s+(?:rodante\s+)?(?:de|tiene|mide)\s+", text, re.I)
+    if not prefix:
+        return False
+    tail = text[prefix.end() :]
+    chain = CHAIN.match(tail)
+    if chain:
+        values = [operand(m.group().strip())[0] for m in re.finditer(OPERAND, chain.group(), re.I)]
+        return (
+            len(values) in {2, 3}
+            and all(v is not None and v > 0 for v in values)
+            and not re.match(r"\s*[x×]", tail[chain.end() :], re.I)
+        )
+    single = re.match(OPERAND, tail, re.I)
+    if not single or re.match(r"\s*[x×]", tail[single.end() :], re.I):
+        return False
+    value, unit = operand(single.group().strip())
+    return value is not None and value > 0 and unit is not None
+
+
 def complete_dimension_chains(item, candidates, text, warnings):
+    # Only the pre-existing measurements can overlap these disjoint regex
+    # matches. Index once, not dimensions × all growing candidates per chain.
+    evidence = {c.candidate_id: c for c in candidates}
+    occupied = [
+        (evidence[e].start, evidence[e].end)
+        for measurement in [*item.dimensions, *item.thicknesses]
+        for e in measurement.evidence_ids
+        if e in evidence
+    ]
+    owners = sorted(
+        (c for c in candidates if c.label in {"PRODUCTO", "COMPONENTE"}),
+        key=lambda c: c.end,
+        reverse=True,
+    )
     for chain in CHAIN.finditer(text):
         # Never salvage a suffix of a negative/partial multiplication chain.
         if re.search(r"[-−+x×]\s*$", text[: chain.start()], re.I):
@@ -108,13 +144,8 @@ def complete_dimension_chains(item, candidates, text, warnings):
         )
         spans = list(re.finditer(OPERAND, chain.group(), re.I))
         parsed = [operand(m.group().strip()) for m in spans]
-        known, owner = explicit_owner(item, candidates, text, chain.start())
-        overlapping = any(
-            c.start < chain.end() and chain.start() < c.end
-            for d in item.dimensions
-            for c in candidates
-            if c.candidate_id in d.evidence_ids
-        )
+        known, owner = explicit_owner(item, owners, text, chain.start())
+        overlapping = any(start < chain.end() and chain.start() < end for start, end in occupied)
         if (
             not known
             or overlapping

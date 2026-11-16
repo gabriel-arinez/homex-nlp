@@ -73,17 +73,19 @@ No abrir PR ni modificar Backend o Frontend por ahora.Nuevas grabaciones
 
 MP-0050:
 
-~/Descargas/HOMEX_Guiones_Evaluacion_Voz/regrabaciones-dirigidas-v1/prioridad-2/audios_asr/MP-0050-R2.wav
+[PRIVATE_LOCAL_PATH]
 
 Duración verificada: 59,350188 segundos.
 
 MP-0022:
 
-~/Descargas/HOMEX_Guiones_Evaluacion_Voz/regrabaciones-dirigidas-v1/prioridad-2/audios_asr/MP-0022-R2.wav
+[PRIVATE_LOCAL_PATH]
 
 Duración verificada: 64,621125 segundos.
 
-- L2: RED:9 failed/11 passed before correction. GREEN:21 then23 retake regressions; historical comparison caught MP-0037 existing-height re-parenting, pinned RED and fixed by placing chain preservation after explicit association. All240 historical inputs and15 retakes compared; only removed attribute is the known article-height1. Current private evidence: /home/gabriel/Descargas/HOMEX_Guiones_Evaluacion_Voz/evaluaciones/nlp-retakes-fix-20261115-4zygFK.
+- L2: RED:9 failed/11 passed before correction. GREEN:21 then23 retake regressions; historical comparison caught MP-0037 existing-height re-parenting, pinned RED and fixed by placing chain preservation after explicit association. All240 historical inputs and15 retakes compared; only removed attribute is the known article-height1. Current private evidence: [PRIVATE_LOCAL_PATH]
 
 - L3: Independent verifier found the existing material-only comma ambiguity regression; one correction requires positive dimensional evidence. Targeted recheck12 passed; final full suite1080 passed; final parent spot check60 passed. Ruff/schema/corpus/package/privacy/reproducible installed consumer checks pass. Sole final removed field is false article-height1. Five justified retake abstentions remain. No consumer, ASR, schema, audio or model changes.
 - L4: Final delivery remains one cohesive local commit (~500 lines including the verbatim task specification), not a PR; keeping source, regression probes and docs together is more reviewable than a tracking-only slice. No publishing or release identity replacement. Exact commit hash is recorded in the private commit.json and Engram because a commit cannot embed its own hash. Rollback boundary: this single parser/reference unit plus its tests/docs.
+
+- Publication privacy: local input/evidence paths are redacted here; the original log remains in private session evidence.

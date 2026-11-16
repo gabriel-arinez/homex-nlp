@@ -42,3 +42,13 @@ compare values, units, component ownership, amounts and abstentions, not only
 proposal status. These development comparisons do not establish human acoustic
 precision or independent generalization. Existing installed-consumer contract
 and schema checks remain applicable; no consumer repository changes are needed.
+
+## Release review hardening
+
+Comma references validate every chain operand as positive before merging; malformed
+or zero chains do not establish a reference. Existing metre aliases `mt`/`mts`
+are retained. A chain overlapping an already interpreted thickness remains
+unresolved instead of asserting the same evidence as both thickness and dimension.
+The measurement/owner index is built once per extraction; it does not repeatedly
+scan growing dimension/candidate cross-products for every chain. Quantity-bearing
+independent orders, including eleven drawers, continue to abstain.

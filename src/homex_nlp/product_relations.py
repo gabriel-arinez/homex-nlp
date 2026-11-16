@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import unicodedata
 
-from homex_nlp.rules import _DIM_PALABRAS_PATRON
+from homex_nlp.dimension_chains import positive_dimension_prefix
 
 
 def head(text):
@@ -34,13 +34,7 @@ def descriptive_reference(text, mention, *, bare_comma=False):
         # A comma alone does not make "cajonera de madera" a reference.
         # Require positive dimensional evidence, not just a shared noun or
         # material, before treating an ASR comma as a descriptive boundary.
-        measured = re.match(
-            r"\s+(?:rodante\s+)?(?:de|tiene|mide)\s+"
-            r"(?:\d+(?:[.,]\d+)?|" + _DIM_PALABRAS_PATRON + r")\s*"
-            r"(?:mil[ií]metros?\b|cent[ií]metros?\b|metros?\b|mm\b|cm\b|m\b|[x×]\s*\d)",
-            text[mention.end :],
-            re.I,
-        )
+        measured = positive_dimension_prefix(text[mention.end :])
         if not (bare_comma and re.search(r",\s*$", before) and measured):
             return False
     if re.search(r"\b(?:del|de la)\s+$", before, re.I):
