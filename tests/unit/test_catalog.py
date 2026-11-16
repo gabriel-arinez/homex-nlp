@@ -60,6 +60,35 @@ def test_unknown_catalog_no_invention():
     assert r.unrecognized
 
 
+@pytest.mark.parametrize(
+    "text", ["hola buenas", "probando", "uno dos tres", "hola 123", "probando 123", "1 2 3"]
+)
+def test_noncommercial_short_transcripts_abstain(text):
+    result = extract("OTRO", text)
+    assert not result.fields
+    assert result.unrecognized
+
+
+def test_short_commercial_product_name_remains_eligible():
+    result = extract("SILLA", "silla plegable")
+    assert result.fields["nombre"] == "silla plegable"
+
+
+def test_novel_custom_furniture_with_commercial_detail_remains_eligible():
+    text = "Mesa auxiliar plegable con estructura de acero"
+    result = extract("OTRO", text)
+    assert result.fields["nombre"] == "Mesa auxiliar plegable"
+    assert result.fields["observaciones"] == text
+
+
+@pytest.mark.parametrize(
+    "text",
+    ["nombre: Credenza Nórdica", "nombre comercial: Organizador Koru artesanal"],
+)
+def test_explicitly_named_novel_products_remain_eligible(text):
+    assert extract("OTRO", text).fields["nombre"]
+
+
 def test_price_is_suggestion_not_total():
     r = extract("OTRO", "precio unitario 1.750,00. total 12250,00. existencias 7")
     assert r.fields["precio_lista"] == "1750.00"

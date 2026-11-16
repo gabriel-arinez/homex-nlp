@@ -54,6 +54,22 @@ def test_explicit_furniture_families_are_recognized_without_ids(product):
     assert result.item_proposal.quantity == 2
 
 
+@pytest.mark.parametrize("text", ["hola buenas", "probando", "uno dos tres", "un mueble", "mueble"])
+def test_noncommercial_and_generic_furniture_text_abstains(text):
+    assert extract(text).item_proposal is None
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Un mueble de madera de 120 cm de ancho.",
+        "Un mueble de melamina con dos cajones.",
+    ],
+)
+def test_generic_furniture_with_commercial_description_remains_eligible(text):
+    assert extract(text).item_proposal is not None
+
+
 def test_adjectival_height_does_not_steal_following_width_and_compound_height():
     result = extract(
         "Un armario alto de ochenta centímetros de ancho, cincuenta de profundidad y dos metros veinte de alto."

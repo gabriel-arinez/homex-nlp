@@ -39,6 +39,14 @@ from homex_nlp.rules import (
     price_mentions,
 )
 
+_GENERIC_FURNITURE_DETAIL = re.compile(
+    r"\b(?:de\s+(?:madera|metal|acero|melamina|aglomerado)|modelo|c[oó]digo|"
+    r"marca|color|precio|medidas?|dimensiones?|ancho|alto|largo|profundidad|"
+    r"espesor|cajones?|casilleros?|puertas?|repisas?|divisiones?|estantes?|estructura|"
+    r"patas|plegable|tapiz|malla|espuma)\b|\d",
+    re.I,
+)
+
 
 class RulesEngine:
     rules_version = "prf04-rules-money-2"
@@ -357,6 +365,31 @@ class RulesEngine:
                     severity="REVIEW",
                     message="Separate product descriptions require review.",
                 )
+            )
+        if re.fullmatch(
+            r"muebles?", products[0].text, re.I
+        ) and not _GENERIC_FURNITURE_DETAIL.search(
+            text[: products[0].start] + text[products[0].end :]
+        ):
+            candidate(
+                products[0],
+                "UNRESOLVED",
+                "Mueble genérico sin descripción comercial suficiente.",
+            )
+            return self._result(
+                request,
+                None,
+                candidates,
+                warnings
+                + [
+                    Warning(
+                        code="NO_PRODUCT",
+                        path="/item_proposal/name",
+                        severity="REVIEW",
+                        message="Describa el mueble antes de generar una propuesta.",
+                    )
+                ],
+                started,
             )
         candidate(products[0])
         quantity = find_quantity(text, main_product=products[0])
