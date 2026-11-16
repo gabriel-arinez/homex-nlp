@@ -318,3 +318,62 @@ def test_brief_catalog_product_does_not_invent_attributes():
     result = extract("OTRO", "silla plegable")
     assert result.fields["nombre"] == "silla plegable"
     assert set(result.fields) <= {"nombre", "observaciones"}
+
+
+@pytest.mark.parametrize("prefix", ["producto: ", "nombre: ", "nombre comercial: "])
+@pytest.mark.parametrize(
+    "name",
+    ["hola buenas", "probando", "uno dos tres", "mueble precio", "mueble color", "hola producto"],
+)
+def test_explicit_prefix_does_not_certify_commercial_content(prefix, name):
+    assert not extract("OTRO", prefix + name).fields
+
+
+@pytest.mark.parametrize(
+    "category,name",
+    [
+        ("PISO_FLOTANTE", "silla plegable"),
+        ("SILLA", "piso flotante HDF"),
+        ("SILLA", "mesa escritorio"),
+    ],
+)
+def test_clear_category_contradiction_requires_name_review(category, name):
+    result = extract(category, "producto: " + name)
+    assert "nombre" not in result.fields
+    assert any(r.code == "CATEGORY_CONFLICT" and r.field == "nombre" for r in result.field_reviews)
+
+
+@pytest.mark.parametrize("name", ["Luminova Aurora", "Soporte telescópico XZ9", "Vértice modular"])
+def test_explicit_legitimate_novel_names_remain_open_vocabulary(name):
+    assert extract("OTRO", "nombre comercial: " + name).fields["nombre"] == name
+
+
+def test_accepted_price_has_stable_field_review_with_real_evidence():
+    text = "producto: Silla Aurora, precio 450 bolivianos"
+    result = extract("SILLA", text)
+    review = next(r for r in result.field_reviews if r.field == "precio_lista")
+    assert review.code == "COMMERCIAL_PRICE_REVIEW"
+    assert review.severity == "REVIEW"
+    accepted = {
+        e.candidate_id
+        for e in result.evidence
+        if e.label == "precio_lista" and e.decision == "ACCEPTED"
+    }
+    assert set(review.evidence_ids) == accepted
+    assert review.evidence_ids
+    assert result.field_reviews == extract("SILLA", text).field_reviews
+
+
+@pytest.mark.parametrize(
+    "category,name",
+    [("SILLA", "Silla para escritorio Aurora"), ("PISO_FLOTANTE", "Piso para sala de sillas")],
+)
+def test_category_checks_primary_identity_not_related_product_in_name(category, name):
+    assert extract(category, "nombre: " + name).fields["nombre"] == name
+
+
+@pytest.mark.parametrize(
+    "text", ["nombre: prueba", "producto: prueba de audio", "nombre comercial: prueba de voz"]
+)
+def test_bare_explicit_microphone_test_is_not_a_commercial_name(text):
+    assert not extract("OTRO", text).fields

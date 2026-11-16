@@ -38,7 +38,7 @@ def test_implicit_name_stops_before_technical_clause(text, expected):
 
 def test_explicit_name_is_authoritative():
     assert (
-        extract("nombre: Mesa de madera para sala de espera").fields["nombre"]
+        extract("nombre: Mesa de madera para sala de espera", "OTRO").fields["nombre"]
         == "Mesa de madera para sala de espera"
     )
 

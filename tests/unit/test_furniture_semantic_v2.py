@@ -180,3 +180,13 @@ def test_explicit_article_is_real_quantity_evidence():
     assert result.item_proposal is not None
     assert result.item_proposal.quantity == 1
     assert result.item_proposal.price is None
+
+
+@pytest.mark.parametrize("prefix", ["producto: ", "nombre: ", "nombre comercial: "])
+@pytest.mark.parametrize(
+    "noise",
+    ["hola buenas", "probando", "uno dos tres", "mueble precio", "mueble color", "hola producto"],
+)
+def test_explicit_prefix_noise_never_creates_furniture(prefix, noise):
+    result = extract(prefix + noise)
+    assert result.item_proposal is None
