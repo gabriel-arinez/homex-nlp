@@ -109,7 +109,7 @@ def test_numeric_count_prefix_keeps_literal_name_and_description(category):
     text = "3 paneles modulares con soporte. Precio unitario de setecientos bolivianos."
     result = catalog(category, text)
     assert result.fields["nombre"] == "3 paneles modulares"
-    assert result.fields["observaciones"] == text
+    assert "observaciones" not in result.fields
     assert result.fields["precio_lista"] == "700.00"
     assert "cantidad" not in result.fields
     assert "stock" not in result.fields

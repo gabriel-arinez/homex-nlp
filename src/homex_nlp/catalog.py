@@ -42,12 +42,23 @@ class CatalogRequest(BaseModel):
     values: list[CatalogValue] = Field(default_factory=list)
 
 
+class FieldReview(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    review_id: str
+    code: str
+    severity: Literal["INFO", "REVIEW", "CRITICAL"]
+    message: str
+    field: str
+    evidence_ids: list[str] = Field(default_factory=list)
+
+
 class CatalogResult(BaseModel):
     model_config = ConfigDict(extra="forbid")
     category: Category
     fields: dict[str, str | int | dict] = Field(default_factory=dict)
     evidence: list[Candidate] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
+    field_reviews: list[FieldReview] = Field(default_factory=list)
     unrecognized: list[str] = Field(default_factory=list)
     version: str = "catalog-0.1.24"
 
@@ -170,18 +181,15 @@ class Extractor:
                 + AMOUNT
                 + r"\s*(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\b)|[.;,:\n]|$)",
             )
-            # Preserve the literal description, including heterogeneous specifications.
+            # Keep the name evidence without copying the full input into observations.
             if "nombre" in self.result.fields:
                 for evidence in self.result.evidence:
                     if evidence.label == "nombre" and evidence.decision == "ACCEPTED":
                         evidence.reason = (
                             "Nombre delimitado antes de especificaciones técnicas o comerciales"
                         )
-                self.add("observaciones", [(0, len(self.text), self.text)])
         if "observaciones" not in self.result.fields:
-            self.labeled(
-                "observaciones", r"\b(?:descripci[oó]n|observaciones)\b\s*(?::|es)?\s*([^\n]+)"
-            )
+            self.labeled("observaciones", r"\bobservaciones\b\s*(?::|es)?\s*([^\n]+)")
         mentions, _ = price_mentions(self.text)
         self.add(
             "precio_lista",
@@ -521,8 +529,108 @@ class OtherExtractor(Extractor):
     """Heterogeneous products use explicit name/description and real unit catalog."""
 
 
+_PRODUCT_CUE = re.compile(
+    r"\b(?:sillas?|sill[oó]ns?|mesas?|escritorios?|estantes?|repisas?|cajoneras?|poltronas?|"
+    r"sof[aá]|banco|piso|zócalo|zocalo)\b",
+    re.I,
+)
+_EXPLICIT_PRODUCT_NAME = re.compile(
+    r"^\s*(?:nombre(?:\s+comercial)?|producto)\b\s*(?::|es)?\s*\w",
+    re.I,
+)
+
+
 def extract_catalog(request: CatalogRequest) -> CatalogResult:
     # Category is supplied exclusively by the selected form, never inferred.
-    return {"SILLA": ChairExtractor, "PISO_FLOTANTE": FloorExtractor, "OTRO": OtherExtractor}[
+    result = {"SILLA": ChairExtractor, "PISO_FLOTANTE": FloorExtractor, "OTRO": OtherExtractor}[
         request.category
     ](request).extract()
+    name = str(result.fields.get("nombre", ""))
+    normalized_name = fold(name)
+    incompatible = {
+        "SILLA": r"\b(?:pisos?|zocalos?|mesas?|escritorios?|estantes?|repisas?)\b",
+        "PISO_FLOTANTE": r"\b(?:sillas?|sillon(?:es)?|mesas?|escritorios?|sofas?|poltronas?|bancos?|estantes?|repisas?|cajoneras?)\b",
+        "OTRO": r"(?!)",
+    }
+    identity = re.search(
+        r"\b(?:sillas?|sillon(?:es)?|mesas?|escritorios?|estantes?|repisas?|"
+        r"cajoneras?|poltronas?|sofas?|bancos?|pisos?|zocalos?)\b",
+        normalized_name,
+    )
+    category_conflict = bool(
+        identity and re.fullmatch(incompatible[request.category], identity.group())
+    )
+    if category_conflict:
+        result.fields.pop("nombre", None)
+        result.fields.pop("observaciones", None)
+        for evidence in result.evidence:
+            if evidence.label in {"nombre", "observaciones"} and evidence.decision == "ACCEPTED":
+                evidence.decision = "UNRESOLVED"
+                evidence.reason = "Nombre incompatible con la categoría."
+        message = "El nombre describe un producto incompatible con la categoría seleccionada."
+        result.warnings.append(message)
+        result.field_reviews.append(
+            FieldReview(
+                review_id="CATEGORY_CONFLICT:nombre",
+                code="CATEGORY_CONFLICT",
+                severity="REVIEW",
+                message=message,
+                field="nombre",
+                evidence_ids=[e.candidate_id for e in result.evidence if e.label == "nombre"],
+            )
+        )
+    explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text)) and not category_conflict
+    has_product_noun = bool(_PRODUCT_CUE.search(str(result.fields.get("nombre", ""))))
+    has_structured_fields = any(key not in {"nombre", "observaciones"} for key in result.fields)
+    inferred_name = str(result.fields.get("nombre", ""))
+    has_counted_name = bool(re.match(r"^\s*\d+\s+\w+", inferred_name, re.UNICODE))
+    if (
+        not explicitly_named
+        and not has_product_noun
+        and not (re.search(r"\bmuebles?\b", inferred_name, re.I) and has_structured_fields)
+        and not (has_counted_name and has_structured_fields)
+    ):
+        # Fallback names and observations are not evidence by themselves. Keep
+        # actual structured extractions as partial results, never arbitrary text.
+        for field in ("nombre", "observaciones"):
+            result.fields.pop(field, None)
+        for candidate in result.evidence:
+            if candidate.label in {"nombre", "observaciones"} and candidate.decision == "ACCEPTED":
+                candidate.decision = "UNRESOLVED"
+                candidate.reason = "Sin evidencia comercial suficiente; revise o complete el texto."
+        if not has_structured_fields:
+            result.warnings.append(
+                "Sin evidencia comercial suficiente; complete el formulario manualmente."
+            )
+            result.unrecognized = [request.text] if request.text.strip() else []
+    for field in sorted({e.label for e in result.evidence if e.decision == "UNRESOLVED"}):
+        evidence = [e for e in result.evidence if e.label == field and e.decision == "UNRESOLVED"]
+        if any(r.field == field for r in result.field_reviews):
+            continue
+        result.field_reviews.append(
+            FieldReview(
+                review_id=f"UNRESOLVED:{field}",
+                code="UNRESOLVED",
+                severity="REVIEW",
+                message=evidence[0].reason or "Revise el valor antes de confirmarlo.",
+                field=field,
+                evidence_ids=[e.candidate_id for e in evidence],
+            )
+        )
+    prices = [
+        e.candidate_id
+        for e in result.evidence
+        if e.label == "precio_lista" and e.decision == "ACCEPTED"
+    ]
+    if prices:
+        result.field_reviews.append(
+            FieldReview(
+                review_id="COMMERCIAL_PRICE_REVIEW:precio_lista",
+                code="COMMERCIAL_PRICE_REVIEW",
+                severity="REVIEW",
+                message="Precio dictado: sugerencia pendiente de revisión comercial.",
+                field="precio_lista",
+                evidence_ids=prices,
+            )
+        )
+    return result
