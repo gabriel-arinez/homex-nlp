@@ -27,7 +27,7 @@ def extract(text, category="SILLA"):
 def test_implicit_name_stops_before_technical_clause(text, expected):
     result = extract(text, "OTRO")
     assert result.fields["nombre"] == expected
-    assert result.fields["observaciones"] == text
+    assert "observaciones" not in result.fields
     assert (
         next(c for c in result.evidence if c.label == "nombre").reason
         == "Nombre delimitado antes de especificaciones técnicas o comerciales"

@@ -1,3 +1,40 @@
+# Final commercial voice validation (2026-11-17)
+
+Final verification is in progress on the existing `feat/voice-hitl-review` branches. No PR, push, merge or package publication is authorized. Earlier verification below is historical, not proof for this candidate.
+
+## Current contract
+
+**Audio ≥15 seconds → automatic ASR → editable transcript (≥20 words, ≤3,000 characters) → explicit NLP → commercial proposal or abstention → HITL → confirmed application.**
+
+- Microphone maximum: 240 seconds; uploaded files: 300 seconds and 20,000,000 bytes. Rejected decoded audio creates no capture, attempt or outbox job. Browser validation precedes submission; backend decodes before admission. The API runtime now declares the existing PyAV decoder directly because validation precedes the worker.
+- Only commercial voice-assistant endpoints enforce the text thresholds. General NLP, manual products and historical inputs retain their existing contracts. Whitespace-separated tokens containing Unicode letters or numbers count as words; isolated punctuation does not. Character counting uses Unicode code points on both sides.
+- ASR output is retained intact, including over-limit text. Oversized typing/paste is rejected with a message; existing content is preserved. Over-limit ASR text can be reduced before explicit interpretation.
+- Catalog extraction uses positive commercial evidence and category compatibility, not greeting/testing/microphone/name blacklists. Commercial insufficiency still produces abstention or evidence-backed partial fields.
+- Thickness assignment compares exact normalized measurements. A different value requires a distinct verified correction event retaining original and final values; edits/reversions reopen review. Existing ownership, immutable provenance and idempotency checks remain.
+- Observations no longer receive an entire-input/description fallback. Explicit complementary observations retain evidence; applying proposals preserves manual notes and ignores legacy notes equal to the full transcript.
+
+## Calibration and artifact identity
+
+| Evidence                                            | Words          | Characters | Threshold result |
+| --------------------------------------------------- | -------------- | ---------- | ---------------- |
+| 120 written scripts                                 | 30–96          | 192–645    | 120/120 pass     |
+| 120 stored real ASR transcripts                     | 27–90          | 150–554    | 120/120 pass     |
+| Backend historical synthetic 240-second experiment  | Not remeasured | 2,807      | Pass             |
+| Frontend historical synthetic 240-second experiment | 99             | 638        | Pass             |
+
+The written snapshot available here peaks at 645 characters, not the approximate 671 in the request. The two long experiments are different synthetic recordings, not genuine four-minute seller dictations. Stored real-ASR duration metadata is null. No evidence available requires raising 3,000 characters; this does not claim universal coverage of real long dictation.
+
+NLP **0.1.29**, wheel SHA-256 `4e8ccb3362152e69ec552917a44c19f839b4f56c737a2e8997f3f23d4ebbff50`. Installed metadata and all 32 package files match the wheel/source; the only changed Python modules relative to 0.1.28 are package identity and catalog extraction. Previous wheels/checksums remain unchanged. Source and installed-wheel NLP suites: **1,209 passed each**.
+
+## Verification ledger
+
+- Observed RED before implementation for thresholds, forbidden-name regressions, observation preservation and thickness integrity; focused GREEN completed.
+- Final backend, frontend, OpenAPI, E2E/accessibility and independent verification: **pending**.
+- RDD remains globally disabled by existing user preference; no native review consent or lifecycle started. Independent functional verification remains required for audit/contract/package risk.
+- No remote CI or physical microphone/device verification is claimed. Browser tests use synthetic audio and local route stubs; backend tests decode real PCM and exercise the installed NLP package.
+
+## Prior intervention (historical)
+
 # Definitive commercial-validation correction
 
 The existing rule engine is preserved. The correction is local to `feat/voice-hitl-review`; no package was published and no PR or merge was created.
@@ -12,13 +49,13 @@ The existing rule engine is preserved. The correction is local to `feat/voice-hi
 
 ## Verified final candidate
 
-| Check | Result |
-| --- | --- |
-| Full source suite | 1,185 passed |
-| Full suite against the installed wheel | 1,185 passed |
-| Independent commercial regression subset | 197 passed |
-| Ruff and formatting | Passed |
-| Extraction schema drift | Passed |
+| Check                                     | Result                        |
+| ----------------------------------------- | ----------------------------- |
+| Full source suite                         | 1,185 passed                  |
+| Full suite against the installed wheel    | 1,185 passed                  |
+| Independent commercial regression subset  | 197 passed                    |
+| Ruff and formatting                       | Passed                        |
+| Extraction schema drift                   | Passed                        |
 | Canonical wheel and sdist reproducibility | Passed, `SOURCE_DATE_EPOCH=0` |
 
 Specific RED evidence: 22 explicit-name/category failures, two primary-versus-related-noun failures, and three bare microphone-test-phrase failures before their fixes. Existing furniture-prefix negatives already abstained. Positive category fixtures were moved to their intended category rather than weakening the new contradiction rule.

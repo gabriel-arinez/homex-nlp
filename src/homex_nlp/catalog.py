@@ -181,18 +181,15 @@ class Extractor:
                 + AMOUNT
                 + r"\s*(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?)\b)|[.;,:\n]|$)",
             )
-            # Preserve the literal description, including heterogeneous specifications.
+            # Keep the name evidence without copying the full input into observations.
             if "nombre" in self.result.fields:
                 for evidence in self.result.evidence:
                     if evidence.label == "nombre" and evidence.decision == "ACCEPTED":
                         evidence.reason = (
                             "Nombre delimitado antes de especificaciones técnicas o comerciales"
                         )
-                self.add("observaciones", [(0, len(self.text), self.text)])
         if "observaciones" not in self.result.fields:
-            self.labeled(
-                "observaciones", r"\b(?:descripci[oó]n|observaciones)\b\s*(?::|es)?\s*([^\n]+)"
-            )
+            self.labeled("observaciones", r"\bobservaciones\b\s*(?::|es)?\s*([^\n]+)")
         mentions, _ = price_mentions(self.text)
         self.add(
             "precio_lista",
@@ -550,20 +547,6 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
     ](request).extract()
     name = str(result.fields.get("nombre", ""))
     normalized_name = fold(name)
-    # Introducers are not evidence of commercial meaning. Keep an open vocabulary,
-    # rejecting identifiable chatter and clear category contradictions only.
-    chatter = bool(re.search(r"\b(?:hola|buenas|buenos|probando|microfono)\b", normalized_name))
-    number_test = bool(
-        re.fullmatch(
-            r"(?:uno|dos|tres|cuatro|cinco|\d+)(?:\s+(?:uno|dos|tres|cuatro|cinco|\d+))*",
-            normalized_name,
-        )
-    )
-    empty_markers = bool(
-        re.fullmatch(
-            r"(?:un\s+)?muebles?(?:\s+(?:precio|color|marca|cantidad|modelo))*", normalized_name
-        )
-    )
     incompatible = {
         "SILLA": r"\b(?:pisos?|zocalos?|mesas?|escritorios?|estantes?|repisas?)\b",
         "PISO_FLOTANTE": r"\b(?:sillas?|sillon(?:es)?|mesas?|escritorios?|sofas?|poltronas?|bancos?|estantes?|repisas?|cajoneras?)\b",
@@ -577,39 +560,26 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
     category_conflict = bool(
         identity and re.fullmatch(incompatible[request.category], identity.group())
     )
-    bare_test = bool(re.fullmatch(r"prueba(?: de (?:audio|sonido|voz))?", normalized_name))
-    invalid_name = (
-        chatter
-        or bare_test
-        or number_test
-        or (empty_markers and not any(k not in {"nombre", "observaciones"} for k in result.fields))
-        or category_conflict
-    )
-    if invalid_name:
+    if category_conflict:
         result.fields.pop("nombre", None)
         result.fields.pop("observaciones", None)
         for evidence in result.evidence:
             if evidence.label in {"nombre", "observaciones"} and evidence.decision == "ACCEPTED":
                 evidence.decision = "UNRESOLVED"
-                evidence.reason = (
-                    "Nombre incompatible con la categoría."
-                    if category_conflict
-                    else "Contenido sin identidad comercial."
-                )
-        if category_conflict:
-            message = "El nombre describe un producto incompatible con la categoría seleccionada."
-            result.warnings.append(message)
-            result.field_reviews.append(
-                FieldReview(
-                    review_id="CATEGORY_CONFLICT:nombre",
-                    code="CATEGORY_CONFLICT",
-                    severity="REVIEW",
-                    message=message,
-                    field="nombre",
-                    evidence_ids=[e.candidate_id for e in result.evidence if e.label == "nombre"],
-                )
+                evidence.reason = "Nombre incompatible con la categoría."
+        message = "El nombre describe un producto incompatible con la categoría seleccionada."
+        result.warnings.append(message)
+        result.field_reviews.append(
+            FieldReview(
+                review_id="CATEGORY_CONFLICT:nombre",
+                code="CATEGORY_CONFLICT",
+                severity="REVIEW",
+                message=message,
+                field="nombre",
+                evidence_ids=[e.candidate_id for e in result.evidence if e.label == "nombre"],
             )
-    explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text)) and not invalid_name
+        )
+    explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text)) and not category_conflict
     has_product_noun = bool(_PRODUCT_CUE.search(str(result.fields.get("nombre", ""))))
     has_structured_fields = any(key not in {"nombre", "observaciones"} for key in result.fields)
     inferred_name = str(result.fields.get("nombre", ""))

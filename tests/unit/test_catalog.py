@@ -89,7 +89,7 @@ def test_novel_custom_furniture_with_commercial_detail_remains_eligible():
     text = "Mesa auxiliar plegable con estructura de acero"
     result = extract("OTRO", text)
     assert result.fields["nombre"] == "Mesa auxiliar plegable"
-    assert result.fields["observaciones"] == text
+    assert "observaciones" not in result.fields
 
 
 @pytest.mark.parametrize(
@@ -157,7 +157,7 @@ def test_natural_chair_and_two_colors():
     assert r.fields["color_secundario"] == 2
     assert r.fields["modelo"] == "B15b"
     assert r.fields["especificaciones"]["brazos_regulables"] == "apoyabrazos regulables"
-    assert r.fields["observaciones"] == text
+    assert "observaciones" not in r.fields
     for e in r.evidence:
         assert e.text == text[e.start : e.end]
 
@@ -187,7 +187,7 @@ def test_other_literal_specifications_not_floor_fields():
     text = "Zócalo de alto tráfico de 80mm x 15mm. Cada barra de 2,44 metros lineales. Precio unitario cincuenta bolivianos."
     r = extract("OTRO", text)
     assert r.fields["nombre"] == "Zócalo de alto tráfico"
-    assert r.fields["observaciones"] == text
+    assert "observaciones" not in r.fields
     assert r.fields["precio_lista"] == "50.00"
     assert "espesor_mm" not in r.fields
 
@@ -325,8 +325,8 @@ def test_brief_catalog_product_does_not_invent_attributes():
     "name",
     ["hola buenas", "probando", "uno dos tres", "mueble precio", "mueble color", "hola producto"],
 )
-def test_explicit_prefix_does_not_certify_commercial_content(prefix, name):
-    assert not extract("OTRO", prefix + name).fields
+def test_explicit_prefix_keeps_names_without_linguistic_filters(prefix, name):
+    assert extract("OTRO", prefix + name).fields["nombre"]
 
 
 @pytest.mark.parametrize(
@@ -375,5 +375,5 @@ def test_category_checks_primary_identity_not_related_product_in_name(category, 
 @pytest.mark.parametrize(
     "text", ["nombre: prueba", "producto: prueba de audio", "nombre comercial: prueba de voz"]
 )
-def test_bare_explicit_microphone_test_is_not_a_commercial_name(text):
-    assert not extract("OTRO", text).fields
+def test_explicit_name_is_not_filtered_as_a_microphone_test(text):
+    assert extract("OTRO", text).fields["nombre"] == text.split(": ", 1)[1]
