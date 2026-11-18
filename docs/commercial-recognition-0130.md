@@ -143,7 +143,8 @@ all 25 probes and scoped outcomes. Raw transcripts/audio are not added to the pa
   outcome is product evidence. No Frontend source was changed.
 - Final wheel/sdist reproducibility, privacy and isolated-install check is recorded
   in external `package-verification.log` after documentation normalization.
-- CI/remote PRs: not run or created; publication credentials/destination are not authorized.
+- PR chains are published with explicit authorization. See the linked PR checks
+  below for current remote CI; no merge or release was requested or performed.
 - RDD: explicitly globally off, respected; independent functional verification is separate.
 
 The initial installed-wheel integration exposed stale 0.1.29
@@ -160,3 +161,21 @@ fields. No complete verified human transcript/association oracle was established
 for the 120 cases; historical acoustic-review statuses remain pending. This
 candidate demonstrates targeted text improvement and corpus non-regression, not
 a measured generalization improvement or certified commercial precision.
+
+## Published feature-branch chains
+
+No merge, deployment or release is authorized. Trackers remain draft until all
+children and coordinated integration have been reviewed. Current CI status is
+available on each linked PR; a pending or skipped external review is not a pass.
+
+| Repository | PR | Head → base | Role |
+| --- | --- | --- | --- |
+| homex-nlp | [#48](https://github.com/gabriel-arinez/homex-nlp/pull/48) | `feat/commercial-recognition-0130` → `main` | Draft tracker, no merge |
+| homex-nlp | [#49](https://github.com/gabriel-arinez/homex-nlp/pull/49) | `feat/commercial-recognition-0130-identity` → `feat/commercial-recognition-0130` | Review slice |
+| homex-nlp | [#50](https://github.com/gabriel-arinez/homex-nlp/pull/50) | `feat/commercial-recognition-0130-names-ci` → `feat/commercial-recognition-0130-identity` | Review slice |
+| homex-nlp | [#51](https://github.com/gabriel-arinez/homex-nlp/pull/51) | `feat/commercial-recognition-0130-furniture-ci` → `feat/commercial-recognition-0130-names-ci` | Review slice |
+| homex-nlp | [#52](https://github.com/gabriel-arinez/homex-nlp/pull/52) | `feat/commercial-recognition-0130-evaluation-ci` → `feat/commercial-recognition-0130-furniture-ci` | Review slice |
+| homex-nlp | [#53](https://github.com/gabriel-arinez/homex-nlp/pull/53) | `feat/commercial-recognition-0130-report-ci` → `feat/commercial-recognition-0130-evaluation-ci` | Review slice |
+| homex-backend | [#63](https://github.com/gabriel-arinez/homex-backend/pull/63) | `feat/commercial-recognition-0130` → `main` | Draft tracker, no merge |
+| homex-backend | [#64](https://github.com/gabriel-arinez/homex-backend/pull/64) | `feat/commercial-recognition-0130-reviews` → `feat/commercial-recognition-0130` | Review slice |
+| homex-backend | [#65](https://github.com/gabriel-arinez/homex-backend/pull/65) | `feat/commercial-recognition-0130-package` → `feat/commercial-recognition-0130-reviews` | Review slice |
