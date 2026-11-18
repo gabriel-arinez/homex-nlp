@@ -47,6 +47,33 @@ _GENERIC_FURNITURE_DETAIL = re.compile(
 )
 
 
+def _generic_description(text: str, product: Match) -> Match | None:
+    """Admit local positive detail without guessing a structured attribute.
+
+    Unmapped complements remain review evidence, not material or feature values.
+    Pronouns and audio-test intent do not supply product description evidence.
+    """
+    match = re.match(
+        r"\s+(?P<detail>(?:de|en|con)\s+(?!(?:eso|esto|algo|nada|ello|el|la|los|las)\b)"
+        r"[a-záéíóúñ][\wáéíóúñ-]*(?:\s+[\wáéíóúñ-]+){0,7})(?=[,.;\n]|$)",
+        text[product.end :],
+        re.I,
+    )
+    if not match:
+        return None
+    start = product.end + match.start("detail")
+    end = product.end + match.end("detail")
+    detail = text[start:end]
+    if is_explicitly_negated(text, start) or re.search(
+        r"\b(?:prueb[ao]|probar|probando)\b.*\b(?:audio|voz|micr[oó]fono)\b"
+        r"|\b(?:audio|micr[oó]fono)\b.*\b(?:prueb[ao]|probar|probando)\b",
+        detail,
+        re.I,
+    ):
+        return None
+    return Match(start, end, detail, "DESCRIPCION_COMERCIAL")
+
+
 class RulesEngine:
     rules_version = "prf04-rules-money-2"
 
@@ -365,8 +392,14 @@ class RulesEngine:
                     message="Separate product descriptions require review.",
                 )
             )
+        generic_detail = (
+            _generic_description(text, products[0])
+            if re.fullmatch(r"muebles?", products[0].text, re.I)
+            else None
+        )
         if re.fullmatch(r"muebles?", products[0].text, re.I) and not (
-            _GENERIC_FURNITURE_DETAIL.search(text[: products[0].start] + text[products[0].end :])
+            generic_detail
+            or _GENERIC_FURNITURE_DETAIL.search(text[: products[0].start] + text[products[0].end :])
             or any(
                 find_measurements(text, axis)
                 for axis in ("ancho", "alto", "largo", "profundidad", "diametro")
@@ -395,6 +428,20 @@ class RulesEngine:
                 started,
             )
         candidate(products[0])
+        if generic_detail:
+            candidate(
+                generic_detail,
+                "UNRESOLVED",
+                "Descripción comercial conservada para revisión; no asigna atributos estructurados.",
+            )
+            warnings.append(
+                Warning(
+                    code="UNKNOWN_TERM",
+                    path="/item_proposal/name",
+                    severity="REVIEW",
+                    message="Revise la descripción del mueble; los atributos no reconocidos no se completan.",
+                )
+            )
         quantity = find_quantity(text, main_product=products[0])
         if quantity:
             # Sólo correcciones contiguas y encadenadas del mismo campo.
