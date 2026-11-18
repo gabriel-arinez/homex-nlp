@@ -159,12 +159,48 @@ class Extractor:
 
     def extract(self):
         self.catalogs()
-        self.labeled(
-            "nombre",
-            r"\b(?:nombre(?: comercial)?|producto)\b\s*(?::|es)?\s*"
-            r"(.+?)(?=[,.;\n]|\s+(?:mejor|corrijo|perd[oó]n|modelo|marca|color|precio|unidad|descripci[oó]n|observaciones)\b|$)",
-        )
-        if "nombre" not in self.result.fields:
+        names = []
+        for match in re.finditer(
+            _EXPLICIT_PRODUCT_NAME.pattern
+            + r"(.+?)(?=[,.;\n]|\s+(?:mejor|corrijo|perd[oó]n|modelo|marca|color|precio|unidad|descripci[oó]n|observaciones)\b|$)",
+            self.text,
+            re.I,
+        ):
+            start, end = match.span(1)
+            introduction = self.text[match.start() : start]
+            # An article plus a predicate refers to an existing product; it is
+            # not a naming declaration. Delimited labels remain authoritative.
+            if (
+                re.search(r"\b(?:el|este|ese)\s+$", self.text[: match.start()], re.I)
+                and re.fullmatch(r"producto\s+", introduction, re.I)
+                and re.match(
+                    r"(?:tiene|lleva|incluye|cuesta|mencionado|anterior|referido)\b",
+                    self.text[start:end],
+                    re.I,
+                )
+            ):
+                continue
+            # Spoken introductions delimit features; existing authoritative
+            # labels still permit literal names such as "Mesa con estilo".
+            prefix = re.split(r"[.;\n]", self.text[: match.start()])[-1]
+            if re.search(
+                r"\b(?:llamado|denominado|nuevo|se llama|es|corrijo)\b", introduction, re.I
+            ) or re.search(
+                r"\b(?:quiero|necesito|registrar|registra|agregar|crear)\b", prefix, re.I
+            ):
+                feature = re.search(
+                    r"\s+(?:con\b|de\s+(?:malla|espuma|estructura|patas|madera|"
+                    r"aglomerado|melamina|MDF|HDF|PVC|metal|acero|vidrio)\b)",
+                    self.text[start:end],
+                    re.I,
+                )
+                if feature:
+                    end = start + feature.start()
+            while end > start and self.text[end - 1].isspace():
+                end -= 1
+            names.append((start, end, self.text[start:end]))
+        self.add("nombre", names)
+        if not names:
             # Only an initial noun phrase or an explicit introduction is a name.
             # Technical and commercial clauses are kept out of this phrase.
             self.labeled(
@@ -534,10 +570,49 @@ _PRODUCT_CUE = re.compile(
     r"sof[aá]|banco|piso|zócalo|zocalo)\b",
     re.I,
 )
+# Match the introduction, not the name: the same cue drives extraction and
+# eligibility even when sellers introduce it in the middle of a sentence.
 _EXPLICIT_PRODUCT_NAME = re.compile(
-    r"^\s*(?:nombre(?:\s+comercial)?|producto)\b\s*(?::|es)?\s*\w",
+    r"\b(?:corrijo\s+(?:el\s+)?nombre(?:\s+comercial)?\s+a\s+|"
+    r"(?:nombre(?:\s+comercial)?|producto(?:\s+nuevo)?|se\s+llama)\b"
+    r"\s*(?::|(?:es|llamado|denominado)\b)?\s*)",
     re.I,
 )
+
+
+def _conversational_name(name):
+    """Recognize utterance shape, never ban words inside legitimate names."""
+    return bool(
+        re.match(
+            r"^(?:hola\b|buen[oa]s?\b|probando\b|prueba(?:\s+de\s+(?:audio|voz|microfono))?$"
+            r"|(?:esto|eso)\s+es\b|est(?:oy|amos)\s+probando\b"
+            r"|(?:el|este|ese)\s+producto\b|uno\b|un[ao]?\s+mueble(?:s)?(?:$|\s+(?:precio|color)$))",
+            fold(name).strip(),
+        )
+    )
+
+
+def _open_name_phrase(name):
+    # Product nouns are open vocabulary. Positive descriptor morphology or a
+    # proper-name complement supports a short noun phrase; mere word count does
+    # not. These productive suffixes are not a product-name dictionary.
+    # A negated attribute is not positive identity evidence. Explicit literal
+    # naming declarations bypass this inference gate and retain their words.
+    positive = re.split(r"\b(?:sin|no|ni)\b", name, maxsplit=1, flags=re.I)[0]
+    words = re.findall(r"[^\W\d_]+(?:-[^\W\d_]+)*", positive, re.UNICODE)
+    if not 2 <= len(words) <= 8 or len({fold(w) for w in words}) < 2:
+        return False
+    if _conversational_name(name) or re.fullmatch(
+        r"(?:esto|eso|ello|todo|nada|algo|yo|tu|nosotros|estoy|estamos|quiz[aá])",
+        fold(words[0]),
+    ):
+        return False
+    descriptor = re.compile(
+        r".+(?:iv[oa]s?|ic[oa]s?|al(?:es)?|ar(?:es)?|able(?:s)?|ible(?:s)?|"
+        r"ad[oa]s?|id[oa]s?|ante(?:s)?|ente(?:s)?|iz[oa]s?|il(?:es)?)$",
+        re.I,
+    )
+    return any(descriptor.fullmatch(fold(word)) or word[0].isupper() for word in words[1:])
 
 
 def extract_catalog(request: CatalogRequest) -> CatalogResult:
@@ -579,7 +654,13 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
                 evidence_ids=[e.candidate_id for e in result.evidence if e.label == "nombre"],
             )
         )
-    explicitly_named = bool(_EXPLICIT_PRODUCT_NAME.search(request.text)) and not category_conflict
+    explicit_starts = {cue.end() for cue in _EXPLICIT_PRODUCT_NAME.finditer(request.text)}
+    explicitly_named = not category_conflict and any(
+        candidate.label == "nombre"
+        and candidate.decision == "ACCEPTED"
+        and candidate.start in explicit_starts
+        for candidate in result.evidence
+    )
     has_product_noun = bool(_PRODUCT_CUE.search(str(result.fields.get("nombre", ""))))
     has_structured_fields = any(key not in {"nombre", "observaciones"} for key in result.fields)
     inferred_name = str(result.fields.get("nombre", ""))
@@ -587,6 +668,7 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
     if (
         not explicitly_named
         and not has_product_noun
+        and not _open_name_phrase(name)
         and not (re.search(r"\bmuebles?\b", inferred_name, re.I) and has_structured_fields)
         and not (has_counted_name and has_structured_fields)
     ):
@@ -603,6 +685,23 @@ def extract_catalog(request: CatalogRequest) -> CatalogResult:
                 "Sin evidencia comercial suficiente; complete el formulario manualmente."
             )
             result.unrecognized = [request.text] if request.text.strip() else []
+    if explicitly_named and "nombre" in result.fields and _conversational_name(name):
+        message = "El nombre puede ser una prueba de voz; confirme la intención comercial."
+        result.warnings.append(message)
+        result.field_reviews.append(
+            FieldReview(
+                review_id="AMBIGUOUS_COMMERCIAL_NAME:nombre",
+                code="AMBIGUOUS_COMMERCIAL_NAME",
+                severity="REVIEW",
+                message=message,
+                field="nombre",
+                evidence_ids=[
+                    e.candidate_id
+                    for e in result.evidence
+                    if e.label == "nombre" and e.decision == "ACCEPTED"
+                ],
+            )
+        )
     for field in sorted({e.label for e in result.evidence if e.decision == "UNRESOLVED"}):
         evidence = [e for e in result.evidence if e.label == field and e.decision == "UNRESOLVED"]
         if any(r.field == field for r in result.field_reviews):
