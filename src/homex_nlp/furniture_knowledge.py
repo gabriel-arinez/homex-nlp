@@ -257,6 +257,102 @@ def enrich_knowledge(item, candidates, text, warnings):
     from homex_nlp.magnitudes import NUMBER, UNIT, length
     from homex_nlp.rules import _fragmento_numerico_truncado, is_explicitly_negated
 
+    def retain_unknown(start, end):
+        if is_explicitly_negated(text, start):
+            return
+        segment = text[start:end].strip()
+        if not segment:
+            return
+        add(
+            start,
+            start + len(segment),
+            "ESPECIFICACION",
+            segment,
+            "UNRESOLVED",
+            "Unmapped literal technical description; confirm meaning without a catalog reference",
+        )
+        retained.append(segment)
+
+    # These phrases preserve spoken evidence, not a new canonical material or finish.
+    for m in re.finditer(
+        r"\benchapad[oa]s?\b|\bacabado\s+(?:(?:de|con)\s+)?poliuretano\b", text, re.I
+    ):
+        retain_unknown(m.start(), m.end())
+
+    # Explicit brand cues are required. Stop before another field or owner clause.
+    stops = (
+        r"color(?:es)?|modelo|precio|de|con|y|sin|no|marca|material(?:es)?|acabado|"
+        r"en|garant[ií]a|ancho|alto|largo|profundidad|para|capacidad"
+    )
+    # Nominal connectors and numeric tokens can be part of an unknown brand.
+    # Retain the complete literal clause, cutting only at another explicit field,
+    # measured quantity, commercial amount or introduced component/order.
+    brand_boundary = re.compile(
+        r"[,;\n]|[.](?!\d)|\b(?:color(?:es)?|modelo|precio|marca|material(?:es)?|"
+        r"acabado|garant[ií]a|ancho|alto|largo|profundidad|capacidad)\b"
+        rf"|\b(?:(?:de|con|en)\s+)?{NUMBER}\s*{UNIT}\b"
+        rf"|\b(?:por|a)\s+{NUMBER}\s*(?:bolivianos?|bol[ií]vares?|Bs|USD|d[oó]lares?)\b"
+        r"|\b(?:con|incluye|incorpora)\s+",
+        re.I,
+    )
+    for cue in re.finditer(r"\bmarca\s+", text, re.I):
+        tail = text[cue.end() :]
+        boundary = brand_boundary.search(tail)
+        end = cue.end() + boundary.start() if boundary else len(text)
+        # A counted new entity after 'y' is an owner boundary, not a brand token.
+        for c in candidates:
+            if c.label not in {"PRODUCTO", "COMPONENTE"} or not cue.end() <= c.start < end:
+                continue
+            connector = re.search(rf"\by\s+(?:{NUMBER}\s+)?$", text[cue.end() : c.start], re.I)
+            if connector:
+                end = cue.end() + connector.start()
+        end = len(text[:end].rstrip())
+        if end <= cue.end() or not re.search(r"[a-záéíóúñ]", text[cue.end() : end], re.I):
+            continue
+        if any(c.label == "MARCA" and c.start < end and cue.start() < c.end for c in candidates):
+            continue
+        retain_unknown(cue.start(), end)
+
+    # Only a direct main-noun complement or an explicit material cue licenses
+    # this description. Its classification stays unknown, never MATERIAL.
+    material_word = rf"(?!(?:{stops}|personas?|puestos?|ruedas?|caj[oó]n(?:es)?)\b)[a-záéíóúñ]+"
+    material_tail = rf"{material_word}(?:\s+{material_word}){{0,2}}\b"
+    material_matches = list(
+        re.finditer(rf"\bmaterial(?:es)?\s+(?:de\s+)?{material_tail}", text, re.I)
+    )
+    main = next((c for c in candidates if c.label == "PRODUCTO" and c.decision == "ACCEPTED"), None)
+    if main:
+        m = re.compile(rf"\s+(?P<detail>de\s+{material_tail})", re.I).match(text, main.end)
+        if m:
+            material_matches.append(m)
+    for m in material_matches:
+        start = m.start("detail") if "detail" in m.re.groupindex else m.start()
+        end = m.end()
+        segment = text[start:end]
+        value = re.sub(r"^(?:material(?:es)?\s+)?(?:de\s+)?", "", segment, flags=re.I)
+        if (
+            re.match(rf"(?:{NUMBER})\b", value, re.I)
+            or re.search(r"\d", text[end : end + 1])
+            or any(
+                c.label
+                in {
+                    "MATERIAL",
+                    "COLOR",
+                    "ACCESORIO",
+                    "ANCHO",
+                    "ALTO",
+                    "LARGO",
+                    "PROFUNDIDAD",
+                    "ESPESOR",
+                }
+                and c.start < end
+                and start < c.end
+                for c in candidates
+            )
+        ):
+            continue
+        retain_unknown(start, end)
+
     for m in re.finditer(rf"(?<![\w.,]){NUMBER}\s*{UNIT}", text, re.I):
         value, unit = length(m.group())
         if (

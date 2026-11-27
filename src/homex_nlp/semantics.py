@@ -67,10 +67,28 @@ CORRECCION_INCOMPLETA = re.compile(
 
 def completar_relaciones(item, candidates, text, warnings):
     """Asocia sólo dentro de la cláusula de una pieza, sin propagar atributos."""
+
+    def descriptive_drawer(start, value):
+        return re.match(r"(?:caj[oó]n(?:es)?|gavetas?)\b", value, re.I) and re.search(
+            r"\b(?:marca|modelo)\s+(?:(?:el|la|los|las)\s+)?$", text[:start], re.I
+        )
+
+    # A literal brand/model value is not an introduced physical drawer.
+    rejected = set()
+    for candidate in candidates:
+        if candidate.label == "ACCESORIO" and descriptive_drawer(candidate.start, candidate.text):
+            candidate.decision = "REJECTED"
+            candidate.reason = "Brand/model literal, not a physical component or accessory"
+            rejected.add(candidate.candidate_id)
+    item.accessories = [
+        a for a in item.accessories if not any(e in rejected for e in a.evidence_ids)
+    ]
     piezas = [
         pieza
         for pieza in re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I)
         if not (
+            descriptive_drawer(pieza.start(), pieza.group())
+            or
             # The ASR alias needs an introduced composition, not a bare noun.
             re.match(r"credencia\b", pieza.group(), re.I)
             and not re.search(
