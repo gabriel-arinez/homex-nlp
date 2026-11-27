@@ -60,7 +60,7 @@ class CatalogResult(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     field_reviews: list[FieldReview] = Field(default_factory=list)
     unrecognized: list[str] = Field(default_factory=list)
-    version: str = "catalog-0.1.31"
+    version: str = "catalog-0.1.32"
 
 
 def fold(text):

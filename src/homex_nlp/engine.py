@@ -75,7 +75,7 @@ def _generic_description(text: str, product: Match) -> Match | None:
 
 
 class RulesEngine:
-    rules_version = "prf04-rules-context-3"
+    rules_version = "prf04-rules-context-4"
 
     def extract(self, request: ExtractionRequest) -> ExtractionResult:
         started = perf_counter()
