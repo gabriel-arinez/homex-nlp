@@ -165,4 +165,13 @@ def test_unclassified_explicit_measurement_is_retained_without_guessing_substrat
         c.label == "MATERIAL" and c.normalized_value in {"melamina", "Novopan"}
         for c in result.candidates
     )
-    assert all(g.unit is None for g in result.item_proposal.thicknesses)
+    assert [(g.value, g.unit, g.value_mm) for g in result.item_proposal.thicknesses] == [
+        ("28", "mm", "28")
+    ]
+    assert any(
+        c.label == "ESPESOR"
+        and c.decision == "UNRESOLVED"
+        and c.normalized_value.get("unit_inferred")
+        for c in result.candidates
+        if isinstance(c.normalized_value, dict)
+    )

@@ -379,6 +379,22 @@ class RulesEngine:
                 started,
             )
         if not products:
+            # Technical fragments retain source evidence but cannot establish
+            # a commercial furniture identity or a fabricated proposal.
+            for thickness in find_thicknesses(text):
+                candidate(
+                    thickness,
+                    "UNRESOLVED",
+                    "Technical gauge evidence; furniture identity and piece role require confirmation",
+                )
+                value, unit = thickness.value
+                if unit is None and Decimal("0.5") <= value <= 60:
+                    candidates[-1].normalized_value = {
+                        "value": str(value),
+                        "unit": "mm",
+                        "value_mm": str(value),
+                        "unit_inferred": True,
+                    }
             return self._result(
                 request,
                 None,

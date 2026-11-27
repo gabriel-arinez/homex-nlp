@@ -1000,9 +1000,20 @@ def find_thicknesses(text: str) -> list[Match]:
             text[found[-1].end : match.start()],
             re.I,
         )
-        if not (explicit or (board or continuation) and match.group("unit")):
+        from homex_nlp.thickness_context import contextual_gauge
+
+        contextual = contextual_gauge(text, match.start(), match.end())
+        if not (explicit or (board or continuation) and match.group("unit") or contextual):
             continue
         value, unit = length(match.group())
+        if not explicit and re.match(
+            r"\s*(?:de\s+)?(?:largo|longitud|ancho|alto|fondo|profundidad|bolivianos|d[oó]lares)\b",
+            after,
+            re.I,
+        ):
+            continue
+        if unit is None and not explicit and (value is None or not Decimal("0.5") <= value <= 60):
+            continue
         if (
             value
             and (continuation or not _fragmento_numerico_truncado(text, match.start()))

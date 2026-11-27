@@ -714,11 +714,30 @@ def completar_relaciones(item, candidates, text, warnings):
             if ref.candidate_id not in item.unresolved:
                 item.unresolved.append(ref.candidate_id)
         elif not re.search(
-            r"\b(?:espesor|grosor)\b", text[max(0, ref.start - 25) : ref.end + 20], re.I
+            r"\b(?:espesor|grosor|engrosad[oa])\b",
+            text[max(0, ref.start - 65) : ref.end + 20],
+            re.I,
         ):
             item.thicknesses.remove(thickness)
             ref.decision = "UNRESOLVED"
             ref.reason = "Oral thickness requires a representable piece owner"
+            if ref.candidate_id not in item.unresolved:
+                item.unresolved.append(ref.candidate_id)
+
+    # An edge-band gauge is not a board gauge, even inside the board frame.
+    # The contract has no accessory measurement owner: retain literal gauge
+    # evidence and require review rather than borrowing a parent component.
+    for thickness in item.thicknesses:
+        ref = next((c for c in candidates if c.candidate_id in thickness.evidence_ids), None)
+        if ref and re.search(
+            r"\btapacantos?(?:\s+de\s+(?:PVC|ABS))?\s+de\s+$",
+            text[max(0, ref.start - 70) : ref.start],
+            re.I,
+        ):
+            thickness.component_ref = None
+            ref.component_ref = None
+            ref.decision = "UNRESOLVED"
+            ref.reason = "Explicit accessory gauge; accessory role and owner require confirmation, not parent board thickness"
             if ref.candidate_id not in item.unresolved:
                 item.unresolved.append(ref.candidate_id)
 

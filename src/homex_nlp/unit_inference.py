@@ -6,6 +6,7 @@ from decimal import Decimal
 from importlib.resources import files
 
 from homex_nlp.contracts.evidence import Warning
+from homex_nlp.thickness_context import contextual_gauge
 
 PROFILES = json.loads(
     files("homex_nlp.resources").joinpath("dimensional_profiles.json").read_text()
@@ -43,10 +44,64 @@ def _same_magnitude_context(dimension, neighbors, evidence, start):
 def infer_units(item, candidates, text, warnings):
     evidence = {c.candidate_id: c for c in candidates}
     explicit = [d for d in item.dimensions if d.unit]
+
+    def profile_for(dimension):
+        owner = next(
+            (c.name for c in item.components if c.component_id == dimension.component_ref), None
+        )
+        context = (
+            owner if dimension.component_ref else (item.furniture_type_candidate or item.name or "")
+        )
+        return next(
+            (
+                p
+                for p in reversed(list(PROFILES.values()))
+                if context and re.search(p["context"], context, re.I)
+            ),
+            None,
+        )
+
+    def plausible_units(dimension):
+        if dimension in item.thicknesses:
+            own = [evidence[e] for e in dimension.evidence_ids if e in evidence]
+            strong = any(contextual_gauge(text, c.start, c.end) for c in own)
+            return ["mm"] if strong and Decimal("0.5") <= Decimal(dimension.value) <= 60 else []
+        profile = profile_for(dimension)
+        if not profile:
+            return []
+        maximum = profile.get("axis_maximum_mm", {}).get(
+            getattr(dimension, "axis", None), profile["maximum_mm"]
+        )
+        return [
+            u
+            for u in profile["units"]
+            if profile["minimum_mm"] <= Decimal(dimension.value) * FACTORS[u] <= maximum
+        ]
+
+    for dimension in explicit:
+        profile = profile_for(dimension)
+        if profile and dimension.unit not in plausible_units(dimension):
+            warnings.append(
+                Warning(
+                    code="CONFLICTING_VALUES",
+                    path="/item_proposal/dimensions",
+                    severity="REVIEW",
+                    message=f"Explicit atypical dimension retained: {dimension.original_text}; confirm custom size.",
+                )
+            )
     for dimension in [*item.dimensions, *item.thicknesses]:
-        if dimension.unit or dimension in item.thicknesses:
+        if dimension.unit:
             continue
-        own = [evidence[e] for e in dimension.evidence_ids if e in evidence]
+        # Group references support a scalar but are never that scalar's value.
+        own = [
+            evidence[e]
+            for e in dimension.evidence_ids
+            if e in evidence
+            and not (
+                isinstance(evidence[e].normalized_value, dict)
+                and "operands" in evidence[e].normalized_value
+            )
+        ]
         if not own:
             continue
         unit, support, reason = None, [], None
@@ -80,33 +135,19 @@ def infer_units(item, candidates, text, warnings):
             support = [e for d in contextual for e in d.evidence_ids]
             reason = "Inferred unit from local same-owner same-magnitude dimensional context"
         elif dimension in item.dimensions:
-            owner = next(
-                (c.name for c in item.components if c.component_id == dimension.component_ref), None
+            plausible = plausible_units(dimension)
+            if len(plausible) == 1:
+                unit = plausible[0]
+                reason = "Inferred unit from contextual dimensional profile; confirm custom furniture dimensions"
+        plausible = plausible_units(dimension)
+        if unit not in plausible:
+            unit = plausible[0] if len(plausible) == 1 else None
+            reason = (
+                "Inferred unit from contextual scale; explicit local unit would be disproportionate"
             )
-            profile_context = (
-                owner
-                if dimension.component_ref
-                else (item.furniture_type_candidate or item.name or "")
-            )
-            profile = next(
-                (
-                    p
-                    for p in reversed(list(PROFILES.values()))
-                    if profile_context and re.search(p["context"], profile_context, re.I)
-                ),
-                None,
-            )
-            if profile:
-                plausible = [
-                    u
-                    for u in profile["units"]
-                    if profile["minimum_mm"]
-                    <= Decimal(dimension.value) * FACTORS[u]
-                    <= profile["maximum_mm"]
-                ]
-                if len(plausible) == 1:
-                    unit = plausible[0]
-                    reason = "Inferred unit from contextual dimensional profile; confirm custom furniture dimensions"
+        if dimension in item.thicknesses and len(plausible) == 1:
+            unit = plausible[0]
+            reason = "Inferred millimetre gauge from thickness construction; confirm piece role and owner"
         if not unit:
             continue
         dimension.unit = unit
@@ -126,7 +167,9 @@ def infer_units(item, candidates, text, warnings):
         warnings.append(
             Warning(
                 code="MISSING_UNIT",
-                path="/item_proposal/dimensions",
+                path="/item_proposal/thicknesses"
+                if dimension in item.thicknesses
+                else "/item_proposal/dimensions",
                 severity="REVIEW",
                 message=f"Inferred unit {unit} for {dimension.original_text}; confirm this proposal.",
             )

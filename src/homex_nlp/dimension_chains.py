@@ -132,6 +132,9 @@ def complete_dimension_chains(item, candidates, text, warnings):
         # A sole trailing unit scopes the homogeneous list. Mixed-unit lists
         # retain only each operand's declared unit; no interior-unit guessing.
         shared = parsed[-1][1] if all(u is None for _, u in parsed[:-1]) else None
+        group.normalized_value = {
+            "operands": [{"value": str(value), "unit": unit or shared} for value, unit in parsed]
+        }
         group.component_ref = owner
         for span, (value, unit) in zip(spans, parsed):
             unit = unit or shared

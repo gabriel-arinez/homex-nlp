@@ -76,6 +76,10 @@ def test_conflicting_or_other_owner_units_do_not_license_ellipsis(text):
     depth = next(d for d in result.item_proposal.dimensions if d.axis == "profundidad")
     evidence = [c for c in result.candidates if c.candidate_id in depth.evidence_ids]
     assert not any(c.reason and "same-magnitude" in c.reason for c in evidence)
+    if "Credenza de 1 metro" in text:
+        assert depth.unit == "cm" and depth.value_mm == "550"
+        assert depth.component_ref is not None
+        assert all(c.component_ref == depth.component_ref for c in evidence)
 
 
 def test_explicit_atypical_depth_is_never_replaced():
