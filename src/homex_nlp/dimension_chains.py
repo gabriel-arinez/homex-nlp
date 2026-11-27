@@ -1,62 +1,19 @@
 """Keep ordered dimension evidence without guessing axes or implicit owners."""
 
 import re
-from decimal import Decimal
 
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Dimension
-from homex_nlp.rules import (
-    _DIM_PALABRAS_PATRON,
-    _dimension_numero_palabras,
-    is_explicitly_negated,
+from homex_nlp.magnitudes import OPERAND, length
+from homex_nlp.rules import is_explicitly_negated
+
+CHAIN = re.compile(
+    r"(?<![\w.,+−-])" + OPERAND + r"(?:\s*(?:[x×]|\bpor\b)\s*" + OPERAND + r")+(?!\w)", re.I
 )
-
-NUMBER = r"(?:\d+(?:[.,]\d+)?|" + _DIM_PALABRAS_PATRON + r")"
-UNIT = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
-ORAL = NUMBER + r"\s+metros?\s+(?:y\s+)?" + NUMBER + r"(?:\s*" + UNIT + r")?"
-OPERAND = r"(?:" + ORAL + r"|" + NUMBER + r"\s*(?:" + UNIT + r")?)"
-CHAIN = re.compile(r"(?<![\w.,+−-])" + OPERAND + r"(?:\s*[x×]\s*" + OPERAND + r")+(?!\w)", re.I)
-
-
-def number(raw):
-    if re.fullmatch(r"\d+(?:[.,]\d+)?", raw):
-        return Decimal(raw.replace(",", "."))
-    return _dimension_numero_palabras(raw)
 
 
 def operand(raw):
-    oral = re.fullmatch(
-        rf"({NUMBER})\s+(metros?)\s+(?:(y)\s+)?({NUMBER})(?:\s*({UNIT}))?", raw, re.I
-    )
-    if oral:
-        metres, remainder = number(oral[1]), number(oral[4])
-        unit = (oral[5] or "").casefold()
-        if (
-            metres is None
-            or remainder is None
-            or not 1 <= metres <= 9
-            or not 1 <= remainder <= 99
-            or (metres == 1) != (oral[2].casefold() == "metro")
-            or unit
-            and not (unit == "cm" or unit.startswith("cent"))
-            or not unit
-            and (oral[3] or remainder < 10)
-        ):
-            return None, None
-        return metres * 100 + remainder, "cm"
-    match = re.fullmatch(rf"({NUMBER})\s*({UNIT})?", raw, re.I)
-    if not match:
-        return None, None
-    unit = (match[2] or "").casefold()
-    return number(match[1]), (
-        "mm"
-        if unit.startswith(("mili", "milí")) or unit == "mm"
-        else "cm"
-        if unit.startswith("cent") or unit == "cm"
-        else "m"
-        if unit
-        else None
-    )
+    return length(raw)
 
 
 def explicit_owner(item, candidates, text, start):
@@ -95,10 +52,10 @@ def positive_dimension_prefix(text):
         return (
             len(values) in {2, 3}
             and all(v is not None and v > 0 for v in values)
-            and not re.match(r"\s*[x×]", tail[chain.end() :], re.I)
+            and not re.match(r"\s*(?:[x×]|\bpor\b)", tail[chain.end() :], re.I)
         )
     single = re.match(OPERAND, tail, re.I)
-    if not single or re.match(r"\s*[x×]", tail[single.end() :], re.I):
+    if not single or re.match(r"\s*(?:[x×]|\bpor\b)", tail[single.end() :], re.I):
         return False
     value, unit = operand(single.group().strip())
     return value is not None and value > 0 and unit is not None

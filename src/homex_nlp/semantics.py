@@ -666,16 +666,8 @@ def completar_relaciones(item, candidates, text, warnings):
     # walk and silently re-parent explicit measurements after a chain.
     complete_dimension_chains(item, candidates, text, warnings)
     resolver_atributos(item, candidates, text, warnings)
-    # La nueva ruta oral no afirma un espesor GENERAL por carecer de pieza.
-    # El valor literal permanece trazable y resoluble por PRF-03. La ruta
-    # numérica histórica conserva su representación contractual de pendiente.
-    for thickness in item.thicknesses[:]:
-        if thickness.component_ref is None and not re.search(r"\d", thickness.original_text):
-            ref = next(c for c in candidates if c.candidate_id in thickness.evidence_ids)
-            ref.decision = "UNRESOLVED"
-            ref.reason = "Espesor oral sin pieza identificada"
-            item.unresolved.append(ref.candidate_id)
-            item.thicknesses.remove(thickness)
+    # Literal thicknesses remain structured for both words and digits;
+    # the existing missing-owner warning keeps the association reviewable.
     return item
 
 

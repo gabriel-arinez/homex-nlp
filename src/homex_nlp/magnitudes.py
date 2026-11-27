@@ -1,0 +1,65 @@
+"""Reusable source-preserving scalar and compound-length grammar."""
+
+import re
+import unicodedata
+from decimal import Decimal
+
+from homex_nlp.monetary import AMOUNT, monetary_amount
+
+NUMBER = rf"(?!y\b)(?:\d+(?:[.,]\d+)?|{AMOUNT})"
+UNIT = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
+FRACTION = r"(?:medio|media|cuarto)"
+COMPOUND = (
+    rf"(?:{FRACTION}\s+metros?|{NUMBER}\s+metros?\s+"
+    rf"(?:(?:y\s+)?{FRACTION}|(?:(?:y|con)\s+)?{NUMBER}(?:\s*{UNIT})?))"
+)
+OPERAND = rf"(?:{COMPOUND}|{NUMBER}\s*(?:{UNIT})?)"
+
+
+def scalar(raw):
+    def numeric(value):
+        return Decimal(value.replace(",", ".")) if re.fullmatch(r"\d+(?:[.,]\d+)?", value) else None
+
+    return monetary_amount(raw, numeric)
+
+
+def unit_name(raw):
+    raw = "".join(
+        c for c in unicodedata.normalize("NFD", raw.casefold()) if unicodedata.category(c) != "Mn"
+    )
+    return (
+        "mm"
+        if raw == "mm" or raw.startswith("mili")
+        else "cm"
+        if raw == "cm" or raw.startswith("cent")
+        else "m"
+    )
+
+
+def length(raw):
+    fraction = re.fullmatch(rf"({FRACTION})\s+metros?", raw, re.I)
+    if fraction:
+        return Decimal("25" if fraction[1].lower() == "cuarto" else "50"), "cm"
+    compound = re.fullmatch(
+        rf"({NUMBER})\s+metros?\s+(?:(y|con)\s+)?({FRACTION}|{NUMBER})(?:\s*({UNIT}))?", raw, re.I
+    )
+    if compound:
+        metres = scalar(compound[1])
+        tail = compound[3].lower()
+        if metres is None or not 0 < metres <= 9:
+            return None, None
+        if tail in {"medio", "media", "cuarto"}:
+            return metres * 100 + Decimal("25" if tail == "cuarto" else "50"), "cm"
+        rest = scalar(tail)
+        if rest is None or not 0 < rest < 100:
+            return None, None
+        if compound[4]:
+            if unit_name(compound[4]) != "cm":
+                return None, None
+        elif compound[2] or rest < 10:
+            return None, None
+        return metres * 100 + rest, "cm"
+    simple = re.fullmatch(rf"({NUMBER})\s*({UNIT})?", raw, re.I)
+    return (
+        (scalar(simple[1]), unit_name(simple[2]) if simple[2] else None) if simple else (None, None)
+    )

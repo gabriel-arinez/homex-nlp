@@ -557,11 +557,22 @@ class RulesEngine:
                 continue
             evidence_id = candidate(thickness)
             value, unit = thickness.value
+            if unit is None:
+                candidates[-1].decision = "UNRESOLVED"
+                candidates[-1].reason = "Thickness unit is not explicit"
+                warnings.append(
+                    Warning(
+                        code="MISSING_UNIT",
+                        path="/item_proposal/thicknesses",
+                        severity="REVIEW",
+                        message="Confirm the thickness unit.",
+                    )
+                )
             thicknesses.append(
                 Measurement(
                     value=str(value),
                     unit=unit,
-                    value_mm=str(value),
+                    value_mm=str(value * {"m": 1000, "cm": 10, "mm": 1}[unit]) if unit else None,
                     original_text=thickness.text,
                     evidence_ids=[evidence_id],
                 )
@@ -679,7 +690,13 @@ class RulesEngine:
         if price_match is None and price_mode is None:
             ambiguo = find_ambiguous_price(text)
             if ambiguo:
-                candidate(ambiguo, "UNRESOLVED")
+                candidate(
+                    ambiguo,
+                    "UNRESOLVED",
+                    "Inferred unit/total arithmetic equivalence for explicit quantity one; confirm price mode"
+                    if quantity and quantity.value == 1
+                    else "Commercial price mode is ambiguous",
+                )
                 warnings.append(
                     Warning(
                         code="REQUIRED_FIELD_MISSING",
@@ -798,6 +815,9 @@ class RulesEngine:
         from homex_nlp.semantics import completar_relaciones
 
         item = completar_relaciones(item, candidates, text, warnings)
+        from homex_nlp.unit_inference import infer_units
+
+        infer_units(item, candidates, text, warnings)
         return self._result(request, item, candidates, warnings, started)
 
     def _result(self, request, item, candidates, warnings, started):

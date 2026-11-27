@@ -383,7 +383,13 @@ def price_mentions(text: str):
     )
     mentions = sorted(
         [(m, "PRECIO_UNITARIO") for m in unit + declared_unit]
-        + [(m, "TOTAL_NEGOCIADO") for m in total],
+        + [
+            (m, "TOTAL_NEGOCIADO")
+            for m in total
+            + primero_aplicable(
+                r"(?<![\w.,−-])(?:por\s+)?(" + AMOUNT + r")\s*(?:" + moneda + r"\s+)?en\s+total\b"
+            )
+        ],
         key=lambda pair: pair[0].start(1),
     )
     unique = {}
@@ -523,13 +529,14 @@ def find_ambiguous_price(text: str) -> Match | None:
     """Conserva evidencia de «precio 7300» sin inventar su modalidad."""
     if find_price(text)[1] is not None:
         return None
-    match = re.search(r"\bprecio\s+(?:(?:es|de)\s+)?([\d.,]+)\b", text, re.I)
+    match = re.search(r"\bprecio\s+(?:(?:es|de)\s+)?(" + AMOUNT + r")", text, re.I)
     if not match:
         return None
-    valor = decimal_from_text(match.group(1))
+    valor = monetary_amount(match.group(1).rstrip(".,"), decimal_from_text)
     if valor is None:
         return None
-    return Match(match.start(1), match.end(1), match.group(1), "PRECIO_AMBIGUO", valor)
+    raw = match.group(1).rstrip(".,")
+    return Match(match.start(1), match.start(1) + len(raw), raw, "PRECIO_AMBIGUO", valor)
 
 
 # Valores dimensionales en palabras del ASR. Intencionadamente no se incorpora
@@ -604,67 +611,13 @@ _DIM_CENTENAS = {
 
 
 def _dimension_numero_palabras(raw: str) -> Decimal | None:
-    """Parseo estricto de enteros españoles 1..9999; nunca adivina valores.
+    """Read bounded spelled cardinal values through the shared scalar grammar."""
+    from homex_nlp.magnitudes import scalar
 
-    Rechaza gramáticas incompletas: «ciento y...», decenas + «ciento»,
-    tokens intermedios extraños y cifras mezcladas. Los offsets quedan intactos.
-    """
-    import unicodedata
-
-    frase = "".join(
-        char
-        for char in unicodedata.normalize("NFD", raw.casefold())
-        if unicodedata.category(char) != "Mn"
-    )
-    tokens = frase.split()
-    if not tokens or len(tokens) > 7:
+    if re.search(r"\d", raw) or len(raw.split()) > 7:
         return None
-
-    def menor_100(partes: list[str]) -> int | None:
-        if len(partes) == 1:
-            return (
-                _DIM_UNIDADES.get(partes[0])
-                or _DIM_CORTOS.get(partes[0])
-                or _DIM_DECENAS.get(partes[0])
-            )
-        if (
-            len(partes) == 3
-            and partes[1] == "y"
-            and partes[0] in _DIM_DECENAS
-            and partes[2] in _DIM_UNIDADES
-        ):
-            return _DIM_DECENAS[partes[0]] + _DIM_UNIDADES[partes[2]]
-        return None
-
-    def menor_1000(partes: list[str]) -> int | None:
-        if not partes:
-            return None
-        numero = menor_100(partes)
-        if numero is not None:
-            return numero
-        centena = _DIM_CENTENAS.get(partes[0])
-        if centena is None:
-            return None
-        if len(partes) == 1:
-            return centena if partes[0] != "ciento" else None
-        if partes[0] == "cien":
-            return None
-        resto = menor_100(partes[1:])
-        return centena + resto if resto is not None else None
-
-    if "mil" in tokens:
-        indice = tokens.index("mil")
-        if indice == 0:
-            miles = 1
-        elif indice == 1 and tokens[0] in _DIM_UNIDADES:
-            miles = _DIM_UNIDADES[tokens[0]]
-        else:
-            return None
-        resto = menor_1000(tokens[indice + 1 :]) if indice + 1 < len(tokens) else 0
-        numero = miles * 1000 + resto if resto is not None else None
-    else:
-        numero = menor_1000(tokens)
-    return Decimal(numero) if numero is not None and 1 <= numero <= 9999 else None
+    value = scalar(raw)
+    return value if value is not None and 1 <= value <= 9999 else None
 
 
 # La gramática se acota mediante léxico explícito. «y» sólo se acepta dentro
@@ -728,55 +681,27 @@ def _medidas_orales_compuestas(text: str, axis: str, axis_prefix: str, unit: str
     Se devuelven también spans inválidos para impedir que los lectores simples
     acepten sólo «20 de ancho» o «ancho un metro» de una expresión compuesta.
     """
-    numero = r"(?:\d+(?:[.,]\d+)*|" + _DIM_PALABRAS_PATRON + r")"
-    cuerpo = (
-        r"(?P<metros>" + numero + r")\s+(?P<unidad_m>metros?)\s+"
-        r"(?:(?P<conjuncion>y)\s+)?(?P<resto>" + numero + r")"
-        r"(?:\s*(?P<unidad_resto>" + unit + r"|pulgadas?\b|pies\b))?"
-    )
-    patrones = (
+    from homex_nlp.magnitudes import COMPOUND, length
+
+    patterns = (
+        re.compile(axis + axis_prefix + "(?P<length>" + COMPOUND + ")", re.I),
         re.compile(
-            r"\b"
-            + axis
-            + r"\b"
-            + axis_prefix
-            + cuerpo
-            + r"(?=\s*(?:[,.;]|$)|\s+y\s+(?:ancho|alto|altura|anchura|largo|longitud|profundidad|fondo|di[aá]metro)\b)",
-            re.I,
+            r"(?<![\w.,+−-])(?P<length>" + COMPOUND + r")\s+(?:de\s+)?" + axis + r"\b", re.I
         ),
-        re.compile(r"(?<![\w.,+\-])" + cuerpo + r"\s+(?:de\s+)?" + axis + r"\b", re.I),
     )
     found, spans = [], []
-    for patron in patrones:
-        for match in patron.finditer(text):
+    for pattern in patterns:
+        for match in pattern.finditer(text):
             spans.append((match.start(), match.end()))
-            if _fragmento_numerico_truncado(text, match.start("metros")):
+            if _fragmento_numerico_truncado(text, match.start("length")) or is_explicitly_negated(
+                text, match.start()
+            ):
                 continue
-            if is_explicitly_negated(text, match.start()):
-                continue
-
-            def entero(raw):
-                return (
-                    Decimal(raw)
-                    if re.fullmatch(r"[1-9][0-9]*", raw)
-                    else _dimension_numero_palabras(raw)
+            value, normalized = length(match.group("length"))
+            if value is not None:
+                found.append(
+                    Match(match.start(), match.end(), match.group(), "", (value, normalized))
                 )
-
-            metros, resto = entero(match.group("metros")), entero(match.group("resto"))
-            if metros is None or resto is None or not 1 <= metros <= 9 or not 1 <= resto <= 99:
-                continue
-            # Concordancia explícita, sin aceptar «dos metro» ni decimales.
-            if (metros == 1) != (match.group("unidad_m").casefold() == "metro"):
-                continue
-            unidad_resto = (match.group("unidad_resto") or "").casefold()
-            if unidad_resto:
-                if not (unidad_resto == "cm" or unidad_resto.startswith("cent")):
-                    continue
-            elif match.group("conjuncion") or resto < 10:
-                continue
-            found.append(
-                Match(match.start(), match.end(), match.group(), "", (metros * 100 + resto, "cm"))
-            )
     return found, spans
 
 
@@ -944,30 +869,32 @@ def find_measurements(text: str, label: str) -> list[Match]:
 
 
 def find_thicknesses(text: str) -> list[Match]:
-    spoken = []
-    for m in re.finditer(r"\b(" + _DIM_PALABRAS_PATRON + r")\s+(mm|mil[ií]metros?)\b", text, re.I):
-        value = _dimension_numero_palabras(m.group(1))
-        if value is not None and not _fragmento_numerico_truncado(text, m.start(1)):
-            spoken.append(
-                Match(m.start(1), m.end(2), text[m.start(1) : m.end(2)], "ESPESOR", (value, "mm"))
-            )
-    pattern = re.compile(r"\b(?:de\s+|a\s+|espesor\s+)?([\d.,]+)\s*(mm|mil[ií]metros?)\b", re.I)
-    return sorted(
-        spoken
-        + [
-            Match(
-                m.start(1),
-                m.end(2),
-                text[m.start(1) : m.end(2)],
-                "ESPESOR",
-                (decimal_from_text(m.group(1)), "mm"),
-            )
-            for m in pattern.finditer(text)
-            if decimal_from_text(m.group(1))
-            and not re.search(r"[-−]\s*$", text[max(0, m.start(1) - 3) : m.start(1)])
-        ],
-        key=lambda m: m.start,
-    )
+    """Only a thickness marker or a board substrate licenses thickness."""
+    from homex_nlp.magnitudes import NUMBER, UNIT, length
+
+    found = []
+    pattern = re.compile(r"\b(?P<value>" + NUMBER + r")\s*(?P<unit>" + UNIT + r")?", re.I)
+    for match in pattern.finditer(text):
+        before = text[max(0, match.start() - 65) : match.start()]
+        after = text[match.end() : match.end() + 30]
+        explicit = re.search(r"\bespesor\s*(?:(?:de|a)\s+)?$", before, re.I) or re.match(
+            r"\s+(?:de\s+)?espesor\b", after, re.I
+        )
+        board = re.search(
+            r"\b(?:melamina|mdf|mdp|tablero|cubierta|estructura|mes[oó]n|fald[oó]n|laterales?)\s*(?:(?:de|a)\s+)?$",
+            before,
+            re.I,
+        )
+        if not (explicit or board and match.group("unit")):
+            continue
+        value, unit = length(match.group())
+        if (
+            value
+            and not _fragmento_numerico_truncado(text, match.start())
+            and not is_explicitly_negated(text, match.start())
+        ):
+            found.append(Match(match.start(), match.end(), match.group(), "ESPESOR", (value, unit)))
+    return found
 
 
 def find_accessories(text: str) -> list[Match]:
