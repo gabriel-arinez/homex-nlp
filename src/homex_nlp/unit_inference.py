@@ -13,6 +13,33 @@ PROFILES = json.loads(
 FACTORS = {"m": 1000, "cm": 10, "mm": 1}
 
 
+def _same_magnitude_context(dimension, neighbors, evidence, start):
+    """Use relative local scale only for a named-axis, same-owner ellipse.
+
+    Mixed explicit units do not always conflict: a metre-valued height can
+    follow a centimetre-valued width/depth enumeration. Comparable raw values
+    supply a conservative contextual cue, not a furniture-size restriction.
+    The caller keeps this proposal unresolved and requires human review.
+    """
+    if not dimension.axis or any(not d.axis or d.axis == dimension.axis for d in neighbors):
+        return []
+    comparable = [
+        d
+        for d in neighbors
+        if max(Decimal(d.value), Decimal(dimension.value))
+        < 10 * min(Decimal(d.value), Decimal(dimension.value))
+    ]
+    if len({d.unit for d in comparable}) != 1:
+        return []
+    # A following differently scaled axis cannot introduce a unit backwards;
+    # at least one comparable explicit donor must precede this omission.
+    if not any(
+        max(evidence[e].end for e in d.evidence_ids if e in evidence) <= start for d in comparable
+    ):
+        return []
+    return comparable
+
+
 def infer_units(item, candidates, text, warnings):
     evidence = {c.candidate_id: c for c in candidates}
     explicit = [d for d in item.dimensions if d.unit]
@@ -44,8 +71,14 @@ def infer_units(item, candidates, text, warnings):
             support = [e for d in neighbors for e in d.evidence_ids]
             reason = "Inferred unit from local same-owner dimensional enumeration"
         elif neighbors:
-            # Conflicting explicit units cannot license an interior omission.
-            continue
+            contextual = _same_magnitude_context(dimension, neighbors, evidence, start)
+            if not contextual:
+                # Same-scale disagreement remains ambiguous; never use a
+                # profile to override conflicting local explicit evidence.
+                continue
+            unit = contextual[0].unit
+            support = [e for d in contextual for e in d.evidence_ids]
+            reason = "Inferred unit from local same-owner same-magnitude dimensional context"
         elif dimension in item.dimensions:
             owner = next(
                 (c.name for c in item.components if c.component_id == dimension.component_ref), None
