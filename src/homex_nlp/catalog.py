@@ -128,13 +128,13 @@ class Extractor:
             self.result.warnings.append(f"{field}: valores contradictorios; complete manualmente.")
 
     def labeled(self, field, pattern):
-        self.add(
-            field,
-            [
-                (m.start(1), m.end(1), m.group(1).strip())
-                for m in re.finditer(pattern, self.text, re.I)
-            ],
-        )
+        matches = []
+        for match in re.finditer(pattern, self.text, re.I):
+            start, end = match.span(1)
+            if field == "nombre":
+                start, end = self.name_span(start, end)
+            matches.append((start, end, self.text[start:end].strip()))
+        self.add(field, matches)
 
     def catalogs(self):
         for field, concept in self.concepts.items():
@@ -156,6 +156,22 @@ class Extractor:
                     for start, end in alias_matches(self.text, alias):
                         matches.append((start, end, value.id))
             self.add(field, matches)
+
+    def name_span(self, start, end):
+        """Exclude a quoted count only when followed by a product noun."""
+        prefix = re.match(
+            rf"(?:{AMOUNT})\s+(?:(?:metros?\s+cuadrados?|m²|m2)\s+(?:de\s+)?)?"
+            r"(?=(?:sillas?|sill[oó]n(?:es)?|pisos?|z[oó]calos?)\b)",
+            self.text[start:end],
+            re.I,
+        )
+        if prefix:
+            raw = re.split(r"\s+(?:metros?|m²|m2)\b", prefix.group(), maxsplit=1, flags=re.I)[
+                0
+            ].strip()
+            if monetary_amount(raw, decimal_from_text) is not None:
+                start += prefix.end()
+        return start, end
 
     def extract(self):
         self.catalogs()
@@ -198,16 +214,20 @@ class Extractor:
                     end = start + feature.start()
             while end > start and self.text[end - 1].isspace():
                 end -= 1
+            start, end = self.name_span(start, end)
             names.append((start, end, self.text[start:end]))
         self.add("nombre", names)
         if not names:
             # Only an initial noun phrase or an explicit introduction is a name.
             # Technical and commercial clauses are kept out of this phrase.
+            # A measured quotation prefix is not part of the commercial identity.
+            initial = re.match(r"^\s*", self.text).end()
+            name_start, _ = self.name_span(initial, len(self.text))
             self.labeled(
                 "nombre",
-                r"^\s*(?:(?:quiero registrar|registrar|agregar|crear|se llama)\s+(?:un[ao]?\s+)?)?"
-                # ASR may spell an initial count as digits. Keep the literal phrase,
-                # without turning a standalone measurement/amount into a product.
+                rf"^\s*.{{{name_start - initial}}}(?:(?:quiero registrar|registrar|agregar|crear|se llama)\s+(?:un[ao]?\s+)?)?"
+                # Counts are trimmed only with an explicit following product noun;
+                # standalone measurements and amounts never become product names.
                 r"((?!\d+\s+(?:mm|cm|m|mil[ií]metros?|cent[ií]metros?|metros?|"
                 r"bolivianos?|BOB|Bs|USD|d[oó]lares?)\b)(?:[1-9]\d*\s+)?"
                 r"(?!no\b|sin\b|nombres?\b|modelos?\b|color\b|marca\b|precio\b|cantidad\b|stock\b|total\b|espesor\b)"
@@ -319,11 +339,29 @@ class Extractor:
         for cue in re.finditer(r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*", self.text, re.I):
             start = cue.end()
             clause = re.split(
-                r"[,.;\n]|\s+de(?=\s+(?:madera|metal|acero|malla|espuma|color|material)\b)|\s+\b(?:modelo|c[oó]digo|cod|con|marca|color|tipo|material|diseño|diseno|acabado|espesor|largo|ancho|precio|unidad|descripci[oó]n|observaciones|mejor|corrijo|perd[oó]n)\b|\s+o(?=\s+(?:modelo|c[oó]digo|cod)\b)",
+                r"(?<!\d)[,.]|[,.](?!\d)|[;\n]|\s+de(?=\s+(?:madera|metal|acero|malla|espuma|color|material)\b)|\s+\b(?:modelo|c[oó]digo|cod|con|marca|color|tipo|material|diseño|diseno|acabado|espesor|largo|ancho|precio|unidad|descripci[oó]n|observaciones|mejor|corrijo|perd[oó]n)\b|\s+o(?=\s+(?:modelo|c[oó]digo|cod)\b)",
                 self.text[start:],
                 maxsplit=1,
                 flags=re.I,
             )[0].rstrip()
+            # Retain the entire punctuated identifier for confirmation rather
+            # than accepting NF-7 from NF guión 7,782.
+            if re.search(r"\d[,.]\d", clause):
+                end = start + len(clause)
+                spoken_spans[start] = end
+                self.result.evidence.append(
+                    Candidate(
+                        candidate_id=f"modelo-{start}-{end}",
+                        label="modelo",
+                        start=start,
+                        end=end,
+                        text=self.text[start:end],
+                        source="RULE",
+                        decision="UNRESOLVED",
+                        reason="Separador numérico ambiguo en código completo",
+                    )
+                )
+                continue
             status, value = _spoken_code_status(clause)
             if status == "NOT_CODE":
                 # Ordinary model prose must not become fallback code warnings.
@@ -365,7 +403,7 @@ class Extractor:
                 tail,
                 re.I,
             )
-            if re.search(r"gui[oó]n", raw, re.I):
+            if re.search(r"gui[oó]n", raw, re.I) and not continuation:
                 normalized = re.sub(r"\s*gui[oó]n\s*", "-", raw, flags=re.I).strip()
                 matches.append((m.start(1), m.end(1), normalized))
                 continue
@@ -462,9 +500,10 @@ class ChairExtractor(Extractor):
             "asiento": r"(?:asiento\s+)?(?:espuma\s+(?:inyectada|de\s+alta\s+densidad)|esponja\s+de\s+alta\s+densidad|acolchado)|asiento acolchado",
             "suspension": r"(?:altura|ajuste|suspensi[oó]n|sistema)?\s*hidr[aá]ulic[ao]|pist[oó]n (?:clase\s+[1234]|a\s+gas)",
             "mecanismo": r"doble palanca|una palanca|sistema de rodilla|mecanismo sincr[oó]nico",
-            "capacidad": r"\d+\s*kg",
+            "capacidad": rf"(?:capacidad(?:\s+de\s+carga)?|soporta|resiste)\s*(?:de|hasta)?\s*(?:{AMOUNT})\s*(?:kg|kilogramos?|kilos?)|\d+\s*kg",
             "patas": r"(?:[1-9]|cinco|cuatro)\s+patas(?: con ruedas)?",
-            "giro": r"(?:360|370|trescientos\s+sesenta)\s*(?:grados|º|°)|giro(?:\s+de\s+\d+\s*grados|\s+completo)?",
+            "giro": rf"giro\s+(?:de\s+)?(?:{AMOUNT})\s*(?:grados|º|°)|(?:360|370|trescientos\s+sesenta)\s*(?:grados|º|°)|giro(?:\s+completo)?",
+            "reclinacion": rf"(?:reclinaci[oó]n|inclinaci[oó]n|[aá]ngulo)\s+(?:de\s+)?(?:{AMOUNT})\s*(?:grados|º|°)",
             "base": r"base cromada|base (?:de |en )?PVC|base met[aá]lica de cromo grueso|patas cromadas|(?:base|patas)(?: de)? nylon de alta resistencia",
         }.items():
             self.add(
@@ -547,6 +586,20 @@ class FloorExtractor(Extractor):
                         )
                         matches.append((m.start(), m.end(), str(value * factor)))
             self.add(field, matches)
+        thickness = self.result.fields.get("espesor_mm")
+        if thickness is not None and Decimal(str(thickness)) > 30:
+            self.result.field_reviews.append(
+                FieldReview(
+                    review_id="ATYPICAL_FLOOR_THICKNESS:espesor_mm",
+                    code="ATYPICAL_FLOOR_THICKNESS",
+                    severity="REVIEW",
+                    field="espesor_mm",
+                    message="Espesor explícito atípico para piso flotante; confirme sin sustituir el valor.",
+                    evidence_ids=[
+                        e.candidate_id for e in self.result.evidence if e.label == "espesor_mm"
+                    ],
+                )
+            )
         self.add(
             "m2_por_caja",
             [
@@ -563,6 +616,17 @@ class FloorExtractor(Extractor):
 
 class OtherExtractor(Extractor):
     """Heterogeneous products use explicit name/description and real unit catalog."""
+
+    def specific(self):
+        # Technical descriptions are retained without inventing furniture axes.
+        self.labeled("observaciones", r"\bdescripci[oó]n\s*:\s*([^;\n]+)")
+        if "observaciones" not in self.result.fields and re.search(
+            r"\bz[oó]calos?\b", str(self.result.fields.get("nombre", "")), re.I
+        ):
+            self.labeled(
+                "observaciones",
+                r"\bcon\s+((?:resisten\w*|acabado|textura|recubrimiento|alto\s+tr[aá]fico)\b[^;\n]*)",
+            )
 
 
 _PRODUCT_CUE = re.compile(
