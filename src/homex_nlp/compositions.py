@@ -53,7 +53,7 @@ def composition_reference(text, principal, mention, dependent):
     # segmentation, but a fresh article/count still introduces a new item.
     if (family in dependent or family == root) and re.search(r"[,;.]\s*$", before):
         described = re.match(
-            r"\s+con\s+(?:(?:un[ao]?|dos|tres|cuatro|varias?|\d+)\s+)?(?:cajones?|puertas?|ruedas?|repisas?|rieles?)\b",
+            r"\s+con\s+(?:(?:un[ao]?|dos|tres|cuatro|varias?|\d+)\s+)?(?:(?:caj[oó]n(?:es)?|gavetas?)|puertas?|ruedas?|repisas?|rieles?)\b",
             after,
             re.I,
         )
@@ -77,7 +77,11 @@ def composition_reference(text, principal, mention, dependent):
         ):
             return True
     if family == "archivador":
-        if re.search(r"\b(?:cajoner[ií]a|cajones?|papeleros?)\b[^.;]{0,130}$", before, re.I):
+        if re.search(
+            r"\b(?:cajoner[ií]a|(?:caj[oó]n(?:es)?|gavetas?)|papeleros?)\b[^.;]{0,130}$",
+            before,
+            re.I,
+        ):
             return True
         if re.search(r"\bpara\s+$", before, re.I) and re.match(r"\s+de\s+palanca\b", after, re.I):
             return True
@@ -167,7 +171,7 @@ def refine_relations(item, candidates, text, warnings):
         definition = (
             head(product.normalized_value or product.text)
             in {"gavetero", "gadetero", "cajonera", "cubo"}
-            and head(component.name) in {"cajone", "cajon"}
+            and head(component.name) in {"cajone", "cajon", "gaveta"}
             and re.fullmatch(r"\s+de\s+(?:\d+|un[ao]?|dos|tres|cuatro|cinco)\s+", prefix, re.I)
         )
         # At least two axes after a decorated frame describe the furniture envelope.
@@ -191,7 +195,8 @@ def refine_relations(item, candidates, text, warnings):
     seen = {}
     for component, mention in list(components):
         if not mention or not (
-            fold(component.name) in {"cajones", "cajonera", "credenza", "credenza lateral"}
+            fold(component.name)
+            in {"cajon", "cajones", "gaveta", "gavetas", "cajonera", "credenza", "credenza lateral"}
             or fold(component.name).startswith("gabinete")
         ):
             continue
@@ -205,6 +210,8 @@ def refine_relations(item, candidates, text, warnings):
         name_key = (
             "credenza" if fold(component.name).startswith("credenza") else fold(component.name)
         )
+        if head(component.name) in {"cajon", "gaveta"}:
+            name_key = head(component.name)
         key = (name_key, tuple(sorted(counts)))
         old = seen.get(key)
         new_group = re.search(

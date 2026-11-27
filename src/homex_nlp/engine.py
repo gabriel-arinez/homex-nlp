@@ -41,7 +41,7 @@ from homex_nlp.rules import (
 
 _GENERIC_FURNITURE_DETAIL = re.compile(
     r"\b(?:de\s+(?:madera|metal|acero|melamina|aglomerado)|"
-    r"cajones?|casilleros?|puertas?|repisas?|divisiones?|estantes?|estructura|"
+    r"caj[oó]n(?:es)?|gavetas?|casilleros?|puertas?|repisas?|divisiones?|estantes?|estructura|"
     r"patas|plegable|tapiz|malla|espuma)\b",
     re.I,
 )

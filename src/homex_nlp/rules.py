@@ -50,7 +50,7 @@ ACCESSORIES = (
     r"puertos?\s+(?:USB|HDMI)|conectores?(?:\s+(?:USB|HDMI))?|USB|HDMI|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
     "pasacable",
     "bisagras",
-    "cajones",
+    r"caj[oó]n(?:es)?|gavetas?",
     "puertas",
     "jaladores",
     "tiradores",
@@ -186,7 +186,7 @@ def find_products(text: str) -> list[Match]:
             r"(?:\d+|un[ao]?|dos|tres|cuatro|cinco)\s+$", text[: alias.start()], re.I
         )
         technical = re.search(
-            r"\b(?:cajones?|melamina|tablero|ancho|alto|profundidad)\b",
+            r"\b(?:(?:caj[oó]n(?:es)?|gavetas?)|melamina|tablero|ancho|alto|profundidad)\b",
             text[alias.end() : alias.end() + 220],
             re.I,
         )
@@ -726,7 +726,9 @@ def _medidas_orales_compuestas(text: str, axis: str, axis_prefix: str, unit: str
             # A conjunction followed by an internal count is not a malformed
             # compound length; preserve the simple preceding metre measure.
             if re.search(r"\s+y\s+", match.group("length"), re.I) and re.match(
-                r"\s+(?:cajones?|puertas?|ruedas?|repisas?)\b", text[match.end() :], re.I
+                r"\s+(?:(?:caj[oó]n(?:es)?|gavetas?)|puertas?|ruedas?|repisas?)\b",
+                text[match.end() :],
+                re.I,
             ):
                 continue
             spans.append((match.start(), match.end()))

@@ -118,7 +118,9 @@ def infer_units(item, candidates, text, warnings):
             right = max(end, max(c.end for c in refs))
             between = text[left:right]
             if right - left <= 160 and not re.search(
-                r"[.;]|\b(?:con|precio|tablero|patas?|cajones?)\b", between, re.I
+                r"[.;]|\b(?:con|precio|tablero|patas?|(?:caj[oó]n(?:es)?|gavetas?))\b",
+                between,
+                re.I,
             ):
                 neighbors.append(other)
         if neighbors and len({d.unit for d in neighbors}) == 1:

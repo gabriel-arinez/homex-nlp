@@ -19,7 +19,7 @@ COMPONENTES = (
     r"cubos?\s+m[oó]vil(?:es)?|mesas?\s+(?:superior|inferior|interior)|fald[oó]n(?:es)?|niveles?|"
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\b)|"
-    r"lateral(?:es)?|tapa(?!\s+cantos?\b)|mesada|cuerpo|casilleros?|cajoneras?(?:\s+(?:superior|inferior))?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
+    r"lateral(?:es)?|tapa(?!\s+cantos?\b)|mesada|cuerpo|casilleros?|cajoneras?(?:\s+(?:superior|inferior))?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|(?:caj[oó]n(?:es)?|gavetas?)(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?(?:\s+(?:superior|inferior))?|m[oó]dulos?(?:\s+(?:laterales?|centrales?|superior|inferior))?"
 )
 MATERIALES = (
@@ -81,7 +81,7 @@ def completar_relaciones(item, candidates, text, warnings):
             # «repisas laterales» usa un adjetivo, no otra pieza.
             re.fullmatch(r"lateral(?:es)?", pieza.group(), re.I)
             and re.search(
-                r"\b(?:repisas?|cajones?|m[oó]dulos?|paneles?|puertas?|soportes?)\s+$",
+                r"\b(?:repisas?|(?:caj[oó]n(?:es)?|gavetas?)|m[oó]dulos?|paneles?|puertas?|soportes?)\s+$",
                 text[max(0, pieza.start() - 30) : pieza.start()],
                 re.I,
             )
@@ -113,7 +113,11 @@ def completar_relaciones(item, candidates, text, warnings):
     for index, pieza in enumerate(piezas):
         if (
             pieza.group().casefold() == "cajonera"
-            and re.match(r"\s+con\s+" + NUMERO + r"\s+cajones\b", text[pieza.end() :], re.I)
+            and re.match(
+                r"\s+con\s+" + NUMERO + r"\s+(?:caj[oó]n(?:es)?|gavetas?)\b",
+                text[pieza.end() :],
+                re.I,
+            )
             and not re.search(
                 r"\b(?:otra|segunda|dos|2)\s+$",
                 text[max(0, pieza.start() - 15) : pieza.start()],
