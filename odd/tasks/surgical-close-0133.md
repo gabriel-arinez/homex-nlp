@@ -48,9 +48,9 @@ Branch: feat/nlp-final-lote02; version target0.1.33. Delivery: reviewable candid
 
 ## Tasks
 
-- T1 [S1,S2,S4,S5] delegated/context-backstop; in_progress; drawer morphology/owner regressions, RED→GREEN; Risk item3.
-- T2 [S3,S4,S5] inline afterT1; pending; narrow unknown technical evidence retention; Risk item3.
-- T3 [S6] per-action verification; pending; frozen38/50 semantic differential and22reviewableprices.
+- T1 [S1,S2,S4,S5] delegated/context-backstop; verified; drawer RED21/39 plus genericRED4/5, focused218 and combinedfull1484GREEN; commit in log; Risk item3.
+- T2 [S3,S4,S5] delegated/context-backstop afterT1; verified49newtests andfull1533GREEN; narrow unknown technical evidence retention; Risk item3.
+- T3 [S6] per-action verification; in_progress; frozen38/50 semantic differential and22reviewableprices.
 - T4 [S7,S8] inline plus per-action fullchecks; pending;0.1.33 build/pins/consumer CI exactheads; Risk item5.
 - T5 [S9,S10] inline plus scoped verification; pending; pretested packagechecker then reducedZIP, main/prod preserved.
 
@@ -87,3 +87,7 @@ Resolver exclusivamente los siguientes pendientes antes del cierre definitivo:
 10. **Congelamiento.** No realizar nuevas investigaciones, ampliaciones generales ni refactorizaciones. Mantener main y producción intactos hasta la autorización final. El objetivo es cerrar exclusivamente el riesgo residual de asociación de componentes y conservar información técnica desconocida sin inventarla.
 
 - no hay mucho uso restante (39%), asi que realiza tarea por tarea, si detectas que llegas a un porcentaje con el cual no completaras la tarea, documenta todo y sube tu avance, y responde hasta donde es que llegaste.
+
+- L2: T1 committed c479c8de045babb639503c4d0de57e3585915493. ExactTXT019 and variants now preserve drawer40/20cm vsdesk120/60cm; commercialquantity stable. Existingownershippolicy unchanged; enginegenericdetailmorphology RED4/5→GREEN44, combinedfull1484pass. T2starts next, sameboundedsequentialworkflow.
+
+- L3: T2 committed 6e782a9313b88942bdf65dd2359326e9321225c1. UnknownESPEC/observations preserveexacttargets withno newcontract/lexicon. Parentreview foundliteralbrandtruncation andmarca/modeloCajónfalsephysicalcomponent; boundedcorrection RED6thenRED2, final49newtests/full1533GREEN. Product-wordbrand ambiguity andnumeric-brand monetaryambiguity remainoldabstentions; no approvedparsermasking. T3artifactidentity0.1.33 starts.
