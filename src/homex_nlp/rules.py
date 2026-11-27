@@ -717,7 +717,7 @@ def _medidas_orales_compuestas(text: str, axis: str, axis_prefix: str, unit: str
             ):
                 continue
             spans.append((match.start(), match.end()))
-            if re.match(
+            if match.end() == match.end("length") and re.match(
                 r"\s+y\s+(?:" + _DIM_PALABRAS_PATRON + r"|\d+)\s*(?:" + unit + r")?",
                 text[match.end() :],
                 re.I,
@@ -905,6 +905,22 @@ def find_measurements(text: str, label: str) -> list[Match]:
     return sorted(filtered, key=lambda encontrada: encontrada.start)
 
 
+def board_gauge_context(text: str, start: int, *, full: bool = False) -> bool:
+    """A bounded literal board description, allowing a brand and an ASR pause."""
+    return bool(
+        (re.fullmatch if full else re.search)(
+            r"\b(?:melamina|me\s+lamina|melam[eéíi]nic[oa]|mdf|mdp|hdf|tablero|tapa|"
+            r"tapacantos?|tapa\s+cantos?|PVC|ABS|cubierta|estructura|mes[oó]n|me\s+son|"
+            r"fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)"
+            r"(?:\s+(?:de|melamina|MDF|MDP|PVC|ABS|blanc[oa]|negr[oa]|melam[eéíi]nic[oa]|"
+            r"menam[ií]nic[oa]|engrosad[oa]|frontal|superior|Novopan|nobopan|novo\s+pan)){0,5}"
+            r"\s*,?\s*(?:(?:de|a)\s+)?$",
+            text[max(0, start - 150) : start],
+            re.I,
+        )
+    )
+
+
 def find_thicknesses(text: str) -> list[Match]:
     """Only a thickness marker or a board substrate licenses thickness."""
     from homex_nlp.magnitudes import NUMBER, UNIT, length
@@ -965,11 +981,7 @@ def find_thicknesses(text: str) -> list[Match]:
             before,
             re.I,
         ) or re.match(r"\s+(?:de\s+)?(?:espesor|grosor)\b", after, re.I)
-        board = re.search(
-            r"\b(?:melamina|mdf|mdp|tablero|tapa|tapacantos?|tapa\s+canto|PVC|ABS|cubierta|estructura|mes[oó]n|me\s+son|fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)(?:\s+(?:de|melamina|MDF|MDP|PVC|ABS|blanc[oa]|negr[oa]|melam[ií]nic[oa]|menam[ií]nic[oa]|engrosad[oa]|frontal|superior)){0,5}\s*(?:(?:de|a)\s+)?$",
-            before,
-            re.I,
-        )
+        board = board_gauge_context(text, match.start())
         continuation = found and re.fullmatch(
             r"\s*(?:y\s+|,?\s*(?:perd[oó]n|corrijo|mejor)\s*,?\s*(?:de\s+)?)",
             text[found[-1].end : match.start()],

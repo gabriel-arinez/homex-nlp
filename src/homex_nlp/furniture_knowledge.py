@@ -21,7 +21,19 @@ def material_entry(raw):
 
 
 def recovery_material_context(text, start):
-    return bool(re.search(r"\b(?:de|en|con)\s+$", text[max(0, start - 45) : start], re.I))
+    if re.search(r"\b(?:de|en|con|tablero)\s+$", text[max(0, start - 45) : start], re.I):
+        return True
+    # A measured technical clause licenses this finite alias, not arbitrary prose.
+    from homex_nlp.magnitudes import NUMBER, UNIT
+
+    return bool(
+        re.search(r"(?:^|[.;,])\s*$", text[:start])
+        and re.match(
+            rf"(?:me\s+lamina|melam[eé]nico)\s+de\s+{NUMBER}\s*{UNIT}",
+            text[start:],
+            re.I,
+        )
+    )
 
 
 def commercial_family(name):
@@ -141,7 +153,7 @@ def enrich_knowledge(item, candidates, text, warnings):
         if not re.fullmatch("Novopan", match.group(), re.I):
             recovery(c, "Novopan", "board_brand_context")
 
-    for choice in re.finditer(r"\bcolor\s+(?:a\s+)?elecci[oó]n\b", text, re.I):
+    for choice in re.finditer(r"\bcolor(?:es)?\s+(?:a\s+)?elecci[oó]n\b", text, re.I):
         add(
             choice.start(),
             choice.end(),
@@ -217,7 +229,11 @@ def enrich_knowledge(item, candidates, text, warnings):
     pattern = re.compile(
         r"\b(?:garant[ií]a|procedencia|origen|incluye\s+(?:instalaci[oó]n|entrega|traslado)|"
         r"(?:instalaci[oó]n|entrega|traslado)\s+(?:incluid[oa]|a\s+)|"
-        r"resistente\s+a|condiciones\s+de\s+fabricaci[oó]n)\b"
+        r"resistente\s+a|condiciones\s+de\s+fabricaci[oó]n|"
+        r"regatones?\s+engomados?|acabado\s+con\s+pintura|"
+        r"espacio(?:s)?\s+(?:central|abierto)|decoraci[oó]n\s+frontal|"
+        r"caracter[ií]sticas?\s+seg[uú]n\s+dise[nñ]o|"
+        r"(?:dos|tres|cuatro|\d+)\s+por\s+lado)\b"
         r"[^.;\n]*?(?=[.;\n]|\b(?:precio|color|garant[ií]a|procedencia)\b|$)",
         re.I,
     )
@@ -235,5 +251,35 @@ def enrich_knowledge(item, candidates, text, warnings):
             "Technical/service specification retained for human review",
         )
         retained.append(segment)
+    # A literal physical measure with degraded context is not automatically a
+    # thickness. Preserve its complete span for review instead of losing it or
+    # inventing the missing board/material (including unsupported ASR phrases).
+    from homex_nlp.magnitudes import NUMBER, UNIT, length
+    from homex_nlp.rules import _fragmento_numerico_truncado, is_explicitly_negated
+
+    for m in re.finditer(rf"(?<![\w.,]){NUMBER}\s*{UNIT}", text, re.I):
+        value, unit = length(m.group())
+        if (
+            value is None
+            or _fragmento_numerico_truncado(text, m.start())
+            or is_explicitly_negated(text, m.start())
+            or any(
+                c.label
+                in {"ANCHO", "ALTO", "LARGO", "PROFUNDIDAD", "DIAMETRO", "ESPESOR", "DIMENSION"}
+                and c.start < m.end()
+                and m.start() < c.end
+                for c in candidates
+            )
+        ):
+            continue
+        add(
+            m.start(),
+            m.end(),
+            "MEDIDA_NO_CLASIFICADA",
+            {"value": str(value), "unit": unit},
+            "UNRESOLVED",
+            "Literal measurement retained; axis, physical role and owner require confirmation",
+        )
+        retained.append(m.group())
     if retained:
         item.observations = "; ".join(dict.fromkeys(filter(None, [item.observations, *retained])))

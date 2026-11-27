@@ -151,7 +151,8 @@ def refine_relations(item, candidates, text, warnings):
         prefix = text[product.end : mention.start]
         # Drawer count in the main gavetero's noun phrase is not a new dimension owner.
         definition = (
-            head(product.text) in {"gavetero", "cajonera", "cubo"}
+            head(product.normalized_value or product.text)
+            in {"gavetero", "gadetero", "cajonera", "cubo"}
             and head(component.name) in {"cajone", "cajon"}
             and re.fullmatch(r"\s+de\s+(?:\d+|un[ao]?|dos|tres|cuatro|cinco)\s+", prefix, re.I)
         )
@@ -253,6 +254,25 @@ def refine_relations(item, candidates, text, warnings):
             c.reason = "Material of a literal accessory, not its furniture parent"
             c.component_ref = None
 
+    # A terminal seller color clause can describe the whole composition or its
+    # last shelf. Without a local 'de color' link, do not select the nearest owner.
+    for c in candidates:
+        if (
+            c.label == "COLOR"
+            and c.decision == "ACCEPTED"
+            and c.component_ref is not None
+            and re.search(r"(?<!de )\bcolor\s+$", text[max(0, c.start - 25) : c.start], re.I)
+        ):
+            c.component_ref = None
+            c.decision = "UNRESOLVED"
+            c.reason = "Terminal color clause requires confirmation of furniture/component owner"
+            if c.candidate_id not in item.unresolved:
+                item.unresolved.append(c.candidate_id)
+            for field in ("primary_color", "secondary_color"):
+                value = getattr(item, field)
+                if value and c.candidate_id in value.evidence_ids:
+                    setattr(item, field, None)
+
     colors = [
         c
         for c in candidates
@@ -272,8 +292,24 @@ def refine_relations(item, candidates, text, warnings):
             evidence_ids=[colors[1].candidate_id],
         )
 
+    from homex_nlp.rules import board_gauge_context
+
     for measurement in item.thicknesses:
         c = evidence(measurement)
+        if c and measurement.component_ref is None and board_gauge_context(text, c.start):
+            previous = [
+                (part, mention)
+                for part, mention in components
+                if mention and mention.end <= c.start
+            ]
+            if previous:
+                part, mention = max(previous, key=lambda pair: pair[1].start)
+                if re.fullmatch(
+                    r"tableros?|mes[oó]n|cubiertas?|panel(?:es)?|laterales?", part.name, re.I
+                ) and board_gauge_context(
+                    text[mention.start : c.start], c.start - mention.start, full=True
+                ):
+                    assign(measurement, part.component_id)
         if (
             c
             and measurement.unit

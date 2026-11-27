@@ -60,7 +60,7 @@ class CatalogResult(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     field_reviews: list[FieldReview] = Field(default_factory=list)
     unrecognized: list[str] = Field(default_factory=list)
-    version: str = "catalog-0.1.24"
+    version: str = "catalog-0.1.31"
 
 
 def fold(text):
@@ -136,6 +136,49 @@ class Extractor:
             matches.append((start, end, self.text[start:end].strip()))
         self.add(field, matches)
 
+    def retain_observations(self, pattern):
+        """Keep bounded literal technical clauses in the existing review field."""
+        segments = []
+        evidence_ids = []
+        for match in re.finditer(pattern, self.text, re.I):
+            if is_explicitly_negated(self.text, match.start()):
+                continue
+            segment = match.group().strip(" ,;.")
+            if not segment:
+                continue
+            end = match.start() + len(match.group().rstrip(" ,;."))
+            identifier = f"observaciones-{match.start()}-{end}"
+            self.result.evidence.append(
+                Candidate(
+                    candidate_id=identifier,
+                    label="observaciones",
+                    start=match.start(),
+                    end=end,
+                    text=self.text[match.start() : end],
+                    source="RULE",
+                    normalized_value=segment,
+                    decision="UNRESOLVED",
+                    reason="Literal technical clause retained for human review",
+                )
+            )
+            segments.append(segment)
+            evidence_ids.append(identifier)
+        if segments:
+            existing = self.result.fields.get("observaciones")
+            self.result.fields["observaciones"] = "; ".join(
+                dict.fromkeys(filter(None, [existing, *segments]))
+            )
+            self.result.field_reviews.append(
+                FieldReview(
+                    review_id="TECHNICAL_DESCRIPTION_REVIEW:observaciones",
+                    code="TECHNICAL_DESCRIPTION_REVIEW",
+                    severity="REVIEW",
+                    field="observaciones",
+                    message="Confirme las especificaciones técnicas conservadas literalmente.",
+                    evidence_ids=evidence_ids,
+                )
+            )
+
     def catalogs(self):
         for field, concept in self.concepts.items():
             matches = []
@@ -161,7 +204,7 @@ class Extractor:
         """Exclude a quoted count only when followed by a product noun."""
         prefix = re.match(
             rf"(?:{AMOUNT})\s+(?:(?:metros?\s+cuadrados?|m²|m2)\s+(?:de\s+)?)?"
-            r"(?=(?:sillas?|sill[oó]n(?:es)?|pisos?|z[oó]calos?)\b)",
+            r"(?=(?:sillas?|sill[oó]n(?:es)?|pisos?|z[oó]calos?|barras?\s+de\s+z[oó]calos?)\b)",
             self.text[start:end],
             re.I,
         )
@@ -339,7 +382,7 @@ class Extractor:
         for cue in re.finditer(r"\b(?:modelo|c[oó]digo|cod)\b\s*:?\s*", self.text, re.I):
             start = cue.end()
             clause = re.split(
-                r"(?<!\d)[,.]|[,.](?!\d)|[;\n]|\s+de(?=\s+(?:madera|metal|acero|malla|espuma|color|material)\b)|\s+\b(?:modelo|c[oó]digo|cod|con|marca|color|tipo|material|diseño|diseno|acabado|espesor|largo|ancho|precio|unidad|descripci[oó]n|observaciones|mejor|corrijo|perd[oó]n)\b|\s+o(?=\s+(?:modelo|c[oó]digo|cod)\b)",
+                r"(?<!\d)[,.]|[,.](?!\d)|[;\n]|\s+de(?=\s+(?:madera|metal|acero|malla|espuma|color|material)\b)|\s+\b(?:modelo|c[oó]digo|cod|con|marca|color|tipo|material|diseño|diseno|acabado|espesor|largo|ancho|precio|unidad|descripci[oó]n|observaciones|mejor|corrijo|perd[oó]n|espaldar|respaldo|asiento|brazos|pist[oó]n)\b|\s+o(?=\s+(?:modelo|c[oó]digo|cod)\b)",
                 self.text[start:],
                 maxsplit=1,
                 flags=re.I,
@@ -399,7 +442,7 @@ class Extractor:
             raw = m.group(1)
             tail = self.text[m.end() :]
             continuation = re.match(
-                r"\s+(?!(?:con|y|de|marca|color|tipo|material|diseno|diseño|acabado|espesor|largo|ancho|precio|unidad|descripcion|descripción|observaciones)\b)[\w-]+",
+                r"\s+(?!(?:con|y|de|marca|color|tipo|material|diseno|diseño|acabado|espesor|largo|ancho|precio|unidad|descripcion|descripción|observaciones|espaldar|respaldo|asiento|brazos|pist[oó]n)\b)[\w-]+",
                 tail,
                 re.I,
             )
@@ -477,13 +520,18 @@ class ChairExtractor(Extractor):
         ):
             return True
         prefix = re.split(r"[.;,\n]", self.text[max(0, start - 100) : start])[-1]
-        parts = re.findall(r"\b(asiento|espaldar|respaldo)\b", prefix, re.I)
+        parts = re.findall(
+            r"\b(asiento|espaldar|respaldo|reposa\s*pi[eé]s|apoyo\s+lumbar|"
+            r"brazos|apoyabrazos|reposacabezas|cabecera)\b",
+            prefix,
+            re.I,
+        )
         if not parts:
             return True
         if name == "asiento":
             return parts[-1].lower() == "asiento"
         if name == "material_respaldo":
-            return parts[-1].lower() != "asiento"
+            return parts[-1].lower() in {"espaldar", "respaldo"}
         return True
 
     def specific(self):
@@ -519,6 +567,20 @@ class ChairExtractor(Extractor):
                 specs[name] = self.result.fields.pop(key)
         if specs:
             self.result.fields["especificaciones"] = specs
+        # Unsupported structured details are not discarded or assigned to a
+        # different feature (for example lumbar padding is not seat padding).
+        self.retain_observations(
+            r"\b(?:pist[oó]n\s+de\s+gas|resistencia\s+(?:de|hasta)|"
+            r"modo\s+reposo|estructura\s+plegable|brazos\s+(?:fijos|engomados)|"
+            r"apoyabrazos\s+de|cabecera\s+ajustable|reposa\s*pi[eé]s\s+plegable|"
+            r"apoyo\s+lumbar\s+acolchado|base\s+de\s+acero\s+cromado|garant[ií]a)\b"
+            r"[^.;\n]*?(?=[.;\n]|\b(?:precio|color|garant[ií]a|asiento|espaldar|"
+            r"brazos|apoyabrazos|pist[oó]n|resistencia|modo\s+reposo|cabecera|"
+            r"apoyo\s+lumbar|suspensi[oó]n|(?:dos|2)\s+palancas|base|estructura|"
+            r"giro|reposa\s*pi[eé]s)\b|$)"
+            r"|\b(?:asiento|espaldar)\s+de\s+(?:\d|cuarenta|cincuenta|sesenta|setenta)"
+            r"[^.;\n]*?(?=[.;\n]|\bprecio\b|$)"
+        )
 
 
 def measure_number(raw):
@@ -612,6 +674,11 @@ class FloorExtractor(Extractor):
                 if (value := measure_number(m.group(1))) is not None
             ],
         )
+        self.retain_observations(
+            r"\b(?:aglomerado\s+HDF|instalaci[oó]n\s+mediante|resistente\s+a|"
+            r"clase\s+de\s+abra[cs]i[oó]n|incluye\s+membrana|procedencia)\b"
+            r"[^.;\n]*?(?=[.;\n]|\b(?:precio|color|procedencia|incluye)\b|$)"
+        )
 
 
 class OtherExtractor(Extractor):
@@ -627,6 +694,16 @@ class OtherExtractor(Extractor):
             self.labeled(
                 "observaciones",
                 r"\bcon\s+((?:resisten\w*|acabado|textura|recubrimiento|alto\s+tr[aá]fico)\b[^;\n]*)",
+            )
+        if re.search(
+            r"\bbarras?\s+de\s+z[oó]calos?\b", str(self.result.fields.get("nombre", "")), re.I
+        ):
+            from homex_nlp.magnitudes import OPERAND
+
+            self.retain_observations(
+                rf"(?<!\w){OPERAND}\s+de\s+(?:alto|espesor)\b"
+                r"|\bcada\s+barra\s+mide\s+[^.;\n]*?"
+                r"(?=[.;\n]|,?\s*\bprecio\b|$)"
             )
 
 

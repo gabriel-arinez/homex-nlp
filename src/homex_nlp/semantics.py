@@ -19,7 +19,7 @@ COMPONENTES = (
     r"cubos?\s+m[oó]vil(?:es)?|mesas?\s+(?:superior|inferior|interior)|fald[oó]n(?:es)?|niveles?|"
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\b)|"
-    r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|casilleros?|cajoneras?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
+    r"lateral(?:es)?|tapa(?!\s+cantos?\b)|mesada|cuerpo|casilleros?|cajoneras?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
 MATERIALES = (
@@ -702,7 +702,9 @@ def completar_relaciones(item, candidates, text, warnings):
         if not ref or thickness.component_ref is not None or re.search(r"\d", ref.text):
             continue
         explicit_substrate = re.search(
-            r"\b(?:melamina|MDF|MDP)\s+de\s+(?:(?:" + NUMBER + r")\s+y\s+)*$",
+            r"\b(?:melamina|me\s+lamina|melam[eéíi]nic[oa]|MDF|MDP|HDF)"
+            r"(?:\s+(?:Novopan|nobopan|novo\s+pan))?\s*,?\s+de\s+"
+            r"(?:(?:" + NUMBER + r")\s+y\s+)*$",
             text[max(0, ref.start - 150) : ref.start],
             re.I,
         )
