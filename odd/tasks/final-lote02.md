@@ -255,7 +255,7 @@ El objetivo no es conseguir únicamente más coincidencias textuales: es obtener
 - T4 — S11,S13: complete catalog names/codes/technical values; route delegated (parallel independent T1, catalog/spoken-code surfaces only); complete (catalog/semantic closure); commit e7a9de5; Risk item3 (shared catalog extraction consumed by backend).
 - T5 — S1,S12,S13: backend/frontend propagation, inference review and real isolated-browser minimal cases; route delegated (long-session context backstop); complete (browser minimal/inference/catalog and891backend/494frontend suites); commits backend b94d9a9/frontend 6adba39; Risk items2,3 (trusted review guard and strict consumer/projection contracts).
 - T6 — S14,S15: full permitted suites, frozen38-case differential,50probes, repeated latency and independent high-risk verifier; route inline plus per-action verification workers; complete (S4 independent blocker corrected/rechecked;42sample ABBA reported); Risk item3.
-- T7 — S1,S15,S16: version/wheel/clean verification, backend/deploy pins and hashes, candidate commits/branch publication and final evidenceZIP; route inline; in_progress (candidate0.1.31, offline build/runtime checks); Risk item5 (distribution/dependencies; no deployment).
+- T7 — S1,S15,S16: version/wheel/clean verification, backend/deploy pins and hashes, candidate commits/branch publication and final evidenceZIP; route inline; complete (artifact d26914c/backend2a846bb/frontend29d64fd/deploy7723ec7; evidence delivered, no promotion); Risk item5 (distribution/dependencies; no deployment).
 
 ## Log
 
@@ -517,3 +517,7 @@ Sourcea0bad11, backend5d18c87, frontende33f4dc, deployfb93f9d; wheel0.1.31SHAf75
 ### L11 — Independent blocker closed and final functional proof
 
 IndependentS4found3omittedcmdepths; fe83e69 corrects same-owner mixed-axis context,7newtestsRED/GREEN;1392suitePASS; verifierrecheckconfirms450/400/800mm UNRESOLVED andblankconsumerfields. Independent3probespreservedinsuite:1395PASS. Finalbackend2a846bb891PASS(441.65s), frontend494PASS+finaltypes/build/contractPASS. WheelSHA7633bc8945440902d042e03ed37ba27538064aacab7cb2dff4adc2617de59941 cleanofflinewheel/sdistrebuildPASS. ABBA42samples/input/flow med0.595→1.268ms,p955.114→8.351ms; expandedgrammar/owner/knowledgeCPUworkprofiled, nothidden; finalauditretainsperformanceacceptance(noagreedthreshold). Remaining25/30countertopunitsreviewpending; noforcedmm. Publication/ZIPstillT7.
+
+### L12 — Evidence delivery
+
+FourcandidatebranchesremoteHEADverified. InitialZIP2386filesCRC+SHAverificationPASS; finalclosingmetadatarefreshfollows. Originalheads/status/recordedbytes/corpusunchanged. CIfirstNLP/backend/deployPASS; frontendpeerpointerfailed, bothrefs/backend-refalignedwithouttestchange,494rerunPASS. CurrentCIreceiptretained; no allgreenclaimforpendingruns. No merge/deploy; performanceacceptancelefttofinalaudit.
