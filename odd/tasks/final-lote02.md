@@ -249,13 +249,13 @@ El objetivo no es conseguir únicamente más coincidencias textuales: es obtener
 
 ## Tasks
 
-- T1 — S3,S4,S9,S12,S13: complete scalar/money/dimension grammar and reviewable unit proposals; route delegated (parallel independent catalog unit T4, disjoint files); complete (semantic closure and final1385test proof); commit d9b7c9d; Risk item3 (shared parsers and consumer evidence).
-- T2 — S2,S7,S8,S10,S13: commercial identities, contextual lexical variants, vocabulary and scoped descriptions; route inline; complete (semantic closure; independent verification pending); commit 6a27475; Risk item3 (shared product/semantic extraction).
-- T3 — S5,S6,S12,S13: composition, geometry, owner resolution and component deduplication; route inline; complete (semantic closure and final1385test proof); commits 32f3824,fce3c92; Risk item3 (shared projection evidence and associations).
+- T1 — S3,S4,S9,S12,S13: complete scalar/money/dimension grammar and reviewable unit proposals; route delegated (parallel independent catalog unit T4, disjoint files); complete (semantic closure and final1395test proof); commit d9b7c9d; Risk item3 (shared parsers and consumer evidence).
+- T2 — S2,S7,S8,S10,S13: commercial identities, contextual lexical variants, vocabulary and scoped descriptions; route inline; complete (semantic closure; independent verification done); commit 6a27475; Risk item3 (shared product/semantic extraction).
+- T3 — S5,S6,S12,S13: composition, geometry, owner resolution and component deduplication; route inline; complete (semantic closure and final1395test proof); commits 32f3824,fce3c92; Risk item3 (shared projection evidence and associations).
 - T4 — S11,S13: complete catalog names/codes/technical values; route delegated (parallel independent T1, catalog/spoken-code surfaces only); complete (catalog/semantic closure); commit e7a9de5; Risk item3 (shared catalog extraction consumed by backend).
-- T5 — S1,S12,S13: backend/frontend propagation, inference review and real isolated-browser minimal cases; route delegated (long-session context backstop); complete (browser minimal/inference/catalog and891backend/494frontend suites); commits backend b94d9a9/frontend 6adba39; Risk items2,3 (trusted review guard and strict consumer/projection contracts).
-- T6 — S14,S15: full permitted suites, frozen38-case differential,50probes, repeated latency and independent high-risk verifier; route inline plus per-action verification workers; complete (S4 independent blocker corrected/rechecked;42sample ABBA reported); Risk item3.
-- T7 — S1,S15,S16: version/wheel/clean verification, backend/deploy pins and hashes, candidate commits/branch publication and final evidenceZIP; route inline; complete (artifact d26914c/backend2a846bb/frontend29d64fd/deploy7723ec7; evidence delivered, no promotion); Risk item5 (distribution/dependencies; no deployment).
+- T5 — S1,S12,S13: backend/frontend propagation, inference review and real isolated-browser minimal cases; route delegated (long-session context backstop); complete (891backend/494frontend;130E2E/45a11y; actual minimal/inference/catalog browser); commits backend b94d9a9/frontend 6adba39; Risk items2,3 (trusted review guard and strict consumer/projection contracts).
+- T6 — S14,S15: full permitted suites, frozen38-case differential,50probes, repeated latency and independent high-risk verifier; route inline plus per-action verification workers; complete (independentS4, ABBA,50probes and all permitted suites); Risk item3.
+- T7 — S1,S15,S16: version/wheel/clean verification, backend/deploy pins and hashes, candidate commits/branch publication and final evidenceZIP; route inline; complete (candidate branches published; verified evidence, no promotion); Risk item5 (distribution/dependencies; no deployment).
 
 ## Log
 
@@ -520,4 +520,4 @@ IndependentS4found3omittedcmdepths; fe83e69 corrects same-owner mixed-axis conte
 
 ### L12 — Evidence delivery
 
-FourcandidatebranchesremoteHEADverified. InitialZIP2386filesCRC+SHAverificationPASS; finalclosingmetadatarefreshfollows. Originalheads/status/recordedbytes/corpusunchanged. CIfirstNLP/backend/deployPASS; frontendpeerpointerfailed, bothrefs/backend-refalignedwithouttestchange,494rerunPASS. CurrentCIreceiptretained; no allgreenclaimforpendingruns. No merge/deploy; performanceacceptancelefttofinalaudit.
+FourcandidatebranchesremoteHEADverified. InitialZIP2386filesCRC+SHAverificationPASS; finalclosingmetadatarefreshfollows. Originalheads/status/recordedbytes/corpusunchanged. CIfirstNLP/backend/deployPASS; frontendpeerpointerfailed, bothrefs/backend-refalignedwithouttestchange,494rerunPASS. CI4obsolete20-wordbrowserassertions reproducedRED; alignedS2/S12 with empty/numeric negatives,130E2E/45a11yPASS. Finalarchive refresh; no allgreenclaimforpendingCI. No merge/deploy; performanceacceptancelefttofinalaudit.
