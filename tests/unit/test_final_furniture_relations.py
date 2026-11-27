@@ -199,3 +199,23 @@ def test_color_to_be_selected_stays_a_pending_selection():
     assert any(
         c.label == "SELECCION_COLOR" and c.decision == "UNRESOLVED" for c in result.candidates
     )
+
+
+def test_composition_does_not_depend_on_asr_periods_instead_of_commas():
+    item = extract(
+        "Un mueble de recepción de 150 cm de ancho, tablero de melamina, mesa superior con vidrio templado, mueble móvil con ruedas con freno."
+    ).item_proposal
+    assert item is not None and item.quantity == 1
+    assert any("mesa superior" in c.name.casefold() for c in item.components)
+
+
+def test_introduced_sideboard_can_be_described_again_after_a_technical_list():
+    item = extract(
+        "Un escritorio con credenza, escritorio de 140 cm de ancho, credenza de 90 cm de ancho, tablero de melamina, credenza con dos cajones."
+    ).item_proposal
+    assert item is not None
+    assert len([c for c in item.components if c.name.casefold().startswith("credenza")]) == 1
+
+
+def test_a_freshly_counted_sideboard_after_a_pause_is_still_independent():
+    assert extract("Un escritorio de madera, una credenza con dos cajones.").item_proposal is None

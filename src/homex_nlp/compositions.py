@@ -35,11 +35,21 @@ def composition_reference(text, principal, mention, dependent):
         return True
     if family in dependent and descriptive_reference(text, mention, bare_comma=True):
         return True
+    # A bare same-owner description in a technical list survives ASR comma
+    # segmentation, but a fresh article/count still introduces a new item.
+    if (family in dependent or family == root) and re.search(r"[,;.]\s*$", before):
+        described = re.match(
+            r"\s+con\s+(?:(?:un[ao]?|dos|tres|cuatro|varias?|\d+)\s+)?(?:cajones?|puertas?|ruedas?|repisas?|rieles?)\b",
+            after,
+            re.I,
+        )
+        if described:
+            return True
     if (
         root == "mueble"
         and family == "mesa"
         and re.search(r"\b(?:superior|inferior|interior)\b", mention.text, re.I)
-        and re.search(r"[.;]\s*$", before)
+        and re.search(r"[.;,]\s*$", before)
     ):
         return True
     # A technical component list is not an independent commercially counted item.
