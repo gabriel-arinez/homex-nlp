@@ -15,12 +15,12 @@ from homex_nlp.rules import (
 )
 
 COMPONENTES = (
-    r"gabinetes?(?:\s+(?:superior(?:es)?|inferior(?:es)?))?|creden(?:z|ci)as?(?:\s+(?:integrada|lateral))?|"
+    r"gabinetes?(?:\s+(?:superior(?:es)?|inferior(?:es)?))?|creden(?:z|ci)as?(?:\s+(?:integrada|lateral|superior|inferior))?|"
     r"cubos?\s+m[oó]vil(?:es)?|mesas?\s+(?:superior|inferior|interior)|fald[oó]n(?:es)?|niveles?|"
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
     r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\b)|"
-    r"lateral(?:es)?|tapa(?!\s+cantos?\b)|mesada|cuerpo|casilleros?|cajoneras?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
-    r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
+    r"lateral(?:es)?|tapa(?!\s+cantos?\b)|mesada|cuerpo|casilleros?|cajoneras?(?:\s+(?:superior|inferior))?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
+    r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?(?:\s+(?:superior|inferior))?|m[oó]dulos?(?:\s+(?:laterales?|centrales?|superior|inferior))?"
 )
 MATERIALES = (
     r"melam[ií]nic[oa]s?|menam[ií]nic[oa]s?|"

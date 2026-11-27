@@ -24,7 +24,7 @@ def composition_reference(text, principal, mention, dependent):
     related = {
         "escritorio": {"credenza", "estante", "cubo", "cajonera", "casillero", "archivador"},
         "cocineta": {"gabinete", "alacena", "cajonera"},
-        "mueble": {"gabinete", "cajonera", "estante", "mesa"},
+        "mueble": {"gabinete", "credenza", "cajonera", "estante", "modulo", "mesa"},
     }.get(root, set())
     connector = re.search(
         r"\b(?:con|incluye|incorpora|compuesto\s+por)\s+(?:(?:un[ao]?|dos|tres|\d+)\s+)?$",
@@ -32,6 +32,20 @@ def composition_reference(text, principal, mention, dependent):
         re.I,
     )
     if family in related and connector:
+        return True
+    # An established subordinate list may continue with a bare technical noun.
+    # A new article/count after "y" still denotes an independent commercial item.
+    if (
+        dependent
+        and family in related
+        and re.search(r"\by\s+$", before, re.I)
+        and not re.search(r"[,;.]\s*y\s*$", before, re.I)
+        and re.match(
+            r"\s+(?:(?:superior|inferior|lateral|central)\s+)?(?:de|con|tiene|mide)\b",
+            after,
+            re.I,
+        )
+    ):
         return True
     if family in dependent and descriptive_reference(text, mention, bare_comma=True):
         return True
