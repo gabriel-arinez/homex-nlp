@@ -410,6 +410,23 @@ def price_mentions(text: str):
         ],
         key=lambda pair: pair[0].start(1),
     )
+    # Currency or a commercial marker establishes evidence, not a spoken mode.
+    ambiguous = primero_aplicable(
+        r"(?<![\w.,−-])(" + AMOUNT + r")\s*" + moneda + r"\b"
+    ) + primero_aplicable(
+        r"\bprecio\s+(?!(?:unitario|total|por|de\s+lista)\b)(?:(?:es|de)\s+)?(" + AMOUNT + r")"
+    )
+    explicit = list(mentions)
+    mentions += [
+        (m, "PRECIO_AMBIGUO")
+        for m in ambiguous
+        if not any(
+            (m.start(1) < known.end(1) and known.start(1) < m.end(1))
+            or (known.end(1) <= m.start(1) and is_price_correction(text[known.end(1) : m.start(1)]))
+            for known, _ in explicit
+        )
+    ]
+    mentions.sort(key=lambda pair: pair[0].start(1))
     unique = {}
     for m, mode in mentions:
         raw = m.group(1).rstrip(".,")
@@ -498,7 +515,7 @@ def find_price(text: str, mentions=None, quantity_override=...) -> tuple[Match |
         return None, None
     if any(m.value is None or is_explicitly_negated(text, m.start) for m, _ in mentions):
         return None, "INVALID_PRICE"
-    for kind in ("PRECIO_UNITARIO", "TOTAL_NEGOCIADO"):
+    for kind in ("PRECIO_UNITARIO", "TOTAL_NEGOCIADO", "PRECIO_AMBIGUO"):
         same_kind = [m for m, k in mentions if k == kind]
         for a, b in zip(same_kind, same_kind[1:]):
             if a.value != b.value and not is_price_correction(text[a.end : b.start]):
@@ -510,6 +527,8 @@ def find_price(text: str, mentions=None, quantity_override=...) -> tuple[Match |
         if correction:
             current, mode = following, following_mode
         elif following.value != current.value or following_mode != mode:
+            if "PRECIO_AMBIGUO" in {mode, following_mode}:
+                return None, "CONFLICTING_VALUES"
             # Dos modalidades explícitas pueden corroborarse aritméticamente;
             # no se deriva un unitario nuevo de un total ni se inventa descuento.
             quantity = find_quantity(text) if quantity_override is ... else None
@@ -540,21 +559,15 @@ def find_price(text: str, mentions=None, quantity_override=...) -> tuple[Match |
                     current, mode = unit, "PRECIO_UNITARIO"
                     continue
             return None, "CONFLICTING_VALUES"
-    return current, mode
+    return current, None if mode == "PRECIO_AMBIGUO" else mode
 
 
 def find_ambiguous_price(text: str) -> Match | None:
     """Conserva evidencia de «precio 7300» sin inventar su modalidad."""
-    if find_price(text)[1] is not None:
+    match, mode = find_price(text)
+    if match is None or mode is not None:
         return None
-    match = re.search(r"\bprecio\s+(?:(?:es|de)\s+)?(" + AMOUNT + r")", text, re.I)
-    if not match:
-        return None
-    valor = monetary_amount(match.group(1).rstrip(".,"), decimal_from_text)
-    if valor is None:
-        return None
-    raw = match.group(1).rstrip(".,")
-    return Match(match.start(1), match.start(1) + len(raw), raw, "PRECIO_AMBIGUO", valor)
+    return Match(match.start, match.end, match.text, "PRECIO_AMBIGUO", match.value)
 
 
 # Valores dimensionales en palabras del ASR. Intencionadamente no se incorpora

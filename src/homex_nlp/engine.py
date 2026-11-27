@@ -705,8 +705,26 @@ class RulesEngine:
                 )
             )
             price_match, price_mode = None, "REVIEW_PRICE"
-        if price_match is None and price_mode is None:
+        if price_mode is None:
             ambiguo = find_ambiguous_price(text)
+            foreign_currency = (
+                request.currency_context == "BOB"
+                and re.search(r"\b(?:USD|d[oó]lares?)\b|\$", text, re.I)
+                or request.currency_context == "USD"
+                and re.search(r"\b(?:BOB|Bs|bolivianos?)\b", text, re.I)
+            )
+            if ambiguo and foreign_currency:
+                candidate(ambiguo, "REJECTED", "Currency differs from commercial context")
+                warnings.append(
+                    Warning(
+                        code="UNSUPPORTED_CURRENCY",
+                        path="/item_proposal/price",
+                        severity="REVIEW",
+                        message="La moneda dictada no coincide con la proforma.",
+                    )
+                )
+                ambiguo = None
+            price_match = None
             if ambiguo:
                 candidate(
                     ambiguo,
