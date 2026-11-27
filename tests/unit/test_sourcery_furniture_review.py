@@ -152,7 +152,7 @@ def test_negated_article_product_and_coordinated_dimension_piece_keep_prior_beha
     [
         (
             "Armario alto de 80 centímetros de ancho 50 de profundidad",
-            [("ancho", "80", "cm", "800"), ("profundidad", "50", None, None)],
+            [("ancho", "80", "cm", "800"), ("profundidad", "50", "cm", "500")],
         ),
         (
             "Mesa de 3 metros 20 de largo 1 metro 30 de ancho",
@@ -161,6 +161,21 @@ def test_negated_article_product_and_coordinated_dimension_piece_keep_prior_beha
     ],
 )
 def test_postfix_axis_role_is_not_reused_as_the_next_dimension_prefix(text, expected):
-    item = extract(text).item_proposal
+    result = extract(text)
+    item = result.item_proposal
     assert item is not None
     assert [(d.axis, d.value, d.unit, d.value_mm) for d in item.dimensions] == expected
+    if "50 de profundidad" in text:
+        assert_inferred_unit(result, next(d for d in item.dimensions if d.axis == "profundidad"))
+
+
+def assert_inferred_unit(result, dimension):
+    evidence = [c for c in result.candidates if c.candidate_id in dimension.evidence_ids]
+    assert any(
+        c.decision == "UNRESOLVED"
+        and isinstance(c.normalized_value, dict)
+        and c.normalized_value.get("unit_inferred") is True
+        and c.normalized_value.get("unit") == dimension.unit
+        and c.candidate_id in result.item_proposal.unresolved
+        for c in evidence
+    )

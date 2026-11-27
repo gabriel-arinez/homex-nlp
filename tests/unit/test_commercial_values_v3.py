@@ -113,7 +113,8 @@ def test_explicit_height_after_a_separate_compound_clause_is_not_discarded(bound
     dimensions = result.item_proposal.dimensions
     assert [(d.value_mm, d.unit) for d in dimensions if d.axis == "alto"] == [("800", "cm")]
     depth = next(d for d in dimensions if d.axis == "profundidad")
-    assert Decimal(depth.value) == 55 and depth.unit is None and depth.value_mm is None
+    assert Decimal(depth.value) == 55 and depth.unit == "cm" and depth.value_mm == "550"
+    assert_inferred_unit(result, depth)
     assert not any(d.axis in {"ancho", "largo"} for d in dimensions)
     assert any(w.code == "MISSING_UNIT" for w in result.warnings)
 
@@ -148,3 +149,15 @@ def test_invalid_cardinal_context_does_not_qualify_a_new_furniture_alias(count, 
     )
     assert result.status == "NO_PROPOSAL"
     assert result.item_proposal is None
+
+
+def assert_inferred_unit(result, dimension):
+    evidence = [c for c in result.candidates if c.candidate_id in dimension.evidence_ids]
+    assert any(
+        c.decision == "UNRESOLVED"
+        and isinstance(c.normalized_value, dict)
+        and c.normalized_value.get("unit_inferred") is True
+        and c.normalized_value.get("unit") == dimension.unit
+        and c.candidate_id in result.item_proposal.unresolved
+        for c in evidence
+    )

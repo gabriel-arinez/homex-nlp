@@ -710,7 +710,19 @@ def _medidas_orales_compuestas(text: str, axis: str, axis_prefix: str, unit: str
     found, spans = [], []
     for pattern in patterns:
         for match in pattern.finditer(text):
+            # A conjunction followed by an internal count is not a malformed
+            # compound length; preserve the simple preceding metre measure.
+            if re.search(r"\s+y\s+", match.group("length"), re.I) and re.match(
+                r"\s+(?:cajones?|puertas?|ruedas?|repisas?)\b", text[match.end() :], re.I
+            ):
+                continue
             spans.append((match.start(), match.end()))
+            if re.match(
+                r"\s+y\s+(?:" + _DIM_PALABRAS_PATRON + r"|\d+)\s*(?:" + unit + r")?",
+                text[match.end() :],
+                re.I,
+            ):
+                continue
             if _fragmento_numerico_truncado(text, match.start("length")) or is_explicitly_negated(
                 text, match.start()
             ):
@@ -850,6 +862,8 @@ def find_measurements(text: str, label: str) -> list[Match]:
                 found.append(
                     Match(match.start(), match.end(), match.group(), label.upper(), (value, None))
                 )
+    found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
+    found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
     # A preceding product adjective cannot override the axis explicitly following
     # the same value (armario alto de80cm de ancho).
     opposite = r"(?:ancho|anchura|alto|altura|largo|longitud|profundidad|fondo|di[aá]metro|espesor)"
@@ -888,10 +902,7 @@ def find_measurements(text: str, label: str) -> list[Match]:
                 r"\b(?:a|hasta)\s+media\s*$", text[max(0, m.start - 25) : m.start], re.I
             )
         ]
-    found = filtered
-    found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
-    found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
-    return sorted(found, key=lambda encontrada: encontrada.start)
+    return sorted(filtered, key=lambda encontrada: encontrada.start)
 
 
 def find_thicknesses(text: str) -> list[Match]:
@@ -955,16 +966,21 @@ def find_thicknesses(text: str) -> list[Match]:
             re.I,
         ) or re.match(r"\s+(?:de\s+)?(?:espesor|grosor)\b", after, re.I)
         board = re.search(
-            r"\b(?:melamina|mdf|mdp|tablero|cubierta|estructura|mes[oó]n|me\s+son|fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)(?:\s+(?:melam[ií]nic[oa]|menam[ií]nic[oa]|engrosad[oa]|frontal|superior)){0,2}\s*(?:(?:de|a)\s+)?$",
+            r"\b(?:melamina|mdf|mdp|tablero|tapa|tapacantos?|tapa\s+canto|PVC|ABS|cubierta|estructura|mes[oó]n|me\s+son|fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)(?:\s+(?:de|melamina|MDF|MDP|PVC|ABS|blanc[oa]|negr[oa]|melam[ií]nic[oa]|menam[ií]nic[oa]|engrosad[oa]|frontal|superior)){0,5}\s*(?:(?:de|a)\s+)?$",
             before,
             re.I,
         )
-        if not (explicit or board and match.group("unit")):
+        continuation = found and re.fullmatch(
+            r"\s*(?:y\s+|,?\s*(?:perd[oó]n|corrijo|mejor)\s*,?\s*(?:de\s+)?)",
+            text[found[-1].end : match.start()],
+            re.I,
+        )
+        if not (explicit or (board or continuation) and match.group("unit")):
             continue
         value, unit = length(match.group())
         if (
             value
-            and not _fragmento_numerico_truncado(text, match.start())
+            and (continuation or not _fragmento_numerico_truncado(text, match.start()))
             and not is_explicitly_negated(text, match.start())
         ):
             found.append(Match(match.start(), match.end(), match.group(), "ESPESOR", (value, unit)))

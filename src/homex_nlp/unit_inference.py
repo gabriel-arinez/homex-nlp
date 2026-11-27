@@ -43,6 +43,9 @@ def infer_units(item, candidates, text, warnings):
             unit = neighbors[0].unit
             support = [e for d in neighbors for e in d.evidence_ids]
             reason = "Inferred unit from local same-owner dimensional enumeration"
+        elif neighbors:
+            # Conflicting explicit units cannot license an interior omission.
+            continue
         elif dimension in item.dimensions:
             owner = next(
                 (c.name for c in item.components if c.component_id == dimension.component_ref), None

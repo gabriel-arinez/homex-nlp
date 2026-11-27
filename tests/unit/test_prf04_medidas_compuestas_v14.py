@@ -130,7 +130,6 @@ def test_no_normalizar_resto_unidad_o_gramatica_ambiguos(fragmento):
     [
         "Una mesa de un metro veinte",  # sin eje
         "Una mesa con veinte puertas",  # cantidad interna no dimensional
-        "Una mesa de un metro y medio de ancho",  # fracción aún no soportada
         "Una mesa de dos coma cinco metros de ancho",  # decimal oral fuera del alcance
     ],
 )
@@ -160,7 +159,8 @@ def test_cantidad_precio_y_espesores_no_se_reinterpretan():
 def test_unidad_ausente_permanece_pendiente():
     r = extraer("Un escritorio de 120 de ancho. Alto de 75 centímetros.")
     ancho = next(d for d in r.item_proposal.dimensions if d.axis == "ancho")
-    assert ancho.value_mm is None and ancho.unit is None
+    assert ancho.value_mm == "1200" and ancho.unit == "cm"
+    assert_inferred_unit(r, ancho)
     assert any(w.code == "MISSING_UNIT" for w in r.warnings)
 
 
@@ -228,10 +228,15 @@ def test_compuesta_prefija_seguida_de_otro_eje():
 def test_voz_real_no_comparte_unidad_local(texto):
     r = extraer(texto)
     dims = {d.axis: d for d in r.item_proposal.dimensions}
-    assert (dims["ancho"].value, dims["ancho"].unit, dims["ancho"].value_mm) == ("120", None, None)
+    assert (dims["ancho"].value, dims["ancho"].unit, dims["ancho"].value_mm) == (
+        "120",
+        "cm",
+        "1200",
+    )
+    assert_inferred_unit(r, dims["ancho"])
     assert (dims["alto"].unit, dims["alto"].value_mm) == ("cm", "750")
     assert any(w.code == "MISSING_UNIT" for w in r.warnings)
-    assert len(dims["ancho"].evidence_ids) == 1
+    assert dims["ancho"].original_text in texto
 
 
 @pytest.mark.parametrize("pieza", ["etapa", "pieza desconocida", "base"])
@@ -266,3 +271,22 @@ def test_conflicto_seguro_espesores_no_es_otra_entidad(unidad):
     item = r.item_proposal
     assert [t.value_mm for t in item.thicknesses] == ["18", "25"]
     assert all(t.component_ref == item.components[0].component_id for t in item.thicknesses)
+
+
+def test_fraccion_metrica_admitida_con_evidencia_completa():
+    r = extraer("Una mesa de un metro y medio de ancho")
+    assert [(d.axis, d.value_mm, d.original_text) for d in r.item_proposal.dimensions] == [
+        ("ancho", "1500", "un metro y medio de ancho")
+    ]
+
+
+def assert_inferred_unit(result, dimension):
+    evidence = [c for c in result.candidates if c.candidate_id in dimension.evidence_ids]
+    assert any(
+        c.decision == "UNRESOLVED"
+        and isinstance(c.normalized_value, dict)
+        and c.normalized_value.get("unit_inferred") is True
+        and c.normalized_value.get("unit") == dimension.unit
+        and c.candidate_id in result.item_proposal.unresolved
+        for c in evidence
+    )

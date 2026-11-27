@@ -71,6 +71,13 @@ def completar_relaciones(item, candidates, text, warnings):
         pieza
         for pieza in re.finditer(r"\b(?:" + COMPONENTES + r")\b", text, re.I)
         if not (
+            # The ASR alias needs an introduced composition, not a bare noun.
+            re.match(r"credencia\b", pieza.group(), re.I)
+            and not re.search(
+                r"\b(?:con|incluye|incorpora)\s+(?:un[ao]?\s+)?$", text[: pieza.start()], re.I
+            )
+            and not re.search(r"\bintegrada\b", pieza.group(), re.I)
+            or
             # «repisas laterales» usa un adjetivo, no otra pieza.
             re.fullmatch(r"lateral(?:es)?", pieza.group(), re.I)
             and re.search(
@@ -686,8 +693,33 @@ def completar_relaciones(item, candidates, text, warnings):
     # walk and silently re-parent explicit measurements after a chain.
     complete_dimension_chains(item, candidates, text, warnings)
     resolver_atributos(item, candidates, text, warnings)
-    # Literal thicknesses remain structured for both words and digits;
-    # the existing missing-owner warning keeps the association reviewable.
+    # Bare oral gauges need a piece; explicit substrate + "de" licenses
+    # a literal gauge, but never establishes the missing piece owner.
+    from homex_nlp.magnitudes import NUMBER
+
+    for thickness in item.thicknesses[:]:
+        ref = next((c for c in candidates if c.candidate_id in thickness.evidence_ids), None)
+        if not ref or thickness.component_ref is not None or re.search(r"\d", ref.text):
+            continue
+        explicit_substrate = re.search(
+            r"\b(?:melamina|MDF|MDP)\s+de\s+(?:(?:" + NUMBER + r")\s+y\s+)*$",
+            text[max(0, ref.start - 150) : ref.start],
+            re.I,
+        )
+        if explicit_substrate:
+            ref.decision = "UNRESOLVED"
+            ref.reason = "Explicit substrate thickness; piece owner requires confirmation"
+            if ref.candidate_id not in item.unresolved:
+                item.unresolved.append(ref.candidate_id)
+        elif not re.search(
+            r"\b(?:espesor|grosor)\b", text[max(0, ref.start - 25) : ref.end + 20], re.I
+        ):
+            item.thicknesses.remove(thickness)
+            ref.decision = "UNRESOLVED"
+            ref.reason = "Oral thickness requires a representable piece owner"
+            if ref.candidate_id not in item.unresolved:
+                item.unresolved.append(ref.candidate_id)
+
     return item
 
 

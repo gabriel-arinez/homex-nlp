@@ -619,7 +619,8 @@ class OtherExtractor(Extractor):
 
     def specific(self):
         # Technical descriptions are retained without inventing furniture axes.
-        self.labeled("observaciones", r"\bdescripci[oó]n\s*:\s*([^;\n]+)")
+        if re.search(r"\bz[oó]calos?\b", str(self.result.fields.get("nombre", "")), re.I):
+            self.labeled("observaciones", r"\bdescripci[oó]n\s*:\s*([^;\n]+)")
         if "observaciones" not in self.result.fields and re.search(
             r"\bz[oó]calos?\b", str(self.result.fields.get("nombre", "")), re.I
         ):

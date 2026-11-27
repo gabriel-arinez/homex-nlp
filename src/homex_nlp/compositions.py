@@ -63,7 +63,7 @@ def composition_reference(text, principal, mention, dependent):
         ):
             return True
     if family == "archivador":
-        if re.search(r"\b(?:cajoner[ií]a|cajones?)\b[^.;]{0,130}$", before, re.I):
+        if re.search(r"\b(?:cajoner[ií]a|cajones?|papeleros?)\b[^.;]{0,130}$", before, re.I):
             return True
         if re.search(r"\bpara\s+$", before, re.I) and re.match(r"\s+de\s+palanca\b", after, re.I):
             return True

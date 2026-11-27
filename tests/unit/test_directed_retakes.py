@@ -67,7 +67,7 @@ def test_comma_does_not_merge_independent_or_ambiguous_orders(suffix):
         ("un metro 40 x 70 centímetros", [("140", "cm", "1400"), ("70", "cm", "700")]),
         ("33 × 40 × 63 cm", [("33", "cm", "330"), ("40", "cm", "400"), ("63", "cm", "630")]),
         ("33x40x63cm", [("33", "cm", "330"), ("40", "cm", "400"), ("63", "cm", "630")]),
-        ("33 x 40 x 63", [("33", None, None), ("40", None, None), ("63", None, None)]),
+        ("33 x 40 x 63", [("33", "cm", "330"), ("40", "cm", "400"), ("63", "cm", "630")]),
         ("1 m x 40 x 63 cm", [("1", "m", "1000"), ("40", None, None), ("63", "cm", "630")]),
     ],
 )
@@ -76,6 +76,9 @@ def test_ordered_chains_preserve_units_and_leave_axes_unknown(chain, expected):
     assert result.status == "REQUIRES_REVIEW"
     dims = result.item_proposal.dimensions
     assert [(d.value, d.unit, d.value_mm) for d in dims] == expected
+    if chain == "33 x 40 x 63":
+        for dimension in dims:
+            assert_inferred_unit(result, dimension)
     assert all(d.axis is None and d.component_ref is None for d in dims)
     assert any(w.code == "MISSING_AXIS" for w in result.warnings)
     assert result.item_proposal.quantity == 1
@@ -174,7 +177,24 @@ def test_chain_accepts_existing_metre_unit_aliases(unit):
 
 def test_chain_cannot_assert_the_same_evidence_as_both_thickness_and_dimension():
     result = extract("Una mesa de 1400 mm x 700 mm.")
-    assert result.item_proposal.dimensions == []
+    # S3: millimetres do not imply thickness in an explicit furniture chain.
+    assert [(d.value_mm, d.unit, d.axis) for d in result.item_proposal.dimensions] == [
+        ("1400", "mm", None),
+        ("700", "mm", None),
+    ]
+    assert result.item_proposal.thicknesses == []
     assert any(
         c.text == "1400 mm x 700 mm" and c.decision == "UNRESOLVED" for c in result.candidates
+    )
+
+
+def assert_inferred_unit(result, dimension):
+    evidence = [c for c in result.candidates if c.candidate_id in dimension.evidence_ids]
+    assert any(
+        c.decision == "UNRESOLVED"
+        and isinstance(c.normalized_value, dict)
+        and c.normalized_value.get("unit_inferred") is True
+        and c.normalized_value.get("unit") == dimension.unit
+        and c.candidate_id in result.item_proposal.unresolved
+        for c in evidence
     )

@@ -78,16 +78,19 @@ def test_adjectival_height_does_not_steal_following_width_and_compound_height():
     assert [(d.axis, d.value_mm) for d in dims if d.axis == "alto"] == [("alto", "2200")]
     assert [(d.axis, d.value_mm) for d in dims if d.axis == "ancho"] == [("ancho", "800")]
     assert [(d.axis, d.value_mm) for d in dims if d.axis == "profundidad"] == [
-        ("profundidad", None)
+        ("profundidad", "500")
     ]
     depth = next(d for d in dims if d.axis == "profundidad")
-    assert depth.value == "50" and depth.unit is None
+    assert depth.value == "50" and depth.unit == "cm"
+    assert_inferred_unit(result, depth)
     assert any(w.code == "MISSING_UNIT" for w in result.warnings)
 
 
 def test_missing_leading_unit_and_new_component_never_borrow_later_units():
     result = extract("Una mesa de 120 de ancho y 75 cm de alto.")
-    assert next(d for d in result.item_proposal.dimensions if d.axis == "ancho").unit is None
+    width = next(d for d in result.item_proposal.dimensions if d.axis == "ancho")
+    assert width.unit == "cm"
+    assert_inferred_unit(result, width)
     result = extract("Una mesa de 80 cm de ancho. Cajones de 50 de profundidad.")
     assert all(d.unit is None for d in result.item_proposal.dimensions if d.axis == "profundidad")
 
@@ -190,3 +193,15 @@ def test_explicit_article_is_real_quantity_evidence():
 def test_explicit_prefix_noise_never_creates_furniture(prefix, noise):
     result = extract(prefix + noise)
     assert result.item_proposal is None
+
+
+def assert_inferred_unit(result, dimension):
+    evidence = [c for c in result.candidates if c.candidate_id in dimension.evidence_ids]
+    assert any(
+        c.decision == "UNRESOLVED"
+        and isinstance(c.normalized_value, dict)
+        and c.normalized_value.get("unit_inferred") is True
+        and c.normalized_value.get("unit") == dimension.unit
+        and c.candidate_id in result.item_proposal.unresolved
+        for c in evidence
+    )
