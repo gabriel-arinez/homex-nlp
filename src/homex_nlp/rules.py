@@ -880,6 +880,14 @@ def find_measurements(text: str, label: str) -> list[Match]:
         ):
             continue
         filtered.append(measurement)
+    if label == "alto":
+        filtered = [
+            m
+            for m in filtered
+            if not re.search(
+                r"\b(?:a|hasta)\s+media\s*$", text[max(0, m.start - 25) : m.start], re.I
+            )
+        ]
     found = filtered
     found = [m for m in found if not any(a <= m.start and m.end <= b for a, b in spans_compuestos)]
     found.extend(Match(m.start, m.end, m.text, label.upper(), m.value) for m in compuestas)
@@ -891,12 +899,60 @@ def find_thicknesses(text: str) -> list[Match]:
     from homex_nlp.magnitudes import NUMBER, UNIT, length
 
     found = []
+    # A shared final unit may qualify two complete cardinals, but never split
+    # the cardinal itself ("treinta y seis" is one number).
+    from homex_nlp.magnitudes import scalar, unit_name
+
+    shared_spans = []
+    shared = re.compile(
+        r"\b(?:melamina|tablero|mes[oó]n|MDF|MDP)\s+(?:de\s+)?(?P<amount>"
+        + AMOUNT
+        + r")\s*(?P<unit>"
+        + UNIT
+        + r")",
+        re.I,
+    )
+    for enumeration in shared.finditer(text):
+        raw = enumeration.group("amount").strip()
+        if scalar(raw) is not None:
+            continue
+        splits = []
+        for separator in re.finditer(r"\s+y\s+", raw, re.I):
+            left, right = raw[: separator.start()].strip(), raw[separator.end() :].strip()
+            a, b = scalar(left), scalar(right)
+            if a and b:
+                splits.append((left, right, a, b, separator))
+        if len(splits) != 1:
+            continue
+        left, right, a, b, separator = splits[0]
+        start = enumeration.start("amount")
+        right_start = start + separator.end()
+        unit = unit_name(enumeration.group("unit"))
+        found.extend(
+            [
+                Match(
+                    start, start + len(left), text[start : start + len(left)], "ESPESOR", (a, unit)
+                ),
+                Match(
+                    right_start,
+                    enumeration.end(),
+                    text[right_start : enumeration.end()],
+                    "ESPESOR",
+                    (b, unit),
+                ),
+            ]
+        )
+        shared_spans.append((enumeration.start(), enumeration.end()))
     pattern = re.compile(r"\b(?P<value>" + NUMBER + r")\s*(?P<unit>" + UNIT + r")?", re.I)
     for match in pattern.finditer(text):
+        if any(a <= match.start() < b for a, b in shared_spans):
+            continue
         before = text[max(0, match.start() - 65) : match.start()]
         after = text[match.end() : match.end() + 30]
         explicit = re.search(
-            r"\b(?:espesor|grosor|engrosad[oa])\s*(?:(?:de|a)\s+)?$", before, re.I
+            r"\b(?:espesor|grosor|engrosad[oa]|fald[oó]n\s+a\s+media\s+altura)\s*(?:(?:de|a)\s+)?$",
+            before,
+            re.I,
         ) or re.match(r"\s+(?:de\s+)?(?:espesor|grosor)\b", after, re.I)
         board = re.search(
             r"\b(?:melamina|mdf|mdp|tablero|cubierta|estructura|mes[oó]n|me\s+son|fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)(?:\s+(?:melam[ií]nic[oa]|menam[ií]nic[oa]|engrosad[oa]|frontal|superior)){0,2}\s*(?:(?:de|a)\s+)?$",

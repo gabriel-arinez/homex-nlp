@@ -4,9 +4,12 @@ import re
 import unicodedata
 from decimal import Decimal
 
-from homex_nlp.monetary import AMOUNT, monetary_amount
+from homex_nlp.monetary import ATOM, monetary_amount
 
-NUMBER = rf"(?!y\b)(?:\d+(?:[.,]\d+)?|{AMOUNT})"
+# Monetary atoms deliberately consume malformed word tails. Measurement units
+# are different tokens: "milímetros" must never be swallowed as a "mil..." atom.
+SCALAR_ATOM = rf"(?!(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|m)\b){ATOM}"
+NUMBER = rf"(?!y\b){SCALAR_ATOM}(?:\s+{SCALAR_ATOM})*"
 UNIT = r"(?:mil[ií]metros?|cent[ií]metros?|metros?|mm|cm|mts?|m)\b"
 FRACTION = r"(?:medio|media|cuarto)"
 COMPOUND = (
@@ -37,6 +40,9 @@ def unit_name(raw):
 
 
 def length(raw):
+    # A final sentence stop is not part of a unitless integer.
+    if re.fullmatch(r"\d+\.", raw):
+        raw = raw[:-1]
     fraction = re.fullmatch(rf"({FRACTION})\s+metros?", raw, re.I)
     if fraction:
         return Decimal("25" if fraction[1].lower() == "cuarto" else "50"), "cm"

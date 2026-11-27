@@ -15,8 +15,10 @@ from homex_nlp.rules import (
 )
 
 COMPONENTES = (
+    r"gabinetes?(?:\s+(?:superior(?:es)?|inferior(?:es)?))?|creden(?:z|ci)as?(?:\s+(?:integrada|lateral))?|"
+    r"cubos?\s+m[oó]vil(?:es)?|mesas?\s+(?:superior|inferior|interior)|fald[oó]n(?:es)?|niveles?|"
     r"panel frontal|panel(?:es)?|repisas?(?: interior(?:es)?| lateral(?:es)?| abiertas?)?|divisi[oó]n(?:es)?(?: interior(?:es)?)?|cubiertas?(?: superior(?:es)?)?|patas?(?: met[aá]licas?)?|estructura|tableros?|mes[oó]n(?:es)?(?: superior(?:es)?)?|"
-    r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\s+\d)|"
+    r"me\s+son(?=\s+engrosad[oa]s?\s+(?:a|de)\b)|"
     r"lateral(?:es)?|tapa(?!\s+canto\b)|mesada|cuerpo|casilleros?|cajoneras?|cajoner[ií]a|creden(?:z|ci)a\s+integrada|cajones?(?: lateral(?:es)?)?|"
     r"puertas?(?: abatibles| inferior(?:es)?)?|papeleros?|archivador(?:es)?|estantes?|módulos? laterales|módulos? centrales"
 )
@@ -75,6 +77,10 @@ def completar_relaciones(item, candidates, text, warnings):
                 r"\b(?:repisas?|cajones?|m[oó]dulos?|paneles?|puertas?|soportes?)\s+$",
                 text[max(0, pieza.start() - 30) : pieza.start()],
                 re.I,
+            )
+            or (
+                re.fullmatch(r"archivadores?", pieza.group(), re.I)
+                and re.search(r"\bpara\s+$", text[: pieza.start()], re.I)
             )
             or
             # No duplicar un producto principal como componente propio.

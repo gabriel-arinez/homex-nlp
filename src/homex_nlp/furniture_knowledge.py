@@ -141,6 +141,50 @@ def enrich_knowledge(item, candidates, text, warnings):
         if not re.fullmatch("Novopan", match.group(), re.I):
             recovery(c, "Novopan", "board_brand_context")
 
+    for choice in re.finditer(r"\bcolor\s+(?:a\s+)?elecci[oó]n\b", text, re.I):
+        add(
+            choice.start(),
+            choice.end(),
+            "SELECCION_COLOR",
+            None,
+            "UNRESOLVED",
+            "Color selection remains pending; no color was pronounced",
+        )
+    for clause in re.finditer(
+        r"\bcolor\s+(?P<value>[^.;\n]+?)(?=[.;\n]|\b(?:garant[ií]a|precio|procedencia)\b|$)",
+        text,
+        re.I,
+    ):
+        if re.fullmatch(r"(?:a\s+)?elecci[oó]n\s*", clause["value"], re.I):
+            continue
+        known = [
+            c
+            for c in candidates
+            if c.label == "COLOR"
+            and clause.start("value") <= c.start
+            and c.end <= clause.end("value")
+            and c.decision == "ACCEPTED"
+        ]
+        rest = text[clause.start("value") : clause.end("value")]
+        for c in sorted(known, key=lambda x: x.start, reverse=True):
+            a, b = c.start - clause.start("value"), c.end - clause.start("value")
+            rest = rest[:a] + " " + rest[b:]
+        if re.sub(r"\b(?:con|y)\b|[\s,]+", "", rest, flags=re.I):
+            for c in known:
+                c.decision = "UNRESOLVED"
+                c.reason = "Color combination contains an unknown term; do not silently select only a known member"
+                if c.candidate_id not in item.unresolved:
+                    item.unresolved.append(c.candidate_id)
+            item.primary_color = item.secondary_color = None
+            add(
+                clause.start("value"),
+                clause.end("value"),
+                "COLOR_NO_RESUELTO",
+                clause["value"].strip(),
+                "UNRESOLVED",
+                "Confirm the complete literal color description",
+            )
+
     colors = [
         c
         for c in candidates

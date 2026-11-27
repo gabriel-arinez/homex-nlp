@@ -1,0 +1,9 @@
+# Reviewable compositions and dimensional ownership
+
+Positive furniture relations (`con`, `incluye`, `incorpora`, `compuesto por`), spatially described reception tops and technical component lists are distinct from independently counted orders. Repeated owner nouns reset dimensional scope; a drawer count in a gavetero identity or a decorated multi-axis leg frame does not steal the furniture envelope. Explicit leg-only dimensions still belong to the legs. Mid-height apron positioning is not a second furniture height.
+
+Known repeated drawer/cabinet/sideboard descriptions merge only within the same qualified identity/count; explicit other/second groups stay distinct. Counts per side remain unresolved as whole-item totals. Filing functions/storage capacity do not create extra furniture lines. Accessory material evidence does not propagate to its parent; explicit colors joined as a combination remain separate, while an unknown color member leaves the complete description pending.
+
+L-shaped chain values retain order with missing axes; suffix axes are not silently assigned to one truncated chain operand. Adjustable ranges retain both endpoints in review evidence. Shared thickness units preserve full values, rather than splitting a single cardinal or swallowing millimetre words as monetary `mil` prefixes. Local unit inference is owner-scoped; configurable profiles guide proposals without rewriting explicit unusual units or imposing save-time furniture-size limits.
+
+All original spans and source text are retained. Unresolved geometry, material roles, distributions, lexical recovery, color choice and unit suggestions require consumer review rather than being presented as explicitly pronounced values. These are general construction/owner rules, not evaluation-ID exceptions. Independent text regressions accompany the changes; the38frozen scripts/transcripts remain development evidence, not independent acoustic validation.

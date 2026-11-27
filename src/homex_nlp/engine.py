@@ -835,6 +835,9 @@ class RulesEngine:
 
         item.furniture_type_candidate = commercial_family(item.name)
         item = completar_relaciones(item, candidates, text, warnings)
+        from homex_nlp.compositions import refine_relations
+
+        item = refine_relations(item, candidates, text, warnings)
         enrich_knowledge(item, candidates, text, warnings)
         from homex_nlp.unit_inference import infer_units
 

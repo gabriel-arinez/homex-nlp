@@ -23,7 +23,7 @@ def explicit_owner(item, candidates, text, start):
     for evidence in candidates:
         if evidence.end > start or evidence.label not in {"PRODUCTO", "COMPONENTE"}:
             continue
-        if not re.fullmatch(r"\s+(?:rodante\s+)?de\s+", text[evidence.end : start], re.I):
+        if not re.fullmatch(r"\s*,?\s+(?:rodante\s+)?de\s+", text[evidence.end : start], re.I):
             continue
         component = next(
             (c for c in item.components if evidence.candidate_id in c.evidence_ids), None
@@ -103,6 +103,24 @@ def complete_dimension_chains(item, candidates, text, warnings):
         parsed = [operand(m.group().strip()) for m in spans]
         known, owner = explicit_owner(item, owners, text, chain.start())
         overlapping = any(start < chain.end() and chain.start() < end for start, end in occupied)
+        if (
+            known
+            and overlapping
+            and len(parsed) in {2, 3}
+            and all(v is not None and v > 0 for v, _ in parsed)
+        ):
+            for old in item.dimensions[:]:
+                old_refs = [evidence[e] for e in old.evidence_ids if e in evidence]
+                if any(chain.start() <= ref.start < chain.end() for ref in old_refs):
+                    item.dimensions.remove(old)
+                    for ref in old_refs:
+                        ref.decision = "UNRESOLVED"
+                        ref.reason = (
+                            "Axis belongs to a dimension chain; individual axis is not established"
+                        )
+                        if ref.candidate_id not in item.unresolved:
+                            item.unresolved.append(ref.candidate_id)
+            overlapping = False
         if (
             not known
             or overlapping

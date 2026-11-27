@@ -12,7 +12,12 @@ def head(text):
     folded = "".join(
         c for c in unicodedata.normalize("NFD", text.casefold()) if unicodedata.category(c) != "Mn"
     )
-    family = folded.split()[0].rstrip("s")
+    family = folded.split()[0]
+    if family.endswith("res"):
+        family = family[:-2]
+    else:
+        family = family.rstrip("s")
+    family = {"cajone": "cajon"}.get(family, family)
     return {"cajoneria": "cajonera", "credencia": "credenza"}.get(family, family)
 
 
@@ -76,16 +81,26 @@ def resolve_product_references(text, products, mentions):
             and re.match(r"\s+integrada\b", text[mention.end :], re.I)
             and re.search(r"(?:[.;,]\s*|\bcon\s+)$", text[: mention.start], re.I)
         )
-        if integrated or (
-            (family == head(principal.text) or family in dependent)
-            and (
-                family in dependent or not re.search(r"\bincluye\s+$", text[: mention.start], re.I)
-            )
-            and descriptive_reference(
-                text, mention, bare_comma=head(principal.text) == "escritorio"
+        from homex_nlp.compositions import composition_reference
+
+        composed = composition_reference(text, principal, mention, dependent)
+        if (
+            integrated
+            or composed
+            or (
+                (family == head(principal.text) or family in dependent)
+                and (
+                    family in dependent
+                    or not re.search(r"\bincluye\s+$", text[: mention.start], re.I)
+                )
+                and descriptive_reference(
+                    text, mention, bare_comma=head(principal.text) == "escritorio"
+                )
             )
         ):
             references.append(mention)
+            if composed:
+                dependent.add(family)
         else:
             active.append(mention)
     return active, references

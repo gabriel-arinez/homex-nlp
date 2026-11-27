@@ -36,7 +36,7 @@ def infer_units(item, candidates, text, warnings):
             right = max(end, max(c.end for c in refs))
             between = text[left:right]
             if right - left <= 160 and not re.search(
-                r"[.;]|\\b(?:con|precio|tablero|patas?|cajones?)\\b", between, re.I
+                r"[.;]|\b(?:con|precio|tablero|patas?|cajones?)\b", between, re.I
             ):
                 neighbors.append(other)
         if neighbors and len({d.unit for d in neighbors}) == 1:
@@ -44,11 +44,19 @@ def infer_units(item, candidates, text, warnings):
             support = [e for d in neighbors for e in d.evidence_ids]
             reason = "Inferred unit from local same-owner dimensional enumeration"
         elif dimension in item.dimensions:
+            owner = next(
+                (c.name for c in item.components if c.component_id == dimension.component_ref), None
+            )
+            profile_context = (
+                owner
+                if dimension.component_ref
+                else (item.furniture_type_candidate or item.name or "")
+            )
             profile = next(
                 (
                     p
                     for p in reversed(list(PROFILES.values()))
-                    if re.search(p["context"], text, re.I)
+                    if profile_context and re.search(p["context"], profile_context, re.I)
                 ),
                 None,
             )
