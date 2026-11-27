@@ -6,6 +6,7 @@ import re
 from dataclasses import dataclass
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 
+from homex_nlp.furniture_knowledge import lexicon
 from homex_nlp.monetary import AMOUNT, monetary_amount
 
 NUMBER_WORDS = {
@@ -43,6 +44,8 @@ PRODUCTS = (
     "sillón",
     "sillones",
 )
+PRODUCTS = (*PRODUCTS, *lexicon()["families"])
+
 ACCESSORIES = (
     r"puertos?\s+(?:USB|HDMI)|conectores?(?:\s+(?:USB|HDMI))?|USB|HDMI|cajas?\s+el[eé]ctricas?|topes?\s+de\s+goma",
     "pasacable",
@@ -59,6 +62,8 @@ ACCESSORIES = (
     r"tapa\s*cantos?(?:\s+(?:de|en))?(?:\s+(?:PVC|P\.V\.C\.?))?",
     r"toma(?:s)?\s*corrientes?",
 )
+
+ACCESSORIES = (*ACCESSORIES, lexicon()["accessories"])
 
 
 @dataclass(frozen=True)
@@ -154,7 +159,9 @@ def find_products(text: str) -> list[Match]:
             reunion,
             ejecutivo_asr,
             re.compile(r"\bestante\s+librero\b|\bestantes\s+libreros\b", re.I),
-            re.compile(r"\bcubos?\s+m[oó]viles?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I),
+            re.compile(
+                r"\bcubos?\s+m[oó]vil(?:es)?\b|\bestaci(?:[oó]n|ones)\s+de\s+trabajo\b", re.I
+            ),
         )
         for m in patron.finditer(text)
         if not (
@@ -173,14 +180,25 @@ def find_products(text: str) -> list[Match]:
         for m in pattern.finditer(text)
         if not any(x.start <= m.start() < x.end for x in especificos)
     ]
+    # A finite ASR alias requires a counted technical furniture context.
+    for alias in re.finditer(r"\bgadeteros?\b", text, re.I):
+        counted = re.search(
+            r"(?:\d+|un[ao]?|dos|tres|cuatro|cinco)\s+$", text[: alias.start()], re.I
+        )
+        technical = re.search(
+            r"\b(?:cajones?|melamina|tablero|ancho|alto|profundidad)\b",
+            text[alias.end() : alias.end() + 220],
+            re.I,
+        )
+        if counted and technical:
+            generales.append(
+                Match(alias.start(), alias.end(), alias.group(), "PRODUCTO", "gavetero")
+            )
     results = sorted([*especificos, *generales], key=lambda x: x.start)
     extended = []
     for m in results:
         qualifier = re.match(
-            r"(?:\s+(?:operativos?|ejecutivos?|rectos?|m[oó]viles?|en\s+ele|"
-            r"de\s+(?:recepci[oó]n|pared)))\b",
-            text[m.end :],
-            re.I,
+            r"(?:\s+(?:" + lexicon()["qualifiers"] + r")\b){1,4}", text[m.end :], re.I
         )
         end = m.end + qualifier.end() if qualifier else m.end
         extended.append(Match(m.start, end, text[m.start : end], m.label, m.value))
@@ -877,11 +895,11 @@ def find_thicknesses(text: str) -> list[Match]:
     for match in pattern.finditer(text):
         before = text[max(0, match.start() - 65) : match.start()]
         after = text[match.end() : match.end() + 30]
-        explicit = re.search(r"\bespesor\s*(?:(?:de|a)\s+)?$", before, re.I) or re.match(
-            r"\s+(?:de\s+)?espesor\b", after, re.I
-        )
+        explicit = re.search(
+            r"\b(?:espesor|grosor|engrosad[oa])\s*(?:(?:de|a)\s+)?$", before, re.I
+        ) or re.match(r"\s+(?:de\s+)?(?:espesor|grosor)\b", after, re.I)
         board = re.search(
-            r"\b(?:melamina|mdf|mdp|tablero|cubierta|estructura|mes[oó]n|fald[oó]n|laterales?)\s*(?:(?:de|a)\s+)?$",
+            r"\b(?:melamina|mdf|mdp|tablero|cubierta|estructura|mes[oó]n|me\s+son|fald[oó]n|laterales?|panel(?:es)?|superficie\s+auxiliar)(?:\s+(?:melam[ií]nic[oa]|menam[ií]nic[oa]|engrosad[oa]|frontal|superior)){0,2}\s*(?:(?:de|a)\s+)?$",
             before,
             re.I,
         )

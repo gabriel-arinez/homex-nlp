@@ -1,0 +1,62 @@
+{
+  "version": "sector-lote02-1",
+  "provenance": "User-authorized furniture terminology and preliminary Lote02 documentary specifications; no acoustic gold or catalog master data.",
+  "families": [
+    "cocineta",
+    "gabinete",
+    "alacena",
+    "mostrador",
+    "estantería",
+    "estanteria",
+    "aparador",
+    "repisero",
+    "zapatero",
+    "tocador",
+    "biblioteca",
+    "archivador"
+  ],
+  "qualifiers": "gerencial(?:es)?|circular(?:es)?|simples?|archivador[ao]s?|plegables?|funcional(?:es)?|aguater[oa]s?|cuadrad[oa]s?|rectangular(?:es)?|modular(?:es)?|operativ[oa]s?|ejecutiv[oa]s?|rect[oa]s?|m[oó]vil(?:es)?|en\\s+(?:l|ele)|para\\s+escobas|de\\s+(?:recepci[oó]n|pared|oficina)",
+  "materials": [
+    {
+      "pattern": "vidrio\\s+templado",
+      "value": "vidrio templado",
+      "role": "structural_material"
+    },
+    {
+      "pattern": "acero\\s+cromado",
+      "value": "acero cromado",
+      "role": "treated_structural_material"
+    },
+    {
+      "pattern": "MDF|MDP|HDF",
+      "role": "substrate"
+    },
+    {
+      "pattern": "aglomerado|contrachapado|trup[aá]n",
+      "role": "substrate"
+    },
+    {
+      "pattern": "PVC|ABS",
+      "role": "polymer_material"
+    },
+    {
+      "pattern": "me\\s+lamina",
+      "value": "melamina",
+      "role": "coating_or_board_description",
+      "recovery": true
+    },
+    {
+      "pattern": "melam[eé]nico",
+      "value": "melamínico",
+      "role": "coating_or_board_description",
+      "recovery": true
+    },
+    {
+      "pattern": "melamina(?:\\s+MDP)?|melam[ií]nic[oa]s?",
+      "role": "coating_or_board_description"
+    }
+  ],
+  "colors": "sapelli|wengu[eé]|hueng[uü]e|cerezo|chumbo|cedro|maderable\\s+oscuro|blanc[oa]s?|negr[oa]s?",
+  "finishes": "lacad[oa]|poliuretano|enchapad[oa]|cromad[oa]|engomad[oa]|texturizad[oa]|mate|brillante|satinad[oa]",
+  "accessories": "correderas?(?:\\s+telesc[oó]picas?)?|regatones?|port[ae]\\s*CPU|port[ae]\\s*teclados?|luminarias?|conjalador(?:es)?|chapas?\\s+centralizadas?|ruedas?\\s+con\\s+freno|bisagras?\\s+(?:batientes?|de\\s+cierre\\s+suave)"
+}

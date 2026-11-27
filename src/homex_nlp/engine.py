@@ -131,6 +131,24 @@ class RulesEngine:
                 ],
                 started,
             )
+        from homex_nlp.furniture_knowledge import noncommercial_furniture_context
+
+        if noncommercial_furniture_context(text):
+            return self._result(
+                request,
+                None,
+                candidates,
+                warnings
+                + [
+                    Warning(
+                        code="NO_PRODUCT",
+                        path="",
+                        severity="REVIEW",
+                        message="Noncommercial test or retrospective context; no affirmative product proposal.",
+                    )
+                ],
+                started,
+            )
         # La familia se determina por una mención comercial, nunca por
         # subcadenas («casillero») o una referencia espacial («del piso»).
         fuera = list(re.finditer(r"\b(?:sillas?|pisos?(?:\s+flotantes?)?)\b", text, re.I))
@@ -812,9 +830,12 @@ class RulesEngine:
             observations=color_pendiente.group() if color_pendiente else None,
             unresolved=[c.candidate_id for c in candidates if c.decision == "UNRESOLVED"],
         )
+        from homex_nlp.furniture_knowledge import commercial_family, enrich_knowledge
         from homex_nlp.semantics import completar_relaciones
 
+        item.furniture_type_candidate = commercial_family(item.name)
         item = completar_relaciones(item, candidates, text, warnings)
+        enrich_knowledge(item, candidates, text, warnings)
         from homex_nlp.unit_inference import infer_units
 
         infer_units(item, candidates, text, warnings)

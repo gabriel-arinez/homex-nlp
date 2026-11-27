@@ -4,6 +4,7 @@ import re
 
 from homex_nlp.contracts.evidence import Candidate, Warning
 from homex_nlp.contracts.item import Color, Component
+from homex_nlp.furniture_knowledge import lexicon, material_entry, recovery_material_context
 from homex_nlp.rules import (
     NUMBER_WORDS,
     _commercial_count_match,
@@ -28,6 +29,8 @@ COLORES = (
     r"blanc[oa]|negr[oa](?: mate)?|gris(?: claro| oscuro| ceniza)?|"
     r"olmo|roble(?: claro| oscuro)?|nogal|no-gal|haya|transparente|madera clara"
 )
+MATERIALES = "|".join(x["pattern"] for x in lexicon()["materials"]) + "|" + MATERIALES
+COLORES = lexicon()["colors"] + "|" + COLORES
 NUMEROS = "|".join(NUMBER_WORDS)
 NUMERO = _commercial_count_pattern()
 # Rectificaciones internas inequívocas: exige una señal positiva ("mejor")
@@ -154,6 +157,9 @@ def completar_relaciones(item, candidates, text, warnings):
     colores_explicitos = list(re.finditer(r"\b(?:" + COLORES + r")\b", text, re.I))
 
     def es_material(match):
+        entry = material_entry(match.group())
+        if entry and entry.get("recovery") and not recovery_material_context(text, match.start()):
+            return False
         return not any(c.start() <= match.start() < c.end() for c in colores_explicitos)
 
     def evidencia(match, label, value=None, component=None, decision="ACCEPTED", reason=None):
@@ -176,6 +182,14 @@ def completar_relaciones(item, candidates, text, warnings):
                     message="Se interpretó 'melamine' como 'melamina'; confirme el material.",
                 )
             )
+        if (
+            label == "COLOR"
+            and re.fullmatch(r"cedro|cerezo", match.group(), re.I)
+            and re.search(
+                r"\bmadera\s+(?:de\s+)?$", text[max(0, match.start() - 25) : match.start()], re.I
+            )
+        ):
+            return None
         identifier = f"c{len(candidates) + 1}"
         candidates.append(
             Candidate(
@@ -433,7 +447,7 @@ def completar_relaciones(item, candidates, text, warnings):
                         item.unresolved.append(identifier)
         for atributo, patron in (
             ("COLOR", r"\b(?:" + COLORES + r")\b"),
-            ("ACABADO", r"\b(?:epoxi|satinado|canto termosellado|mate|brillante)\b"),
+            ("ACABADO", r"\b(?:epoxi|canto termosellado|" + lexicon()["finishes"] + r")\b"),
         ):
             for match in re.finditer(patron, text, re.I):
                 if pieza.end() <= match.start() < limite:

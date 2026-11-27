@@ -1,0 +1,11 @@
+# Furniture identity and literal domain knowledge
+
+Furniture families now include the explicitly requested kitchen/storage/display forms. Names preserve a bounded sequence of commercial qualifiers independently of the family; quantities, measures and colors do not become those qualifiers. The singular/plural mobile-cube pattern is corrected. Bare identified families can produce partial proposals; a generic unspecified `mueble` still needs positive descriptive evidence.
+
+The runtime resource `resources/furniture_lexicon.json` is actually loaded through `furniture_knowledge.lexicon`; the older UNCONFIGURED vocabulary/profile files are not silently presented as runtime knowledge. Its terminology comes from the requested sector vocabulary and preliminary Lote02 documentary specifications, not from a catalog master or acoustically verified labels.
+
+Finite lexical recoveries preserve original source text and offsets. `gadetero` requires a counted technical furniture context; material splits require a local material connector; board-brand variants require board/material/brand context. Each recovery retains a separate unresolved `RECUPERACION_LEXICA` candidate and review warning. Numbers and model codes are never fuzzy-corrected. Explicit decorative colors are distinct from wood-species descriptions; generic metallic material is never upgraded to steel.
+
+Material-role candidates distinguish substrate, coating/board ambiguity, polymer and treated structural material as reviewable domain interpretation, not as an explicitly spoken relationship. Existing MATERIAL evidence remains compatible. Warranty/origin/installation/delivery facts are bounded clauses in observations plus evidence, not indiscriminate transcript copies. Machine acceptance is not human approval.
+
+Independent public-interface regressions cover families, singular/plural and qualifiers, contextual recoveries, source spans, partiality, negative intent and material/color distinctions. Existing board/gauge contexts (`grosor`, `engrosado`, panel/front/auxiliary surface) remain recognized without treating every millimetre length as thickness. Component ownership and integration review remain separate follow-up units.
